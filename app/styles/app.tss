@@ -1,0 +1,16 @@
+".container" : {
+	width: '80%'
+}
+
+"Label": {
+	bottom: 10
+}
+
+".primary-btn": {
+	textAlign: 'center',
+	backgroundColor: 'FFB246',
+	color: '#fff',
+	width: Titanium.UI.FILL,
+	top: 25,
+	height: 40
+}

@@ -1,14 +1,37 @@
 "Window": {
-	backgroundColor: "#fff"
+	backgroundColor: "#80D9EB"
 }
 
 "Label": {
 	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE,
-	color: "#000",
+	color: "#fff",
 	font: {
-		fontSize: 20,
+		fontSize: 18,
 		fontFamily: 'Helvetica Neue'
 	},
 	textAlign: 'center'
 } 
+
+".padding-top": {
+	top: 300
+}
+
+".splash-logo-text":{
+	font: {
+		fontSize: 38
+	}	
+}
+
+".splash-small": {
+	font: {
+		fontSize:14
+	}	
+}
+
+".splash-wrapper": {
+	top: 100
+}
+
+".splash-login-btn": {
+}
