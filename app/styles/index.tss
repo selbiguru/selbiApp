@@ -1,5 +1,7 @@
+
 "Window": {
-	backgroundColor: "#80D9EB"
+	//backgroundImage: 'images/home-bg.png',
+	backgroundColor: "#62D7F5"
 }
 
 "Label": {

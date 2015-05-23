@@ -1,4 +1,9 @@
 
+"Window": {
+	//backgroundImage: 'images/home-bg.png',
+	backgroundColor: "#62D7F5"
+}
+
 "TextField": {
 	borderStyle: Titanium.UI.INPUT_BORDEREDSTYLE_NONE,
 	borderColor: 'white',
@@ -12,6 +17,7 @@
 	bottom: 10,
 	height: 30
 }
+
 ".cancel-txt": {
 	top: 100,
 	color: "white"

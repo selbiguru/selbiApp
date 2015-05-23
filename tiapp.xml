@@ -1,65 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ti:app 
-  xmlns:ti="http://ti.appcelerator.org">
-  <id>io.selbi</id>
-  <name>selbiApp</name>
-  <version>1.0</version>
-  <publisher>fkhan</publisher>
-  <url>http://</url>
-  <description>undefined</description>
-  <copyright>2015 by fkhan</copyright>
-  <icon>appicon.png</icon>
-  <fullscreen>false</fullscreen>
-  <navbar-hidden>false</navbar-hidden>
-  <analytics>true</analytics>
-  <guid>cf9d7fd2-665f-436d-9222-1073fd7b03cc</guid>
-  <property name="ti.ui.defaultunit" type="string">dp</property>
-  <ios>
-    <plist>
-      <dict>
-        <key>UISupportedInterfaceOrientations~iphone</key>
-        <array>
-          <string>UIInterfaceOrientationPortrait</string>
-        </array>
-        <key>UISupportedInterfaceOrientations~ipad</key>
-        <array>
-          <string>UIInterfaceOrientationPortrait</string>
-          <string>UIInterfaceOrientationPortraitUpsideDown</string>
-          <string>UIInterfaceOrientationLandscapeLeft</string>
-          <string>UIInterfaceOrientationLandscapeRight</string>
-        </array>
-        <key>UIRequiresPersistentWiFi</key>
-        <false/>
-        <key>UIPrerenderedIcon</key>
-        <false/>
-        <key>UIStatusBarHidden</key>
-        <false/>
-        <key>UIStatusBarStyle</key>
-        <string>UIStatusBarStyleDefault</string>
-      </dict>
-    </plist>
-  </ios>
-  <android 
-    xmlns:android="http://schemas.android.com/apk/res/android"/>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <id>io.selbi</id>
+    <name>selbiApp</name>
+    <version>1.0</version>
+    <publisher>selbi</publisher>
+    <url>http://</url>
+    <description>undefined</description>
+    <copyright>2015 by selbi</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>cf9d7fd2-665f-436d-9222-1073fd7b03cc</guid>
+    <property name="ti.ui.defaultunit" type="string">dp</property>
+    <ios>
+        <plist>
+            <dict>
+                <key>UISupportedInterfaceOrientations~iphone</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                </array>
+                <key>UISupportedInterfaceOrientations~ipad</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                    <string>UIInterfaceOrientationLandscapeLeft</string>
+                    <string>UIInterfaceOrientationLandscapeRight</string>
+                </array>
+                <key>UIRequiresPersistentWiFi</key>
+                <false/>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+                <key>UIStatusBarHidden</key>
+                <false/>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleDefault</string>
+            </dict>
+        </plist>
+    </ios>
+    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
     <mobileweb>
-      <precache/>
-      <splash>
-        <enabled>true</enabled>
-        <inline-css-images>true</inline-css-images>
-      </splash>
-      <theme>default</theme>
+        <precache/>
+        <splash>
+            <enabled>true</enabled>
+            <inline-css-images>true</inline-css-images>
+        </splash>
+        <theme>default</theme>
     </mobileweb>
     <modules/>
     <deployment-targets>
-      <target device="android">true</target>
-      <target device="blackberry">false</target>
-      <target device="ipad">true</target>
-      <target device="iphone">true</target>
-      <target device="mobileweb">true</target>
+        <target device="android">true</target>
+        <target device="blackberry">false</target>
+        <target device="ipad">true</target>
+        <target device="iphone">true</target>
+        <target device="mobileweb">true</target>
     </deployment-targets>
     <sdk-version>3.5.1.GA</sdk-version>
     <plugins>
-      <plugin version="1.0">ti.alloy</plugin>
+        <plugin version="1.0">ti.alloy</plugin>
     </plugins>
     <property name="appc-app-id" type="string">5560b9c12daf52a8029eee07</property>
-  </ti:app>
+</ti:app>

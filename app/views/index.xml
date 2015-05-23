@@ -1,5 +1,5 @@
 <Alloy>
-	<Window backgroundColor="#62D7F5">
+	<Window>
 		<View layout="vertical" class="container" top="20%">
 			<Label class="splash-logo-text">Selbi</Label>
 			<Label class="splash-logo-subtext">Sell to your friends first</Label>			
