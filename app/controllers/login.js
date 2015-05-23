@@ -1,21 +1,16 @@
-var httpClient = require('managers/httpManager'),
+var AuthManager = require('managers/authManager'),
 	args = arguments[0] || {};
+
 
 
 function loginUser(){
 	// Todo: validation
 	
-	
-	// Prepare request
-	var loginRequest = {
-		"identifier": $.username.value,
-		"password": $.password.value
-	};
-	
-	// Execute Request
-	httpClient.execute("/login", "POST", loginRequest, function(err, loginResult){
-		console.log(err, loginResult);
-	});
+	AuthManager.login($.username.value, $.password.value, function(err, loginResult){
+		if(loginResult) {
+			console.log("Successfully logged in");
+		}
+	});	
 }
 
 function closeWindow(){
