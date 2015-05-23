@@ -1,13 +1,15 @@
 exports.definition = {
 	config: {
 		columns: {
-		    "Id": "integer",
-		    "userName": "string",
-		    "password": "string",
+		    "id": "integer",
+		    "username": "string",
+		    "password": "string",		    
 		    "email": "string",
-		    "createdate": "date",
-		    "modifiedDate": "number",
-		    "sessionAuthToken": "string"
+		    "firstName": "string",
+		    "lastName": "string",
+		    "createdAt": "date",
+		    "updatedAt": "date",
+		    "admin": "boolean"
 		},
 		adapter: {
 			type: "sql",

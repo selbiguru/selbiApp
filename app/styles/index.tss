@@ -14,7 +14,7 @@
 } 
 
 ".padding-top": {
-	top: 300
+	top: '50%'
 }
 
 ".splash-logo-text":{
