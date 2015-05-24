@@ -9,7 +9,8 @@ exports.definition = {
 		},
 		adapter: {
 			type: "sql",
-			collection_name: "auth"
+			collection_name: "auth",
+			db_name: "auth"			
 		}
 	},
 	extendModel: function(Model) {

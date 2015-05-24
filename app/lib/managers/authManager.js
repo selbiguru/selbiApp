@@ -33,10 +33,22 @@ exports.login = function (username, password, cb){
 			authModel.set({ user : JSON.stringify(userModel)});
 			authModel.set({ isAuth: true });
 			authModel.save();
+			
+			Ti.App.Properties.setString('token', loginResult.token);
+			Ti.App.Properties.setString('isAuth', true);
+			
 			if(cb) cb(null, authModel);
 			
 		} else {
 			if(cb) cb(err, null);
 		}		
 	}); 
+};
+
+exports.isLoggedIn = function() {
+	return Ti.App.Properties.getString('isAuth') ? Ti.App.Properties.getString('isAuth') : false;
+};
+
+exports.getToken = function() {
+	return Ti.App.Properties.getString('token') ? Ti.App.Properties.getString('token'): "";
 };

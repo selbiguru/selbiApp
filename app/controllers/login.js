@@ -9,6 +9,8 @@ function loginUser(){
 	AuthManager.login($.username.value, $.password.value, function(err, loginResult){
 		if(loginResult) {
 			console.log("Successfully logged in");
+			var homeController = Alloy.createController('listings').getView();
+			homeController.open();	
 		}
 	});	
 }
