@@ -1,11 +1,11 @@
 <Alloy>
-	<Window backgroundColor="#62D7F5" class="wrapper">		
+	<Window class="wrapper">		
 		<View class="container" layout="vertical" top="40%">
 			<TextField id="username" hintText="Email"></TextField>
 			<TextField passwordMask="true" hintText="Password" id="password"></TextField>	
 			<Button onClick="loginUser" class="primary-btn">Let's Selbi</Button>
 			<Label onClick="forgotPassword" class="forgot-password">Forgot your password?</Label>
-			<Label onClick="cancelLogIn" class="cancel-txt">Cancel</Label>
+			<Label class="cancel-txt" onClick="closeWindow">Cancel</Label>
 		</View>
 	</Window>
 </Alloy>

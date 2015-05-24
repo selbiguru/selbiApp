@@ -1,0 +1,7 @@
+<Alloy>
+	<Window class="listings-window">
+		<View class="container listings-view" layout="vertical">
+			<Label> Listings</Label>
+		</View>
+	</Window>
+</Alloy>

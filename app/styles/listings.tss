@@ -1,0 +1,12 @@
+
+".container" : {
+  
+}
+
+".listings-view": {
+	top: 20
+}
+
+".listings-window": {
+	backgroundColor: 'white'
+}

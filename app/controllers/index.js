@@ -1,27 +1,17 @@
+var AuthManager = require('managers/authManager');
 $.index.open();
 
-function signIn(){
+if (AuthManager.isLoggedIn()) {
+	var homeController = Alloy.createController('listings').getView();
+	homeController.open();	
+}
 
+function signIn(){
 	var controller = Alloy.createController('login').getView();
-	controller.left = 320;
-	controller.open();
-	controller.animate({
-	    left:0,
-	    duration:250
-	}, function(){
-	    //open controller
-	});
+	controller.open({ transition: Ti.UI.iPhone.AnimationStyle.CURL_UP});
 }
 
 function register(){
-	
 	var controller = Alloy.createController('register').getView();
-	controller.left = 320;
-	controller.open();
-	controller.animate({
-	    left:0,
-	    duration:250
-	}, function(){
-	    //open controller
-	});
+	controller.open({ transition: Ti.UI.iPhone.AnimationStyle.CURL_UP});
 }
