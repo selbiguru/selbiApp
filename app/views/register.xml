@@ -7,7 +7,7 @@
 			<TextField passwordMask="true" hintText="Password" id="password"></TextField>	
 			<Button class="primary-btn">Let's Selbi</Button>
 			<Label class="terms-conditions">By signing up, you are agreeing to Selbi's User Agreement and Privacy Policy</Label>
-			<Label class="cancel-txt">Already Selbi?</Label>
+			<Label onClick="closeRegisterWindow" class="cancel-txt">Already Selbi?</Label>
 		</View>
 	</Window>
 </Alloy>
