@@ -1,6 +1,7 @@
 <Alloy>
 	<Window class="wrapper">		
-		<View class="container" layout="vertical" top="40%">
+		<View class="container" layout="vertical" top="7%">
+			<Label class="splash-header-text">Sign In</Label>
 			<TextField id="username" hintText="Email"></TextField>
 			<TextField passwordMask="true" hintText="Password" id="password"></TextField>	
 			<Button onClick="loginUser" class="primary-btn">Let's Selbi</Button>
