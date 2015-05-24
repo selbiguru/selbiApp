@@ -1,0 +1,18 @@
+
+".container" : {
+  
+}
+
+".create-listing-view": {
+	top: 100
+}
+
+".create-listing-window": {
+	backgroundColor: 'white'
+}
+
+".fade-text": {
+	color: '#aaa',
+	paddingTop: 30,
+	paddingBottom: 30
+}

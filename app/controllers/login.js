@@ -10,7 +10,7 @@ function loginUser(){
 		if(loginResult) {
 			console.log("Successfully logged in");
 			var homeController = Alloy.createController('listings').getView();
-			homeController.open();	
+			homeController.open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});	
 		}
 	});	
 }

@@ -10,3 +10,12 @@
 	top: 25,
 	height: 40
 }
+
+".secondary-btn": {
+	textAlign: 'center',
+	backgroundColor: 'blue',
+	color: '#fff',
+	width: Titanium.UI.FILL,
+	top: 25,
+	height: 40
+}

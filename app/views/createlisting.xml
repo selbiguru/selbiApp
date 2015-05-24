@@ -1,0 +1,8 @@
+<Alloy>
+	<Window class="create-listing-window">
+		<View class="container create-listing-view" layout="vertical">
+			<Label class="fade-text" onClick="test">Add up to 6 photos</Label>
+			<Button onClick="showCamera" class="create-listing-capture-btn secondary-btn"> Capture a Photo</Button>
+		</View>
+	</Window>
+</Alloy>
