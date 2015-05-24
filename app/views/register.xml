@@ -1,0 +1,13 @@
+<Alloy>
+	<Window backgroundColor="#62D7F5" class="wrapper">		
+		<View class="container" layout="vertical" top="15%">
+			<TextField id="firstname" hintText="FirstName"></TextField>
+			<TextField id="lastname" hintText="LastName"></TextField>
+			<TextField id="username" hintText="Email"></TextField>
+			<TextField passwordMask="true" hintText="Password" id="password"></TextField>	
+			<Button class="primary-btn">Let's Selbi</Button>
+			<WebView id="webview" url="mobileweb/webViews/userAgreement.html"/>
+			<Label class="cancel-txt">Already Selbi?</Label>
+		</View>
+	</Window>
+</Alloy>

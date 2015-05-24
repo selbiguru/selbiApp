@@ -12,3 +12,16 @@ function signIn(){
 	    //open controller
 	});
 }
+
+function register(){
+	
+	var controller = Alloy.createController('register').getView();
+	controller.left = 320;
+	controller.open();
+	controller.animate({
+	    left:0,
+	    duration:250
+	}, function(){
+	    //open controller
+	});
+}

@@ -2,10 +2,6 @@
 	width: '80%'
 }
 
-"Label": {
-	bottom: 10
-}
-
 ".primary-btn": {
 	textAlign: 'center',
 	backgroundColor: 'FFB246',

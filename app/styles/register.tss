@@ -1,4 +1,3 @@
-
 "TextField": {
 	borderStyle: Titanium.UI.INPUT_BORDEREDSTYLE_NONE,
 	borderColor: 'white',
@@ -13,14 +12,20 @@
 	height: 30
 }
 ".cancel-txt": {
-	top: 100,
+	top: 130,
 	color: "white",
 	bottom: 10
 }
-".forgot-password": {
+".terms-conditions": {
 	top: 20,
 	color: "white",
 	font: {
 		fontSize: 12
 	}
+}
+".user-agreement-web": {
+	color: "blue"
+}
+".privacy-policy-web": {
+	color: "blue"
 }

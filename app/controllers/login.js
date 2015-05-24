@@ -33,3 +33,28 @@ function loginUser(){
 	 }              
 	};
 }
+
+function forgotPassword(){
+
+	var controller = Alloy.createController('forgotPassword').getView();
+	controller.left = 320;
+	controller.open();
+	controller.animate({
+	    left:0,
+	    duration:250
+	}, function(){
+	    //open controller
+	});
+}
+
+function cancelLogIn(){
+	var controller = Alloy.createController('index').getView();
+	controller.right = 320;
+	controller.open();
+	controller.animate({
+	    right:0,
+	    duration:250
+	}, function(){
+	    //open controller
+	});
+}

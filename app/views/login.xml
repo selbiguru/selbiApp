@@ -4,7 +4,8 @@
 			<TextField id="username" hintText="Email"></TextField>
 			<TextField passwordMask="true" hintText="Password" id="password"></TextField>	
 			<Button onClick="loginUser" class="primary-btn">Let's Selbi</Button>
-			<Label class="cancel-txt">Cancel</Label>
+			<Label onClick="forgotPassword" class="forgot-password">Forgot your password?</Label>
+			<Label onClick="cancelLogIn" class="cancel-txt">Cancel</Label>
 		</View>
 	</Window>
 </Alloy>
