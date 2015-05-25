@@ -18,6 +18,9 @@
 	height: 30
 }
 
+".splash-header-text": {
+	bottom:"25%"
+}
 ".cancel-txt": {
 	top: 100,
 	color: "white",

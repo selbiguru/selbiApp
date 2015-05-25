@@ -11,6 +11,7 @@
 	height: 40
 }
 
+
 ".secondary-btn": {
 	textAlign: 'center',
 	backgroundColor: 'blue',
@@ -18,4 +19,11 @@
 	width: Titanium.UI.FILL,
 	top: 25,
 	height: 40
+".splash-header-text": {
+	color: "white",
+	font: {
+		fontSize: 24
+	}
+}
+
 }

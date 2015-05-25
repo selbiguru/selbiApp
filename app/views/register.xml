@@ -1,6 +1,7 @@
 <Alloy>
 	<Window backgroundColor="#62D7F5" class="wrapper">		
-		<View class="container" layout="vertical" top="15%">
+		<View class="container" layout="vertical" top="7%">
+			<Label class="splash-header-text">Sign Up</Label>
 			<TextField id="firstname" hintText="FirstName"></TextField>
 			<TextField id="lastname" hintText="LastName"></TextField>
 			<TextField id="username" hintText="Email"></TextField>

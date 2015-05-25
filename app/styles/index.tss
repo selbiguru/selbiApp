@@ -35,5 +35,5 @@
 	top: 100
 }
 
-".splash-login-btn": {
+".splash-signup-btn": {
 }

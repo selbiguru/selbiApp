@@ -11,6 +11,9 @@
 	bottom: 10,
 	height: 30
 }
+".splash-header-text": {
+	bottom:"15%"
+}
 ".cancel-txt": {
 	top: 130,
 	color: "white",
