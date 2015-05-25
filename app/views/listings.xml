@@ -1,7 +1,8 @@
 <Alloy>
 	<Window class="listings-window">
-		<View class="container listings-view" layout="vertical">
-			<Label> Listings</Label>
-		</View>
+		<View id="mainTopBar">
+            <View id="menuButton"/>
+        </View>
+		<Require type="widget" src="com.alcoapps.drawermenu" id="drawermenu"/>
 	</Window>
 </Alloy>

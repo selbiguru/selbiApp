@@ -2,6 +2,7 @@ var AuthManager = require('managers/authManager');
 $.index.open();
 
 if (AuthManager.isLoggedIn()) {
+	console.log("already logged in ****************** ");
 	var homeController = Alloy.createController('listings').getView();
 	homeController.open();	
 }

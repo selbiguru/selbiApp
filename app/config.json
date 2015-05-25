@@ -7,5 +7,7 @@
 	"os:blackberry": {},
 	"os:ios": {},
 	"os:mobileweb": {},
-	"dependencies": {}
+	"dependencies": {
+		"com.alcoapps.drawermenu" : "1.0"
+	}
 }
