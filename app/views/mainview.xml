@@ -3,7 +3,7 @@
 		<View id="mainTopBar">
 			<View id="menuButton"/>
 			<View >
-				<Label> Listings</Label>
+				<Label> Main - View</Label>
 			</View>
 		</View>
 		<TableView>

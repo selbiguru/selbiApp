@@ -1,8 +1,18 @@
 <Alloy>
-	<Window class="listings-window">
-		<View id="mainTopBar">
+	<View id="mainView">
+        <View id="mainTopBar">
             <View id="menuButton"/>
+            <View >
+				<Label> Listings - list</Label>
+			</View>
         </View>
-		<Require type="widget" src="com.alcoapps.drawermenu" id="drawermenu"/>
-	</Window>
+        <TableView>
+            <TableViewRow id="row">
+                <View id="view" backgroundColor="red" width="20" height="20"/>
+            </TableViewRow>
+            <TableViewRow id="row1">
+                <View id="view1" backgroundColor="green" width="20" height="20"/>
+            </TableViewRow>
+        </TableView>
+    </View>
 </Alloy>

@@ -1,9 +1,11 @@
 var AuthManager = require('managers/authManager');
-$.index.open();
-
+var controls=require('controls');
+	
 if (AuthManager.isLoggedIn()) {
-	var homeController = Alloy.createController('createlisting').getView();
-	homeController.open();	
+	var mainController = Alloy.createController('masterlayout').getView();
+	mainController.open();		
+} else {
+	$.index.open();
 }
 
 function signIn(){

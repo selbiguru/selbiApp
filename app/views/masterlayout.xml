@@ -1,0 +1,7 @@
+<Alloy>
+	<Window>
+		<View class="master-container" id="master">
+			<Require type="widget" src="com.alcoapps.drawermenu" id="drawermenu"/>
+		</View>
+	</Window>
+</Alloy>

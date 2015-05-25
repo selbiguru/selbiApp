@@ -9,7 +9,12 @@
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="row2">
 				<View id="rowContainer">
-					<View id="rowGear" class="rowIcon"/><Label id="rowLabel" class="rowLabel">Configurations</Label>
+					<View id="rowGear" class="rowIcon"/><Label id="configLabel" class="rowLabel">Configurations</Label>
+				</View>
+			</TableViewRow>
+			<TableViewRow class="tableRow" id="row3">
+				<View id="rowContainer">
+					<View id="rowListing" class="rowIcon"/><Label id="listingLabel" class="rowLabel">Listings</Label>
 				</View>
 			</TableViewRow>
 		</TableView>

@@ -30,3 +30,7 @@ exports.getMenuButton=function(args){
 exports.getConfigView=function(){
     return Alloy.createController('config');
 };
+
+exports.getListingView=function(){
+    return Alloy.createController('listings');
+};
