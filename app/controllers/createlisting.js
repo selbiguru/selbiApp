@@ -1,8 +1,6 @@
 var args = arguments[0] || {};
 
-function test(){
-	console.log("test");
-}
+
 function showCamera(){
 	
  	console.log("Show camera");
@@ -23,7 +21,7 @@ function showCamera(){
                     height:"100",
                     image:event.media
                 });
-                $.win.add(imageView);
+                $.imgView.add(imageView);
  
         },
  
@@ -39,7 +37,33 @@ function showCamera(){
             a.show();
         }
     });
-    setTimeout(function() {
-        Ti.Media.takePicture();
-    }, 500);
+}
+
+
+function showGallery(){
+	Titanium.Media.openPhotoGallery({
+		showControls: true,
+		success : function(event) {
+ 
+                  var imageView = Ti.UI.createImageView({
+                    width:"100",
+                    height:"100",
+                    image:event.media
+                });
+                
+ 			$.imgView.add(imageView);
+        },
+ 
+        error : function(error) {
+            var a = Titanium.UI.createAlertDialog({
+                title : 'Camera'
+            });
+            if (error.code == Titanium.Media.NO_CAMERA || error.code == Titanium.Media.NO_VIDEO) {
+                a.setMessage(L('no_camera'));
+            } else {
+                a.setMessage('Unexpected error: ' + error.code);
+            }
+            a.show();
+        }
+	});
 }
