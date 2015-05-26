@@ -1,17 +1,42 @@
 "#menuView":{
 	layout: 'vertical',
-	backgroundColor: 'blue'
+	backgroundColor: '#FAFAFA'
 },
 "#menuTopBar":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#3D3D3D',
+	backgroundColor: '#FAFAFA',
 	layout: 'horizontal'
+},
+"#menuTitle": {
+	top: 30,
+	left: 15,
+	color: "blue",
+	font: {
+		fontSize: "18dp"
+	}
+}
+".menu-underline": {
+	height: 1,
+	top:7,
+	left:20,
+	right: 20,
+	backgroundColor:"#545555",
+	width:"56%"
+}
+"#menuUserImageView":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#userImage": {
+	bottom: 5
 },
 ".tableRow":{
 	height: '50dp'
 },
-"#rowContainer":{
+".rowContainer":{
 	height: '30dp',
 	layout:'horizontal'
 },
@@ -43,5 +68,5 @@
 ".menuTable":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
-	backgroundColor:'#F2F2F2'
+	backgroundColor:'#FAFAFA'
 }

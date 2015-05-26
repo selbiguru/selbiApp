@@ -1,19 +1,30 @@
 <Alloy>
 	<View id="menuView">
-		<View id="menuTopBar"/>
+		<View id="menuTopBar"> 
+			<Label id="menuTitle">Selbi</Label>
+		</View>
+		<View class="menu-underline"/>
 		<TableView class="menuTable" id="menuTable">
+			<TableViewRow class="tableRow" id="row0">
+				<View class="rowContainer">
+					<View id="rowSkull" class="rowIcon"/><Label id="userNameLabel" class="rowLabel">Dynamic Dave</Label>
+				</View>
+			</TableViewRow>
+			<TableViewRow>
+				<View class="menu-underline"></View>
+			</TableViewRow>
 			<TableViewRow class="tableRow" id="row1">
-				<View id="rowContainer">
-					<View id="rowSkull" class="rowIcon"/><Label id="rowLabel" class="rowLabel">Home</Label>
+				<View class="rowContainer">
+					<View id="rowSkull" class="rowIcon"/><Label id="rowLabel" class="rowLabel">Post a Listing</Label>
 				</View>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="row2">
-				<View id="rowContainer">
-					<View id="rowGear" class="rowIcon"/><Label id="configLabel" class="rowLabel">Configurations</Label>
+				<View class="rowContainer">
+					<View id="rowGear" class="rowIcon"/><Label id="configLabel" class="rowLabel">Invite Friends</Label>
 				</View>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="row3">
-				<View id="rowContainer">
+				<View class="rowContainer">
 					<View id="rowListing" class="rowIcon"/><Label id="listingLabel" class="rowLabel">Listings</Label>
 				</View>
 			</TableViewRow>
