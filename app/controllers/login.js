@@ -20,6 +20,6 @@ function closeWindow(){
 }
 
 function forgotPassword(){
-	var controller = Alloy.createController('forgotPassword').getView();
+	var controller = Alloy.createController('forgotpassword').getView();
 	controller.open({ transition: Ti.UI.iPhone.AnimationStyle.CURL_UP});
 }
