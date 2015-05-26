@@ -1,6 +1,6 @@
 "TextField": {
 	borderStyle: Titanium.UI.INPUT_BORDEREDSTYLE_NONE,
-	borderColor: 'white',
+	borderColor: 'transparent',
 	color: 'white',
 	font: {
 		fontSize: 14
@@ -8,14 +8,13 @@
 	paddingLeft: 10,
 	backgroundColor : 'transparent',
 	width: Titanium.UI.FILL,
-	bottom: 10,
 	height: 30
 }
 ".splash-header-text": {
 	bottom:"15%"
 }
 ".cancel-txt": {
-	top: 130,
+	top: 58,
 	color: "white",
 	bottom: 10
 }
@@ -25,6 +24,12 @@
 	font: {
 		fontSize: 12
 	}
+}
+".signup-underline": {
+	height: 1,
+	bottom: 10,
+	backgroundColor:"white",
+	width:Titanium.UI.FILL
 }
 ".user-agreement-web": {
 	color: "blue"

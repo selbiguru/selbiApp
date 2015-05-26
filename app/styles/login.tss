@@ -6,7 +6,7 @@
 
 "TextField": {
 	borderStyle: Titanium.UI.INPUT_BORDEREDSTYLE_NONE,
-	borderColor: 'white',
+	borderColor: 'transparent',
 	color: 'white',
 	font: {
 		fontSize: 14
@@ -14,15 +14,14 @@
 	paddingLeft: 10,
 	backgroundColor : 'transparent',
 	width: Titanium.UI.FILL,
-	bottom: 10,
 	height: 30
 }
 
 ".splash-header-text": {
-	bottom:"25%"
+	bottom:"20%"
 }
 ".cancel-txt": {
-	top: 100,
+	top: 120,
 	color: "white",
 	bottom: 10
 }
@@ -32,4 +31,10 @@
 	font: {
 		fontSize: 12
 	}
+}
+".login-underline": {
+	height: 1,
+	bottom: 10,
+	backgroundColor:"white",
+	width:Titanium.UI.FILL
 }

@@ -3,7 +3,9 @@
 		<View class="container" layout="vertical" top="7%">
 			<Label class="splash-header-text">Sign In</Label>
 			<TextField id="username" hintText="Email"></TextField>
-			<TextField passwordMask="true" hintText="Password" id="password"></TextField>	
+			<View class="login-underline"/>
+			<TextField passwordMask="true" hintText="Password" id="password"></TextField>
+			<View class="login-underline"/>	
 			<Button onClick="loginUser" class="primary-btn">Let's Selbi</Button>
 			<Label onClick="forgotPassword" class="forgot-password">Forgot your password?</Label>
 			<Label class="cancel-txt" onClick="closeWindow">Cancel</Label>
