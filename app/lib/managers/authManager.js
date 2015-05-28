@@ -45,40 +45,43 @@ exports.login = function (username, password, cb){
 	}); 
 };
 
-exports.userSignUp = function(firstName, lastName, username, password, cb) {
+exports.userRegister = function(firstName, lastName, username, password, cb) {
 	// Todo: validation
 	
 };	
 /*	// Prepare request
-	var loginRequest = {
+	var registerRequest = {
 		"identifier": username,
-		"password": password
+		"password": password,
+		"firstName": firstName,
+		"lastName": lastName
+		
 	};
 	
-	httpClient.execute("/user", loginRequest, function(err, userSignUpResults) {
-		if(!err && loginResult) {
+	httpClient.execute("/register", registerRequest, function(err, registerResults) {
+		if(!err && registerResults) {
 			// Create a singleton
 			var authModel = Alloy.Models.instance('auth');
 			var userModel = Alloy.createModel('user');
 			
 			if(loginResult.user) {
 				// Set user properties
-				userModel.set({username: loginResult.user.username});
+				userModel.set({username: registerResults.user.username});
 				userModel.set({password: password });
-				userModel.set({firstName: loginResult.user.firstName});
-				userModel.set({lastName: loginResult.user.lastName});
-				userModel.set({email: loginResult.user.email});
-				userModel.set({id: loginResult.user.id});			
+				userModel.set({firstName: registerResults.user.firstName});
+				userModel.set({lastName: registerResults.user.lastName});
+				userModel.set({email: registerResults.user.email});
+				userModel.set({id: registerResults.user.id});			
 			}
 			
-			authModel.set({ token: loginResult.token });
+			authModel.set({ token: registerResults.token });
 			authModel.set({ username: username });
 			authModel.set({ password: password });
 			authModel.set({ user : JSON.stringify(userModel)});
 			authModel.set({ isAuth: true });
 			authModel.save();
 			
-			Ti.App.Properties.setString('token', loginResult.token);
+			Ti.App.Properties.setString('token', registerResults.token);
 			Ti.App.Properties.setString('isAuth', true);
 			
 			if(cb) cb(null, authModel);

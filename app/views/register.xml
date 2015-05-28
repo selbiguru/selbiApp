@@ -2,9 +2,9 @@
 	<Window backgroundColor="#62D7F5" class="wrapper">		
 		<View class="container" layout="vertical" top="7%">
 			<Label class="splash-header-text">Sign Up</Label>
-			<TextField id="firstname" hintText="FirstName"></TextField>
+			<TextField id="firstName" hintText="FirstName"></TextField>
 			<View class="signup-underline"/>
-			<TextField id="lastname" hintText="LastName"></TextField>
+			<TextField id="lastName" hintText="LastName"></TextField>
 			<View class="signup-underline"/>
 			<TextField id="username" hintText="Email"></TextField>
 			<View class="signup-underline"/>
