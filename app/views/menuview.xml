@@ -7,7 +7,7 @@
 		<TableView class="menuTable" id="menuTable">
 			<TableViewRow class="tableRow" id="row0">
 				<View class="rowContainer">
-					<View id="rowSkull" class="rowIcon"/><Label id="userNameLabel" class="rowLabel">Dynamic Dave</Label>
+					<Label id="userNameLabel" class="rowLabel">Dynamic Dave</Label>
 				</View>
 			</TableViewRow>
 			<TableViewRow>
@@ -15,18 +15,55 @@
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="row1">
 				<View class="rowContainer">
-					<View id="rowSkull" class="rowIcon"/><Label id="rowLabel" class="rowLabel">Post a Listing</Label>
+					<Label icon="fa-camera" class="rowLabel" id="menuCameraIcon"></Label>
+					<Label id="rowLabel" class="rowLabel">Post a Listing</Label>
 				</View>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="row2">
 				<View class="rowContainer">
-					<View id="rowGear" class="rowIcon"/><Label id="configLabel" class="rowLabel">Invite Friends</Label>
+					<Label icon="fa-user-plus" class="rowLabel" id="menuAddFriendsIcon"></Label>
+					<Label id="configLabel" class="rowLabel">Invite Friends</Label>
 				</View>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="row3">
 				<View class="rowContainer">
-					<View id="rowListing" class="rowIcon"/><Label id="listingLabel" class="rowLabel">Listings</Label>
+					<Label icon="fa-bell" class="rowLabel" id="menuNotificationIcon"></Label>
+					<Label id="notificationsLabel" class="rowLabel">Notifications</Label>
 				</View>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</TableViewRow>
+			<TableViewRow class="tableRow" id="row4">
+				<View class="rowContainer">
+					<Label icon="fa-user" class="rowLabel" id="menuMyListingsIcon"></Label>
+					<Label id="myListingsLabel" class="rowLabel">My Listings</Label>
+				</View>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</TableViewRow>
+			<TableViewRow class="tableRow" id="row5">
+				<View class="rowContainer">
+					<Label icon="fa-users" class="rowLabel" id="menuListingIcon"></Label>
+					<Label id="listingLabel" class="rowLabel">Listings</Label>
+				</View>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</TableViewRow>
+			<TableViewRow>
+				<View class="menu-underline"></View>
+			</TableViewRow>
+			<TableViewRow class="tableRow" id="row6">
+				<View class="rowContainer">
+					<Label icon="fa-gears" class="rowLabel" id="menuSettingsIcon"></Label>
+					<Label id="settingsLabel" class="rowLabel">Listings</Label>
+				</View>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</TableViewRow>
+			<TableViewRow class="tableRow" id="row7">
+				<View class="rowContainer">
+					<Label icon="fa-sign-out" class="rowLabel" id="menuSignOutIcon"></Label>
+					<Label id="signOutLabel" class="rowLabel">Listings</Label>
+				</View>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
 		</TableView>
 	</View>

@@ -8,6 +8,7 @@
 	"os:ios": {},
 	"os:mobileweb": {},
 	"dependencies": {
-		"com.alcoapps.drawermenu" : "1.0"
+		"com.alcoapps.drawermenu" : "1.0",
+		"com.mattmcfarland.fontawesome" : "1.4.1"
 	}
 }

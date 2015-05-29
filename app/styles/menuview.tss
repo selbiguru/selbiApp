@@ -21,8 +21,29 @@
 	top:7,
 	left:20,
 	right: 20,
-	backgroundColor:"#545555",
+	backgroundColor:"#EAEAEA",
 	width:"56%"
+}
+"#menuListingIcon": {
+	color: "blue"
+}
+"#menuMyListingsIcon": {
+	color: "blue"
+}
+"#menuNotificationIcon": {
+	color: "blue"
+}
+"#menuAddFriendsIcon": {
+	color: "blue"
+}
+"#menuCameraIcon": {
+	color: "blue"
+}
+"#menuSettingsIcon": {
+	color: "blue"
+}
+"#menuSignOutIcon": {
+	color: "blue"
 }
 "#menuUserImageView":{
 	width: Ti.UI.FILL,
@@ -45,15 +66,6 @@
 	top: 7,
 	width: "20dp",
 	height: "20dp"
-},
-"#rowSkull":{
-	backgroundImage: '/21-skull.png'
-},
-"#rowGear":{
-	backgroundImage: '/19-gear.png'
-},
-"#rowPicFrame":{
-	backgroundImage: '/41-picture-frame.png'
 },
 ".rowLabel":{
 	top: 7,
