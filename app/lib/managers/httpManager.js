@@ -1,4 +1,4 @@
-var baseUrl = "http://shrouded-shore-4058.herokuapp.com";
+var baseUrl = "http://sails-server.herokuapp.com";
 
 exports.execute = function(relativePath, method, objectToSend, callback) {
     var xhr = Titanium.Network.createHTTPClient(),

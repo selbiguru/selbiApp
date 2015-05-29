@@ -1,6 +1,11 @@
 {
 	"global": {}, 
-	"env:development": {}, 
+	"env:development": {
+		"cloudinary": {
+			"baseurl": "https://api.cloudinary.com/v1_1/selbi",
+			"apikey": "379521277533334"
+		}
+	}, 
 	"env:test": {}, 
 	"env:production": {}, 
 	"os:android": {},
