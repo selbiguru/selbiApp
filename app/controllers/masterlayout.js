@@ -1,93 +1,76 @@
-var args = arguments[0] || {};
+/**
+ * MasterLayout: 
+ * 	This controller is responsible for creating all the menu's and 
+ * 	perform actions on the menus to open the right view.
+ * Usage:
+ * 	In order to add a new view simply add a method to controls lib to obtain the view 
+ * 	and add the view to the "viewList" with the correct row number. That's it !
+ */
 
+var args = arguments[0] || {};
 var controls=require('controls');
 
-// get main and menu view as objects
-var menuView=controls.getMenuView();
-var mainView=controls.getMainView();
-
-// attach event listener to menu button 
-mainView.menuButton.add(controls.getMenuButton({
-	h: '60',
-	w: '60'
-}));
-
-//Minor changes to click event. Update the menuOpen status;
-mainView.menuButton.addEventListener('click',function(){
-	$.drawermenu.showhidemenu();
-	$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
-}); // method is exposed by widget
-
-
-// get config view as objects
-var configView=controls.getConfigView();
-
-//add menu view to ConfigView exposed by widget
-configView.menuButton.add(controls.getMenuButton({
-                h: '60',
-                w: '60'
-            }));
-
-//Minor changes to click event. Update the menuOpen status;
-configView.menuButton.addEventListener('click',function(){
-	$.drawermenu.showhidemenu();
-	$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
-}); // method is exposed by widget
-
-
+// get all the view as objects
+var menuView = controls.getMenuView();
+var mainView = controls.getMainView();
+var configView = controls.getConfigView();
 var listingView = controls.getListingView();
+var postListingView = controls.getPostListingView();
 
-listingView.menuButton.add(controls.getMenuButton({
-    h: '60',
-    w: '60'
-}));
+/**
+ * Initializes all the menu items, views and events associated to each menu item
+ */
+function initialize() {
+	for (var property in viewList) {
+		// add the button
+		viewList[property].menuButton.add(controls.getMenuButton({
+		    h: '60',
+		    w: '60'
+		}));
+		
+		// attach event listener to menu button 
+	    viewList[property].menuButton.addEventListener('click',function(){
+			$.drawermenu.showhidemenu();
+			$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
+		}); 
+	}
+	
+	// initialize the menu
+	$.drawermenu.init({
+	    menuview:menuView.getView(),
+	    mainview:mainView.getView(),
+	    duration:200,
+	    parent: $.master
+	});
+}
 
-listingView.menuButton.addEventListener('click',function(){
-	$.drawermenu.showhidemenu();
-	$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
-}); 
+// setup the list of views 
+var viewList = {
+	"row0": mainView,
+	"row1": postListingView,
+	"row2": configView,
+	"row4": listingView
+};
 
-$.drawermenu.init({
-    menuview:menuView.getView(),
-    mainview:mainView.getView(),
-    duration:200,
-    parent: $.master
-});
-
-//variable to controler de open/close slide
-var activeView = 1;
+initialize();
 
 // add event listener in this context
 menuView.menuTable.addEventListener('click',function(e){
+	
+	function drawView(row){
+		for (var property in viewList) {
+		    if (property === row) {
+		        $.drawermenu.drawermainview.add(viewList[row].getView());
+		    } else {
+		    	$.drawermenu.drawermainview.remove(viewList[property].getView());
+		    }
+		}
+	};
+	
     $.drawermenu.showhidemenu();
     $.drawermenu.menuOpen = false; //update menuOpen status to prevent inconsistency.
-    if(e.rowData.id==="row1"){
-        if(activeView!=1){
-            $.drawermenu.drawermainview.remove(configView.getView());
-            $.drawermenu.drawermainview.remove(listingView.getView());
-            activeView = 1;
-        } else {
-            activeView = 1;
-        }
-    } 
-    if(e.rowData.id==="row2"){
-        if(activeView!=2){
-            $.drawermenu.drawermainview.add(configView.getView());
-            $.drawermenu.drawermainview.remove(listingView.getView());
-            activeView = 2;
-        } else{
-            activeView = 2;
-        }
-    }
-    if(e.rowData.id==="row3"){
-        if(activeView!=3){
-            $.drawermenu.drawermainview.add(listingView.getView());
-            $.drawermenu.drawermainview.remove(configView.getView());
-            activeView = 3;
-        } else{
-            activeView = 3;
-        }
-    }
+    drawView(e.rowData.id);
+    
     // on Android the event is received by the label, so watch out!
     Ti.API.info(e.rowData.id); 
 });

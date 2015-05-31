@@ -4,12 +4,7 @@
 			<Label id="menuTitle">Selbi</Label>
 		</View>
 		<View class="menu-underline"/>
-		<TableView class="menuTable" id="menuTable">
-			<TableViewRow class="tableRow" id="row0">
-				<View class="rowContainer">
-					<Label id="userNameLabel" class="rowLabel">Dynamic Dave</Label>
-				</View>
-			</TableViewRow>
+		<TableView class="menuTable" id="menuTable">			
 			<TableViewRow>
 				<View class="menu-underline"></View>
 			</TableViewRow>
@@ -45,23 +40,6 @@
 				<View class="rowContainer">
 					<Label icon="fa-users" class="rowLabel" id="menuListingIcon"></Label>
 					<Label id="listingLabel" class="rowLabel">Listings</Label>
-				</View>
-				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
-			</TableViewRow>
-			<TableViewRow>
-				<View class="menu-underline"></View>
-			</TableViewRow>
-			<TableViewRow class="tableRow" id="row6">
-				<View class="rowContainer">
-					<Label icon="fa-gears" class="rowLabel" id="menuSettingsIcon"></Label>
-					<Label id="settingsLabel" class="rowLabel">Listings</Label>
-				</View>
-				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
-			</TableViewRow>
-			<TableViewRow class="tableRow" id="row7">
-				<View class="rowContainer">
-					<Label icon="fa-sign-out" class="rowLabel" id="menuSignOutIcon"></Label>
-					<Label id="signOutLabel" class="rowLabel">Listings</Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>

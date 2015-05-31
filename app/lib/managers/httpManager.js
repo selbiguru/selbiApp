@@ -1,6 +1,6 @@
-var baseUrl = "http://sails-server.herokuapp.com";
+var baseUrl = "http://localhost:1337";
 
-exports.execute = function(relativePath, method, objectToSend, callback) {
+exports.execute = function(relativePath, method, objectToSend, isAuth, callback) {
     var xhr = Titanium.Network.createHTTPClient(),
         url = baseUrl + relativePath; //"http://localhost:1337/login"
 
@@ -12,10 +12,16 @@ exports.execute = function(relativePath, method, objectToSend, callback) {
 
     xhr.open(method, url);
     xhr.setRequestHeader("content-type", "application/json");
-
-    Ti.API.info('Params' + JSON.stringify(objectToSend));
-    xhr.send(JSON.stringify(objectToSend));
-
+    
+    if(isAuth) {
+    	var authHeader = "Bearer " + Ti.App.Properties.getString('token');
+    	xhr.setRequestHeader("Authorization", authHeader);
+    }
+	
+	var objectJSON = objectToSend ? JSON.stringify(objectToSend) : {};
+    Ti.API.info('Params' + objectJSON);
+    xhr.send(objectJSON);
+	
     xhr.onload = function() {
         Ti.API.info('RAW =' + this.responseText);
         if (this.status == '200') {
@@ -39,7 +45,3 @@ exports.execute = function(relativePath, method, objectToSend, callback) {
 
     };
 };
-
-exports.executeWithAuth = function() {
-
-}

@@ -1,5 +1,11 @@
 <Alloy>
-	<Window class="create-listing-window">
+	<View id="mainView">
+		<View id="mainTopBar">
+	        <View id="menuButton"/>
+	        <View >
+				<Label> Listings - Create</Label>
+			</View>
+		</View>
 		<View class="container create-listing-view" layout="vertical">
 			<Label class="fade-text">Add up to 6 photos</Label>
 			<Button onClick="showCamera" class="create-listing-capture-btn secondary-btn"> Capture a Photo</Button>
@@ -7,6 +13,8 @@
 			<View layout="horizontal" id="imgView" class="image-gallery-view">
 				
 			</View>
-		</View>
-	</Window>	
+			
+			 <Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
+		</View>	
+	</View>
 </Alloy>

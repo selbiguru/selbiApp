@@ -1,4 +1,4 @@
-var httpClient = require('managers/httpManager');
+var httpClient = require('managers/httpmanager');
 
 exports.login = function (username, password, cb){
 	// Todo: validation
@@ -11,7 +11,7 @@ exports.login = function (username, password, cb){
 	};
 	
 	// Execute Request
-	httpClient.execute("/login", "POST", loginRequest, function(err, loginResult){
+	httpClient.execute("/login", "POST", loginRequest, false, function(err, loginResult){
 		if(!err && loginResult) {
 			// Create a singleton
 			var authModel = Alloy.Models.instance('auth');
@@ -58,7 +58,7 @@ exports.userRegister = function(firstName, lastName, username, password, cb) {
 		
 	};
 	
-	httpClient.execute("/register", registerRequest, function(err, registerResults) {
+	httpClient.execute("/register", ,"POST", registerRequest, false, function(err, registerResults) {
 		if(!err && registerResults) {
 			// Create a singleton
 			var authModel = Alloy.Models.instance('auth');

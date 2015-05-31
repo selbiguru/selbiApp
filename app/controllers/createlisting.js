@@ -1,5 +1,21 @@
 var args = arguments[0] || {};
+var imageManager = require('managers/imagemanager');
 
+// ref: https://github.com/pablorr18/TiFlexiGrid
+$.fg.init({
+    columns:3,
+    space:5,
+    gridBackgroundColor:'#fff',
+    itemHeightDelta: 0,
+    itemBackgroundColor:'#eee',
+    itemBorderColor:'transparent',
+    itemBorderWidth:0,
+    itemBorderRadius:0
+});
+
+function addItemToGrid(title, image){
+	$.fg.addGridItem({title: title, image: image});
+}
 
 function showCamera(){
 	
@@ -45,13 +61,17 @@ function showGallery(){
 		showControls: true,
 		success : function(event) {
  
-                  var imageView = Ti.UI.createImageView({
-                    width:"100",
-                    height:"100",
-                    image:event.media
-                });
-                
+            var imageView = Ti.UI.createImageView({
+                width:"100",
+                height:"100",
+                image:event.media
+            });
+            
  			$.imgView.add(imageView);
+ 			var f = Titanium.Filesystem.getFile(Titanium.Filesystem.tempDirectory, 'upload.jpg');
+ 			f.write(event.media);
+ 			addItemToGrid("test", Titanium.Filesystem.tempDirectory + 'upload.jpg');
+ 			imageManager.uploadImage(Titanium.Filesystem.tempDirectory + 'upload.jpg');
         },
  
         error : function(error) {

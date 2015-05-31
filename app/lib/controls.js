@@ -26,11 +26,16 @@ exports.getMenuButton=function(args){
 	return v;
 };
 
-//Get the Configuration Controller
+//Get the Controllers
+
 exports.getConfigView=function(){
     return Alloy.createController('config');
 };
 
 exports.getListingView=function(){
     return Alloy.createController('listings');
+};
+
+exports.getPostListingView = function(){
+	return Alloy.createController('createlisting');
 };

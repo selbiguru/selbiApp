@@ -1,4 +1,4 @@
-var AuthManager = require('managers/authManager'),
+var AuthManager = require('managers/authmanager'),
 	args = arguments[0] || {};
 
 

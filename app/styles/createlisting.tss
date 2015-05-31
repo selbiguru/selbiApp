@@ -1,6 +1,6 @@
 
 ".container" : {
-  
+  	width:'90%'
 }
 
 ".create-listing-view": {
