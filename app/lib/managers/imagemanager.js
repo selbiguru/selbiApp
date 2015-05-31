@@ -15,13 +15,12 @@ function uploadCallback(result) {
 
 exports.uploadImage = function(fileName) {
 	var imageFile = Ti.Filesystem.getFile(fileName);
-    console.log(fileName);
     if (imageFile) 
     {
         getSignedRequest(function(err, signedRequest) {
         	Ti.API.info(signedRequest);
             if (signedRequest) {
-                cloudinary.uploader.upload(imageFile, uploadCallback, signedRequest);
+                cloudinary.uploader.upload(imageFile, uploadCallback, signedRequest.params);
             }
         });
     }

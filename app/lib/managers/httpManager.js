@@ -1,4 +1,4 @@
-var baseUrl = "http://localhost:1337";
+var baseUrl = "http://sails-server.herokuapp.com";
 
 exports.execute = function(relativePath, method, objectToSend, isAuth, callback) {
     var xhr = Titanium.Network.createHTTPClient(),

@@ -70,7 +70,7 @@ function showGallery(){
  			$.imgView.add(imageView);
  			var f = Titanium.Filesystem.getFile(Titanium.Filesystem.tempDirectory, 'upload.jpg');
  			f.write(event.media);
- 			addItemToGrid("test", Titanium.Filesystem.tempDirectory + 'upload.jpg');
+ 			addItemToGrid("test", 'http://res.cloudinary.com/selbi/image/upload/v1433095290/0ffe2510-07bf-11e5-9a41-f5b118aa6622.jpg');
  			imageManager.uploadImage(Titanium.Filesystem.tempDirectory + 'upload.jpg');
         },
  
