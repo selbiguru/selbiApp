@@ -10,6 +10,11 @@
 	width: Titanium.UI.FILL,
 	height: 30
 }
+".wrapper-container": {
+	backgroundColor: "#62D7F5",
+	width: '80%'
+}
+
 ".splash-header-text": {
 	bottom:"15%"
 }

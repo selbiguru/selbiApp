@@ -1,6 +1,6 @@
 <Alloy>
 	<Window backgroundColor="#62D7F5" class="wrapper">		
-		<View class="container" layout="vertical" top="7%">
+		<View class="wrapper-container" layout="vertical" top="7%">
 			<Label class="splash-header-text">Sign Up</Label>
 			<TextField id="firstName" hintText="FirstName"></TextField>
 			<View class="signup-underline"/>

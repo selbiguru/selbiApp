@@ -1,6 +1,6 @@
 <Alloy>
 	<Window class="wrapper">		
-		<View class="container" layout="vertical" top="7%">
+		<View class="wrapper-container" layout="vertical" top="7%">
 			<Label class="splash-header-text">Sign In</Label>
 			<TextField id="username" hintText="Email"></TextField>
 			<View class="login-underline"/>

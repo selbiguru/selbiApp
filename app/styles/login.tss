@@ -4,6 +4,11 @@
 	backgroundColor: "#62D7F5"
 }
 
+".wrapper-container": {
+	backgroundColor: "#62D7F5",
+	width: '80%'
+}
+
 "TextField": {
 	borderStyle: Titanium.UI.INPUT_BORDEREDSTYLE_NONE,
 	borderColor: 'transparent',

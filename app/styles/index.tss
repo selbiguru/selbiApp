@@ -4,6 +4,10 @@
 	backgroundColor: "#62D7F5"
 }
 
+".container": {
+	backgroundColor: "#62D7F5"
+}
+
 "Label": {
 	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE,

@@ -14,7 +14,10 @@
 	width: "60dp",
 	height: "60dp"
 }
-
+".wrapper-container": {
+	backgroundColor: "#62D7F5",
+	width: '80%'
+}
 
 ".container[platform=ios]": {
 	top: 20,

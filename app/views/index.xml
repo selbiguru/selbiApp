@@ -1,6 +1,6 @@
 <Alloy>
 	<Window>
-		<View layout="vertical" class="container" top="20%">
+		<View layout="vertical" class="wrapper-container" top="20%">
 			<Label class="splash-logo-text">Selbi</Label>
 			<Label class="splash-logo-subtext">Sell to your friends first</Label>			
 			<Label class="splash-small padding-top">Learn more</Label>				
