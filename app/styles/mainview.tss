@@ -5,10 +5,24 @@
 "#mainTopBar":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#5B96B2',
+	backgroundColor: '#FAFAFA',
 	layout: 'horizontal'
-},
+}
 "#menuButton":{
+	height: "60dp",
 	width: "60dp",
-	height: "60dp"
+	backgroundColor: '#FAFAFA'
+}
+"#menuButtonIcon": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+}
+".title-main-view": {
+	left: "25%",
+	color: "#1BA7CD",
+	font: {
+		fontSize: "18dp"
+	}
 }

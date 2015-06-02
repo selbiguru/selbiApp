@@ -9,73 +9,68 @@
 	layout: 'horizontal'
 },
 "#menuTitle": {
-	top: 30,
-	left: 15,
-	color: "blue",
+	top: 20,
+	left: "35dp",
+	color: "#1BA7CD",
 	font: {
-		fontSize: "18dp"
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
 	}
+}
+"#menuSeparator": {
+	top: "180dp",
+	bottom: "20dp"
 }
 ".menu-underline": {
 	height: 1,
-	top:7,
+	top:0,
 	left:20,
 	right: 20,
 	backgroundColor:"#EAEAEA",
-	width:"56%"
+	width:"66%"
 }
-"#menuListingIcon": {
-	color: "blue"
+"#menuUserImage":{
+	height:"60dp"
 }
-"#menuMyListingsIcon": {
-	color: "blue"
+"#menuUserName":{
 }
-"#menuNotificationIcon": {
-	color: "blue"
+"#row0":{
+	height:"100dp"
 }
-"#menuAddFriendsIcon": {
-	color: "blue"
-}
-"#menuCameraIcon": {
-	color: "blue"
-}
-"#menuSettingsIcon": {
-	color: "blue"
-}
-"#menuSignOutIcon": {
-	color: "blue"
-}
-"#menuUserImageView":{
-	width: Ti.UI.FILL,
-	height: "60dp",
-	backgroundColor: '#FAFAFA',
-	layout: 'horizontal'
-},
 "#userImage": {
-	bottom: 5
+	height: "60dp",
+	width: "60dp",
+	left:"25%"
+},
+"#userName": {
+	color: "#545555",
+	top:"40dp",
+	left:"25%",
+	font: {
+		fontSize: "16dp"
+	}
 },
 ".tableRow":{
-	height: '50dp'
+	height: '40dp'
 },
 ".rowContainer":{
 	height: '30dp',
 	layout:'horizontal'
 },
-".rowIcon":{
-	left: 5,
-	top: 7,
-	width: "20dp",
-	height: "20dp"
-},
 ".rowLabel":{
 	top: 7,
-	left: 10,
+	left: 15,
 	height: "20dp",
 	font:{
-		fontSize: "15dp"
+		fontSize: "15dp",
+    	fontFamily: 'Nunito-Light'
 	},
-	color: "#000"
+	color: "#545555"
 	
+},
+".row-icon": {
+	color: "#1BA7CD",
+	left: "35dp",
 },
 ".menuTable":{
 	separatorStyle:'NONE',

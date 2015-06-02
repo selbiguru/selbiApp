@@ -36,7 +36,7 @@ var showhidemenu=function(){
 		menuOpen=false;
 		handlers.close();
 	}else{
-		moveTo="250dp";
+		moveTo="290dp";
 		menuOpen=true;
 		handlers.open();
 	}

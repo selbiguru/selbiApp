@@ -8,23 +8,22 @@ exports.getMenuView=function(){
 	return Alloy.createController('menuview');	
 };
 
-exports.getMenuButton=function(args){
+/*exports.getMenuButton=function(args){
 	var v=Ti.UI.createView({
 		height: args.h,
 		width: args.w,
-		backgroundColor: '#A1D0E0'
+		backgroundColor: '#FAFAFA'
 	});
 	
 	var b=Ti.UI.createView({
 		height: "20dp",
-		width: "20dp",
-		backgroundImage: "/106-sliders.png"
+		width: "20dp"
 	});
 	
 	v.add(b);
 	console.log("Menu button = " + v);
 	return v;
-};
+};*/
 
 //Get the Controllers
 
@@ -38,4 +37,16 @@ exports.getListingView=function(){
 
 exports.getPostListingView = function(){
 	return Alloy.createController('createlisting');
+};
+exports.getNotificationsView = function(){
+	return Alloy.createController('notifications');
+};
+exports.getMyListingView = function(){
+	return Alloy.createController('mylistings');
+};
+exports.getInviteFriendsView = function(){
+	return Alloy.createController('invitefriends');
+};
+exports.getSettingsView = function(){
+	return Alloy.createController('settings');
 };

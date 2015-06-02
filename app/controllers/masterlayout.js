@@ -16,6 +16,10 @@ var mainView = controls.getMainView();
 var configView = controls.getConfigView();
 var listingView = controls.getListingView();
 var postListingView = controls.getPostListingView();
+var notificationsView = controls.getNotificationsView();
+var myListingsView = controls.getMyListingView();
+var inviteFriendsView = controls.getInviteFriendsView();
+var settingsView = controls.getSettingsView();
 
 /**
  * Initializes all the menu items, views and events associated to each menu item
@@ -23,10 +27,10 @@ var postListingView = controls.getPostListingView();
 function initialize() {
 	for (var property in viewList) {
 		// add the button
-		viewList[property].menuButton.add(controls.getMenuButton({
-		    h: '60',
-		    w: '60'
-		}));
+		//viewList[property].menuButton.add(controls.getMenuButton({
+		  //  h: '60',
+		   // w: '60'
+		//}));
 		
 		// attach event listener to menu button 
 	    viewList[property].menuButton.addEventListener('click',function(){
@@ -48,8 +52,11 @@ function initialize() {
 var viewList = {
 	"row0": mainView,
 	"row1": postListingView,
-	"row2": configView,
-	"row4": listingView
+	"row2": inviteFriendsView,
+	"row3": notificationsView,
+	"row4": myListingsView,
+	"row5": listingView,
+	"row6": settingsView
 };
 
 initialize();

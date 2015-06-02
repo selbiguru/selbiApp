@@ -1,9 +1,12 @@
 <Alloy>
 	<View id="mainView">
 		<View id="mainTopBar">
-			<View id="menuButton"/>
+			<View id="menuButton">
+				<Label icon="fa-arrow-left" id="menuButtonIcon"></Label>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</View>
 			<View >
-				<Label> Main - View</Label>
+				<Label class="title-main-view"> Main - View</Label>
 			</View>
 		</View>
 		<TableView>
