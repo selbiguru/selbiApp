@@ -19,7 +19,7 @@
         },
 	color: "#1BA7CD"
 }
-".title-main-view": {
+"#titleMainView": {
 	left: "25%",
 	color: "#1BA7CD",
 	font: {

@@ -1,4 +1,29 @@
-
-".container" : {
-  
+"#settingsView":{
+	layout: 'vertical',
+	backgroundColor: '#cacaca'
+},
+"#settingsTopBar":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+}
+"#menuButton":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+}
+"#menuButtonIcon": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+}
+"#titleSettingsView": {
+	left: "25%",
+	color: "#1BA7CD",
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
 }

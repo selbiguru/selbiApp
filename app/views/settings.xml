@@ -1,8 +1,14 @@
 <Alloy>
-    <View id="mainView">
-        <View id="mainTopBar">
-            <View id="menuButton"/>
-        </View>
+    <View id="settingsView">
+        <View id="settingsTopBar">
+			<View id="menuButton">
+				<Label icon="fa-arrow-left" id="menuButtonIcon"></Label>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</View>
+			<View >
+				<Label id="titleSettingsView">Settings</Label>
+			</View>
+		</View>
         <TableView>
             <TableViewRow id="row">
                 <View id="view" backgroundColor="red" width="20" height="20"/>

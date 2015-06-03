@@ -6,7 +6,7 @@
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
 			<View >
-				<Label class="title-main-view"> Main - View</Label>
+				<Label id="titleMainView"> Main - View</Label>
 			</View>
 		</View>
 		<TableView>
