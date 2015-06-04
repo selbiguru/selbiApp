@@ -1,6 +1,6 @@
 var AuthManager = require('managers/authmanager');
 var controls=require('controls');
-	
+
 if (AuthManager.isLoggedIn()) {
 	var mainController = Alloy.createController('masterlayout').getView();
 	mainController.open();		

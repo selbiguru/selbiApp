@@ -36,7 +36,9 @@ var showhidemenu=function(){
 		menuOpen=false;
 		handlers.close();
 	}else{
-		moveTo="290dp";
+		moveTo= Alloy.Globals.iPhoneFour || Alloy.Globals.iPhoneFive ? "235dp": 
+			Alloy.Globals.iPhoneSixPlus ? "310dp": 
+			Alloy.Globals.iPhoneSix ? "290dp" : "275dp";
 		menuOpen=true;
 		handlers.open();
 	}
