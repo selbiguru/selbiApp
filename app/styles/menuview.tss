@@ -98,7 +98,8 @@
 	color: "#545555",
 	top:"58dp",
 	font: {
-		fontSize: "14dp"
+		fontSize: "14dp",
+		fontFamily: 'Nunito-Light'
 	}
 },
 
@@ -120,7 +121,7 @@
 	left: "35dp",
 	color: "#1BA7CD",
 	font: {
-		fontSize: "18dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
 	}
 },
@@ -130,16 +131,16 @@
 	left:"20dp",
 	right: "20dp",
 	backgroundColor:"#EAEAEA",
-	width:"66%"
+	width:"64%"
 },
 ".rowContainer[if=Alloy.Globals.iPhoneFive]":{
-	height: '30dp',
+	height: '35dp',
 	layout:'horizontal'
 },
 ".rowLabel[if=Alloy.Globals.iPhoneFive]":{
 	top: "7dp",
 	left: "15dp",
-	height: "20dp",
+	height: "25dp",
 	font:{
 		fontSize: "15dp",
     	fontFamily: 'Nunito-Light'
@@ -152,19 +153,19 @@
 	left: "35dp",
 },
 "#myListingsLabel[if=Alloy.Globals.iPhoneFive]":{
-	left:"18dp"
+	left:"20dp"
 },
 "#notificationsLabel[if=Alloy.Globals.iPhoneFive]":{
 	left:"17dp"
 },
 "#signOutLabel[if=Alloy.Globals.iPhoneFive]":{
-	left:"16dp"
+	left:"18dp"
 },
 ".menuTable[if=Alloy.Globals.iPhoneFive]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
 	backgroundColor:'#FAFAFA',
-	height: "250dp",
+	height: "295dp",
 	scrollable: false
 },
 ".menuTable2[if=Alloy.Globals.iPhoneFive]":{
@@ -174,33 +175,33 @@
 	scrollable: false
 },
 "#menuSeparator[if=Alloy.Globals.iPhoneFive]": {
-	top: "45dp",
-	bottom: "20dp"
+	top: "97dp",
+	bottom: "13dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneFive]":{
 	height: '35dp'
 },
 "#row0[if=Alloy.Globals.iPhoneFive]":{
-	height:"100dp"
+	height:"95dp"
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneFive]":{
-	height:"50dp",
+	height:"55dp",
 	right: "75dp",
 	top: "10dp"
 },
 "#userImage[if=Alloy.Globals.iPhoneFive]": {
-	height: "50dp",
-	width: "50dp"
+	height: "55dp",
+	width: "55dp"
 },
 "#menuUserName[if=Alloy.Globals.iPhoneFive]":{
 	right: "75dp"
 },
 "#userName[if=Alloy.Globals.iPhoneFive]": {
 	color: "#545555",
-	top:"40dp",
-	left:"25%",
+	top:"68dp",
 	font: {
-		fontSize: "16dp"
+		fontSize: "16dp",
+		fontFamily: 'Nunito-Light'
 	}
 },
 
@@ -300,7 +301,8 @@
 	top:"40dp",
 	left:"25%",
 	font: {
-		fontSize: "16dp"
+		fontSize: "16dp",
+		fontFamily: 'Nunito-Light'
 	}
 },
 
@@ -403,6 +405,7 @@
 	top:"40dp",
 	left:"25%",
 	font: {
-		fontSize: "16dp"
+		fontSize: "16dp",
+		fontFamily: 'Nunito-Light'
 	}
 },

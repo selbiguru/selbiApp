@@ -64,7 +64,7 @@
 	right: "60dp"
 },
 
-"#titleNotificationsLabel[if=Alloy.Globals.iPhoneSixFive]": {
+"#titleNotificationsLabel[if=Alloy.Globals.iPhoneFive]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
