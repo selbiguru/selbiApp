@@ -221,7 +221,7 @@
 	left: "35dp",
 	color: "#1BA7CD",
 	font: {
-		fontSize: "18dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
 	}
 },
@@ -231,7 +231,7 @@
 	left:"20dp",
 	right: "20dp",
 	backgroundColor:"#EAEAEA",
-	width:"66%"
+	width:"67%"
 },
 ".rowContainer[if=Alloy.Globals.iPhoneSix]":{
 	height: '30dp',
@@ -253,19 +253,19 @@
 	left: "35dp",
 },
 "#myListingsLabel[if=Alloy.Globals.iPhoneSix]":{
-	left:"18dp"
+	left:"20dp"
 },
 "#notificationsLabel[if=Alloy.Globals.iPhoneSix]":{
 	left:"17dp"
 },
 "#signOutLabel[if=Alloy.Globals.iPhoneSix]":{
-	left:"16dp"
+	left:"18dp"
 },
 ".menuTable[if=Alloy.Globals.iPhoneSix]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
 	backgroundColor:'#FAFAFA',
-	height: "250dp",
+	height: "310dp",
 	scrollable: false
 },
 ".menuTable2[if=Alloy.Globals.iPhoneSix]":{
@@ -275,7 +275,7 @@
 	scrollable: false
 },
 "#menuSeparator[if=Alloy.Globals.iPhoneSix]": {
-	top: "180dp",
+	top: "170dp",
 	bottom: "20dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneSix]":{
@@ -285,21 +285,20 @@
 	height:"100dp"
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneSix]":{
-	height:"50dp",
-	right: "75dp",
+	height:"60dp",
+	right: "85dp",
 	top: "10dp"
 },
 "#userImage[if=Alloy.Globals.iPhoneSix]": {
-	height: "50dp",
-	width: "50dp"
+	height: "60dp",
+	width: "60dp"
 },
 "#menuUserName[if=Alloy.Globals.iPhoneSix]":{
-	right: "75dp"
+	right: "85dp"
 },
 "#userName[if=Alloy.Globals.iPhoneSix]": {
 	color: "#545555",
-	top:"40dp",
-	left:"25%",
+	top:"75dp",
 	font: {
 		fontSize: "16dp",
 		fontFamily: 'Nunito-Light'
