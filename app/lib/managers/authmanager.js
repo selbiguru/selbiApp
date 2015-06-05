@@ -35,6 +35,7 @@ exports.login = function (username, password, cb){
 			authModel.save();
 			
 			Ti.App.Properties.setString('token', loginResult.token);
+			Ti.App.Properties.setString('userId', loginResult.user.id);
 			Ti.App.Properties.setString('isAuth', true);
 			
 			if(cb) cb(null, authModel);

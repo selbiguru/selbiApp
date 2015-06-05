@@ -24,7 +24,7 @@ exports.execute = function(relativePath, method, objectToSend, isAuth, callback)
 	
     xhr.onload = function() {
         Ti.API.info('RAW =' + this.responseText);
-        if (this.status == '200') {
+        if (this.status == 200 || this.status == 201) {
             Ti.API.info('got my response, http status code ' + this.status);
             if (this.readyState == 4) {
                 var response = JSON.parse(this.responseText);

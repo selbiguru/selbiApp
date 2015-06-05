@@ -2,6 +2,7 @@
 	<Window>
 		<View class="master-container" id="master">
 			<Require type="widget" src="com.alcoapps.drawermenu" id="drawermenu"/>
-		</View>
+		</View>		
+		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 	</Window>
 </Alloy>

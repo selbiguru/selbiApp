@@ -1,20 +1,37 @@
 <Alloy>
 	<View id="mainView">
 		<View id="mainTopBar">
-	        <View id="menuButton"/>
-	        <View >
-				<Label> Listings - Create</Label>
+			<View id="menuButton"/>
+			<View >
+				<Label>Create Listing</Label>
 			</View>
 		</View>
-		<View class="container create-listing-view" layout="vertical">
-			<Label class="fade-text">Add up to 6 photos</Label>
-			<Button onClick="showCamera" class="create-listing-capture-btn secondary-btn"> Capture a Photo</Button>
-			<Button onClick="showGallery" class="create-listing-capture-btn secondary-btn"> Select from Gallery</Button>
-			<View layout="horizontal" id="imgView" class="image-gallery-view">
-				
-			</View>
-			
-			 <Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
-		</View>	
+		<View class="container create-listing-view" layout="absolute" id="createListing">
+
+			<View id="step1" layout="vertical" class="child" visible="true">
+				<Label class="fade-text">Add up to 6 photos</Label>
+				<Button onClick="showCamera" class="create-listing-capture-btn secondary-btn">Capture a Photo</Button>
+				<Button onClick="showGallery" class="create-listing-capture-btn secondary-btn">Select from Gallery</Button>
+				<View layout="horizontal" id="imgView" class="image-gallery-view"></View>
+				<!-- <Require type="widget" src="com.prodz.tiflexigrid" id="fg"/> -->
+				<Button class="secondary-btn dock-bottom" onClick="gotoStep2" step="2" bottom="0">Next</Button>
+			</View>			
+			<View id="step2" layout="vertical" class="child" visible="false">
+				<View class="listing-detail-container" layout="vertical">
+					<TextField hintText="Title" id="title" keyboardType="DEFAULT"></TextField>
+					<TextArea hintText="Describe your item" id="description"></TextArea>
+					<TextField hintText="Starting Price" id="price" keyboardType="NUMBERS_PUNCTUATION"></TextField>
+				</View>
+				<View layout="horizontal">
+					<View width="48%">
+					<Button id="saveListing" onClick="gotoStep1" class="secondary-btn half-btn">Back</Button>
+					</View>
+					<View width="2%"></View>
+					<View width="50%">
+					<Button id="saveListing" onClick="saveListing" class="secondary-btn half-btn">Save Listing</Button>
+					</View>
+				</View>
+			</View>			
+		</View>
 	</View>
 </Alloy>

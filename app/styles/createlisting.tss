@@ -4,11 +4,9 @@
 }
 
 ".create-listing-view": {
-	top: 100
-}
-
-".create-listing-window": {
-	backgroundColor: 'white'
+	top: 10,
+	height: Titanium.UI.FILL,
+	backgroundColor: 'red'
 }
 
 ".fade-text": {
@@ -26,4 +24,48 @@
 ".image-gallery-view":{
 	height: 200,
 	top: 40	
+}
+
+".child": {
+	top: 10
+}
+".dock-bottom": {
+	bottom: 0
+}
+
+"#step2": {
+	height : Titanium.UI.FILL
+}
+
+"Button.half-btn": {
+	width: '50%'
+}
+
+".listing-detail-container": {
+	height: 400
+}
+
+"TextField": {
+	borderWidth: 1, 
+	borderColor: '#777',
+	width: Titanium.UI.FILL,
+	top: 10,
+	height: 30,
+	paddingLeft: 10,
+	borderRadius: 2,
+	font: {
+		fontSize: 14
+	}
+}
+"TextArea": {
+	borderWidth: 1, 
+	borderColor: '#777',
+	width: Titanium.UI.FILL,
+	top: 10,
+	height: 180,
+	borderRadius: 2,
+	font: {
+		fontSize: 14
+	},
+	paddingLeft: 10
 }
