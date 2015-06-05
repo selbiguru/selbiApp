@@ -234,15 +234,15 @@
 	width:"67%"
 },
 ".rowContainer[if=Alloy.Globals.iPhoneSix]":{
-	height: '30dp',
+	height: '40dp',
 	layout:'horizontal'
 },
 ".rowLabel[if=Alloy.Globals.iPhoneSix]":{
 	top: "7dp",
 	left: "15dp",
-	height: "20dp",
+	height: "40dp",
 	font:{
-		fontSize: "15dp",
+		fontSize: "16dp",
     	fontFamily: 'Nunito-Light'
 	},
 	color: "#545555"
@@ -276,7 +276,7 @@
 },
 "#menuSeparator[if=Alloy.Globals.iPhoneSix]": {
 	top: "170dp",
-	bottom: "20dp"
+	bottom: "13dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneSix]":{
 	height: '40dp'
@@ -324,7 +324,7 @@
 	left: "35dp",
 	color: "#1BA7CD",
 	font: {
-		fontSize: "18dp",
+		fontSize: "24dp",
 		fontFamily: "Nunito-Bold"
 	}
 },
@@ -334,18 +334,18 @@
 	left:"20dp",
 	right: "20dp",
 	backgroundColor:"#EAEAEA",
-	width:"66%"
+	width:"68%"
 },
 ".rowContainer[if=Alloy.Globals.iPhoneSixPlus]":{
-	height: '30dp',
+	height: '35dp',
 	layout:'horizontal'
 },
 ".rowLabel[if=Alloy.Globals.iPhoneSixPlus]":{
 	top: "7dp",
-	left: "15dp",
-	height: "20dp",
+	left: "17dp",
+	height: "35dp",
 	font:{
-		fontSize: "15dp",
+		fontSize: "18dp",
     	fontFamily: 'Nunito-Light'
 	},
 	color: "#545555"
@@ -353,22 +353,22 @@
 },
 ".row-icon[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: "#1BA7CD",
-	left: "35dp",
+	left: "45dp",
 },
 "#myListingsLabel[if=Alloy.Globals.iPhoneSixPlus]":{
-	left:"18dp"
+	left:"20dp"
 },
 "#notificationsLabel[if=Alloy.Globals.iPhoneSixPlus]":{
 	left:"17dp"
 },
 "#signOutLabel[if=Alloy.Globals.iPhoneSixPlus]":{
-	left:"16dp"
+	left:"18dp"
 },
 ".menuTable[if=Alloy.Globals.iPhoneSixPlus]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
 	backgroundColor:'#FAFAFA',
-	height: "250dp",
+	height: "350dp",
 	scrollable: false
 },
 ".menuTable2[if=Alloy.Globals.iPhoneSixPlus]":{
@@ -385,26 +385,25 @@
 	height: '40dp'
 },
 "#row0[if=Alloy.Globals.iPhoneSixPlus]":{
-	height:"100dp"
+	height:"110dp"
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneSixPlus]":{
-	height:"50dp",
-	right: "75dp",
-	top: "10dp"
+	height:"65dp",
+	right: "90dp",
+	top: "13dp"
 },
 "#userImage[if=Alloy.Globals.iPhoneSixPlus]": {
-	height: "50dp",
-	width: "50dp"
+	height: "65dp",
+	width: "65dp"
 },
 "#menuUserName[if=Alloy.Globals.iPhoneSixPlus]":{
-	right: "75dp"
+	right: "90dp"
 },
 "#userName[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: "#545555",
-	top:"40dp",
-	left:"25%",
+	top:"80dp",
 	font: {
-		fontSize: "16dp",
+		fontSize: "18dp",
 		fontFamily: 'Nunito-Light'
 	}
 },

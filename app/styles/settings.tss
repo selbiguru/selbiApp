@@ -127,7 +127,7 @@
 },
 "#settingsButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "18dp"
+            fontSize: "20dp"
         },
 	color: "#1BA7CD"
 },
@@ -139,7 +139,7 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "18dp",
+		fontSize: "20dp",
 		fontFamily: "Nunito-Bold"
 	}
 },
