@@ -5,8 +5,8 @@
 				<Label icon="fa-arrow-left" id="menuButtonIcon"></Label>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
-			<View >
-				<Label id="titleMainView"> Main - View</Label>
+			<View id="titleMainView">
+				<Label id="titleMainLabel">Main</Label>
 			</View>
 		</View>
 		<TableView>

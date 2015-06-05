@@ -1,7 +1,13 @@
 <Alloy>
-    <View id="mainView">
-        <View id="mainTopBar">
-            <View id="menuButton"/>
+    <View id="notificationsView">
+        <View id="notificationsTopBar">
+            <View id="menuButton">
+				<Label icon="fa-arrow-left" id="notificationsButtonIcon"></Label>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</View>
+			<View id="titleNotificationsView">
+				<Label id="titleNotificationsLabel">Notifications</Label>
+			</View>
         </View>
         <TableView>
             <TableViewRow id="row">

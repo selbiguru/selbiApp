@@ -61,8 +61,29 @@ var viewList = {
 
 initialize();
 
-// add event listener in this context
+// add event listener in this context menuView Table 1
 menuView.menuTable.addEventListener('click',function(e){
+	
+	function drawView(row){
+		for (var property in viewList) {
+		    if (property === row) {
+		        $.drawermenu.drawermainview.add(viewList[row].getView());
+		    } else {
+		    	$.drawermenu.drawermainview.remove(viewList[property].getView());
+		    }
+		}
+	};
+	
+    $.drawermenu.showhidemenu();
+    $.drawermenu.menuOpen = false; //update menuOpen status to prevent inconsistency.
+    drawView(e.rowData.id);
+    
+    // on Android the event is received by the label, so watch out!
+    Ti.API.info(e.rowData.id); 
+});
+
+// add event listener in this context menuView Table 2
+menuView.menuTable2.addEventListener('click',function(e){
 	
 	function drawView(row){
 		for (var property in viewList) {

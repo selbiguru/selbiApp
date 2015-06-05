@@ -1,24 +1,145 @@
-
-
-
-".listings-view": {
-	top: 20
-}
-
-".listings-window": {
-	backgroundColor: 'white'
-}
-"#mainView":{
+//DEFAULT
+"#listingsView":{
 	layout: 'vertical',
 	backgroundColor: '#cacaca'
 },
-"#mainTopBar":{
+
+
+
+
+//iPhone 4
+"#listingsTopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#FAFAFA',
 	layout: 'horizontal'
 },
-"#menuButton":{
+"#menuButton[if=Alloy.Globals.iPhoneFour]":{
+	height: "60dp",
 	width: "60dp",
-	height: "60dp"
-}
+	backgroundColor: '#FAFAFA'
+},
+"#listingsButtonIcon[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleListingsView[if=Alloy.Globals.iPhoneFour]": {
+	right: "60dp"
+},
+
+"#titleListingsLabel[if=Alloy.Globals.iPhoneFour]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+
+
+
+
+
+//iPhone 5
+"#listingsTopBar[if=Alloy.Globals.iPhoneFive]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneFive]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#listingsButtonIcon[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleListingsView[if=Alloy.Globals.iPhoneFive]": {
+	right: "60dp"
+},
+
+"#titleListingsLabel[if=Alloy.Globals.iPhoneFive]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+
+
+
+
+
+//iPhone 6
+"#listingsTopBar[if=Alloy.Globals.iPhoneSix]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneSix]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#listingsButtonIcon[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleListingsView[if=Alloy.Globals.iPhoneSix]": {
+	right: "60dp"
+},
+
+"#titleListingsLabel[if=Alloy.Globals.iPhoneSix]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+
+
+
+
+
+
+//iPhone 6 Plus
+"#listingsTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#listingsButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleListingsView[if=Alloy.Globals.iPhoneSixPlus]": {
+	right: "60dp"
+},
+
+"#titleListingsLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},

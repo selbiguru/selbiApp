@@ -51,9 +51,9 @@
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow>
-				<View id="menuSeparator" class="menu-underline"></View>
-			</TableViewRow>
+		</TableView>
+		<View id="menuSeparator" class="menu-underline"></View>
+		<TableView class="menuTable2" id="menuTable2">
 			<TableViewRow class="tableRow" id="row6">
 				<View class="rowContainer">
 					<Label icon="fa-gears" class="rowLabel row-icon" id="menuSettingsIcon"></Label>

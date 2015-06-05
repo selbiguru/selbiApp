@@ -1,4 +1,146 @@
+//DEFAULT
+"#notificationsView":{
+	layout: 'vertical',
+	backgroundColor: '#cacaca'
+},
 
-".container" : {
-  
-}
+
+
+
+//iPhone 4
+"#notificationsTopBar[if=Alloy.Globals.iPhoneFour]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneFour]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#notificationsButtonIcon[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleNotificationsView[if=Alloy.Globals.iPhoneFour]": {
+	right: "60dp"
+},
+
+"#titleNotificationsLabel[if=Alloy.Globals.iPhoneFour]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+
+
+
+
+
+//iPhone 5
+"#notificationsTopBar[if=Alloy.Globals.iPhoneFive]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneFive]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#notificationsButtonIcon[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleNotificationsView[if=Alloy.Globals.iPhoneFive]": {
+	right: "60dp"
+},
+
+"#titleNotificationsLabel[if=Alloy.Globals.iPhoneSixFive]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+
+
+
+
+
+
+//iPhone 6
+"#notificationsTopBar[if=Alloy.Globals.iPhoneSix]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneSix]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#notificationsButtonIcon[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleNotificationsView[if=Alloy.Globals.iPhoneSix]": {
+	right: "60dp"
+},
+
+"#titleNotificationsLabel[if=Alloy.Globals.iPhoneSix]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+
+
+
+
+
+
+//iPhone 6 Plus
+"#notificationsTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#notificationsButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleNotificationsView[if=Alloy.Globals.iPhoneSixPlus]": {
+	right: "60dp"
+},
+
+"#titleNotificationsLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},

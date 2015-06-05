@@ -2,11 +2,11 @@
     <View id="settingsView">
         <View id="settingsTopBar">
 			<View id="menuButton">
-				<Label icon="fa-arrow-left" id="menuButtonIcon"></Label>
+				<Label icon="fa-arrow-left" id="settingsButtonIcon"></Label>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
-			<View >
-				<Label id="titleSettingsView">Settings</Label>
+			<View id="titleSettingsView">
+				<Label id="titleSettingsLabel">Settings</Label>
 			</View>
 		</View>
         <TableView>

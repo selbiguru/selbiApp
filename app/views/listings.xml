@@ -1,11 +1,14 @@
 <Alloy>
-	<View id="mainView">
-        <View id="mainTopBar">
-            <View id="menuButton"/>
-            <View >
-				<Label> Listings - list</Label>
+	<View id="listingsView">
+        <View id="listingsTopBar">
+			<View id="menuButton">
+				<Label icon="fa-arrow-left" id="listingsButtonIcon"></Label>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
-        </View>
+			<View id="titleListingsView">
+				<Label id="titleListingsLabel">Listings</Label>
+			</View>
+		</View>
         <TableView>
             <TableViewRow id="row">
                 <View id="view" backgroundColor="red" width="20" height="20"/>
