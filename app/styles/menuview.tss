@@ -407,3 +407,105 @@
 		fontFamily: 'Nunito-Light'
 	}
 },
+
+
+
+
+
+
+//android -(currently same as iPhone 6)
+"#menuTopBar[if=Alloy.Globals.android]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuTitle[if=Alloy.Globals.android]": {
+	top: "20dp",
+	left: "35dp",
+	color: "#1BA7CD",
+	font: {
+		fontSize: "22dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+".menu-underline[if=Alloy.Globals.android]": {
+	height: "1dp",
+	top:"0dp",
+	left:"20dp",
+	right: "20dp",
+	backgroundColor:"#EAEAEA",
+	width:"67%"
+},
+".rowContainer[if=Alloy.Globals.android]":{
+	height: '40dp',
+	layout:'horizontal'
+},
+".rowLabel[if=Alloy.Globals.android]":{
+	top: "7dp",
+	left: "15dp",
+	height: "40dp",
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: "#545555"
+	
+},
+".row-icon[if=Alloy.Globals.android]": {
+	color: "#1BA7CD",
+	left: "35dp",
+},
+"#myListingsLabel[if=Alloy.Globals.android]":{
+	left:"20dp"
+},
+"#notificationsLabel[if=Alloy.Globals.android]":{
+	left:"17dp"
+},
+"#signOutLabel[if=Alloy.Globals.android]":{
+	left:"18dp"
+},
+".menuTable[if=Alloy.Globals.android]":{
+	separatorStyle:'NONE',
+	separatorColor: 'transparent',
+	backgroundColor:'#FAFAFA',
+	height: "310dp",
+	scrollable: false
+},
+".menuTable2[if=Alloy.Globals.android]":{
+	separatorStyle:'NONE',
+	separatorColor: 'transparent',
+	backgroundColor:'#FAFAFA',
+	scrollable: false
+},
+"#menuSeparator[if=Alloy.Globals.android]": {
+	top: "170dp",
+	bottom: "13dp"
+},
+".tableRow[if=Alloy.Globals.android]":{
+	height: '40dp'
+},
+"#row0[if=Alloy.Globals.android]":{
+	height:"100dp"
+},
+"#menuUserImage[if=Alloy.Globals.android]":{
+	height:"60dp",
+	right: "85dp",
+	top: "10dp"
+},
+"#userImage[if=Alloy.Globals.android]": {
+	height: "60dp",
+	width: "60dp"
+},
+"#menuUserName[if=Alloy.Globals.android]":{
+	right: "85dp"
+},
+"#userName[if=Alloy.Globals.android]": {
+	color: "#545555",
+	top:"75dp",
+	font: {
+		fontSize: "16dp",
+		fontFamily: 'Nunito-Light'
+	}
+},
+

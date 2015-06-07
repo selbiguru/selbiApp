@@ -143,3 +143,40 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+
+
+
+
+
+
+
+//android -(currently same as iPhone 6)
+"#myListingsTopBar[if=Alloy.Globals.android]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.android]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#myListingsButtonIcon[if=Alloy.Globals.android]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleMyListingsView[if=Alloy.Globals.android]": {
+	right: "60dp"
+},
+
+"#titleMyListingsLabel[if=Alloy.Globals.android]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
