@@ -9,10 +9,50 @@
 				<Label id="titleSettingsLabel">Settings</Label>
 			</View>
 		</View>
-        <TableView>
-            <TableViewRow id="row">
-                <View id="view" backgroundColor="red" width="20" height="20"/>
-            </TableViewRow>
-        </TableView>
+		<View class="menu-underline"/>
+		<TableView class="menuTable" id="menuTable">
+	        <TableViewRow class="tableRow" id="row0">
+				<View class="rowContainer">
+					<Label id="rowLabel" class="rowLabel">Payments</Label>
+					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
+				</View>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</TableViewRow>
+			<TableViewRow class="tableRow" id="row1">
+				<View class="rowContainer">
+					<Label id="rowLabel" class="rowLabel">Edit Profile</Label>
+					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
+				</View>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</TableViewRow>
+			<TableViewRow class="tableRow" id="row2">
+				<View class="rowContainer">
+					<Label id="rowLabel" class="rowLabel">FAQ</Label>
+					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
+				</View>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</TableViewRow>
+			<TableViewRow class="tableRow" id="row3">
+				<View class="rowContainer">
+					<Label id="rowLabel" class="rowLabel">Feedback & Help</Label>
+					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
+				</View>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</TableViewRow>
+			<TableViewRow class="tableRow" id="row3">
+				<View class="rowContainer">
+					<Label id="rowLabel" class="rowLabel">Privacy Policy</Label>
+					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
+				</View>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</TableViewRow>
+			<TableViewRow class="tableRow" id="row3">
+				<View class="rowContainer">
+					<Label id="rowLabel" class="rowLabel">User Agreement</Label>
+					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
+				</View>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</TableViewRow>
+		</TableView>
     </View>
 </Alloy>

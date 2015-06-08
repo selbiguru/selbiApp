@@ -62,6 +62,7 @@
 ".menuTable[if=Alloy.Globals.iPhoneFour]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
+	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	height: "260dp",
 	scrollable: false
@@ -69,6 +70,7 @@
 ".menuTable2[if=Alloy.Globals.iPhoneFour]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
+	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	scrollable: false
 },
@@ -164,6 +166,7 @@
 ".menuTable[if=Alloy.Globals.iPhoneFive]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
+	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	height: "295dp",
 	scrollable: false
@@ -171,6 +174,7 @@
 ".menuTable2[if=Alloy.Globals.iPhoneFive]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
+	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	scrollable: false
 },
@@ -264,6 +268,7 @@
 ".menuTable[if=Alloy.Globals.iPhoneSix]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
+	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	height: "310dp",
 	scrollable: false
@@ -271,6 +276,7 @@
 ".menuTable2[if=Alloy.Globals.iPhoneSix]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
+	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	scrollable: false
 },
@@ -367,6 +373,7 @@
 ".menuTable[if=Alloy.Globals.iPhoneSixPlus]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
+	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	height: "350dp",
 	scrollable: false
@@ -374,6 +381,7 @@
 ".menuTable2[if=Alloy.Globals.iPhoneSixPlus]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
+	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	scrollable: false
 },
@@ -468,6 +476,7 @@
 ".menuTable[if=Alloy.Globals.android]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
+	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	height: "310dp",
 	scrollable: false
@@ -475,6 +484,7 @@
 ".menuTable2[if=Alloy.Globals.android]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
+	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	scrollable: false
 },

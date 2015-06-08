@@ -1,9 +1,59 @@
 //DEFAULT
 "#settingsView":{
 	layout: 'vertical',
-	backgroundColor: '#cacaca'
+	backgroundColor: '#FAFAFA'
 },
 
+".menuTable[if=Alloy.Globals.iPhoneSix]":{
+	selectedBackgroundColor: "EAEAEA",
+	backgroundColor:'#FAFAFA',
+	scrollable: false
+},
+".rowLabelY[if=Alloy.Globals.iPhoneSix]":{
+	selectionStyle:"NONE",
+	backgroundColor:'#EAEAEA',
+	scrollable: false,
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.FILL,
+	left:"5dp"
+},
+".rowLabelX[if=Alloy.Globals.iPhoneSix]":{
+	selectionStyle:"NONE",
+	backgroundColor:'#EAEAEA',
+	scrollable: false,
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.FILL,
+	left:"5dp"
+},
+".tableRow[if=Alloy.Globals.iPhoneSix]":{
+	height: '40dp'
+},
+".rowContainer[if=Alloy.Globals.iPhoneSix]":{
+	height: '40dp',
+	layout:'horizontal'
+},
+".rowLabel[if=Alloy.Globals.iPhoneSix]":{
+	left: "15dp",
+	height: "40dp",
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: "#545555"
+},
+".row-icon[if=Alloy.Globals.iPhoneSix]":{
+	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
+	right: "15dp",
+	width: Titanium.UI.FILL,
+	color: "#1BA7CD"
+},
+".menu-underline[if=Alloy.Globals.iPhoneSix]": {
+	height: "1dp",
+	top:"0dp",
+	left:"15dp",
+	width: Titanium.UI.FILL,
+	backgroundColor:"#EAEAEA"
+},
 
 
 
