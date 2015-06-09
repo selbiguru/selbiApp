@@ -1,0 +1,27 @@
+<Alloy>
+    <View id="editUserProfileView">
+        <View id="editUserProfileTopBar">
+			<View id="menuButton">
+				<Label icon="fa-arrow-left" id="editUserProfileButtonIcon"></Label>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</View>
+			<View id="titleEditUserProfileView">
+				<Label id="titleEditUserProfileLabel">Profile</Label>
+			</View>
+		</View>
+        <View id="profileImageView">
+        	<ImageView id="userProfileImage" image="/images/home-bg.png" />
+        </View>
+
+		<View id="jordan">
+	        <TextField id="firstName" hintText="First Name"></TextField>
+	        <TextField id="lastName" hintText="LastName"></TextField>
+	        <TextField id="email" hintText="Email"></TextField>
+	        <TextField id="streetAddress" hintText="Street Address"></TextField>
+	        <TextField id="city" hintText="City"></TextField>
+	        <TextField id="state" hintText="State"></TextField>
+	        <Button id="connectFacebook" class="primary-btn">Connect to Facebook</Button>
+	        <Button id="connectTwitter" class="primary-btn">Connect to Twitter</Button>
+	   </View>
+    </View>
+</Alloy>

@@ -50,3 +50,6 @@ exports.getInviteFriendsView = function(){
 exports.getSettingsView = function(){
 	return Alloy.createController('settings');
 };
+exports.getEditUserProfileView = function(){
+	return Alloy.createController('edituserprofile');
+};

@@ -10,43 +10,43 @@
 			</View>
 		</View>
 		<View class="menu-underline"/>
-		<TableView class="menuTable" id="menuTable">
-	        <TableViewRow class="tableRow" id="row0">
+		<TableView class="menuTable" id="menuTable3">
+	        <TableViewRow class="tableRow" id="row7">
 				<View class="rowContainer">
 					<Label id="rowLabel" class="rowLabel">Payments</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="row1">
+			<TableViewRow class="tableRow" id="row8">
 				<View class="rowContainer">
 					<Label id="rowLabel" class="rowLabel">Edit Profile</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="row2">
+			<TableViewRow class="tableRow" id="row9">
 				<View class="rowContainer">
 					<Label id="rowLabel" class="rowLabel">FAQ</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="row3">
+			<TableViewRow class="tableRow" id="row10">
 				<View class="rowContainer">
 					<Label id="rowLabel" class="rowLabel">Feedback & Help</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="row3">
+			<TableViewRow class="tableRow" id="row11">
 				<View class="rowContainer">
 					<Label id="rowLabel" class="rowLabel">Privacy Policy</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="row3">
+			<TableViewRow class="tableRow" id="row12">
 				<View class="rowContainer">
 					<Label id="rowLabel" class="rowLabel">User Agreement</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>

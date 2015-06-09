@@ -20,7 +20,7 @@ var notificationsView = controls.getNotificationsView();
 var myListingsView = controls.getMyListingView();
 var inviteFriendsView = controls.getInviteFriendsView();
 var settingsView = controls.getSettingsView();
-
+var editUserProfileView = controls.getEditUserProfileView();
 /**
  * Initializes all the menu items, views and events associated to each menu item
  */
@@ -50,7 +50,8 @@ function initialize() {
 
 // setup the list of views 
 var viewList = {
-	"row0": mainView,
+	"row": mainView,
+	"row0": editUserProfileView,
 	"row1": postListingView,
 	"row2": inviteFriendsView,
 	"row3": notificationsView,
@@ -81,6 +82,7 @@ menuView.menuTable.addEventListener('click',function(e){
     // on Android the event is received by the label, so watch out!
     Ti.API.info(e.rowData.id); 
 });
+
 
 // add event listener in this context menuView Table 2
 menuView.menuTable2.addEventListener('click',function(e){
