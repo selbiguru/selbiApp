@@ -1,4 +1,5 @@
-var args = arguments[0] || {};
+var AuthManager = require('managers/authmanager'),
+	args = arguments[0] || {};
 
 function registerUser(){
 	// Todo: validation when we have a template
@@ -6,7 +7,7 @@ function registerUser(){
 		return error;
 	}*/
 	
-	AuthManager.userRegister($.firstName.value, $.lastName.value, $.username.value, $.password.value, function(err, registerResult){
+	AuthManager.userRegister($.firstName.value, $.lastName.value, $.email.value, $.password.value, function(err, registerResult){
 		if(registerResult) {
 			console.log("Successfully regsitered");
 			var homeController = Alloy.createController('listings').getView();

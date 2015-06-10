@@ -6,11 +6,11 @@
 			<View class="signup-underline"/>
 			<TextField id="lastName" hintText="LastName"></TextField>
 			<View class="signup-underline"/>
-			<TextField id="username" hintText="Email"></TextField>
+			<TextField id="email" hintText="Email"></TextField>
 			<View class="signup-underline"/>
 			<TextField passwordMask="true" hintText="Password" id="password"></TextField>
 			<View class="signup-underline"/>	
-			<Button class="primary-btn">Let's Selbi</Button>
+			<Button onClick="registerUser" class="primary-btn">Let's Selbi</Button>
 			<Label class="terms-conditions">By signing up, you are agreeing to Selbi's User Agreement and Privacy Policy</Label>
 			<Label onClick="closeRegisterWindow" class="cancel-txt">Already Selbi?</Label>
 		</View>

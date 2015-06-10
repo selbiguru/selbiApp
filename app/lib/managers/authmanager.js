@@ -1,6 +1,6 @@
 var httpClient = require('managers/httpmanager');
 
-exports.login = function (username, password, cb){
+var login = exports.login = function (username, password, cb){
 	// Todo: validation
 	
 	
@@ -46,52 +46,28 @@ exports.login = function (username, password, cb){
 	}); 
 };
 
-exports.userRegister = function(firstName, lastName, username, password, cb) {
+exports.userRegister = function(firstName, lastName, email, password, cb) {
 	// Todo: validation
 	
-};	
-/*	// Prepare request
+		
+	// Prepare request
 	var registerRequest = {
-		"identifier": username,
+		"username": email,
+		"email": email,
 		"password": password,
 		"firstName": firstName,
 		"lastName": lastName
 		
 	};
 	
-	httpClient.execute("/register", ,"POST", registerRequest, false, function(err, registerResults) {
+	httpClient.execute("/register", "POST", registerRequest, false, function(err, registerResults) {
 		if(!err && registerResults) {
-			// Create a singleton
-			var authModel = Alloy.Models.instance('auth');
-			var userModel = Alloy.createModel('user');
-			
-			if(loginResult.user) {
-				// Set user properties
-				userModel.set({username: registerResults.user.username});
-				userModel.set({password: password });
-				userModel.set({firstName: registerResults.user.firstName});
-				userModel.set({lastName: registerResults.user.lastName});
-				userModel.set({email: registerResults.user.email});
-				userModel.set({id: registerResults.user.id});			
-			}
-			
-			authModel.set({ token: registerResults.token });
-			authModel.set({ username: username });
-			authModel.set({ password: password });
-			authModel.set({ user : JSON.stringify(userModel)});
-			authModel.set({ isAuth: true });
-			authModel.save();
-			
-			Ti.App.Properties.setString('token', registerResults.token);
-			Ti.App.Properties.setString('isAuth', true);
-			
-			if(cb) cb(null, authModel);
-			
+			login(email, password, cb);
 		} else {
 			if(cb) cb(err, null);
 		}
 	}); 
-};*/
+};
 
 exports.isLoggedIn = function() {
 	return Ti.App.Properties.getString('isAuth') ? Ti.App.Properties.getString('isAuth') : false;
