@@ -76,3 +76,16 @@ exports.isLoggedIn = function() {
 exports.getToken = function() {
 	return Ti.App.Properties.getString('token') ? Ti.App.Properties.getString('token'): "";
 };
+
+exports.logout = function(cb){
+	httpClient.execute("/logout", "POST", null, true, function(err, logoutResult){
+		Ti.API.info("Logout Result", logoutResult);
+		if(logoutResult) {
+			Ti.App.Properties.removeProperty('token');
+			Ti.App.Properties.removeProperty('userId');
+			Ti.App.Properties.setString('isAuth', false);
+			
+		}
+		cb(err, logoutResult);
+	});
+};

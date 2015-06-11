@@ -62,7 +62,7 @@
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="row7">
-				<View class="rowContainer">
+				<View class="rowContainer" onClick="logout">
 					<Label icon="fa-sign-out" class="rowLabel row-icon" id="menuSignOutIcon"></Label>
 					<Label id="signOutLabel" class="rowLabel">Sign-out</Label>
 				</View>
