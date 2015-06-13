@@ -10,7 +10,7 @@
 			</View>
 		</View>
 		<View class="menu-underline"/>
-		<TableView class="menuTable" id="menuTable3">
+		<TableView class="settingsTable" id="settingsTable">
 	        <TableViewRow class="tableRow" id="row7">
 				<View class="rowContainer">
 					<Label id="rowLabel" class="rowLabel">Payments</Label>

@@ -9,14 +9,12 @@
 				<Label id="titleEditUserProfileLabel">Profile</Label>
 			</View>
 		</View>
-        <View id="profileImageView">
-        	<ImageView id="userProfileImage" image="/images/home-bg.png" />
-        </View>
-
-		<View id="jordan">
+		<View id="editUserInfoView" layout="vertical">
+			<ImageView id="userProfileImage" image="/images/home-bg.png" />
+        	<Label id="editUserImage">Edit Image</Label>
 	        <TextField id="firstName" hintText="First Name"></TextField>
 	        <TextField id="lastName" hintText="LastName"></TextField>
-	        <TextField id="email" hintText="Email"></TextField>
+	        <TextField id="userName" hintText="UserName"></TextField>
 	        <TextField id="streetAddress" hintText="Street Address"></TextField>
 	        <TextField id="city" hintText="City"></TextField>
 	        <TextField id="state" hintText="State"></TextField>

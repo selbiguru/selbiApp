@@ -4,10 +4,11 @@
 	backgroundColor: '#FAFAFA'
 },
 
-".menuTable":{
+".settingsTable":{
 	selectedBackgroundColor: "EAEAEA",
 	backgroundColor:'#FAFAFA',
-	scrollable: false
+	scrollable: false,
+	height: Ti.UI.SIZE
 },
 ".rowLabelY":{
 	selectionStyle:"NONE",

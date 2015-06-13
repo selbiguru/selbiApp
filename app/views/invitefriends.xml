@@ -6,7 +6,7 @@
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
 			<View id="titleInviteFriendsView">
-				<Label id="titleInviteFriendsLabel">Settings</Label>
+				<Label id="titleInviteFriendsLabel">Invite Friends</Label>
 			</View>
 		</View>
         <TableView>
