@@ -11,14 +11,14 @@
 		</View>
 		<View class="menu-underline"/>
 		<TableView class="settingsTable" id="settingsTable">
-	        <TableViewRow class="tableRow" id="payments">
+	        <TableViewRow class="tableRow" id="invitefriends">
 				<View class="rowContainer">
 					<Label id="rowLabel" class="rowLabel">Payments</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="editProfile">
+			<TableViewRow class="tableRow" id="edituserprofile">
 				<View class="rowContainer">
 					<Label id="rowLabel" class="rowLabel">Edit Profile</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>

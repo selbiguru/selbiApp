@@ -53,3 +53,7 @@ exports.getSettingsView = function(){
 exports.getEditUserProfileView = function(){
 	return Alloy.createController('edituserprofile');
 };
+
+exports.getCustomView = function(viewName){
+	return Alloy.createController(viewName);
+};

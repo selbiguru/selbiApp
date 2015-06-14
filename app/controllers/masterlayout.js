@@ -62,6 +62,8 @@ var viewList = {
 
 initialize();
 
+
+
 // add event listener in this context menuView Table 1
 menuView.menuTable.addEventListener('click',function(e){
 	
@@ -104,3 +106,22 @@ menuView.menuTable2.addEventListener('click',function(e){
     // on Android the event is received by the label, so watch out!
     Ti.API.info(e.rowData.id); 
 });
+
+Alloy.Globals.openPage = function openPage(viewName){	
+	viewList[viewName] = controls.getCustomView(viewName);
+	if(viewList[viewName]){
+		for (var property in viewList) {
+		    if (property === viewName) {
+		        $.drawermenu.drawermainview.add(viewList[viewName].getView());
+		        viewList[viewName].menuButton.addEventListener('click',function(){
+					$.drawermenu.showhidemenu();
+					$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
+				});
+		    } else {
+		    	//$.drawermenu.drawermainview.remove(viewList[viewName]);
+		    }
+		}	
+	} else {
+		//TODO: Error
+	}
+};
