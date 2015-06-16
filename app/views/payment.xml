@@ -1,0 +1,13 @@
+<Alloy>
+	<View id="paymentView">
+		<View id="paymentTopBar">
+			<View id="menuButton">
+				<Label icon="fa-arrow-left" id="paymentButtonIcon"></Label>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>			
+			</View>
+			<View id="titlePaymentView">
+				<Label id="titlePaymentLabel">Payment</Label>
+			</View>
+		</View>
+	</View>
+</Alloy>

@@ -11,9 +11,9 @@
 		</View>
 		<View class="menu-underline"/>
 		<TableView class="settingsTable" id="settingsTable">
-	        <TableViewRow class="tableRow" id="invitefriends">
+	        <TableViewRow class="tableRow" id="payment">
 				<View class="rowContainer">
-					<Label id="rowLabel" class="rowLabel">Payments</Label>
+					<Label id="rowLabel" class="rowLabel">Payment</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
