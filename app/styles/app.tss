@@ -58,3 +58,7 @@
 		fontSize: 24
 	}
 }
+
+".error": {
+	borderColor: "yellow"
+}
