@@ -1,4 +1,6 @@
 var httpClient = require('managers/httpmanager');
+var keychain = require('com.obscure.keychain');
+var keychainItem = keychain.createKeychainItem(Alloy.CFG.keychain.account, Alloy.CFG.keychain.password);
 
 var login = exports.login = function (username, password, cb){
 	// Todo: validation
@@ -34,7 +36,9 @@ var login = exports.login = function (username, password, cb){
 			authModel.set({ isAuth: true });
 			authModel.save();
 			
-			Ti.App.Properties.setString('token', loginResult.token);
+			keychainItem.account = "token";
+			keychainItem.valueData = loginResult.token;
+			
 			Ti.App.Properties.setString('userId', loginResult.user.id);
 			Ti.App.Properties.setString('isAuth', true);
 			
@@ -49,7 +53,7 @@ var login = exports.login = function (username, password, cb){
 exports.userRegister = function(firstName, lastName, email, password, cb) {
 	// Todo: validation
 	
-		
+	
 	// Prepare request
 	var registerRequest = {
 		"username": email,
@@ -74,7 +78,7 @@ exports.isLoggedIn = function() {
 };
 
 exports.getToken = function() {
-	return Ti.App.Properties.getString('token') ? Ti.App.Properties.getString('token'): "";
+	return keychainItem.valueData;
 };
 
 exports.logout = function(cb){
@@ -84,7 +88,7 @@ exports.logout = function(cb){
 			Ti.App.Properties.removeProperty('token');
 			Ti.App.Properties.removeProperty('userId');
 			Ti.App.Properties.setString('isAuth', false);
-			
+			keychainItem.reset();
 		}
 		cb(err, logoutResult);
 	});
