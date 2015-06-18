@@ -1,8 +1,8 @@
-var helpers = require('utilities/helpers');
-var args = arguments[0] || {};
+var helpers = require('utilities/helpers'),
+UserManager = require('managers/usermanager'),
+args = arguments[0] || {};
 
-
-function updateUser(){
+function updateUser(e){
 	// Todo: validation
 	var textFieldObject = {
 		"username": $.username.value,
@@ -13,20 +13,19 @@ function updateUser(){
 		"state": $.state.value
 		};
 	var validateFields = helpers.validateFields(textFieldObject);
-	if(validateFields != true){
-		//Todo send back error message
-		for (var i in validateFields) {
-			console.log("error i", i);
-			$.addClass($.textField, "error");
-		}
-		
+	for (var i in textFieldObject) {
+		$.removeClass($[i], "error");
 	}
-	
-	/*AuthManager.login($.username.value, $.password.value, function(err, loginResult){
-		if(loginResult) {
-			console.log("Successfully logged in");
-			var homeController = Alloy.createController('masterlayout').getView();
-			homeController.open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});	
+	if(validateFields != true){
+		for (var i in validateFields) {
+			$.addClass($[i], "error");
 		}
-	});	*/
+		//Todo send back error message
+		return true;
+	}
+	UserManager.userUpdate(validateFields, function(err, userUpdateResult){
+		if(userUpdateResult) {
+			console.log("Successfully updated user");	
+		}
+	});	
 };

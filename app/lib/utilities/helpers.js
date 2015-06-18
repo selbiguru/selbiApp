@@ -40,11 +40,11 @@ var validateFields = exports.validateFields = function validateFields(textFieldO
 	var emptyFields = {};
 	var textValidation = {};
 	for (var i in textFieldObject){
-		if (!textFieldObject[i].length) {
-			emptyFields[i] = textFieldObject[i];
+		if (!textFieldObject[i].length || !textFieldObject[i].trim().length) {
+			emptyFields[i] = textFieldObject[i].trim();
 		}
 		if (textValidationArray.indexOf(i) != -1) {
-			textValidation[i] = textFieldObject[i];
+			textValidation[i] = textFieldObject[i].trim();
 		}
 	}
 	if (Object.keys(emptyFields).length != 0) {
