@@ -5,8 +5,12 @@
 			"baseurl": "https://api.cloudinary.com/v1_1/selbi",
 			"apikey": "379521277533334",
 			"baseImagePath": "http://res.cloudinary.com/selbi/image/upload/v1433472934/"
+		},
+		"keychain": {
+			"account": "serveraccount",
+			"password": "D1QTSJ65T86w"
 		}
-	}, 
+	},
 	"env:test": {}, 
 	"env:production": {}, 
 	"os:android": {},

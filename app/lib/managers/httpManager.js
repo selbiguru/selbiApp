@@ -1,8 +1,10 @@
-var baseUrl = "http://sails-server.herokuapp.com";
+var baseUrl = "http://localhost:1337";
+var keychain = require('com.obscure.keychain');
+var keychainItem = keychain.createKeychainItem(Alloy.CFG.keychain.account, Alloy.CFG.keychain.password);
 
 exports.execute = function(relativePath, method, objectToSend, isAuth, callback) {
     var xhr = Titanium.Network.createHTTPClient(),
-        url = baseUrl + relativePath; //"http://localhost:1337/login"
+        url = baseUrl + relativePath; 
 
     xhr.onerror = function(e) {
         Ti.API.error('Bad Sever =>' + e.error);
@@ -14,7 +16,7 @@ exports.execute = function(relativePath, method, objectToSend, isAuth, callback)
     xhr.setRequestHeader("content-type", "application/json");
     
     if(isAuth) {
-    	var authHeader = "Bearer " + Ti.App.Properties.getString('token');
+    	var authHeader = "Bearer " + keychainItem.valueData;
     	xhr.setRequestHeader("Authorization", authHeader);
     }
 	
