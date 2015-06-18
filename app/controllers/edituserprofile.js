@@ -23,9 +23,9 @@ function updateUser(e){
 		//Todo send back error message
 		return true;
 	}
-	UserManager.userUpdate(validateFields, function(err, userUpdateResult){
+	/*UserManager.userUpdate(validateFields, function(err, userUpdateResult){
 		if(userUpdateResult) {
 			console.log("Successfully updated user");	
 		}
-	});	
+	});	*/
 };
