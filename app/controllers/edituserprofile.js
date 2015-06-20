@@ -10,19 +10,21 @@ function updateUser(e){
 		"lastName": $.lastName.value,
 		"streetAddress": $.streetAddress.value,
 		"city": $.city.value, 
+		"zipCode": $.zipCode.value,
 		"state": $.state.value
 		};
 	var validateFields = helpers.validateFields(textFieldObject);
-	for (var i in textFieldObject) {
+	/*for (var i in textFieldObject) {
 		$.removeClass($[i], "error");
-	}
+	}*/
 	if(validateFields != true){
+		console.log("validateFields", validateFields);
 		for (var i in validateFields) {
 			$.addClass($[i], "error");
 		}
 		//Todo send back error message
-		return true;
 	}
+	return;
 	/*UserManager.userUpdate(validateFields, function(err, userUpdateResult){
 		if(userUpdateResult) {
 			console.log("Successfully updated user");	
