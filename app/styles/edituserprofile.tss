@@ -8,18 +8,38 @@
 	height: "80dp",
 	width: "80dp"
 },
-"#editUserImage":{
-
-},
 "#editUserInfoView":{
-
+	layout: 'vertical',
+	width: '90%'
 },
-"#streetAddress":{
-	
-},
-"#connectFacebook":{
-},
-"#connectTwitter":{
+".rowContainer": {
+	width: Ti.UI.FILL,
+	height: "70dp",
+	layout: 'vertical'
+}
+".user-profile-labels": {
+	width: Ti.UI.FILL,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: "#545555",
+	left: "10dp"
+}
+".user-profile-text-fields": {
+	borderColor: "#EAEAEA",
+	width: Ti.UI.FILL,
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	backgroundColor: "white",
+	olor: "#545555",
+	height: "35dp",
+	borderRadius: "5",
+	paddingLeft: "10dp",
+	paddingRight: "10dp"
 }
 
 

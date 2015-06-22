@@ -9,19 +9,40 @@
 				<Label id="titleEditUserProfileLabel">Profile</Label>
 			</View>
 		</View>
-		<View id="editUserInfoView" layout="vertical">
+		<ScrollView id="editUserInfoView">
 			<ImageView id="userProfileImage" image="/images/home-bg.png" />
         	<Label id="editUserImage">Edit Image</Label>
-	        <TextField id="firstName" hintText="First Name"></TextField>
-	        <TextField id="lastName" hintText="LastName"></TextField>
-	        <TextField id="username" hintText="Username"></TextField>
-	        <TextField id="streetAddress" hintText="Street Address"></TextField>
-	        <TextField id="city" hintText="City"></TextField>
-	        <TextField id="state" hintText="State"></TextField>
-	        <TextField id="zipCode" maxLength="10" hintText="Zip"></TextField>
+        	<View class="rowContainer">
+	        	<Label id="firstNameLabel" class="user-profile-labels">First Name</Label>
+		        <TextField id="firstName" class="user-profile-text-fields"></TextField>
+		    </View> 
+		    <View class="rowContainer">   
+		        <Label id="lastNameLabel" class="user-profile-labels">Last Name</Label>
+		        <TextField id="lastName" class="user-profile-text-fields"></TextField>
+		    </View>
+		    <View class="rowContainer">
+		        <Label id="usernameLabel" class="user-profile-labels">Username</Label>
+		        <TextField id="username" class="user-profile-text-fields"></TextField>
+		    </View>
+		    <View class="rowContainer">
+		        <Label id="streetAddressLabel" class="user-profile-labels">Street Address</Label>
+		        <TextField id="streetAddress" class="user-profile-text-fields"></TextField>
+		    </View>
+		    <View class="rowContainer">    
+		        <Label id="cityLabel" class="user-profile-labels">City</Label>
+		        <TextField id="city" class="user-profile-text-fields"></TextField>
+		    </View>
+		    <View class="rowContainer">
+		        <Label id="stateLabel" class="user-profile-labels">State</Label>
+		        <TextField id="state" class="user-profile-text-fields"></TextField>
+		    </View>
+		    <View class="rowContainer">    
+		        <Label id="zipCodeLabel" class="user-profile-labels">Zip Code</Label>
+		        <TextField id="zipCode" maxLength="10" class="user-profile-text-fields"></TextField>
+		    </View>
 	        <Label id="connectFacebook" class="primary-btn">Connect to Facebook</Label>
 	        <Label id="connectTwitter" class="primary-btn">Connect to Twitter</Label>
 	        <Button onClick="updateUser" id="saveInfo" class="primary-btn">Save</Button>
-	   </View>
+	   </ScrollView>
     </View>
 </Alloy>
