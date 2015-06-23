@@ -4,7 +4,11 @@
 		"cloudinary": {
 			"baseurl": "https://api.cloudinary.com/v1_1/selbi",
 			"apikey": "379521277533334",
-			"baseImagePath": "http://res.cloudinary.com/selbi/image/upload/v1433472934/"
+			"baseImagePath": "http://res.cloudinary.com/selbi/image/upload/",
+			"bucket": "v1433472934/"
+		},
+		"imageSize": {
+			"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/"
 		},
 		"keychain": {
 			"account": "serveraccount",
