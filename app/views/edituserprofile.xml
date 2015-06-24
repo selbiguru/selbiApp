@@ -1,5 +1,5 @@
 <Alloy>
-    <View id="editUserProfileView">
+	<View id="editUserProfileView">
         <View id="editUserProfileTopBar">
 			<View id="menuButton">
 				<Label icon="fa-arrow-left" id="editUserProfileButtonIcon"></Label>
