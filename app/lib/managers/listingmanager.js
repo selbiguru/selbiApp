@@ -32,7 +32,7 @@ exports.uploadImagesForListing = function(listingId, imageCollection, cb){
 	function uploadCompleteCallback(err, result){
 		initialCount++;
 		if(!err && result.public_id)
-		uploadedUrls.push(Alloy.CFG.cloudinary.baseImagePath +result.public_id);
+		uploadedUrls.push(Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.cloudinary.bucket + result.public_id);
 		if(initialCount === imageCollection.length) {
 			return cb(null, uploadedUrls);
 		}

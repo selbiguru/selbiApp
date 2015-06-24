@@ -7,7 +7,6 @@
 		<TableView class="menuTable" id="menuTable">
 			<TableViewRow class="" id="row0">
 				<View id="menuUserImage">
-       				<ImageView id="userImage" image="http://res.cloudinary.com/selbi/image/upload/c_scale,h_400,r_200,w_400/v1433476215/2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa0bf55c/listing_f5391800-0b35-11e5-abfd-353a0e84cbae.jpg" />
        			</View>
        			<View id="menuUserName">
 					<Label id="userName" class="">Danny Boy</Label>
