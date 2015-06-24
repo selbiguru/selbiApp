@@ -1,5 +1,5 @@
 //DEFAULT
-"#editUserProfileView":{
+"#editUserProfileView": {
 	layout: 'vertical',
 	backgroundColor: '#FAFAFA'
 },
@@ -8,7 +8,7 @@
 	height: "80dp",
 	width: "80dp"
 },
-"#editUserInfoView":{
+"#editUserInfoView": {
 	layout: 'vertical',
 	width: '90%'
 },
@@ -16,7 +16,13 @@
 	width: Ti.UI.FILL,
 	height: "70dp",
 	layout: 'vertical'
-}
+},
+"#userAddress":{
+	top: "45dp"
+},
+"#userInfo": {
+	top: "25dp"
+},
 ".user-profile-labels": {
 	width: Ti.UI.FILL,
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
@@ -26,7 +32,7 @@
 	},
 	color: "#545555",
 	left: "10dp"
-}
+},
 ".user-profile-text-fields": {
 	borderColor: "#EAEAEA",
 	width: Ti.UI.FILL,
@@ -35,12 +41,68 @@
     	fontFamily: 'Nunito-Light'
 	},
 	backgroundColor: "white",
-	olor: "#545555",
+	color: "#545555",
 	height: "35dp",
 	borderRadius: "5",
 	paddingLeft: "10dp",
 	paddingRight: "10dp"
 }
+".edit-user-profile-buttons-view": {
+	height: Ti.UI.SIZE,
+	layout: "horizontal"
+}
+".edit-user-profile-button": {
+	width: Ti.UI.FILL,
+	height: "25dp",
+	height: "40dp",
+	top: "25dp",
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	borderColor: "#EAEAEA",
+	borderWidth: "1dp"
+}
+".social-facebook": {
+	color: "#FAFAFA",
+	backgroundColor: "#3b5998",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+}
+".social-twitter": {
+	color: "#FAFAFA",
+	backgroundColor: "#45b0e3",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+}
+".edit-profile-social-icon": {
+	width: "48dp",
+	borderColor: "#828282",
+	borderWidth: "1dp",
+	height: Ti.UI.FILL
+}
+".edit-profile-social-text": {
+	width: "289dp",
+	height: Ti.UI.FILL
+}
+"#editProfileTwitterConnect": {
+	backgroundColor: "#40a2d1",
+	borderColor: "#979797",
+}
+"#editProfileFacebookConnect": {
+	backgroundColor: "#354f88"
+}
+"#saveInfo": {
+	backgroundColor: "blue",
+	width: "164dp",
+	color: "#FAFAFA",
+	left: "10dp"
+}
+"#cancelInfo": {
+	width: "164dp",
+	color: "#545555"
+}
+
+
+
 
 
 //iPhone 4

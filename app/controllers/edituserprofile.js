@@ -4,6 +4,7 @@ args = arguments[0] || {};
 
 function updateUser(e){
 	// Todo: validation
+	console.log("what is e:", e);
 	var textFieldObject = {
 		"username": $.username.value,
 		"firstName": $.firstName.value,
@@ -15,7 +16,9 @@ function updateUser(e){
 		};
 	var validateFields = helpers.validateFields(textFieldObject);
 	/*for (var i in textFieldObject) {
+		if($.[i])
 		$.removeClass($[i], "error");
+		
 	}*/
 	if(validateFields != true){
 		console.log("validateFields", validateFields);

@@ -60,5 +60,6 @@
 }
 
 ".error": {
-	borderColor: "yellow"
+	borderColor: "yellow",
+	borderWidth: "5dp"
 }

@@ -11,8 +11,7 @@
 		</View>
 		<ScrollView id="editUserInfoView">
 			<ImageView id="userProfileImage" image="/images/home-bg.png" />
-        	<Label id="editUserImage">Edit Image</Label>
-        	<View class="rowContainer">
+        	<View id="userInfo" class="rowContainer">
 	        	<Label id="firstNameLabel" class="user-profile-labels">First Name</Label>
 		        <TextField id="firstName" class="user-profile-text-fields"></TextField>
 		    </View> 
@@ -24,7 +23,7 @@
 		        <Label id="usernameLabel" class="user-profile-labels">Username</Label>
 		        <TextField id="username" class="user-profile-text-fields"></TextField>
 		    </View>
-		    <View class="rowContainer">
+		    <View id="userAddress" class="rowContainer">
 		        <Label id="streetAddressLabel" class="user-profile-labels">Street Address</Label>
 		        <TextField id="streetAddress" class="user-profile-text-fields"></TextField>
 		    </View>
@@ -40,9 +39,19 @@
 		        <Label id="zipCodeLabel" class="user-profile-labels">Zip Code</Label>
 		        <TextField id="zipCode" maxLength="10" class="user-profile-text-fields"></TextField>
 		    </View>
-	        <Label id="connectFacebook" class="primary-btn">Connect to Facebook</Label>
-	        <Label id="connectTwitter" class="primary-btn">Connect to Twitter</Label>
-	        <Button onClick="updateUser" id="saveInfo" class="primary-btn">Save</Button>
+		    <View class="edit-user-profile-buttons-view edit-user-profile-button">
+		    	<Label icon="fa-facebook" class="edit-profile-social-icon social-facebook" id="editProfileFacebookConnect"></Label>
+		        <Button id="connectFacebook" class="edit-profile-social-text social-facebook">Connect to Facebook</Button>
+		    </View>
+		    <View class="edit-user-profile-buttons-view edit-user-profile-button">
+		        <Label icon="fa-twitter" class="edit-profile-social-icon social-twitter" id="editProfileTwitterConnect"></Label>
+		        <Button id="connectTwitter" class="edit-profile-social-text social-twitter">Connect to Twitter</Button>
+		    </View>
+	        <View id="cancelSaveProfileView" class="edit-user-profile-buttons-view">
+		        <Button onClick="updateUser" id="cancelInfo" class="edit-user-profile-button">Cancel</Button>
+		        <Button onClick="updateUser" id="saveInfo" class="edit-user-profile-button">Save</Button>
+		    </View>
+		    <Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 	   </ScrollView>
     </View>
 </Alloy>
