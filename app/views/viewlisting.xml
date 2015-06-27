@@ -1,0 +1,16 @@
+<Alloy>
+	<View id="mainView">
+		<View id="mainTopBar">
+			<View id="menuButton"/>
+			<View >
+				<Label>Listing Name</Label>
+			</View>
+		</View>
+			<View layout="horizontal" id="header">
+				<!-- profile image -->
+				Header
+			</View>
+			<ScrollableView showPagingControl="true" layout="horizontal" id="imageGallery">
+			</ScrollableView>		
+	</View>
+</Alloy>

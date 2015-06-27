@@ -1,4 +1,4 @@
-var baseUrl = "http://localhost:1337";
+var baseUrl = "http://sails-server.herokuapp.com";
 var keychain = require('com.obscure.keychain');
 var keychainItem = keychain.createKeychainItem(Alloy.CFG.keychain.account, Alloy.CFG.keychain.password);
 
