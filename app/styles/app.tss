@@ -63,3 +63,13 @@
 	borderColor: "yellow",
 	borderWidth: "5dp"
 }
+
+/********************************* Product ************************************/
+".product-title":{
+	color: '#999',
+	height: 20
+}
+
+".product-price": {
+	color: 'blue'
+}

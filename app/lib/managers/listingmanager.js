@@ -1,6 +1,12 @@
 var httpManager = require('managers/httpmanager');
 var imageManager = require('managers/imagemanager');
 
+exports.getListing = function(listingId, cb){
+	httpManager.execute('/listing/'+listingId, 'GET', null, true, function(err, listingResult){
+		cb(err, listingResult);
+	});
+};
+
 exports.createListing = function(title, description, price, cb){
 	
 	var listingRequest = {

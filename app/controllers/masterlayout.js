@@ -13,32 +13,16 @@ var controls=require('controls');
 // get all the view as objects
 var menuView = controls.getMenuView();
 var mainView = controls.getMainView();
-var configView = controls.getConfigView();
-var listingView = controls.getListingView();
-var postListingView = controls.getPostListingView();
-var notificationsView = controls.getNotificationsView();
-var myListingsView = controls.getMyListingView();
-var inviteFriendsView = controls.getInviteFriendsView();
-var settingsView = controls.getSettingsView();
-var editUserProfileView = controls.getEditUserProfileView();
+
 /**
  * Initializes all the menu items, views and events associated to each menu item
  */
 function initialize() {
-	for (var property in viewList) {
-		// add the button
-		//viewList[property].menuButton.add(controls.getMenuButton({
-		  //  h: '60',
-		   // w: '60'
-		//}));
+	mainView.menuButton.addEventListener('click',function(){
+		$.drawermenu.showhidemenu();
+		$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
+	});
 		
-		// attach event listener to menu button 
-	    viewList[property].menuButton.addEventListener('click',function(){
-			$.drawermenu.showhidemenu();
-			$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
-		}); 
-	}
-	
 	// initialize the menu
 	$.drawermenu.init({
 	    menuview:menuView.getView(),
@@ -50,51 +34,42 @@ function initialize() {
 
 // setup the list of views 
 var viewList = {
-	"row": mainView,
-	"row0": editUserProfileView,
-	"row1": postListingView,
-	"row2": inviteFriendsView,
-	"row3": notificationsView,
-	"row4": myListingsView,
-	"row5": listingView,
-	"row6": settingsView
+	"row": 'mainView',
+	"row0": 'edituserprofile',
+	"row1": 'createlisting',
+	"row2": 'invitefriends',
+	"row3": 'notifications',
+	"row4": 'mylistings',
+	"row5": 'listings',
+	"row6": 'settings'
 };
+
+var controllerList = {};
 
 initialize();
 
 
 
 // add event listener in this context menuView Table 1
-menuView.menuTable.addEventListener('click',function(e){
-	
-	function drawView(row){
-		for (var property in viewList) {
-		    if (property === row) {
-		        $.drawermenu.drawermainview.add(viewList[row].getView());
-		    } else {
-		    	$.drawermenu.drawermainview.remove(viewList[property].getView());
-		    }
-		}
-	};
-	
-    $.drawermenu.showhidemenu();
-    $.drawermenu.menuOpen = false; //update menuOpen status to prevent inconsistency.
-    drawView(e.rowData.id);
-    
-    // on Android the event is received by the label, so watch out!
-    Ti.API.info(e.rowData.id); 
-});
-
+menuView.menuTable.addEventListener('click',onMenuClickListener);
 
 // add event listener in this context menuView Table 2
-menuView.menuTable2.addEventListener('click',function(e){
-	
+menuView.menuTable2.addEventListener('click',onMenuClickListener);
+
+function onMenuClickListener(e){
 	function drawView(row){
 		for (var property in viewList) {
 		    if (property === row) {
-		        $.drawermenu.drawermainview.add(viewList[row].getView());
+		    	var viewController = controls.getCustomView(viewList[row]);
+		    	controllerList[row]= (viewController);
+		    	viewController.menuButton.addEventListener('click',function(){
+					$.drawermenu.showhidemenu();
+					$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
+				});
+		        $.drawermenu.drawermainview.add(viewController.getView());
 		    } else {
-		    	$.drawermenu.drawermainview.remove(viewList[property].getView());
+		    	if(controllerList[property])
+		    		$.drawermenu.drawermainview.remove(controllerList[property].getView());
 		    }
 		}
 	};
@@ -105,7 +80,7 @@ menuView.menuTable2.addEventListener('click',function(e){
     
     // on Android the event is received by the label, so watch out!
     Ti.API.info(e.rowData.id); 
-});
+}
 
 Alloy.Globals.openPage = function openPage(viewName){	
 	viewList[viewName] = controls.getCustomView(viewName);

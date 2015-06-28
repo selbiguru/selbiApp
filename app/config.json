@@ -8,7 +8,8 @@
 			"bucket": "v1433472934/"
 		},
 		"imageSize": {
-			"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/"
+			"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+			"listingView": "w_500,h_400/"
 		},
 		"keychain": {
 			"account": "serveraccount",

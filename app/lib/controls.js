@@ -26,34 +26,6 @@ exports.getMenuView=function(){
 };*/
 
 //Get the Controllers
-
-exports.getConfigView=function(){
-    return Alloy.createController('config');
-};
-
-exports.getListingView=function(){
-    return Alloy.createController('listings');
-};
-
-exports.getPostListingView = function(){
-	return Alloy.createController('createlisting');
-};
-exports.getNotificationsView = function(){
-	return Alloy.createController('notifications');
-};
-exports.getMyListingView = function(){
-	return Alloy.createController('mylistings');
-};
-exports.getInviteFriendsView = function(){
-	return Alloy.createController('invitefriends');
-};
-exports.getSettingsView = function(){
-	return Alloy.createController('settings');
-};
-exports.getEditUserProfileView = function(){
-	return Alloy.createController('edituserprofile');
-};
-
 exports.getCustomView = function(viewName){
 	return Alloy.createController(viewName);
 };

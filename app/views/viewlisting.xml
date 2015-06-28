@@ -11,6 +11,11 @@
 				Header
 			</View>
 			<ScrollableView showPagingControl="true" layout="horizontal" id="imageGallery">
-			</ScrollableView>		
+			</ScrollableView>	
+			<View layout="vertical" height="50" color="red">
+				<Label id="title" class="product-title">test</Label>
+				<Label id="price" class="product-price">test</Label>
+			</View>	
+			<View borderWidth="1" height="1"></View>
 	</View>
 </Alloy>
