@@ -45,7 +45,7 @@
 
 ".secondary-btn": {
 	textAlign: 'center',
-	backgroundColor: 'blue',
+	backgroundColor: '#1BA7CD',
 	color: '#fff',
 	width: Titanium.UI.FILL,
 	top: 25,
@@ -63,13 +63,29 @@
 	borderColor: "yellow",
 	borderWidth: "5dp"
 }
-
+".line-separator":{
+	height: 1,
+	borderWidth: 1,
+	borderColor: '#1BA7CD'
+}
 /********************************* Product ************************************/
 ".product-title":{
-	color: '#999',
-	height: 20
+	color: '#555',
+	font:{
+		fontSize: '18',
+		fontWeight: 'bold'
+	},
+	width: Ti.UI.SIZE,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
 }
 
 ".product-price": {
-	color: 'blue'
+	color: '#1BA7CD',
+	width: Ti.UI.SIZE,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
+}
+
+".product-description": {
+	width: Ti.UI.SIZE,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
 }

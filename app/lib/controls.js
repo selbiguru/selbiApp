@@ -26,6 +26,6 @@ exports.getMenuView=function(){
 };*/
 
 //Get the Controllers
-exports.getCustomView = function(viewName){
-	return Alloy.createController(viewName);
+exports.getCustomView = function(viewName, model){
+	return Alloy.createController(viewName, model);
 };

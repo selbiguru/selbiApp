@@ -1,12 +1,13 @@
 var args = arguments[0] || {};
 var listingManager = require('managers/listingmanager');
 
-listingManager.getListing("2bbaa0c7c67912a6e740446eaa13d170", function(err, listing){
+listingManager.getListing(args, function(err, listing){
 	console.log(listing);
 	var views = [];
 	if(!err && listing) {
-		$.title = listing.title;
-		$.price = listing.price;
+		$.title.setText(listing.title);
+		$.price.setText(listing.price.formatMoney(2));
+		$.description.setText(listing.description);
 		for(var img in listing.imageUrls) {
 			views.push(Titanium.UI.createImageView({
 				top: -20,

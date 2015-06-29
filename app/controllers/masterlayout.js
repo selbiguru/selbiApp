@@ -82,8 +82,13 @@ function onMenuClickListener(e){
     Ti.API.info(e.rowData.id); 
 }
 
-Alloy.Globals.openPage = function openPage(viewName){	
-	viewList[viewName] = controls.getCustomView(viewName);
+/**
+ * Open any view and pass a model to the view.
+ * @param {Object} viewName view to open
+ * @param {Object} model	model to be passed to the view
+ */
+Alloy.Globals.openPage = function openPage(viewName, model){	
+	viewList[viewName] = controls.getCustomView(viewName, model);
 	if(viewList[viewName]){
 		for (var property in viewList) {
 		    if (property === viewName) {
@@ -100,3 +105,15 @@ Alloy.Globals.openPage = function openPage(viewName){
 		//TODO: Error
 	}
 };
+
+
+Number.prototype.formatMoney = function(c, d, t){
+var n = this, 
+    c = isNaN(c = Math.abs(c)) ? 2 : c, 
+    d = d == undefined ? "." : d, 
+    t = t == undefined ? "," : t, 
+    s = n < 0 ? "-" : "", 
+    i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", 
+    j = (j = i.length) > 3 ? j % 3 : 0;
+   return "$" + s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+ };

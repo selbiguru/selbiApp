@@ -6,16 +6,30 @@
 				<Label>Listing Name</Label>
 			</View>
 		</View>
+		<ScrollView layout="vertical">
 			<View layout="horizontal" id="header">
 				<!-- profile image -->
 				Header
 			</View>
 			<ScrollableView showPagingControl="true" layout="horizontal" id="imageGallery">
-			</ScrollableView>	
-			<View layout="vertical" height="50" color="red">
+			</ScrollableView>
+				
+			<View layout="vertical" class="product-info">
 				<Label id="title" class="product-title">test</Label>
 				<Label id="price" class="product-price">test</Label>
+				<View class="line-separator"></View>				
+				<Label id="description" class="product-description"></Label>				
 			</View>	
-			<View borderWidth="1" height="1"></View>
+			<View layout="horizontal" height="100">
+				<View width="47%">
+				<Button class="secondary-btn half-btn">Back</Button>
+				</View>
+				<View width="2%"></View>
+				<View width="50%">
+				<Button id="saveListing" class="secondary-btn half-btn">Looks good</Button>
+				</View>
+			</View>
+			
+		</ScrollView>
 	</View>
 </Alloy>

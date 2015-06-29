@@ -1,16 +1,33 @@
 
 ".view-listing": {
 	height: "100%",
-	layout: 'vertical',
-	width: '90%'
+	layout: 'vertical'
 }
 
 "#header": {
 	height: 50,
-	backgroundColor: '#eee'
+	backgroundColor: '#eee',
+	color: "#555"
 }
 
 "#imageGallery": {
 	height: 250
 }
 
+".product-title":{
+	width: '100%'
+}
+
+".product-price": {
+	width: '100%'
+}
+
+".product-description": {
+	width: '100%',
+	top: 10,
+	color: '#999'
+}
+".product-info": {
+	top: 10,
+	width: '90%'
+}

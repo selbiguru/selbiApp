@@ -11,7 +11,7 @@
 		</View>
         <TableView>
             <TableViewRow id="row">
-                <View id="view" backgroundColor="red" width="20" height="20"/>
+                <View id="view" onClick="openListing" backgroundColor="red" width="20" height="20"/>
             </TableViewRow>
             <TableViewRow id="row1">
                 <View id="view1" backgroundColor="green" width="20" height="20"/>
