@@ -93,10 +93,12 @@ Alloy.Globals.openPage = function openPage(viewName, model){
 		for (var property in viewList) {
 		    if (property === viewName) {
 		        $.drawermenu.drawermainview.add(viewList[viewName].getView());
-		        viewList[viewName].menuButton.addEventListener('click',function(){
-					$.drawermenu.showhidemenu();
-					$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
-				});
+		        if(viewList[viewName].menuButton) {
+			        viewList[viewName].menuButton.addEventListener('click',function(){
+						$.drawermenu.showhidemenu();
+						$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
+					});
+				}
 		    } else {
 		    	//$.drawermenu.drawermainview.remove(viewList[viewName]);
 		    }
@@ -106,7 +108,36 @@ Alloy.Globals.openPage = function openPage(viewName, model){
 	}
 };
 
+/**
+ * Close a page that is open. Silently returns if the page is not open 
+ */
+Alloy.Globals.closePage = function(pageName){
+	if(viewList[pageName]) {
+		$.drawermenu.drawermainview.remove(viewList[pageName].getView());
+	}
+};
 
+
+/**
+ * Format a string in the following format
+ * 'The {0} is dead. Don\'t code {0}. Code {1} that is open source!'.format('ASP', 'PHP');
+ * @return {string}
+ */
+String.prototype.format = function() {
+    var formatted = this;
+    for (var i = 0; i < arguments.length; i++) {
+        var regexp = new RegExp('\\{'+i+'\\}', 'gi');
+        formatted = formatted.replace(regexp, arguments[i]);
+    }
+    return formatted;
+};
+
+/**
+ * Display Number in Currency format 
+ * @param {Object} c	culture
+ * @param {Object} d 	decimal separator
+ * @param {Object} t	format separator
+ */
 Number.prototype.formatMoney = function(c, d, t){
 var n = this, 
     c = isNaN(c = Math.abs(c)) ? 2 : c, 

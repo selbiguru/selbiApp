@@ -7,6 +7,12 @@ exports.getListing = function(listingId, cb){
 	});
 };
 
+exports.getUserListings = function(userId, cb){
+	httpManager.execute('/userlistings/'+ userId, 'GET', null, true, function(err, listingsResult){
+		cb(err, listingsResult);
+	});
+};
+
 exports.createListing = function(title, description, price, cb){
 	
 	var listingRequest = {

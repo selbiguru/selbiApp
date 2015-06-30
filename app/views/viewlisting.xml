@@ -1,7 +1,10 @@
 <Alloy>
 	<View id="mainView">
 		<View id="mainTopBar">
-			<View id="menuButton"/>
+			<View class="backButton">
+				<Label icon="fa-times" onClick="goBack" class="backButtonlabel"></Label>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</View>
 			<View >
 				<Label>Listing Name</Label>
 			</View>

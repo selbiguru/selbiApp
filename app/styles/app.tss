@@ -68,6 +68,12 @@
 	borderWidth: 1,
 	borderColor: '#1BA7CD'
 }
+
+".backButton" :{
+	right: 0,
+	widht: Ti.UI.SIZE
+}
+
 /********************************* Product ************************************/
 ".product-title":{
 	color: '#555',

@@ -20,3 +20,7 @@ listingManager.getListing(args, function(err, listing){
 		$.imageGallery.views = views;
 	}
 });
+
+function goBack() {
+	Alloy.Globals.closePage('viewlisting');
+}

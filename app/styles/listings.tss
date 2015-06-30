@@ -179,3 +179,18 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+
+
+"#listingsTabGroup": {
+	height: Titanium.UI.FILL
+}
+".listing-tab":{ 
+	height: 50,
+	top: 50,
+	backgroundColor: '#f00'
+}
+
+".listing-window": {
+	height: 100,
+	backgroundColor: '#00f'
+}
