@@ -130,11 +130,13 @@ function saveListing() {
 						indicatorWindow.closeIndicator();
 						a.setMessage("Listing created successfully");
 						a.show();
+						Alloy.Globals.openPage('viewlisting', saveResult.id);
 					});
 				} else {
 					indicatorWindow.closeIndicator();
 					a.setMessage("Listing created successfully");
 					a.show();
+					Alloy.Globals.openPage('viewlisting', saveResult.id);
 				}
 			});
 		} else {
