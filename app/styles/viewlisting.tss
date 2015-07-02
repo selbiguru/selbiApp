@@ -11,7 +11,7 @@
 }
 
 "#imageGallery": {
-	height: 250
+	height: 400
 }
 
 ".product-title":{

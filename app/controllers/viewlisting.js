@@ -9,13 +9,19 @@ listingManager.getListing(args, function(err, listing){
 		$.price.setText(listing.price.formatMoney(2));
 		$.description.setText(listing.description);
 		for(var img in listing.imageUrls) {
-			views.push(Titanium.UI.createImageView({
-				top: -20,
+			var container =  Titanium.UI.createView({
+				top: 0,
 				left: 0,
-				width: '100%',
+			  	height:       '95%',
+			  	width:        '100%',
+			  	borderRadius: 0	  
+			});
+			container.add(Titanium.UI.createImageView({
 				height: '100%',
 				image: Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.listingView + Alloy.CFG.cloudinary.bucket + listing.imageUrls[img]
 			}));
+			
+			views.push(container);
 		}
 		$.imageGallery.views = views;
 	}
