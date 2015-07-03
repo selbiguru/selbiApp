@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
 var listingManager = require('managers/listingmanager');
+var ImageUtils = require('utilities/imageutils');
 
 listingManager.getListing(args, function(err, listing){
 	console.log(listing);
@@ -16,7 +17,7 @@ listingManager.getListing(args, function(err, listing){
 			  	width:        '100%',
 			  	borderRadius: 0	  
 			});
-			container.add(Titanium.UI.createImageView({
+			container.add(ImageUtils.Utils.RemoteImage({
 				height: '100%',
 				image: Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.listingView + Alloy.CFG.cloudinary.bucket + listing.imageUrls[img]
 			}));

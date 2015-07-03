@@ -4,9 +4,6 @@
 	backgroundColor: '#cacaca'
 },
 
-
-
-
 //iPhone 4
 "#listingsTopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,

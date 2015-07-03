@@ -30,7 +30,7 @@ exports.execute = function(relativePath, method, objectToSend, isAuth, callback)
             Ti.API.info('got my response, http status code ' + this.status);
             if (this.readyState == 4) {
                 var response = JSON.parse(this.responseText);
-                Ti.API.info('Response = ' + response);
+                //Ti.API.info('Response = ' + response);
             } else {
                 alert('HTTP Ready State != 4');
             }

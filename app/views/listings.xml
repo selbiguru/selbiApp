@@ -9,7 +9,10 @@
 				<Label id="titleListingsLabel">Listings</Label>
 			</View>
 		</View>
-		<ListView id="listingListView">
+		<ListView id="listingListView">			
+			<Templates>
+				<Require src="templates/listingitem" type="view"></Require>
+			</Templates>
 		</ListView>
 		<!--<TabGroup id="listingsTabGroup">
 			<Tab id="listingTab" class="listing-tab" title="MyListings">

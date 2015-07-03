@@ -1,0 +1,18 @@
+
+".listing-thumb" : {
+  	top: 0, 
+  	left: 2, 
+  	bottom: 0,
+    layout: "vertical"
+}
+
+".listing-title": {
+	left: 2,
+	verticalAlign: "top"
+}
+
+".listing-price": {
+	color: '#1BA7CD',
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT	
+}

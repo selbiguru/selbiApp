@@ -18,8 +18,8 @@
 			</ScrollableView>
 				
 			<View layout="vertical" class="product-info">
-				<Label id="title" class="product-title">test</Label>
-				<Label id="price" class="product-price">test</Label>
+				<Label id="title" class="product-title">Product Title</Label>
+				<Label id="price" class="product-price">0.00</Label>
 				<View class="line-separator"></View>				
 				<Label id="description" class="product-description"></Label>				
 			</View>	

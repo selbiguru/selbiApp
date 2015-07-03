@@ -1,0 +1,11 @@
+<Alloy>
+	<ItemTemplate name="listingitem">
+		 <View layout="horizontal" left="15" height="100" bottom="5">
+            <ImageView bindId="listingThumb" class="listing-thumb" />
+            <View layout="vertical">
+			    <Label bindId="listingTitle" class="listing-title"/>
+			    <Label bindId="listingPrice" class="listing-price"/>
+		    </View> 
+        </View>
+	</ItemTemplate>
+</Alloy>
