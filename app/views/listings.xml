@@ -9,31 +9,14 @@
 				<Label id="titleListingsLabel">Listings</Label>
 			</View>
 		</View>
-		<ListView id="listingListView">			
+		<View id="gridView" height="0" layout="horizontal" backgroundColor="#333">
+			
+		</View>
+		<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
+		<!--<ListView id="listingListView">			
 			<Templates>
 				<Require src="templates/listingitem" type="view"></Require>
 			</Templates>
-		</ListView>
-		<!--<TabGroup id="listingsTabGroup">
-			<Tab id="listingTab" class="listing-tab" title="MyListings">
-				 <Window id="listingWindow" class="listing-window" title="Hello">
-				 	THis is window 1
-				 	
-				 </Window>
-			</Tab>
-			<Tab id="savedListingTab" class="listing-tab" title="Saved Listings">
-				 <Window id="savedListingWindow" class="listing-window" title="Hello">
-				 	This is window 2
-				 </Window>
-			</Tab>
-		</TabGroup>-->
-        <!--<TableView>
-            <TableViewRow id="row">
-                <View id="view" onClick="openListing" backgroundColor="red" width="20" height="20"/>
-            </TableViewRow>
-            <TableViewRow id="row1">
-                <View id="view1" backgroundColor="green" width="20" height="20"/>
-            </TableViewRow>
-    	</TableView>--> 
+	</ListView> -->
     </View>
 </Alloy>

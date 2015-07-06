@@ -92,8 +92,11 @@ Alloy.Globals.openPage = function openPage(viewName, model){
 	if(viewList[viewName]){
 		for (var property in viewList) {
 		    if (property === viewName) {
-		        $.drawermenu.drawermainview.add(viewList[viewName].getView());
-		        if(viewList[viewName].menuButton) {
+		    	var newView = viewList[viewName].getView();
+		    	//newView.left = 320;
+    			//newView.animate({left:0, duration:400});    			
+		        $.drawermenu.drawermainview.add(newView);
+				if(viewList[viewName].menuButton) {
 			        viewList[viewName].menuButton.addEventListener('click',function(){
 						$.drawermenu.showhidemenu();
 						$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
