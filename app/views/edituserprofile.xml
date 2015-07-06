@@ -41,11 +41,11 @@
 		    </View>
 		    <View class="edit-user-profile-buttons-view edit-user-profile-button">
 		    	<Label icon="fa-facebook" class="edit-profile-social-icon social-facebook" id="editProfileFacebookConnect"></Label>
-		        <Button id="connectFacebook" class="edit-profile-social-text social-facebook">Connect to Facebook</Button>
+		        <Button id="connectFacebook" class="edit-profile-social-text social-facebook" onClick="connectToFaceBook">Connect to Facebook</Button>
 		    </View>
 		    <View class="edit-user-profile-buttons-view edit-user-profile-button">
 		        <Label icon="fa-twitter" class="edit-profile-social-icon social-twitter" id="editProfileTwitterConnect"></Label>
-		        <Button id="connectTwitter" class="edit-profile-social-text social-twitter">Connect to Twitter</Button>
+		        <Button id="connectTwitter" class="edit-profile-social-text social-twitter" onClick="connectToTwitter">Connect to Twitter</Button>
 		    </View>
 	        <View id="cancelSaveProfileView" class="edit-user-profile-buttons-view">
 		        <Button onClick="updateUser" id="cancelInfo" class="edit-user-profile-button">Cancel</Button>
