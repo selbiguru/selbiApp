@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
-var listingManager = require('managers/listingmanager');
+var listingManager = require('managers/listingmanager'),
+	helper = require('utilities/helpers');
 
 $.fg.init({
     columns:2,
@@ -76,7 +77,7 @@ function genItems(cb){
 		        		image: imageUrl
 		        	},
 		        	'#listingTitle': {
-		        		text: userListings[listing].title.toUpperCase()
+		        		text: helper.getListingTitle(userListings[listing].title)
 		        	},
 		        	'#listingPrice':{ 
 		        		text: userListings[listing].price.formatMoney(2)	

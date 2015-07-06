@@ -1,9 +1,10 @@
 ".listing-title": {
 	left: 10,
+	top: 5,
 	color: '#555',
 	verticalAlign: "top",
 	font: {
-		fontSize: 14
+		fontSize: 12
 	}
 }
 
