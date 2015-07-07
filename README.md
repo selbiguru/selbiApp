@@ -11,7 +11,7 @@ selbi App application
 
 >https://github.com/MattMcFarland/com.mattmcfarland.fontawesome
 
-#### For generating documentation
+# For generating documentation
 
 ## Requirements
 
