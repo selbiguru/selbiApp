@@ -9,3 +9,4 @@ selbi App application
 
 >https://github.com/ricardoalcocer/alloy-widget-drawermenu
 
+>https://github.com/MattMcFarland/com.mattmcfarland.fontawesome
