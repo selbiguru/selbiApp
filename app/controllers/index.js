@@ -1,3 +1,8 @@
+/**
+* this is the main index.js file
+* @class Index
+*/
+
 var AuthManager = require('managers/authmanager');
 var controls=require('controls');
 Ti.API.info("platform height: ",Ti.Platform.displayCaps.platformHeight );
