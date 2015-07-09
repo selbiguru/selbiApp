@@ -5,9 +5,18 @@
 
 var AuthManager = require('managers/authmanager');
 var controls=require('controls');
-
-Ti.API.info("platform height: ",Ti.Platform.displayCaps.platformHeight );
-Ti.API.info("plaform width: ",Ti.Platform.displayCaps.platformWidth );
+ 
+// Source: https://github.com/FokkeZB/UTiL/blob/master/XCallbackURL/XCallbackURL.js
+var XCallbackURL = require('utilities/XCallbackURL');
+ 
+function handleUrl(url) {
+    var URL = XCallbackURL.parse(url),
+        controller = URL.action(),
+        args = URL.params();
+        
+    // Add some better logic here ;)
+    Alloy.createController(controller, args || {}).getView().open();
+}
 
 
 // We don't want our URL to do anything before our main window is open
@@ -29,18 +38,6 @@ $.index.addEventListener('open', function (e) {
         handleURL(Alloy.globals.url);
     }
 });
- 
-// Source: https://github.com/FokkeZB/UTiL/blob/master/XCallbackURL/XCallbackURL.js
-var XCallbackURL = require('utilities/XCallbackURL');
- 
-function handleUrl(url) {
-    var URL = XCallbackURL.parse(url),
-        controller = URL.action(),
-        args = URL.params();
-        
-    // Add some better logic here ;)
-    Alloy.createController(controller, args || {}).getView().open();
-}
 
 if (AuthManager.isLoggedIn() == 1) {
 	var mainController = Alloy.createController('masterlayout').getView();
