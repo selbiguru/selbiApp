@@ -1,3 +1,0 @@
-Install JSDuck for doc generation.
-
-`jsduck app/ --config ./docs/jsduck.json`

@@ -15,6 +15,25 @@
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
         <manifest android:versionCode="1" android:versionName="1.0">
+        	<!-- keep any custom attributes for application -->
+            <application>
+                <activity android:configChanges="keyboardHidden|orientation" android:label="Selbi"
+                          android:name=".MyAppActivity" android:theme="@style/Theme.Titanium"
+                          android:launchMode="singleTask" >
+                          <!-- add the above launchMode attribute -->
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN"/>
+                        <category android:name="android.intent.category.LAUNCHER"/>
+                    </intent-filter>
+                    <!-- add the below additional intent-filter -->
+                    <intent-filter>
+                        <action android:name="android.intent.action.VIEW"/>
+                        <category android:name="android.intent.category.DEFAULT"/>
+                        <category android:name="android.intent.category.BROWSABLE"/>
+                        <data android:scheme="selbi" />
+                    </intent-filter>
+                </activity>
+            </application>
             <supports-screens android:anyDensity="true"
                 android:largeScreens="true" android:normalScreens="true"
                 android:smallScreens="false" android:xlargeScreens="true"/>
@@ -23,6 +42,21 @@
     <ios>
         <plist>
             <dict>
+            	<key>CFBundleURLTypes</key>
+                <array>
+                    <dict>
+                        <key>CFBundleURLName</key>
+                        <!-- same as ti:app/id -->
+                        <string>io.selbi</string>
+                        <key>CFBundleURLSchemes</key>
+                        <array>
+                            <!-- your custom scheme -->
+                            <string>selbi</string>
+                            <!-- same as 'fb' plus ti:app/property[name=ti.facebook.appid] -->
+                            <string>fb123456789</string>
+                        </array>
+                    </dict>
+                </array>
                 <key>UISupportedInterfaceOrientations~iphone</key>
                 <array>
                     <string>UIInterfaceOrientationPortrait</string>
