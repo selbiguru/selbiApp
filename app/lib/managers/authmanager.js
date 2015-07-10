@@ -64,7 +64,7 @@ exports.userRegister = function(firstName, lastName, email, password, cb) {
 		
 	};
 	
-	httpClient.execute("/register", "POST", registerRequest, false, function(err, registerResults) {
+	httpClient.execute("/register", "POST", registerRequest, true, function(err, registerResults) {
 		if(!err && registerResults) {
 			login(email, password, cb);
 		} else {
