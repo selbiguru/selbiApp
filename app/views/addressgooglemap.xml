@@ -1,0 +1,5 @@
+<Alloy>
+    <View id="addressGoogleView">
+		<WebView id="webview" url="/webViews/googleMap.html" />
+    </View>
+</Alloy>

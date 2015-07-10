@@ -2,6 +2,7 @@ var helpers = require('utilities/helpers'),
 UserManager = require('managers/usermanager'),
 args = arguments[0] || {};
 
+
 function updateUser(e){
 	// Todo: validation
 	console.log("what is e:", e);
@@ -34,3 +35,8 @@ function updateUser(e){
 		}
 	});	*/
 };
+
+
+function getGoogleMaps(e){
+	Alloy.Globals.openPage('addressgooglemap');
+}

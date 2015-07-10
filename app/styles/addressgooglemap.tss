@@ -1,17 +1,17 @@
 //DEFAULT
-"#inviteFriendsView":{
+"#addressGoogleView":{
 	layout: 'vertical',
 	backgroundColor: '#cacaca'
 },
 
 "#webview": {
 	willHandleTouches: false,
-	height : Ti.UI.FILL,
+	height: Ti.UI.FILL,
 	width: Ti.UI.FILL
 }
 
 //iPhone 4
-"#inviteFriendsTopBar[if=Alloy.Globals.iPhoneFour]":{
+"#addressGoogleTopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#FAFAFA',
@@ -22,17 +22,17 @@
 	width: "60dp",
 	backgroundColor: '#FAFAFA'
 },
-"#inviteFriendsButtonIcon[if=Alloy.Globals.iPhoneFour]": {
+"#addressGoogleButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "18dp"
-        },
+		fontSize: "18dp"
+	},
 	color: "#1BA7CD"
 },
-"#titleInviteFriendsView[if=Alloy.Globals.iPhoneFour]": {
+"#titleAddressGoogleView[if=Alloy.Globals.iPhoneFour]": {
 	right: "60dp"
 },
 
-"#titleInviteFriendsLabel[if=Alloy.Globals.iPhoneFour]": {
+"#titleAddressGoogleLabel[if=Alloy.Globals.iPhoneFour]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
@@ -46,7 +46,7 @@
 
 
 //iPhone 5
-"#inviteFriendsTopBar[if=Alloy.Globals.iPhoneFive]":{
+"#addressGoogleTopBar[if=Alloy.Globals.iPhoneFive]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#FAFAFA',
@@ -57,17 +57,17 @@
 	width: "60dp",
 	backgroundColor: '#FAFAFA'
 },
-"#inviteFriendsButtonIcon[if=Alloy.Globals.iPhoneFive]": {
+"#addressGoogleButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "18dp"
-        },
+		fontSize: "18dp"
+	},
 	color: "#1BA7CD"
 },
-"#titleInviteFriendsView[if=Alloy.Globals.iPhoneFive]": {
+"#titleAddressGoogleView[if=Alloy.Globals.iPhoneFive]": {
 	right: "60dp"
 },
 
-"#titleInviteFriendsLabel[if=Alloy.Globals.iPhoneFive]": {
+"#titleAddressGoogleLabel[if=Alloy.Globals.iPhoneFive]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
@@ -81,7 +81,7 @@
 
 
 //iPhone 6
-"#inviteFriendsTopBar[if=Alloy.Globals.iPhoneSix]":{
+"#addressGoogleTopBar[if=Alloy.Globals.iPhoneSix]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#FAFAFA',
@@ -92,17 +92,17 @@
 	width: "60dp",
 	backgroundColor: '#FAFAFA'
 },
-"#inviteFriendsButtonIcon[if=Alloy.Globals.iPhoneSix]": {
+"#addressGoogleButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "18dp"
-        },
+		fontSize: "18dp"
+	},
 	color: "#1BA7CD"
 },
-"#titleInviteFriendsView[if=Alloy.Globals.iPhoneSix]": {
+"#titleAddressGoogleView[if=Alloy.Globals.iPhoneSix]": {
 	right: "60dp"
 },
 
-"#titleInviteFriendsLabel[if=Alloy.Globals.iPhoneSix]": {
+"#titleAddressGoogleLabel[if=Alloy.Globals.iPhoneSix]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
@@ -117,7 +117,7 @@
 
 
 //iPhone 6 Plus
-"#inviteFriendsTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
+"#addressGoogleTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#FAFAFA',
@@ -128,17 +128,17 @@
 	width: "60dp",
 	backgroundColor: '#FAFAFA'
 },
-"#inviteFriendsButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
+"#addressGoogleButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "20dp"
-        },
+		fontSize: "20dp"
+	},
 	color: "#1BA7CD"
 },
-"#titleInviteFriendsView[if=Alloy.Globals.iPhoneSixPlus]": {
+"#titleAddressGoogleView[if=Alloy.Globals.iPhoneSixPlus]": {
 	right: "60dp"
 },
 
-"#titleInviteFriendsLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+"#titleAddressGoogleLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
@@ -153,7 +153,7 @@
 
 
 //android -(currently same as iPhone 6)
-"#inviteFriendsTopBar[if=Alloy.Globals.android]":{
+"#addressGoogleTopBar[if=Alloy.Globals.android]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#FAFAFA',
@@ -164,17 +164,17 @@
 	width: "60dp",
 	backgroundColor: '#FAFAFA'
 },
-"#inviteFriendsButtonIcon[if=Alloy.Globals.android]": {
+"#addressGoogleButtonIcon[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "18dp"
-        },
+		fontSize: "18dp"
+	},
 	color: "#1BA7CD"
 },
-"#titleInviteFriendsView[if=Alloy.Globals.android]": {
+"#titleAddressGoogleView[if=Alloy.Globals.android]": {
 	right: "60dp"
 },
 
-"#titleInviteFriendsLabel[if=Alloy.Globals.android]": {
+"#titleAddressGoogleLabel[if=Alloy.Globals.android]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
