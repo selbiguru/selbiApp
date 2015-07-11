@@ -12,16 +12,16 @@
 		<ScrollView id="editUserInfoView">
 			<ImageView id="userProfileImage" image="/images/home-bg.png" />
         	<View id="userInfo" class="rowContainer">
-	        	<Label id="firstNameLabel" class="user-profile-labels">First Name</Label>
-		        <TextField id="firstName" class="user-profile-text-fields"></TextField>
+		        <TextField id="firstName" hintText="First Name" class="user-profile-text-fields"></TextField>
+		        <View class="login-underline"/>
 		    </View> 
-		    <View class="rowContainer">   
-		        <Label id="lastNameLabel" class="user-profile-labels">Last Name</Label>
-		        <TextField id="lastName" class="user-profile-text-fields"></TextField>
+		    <View class="rowContainer"> 
+		        <TextField id="lastName" hintText="Last Name" class="user-profile-text-fields"></TextField>
+		        <View class="login-underline"/>
 		    </View>
 		    <View class="rowContainer">
-		        <Label id="usernameLabel" class="user-profile-labels">Username</Label>
-		        <TextField id="username" class="user-profile-text-fields"></TextField>
+		        <TextField id="username" hintText="Username" class="user-profile-text-fields"></TextField>
+		        <View class="login-underline"/>
 		    </View>
 		    <View id="userAddress" class="rowContainer">
 		        <Label id="streetAddressLabel" class="user-profile-labels">Street Address</Label>

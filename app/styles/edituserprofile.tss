@@ -101,6 +101,54 @@
 	width: "164dp",
 	color: "#545555"
 }
+".login-underline": {
+	height: 1,
+	bottom: 10,
+	backgroundColor:"white",
+	width:Titanium.UI.FILL
+}
+"#firstName": {
+	borderStyle: Titanium.UI.INPUT_BORDEREDSTYLE_NONE,
+	borderColor: 'transparent',
+	color: 'black',
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	paddingLeft: 10,
+	backgroundColor : 'transparent',
+	width: Titanium.UI.FILL,
+	height: 30,
+	top: "10dp"
+}
+"#lastName": {
+	borderStyle: Titanium.UI.INPUT_BORDEREDSTYLE_NONE,
+	borderColor: 'transparent',
+	color: 'black',
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	paddingLeft: 10,
+	backgroundColor : 'transparent',
+	width: Titanium.UI.FILL,
+	height: 30,
+	top: "10dp"
+}
+"#username": {
+	borderStyle: Titanium.UI.INPUT_BORDEREDSTYLE_NONE,
+	borderColor: 'transparent',
+	color: 'black',
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	paddingLeft: 10,
+	backgroundColor : 'transparent',
+	width: Titanium.UI.FILL,
+	height: 30,
+	top: "10dp"
+}
 
 
 
