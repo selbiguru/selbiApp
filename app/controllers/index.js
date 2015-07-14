@@ -9,7 +9,7 @@ var controls=require('controls');
 // Source: https://github.com/FokkeZB/UTiL/blob/master/XCallbackURL/XCallbackURL.js
 var XCallbackURL = require('utilities/XCallbackURL');
  
-function handleUrl(url) {
+function handleURL(url) {
     var URL = XCallbackURL.parse(url),
         controller = URL.action(),
         args = URL.params();

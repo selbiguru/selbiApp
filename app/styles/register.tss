@@ -1,14 +1,8 @@
 "TextField": {
-	borderStyle: Titanium.UI.INPUT_BORDEREDSTYLE_NONE,
-	borderColor: 'transparent',
 	color: 'white',
 	font: {
 		fontSize: 14
 	},
-	paddingLeft: 10,
-	backgroundColor : 'transparent',
-	width: Titanium.UI.FILL,
-	height: 30
 }
 ".wrapper-container": {
 	backgroundColor: "#62D7F5",
