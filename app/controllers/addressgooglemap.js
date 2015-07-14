@@ -1,6 +1,6 @@
 var args = arguments[0] || {};
 var address = [];
-console.log("&&&&&&&&&&&", address);
+
 Ti.App.addEventListener('app:cancelAddressWebView', function(e) {
 	Alloy.Globals.closePage('addressgooglemap');
 	address = [];
@@ -13,7 +13,7 @@ Ti.App.addEventListener('app:verifyAddressWebView', function(e) {
 		console.log("WE IN HERE");
 		alert("You must fill out an Address before you can verify!");
 	} else {
-		Alloy.Globals.openPage('verifyaddress');
+		Alloy.Globals.openPage('verifyaddress', address);
 		console.log("verify adddress", address);
 		address = [];
 	}

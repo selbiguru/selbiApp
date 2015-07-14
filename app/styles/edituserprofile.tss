@@ -1,12 +1,13 @@
 //DEFAULT
 "#editUserProfileView": {
 	layout: 'vertical',
-	backgroundColor: '#FAFAFA'
+	backgroundColor: 'white'
 },
 
 "#userProfileImage": {
 	height: "80dp",
-	width: "80dp"
+	width: "80dp",
+	top: "20dp"
 },
 "#editUserInfoView": {
 	layout: 'vertical',
@@ -14,16 +15,14 @@
 },
 ".rowContainer": {
 	width: Ti.UI.FILL,
-	height: "70dp",
+	height: "50dp",
 	layout: 'vertical'
 },
-"#userAddress":{
+
+"#userInfo": {
 	top: "45dp"
 },
-"#userInfo": {
-	top: "25dp"
-},
-".user-profile-labels": {
+/*".user-profile-labels": {
 	width: Ti.UI.FILL,
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	font:{
@@ -32,8 +31,8 @@
 	},
 	color: "#545555",
 	left: "10dp"
-},
-".user-profile-text-fields": {
+},*/
+/*".user-profile-text-fields": {
 	borderColor: "#EAEAEA",
 	width: Ti.UI.FILL,
 	font:{
@@ -46,7 +45,7 @@
 	borderRadius: "5",
 	paddingLeft: "10dp",
 	paddingRight: "10dp"
-}
+}*/
 ".edit-user-profile-buttons-view": {
 	height: Ti.UI.SIZE,
 	layout: "horizontal",
@@ -56,7 +55,7 @@
 	width: Ti.UI.FILL,
 	height: "25dp",
 	height: "40dp",
-	top: "25dp",
+	top: "15dp",
 	font:{
 		fontSize: "16dp",
     	fontFamily: 'Nunito-Light'
@@ -72,6 +71,11 @@
 ".social-twitter": {
 	color: "#FAFAFA",
 	backgroundColor: "#45b0e3",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+}
+".address-map": {
+	color: "#FAFAFA",
+	backgroundColor: "#53C71A",
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 }
 ".edit-profile-social-icon": {
@@ -91,6 +95,9 @@
 "#editProfileFacebookConnect": {
 	backgroundColor: "#354f88"
 }
+"#editProfileGoogleAddress": {
+	backgroundColor: "#48AC16"
+}
 "#saveInfo": {
 	backgroundColor: "blue",
 	width: "164dp",
@@ -104,54 +111,9 @@
 ".login-underline": {
 	height: 1,
 	bottom: 10,
-	backgroundColor:"white",
+	backgroundColor:"#FAFAFA",
 	width:Titanium.UI.FILL
 }
-"#firstName": {
-	borderStyle: Titanium.UI.INPUT_BORDEREDSTYLE_NONE,
-	borderColor: 'transparent',
-	color: 'black',
-	font:{
-		fontSize: "16dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	paddingLeft: 10,
-	backgroundColor : 'transparent',
-	width: Titanium.UI.FILL,
-	height: 30,
-	top: "10dp"
-}
-"#lastName": {
-	borderStyle: Titanium.UI.INPUT_BORDEREDSTYLE_NONE,
-	borderColor: 'transparent',
-	color: 'black',
-	font:{
-		fontSize: "16dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	paddingLeft: 10,
-	backgroundColor : 'transparent',
-	width: Titanium.UI.FILL,
-	height: 30,
-	top: "10dp"
-}
-"#username": {
-	borderStyle: Titanium.UI.INPUT_BORDEREDSTYLE_NONE,
-	borderColor: 'transparent',
-	color: 'black',
-	font:{
-		fontSize: "16dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	paddingLeft: 10,
-	backgroundColor : 'transparent',
-	width: Titanium.UI.FILL,
-	height: 30,
-	top: "10dp"
-}
-
-
-
 
 
 //iPhone 4

@@ -24,24 +24,24 @@
 		        <View class="login-underline"/>
 		    </View>
 		    <View id="userAddress" class="rowContainer">
-		        <Label id="streetAddressLabel" class="user-profile-labels">Street Address</Label>
-		        <TextField id="streetAddress" class="user-profile-text-fields"></TextField>
+		        <TextField id="streetAddress" hintText="Street Address" class="user-profile-text-fields"></TextField>
+		        <View class="login-underline"/>
 		    </View>
 		    <View class="rowContainer">    
-		        <Label id="cityLabel" class="user-profile-labels">City</Label>
-		        <TextField id="city" class="user-profile-text-fields"></TextField>
+		        <TextField id="city" hintText="City" class="user-profile-text-fields"></TextField>
+		        <View class="login-underline"/>
 		    </View>
 		    <View class="rowContainer">
-		        <Label id="stateLabel" class="user-profile-labels">State</Label>
-		        <TextField id="state" class="user-profile-text-fields"></TextField>
+		        <TextField id="state" hintText="State" class="user-profile-text-fields"></TextField>
+		        <View class="login-underline"/>
 		    </View>
-		    <View class="rowContainer">    
-		        <Label id="zipCodeLabel" class="user-profile-labels">Zip Code</Label>
-		        <TextField id="zipCode" maxLength="10" class="user-profile-text-fields"></TextField>
+		    <View class="rowContainer">
+		        <TextField id="zipCode" hintText="Zip Code" maxLength="10" class="user-profile-text-fields"></TextField>
+		        <View class="login-underline"/>
 		    </View>
 		    <View class="edit-user-profile-buttons-view edit-user-profile-button">
-		        <Label icon="fa-twitter" class="edit-profile-social-icon social-twitter" id="editProfileGoogleAddress"></Label>
-		        <Button onClick="getGoogleMaps" id="googleAddress" class="edit-profile-social-text social-twitter">Update Address</Button>
+		        <Label icon="fa-map-marker" class="edit-profile-social-icon address-map" id="editProfileGoogleAddress"></Label>
+		        <Button onClick="getGoogleMaps" id="googleAddress" class="edit-profile-social-text address-map">Update Address</Button>
 		    </View>
 		    <View class="edit-user-profile-buttons-view edit-user-profile-button">
 		    	<Label icon="fa-facebook" class="edit-profile-social-icon social-facebook" id="editProfileFacebookConnect"></Label>

@@ -1,4 +1,38 @@
 <Alloy>
-	<View class="container">
-	</View>
+	<View id="verifyAddressView">
+        <View id="verifyAddressTopBar">
+        	<View id="cancelAddress" class="validateButtons">  
+		    	<Button icon="fa-times" class="verifyAddressButtonIcon" id="verifyAddressCancelButton">Cancel</Button>
+		    </View>
+		    <View id="titleVerifyAddressView">
+				<Label id="titleVerifyAddressLabel">Validate Address</Label>
+			</View>
+			<View id="validateAddress" class="validateButtons" > 
+		    	<Button icon="fa-check" class="verifyAddressButtonIcon" id="verifyAddressVerifyButton">Verify</Button>
+		    </View> 
+		    <Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+		</View>
+		<View id='addressValidationView'>
+			<View id="userAddress" class="rowContainer">
+		        <TextField id="streetAddress" hintText="Street Address" class="user-profile-text-fields"></TextField>
+		        <View class="login-underline"/>
+		    </View>
+		    <View id="userAddress" class="rowContainer">
+		        <TextField id="apartmenNumber" hintText="Apt/Bldg Number" class="user-profile-text-fields"></TextField>
+		        <View class="login-underline"/>
+		    </View>
+		    <View class="rowContainer">    
+		        <TextField id="city" hintText="City" class="user-profile-text-fields"></TextField>
+		        <View class="login-underline"/>
+		    </View>
+		    <View class="rowContainer">
+		        <TextField id="state" hintText="State" class="user-profile-text-fields"></TextField>
+		        <View class="login-underline"/>
+		    </View>
+		    <View class="rowContainer">
+		        <TextField id="zipCode" hintText="Zip Code" maxLength="10" class="user-profile-text-fields"></TextField>
+		        <View class="login-underline"/>
+		    </View>
+		</View>
+    </View>
 </Alloy>
