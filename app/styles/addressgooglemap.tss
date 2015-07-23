@@ -3,7 +3,18 @@
 	layout: 'vertical',
 	backgroundColor: '#cacaca'
 },
-
+"#cancelAddressButton":{
+	top: "20dp",
+	left: "12dp",
+	width: "20%",
+	height: "32dp",
+}
+"#verifyAddressButton":{
+	top: "20dp",
+	left: "289dp",
+	width: "20%",
+	height: "32dp",
+}
 "#webview": {
 	willHandleTouches: false,
 	height: Ti.UI.FILL,

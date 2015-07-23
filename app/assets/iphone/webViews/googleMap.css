@@ -28,7 +28,7 @@ input#pac-input {
         top: 45px !important;
 }
 
-#cancelAddressButton {
+/*#cancelAddressButton {
 	position: absolute;
 	top: 20px;
 	left: 12px;
@@ -55,7 +55,7 @@ input#pac-input {
 	font-weight: bold;
 }
 #verifyAddressButton:focus {
-}
+}*/
 
 #pac-input:focus {
 	border-color: #4d90fe;

@@ -39,6 +39,10 @@
 		        <TextField id="zipCode" hintText="Zip Code" maxLength="10" class="user-profile-text-fields"></TextField>
 		        <View class="login-underline"/>
 		    </View>
+		    <View class="rowContainer">
+		        <TextField id="country" hintText="Country" class="user-profile-text-fields"></TextField>
+		        <View class="login-underline"/>
+		    </View>
 		    <View class="edit-user-profile-buttons-view edit-user-profile-button">
 		        <Label icon="fa-map-marker" class="edit-profile-social-icon address-map" id="editProfileGoogleAddress"></Label>
 		        <Button onClick="getGoogleMaps" id="googleAddress" class="edit-profile-social-text address-map">Update Address</Button>
