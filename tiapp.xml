@@ -14,12 +14,12 @@
     <guid>cf9d7fd2-665f-436d-9222-1073fd7b03cc</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-      <manifest android:versionCode="1" android:versionName="1.0">
-      <supports-screens android:anyDensity="true"
-          android:largeScreens="true" android:normalScreens="true"
-          android:smallScreens="false" android:xlargeScreens="true"/>
-      </manifest>
-   </android>
+        <manifest android:versionCode="1" android:versionName="1.0">
+            <supports-screens android:anyDensity="true"
+                android:largeScreens="true" android:normalScreens="true"
+                android:smallScreens="false" android:xlargeScreens="true"/>
+        </manifest>
+    </android>
     <ios>
         <plist>
             <dict>
@@ -82,10 +82,15 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
+
     	<module version="2.1">com.obscure.keychain</module>
-    <!-- Add the appropriate line(s) to your modules section -->
-    <module platform="android">facebook</module>
-    <module platform="iphone">facebook</module>
+    	<!-- Add the appropriate line(s) to your modules section -->
+    	<module platform="android">facebook</module>
+    	<module platform="iphone">facebook</module>
+    	<module version="2.1">com.obscure.keychain</module>
+    	<module platform="android">com.animecyc.animator</module>
+    	<module platform="iphone">com.animecyc.animator</module>
+
     </modules>
     <deployment-targets>
         <target device="android">true</target>

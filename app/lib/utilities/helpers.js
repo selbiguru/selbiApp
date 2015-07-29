@@ -181,3 +181,12 @@ var validateZipCode = exports.validateZipCode = function zipCodeValidation(textF
 	}
 	return errorZipCodeObj;
 };
+
+
+exports.getListingTitle = function(title){
+	var trimmedTitle = title.trim();
+	if(trimmedTitle.length > 14) {
+		trimmedTitle = trimmedTitle.slice(0,14) + '...';	
+	}
+	return trimmedTitle.toUpperCase();
+};
