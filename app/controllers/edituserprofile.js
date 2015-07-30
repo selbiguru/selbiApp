@@ -40,7 +40,6 @@ function updateUser(e){
 };
 
 
-<<<<<<< HEAD
 // Don't forget to set your requested permissions, else the login button won't be effective.
 var win = (Ti.Platform.name === 'android') ? Ti.UI.createWindow({backgroundColor: 'white'}) : null;
 
@@ -143,8 +142,7 @@ function connectToTwitter() {
 	console.log('twitter.isAuthorized(): ' + twitter.isAuthorized());
 }
 
-=======
 function getGoogleMaps(e){
 	Alloy.Globals.openPage('addressgooglemap');
 }
->>>>>>> 3a7739d857cd52ea4f057d9313327f1520dc3ff9
+
