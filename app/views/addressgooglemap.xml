@@ -1,0 +1,8 @@
+<Alloy>
+    <View id="addressGoogleView">
+		<WebView id="webview" url="/webViews/googleMap.html">
+			<Button onClick='cancelAddressWebView' id="cancelAddressButton" class='primary-btn'>Cancel</Button>
+			<Button onClick='verifyAddressWebView' id="verifyAddressButton" class='secondary-btn'>Verify</Button>
+		</WebView>
+    </View>
+</Alloy>

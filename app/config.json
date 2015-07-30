@@ -9,8 +9,8 @@
 		},
 		"imageSize": {
 			"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
-			"listingView": "h_300/",
-			"listView": "h_150,w_150,c_fill/"
+			"listingView": "h_300,fl_progressive/",
+			"listView": "h_150,w_150,c_fill,fl_progressive/"
 		},
 		"keychain": {
 			"account": "serveraccount",

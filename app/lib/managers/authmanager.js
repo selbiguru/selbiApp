@@ -1,7 +1,19 @@
+/**
+ * @class AuthManager
+ * AuthManager class to manage user auth related operations
+ */
 var httpClient = require('managers/httpmanager');
 var keychain = require('com.obscure.keychain');
 var keychainItem = keychain.createKeychainItem(Alloy.CFG.keychain.account, Alloy.CFG.keychain.password);
 
+/**
+ * @method Login
+ * Login the user if correct credentials are procided
+ * Store the token value for oAuth in the keychain
+ * @param {String} username Username can be email or username
+ * @param {String} password	Password entered at the time of registration
+ * @param {Function} cb callback function
+ */
 var login = exports.login = function (username, password, cb){
 	// Todo: validation
 	
@@ -50,6 +62,15 @@ var login = exports.login = function (username, password, cb){
 	}); 
 };
 
+/**
+ * @method UserRegister
+ * Register a user with a given set of values.
+ * @param {String} firstName
+ * @param {String} lastName
+ * @param {String} email
+ * @param {String} password
+ * @param {Object} cb
+ */
 exports.userRegister = function(firstName, lastName, email, password, cb) {
 	// Todo: validation
 	
@@ -64,7 +85,7 @@ exports.userRegister = function(firstName, lastName, email, password, cb) {
 		
 	};
 	
-	httpClient.execute("/register", "POST", registerRequest, false, function(err, registerResults) {
+	httpClient.execute("/register", "POST", registerRequest, true, function(err, registerResults) {
 		if(!err && registerResults) {
 			login(email, password, cb);
 		} else {
@@ -73,14 +94,28 @@ exports.userRegister = function(firstName, lastName, email, password, cb) {
 	}); 
 };
 
+/**
+ * @method IsLoggedIn
+ * Check whether the user is logged in
+ */
 exports.isLoggedIn = function() {
 	return Ti.App.Properties.getString('isAuth') ? Ti.App.Properties.getString('isAuth') : false;
 };
 
+/**
+ * @method GetToken
+ * Get the oAuth token for the logged in user
+ * NOTE: this is stored in keychain
+ */
 exports.getToken = function() {
 	return keychainItem.valueData;
 };
 
+/**
+ * @method Logout
+ * Logs the user out of the app clearing any stored credentials/keys
+ * @param {Function} cb
+ */
 exports.logout = function(cb){
 	httpClient.execute("/logout", "POST", null, true, function(err, logoutResult){
 		Ti.API.info("Logout Result", logoutResult);

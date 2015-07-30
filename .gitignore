@@ -2,3 +2,5 @@ Resources/
 build/
 .metadata/
 selbiApp/
+docs
+alloy.jmk

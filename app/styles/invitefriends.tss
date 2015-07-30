@@ -4,8 +4,11 @@
 	backgroundColor: '#cacaca'
 },
 
-
-
+"#webview": {
+	willHandleTouches: false,
+	height : Ti.UI.FILL,
+	width: Ti.UI.FILL
+}
 
 //iPhone 4
 "#inviteFriendsTopBar[if=Alloy.Globals.iPhoneFour]":{

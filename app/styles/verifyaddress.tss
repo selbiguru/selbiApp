@@ -1,0 +1,193 @@
+//DEFAULT
+"#verifyAddressView":{
+	layout: 'vertical',
+	backgroundColor: 'white'
+},
+
+"#addressValidationView": {
+	layout: 'vertical',
+	width: "90%",
+	top: "10dp"
+}
+
+".rowContainer": {
+	width: Ti.UI.FILL,
+	height: "35dp",
+	layout: 'vertical'
+},
+
+".login-underline": {
+	height: 1,
+	bottom: 10,
+	backgroundColor:"#FAFAFA",
+	width:Titanium.UI.FILL
+},
+
+
+//iPhone 4
+"#verifyAddressTopBar[if=Alloy.Globals.iPhoneFour]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+".validateButtons[if=Alloy.Globals.iPhoneFour]": {
+	height: "70dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+}
+".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "12dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleVerifyAddressView[if=Alloy.Globals.iPhoneFour]": {
+	width: "200dp",
+},
+
+"#titleVerifyAddressLabel[if=Alloy.Globals.iPhoneFour]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+
+
+
+
+//iPhone 5
+"#verifyAddressTopBar[if=Alloy.Globals.iPhoneFive]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+".validateButtons[if=Alloy.Globals.iPhoneFive]": {
+	height: "70dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+}
+".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+            fontSize: "12dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleVerifyAddressView[if=Alloy.Globals.iPhoneFive]": {
+	width: "200dp",
+},
+
+"#titleVerifyAddressLabel[if=Alloy.Globals.iPhoneFive]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+
+
+
+
+//iPhone 6
+"#verifyAddressTopBar[if=Alloy.Globals.iPhoneSix]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+".validateButtons[if=Alloy.Globals.iPhoneSix]": {
+	height: "70dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+}
+".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+            fontSize: "12dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleVerifyAddressView[if=Alloy.Globals.iPhoneSix]": {
+	width: "255dp",
+},
+"#titleVerifyAddressLabel[if=Alloy.Globals.iPhoneSix]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+
+
+
+
+
+//iPhone 6 Plus
+"#verifyAddressTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+".validateButtons[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: "70dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+}
+".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+            fontSize: "12dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleVerifyAddressView[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: "294dp"
+},
+
+"#titleVerifyAddressLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "20dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+
+
+
+
+
+
+//android -(currently same as iPhone 6)
+"#verifyAddressTopBar[if=Alloy.Globals.iPhoneSix]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+".validateButtons[if=Alloy.Globals.iPhoneSix]": {
+	height: "70dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+}
+".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+            fontSize: "12dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleVerifyAddressView[if=Alloy.Globals.iPhoneSix]": {
+	width: "255dp",
+},
+"#titleVerifyAddressLabel[if=Alloy.Globals.iPhoneSix]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},

@@ -10,7 +10,7 @@ function registerUser(){
 	AuthManager.userRegister($.firstName.value, $.lastName.value, $.email.value, $.password.value, function(err, registerResult){
 		if(registerResult) {
 			console.log("Successfully regsitered");
-			var homeController = Alloy.createController('listings').getView();
+			var homeController = Alloy.createController('masterlayout').getView();
 			homeController.open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});	
 		}
 	});	

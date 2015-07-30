@@ -1,3 +1,18 @@
+/********************************* Reusable throughout Selbi ************************************/
+"TextField": {
+	borderStyle: Titanium.UI.INPUT_BORDEREDSTYLE_NONE,
+	borderColor: 'transparent',
+	color: 'black',
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	paddingLeft: "10dp",
+	backgroundColor : 'transparent',
+	width: Titanium.UI.FILL,
+	height: "30dp"
+}
+
 "#mainView":{
 	layout: 'vertical',
 	backgroundColor:"white"
@@ -60,8 +75,11 @@
 }
 
 ".error": {
-	borderColor: "yellow",
-	borderWidth: "5dp"
+	font:{
+		fontSize: "18dp",
+    	fontFamily: 'Nunito-Bold'
+	},
+	color: "red"
 }
 ".line-separator":{
 	height: 1,

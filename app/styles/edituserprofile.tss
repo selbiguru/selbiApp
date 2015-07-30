@@ -1,12 +1,13 @@
 //DEFAULT
 "#editUserProfileView": {
 	layout: 'vertical',
-	backgroundColor: '#FAFAFA'
+	backgroundColor: 'white'
 },
 
 "#userProfileImage": {
 	height: "80dp",
-	width: "80dp"
+	width: "80dp",
+	top: "15dp"
 },
 "#editUserInfoView": {
 	layout: 'vertical',
@@ -14,16 +15,14 @@
 },
 ".rowContainer": {
 	width: Ti.UI.FILL,
-	height: "70dp",
+	height: "50dp",
 	layout: 'vertical'
 },
-"#userAddress":{
-	top: "45dp"
-},
+
 "#userInfo": {
-	top: "25dp"
+	top: "20dp"
 },
-".user-profile-labels": {
+/*".user-profile-labels": {
 	width: Ti.UI.FILL,
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	font:{
@@ -32,8 +31,8 @@
 	},
 	color: "#545555",
 	left: "10dp"
-},
-".user-profile-text-fields": {
+},*/
+/*".user-profile-text-fields": {
 	borderColor: "#EAEAEA",
 	width: Ti.UI.FILL,
 	font:{
@@ -46,7 +45,7 @@
 	borderRadius: "5",
 	paddingLeft: "10dp",
 	paddingRight: "10dp"
-}
+}*/
 ".edit-user-profile-buttons-view": {
 	height: Ti.UI.SIZE,
 	layout: "horizontal",
@@ -56,7 +55,7 @@
 	width: Ti.UI.FILL,
 	height: "25dp",
 	height: "40dp",
-	top: "25dp",
+	top: "15dp",
 	font:{
 		fontSize: "16dp",
     	fontFamily: 'Nunito-Light'
@@ -74,6 +73,11 @@
 	backgroundColor: "#45b0e3",
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 }
+".address-map": {
+	color: "#FAFAFA",
+	backgroundColor: "#53C71A",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+}
 ".edit-profile-social-icon": {
 	width: "48dp",
 	borderColor: "#828282",
@@ -81,7 +85,7 @@
 	height: Ti.UI.FILL
 }
 ".edit-profile-social-text": {
-	width: "289dp",
+	width: Ti.UI.FILL,
 	height: Ti.UI.FILL
 }
 "#editProfileTwitterConnect": {
@@ -91,7 +95,10 @@
 "#editProfileFacebookConnect": {
 	backgroundColor: "#354f88"
 }
-"#saveInfo": {
+"#editProfileGoogleAddress": {
+	backgroundColor: "#48AC16"
+}
+/*"#saveInfo": {
 	backgroundColor: "blue",
 	width: "164dp",
 	color: "#FAFAFA",
@@ -100,10 +107,13 @@
 "#cancelInfo": {
 	width: "164dp",
 	color: "#545555"
+}*/
+".login-underline": {
+	height: "1dp",
+	bottom: "10dp",
+	backgroundColor:"#FAFAFA",
+	width:Titanium.UI.FILL
 }
-
-
-
 
 
 //iPhone 4
@@ -135,6 +145,16 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#saveInfo[if=Alloy.Globals.iPhoneFour]": {
+	backgroundColor: "blue",
+	width: "139dp",
+	color: "#FAFAFA",
+	left: "10dp"
+},
+"#cancelInfo[if=Alloy.Globals.iPhoneFour]": {
+	width: "139dp",
+	color: "#545555"
 },
 
 
@@ -171,6 +191,16 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+"#saveInfo[if=Alloy.Globals.iPhoneFive]": {
+	backgroundColor: "blue",
+	width: "139dp",
+	color: "#FAFAFA",
+	left: "10dp"
+},
+"#cancelInfo[if=Alloy.Globals.iPhoneFive]": {
+	width: "139dp",
+	color: "#545555"
+},
 
 
 
@@ -205,6 +235,16 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#saveInfo[if=Alloy.Globals.iPhoneSix]": {
+	backgroundColor: "blue",
+	width: "164dp",
+	color: "#FAFAFA",
+	left: "10dp"
+},
+"#cancelInfo[if=Alloy.Globals.iPhoneSix]": {
+	width: "164dp",
+	color: "#545555"
 },
 
 
@@ -242,7 +282,16 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-
+"#saveInfo[if=Alloy.Globals.iPhoneSixPlus]": {
+	backgroundColor: "blue",
+	width: "179dp",
+	color: "#FAFAFA",
+	left: "15dp"
+},
+"#cancelInfo[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: "179dp",
+	color: "#545555"
+},
 
 
 
@@ -278,4 +327,14 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#saveInfo[if=Alloy.Globals.android]": {
+	backgroundColor: "blue",
+	width: "164dp",
+	color: "#FAFAFA",
+	left: "10dp"
+},
+"#cancelInfo[if=Alloy.Globals.android]": {
+	width: "164dp",
+	color: "#545555"
 },
