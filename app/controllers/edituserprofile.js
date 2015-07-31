@@ -3,45 +3,44 @@ args = arguments[0] || {};
 var helpers = require('utilities/helpers'),
 UserManager = require('managers/usermanager'),
 fb = require('facebook'); 
-
+//logout from facebook everytime for testing
+fb.logout();
 
 
 function updateUser(e){
 	// Todo: validation
 	console.log("what is e:", e);
+	console.log("userid is :", Ti.App.Properties.getString('userId'));
 	var textFieldObject = {
-		"username": $.username.value,
+		"id": Ti.App.Properties.getString('userId'), //Id of the user 
 		"firstName": $.firstName.value,
 		"lastName": $.lastName.value,
-		"streetAddress": $.streetAddress.value,
-		"city": $.city.value, 
-		"zipCode": $.zipCode.value,
-		"state": $.state.value
 		};
-	var validateFields = helpers.validateFields(textFieldObject);
-	/*for (var i in textFieldObject) {
+	/*var validateFields = helpers.validateFields(textFieldObject);
+	for (var i in textFieldObject) {
 		if($.[i])
 		$.removeClass($[i], "error");
 		
-	}*/
+	}
 	if(validateFields != true){
 		console.log("validateFields", validateFields);
 		for (var i in validateFields) {
 			$.addClass($[i], "error");
 		}
 		//Todo send back error message
-	}
-	return;
-	/*UserManager.userUpdate(validateFields, function(err, userUpdateResult){
+	}*/
+	
+	UserManager.userUpdate(textFieldObject, function(err, userUpdateResult){
 		if(userUpdateResult) {
 			console.log("Successfully updated user");	
 		}
-	});	*/
+	});
 };
 
 
 // Don't forget to set your requested permissions, else the login button won't be effective.
 var win = (Ti.Platform.name === 'android') ? Ti.UI.createWindow({backgroundColor: 'white'}) : null;
+
 
 //check if already connected to facebook
 if(fb.loggedIn)
@@ -58,6 +57,14 @@ if(fb.loggedIn)
 fb.addEventListener('login', function(e) {
     if (e.success) {
         console.log('login from uid: '+e.uid + 'teh whole object: ' + e);
+        
+        for (var prop in e) {
+          // important check that this is objects own property 
+          // not from prototype prop inherited
+          if(e.hasOwnProperty(prop)){
+            console.log(prop + " = " + e[prop]);
+          }
+         }
         fb.loggedIn = true;
         $.connectFacebook.title = 'Connected to Facebook';
         $.connectFacebook.touchEnabled = false;
@@ -95,6 +102,8 @@ function connectToFaceBook(){
 		if (Ti.Platform.name === 'android') {
 			console.log('entered createActivityWorker');
 		    win.fbProxy = fb.createActivityWorker({lifecycleContainer: win});
+		    fb.permissions = ['email', 'publish_actions'];
+			win.open();
 		}
 		else {		
 			fb.permissions = ['email', 'publish_actions'];
@@ -106,11 +115,10 @@ function connectToFaceBook(){
 
 function connectToTwitter() {
 	console.log('In connectToTwitter method.');
-	
-	//TODO move the values to config
+
 	var twitter = Alloy.Globals.social.create({
-    	consumerSecret: 'RY7mguhRKkl74HyrIlk5CGfWiUz7VXtftoM6jFGdJLm69BlZbC',
-    	consumerKey: 'ezdL8s4bigBRCk5sHpXBINP9R'
+    	consumerSecret: Alloy.CFG.twitter.consumerSecret,
+    	consumerKey: Alloy.CFG.twitter.consumerKey
 	});
 	
 	if (twitter.isAuthorized())
@@ -124,11 +132,11 @@ function connectToTwitter() {
 	// Post a message
 	// Setup both callbacks for confirmation
 	// Note: share() automatically calls authorize() so an explicit call as above is unnecessary
-	twitter.share({
+	/*twitter.share({
 	    message: "friends unite! " + Math.random().toString(),
 	    success: function(e) {alert('Success!');},
 	    error: function(e) {alert('Error!' + e);}
-	});
+	});*/
 	
 	console.log('just shared : + ');
 	
