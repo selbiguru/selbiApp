@@ -7,7 +7,7 @@
 /**
  * @property {String} baseUrl Base Url for all the http calls
  */
-var baseUrl = "http://sails-server.herokuapp.com";
+var baseUrl = "http://selbi-server.herokuapp.com";
 var keychain = require('com.obscure.keychain');
 var keychainItem = keychain.createKeychainItem(Alloy.CFG.keychain.account, Alloy.CFG.keychain.password);
 
