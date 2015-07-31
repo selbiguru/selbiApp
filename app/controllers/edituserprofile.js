@@ -15,6 +15,13 @@ function updateUser(e){
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
 		"firstName": $.firstName.value,
 		"lastName": $.lastName.value,
+		"userAddress": {
+						"streetAddress": $.streetAddress.value, 
+						"city": $.city.value, 
+						"state": $.state.value,
+						"zip": $.zipCode.value,
+						"country": $.country.value
+						}
 		};
 	/*var validateFields = helpers.validateFields(textFieldObject);
 	for (var i in textFieldObject) {
