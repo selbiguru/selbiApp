@@ -3,7 +3,18 @@
 	layout: 'vertical',
 	backgroundColor: '#cacaca'
 },
-
+"#cancelAddressButton":{
+	top: "20dp",
+	left: "12dp",
+	width: "20%",
+	height: "32dp",
+}
+"#verifyAddressButton":{
+	top: "20dp",
+	left: "289dp",
+	width: "20%",
+	height: "32dp",
+}
 "#webview": {
 	willHandleTouches: false,
 	height: Ti.UI.FILL,
@@ -40,6 +51,18 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+"#cancelAddressButton[if=Alloy.Globals.iPhoneFour]":{
+	top: "20dp",
+	left: "12dp",
+	width: "20%",
+	height: "32dp",
+}
+"#verifyAddressButton[if=Alloy.Globals.iPhoneFour]":{
+	top: "20dp",
+	left: "248dp",
+	width: "20%",
+	height: "32dp",
+}
 
 
 
@@ -75,6 +98,18 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+"#cancelAddressButton[if=Alloy.Globals.iPhoneFive]":{
+	top: "20dp",
+	left: "12dp",
+	width: "20%",
+	height: "32dp",
+}
+"#verifyAddressButton[if=Alloy.Globals.iPhoneFive]":{
+	top: "20dp",
+	left: "248dp",
+	width: "20%",
+	height: "32dp",
+}
 
 
 
@@ -110,7 +145,18 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-
+"#cancelAddressButton[if=Alloy.Globals.iPhoneSix]":{
+	top: "20dp",
+	left: "12dp",
+	width: "20%",
+	height: "32dp",
+}
+"#verifyAddressButton[if=Alloy.Globals.iPhoneSix]":{
+	top: "20dp",
+	left: "289dp",
+	width: "20%",
+	height: "32dp",
+}
 
 
 
@@ -146,7 +192,18 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-
+"#cancelAddressButton[if=Alloy.Globals.iPhoneSixPlus]":{
+	top: "20dp",
+	left: "12dp",
+	width: "20%",
+	height: "32dp",
+}
+"#verifyAddressButton[if=Alloy.Globals.iPhoneSixPlus]":{
+	top: "20dp",
+	left: "317dp",
+	width: "20%",
+	height: "32dp",
+}
 
 
 
@@ -182,3 +239,15 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+"#cancelAddressButton[if=Alloy.Globals.android]":{
+	top: "20dp",
+	left: "12dp",
+	width: "20%",
+	height: "32dp",
+}
+"#verifyAddressButton[if=Alloy.Globals.android]":{
+	top: "20dp",
+	left: "289dp",
+	width: "20%",
+	height: "32dp",
+}

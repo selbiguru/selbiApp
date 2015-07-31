@@ -8,29 +8,33 @@
 				<Label id="titleVerifyAddressLabel">Validate Address</Label>
 			</View>
 			<View id="validateAddress" class="validateButtons" > 
-		    	<Button icon="fa-check" class="verifyAddressButtonIcon" id="verifyAddressVerifyButton">Verify</Button>
+		    	<Button icon="fa-check" onClick="validateAddressView" class="verifyAddressButtonIcon" id="verifyAddressVerifyButton">Verify</Button>
 		    </View> 
 		    <Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 		</View>
 		<View id='addressValidationView'>
 			<View id="userAddress" class="rowContainer">
-		        <TextField id="streetAddress" hintText="Street Address" class="user-profile-text-fields"></TextField>
+		        <TextField id="route" editable="false" hintText="Street Address" value="the cat" class="user-profile-text-fields"></TextField>
 		        <View class="login-underline"/>
 		    </View>
-		    <View id="userAddress" class="rowContainer">
+		    <View id="userAptNumber" class="rowContainer">
 		        <TextField id="apartmenNumber" hintText="Apt/Bldg Number" class="user-profile-text-fields"></TextField>
 		        <View class="login-underline"/>
 		    </View>
-		    <View class="rowContainer">    
-		        <TextField id="city" hintText="City" class="user-profile-text-fields"></TextField>
+		    <View id="city" class="rowContainer">    
+		        <TextField id="locality" editable="false" hintText="City" class="user-profile-text-fields"></TextField>
 		        <View class="login-underline"/>
 		    </View>
-		    <View class="rowContainer">
-		        <TextField id="state" hintText="State" class="user-profile-text-fields"></TextField>
+		    <View id="state" class="rowContainer">
+		        <TextField id="administrative_area_level_1" editable="false" hintText="State" class="user-profile-text-fields"></TextField>
 		        <View class="login-underline"/>
 		    </View>
-		    <View class="rowContainer">
-		        <TextField id="zipCode" hintText="Zip Code" maxLength="10" class="user-profile-text-fields"></TextField>
+		    <View id="zipCode" class="rowContainer">
+		        <TextField id="postal_code" editable="false" hintText="Zip Code" maxLength="10" class="user-profile-text-fields"></TextField>
+		        <View class="login-underline"/>
+		    </View>
+		    <View id="userCountry" class="rowContainer">
+		        <TextField id="country" editable="false" hintText="Country" maxLength="13" class="user-profile-text-fields"></TextField>
 		        <View class="login-underline"/>
 		    </View>
 		</View>

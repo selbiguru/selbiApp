@@ -7,7 +7,7 @@
 "#userProfileImage": {
 	height: "80dp",
 	width: "80dp",
-	top: "20dp"
+	top: "15dp"
 },
 "#editUserInfoView": {
 	layout: 'vertical',
@@ -20,7 +20,7 @@
 },
 
 "#userInfo": {
-	top: "45dp"
+	top: "20dp"
 },
 /*".user-profile-labels": {
 	width: Ti.UI.FILL,
@@ -85,7 +85,7 @@
 	height: Ti.UI.FILL
 }
 ".edit-profile-social-text": {
-	width: "289dp",
+	width: Ti.UI.FILL,
 	height: Ti.UI.FILL
 }
 "#editProfileTwitterConnect": {
@@ -98,7 +98,7 @@
 "#editProfileGoogleAddress": {
 	backgroundColor: "#48AC16"
 }
-"#saveInfo": {
+/*"#saveInfo": {
 	backgroundColor: "blue",
 	width: "164dp",
 	color: "#FAFAFA",
@@ -107,10 +107,10 @@
 "#cancelInfo": {
 	width: "164dp",
 	color: "#545555"
-}
+}*/
 ".login-underline": {
-	height: 1,
-	bottom: 10,
+	height: "1dp",
+	bottom: "10dp",
 	backgroundColor:"#FAFAFA",
 	width:Titanium.UI.FILL
 }
@@ -145,6 +145,16 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#saveInfo[if=Alloy.Globals.iPhoneFour]": {
+	backgroundColor: "blue",
+	width: "139dp",
+	color: "#FAFAFA",
+	left: "10dp"
+},
+"#cancelInfo[if=Alloy.Globals.iPhoneFour]": {
+	width: "139dp",
+	color: "#545555"
 },
 
 
@@ -181,6 +191,16 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+"#saveInfo[if=Alloy.Globals.iPhoneFive]": {
+	backgroundColor: "blue",
+	width: "139dp",
+	color: "#FAFAFA",
+	left: "10dp"
+},
+"#cancelInfo[if=Alloy.Globals.iPhoneFive]": {
+	width: "139dp",
+	color: "#545555"
+},
 
 
 
@@ -215,6 +235,16 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#saveInfo[if=Alloy.Globals.iPhoneSix]": {
+	backgroundColor: "blue",
+	width: "164dp",
+	color: "#FAFAFA",
+	left: "10dp"
+},
+"#cancelInfo[if=Alloy.Globals.iPhoneSix]": {
+	width: "164dp",
+	color: "#545555"
 },
 
 
@@ -252,7 +282,16 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-
+"#saveInfo[if=Alloy.Globals.iPhoneSixPlus]": {
+	backgroundColor: "blue",
+	width: "179dp",
+	color: "#FAFAFA",
+	left: "15dp"
+},
+"#cancelInfo[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: "179dp",
+	color: "#545555"
+},
 
 
 
@@ -288,4 +327,14 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#saveInfo[if=Alloy.Globals.android]": {
+	backgroundColor: "blue",
+	width: "164dp",
+	color: "#FAFAFA",
+	left: "10dp"
+},
+"#cancelInfo[if=Alloy.Globals.android]": {
+	width: "164dp",
+	color: "#545555"
 },

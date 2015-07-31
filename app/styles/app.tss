@@ -75,8 +75,11 @@
 }
 
 ".error": {
-	borderColor: "yellow",
-	borderWidth: "5dp"
+	font:{
+		fontSize: "18dp",
+    	fontFamily: 'Nunito-Bold'
+	},
+	color: "red"
 }
 ".line-separator":{
 	height: 1,

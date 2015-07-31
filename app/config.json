@@ -15,6 +15,10 @@
 		"keychain": {
 			"account": "serveraccount",
 			"password": "D1QTSJ65T86w"
+		},
+		"twitter":{
+			"consumerSecret":"RY7mguhRKkl74HyrIlk5CGfWiUz7VXtftoM6jFGdJLm69BlZbC",
+			"consumerKey": "ezdL8s4bigBRCk5sHpXBINP9R"
 		}
 	},
 	"env:test": {}, 

@@ -9,10 +9,10 @@
 // object. For example:
 //
 // Alloy.Globals.someGlobalFunction = function(){};
-
 //Determine which device device is being used to display Selbi App
 Alloy.Globals.iPhoneFour = (Ti.Platform.displayCaps.platformHeight === 480);
 Alloy.Globals.iPhoneFive = (Ti.Platform.displayCaps.platformHeight === 568);
 Alloy.Globals.iPhoneSix = (Ti.Platform.displayCaps.platformHeight === 667);
 Alloy.Globals.iPhoneSixPlus = (Ti.Platform.displayCaps.platformHeight === 736);
 Alloy.Globals.android = (Ti.Platform.osname === 'android');
+Alloy.Globals.social = require('alloy/social');

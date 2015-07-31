@@ -3,6 +3,7 @@
  */
 
 function initialize() {
+	
   var mapOptions = {
     center: new google.maps.LatLng(41.5750, -93.7092),
     zoom: 13,
@@ -34,7 +35,6 @@ function initialize() {
     map: map,
     anchorPoint: new google.maps.Point(0, -29)
   });
-
   google.maps.event.addListener(autocomplete, 'place_changed', function() {
     infowindow.close();
     marker.setVisible(false);

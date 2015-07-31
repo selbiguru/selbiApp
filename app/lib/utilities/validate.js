@@ -65,7 +65,6 @@ function validate(value, options) {
     var error;
     
     _.each(options, function (setting, key) {
-        
         if (setting === false) {
             return;
         }
@@ -74,22 +73,21 @@ function validate(value, options) {
             
             case 'email':
                 var email = /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/;
-                if (!email.test(value)) throw String.format(L('validate_email', '%s is no email address.'), options.label);
+                if (!email.test(value)) return error = {message: String.format(L('validate_email', '%s is no email address.'), options.label)};
                 break;
                 
             case 'regexp':
-                if (!setting.test(value)) throw String.format(L('validate_regexp', '%s is not valid.'), options.label);
+                if (!setting.test(value)) return error = {message: String.format(L('validate_regexp', '%s is not valid'), options.label)};
                 break;
                 
             case 'numeric':
-                if (!_.isFinite(value)) throw String.format(L('validate_numeric', '%s is not a number.'), options.label);
+                if (!_.isFinite(value)) return error = {message: String.format(L('validate_numeric', '%s is not a number.'), options.label)};
                 break;
         }
-       
         return;
     });
         
-    return value;
+    return error? error : value;
 }
 
 if (typeof exports !== 'undefined') {

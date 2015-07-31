@@ -89,14 +89,18 @@ function onMenuClickListener(e){
  */
 Alloy.Globals.openPage = function openPage(viewName, model){	
 	viewList[viewName] = controls.getCustomView(viewName, model);
+	console.log("1");
 	if(viewList[viewName]){
+		console.log("2");
 		for (var property in viewList) {
 		    if (property === viewName) {
+		    	console.log("3");
 		    	var newView = viewList[viewName].getView();
 		    	//newView.left = 320;
     			//newView.animate({left:0, duration:400});    			
 		        $.drawermenu.drawermainview.add(newView);
 				if(viewList[viewName].menuButton) {
+					console.log("4");
 			        viewList[viewName].menuButton.addEventListener('click',function(){
 						$.drawermenu.showhidemenu();
 						$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
@@ -109,13 +113,19 @@ Alloy.Globals.openPage = function openPage(viewName, model){
 	} else {
 		//TODO: Error
 	}
+	//console.log("viewName ", viewName);
+	//console.log("viewList ", viewList);
 };
 
 /**
  * Close a page that is open. Silently returns if the page is not open 
  */
 Alloy.Globals.closePage = function(pageName){
+	//console.log("pagename ", pageName);
+	//console.log("viewList ", viewList);
+	console.log("!!!!");
 	if(viewList[pageName]) {
+		console.log("@@@@@");
 		$.drawermenu.drawermainview.remove(viewList[pageName].getView());
 	}
 };
