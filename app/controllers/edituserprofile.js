@@ -6,6 +6,7 @@ fb = require('facebook');
 //logout from facebook everytime for testing
 fb.logout();
 
+Alloy.Models.user.fetch();
 
 function updateUser(e){
 	// Todo: validation

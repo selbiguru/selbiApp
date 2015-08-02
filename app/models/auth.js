@@ -9,6 +9,7 @@ exports.definition = {
 		},
 		adapter: {
 			type: "sql",
+			idAttribute: 'username',
 			collection_name: "auth",
 			db_name: "auth"			
 		}

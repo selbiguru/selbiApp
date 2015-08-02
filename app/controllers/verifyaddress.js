@@ -37,6 +37,13 @@ function validateAddressView(){
 		//$.addClass($.userAptNumber, "error");
 		return;	
 	}
+	Alloy.Models.user.fetch({
+		success: function(data){
+			data.set({'email': 'jordan@selbi.com'});
+			data.save();
+		}
+	});
+	
 }
 
 /*$.userAptNumber.addEventListener('click', function(){
