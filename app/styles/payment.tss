@@ -1,7 +1,7 @@
 //DEFAULT
 "#paymentView":{
 	layout: 'vertical',
-	backgroundColor: '#FAFAFA'
+	backgroundColor: 'white'
 },
 
 ".paymentTable":{

@@ -36,13 +36,36 @@ function validateAddressView(){
 		alert(car.message);
 		//$.addClass($.userAptNumber, "error");
 		return;	
+	} else {
+		var textFieldObject = {
+		"id": Ti.App.Properties.getString('userId'), //Id of the user 
+		"userAddress": {
+						"streetAddress": $.route.value, 
+						"city": $.locality.value, 
+						"state": $.administrative_area_level_1.value,
+						"zip": $.postal_code.value,
+						"country": $.country.value
+						}
+		};
+		//UserManager.userUpdate(textFieldObject, function(err, userUpdateResult){
+			//if(userUpdateResult) {
+				//console.log("Successfully updated user");
+				Alloy.Models.user.fetch({
+					success: function(data){
+						data.set({'streetAddress': $.route.value});
+						data.set({'city': $.locality.value});
+						data.set({'state': $.administrative_area_level_1.value});
+						data.set({'zip': $.postal_code.value});
+						data.set({'country': $.country.value});
+						data.save();
+					},
+					error: function(data){
+						alert("Unable to fetch user data! Please contact selbiguru@the.com");
+					}
+				});		
+			//}
+		//});
 	}
-	Alloy.Models.user.fetch({
-		success: function(data){
-			data.set({'email': 'jordan@selbi.com'});
-			data.save();
-		}
-	});
 	
 }
 
