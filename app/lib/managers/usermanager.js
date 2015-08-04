@@ -36,6 +36,7 @@ exports.getCurrentUser = function(cb){
 			userModel.set({lastName: userObject.lastName});
 			userModel.set({email: userObject.email});
 			userModel.set({id: userObject.id});
+			userModel.set({profileImage: userObject.profileImage});
 			userModel.save();		
 			Alloy.Globals.currentUser = userModel;
 		}	
