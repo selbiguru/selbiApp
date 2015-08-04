@@ -33,12 +33,14 @@ var login = exports.login = function (username, password, cb){
 			
 			if(loginResult.user) {
 				// Set user properties
+				console.log("@#@$@#$@ ",loginResult.user);
 				userModel.set({username: loginResult.user.username});
 				userModel.set({password: password });
 				userModel.set({firstName: loginResult.user.firstName});
 				userModel.set({lastName: loginResult.user.lastName});
 				userModel.set({email: loginResult.user.email});
-				userModel.set({id: loginResult.user.id});			
+				userModel.set({id: loginResult.user.id});
+				userModel.save();		
 			}
 			
 			authModel.set({ token: loginResult.token });

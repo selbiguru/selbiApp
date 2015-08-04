@@ -1,43 +1,44 @@
 //DEFAULT
 "#paymentView":{
 	layout: 'vertical',
-	backgroundColor: 'white'
+	backgroundColor: '#FEFEFE'
 },
-
-".paymentTable":{
-	selectedBackgroundColor: "EAEAEA",
-	backgroundColor:'#FAFAFA',
-	scrollable: false,
-	height: Ti.UI.SIZE
+"#paymentDetails":{
+	layout: 'vertical',
+	backgroundColor: "#FAFAFA",
+	top: "20dp",
+	height: Ti.UI.SIZE,
+	width: '90%',
+	borderWidth: "2dp",
+	borderColor: "#EAEAEA",
+	borderRadius: "5"
 },
-".rowLabelY":{
-	selectionStyle:"NONE",
-	backgroundColor:'#EAEAEA',
-	scrollable: false,
-	width: Titanium.UI.FILL,
-	height: Titanium.UI.FILL,
-	left:"5dp"
-},
-".rowLabelX":{
-	selectionStyle:"NONE",
-	backgroundColor:'#EAEAEA',
-	scrollable: false,
-	width: Titanium.UI.FILL,
-	height: Titanium.UI.FILL,
-	left:"5dp"
+"#paymentViewLabel":{
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	top: "10dp",
+	left: "5dp",
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: "#545555",
+	width: Ti.UI.FILL
+	
 },
 ".tableRow":{
 	height: '40dp'
 },
 ".rowContainer":{
 	height: '40dp',
-	layout:'horizontal'
+	layout:'horizontal',
+	borderWidth: "1dp",
+	borderColor: "#EAEAEA",
 },
 ".rowLabel":{
 	left: "15dp",
 	height: "40dp",
 	font:{
-		fontSize: "16dp",
+		fontSize: "14dp",
     	fontFamily: 'Nunito-Light'
 	},
 	color: "#545555"

@@ -6,8 +6,6 @@ fb = require('facebook');
 //logout from facebook everytime for testing
 fb.logout();
 
-Alloy.Models.user.fetch();
-
 function updateUser(e){
 	// Todo: validation
 	console.log("what is e:", e);
@@ -38,11 +36,22 @@ function updateUser(e){
 		//Todo send back error message
 	}*/
 	
-	UserManager.userUpdate(textFieldObject, function(err, userUpdateResult){
-		if(userUpdateResult) {
-			console.log("Successfully updated user");	
-		}
-	});
+	//UserManager.userUpdate(textFieldObject, function(err, userUpdateResult){
+		//if(userUpdateResult) {
+			//console.log("Successfully updated user");
+			Alloy.Models.user.fetch({
+					success: function(data){
+						data.set({'firstName': $.firstName.value});
+						data.set({'lastName': $.lastName.value});
+						data.set({'username': $.username.value});
+						data.save();
+					},
+					error: function(data){
+						alert("Unable to fetch user data! Please contact selbiguru@the.com");
+					}
+				});	
+		//}
+	//});
 };
 
 

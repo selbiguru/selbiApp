@@ -65,6 +65,7 @@ function validateAddressView(){
 				});		
 			//}
 		//});
+		$.verifyAddressCancelButton.fireEvent('click');
 	}
 	
 }

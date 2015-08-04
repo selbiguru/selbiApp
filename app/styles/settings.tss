@@ -8,24 +8,10 @@
 	selectedBackgroundColor: "EAEAEA",
 	backgroundColor:'#FAFAFA',
 	scrollable: false,
-	height: Ti.UI.SIZE
+	height: Ti.UI.SIZE,
+	right: "15dp"
 },
-".rowLabelY":{
-	selectionStyle:"NONE",
-	backgroundColor:'#EAEAEA',
-	scrollable: false,
-	width: Titanium.UI.FILL,
-	height: Titanium.UI.FILL,
-	left:"5dp"
-},
-".rowLabelX":{
-	selectionStyle:"NONE",
-	backgroundColor:'#EAEAEA',
-	scrollable: false,
-	width: Titanium.UI.FILL,
-	height: Titanium.UI.FILL,
-	left:"5dp"
-},
+
 ".tableRow":{
 	height: '40dp'
 },
@@ -44,14 +30,13 @@
 },
 ".row-icon":{
 	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
-	right: "15dp",
+	right: "5dp",
 	width: Titanium.UI.FILL,
 	color: "#1BA7CD"
 },
 ".menu-underline": {
 	height: "1dp",
 	top:"0dp",
-	left:"15dp",
 	width: Titanium.UI.FILL,
 	backgroundColor:"#EAEAEA"
 },

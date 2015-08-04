@@ -10,9 +10,9 @@
 			</View>
 		</View>
 		<View id="paymentDetails">
+			<Label id="paymentViewLabel">Add and Edit Payment Info</Label>
 			<View id="viewAddCard" class="rowContainer">
-			 	<Label icon="fa-plus-square-o" id="labelAddCard">Add Payment Method</Label>
-			    <View class="login-underline"/>
+			 	<Label icon="fa-plus-square-o" id="labelAddCard" class="rowLabel">Add Payment Method</Label>
 			</View>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 		</View>

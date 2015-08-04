@@ -13,42 +13,42 @@
 		<TableView class="settingsTable" id="settingsTable">
 	        <TableViewRow class="tableRow" id="payment">
 				<View class="rowContainer">
-					<Label id="rowLabel" class="rowLabel">Payment</Label>
+					<Label id="" class="rowLabel">Payment</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="edituserprofile">
 				<View class="rowContainer">
-					<Label id="rowLabel" class="rowLabel">Edit Profile</Label>
+					<Label id="" class="rowLabel">Edit Profile</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="FAQ">
 				<View class="rowContainer">
-					<Label id="rowLabel" class="rowLabel">FAQ</Label>
+					<Label id="" class="rowLabel">FAQ</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="feedbackHelp">
 				<View class="rowContainer">
-					<Label id="rowLabel" class="rowLabel">Feedback & Help</Label>
+					<Label id="" class="rowLabel">Feedback & Help</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="privacyPolicy">
 				<View class="rowContainer">
-					<Label id="rowLabel" class="rowLabel">Privacy Policy</Label>
+					<Label id="" class="rowLabel">Privacy Policy</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="userAgreement">
 				<View class="rowContainer">
-					<Label id="rowLabel" class="rowLabel">User Agreement</Label>
+					<Label id="" class="rowLabel">User Agreement</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
