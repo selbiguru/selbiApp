@@ -1,36 +1,36 @@
 {
-	"global": {}, 
-	"env:development": {
-		"cloudinary": {
-			"baseurl": "https://api.cloudinary.com/v1_1/selbi",
-			"apikey": "379521277533334",
-			"baseImagePath": "http://res.cloudinary.com/selbi/image/upload/",
-			"bucket": "v1433472934/"
-		},
-		"imageSize": {
-			"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
-			"listingView": "h_300,fl_progressive/",
-			"listView": "h_150,w_150,c_fill,fl_progressive/"
-		},
-		"keychain": {
-			"account": "serveraccount",
-			"password": "D1QTSJ65T86w"
+  "global": {},
+  "env:development": {
+    "cloudinary": {
+      "baseurl": "https://api.cloudinary.com/v1_1/selbi",
+      "apikey": "379521277533334",
+      "baseImagePath": "http://res.cloudinary.com/selbi/image/upload/",
+      "bucket": "v1433472934/"
+    },
+    "imageSize": {
+      "menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+      "listingView": "h_300,fl_progressive/",
+      "listView": "h_150,w_150,c_fill,fl_progressive/"
+    },
+    "keychain": {
+      "account": "serveraccount",
+      "password": "D1QTSJ65T86w"
 		},
 		"twitter":{
 			"consumerSecret":"RY7mguhRKkl74HyrIlk5CGfWiUz7VXtftoM6jFGdJLm69BlZbC",
 			"consumerKey": "ezdL8s4bigBRCk5sHpXBINP9R"
-		}
-	},
-	"env:test": {}, 
-	"env:production": {}, 
-	"os:android": {},
-	"os:blackberry": {},
-	"os:ios": {},
-	"os:mobileweb": {},
-	"dependencies": {
-		"com.alcoapps.drawermenu" : "1.0",
-		"com.mattmcfarland.fontawesome" : "1.4.1",
-		"com.prodz.tiflexigrid":"1.2"
-	},
-	"autoStyle": true
+    }
+  },
+  "env:test": {},
+  "env:production": {},
+  "os:android": {},
+  "os:blackberry": {},
+  "os:ios": {},
+  "os:mobileweb": {},
+  "dependencies": {
+    "com.alcoapps.drawermenu": "1.0",
+    "com.mattmcfarland.fontawesome": "1.4.1",
+    "com.prodz.tiflexigrid": "1.2"
+  },
+  "autoStyle": true
 }

@@ -2,11 +2,12 @@ var args = arguments[0] || {};
 var authManager = require('managers/authmanager');
 var imageManager = require('managers/imagemanager');
 
-var profileImage = Ti.UI.createImageView({
-	image: imageManager.getMenuProfileImage()
+imageManager.getMenuProfileImage(function(err, profileImage){
+	var profileImage = Ti.UI.createImageView({
+		image: profileImage
+	});	
+	$.menuUserImage.add(profileImage);	
 });
-
-$.menuUserImage.add(profileImage);
 
 function logout(){
 	authManager.logout(function(err, result){

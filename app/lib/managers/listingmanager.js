@@ -88,7 +88,7 @@ exports.uploadImagesForListing = function(listingId, imageCollection, cb){
 		f.write(imageCollection[i]); 		
 		var uploadImageRequest = {
 			image: Titanium.Filesystem.tempDirectory + randomNumer + '-upload.jpg',
-			listingId: listingId,
+			referenceId: listingId,
 			userId: Ti.App.Properties.getString('userId')
 		};		
 		imageManager.uploadImage(uploadImageRequest, uploadCompleteCallback);

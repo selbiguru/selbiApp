@@ -29,7 +29,7 @@ var login = exports.login = function (username, password, cb){
 		if(!err && loginResult) {
 			// Create a singleton
 			var authModel = Alloy.Models.instance('auth');
-			var userModel = Alloy.createModel('user');
+			var userModel = Alloy.Models.instance('user');
 			
 			if(loginResult.user) {
 				// Set user properties
@@ -39,8 +39,10 @@ var login = exports.login = function (username, password, cb){
 				userModel.set({firstName: loginResult.user.firstName});
 				userModel.set({lastName: loginResult.user.lastName});
 				userModel.set({email: loginResult.user.email});
+				userModel.set({profileImage: loginResult.user.profileImage});
 				userModel.set({id: loginResult.user.id});
 				userModel.save();		
+				Alloy.Globals.currentUser = loginResult.userModel;	
 			}
 			
 			authModel.set({ token: loginResult.token });
