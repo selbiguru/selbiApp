@@ -18,7 +18,21 @@
 	height: "50dp",
 	layout: 'vertical'
 },
-
+"#cameraOverlay": {
+	font: {
+		fontSize: '30dp'
+	},
+	top: '60dp',
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: '#000',
+	opacity: 0.4
+},
+"#profileImage": {
+	layout: "absolute",
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE	
+},
 "#userInfo": {
 	top: "20dp"
 },

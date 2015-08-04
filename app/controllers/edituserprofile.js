@@ -1,12 +1,133 @@
+/**
+ * @class EditUserProfile
+ * This class deals with user's profile and social profile management
+ */
 args = arguments[0] || {};
 
 var helpers = require('utilities/helpers'),
-UserManager = require('managers/usermanager'),
+userManager = require('managers/usermanager'),
+imageManager = require('managers/imagemanager'),
+currentUser = null,
 fb = require('facebook'); 
 //logout from facebook everytime for testing
 fb.logout();
 
-Alloy.Models.user.fetch();
+//Fetch the logged in user
+userManager.getCurrentUser(function(err, userInfo){
+	currentUser = userInfo;
+});
+
+// Set the user profile image
+imageManager.getMenuProfileImage(function(err, profileImage){
+	$.userProfileImage.image = profileImage;	
+});
+
+/**
+ * @method onCameraClick
+ * This method gives users options to click a picture or select from gallery
+ */
+function onCameraClick() {
+	var opts = {
+	  cancel: 2,
+	  options: ['Capture Image', 'Select from gallery', 'Cancel'],
+	  selectedIndex: 2,
+	  title: 'Upload your picture'
+	};
+	var optionsDialog = Ti.UI.createOptionDialog(opts);
+	optionsDialog.show();
+	optionsDialog.addEventListener('click', function(e){
+		switch(e.index) {
+			case 0:
+				showCamera();
+				break;
+			case 1:
+				openGallery();
+				break;
+			default:
+				//Do Nothing
+				break;
+		}
+	});
+}
+
+/**
+ * @method showCamera
+ * This method will allow users to click a picture and upload to their profile.
+ * NOTE: Android support needs testing
+ */
+function showCamera(){
+	Titanium.Media.showCamera({
+		success: function(e){
+			uploadUserProfile(e.media);
+		},
+		cancel: function(){
+			// Do nothing
+		},
+		error: function(){
+			alert("Unable to load the image");
+		},
+		saveToPhotoGallery:true,
+	    // allowEditing and mediaTypes are iOS-only settings
+		allowEditing:true,
+		mediaTypes:[Ti.Media.MEDIA_TYPE_PHOTO]
+	});
+}
+
+/**
+ * @method openGallery
+ * This method will allow users to pick images from their phone gallery and upload to their profile
+ * NOTE: Android support needs testing
+ */
+function openGallery(){
+	Titanium.Media.openPhotoGallery({
+		success: function(e){
+			uploadUserProfile(e.media);
+		},
+		cancel: function(){
+			//Do nothing		
+		},
+		error: function(){
+			alert("Unable to load the image");
+		},
+		// allowEditing and mediaTypes are iOS-only settings
+		allowEditing:true,
+		mediaTypes:[Ti.Media.MEDIA_TYPE_PHOTO]
+	});
+}
+
+/**
+ * @method uploadUserProfile
+ * This method will upload the image to cloudinary and save it to the user's profile
+ */
+function uploadUserProfile(imageBlob){
+	
+	function uploadCompleteCallback(err, result) {
+		console.log(result);
+		if(currentUser) {
+			currentUser.set({'profileImage': result.public_id});
+			currentUser.save();
+			userManager.userUpdate(currentUser.toJSON(), function(){
+				alert("User image saved");
+			});
+		}
+		//Update the user
+		imageManager.getMenuProfileImage(function(err, profileImage){
+			$.userProfileImage.image = profileImage;
+		});		
+	}
+	
+	// Prepare request
+	var f = Titanium.Filesystem.getFile(Titanium.Filesystem.tempDirectory, 'profile.jpg');
+		f.write(imageBlob); 	
+	var uploadImageRequest = {
+		image: Titanium.Filesystem.tempDirectory + 'profile.jpg',
+		referenceId: 0,
+		userId: Ti.App.Properties.getString('userId')
+	};
+	
+	// Image upload
+	imageManager.uploadImage(uploadImageRequest, uploadCompleteCallback);	
+}
 
 function updateUser(e){
 	// Todo: validation
@@ -38,7 +159,7 @@ function updateUser(e){
 		//Todo send back error message
 	}*/
 	
-	UserManager.userUpdate(textFieldObject, function(err, userUpdateResult){
+	userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
 		if(userUpdateResult) {
 			console.log("Successfully updated user");	
 		}

@@ -14,10 +14,31 @@ var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
 			if(cb) cb(new Error(err.message), null);
 			} 
 		else {
-				a.setMessage("User profile saved!");
-	    		a.show();
-				if(cb) 	cb(null, userUpdateResult);
+			a.setMessage("User profile saved!");
+    		a.show();
+			if(cb) 	cb(null, userUpdateResult);
 		}
 	});
 
+};
+
+exports.getCurrentUser = function(cb){	
+	if(Alloy.Globals.currentUser) 
+	{
+		return cb(null, Alloy.Globals.currentUser);
+	}	
+	console.warn("Fetching user information");
+	httpManager.execute('/user/' + Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, userObject){
+		if(userObject) {
+			var userModel = Alloy.Models.instance('user');
+			userModel.set({username: userObject.username});
+			userModel.set({firstName: userObject.firstName});
+			userModel.set({lastName: userObject.lastName});
+			userModel.set({email: userObject.email});
+			userModel.set({id: userObject.id});
+			userModel.save();		
+			Alloy.Globals.currentUser = userModel;
+		}	
+		cb(err, Alloy.Globals.currentUser);
+	});	
 };

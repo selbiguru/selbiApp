@@ -15,12 +15,14 @@
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
         <manifest android:versionCode="1" android:versionName="1.0">
-        	<!-- keep any custom attributes for application -->
+            <!-- keep any custom attributes for application -->
             <application>
-                <activity android:configChanges="keyboardHidden|orientation" android:label="Selbi"
-                          android:name=".MyAppActivity" android:theme="@style/Theme.Titanium"
-                          android:launchMode="singleTask" >
-                          <!-- add the above launchMode attribute -->
+                <activity
+                    android:configChanges="keyboardHidden|orientation"
+                    android:label="Selbi"
+                    android:launchMode="singleTask"
+                    android:name=".MyAppActivity" android:theme="@style/Theme.Titanium">
+                    <!-- add the above launchMode attribute -->
                     <intent-filter>
                         <action android:name="android.intent.action.MAIN"/>
                         <category android:name="android.intent.category.LAUNCHER"/>
@@ -30,9 +32,10 @@
                         <action android:name="android.intent.action.VIEW"/>
                         <category android:name="android.intent.category.DEFAULT"/>
                         <category android:name="android.intent.category.BROWSABLE"/>
-                        <data android:scheme="selbi" />
+                        <data android:scheme="selbi"/>
                     </intent-filter>
                 </activity>
+                <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="21"/>
             </application>
             <supports-screens android:anyDensity="true"
                 android:largeScreens="true" android:normalScreens="true"
@@ -42,7 +45,7 @@
     <ios>
         <plist>
             <dict>
-            	<key>CFBundleURLTypes</key>
+                <key>CFBundleURLTypes</key>
                 <array>
                     <dict>
                         <key>CFBundleURLName</key>
@@ -133,7 +136,7 @@
         <target device="iphone">true</target>
         <target device="mobileweb">true</target>
     </deployment-targets>
-    <sdk-version>4.0.0.GA</sdk-version>
+    <sdk-version>4.1.0.GA</sdk-version>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>

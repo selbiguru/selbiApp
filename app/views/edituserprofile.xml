@@ -11,7 +11,10 @@
 			</View>
 		</View>
 		<ScrollView id="editUserInfoView">
-			<ImageView id="userProfileImage" image="/images/home-bg.png" />
+			<View id="profileImage" onClick="onCameraClick">
+				<ImageView id="userProfileImage"/>
+				<Label id="cameraOverlay" icon="fa-camera"></Label>				
+			</View>
         	<View id="userInfo" class="rowContainer">
 		        <TextField id="firstName" hintText="First Name" value="{user.email}" class="user-profile-text-fields"></TextField>
 		        <View class="login-underline"/>
