@@ -16,35 +16,35 @@
 				<Label id="cameraOverlay" icon="fa-camera"></Label>				
 			</View>
         	<View id="userInfo" class="rowContainer">
-		        <TextField id="firstName" hintText="First Name" value="{user.email}" class="user-profile-text-fields"></TextField>
+		        <TextField id="firstName" hintText="First Name" class="user-profile-text-fields" value="{user.firstName}"></TextField>
 		        <View class="login-underline"/>
 		    </View> 
 		    <View class="rowContainer"> 
-		        <TextField id="lastName" hintText="Last Name" class="user-profile-text-fields"></TextField>
+		        <TextField id="lastName" hintText="Last Name" class="user-profile-text-fields" value="{user.lastName}"></TextField>
 		        <View class="login-underline"/>
 		    </View>
 		    <View class="rowContainer">
-		        <TextField id="username" hintText="Username" class="user-profile-text-fields"></TextField>
+		        <TextField id="username" hintText="Username" class="user-profile-text-fields" value="{user.email}"></TextField>
 		        <View class="login-underline"/>
 		    </View>
 		    <View id="userAddress" class="rowContainer">
-		        <TextField id="streetAddress" hintText="Street Address" class="user-profile-text-fields"></TextField>
+		        <TextField id="streetAddress" hintText="Street Address" class="user-profile-text-fields" value="{user.streetAddress}"></TextField>
 		        <View class="login-underline"/>
 		    </View>
 		    <View class="rowContainer">    
-		        <TextField id="city" hintText="City" class="user-profile-text-fields"></TextField>
+		        <TextField id="city" hintText="City" class="user-profile-text-fields" value="{user.city}"></TextField>
 		        <View class="login-underline"/>
 		    </View>
 		    <View class="rowContainer">
-		        <TextField id="state" hintText="State" class="user-profile-text-fields"></TextField>
+		        <TextField id="state" hintText="State" class="user-profile-text-fields" value="{user.state}"></TextField>
 		        <View class="login-underline"/>
 		    </View>
 		    <View class="rowContainer">
-		        <TextField id="zipCode" hintText="Zip Code" maxLength="10" class="user-profile-text-fields"></TextField>
+		        <TextField id="zipCode" hintText="Zip Code" maxLength="10" class="user-profile-text-fields" value="{user.zip}"></TextField>
 		        <View class="login-underline"/>
 		    </View>
 		    <View class="rowContainer">
-		        <TextField id="country" hintText="Country" class="user-profile-text-fields"></TextField>
+		        <TextField id="country" hintText="Country" class="user-profile-text-fields" value="{user.country}"></TextField>
 		        <View class="login-underline"/>
 		    </View>
 		    <View class="edit-user-profile-buttons-view edit-user-profile-button">
