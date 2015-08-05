@@ -1,0 +1,211 @@
+//DEFAULT
+"#addCreditCardView":{
+	layout: 'vertical',
+	backgroundColor: '#FDFDFD'
+},
+".tableRow":{
+	height: '40dp'
+},
+".rowContainer":{
+	height: '40dp',
+	layout:'horizontal',
+	borderWidth: "1dp",
+	borderColor: "#EAEAEA",
+},
+".rowLabel":{
+	left: "15dp",
+	height: "40dp",
+	font:{
+		fontSize: "14dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: "#545555"
+},
+".row-icon":{
+	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
+	right: "15dp",
+	width: Titanium.UI.FILL,
+	color: "#1BA7CD"
+},
+".menu-underline": {
+	height: "1dp",
+	top:"0dp",
+	left:"15dp",
+	width: Titanium.UI.FILL,
+	backgroundColor:"#EAEAEA"
+},
+
+
+
+//iPhone 4
+"#addCreditCardTopBar[if=Alloy.Globals.iPhoneFour]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneFour]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#addCreditCardButtonIcon[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleAddCreditCardView[if=Alloy.Globals.iPhoneFour]": {
+	right: "60dp"
+},
+
+"#titleAddCreditCardLabel[if=Alloy.Globals.iPhoneFour]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+
+
+
+
+
+//iPhone 5
+"#addCreditCardTopBar[if=Alloy.Globals.iPhoneFive]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneFive]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#addCreditCardButtonIcon[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleAddCreditCardView[if=Alloy.Globals.iPhoneFive]": {
+	right: "60dp"
+},
+
+"#titleAddCreditCardLabel[if=Alloy.Globals.iPhoneFive]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+
+
+
+
+
+//iPhone 6
+"#addCreditCardTopBar[if=Alloy.Globals.iPhoneSix]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneSix]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#addCreditCardButtonIcon[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleAddCreditCardView[if=Alloy.Globals.iPhoneSix]": {
+	right: "60dp"
+},
+
+"#titleAddCreditCardLabel[if=Alloy.Globals.iPhoneSix]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+
+
+
+
+
+
+//iPhone 6 Plus
+"#addCreditCardTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#addCreditCardButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+            fontSize: "20dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleAddCreditCardView[if=Alloy.Globals.iPhoneSixPlus]": {
+	right: "60dp"
+},
+
+"#titleAddCreditCardLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "20dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+
+
+
+
+
+
+//android -(currently same as iPhone 6)
+"#addCreditCardTopBar[if=Alloy.Globals.android]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.android]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#addCreditCardButtonIcon[if=Alloy.Globals.android]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleAddCreditCardView[if=Alloy.Globals.android]": {
+	right: "60dp"
+},
+
+"#titleAddCreditCardLabel[if=Alloy.Globals.android]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
