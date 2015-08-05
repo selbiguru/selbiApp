@@ -3,7 +3,7 @@
 * @class Index
 */
 
-var AuthManager = require('managers/authmanager');
+var authManager = require('managers/authmanager');
 var controls=require('controls');
  
 // Source: https://github.com/FokkeZB/UTiL/blob/master/XCallbackURL/XCallbackURL.js
@@ -39,7 +39,7 @@ $.index.addEventListener('open', function (e) {
     }
 });
 
-if (AuthManager.isLoggedIn() == 1) {
+if (authManager.isLoggedIn() == 1) {
 	var mainController = Alloy.createController('masterlayout').getView();
 	mainController.open();		
 } else {
@@ -54,4 +54,8 @@ function signIn(){
 function register(){
 	var controller = Alloy.createController('register').getView();
 	controller.open({ transition: Ti.UI.iPhone.AnimationStyle.CURL_UP});
+}
+
+function learnMore() {	 
+	var introController = Alloy.createController('intro').getView();	
 }
