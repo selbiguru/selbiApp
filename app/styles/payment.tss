@@ -1,12 +1,12 @@
 //DEFAULT
 "#paymentView":{
 	layout: 'vertical',
-	backgroundColor: '#FEFEFE'
+	backgroundColor: '#FDFDFD'
 },
 "#paymentDetails":{
 	layout: 'vertical',
 	backgroundColor: "#FAFAFA",
-	top: "20dp",
+	top: "50dp",
 	height: Ti.UI.SIZE,
 	width: '90%',
 	borderWidth: "2dp",
