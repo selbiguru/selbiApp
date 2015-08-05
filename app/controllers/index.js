@@ -4,18 +4,21 @@
 */
 
 var authManager = require('managers/authmanager');
-var controls=require('controls');
+var controls = require('controls');
  
 // Source: https://github.com/FokkeZB/UTiL/blob/master/XCallbackURL/XCallbackURL.js
 var XCallbackURL = require('utilities/XCallbackURL');
  
 function handleURL(url) {
+	if(!url) return;
     var URL = XCallbackURL.parse(url),
         controller = URL.action(),
         args = URL.params();
         
-    // Add some better logic here ;)
-    Alloy.createController(controller, args || {}).getView().open();
+    if(controller) {    
+	    // Add some better logic here ;)
+	    Alloy.createController(controller, args || {}).getView().open();
+    }
 }
 
 
