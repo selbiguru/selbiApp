@@ -109,12 +109,7 @@ function saveListing() {
 	var a = Titanium.UI.createAlertDialog({
 		title : 'Listing'
 	});
-	var style;
-	if (Ti.Platform.name === 'iPhone OS') {
-		style = Ti.UI.iPhone.ActivityIndicatorStyle.DARK;
-	} else {
-		style = Ti.UI.ActivityIndicatorStyle.DARK;
-	}
+
 	var indicatorWindow = indicator.createIndicatorWindow({
 		message : "Saving"
 	});

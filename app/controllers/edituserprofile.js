@@ -8,6 +8,7 @@ var helpers = require('utilities/helpers'),
 userManager = require('managers/usermanager'),
 imageManager = require('managers/imagemanager'),
 currentUser = null,
+indicator = require('uielements/indicatorwindow'),
 fb = require('facebook'); 
 //logout from facebook everytime for testing
 fb.logout();
@@ -100,20 +101,24 @@ function openGallery(){
  * This method will upload the image to cloudinary and save it to the user's profile
  */
 function uploadUserProfile(imageBlob){
-	
+	var indicatorWindow = indicator.createIndicatorWindow({
+		message : "Saving .."
+	});
+
+	indicatorWindow.openIndicator();
 	function uploadCompleteCallback(err, result) {
-		console.log(result);
 		if(currentUser) {
 			currentUser.set({'profileImage': result.public_id});
 			currentUser.save();
-			userManager.userUpdate(currentUser.toJSON(), function(){
-				alert("User image saved");
+			userManager.userUpdate(currentUser.toJSON(), function(){				
+				imageManager.getMenuProfileImage(function(err, profileImage){
+					$.userProfileImage.image = profileImage;
+					indicatorWindow.closeIndicator();
+				});				
 			});
+		} else {
+			indicatorWindow.closeIndicator();
 		}
-		//Update the user
-		imageManager.getMenuProfileImage(function(err, profileImage){
-			$.userProfileImage.image = profileImage;
-		});		
 	}
 	
 	// Prepare request
