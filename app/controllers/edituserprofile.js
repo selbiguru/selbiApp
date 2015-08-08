@@ -142,13 +142,13 @@ function updateUser(e){
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
 		"firstName": $.firstName.value,
 		"lastName": $.lastName.value,
-		"userAddress": {
+		"userAddress": null/*{
 						"streetAddress": $.streetAddress.value, 
 						"city": $.city.value, 
 						"state": $.state.value,
 						"zip": $.zipCode.value,
 						"country": $.country.value
-						}
+						}*/
 		};
 	/*var validateFields = helpers.validateFields(textFieldObject);
 	for (var i in textFieldObject) {
@@ -164,10 +164,24 @@ function updateUser(e){
 		//Todo send back error message
 	}*/
 	
-	//UserManager.userUpdate(textFieldObject, function(err, userUpdateResult){
-		//if(userUpdateResult) {
-			//console.log("Successfully updated user");
-			Alloy.Models.user.fetch({
+	userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
+		if(userUpdateResult) {
+			console.log("Successfully updated user");
+			/*Alloy.Models.user.fetch({
+					success: function(data){
+						data.set({'firstName': $.firstName.value});
+						data.set({'lastName': $.lastName.value});
+						data.set({'username': $.username.value});
+						data.save();
+					},
+					error: function(data){
+						alert("Unable to fetch user data! Please contact selbiguru@the.com");
+					}
+				});	*/
+		}
+	});
+	
+	Alloy.Models.user.fetch({
 					success: function(data){
 						data.set({'firstName': $.firstName.value});
 						data.set({'lastName': $.lastName.value});
@@ -178,8 +192,7 @@ function updateUser(e){
 						alert("Unable to fetch user data! Please contact selbiguru@the.com");
 					}
 				});	
-		//}
-	//});
+	
 };
 
 

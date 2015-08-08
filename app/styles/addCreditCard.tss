@@ -1,29 +1,7 @@
 //DEFAULT
-"#paymentView":{
+"#addCreditCardView":{
 	layout: 'vertical',
 	backgroundColor: '#FDFDFD'
-},
-"#paymentDetails":{
-	layout: 'vertical',
-	backgroundColor: "#FAFAFA",
-	top: "50dp",
-	height: Ti.UI.SIZE,
-	width: '90%',
-	borderWidth: "2dp",
-	borderColor: "#EAEAEA",
-	borderRadius: "5"
-},
-"#paymentViewLabel":{
-	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
-	top: "10dp",
-	left: "5dp",
-	font:{
-		fontSize: "16dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	color: "#545555",
-	width: Ti.UI.FILL
-	
 },
 ".tableRow":{
 	height: '40dp'
@@ -60,7 +38,7 @@
 
 
 //iPhone 4
-"#paymentTopBar[if=Alloy.Globals.iPhoneFour]":{
+"#addCreditCardTopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#FAFAFA',
@@ -71,17 +49,17 @@
 	width: "60dp",
 	backgroundColor: '#FAFAFA'
 },
-"#paymentButtonIcon[if=Alloy.Globals.iPhoneFour]": {
+"#addCreditCardButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
             fontSize: "18dp"
         },
 	color: "#1BA7CD"
 },
-"#titlePaymentView[if=Alloy.Globals.iPhoneFour]": {
+"#titleAddCreditCardView[if=Alloy.Globals.iPhoneFour]": {
 	right: "60dp"
 },
 
-"#titlePaymentLabel[if=Alloy.Globals.iPhoneFour]": {
+"#titleAddCreditCardLabel[if=Alloy.Globals.iPhoneFour]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
@@ -95,7 +73,7 @@
 
 
 //iPhone 5
-"#paymentTopBar[if=Alloy.Globals.iPhoneFive]":{
+"#addCreditCardTopBar[if=Alloy.Globals.iPhoneFive]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#FAFAFA',
@@ -106,17 +84,17 @@
 	width: "60dp",
 	backgroundColor: '#FAFAFA'
 },
-"#paymentButtonIcon[if=Alloy.Globals.iPhoneFive]": {
+"#addCreditCardButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
             fontSize: "18dp"
         },
 	color: "#1BA7CD"
 },
-"#titlePaymentView[if=Alloy.Globals.iPhoneFive]": {
+"#titleAddCreditCardView[if=Alloy.Globals.iPhoneFive]": {
 	right: "60dp"
 },
 
-"#titlePaymentLabel[if=Alloy.Globals.iPhoneFive]": {
+"#titleAddCreditCardLabel[if=Alloy.Globals.iPhoneFive]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
@@ -130,7 +108,7 @@
 
 
 //iPhone 6
-"#paymentTopBar[if=Alloy.Globals.iPhoneSix]":{
+"#addCreditCardTopBar[if=Alloy.Globals.iPhoneSix]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#FAFAFA',
@@ -141,17 +119,17 @@
 	width: "60dp",
 	backgroundColor: '#FAFAFA'
 },
-"#paymentButtonIcon[if=Alloy.Globals.iPhoneSix]": {
+"#addCreditCardButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
             fontSize: "18dp"
         },
 	color: "#1BA7CD"
 },
-"#titlePaymentView[if=Alloy.Globals.iPhoneSix]": {
+"#titleAddCreditCardView[if=Alloy.Globals.iPhoneSix]": {
 	right: "60dp"
 },
 
-"#titlePaymentLabel[if=Alloy.Globals.iPhoneSix]": {
+"#titleAddCreditCardLabel[if=Alloy.Globals.iPhoneSix]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
@@ -166,7 +144,7 @@
 
 
 //iPhone 6 Plus
-"#paymentTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
+"#addCreditCardTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#FAFAFA',
@@ -177,17 +155,17 @@
 	width: "60dp",
 	backgroundColor: '#FAFAFA'
 },
-"#paymentButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
+"#addCreditCardButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
             fontSize: "20dp"
         },
 	color: "#1BA7CD"
 },
-"#titlePaymentView[if=Alloy.Globals.iPhoneSixPlus]": {
+"#titleAddCreditCardView[if=Alloy.Globals.iPhoneSixPlus]": {
 	right: "60dp"
 },
 
-"#titlePaymentLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+"#titleAddCreditCardLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
@@ -202,7 +180,7 @@
 
 
 //android -(currently same as iPhone 6)
-"#paymentTopBar[if=Alloy.Globals.android]":{
+"#addCreditCardTopBar[if=Alloy.Globals.android]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#FAFAFA',
@@ -213,17 +191,17 @@
 	width: "60dp",
 	backgroundColor: '#FAFAFA'
 },
-"#paymentButtonIcon[if=Alloy.Globals.android]": {
+"#addCreditCardButtonIcon[if=Alloy.Globals.android]": {
 	font: {
             fontSize: "18dp"
         },
 	color: "#1BA7CD"
 },
-"#titlePaymentView[if=Alloy.Globals.android]": {
+"#titleAddCreditCardView[if=Alloy.Globals.android]": {
 	right: "60dp"
 },
 
-"#titlePaymentLabel[if=Alloy.Globals.android]": {
+"#titleAddCreditCardLabel[if=Alloy.Globals.android]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {

@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
 var utils = require('utilities/validate');
+userManager = require('managers/usermanager');
 var address =  args[0];
 
 // Populates the address fields on page load
@@ -47,9 +48,9 @@ function validateAddressView(){
 						"country": $.country.value
 						}
 		};
-		//UserManager.userUpdate(textFieldObject, function(err, userUpdateResult){
-			//if(userUpdateResult) {
-				//console.log("Successfully updated user");
+		userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
+			if(userUpdateResult) {
+				console.log("Successfully updated user");
 				Alloy.Models.user.fetch({
 					success: function(data){
 						data.set({'streetAddress': $.route.value});
@@ -63,8 +64,8 @@ function validateAddressView(){
 						alert("Unable to fetch user data! Please contact selbiguru@the.com");
 					}
 				});		
-			//}
-		//});
+			}
+		});
 		$.verifyAddressCancelButton.fireEvent('click');
 	}
 	

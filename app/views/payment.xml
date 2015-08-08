@@ -12,7 +12,7 @@
 		<View id="paymentDetails">
 			<Label id="paymentViewLabel">Add and Edit Payment Info</Label>
 			<View id="viewAddCard" class="rowContainer">
-			 	<Label icon="fa-plus-square-o" id="labelAddCard" class="rowLabel">Add Payment Method</Label>
+			 	<Label icon="fa-plus-square-o" id="labelAddCard" class="rowLabel" onClick="addNewCard">Add Payment Method</Label>
 			</View>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 		</View>
