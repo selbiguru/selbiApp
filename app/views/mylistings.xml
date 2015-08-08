@@ -1,18 +1,18 @@
 <Alloy>
-    <View id="myListingsView">
-        <View id="myListingsTopBar">
+	<View id="listingsView">
+
+      <View id="listingsTopBar">
 			<View id="menuButton">
-				<Label icon="fa-arrow-left" id="myListingsButtonIcon"></Label>
+				<Label icon="fa-arrow-left" id="listingsButtonIcon"></Label>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
-			<View id="titleMyListingsView">
-				<Label id="titleMyListingsLabel">My Listings</Label>
+			<View id="titleListingsView">
+				<Label id="titleListingsLabel">Listings</Label>
 			</View>
 		</View>
-        <TableView>
-            <TableViewRow id="row">
-                <View id="view" backgroundColor="red" width="20" height="20"/>
-            </TableViewRow>
-        </TableView>
+		<View id="gridView" height="0" layout="horizontal" backgroundColor="#333">
+		</View>
+		<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
+
     </View>
 </Alloy>
