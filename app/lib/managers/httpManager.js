@@ -26,8 +26,8 @@ exports.execute = function(relativePath, method, objectToSend, isAuth, callback)
         url = baseUrl + relativePath; 
 
     xhr.onerror = function(e) {
-        Ti.API.error('Bad Sever =>' + e.error);
-        alert('Bad Sever =>' + e.error);
+        Ti.API.error('Bad Server =>' + e.error);
+        alert('Bad Server =>' + e.error);
         callback(e.error, null);
     };
 

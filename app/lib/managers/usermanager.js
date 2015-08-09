@@ -41,8 +41,8 @@ exports.getCurrentUser = function(cb){
 	{
 		return cb(null, Alloy.Globals.currentUser);
 	}	
-	console.warn("Fetching user information");
-	httpManager.execute('/user/' + Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, userObject){
+	console.warn("Fetching user information UserID: " + Ti.App.Properties.getString('userId'));
+	httpManager.execute('/getUserData/' + Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, userObject){
 		if(userObject) {
 			var userModel = Alloy.Models.instance('user');
 			userModel.set({username: userObject.username});
