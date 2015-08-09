@@ -13,11 +13,6 @@ fb = require('facebook');
 //logout from facebook everytime for testing
 fb.logout();
 
-//Fetch the logged in user
-userManager.getCurrentUser(function(err, userInfo){
-	currentUser = userInfo;
-});
-
 // Set the user profile image
 imageManager.getMenuProfileImage(function(err, profileImage){
 	$.userProfileImage.image = profileImage;	
@@ -142,13 +137,14 @@ function updateUser(e){
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
 		"firstName": $.firstName.value,
 		"lastName": $.lastName.value,
-		"userAddress": null/*{
-						"streetAddress": $.streetAddress.value, 
-						"city": $.city.value, 
-						"state": $.state.value,
-						"zip": $.zipCode.value,
-						"country": $.country.value
-						}*/
+		"userAddress": !$.streetAddress.value ? null :{
+ 			"streetAddress": $.streetAddress.value, 
+ 			"city": $.city.value, 
+ 			"state": $.state.value,
+ 			"zip": $.zipCode.value,
+ 			"country": $.country.value,
+ 			"bldg": "786"
+ 			}
 		};
 	/*var validateFields = helpers.validateFields(textFieldObject);
 	for (var i in textFieldObject) {
