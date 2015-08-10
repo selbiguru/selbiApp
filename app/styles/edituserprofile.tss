@@ -15,9 +15,13 @@
 },
 ".rowContainer": {
 	width: Ti.UI.FILL,
-	height: "50dp",
+	height: "45dp",
 	layout: 'vertical'
 },
+"#addressInfo":{
+	layout: 'vertical',
+	height: Ti.UI.SIZE
+}
 "#cameraOverlay": {
 	font: {
 		fontSize: '30dp'

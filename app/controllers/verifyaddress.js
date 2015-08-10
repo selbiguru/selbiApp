@@ -41,7 +41,8 @@ function validateAddressView(){
 		var textFieldObject = {
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
 		"userAddress": {
-						"streetAddress": $.route.value, 
+						"streetAddress": $.route.value,
+						"bldg": $.apartmenNumber.value, 
 						"city": $.locality.value, 
 						"state": $.administrative_area_level_1.value,
 						"zip": $.postal_code.value,
@@ -49,15 +50,18 @@ function validateAddressView(){
 						}
 		};
 		userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
+			userUpdateResult = userUpdateResult.attributes;
 			if(userUpdateResult) {
 				console.log("Successfully updated user");
 				Alloy.Models.user.fetch({
 					success: function(data){
-						data.set({'streetAddress': $.route.value});
-						data.set({'city': $.locality.value});
-						data.set({'state': $.administrative_area_level_1.value});
-						data.set({'zip': $.postal_code.value});
-						data.set({'country': $.country.value});
+						data.set({streetAddress: userUpdateResult.streetAddress});
+						userUpdateResult.bldg ? data.set({bldg: userUpdateResult.bldg}) : null;
+						data.set({city: userUpdateResult.city});
+						data.set({state: userUpdateResult.state});
+						data.set({country: userUpdateResult.country});
+						data.set({zip: userUpdateResult.zip});
+						userUpdateResult.streetAddress2 ? data.set({bldg: userUpdateResult.streetAddress2}) : '';
 						data.save();
 					},
 					error: function(data){

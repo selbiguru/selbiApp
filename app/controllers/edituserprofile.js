@@ -13,6 +13,16 @@ fb = require('facebook');
 //logout from facebook everytime for testing
 fb.logout();
 
+//Load the user model
+Alloy.Models.user.fetch({
+	success: function(data){
+		//check for address? then hide elements and show different elements
+		//currentUser = data;
+	},
+	error: function(data){		
+	}
+});
+
 // Set the user profile image
 imageManager.getMenuProfileImage(function(err, profileImage){
 	$.userProfileImage.image = profileImage;	
@@ -131,20 +141,11 @@ function uploadUserProfile(imageBlob){
 
 function updateUser(e){
 	// Todo: validation
-	console.log("what is e:", e);
 	console.log("userid is :", Ti.App.Properties.getString('userId'));
 	var textFieldObject = {
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
 		"firstName": $.firstName.value,
 		"lastName": $.lastName.value,
-		"userAddress": !$.streetAddress.value ? null :{
- 			"streetAddress": $.streetAddress.value, 
- 			"city": $.city.value, 
- 			"state": $.state.value,
- 			"zip": $.zipCode.value,
- 			"country": $.country.value,
- 			"bldg": "786"
- 			}
 		};
 	/*var validateFields = helpers.validateFields(textFieldObject);
 	for (var i in textFieldObject) {
@@ -161,34 +162,25 @@ function updateUser(e){
 	}*/
 	
 	userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
+		userUpdateResult = userUpdateResult.attributes;
 		if(userUpdateResult) {
 			console.log("Successfully updated user");
-			/*Alloy.Models.user.fetch({
-					success: function(data){
-						data.set({'firstName': $.firstName.value});
-						data.set({'lastName': $.lastName.value});
-						data.set({'username': $.username.value});
-						data.save();
-					},
-					error: function(data){
-						alert("Unable to fetch user data! Please contact selbiguru@the.com");
-					}
-				});	*/
+			Alloy.Models.user.fetch({
+				success: function(data){
+					data.set({username: userUpdateResult.username});
+					data.set({firstName: userUpdateResult.firstName});
+					data.set({lastName: userUpdateResult.lastName});
+					data.set({email: userUpdateResult.email});
+					data.set({id: userUpdateResult.id});
+					data.set({profileImage: userUpdateResult.profileImage});
+					data.save();
+				},
+				error: function(data){
+					alert("Unable to fetch user data! Please contact selbiguru@the.com");
+				}
+			});	
 		}
-	});
-	
-	Alloy.Models.user.fetch({
-					success: function(data){
-						data.set({'firstName': $.firstName.value});
-						data.set({'lastName': $.lastName.value});
-						data.set({'username': $.username.value});
-						data.save();
-					},
-					error: function(data){
-						alert("Unable to fetch user data! Please contact selbiguru@the.com");
-					}
-				});	
-	
+	});	
 };
 
 
