@@ -2,7 +2,7 @@ var httpManager = require('managers/httpmanager');
 
 var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
 	// Todo: validation on userUpdateObj
-	httpManager.execute('/user/' + userUpdateObj.id, 'PUT', userUpdateObj, true, function(err, userUpdateResult){
+	httpManager.execute('/UserData/' + userUpdateObj.id, 'PUT', userUpdateObj, true, function(err, userUpdateResult){
 		var a = Titanium.UI.createAlertDialog({
         	title : 'Update User'
     	});
@@ -15,26 +15,38 @@ var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
 		else {
 			a.setMessage("User profile saved!");
     		a.show();
-			getCurrentUser(function (err, results){
-				if (err){
-					cb(new Error(err.message), null);
-				} else {
-					cb(null, results);
+			userUpdateResult = userUpdateResult[0];
+			if(userUpdateResult) {
+				var userModel = Alloy.Models.instance('user');
+				userModel.set({username: userUpdateResult.username});
+				userModel.set({firstName: userUpdateResult.firstName});
+				userModel.set({lastName: userUpdateResult.lastName});
+				userModel.set({email: userUpdateResult.email});
+				userModel.set({id: userUpdateResult.id});
+				userModel.set({profileImage: userUpdateResult.profileImage});
+				if(userUpdateResult.userAddress){
+						userModel.set({address: userUpdateResult.userAddress.address});
+						userUpdateResult.userAddress.address2 ? userModel.set({address2: userUpdateResult.userAddress.address2}) : '';
+						userModel.set({city: userUpdateResult.userAddress.city});
+						userModel.set({state: userUpdateResult.userAddress.state});
+						userModel.set({country: userUpdateResult.userAddress.country});
+						userModel.set({zip: userUpdateResult.userAddress.zip});
 				}
-			});
+				userModel.save();		
+				Alloy.Globals.currentUser = userModel;
+			}	
+			cb(err, Alloy.Globals.currentUser);
 		}
 	});
 
 };
-var count  = 0;
+
 var getCurrentUser = exports.getCurrentUser = function(cb){
 	console.warn("Fetching user information UserID: " + Ti.App.Properties.getString('userId'));
 	
-	httpManager.execute('/getUserData/' + Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, userObject){
+	httpManager.execute('/UserData/' + Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, userObject){
 		userObject = userObject[0];
-		count++
 		if(userObject) {
-			console.log("!!!!!!!!!!!: ", count);
 			var userModel = Alloy.Models.instance('user');
 			userModel.set({username: userObject.username});
 			userModel.set({firstName: userObject.firstName});
@@ -43,13 +55,12 @@ var getCurrentUser = exports.getCurrentUser = function(cb){
 			userModel.set({id: userObject.id});
 			userModel.set({profileImage: userObject.profileImage});
 			if(userObject.userAddress){
-					userModel.set({streetAddress: userObject.userAddress.streetAddress});
-					userObject.userAddress.bldg ? userModel.set({bldg: userObject.userAddress.bldg}) : null;
+					userModel.set({address: userObject.userAddress.address});
+					userObject.userAddress.address2 ? userModel.set({address2: userObject.userAddress.address2}) : '';
 					userModel.set({city: userObject.userAddress.city});
 					userModel.set({state: userObject.userAddress.state});
 					userModel.set({country: userObject.userAddress.country});
 					userModel.set({zip: userObject.userAddress.zip});
-					userObject.userAddress.streetAddress2 ? userModel.set({bldg: userObject.userAddress.streetAddress2}) : '';
 			}
 			userModel.save();		
 			Alloy.Globals.currentUser = userModel;

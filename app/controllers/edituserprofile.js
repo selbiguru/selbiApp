@@ -161,26 +161,7 @@ function updateUser(e){
 		//Todo send back error message
 	}*/
 	
-	userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
-		userUpdateResult = userUpdateResult.attributes;
-		if(userUpdateResult) {
-			console.log("Successfully updated user");
-			Alloy.Models.user.fetch({
-				success: function(data){
-					data.set({username: userUpdateResult.username});
-					data.set({firstName: userUpdateResult.firstName});
-					data.set({lastName: userUpdateResult.lastName});
-					data.set({email: userUpdateResult.email});
-					data.set({id: userUpdateResult.id});
-					data.set({profileImage: userUpdateResult.profileImage});
-					data.save();
-				},
-				error: function(data){
-					alert("Unable to fetch user data! Please contact selbiguru@the.com");
-				}
-			});	
-		}
-	});	
+	userManager.userUpdate(textFieldObject, function(err, userUpdateResult){});	
 };
 
 

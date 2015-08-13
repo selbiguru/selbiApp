@@ -29,11 +29,11 @@
 		    </View>
 		    <View id="addressInfo">
 			    <View id="userAddress" class="rowContainer">
-			        <TextField id="streetAddress" hintText="Street Address" class="user-profile-text-fields" value="{user.streetAddress}"></TextField>
+			        <TextField id="streetAddress" hintText="Street Address" class="user-profile-text-fields" value="{user.address}"></TextField>
 			        <View class="login-underline"/>
 			    </View>
 			    <View id="bldgNumber" class="rowContainer">
-			        <TextField id="bldg" hintText="Bldg/Apt #" class="user-profile-text-fields" value="{user.bldg}"></TextField>
+			        <TextField id="bldg" hintText="Bldg/Apt #" class="user-profile-text-fields" value="{user.address2}"></TextField>
 			        <View class="login-underline"/>
 			    </View>
 			    <View class="rowContainer">    

@@ -41,35 +41,15 @@ function validateAddressView(){
 		var textFieldObject = {
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
 		"userAddress": {
-						"streetAddress": $.route.value,
-						"bldg": $.apartmenNumber.value, 
+						"address": $.route.value,
+						"address2": $.apartmenNumber.value, 
 						"city": $.locality.value, 
 						"state": $.administrative_area_level_1.value,
 						"zip": $.postal_code.value,
 						"country": $.country.value
 						}
 		};
-		userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
-			userUpdateResult = userUpdateResult.attributes;
-			if(userUpdateResult) {
-				console.log("Successfully updated user");
-				Alloy.Models.user.fetch({
-					success: function(data){
-						data.set({streetAddress: userUpdateResult.streetAddress});
-						userUpdateResult.bldg ? data.set({bldg: userUpdateResult.bldg}) : null;
-						data.set({city: userUpdateResult.city});
-						data.set({state: userUpdateResult.state});
-						data.set({country: userUpdateResult.country});
-						data.set({zip: userUpdateResult.zip});
-						userUpdateResult.streetAddress2 ? data.set({bldg: userUpdateResult.streetAddress2}) : '';
-						data.save();
-					},
-					error: function(data){
-						alert("Unable to fetch user data! Please contact selbiguru@the.com");
-					}
-				});		
-			}
-		});
+		userManager.userUpdate(textFieldObject, function(err, userUpdateResult){});
 		$.verifyAddressCancelButton.fireEvent('click');
 	}
 	
