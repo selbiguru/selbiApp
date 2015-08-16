@@ -13,36 +13,36 @@
 		<ScrollView id="editUserInfoView">
 			<View id="profileImage" onClick="onCameraClick">
 				<ImageView id="userProfileImage"/>
-				<Label id="cameraOverlay" icon="fa-camera"></Label>				
+				<Label id="cameraOverlay" icon="fa-camera"></Label>
 			</View>
         	<View id="userInfo" class="rowContainer">
 		        <TextField id="firstName" hintText="First Name" class="user-profile-text-fields" value="{user.firstName}"></TextField>
-		        <View class="login-underline"/>
-		    </View> 
-		    <View class="rowContainer"> 
+		        <View class="dark-underline"/>
+		    </View>
+		    <View class="rowContainer">
 		        <TextField id="lastName" hintText="Last Name" class="user-profile-text-fields" value="{user.lastName}"></TextField>
-		        <View class="login-underline"/>
+		        <View class="dark-underline"/>
 		    </View>
 		    <View class="rowContainer">
 		        <TextField id="username" hintText="Username" class="user-profile-text-fields" value="{user.email}"></TextField>
-		        <View class="login-underline"/>
+		        <View class="dark-underline"/>
 		    </View>
 		    <View id="addressInfo">
 			    <View id="userAddress" class="rowContainer">
 			        <TextField id="streetAddress" hintText="Street Address" class="user-profile-text-fields" value="{user.address}"></TextField>
-			        <View class="login-underline"/>
+			        <View class="dark-underline"/>
 			    </View>
 			    <View id="bldgNumber" class="rowContainer">
 			        <TextField id="bldg" hintText="Bldg/Apt #" class="user-profile-text-fields" value="{user.address2}"></TextField>
-			        <View class="login-underline"/>
+			        <View class="dark-underline"/>
 			    </View>
-			    <View class="rowContainer">    
+			    <View class="rowContainer">
 			        <TextField id="city" hintText="City" class="user-profile-text-fields" value="{user.city}, {user.state} {user.zip}"></TextField>
-			        <View class="login-underline"/>
+			        <View class="dark-underline"/>
 			    </View>
 			    <View class="rowContainer">
 			        <TextField id="country" hintText="Country" class="user-profile-text-fields" value="{user.country}"></TextField>
-			        <View class="login-underline"/>
+			        <View class="dark-underline"/>
 			    </View>
 			</View>
 		    <View class="edit-user-profile-buttons-view edit-user-profile-button">

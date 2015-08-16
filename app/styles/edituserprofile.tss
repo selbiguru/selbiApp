@@ -35,7 +35,7 @@
 "#profileImage": {
 	layout: "absolute",
 	width: Ti.UI.SIZE,
-	height: Ti.UI.SIZE	
+	height: Ti.UI.SIZE
 },
 "#userInfo": {
 	top: "20dp"
@@ -126,10 +126,10 @@
 	width: "164dp",
 	color: "#545555"
 }*/
-".login-underline": {
+".dark-underline": {
 	height: "1dp",
 	bottom: "10dp",
-	backgroundColor:"#FAFAFA",
+	backgroundColor:"#0A0A0A",
 	width:Titanium.UI.FILL
 }
 
