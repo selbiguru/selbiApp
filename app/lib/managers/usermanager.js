@@ -26,7 +26,7 @@ var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
 				userModel.set({profileImage: userUpdateResult.profileImage});
 				if(userUpdateResult.userAddress){
 						userModel.set({address: userUpdateResult.userAddress.address});
-						userUpdateResult.userAddress.address2 ? userModel.set({address2: '#'+ userUpdateResult.userAddress.address2}) : userModel.set({address2: ''});
+						userUpdateResult.userAddress.address2 ? userModel.set({address2: userUpdateResult.userAddress.address2}) : userModel.set({address2: ''});
 						userModel.set({city: userUpdateResult.userAddress.city});
 						userModel.set({state: userUpdateResult.userAddress.state});
 						userModel.set({country: userUpdateResult.userAddress.country});
@@ -56,7 +56,7 @@ var getCurrentUser = exports.getCurrentUser = function(cb){
 			userModel.set({profileImage: userObject.profileImage});
 			if(userObject.userAddress){
 					userModel.set({address: userObject.userAddress.address});
-					userObject.userAddress.address2 ? userModel.set({address2: '#'+ userObject.userAddress.address2}) : userModel.set({address2: ''});
+					userObject.userAddress.address2 ? userModel.set({address2: userObject.userAddress.address2}) : userModel.set({address2: ''});
 					userModel.set({city: userObject.userAddress.city});
 					userModel.set({state: userObject.userAddress.state});
 					userModel.set({country: userObject.userAddress.country});

@@ -28,7 +28,7 @@ function validateAddressView(){
 	};
 	var options = {
 		trim: true,
-		regexp: /^([A-Za-z0-9\-\_]*)$/,
+		regexp: /^([a-zA-Z0-9\.\#]+\s?)*$/,
 		label: "Apt/Street #",
 		required: false
 	};

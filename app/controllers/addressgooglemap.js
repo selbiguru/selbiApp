@@ -17,7 +17,6 @@ function verifyAddressWebView(){
 			return;
 		}
 		Alloy.Globals.openPage('verifyaddress', address);
-		console.log("verify adddress", address);
 		address = [];
 	}	
 	return;

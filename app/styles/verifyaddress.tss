@@ -43,7 +43,7 @@
 	color: "#1BA7CD"
 },
 "#titleVerifyAddressView[if=Alloy.Globals.iPhoneFour]": {
-	width: "200dp",
+	width: "186dp",
 },
 
 "#titleVerifyAddressLabel[if=Alloy.Globals.iPhoneFour]": {
@@ -53,6 +53,9 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#cancelAddress[if=Alloy.Globals.iPhoneFour]": {
+	left: "7dp",
 },
 
 
@@ -77,7 +80,7 @@
 	color: "#1BA7CD"
 },
 "#titleVerifyAddressView[if=Alloy.Globals.iPhoneFive]": {
-	width: "200dp",
+	width: "186dp",
 },
 
 "#titleVerifyAddressLabel[if=Alloy.Globals.iPhoneFive]": {
@@ -87,6 +90,9 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#cancelAddress[if=Alloy.Globals.iPhoneFive]": {
+	left: "7dp",
 },
 
 
@@ -111,7 +117,7 @@
 	color: "#1BA7CD"
 },
 "#titleVerifyAddressView[if=Alloy.Globals.iPhoneSix]": {
-	width: "255dp",
+	width: "235dp",
 },
 "#titleVerifyAddressLabel[if=Alloy.Globals.iPhoneSix]": {
 	color: "#1BA7CD",
@@ -121,7 +127,9 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-
+"#cancelAddress[if=Alloy.Globals.iPhoneSix]": {
+	left: "10dp",
+},
 
 
 
@@ -145,7 +153,7 @@
 	color: "#1BA7CD"
 },
 "#titleVerifyAddressView[if=Alloy.Globals.iPhoneSixPlus]": {
-	width: "294dp"
+	width: "264dp"
 },
 
 "#titleVerifyAddressLabel[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -156,6 +164,9 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+"#cancelAddress[if=Alloy.Globals.iPhoneSixPlus]": {
+	left: "15dp",
+},
 
 
 
@@ -163,31 +174,34 @@
 
 
 //android -(currently same as iPhone 6)
-"#verifyAddressTopBar[if=Alloy.Globals.iPhoneSix]":{
+"#verifyAddressTopBar[if=Alloy.Globals.android]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#FAFAFA',
 	layout: 'horizontal'
 },
-".validateButtons[if=Alloy.Globals.iPhoneSix]": {
+".validateButtons[if=Alloy.Globals.android]": {
 	height: "70dp",
 	width: "60dp",
 	backgroundColor: '#FAFAFA'
 }
-".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneSix]": {
+".verifyAddressButtonIcon[if=Alloy.Globals.android]": {
 	font: {
             fontSize: "12dp"
         },
 	color: "#1BA7CD"
 },
-"#titleVerifyAddressView[if=Alloy.Globals.iPhoneSix]": {
-	width: "255dp",
+"#titleVerifyAddressView[if=Alloy.Globals.android]": {
+	width: "235dp",
 },
-"#titleVerifyAddressLabel[if=Alloy.Globals.iPhoneSix]": {
+"#titleVerifyAddressLabel[if=Alloy.Globals.android]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#cancelAddress[if=Alloy.Globals.android]": {
+	left: "10dp",
 },

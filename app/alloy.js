@@ -16,3 +16,4 @@ Alloy.Globals.iPhoneSix = (Ti.Platform.displayCaps.platformHeight === 667);
 Alloy.Globals.iPhoneSixPlus = (Ti.Platform.displayCaps.platformHeight === 736);
 Alloy.Globals.android = (Ti.Platform.osname === 'android');
 Alloy.Globals.social = require('alloy/social');
+console.log("width :", Ti.Platform.displayCaps.platformWidth);

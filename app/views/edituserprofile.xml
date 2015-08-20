@@ -2,12 +2,15 @@
 	<Model src="user"></Model>
 	<View id="editUserProfileView">
         <View id="editUserProfileTopBar">
-			<View id="menuButton">
+			<View id="menuButton" class="validateButtons">
 				<Label icon="fa-arrow-left" id="editUserProfileButtonIcon"></Label>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
 			<View id="titleEditUserProfileView">
 				<Label id="titleEditUserProfileLabel">Profile</Label>
+			</View>
+			<View id="saveInfo" class="validateButtons">
+				<Button onClick="updateUser" id="saveInfoButtonIcon" class="verifyAddressButtonIcon">Save</Button>
 			</View>
 		</View>
 		<ScrollView id="editUserInfoView">
@@ -29,15 +32,15 @@
 		    </View>
 		    <View id="addressInfo">
 			    <View id="userAddress" class="rowContainer">
-			        <TextField id="streetAddress" hintText="Street Address" class="user-profile-text-fields" value="{user.address}  {user.address2}"></TextField>
+			        <TextField id="streetAddress" hintText="Street Address" class="user-profile-text-fields" value="{user.address}  {user.address2}" editable="false"></TextField>
 			        <View class="dark-underline"/>
 			    </View>
 			    <View class="rowContainer">
-			        <TextField id="city" hintText="City" class="user-profile-text-fields" value="{user.city}, {user.state} {user.zip}"></TextField>
+			        <TextField id="city" hintText="City" class="user-profile-text-fields" value="{user.city}, {user.state} {user.zip}" editable="false"></TextField>
 			        <View class="dark-underline"/>
 			    </View>
 			    <View class="rowContainer">
-			        <TextField id="country" hintText="Country" class="user-profile-text-fields" value="{user.country}"></TextField>
+			        <TextField id="country" hintText="Country" class="user-profile-text-fields" value="{user.country}" editable="false"></TextField>
 			        <View class="dark-underline"/>
 			    </View>
 			</View>
@@ -52,10 +55,6 @@
 		    <View class="edit-user-profile-buttons-view edit-user-profile-button">
 		        <Label icon="fa-twitter" class="edit-profile-social-icon social-twitter" id="editProfileTwitterConnect"></Label>
 		        <Button id="connectTwitter" class="edit-profile-social-text social-twitter" onClick="connectToTwitter">Connect to Twitter</Button>
-		    </View>
-	        <View id="cancelSaveProfileView" class="edit-user-profile-buttons-view">
-		        <Button onClick="updateUser" id="cancelInfo" class="edit-user-profile-button">Cancel</Button>
-		        <Button onClick="updateUser" id="saveInfo" class="edit-user-profile-button">Save</Button>
 		    </View>
 		    <Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 	   </ScrollView>
