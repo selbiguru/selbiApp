@@ -17,12 +17,11 @@ fb.logout();
 Alloy.Models.user.fetch({
 	success: function(data){
 		//check for address? then hide elements and show different elements
-		//currentUser = data;
+		
 	},
 	error: function(data){		
 	}
 });
-
 // Set the user profile image
 imageManager.getMenuProfileImage(function(err, profileImage){
 	$.userProfileImage.image = profileImage;	
