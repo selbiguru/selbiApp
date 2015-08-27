@@ -15,7 +15,10 @@
       	"w_380/v1433472934/intro_1",
       	"w_380/v1433472934/intro_2",
       	"w_380/v1433472934/intro_3"
-      ]
+      ],
+      "venmoBlue": "v1440562773/assets/venmo_logo_blue.png",
+      "venmoWhite": "v1440562889/assets/venmo_logo_white.png",
+      "venmoBlack": "v1440562889/assets/venmo_logo_monotone.png"
     },
     "keychain": {
       "account": "serveraccount",

@@ -3,19 +3,26 @@
 	layout: 'vertical',
 	backgroundColor: '#FDFDFD'
 },
-"#paymentDetails":{
-	layout: 'vertical',
-	backgroundColor: "#FAFAFA",
-	top: "50dp",
-	height: Ti.UI.SIZE,
+"#viewAddVenmo": {
+	backgroundColor: '#3D95CE',
 	width: '90%',
+	borderRadius: "3",
 	borderWidth: "2dp",
-	borderColor: "#EAEAEA",
-	borderRadius: "5"
+	borderColor: "#E1E1EA"
 },
-"#paymentViewLabel":{
+"#separatorLabel": {
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: "#545555"
+},
+"#paymentDetails": {
+	top: "25dp"
+},
+".payment-label":{
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
-	top: "10dp",
+	top: "7dp",
 	left: "5dp",
 	font:{
 		fontSize: "16dp",
@@ -56,7 +63,9 @@
 	width: Titanium.UI.FILL,
 	backgroundColor:"#EAEAEA"
 },
-
+".topPadding": {
+	top: "5dp"
+},
 
 
 //iPhone 4
@@ -88,6 +97,22 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#imageAddVenmo[if=Alloy.Globals.iPhoneFour]": {
+	height: '16dp',
+	width: '84dp',
+	left: '102dp',
+	top: '12dp'
+},
+".payment-types[if=Alloy.Globals.iPhoneFour]":{
+	layout: 'vertical',
+	backgroundColor: "#FAFAFA",
+	top: "55dp",
+	height: Ti.UI.SIZE,
+	width: '90%',
+	borderWidth: "2dp",
+	borderColor: "#EAEAEA",
+	borderRadius: "3"
 },
 
 
@@ -124,6 +149,22 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+"#imageAddVenmo[if=Alloy.Globals.iPhoneFive]": {
+	height: '16dp',
+	width: '84dp',
+	left: '102dp',
+	top: '12dp'
+},
+".payment-types[if=Alloy.Globals.iPhoneFive]":{
+	layout: 'vertical',
+	backgroundColor: "#FAFAFA",
+	top: "60dp",
+	height: Ti.UI.SIZE,
+	width: '90%',
+	borderWidth: "2dp",
+	borderColor: "#EAEAEA",
+	borderRadius: "3"
+},
 
 
 
@@ -158,6 +199,22 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#imageAddVenmo[if=Alloy.Globals.iPhoneSix]": {
+	height: '20dp',
+	width: '105dp',
+	left: '119dp',
+	top: '10dp'
+},
+".payment-types[if=Alloy.Globals.iPhoneSix]":{
+	layout: 'vertical',
+	backgroundColor: "#FAFAFA",
+	top: "85dp",
+	height: Ti.UI.SIZE,
+	width: '90%',
+	borderWidth: "2dp",
+	borderColor: "#EAEAEA",
+	borderRadius: "3"
 },
 
 
@@ -195,6 +252,22 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+"#imageAddVenmo[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: '20dp',
+	width: '105dp',
+	left: '134dp',
+	top: '10dp'
+},
+".payment-types[if=Alloy.Globals.iPhoneSixPlus]":{
+	layout: 'vertical',
+	backgroundColor: "#FAFAFA",
+	top: "90dp",
+	height: Ti.UI.SIZE,
+	width: '90%',
+	borderWidth: "2dp",
+	borderColor: "#EAEAEA",
+	borderRadius: "3"
+},
 
 
 
@@ -230,4 +303,20 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#imageAddVenmo[if=Alloy.Globals.android]": {
+	height: '20dp',
+	width: '105dp',
+	left: '119dp',
+	top: '10dp'
+},
+".payment-types[if=Alloy.Globals.android]":{
+	layout: 'vertical',
+	backgroundColor: "#FAFAFA",
+	top: "85dp",
+	height: Ti.UI.SIZE,
+	width: '90%',
+	borderWidth: "2dp",
+	borderColor: "#EAEAEA",
+	borderRadius: "3"
 },

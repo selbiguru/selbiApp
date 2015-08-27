@@ -36,6 +36,7 @@ exports.execute = function(relativePath, method, objectToSend, isAuth, callback)
     
     if(isAuth) {
     	var authHeader = "Bearer " + keychainItem.valueData;
+    	console.log("!!!!!!!TOKEN ",authHeader);
     	xhr.setRequestHeader("Authorization", authHeader);
     }
 	

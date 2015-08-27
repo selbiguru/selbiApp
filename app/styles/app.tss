@@ -113,3 +113,6 @@
 	width: Ti.UI.SIZE,
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
 }
+
+/********************************* Misc Styling ************************************/
+

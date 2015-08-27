@@ -62,7 +62,7 @@
 ".menuTable[if=Alloy.Globals.iPhoneFour]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
-	selectionStyle:"EAEAEA",
+	selectionStyle:"#EAEAEA",
 	backgroundColor:'#FAFAFA',
 	height: "260dp",
 	scrollable: false
@@ -70,7 +70,7 @@
 ".menuTable2[if=Alloy.Globals.iPhoneFour]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
-	selectionStyle:"EAEAEA",
+	selectionStyle:"#EAEAEA",
 	backgroundColor:'#FAFAFA',
 	scrollable: false
 },
