@@ -4,14 +4,13 @@
     <name>selbiApp</name>
     <version>1.0</version>
     <publisher>selbi</publisher>
-    <url>http://</url>
     <description>undefined</description>
     <copyright>2015 by selbi</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>cf9d7fd2-665f-436d-9222-1073fd7b03cc</guid>
+    <guid>42d1f5d6-44fa-451c-9888-c7d3e4f7ab39</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
         <manifest android:versionCode="1" android:versionName="1.0">
@@ -45,21 +44,6 @@
     <ios>
         <plist>
             <dict>
-                <key>CFBundleURLTypes</key>
-                <array>
-                    <dict>
-                        <key>CFBundleURLName</key>
-                        <!-- same as ti:app/id -->
-                        <string>io.selbi</string>
-                        <key>CFBundleURLSchemes</key>
-                        <array>
-                            <!-- your custom scheme -->
-                            <string>selbi</string>
-                            <!-- same as 'fb' plus ti:app/property[name=ti.facebook.appid] -->
-                            <string>fb123456789</string>
-                        </array>
-                    </dict>
-                </array>
                 <key>UISupportedInterfaceOrientations~iphone</key>
                 <array>
                     <string>UIInterfaceOrientationPortrait</string>
@@ -78,26 +62,20 @@
                 <key>UIStatusBarHidden</key>
                 <false/>
                 <key>UIStatusBarStyle</key>
-                <string>UIStatusBarStyleDefault</string>	
-				<key>CFBundleURLTypes</key>
-                    <array>
-                        <dict>
-                            <key>CFBundleURLName</key>
-                            <!-- Application ID same as the id value in the tiapp.xml file -->
-                            <string>APP_ID</string>
-                            <key>CFBundleURLSchemes</key>
-                            <array>
-                                <!-- Prefix the Facebook App ID with 'fb' -->
-                                <string>fbFACEBOOK_APP_ID</string>
-                            </array>
-                        </dict>
-                    </array>
-                    <key>FacebookAppID</key>
-                    <!-- Facebook App ID -->
-                    <string>1574963029435557</string>
-                    <key>FacebookDisplayName</key>
-                    <!-- Facebook App Name from developer.facebook.com -->
-                    <string>Selbi</string>
+                <string>UIStatusBarStyleDefault</string>
+                <key>CFBundleURLTypes</key>
+                <array>
+                    <dict>
+                        <key>CFBundleURLSchemes</key>
+                        <array>
+                            <string>fb1574963029435557</string>
+                        </array>
+                    </dict>
+                </array>
+                <key>FacebookAppID</key>
+                <string>1574963029435557</string>
+                <key>FacebookDisplayName</key>
+                <string>selbi-ios</string>
             </dict>
         </plist>
     </ios>
@@ -119,24 +97,19 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
-
-    	<module version="2.1">com.obscure.keychain</module>
-    	<!-- Add the appropriate line(s) to your modules section -->
-    	<module platform="android">facebook</module>
-    	<module platform="iphone">facebook</module>
-    	<module version="2.1">com.obscure.keychain</module>
-    	<module platform="android">com.animecyc.animator</module>
-    	<module platform="iphone">com.animecyc.animator</module>
-
+        <module version="2.1">com.obscure.keychain</module>
+        <module platform="android">facebook</module>
+        <module platform="iphone">facebook</module>
+        <module platform="android">com.animecyc.animator</module>
+        <module platform="iphone">com.animecyc.animator</module>
     </modules>
     <deployment-targets>
         <target device="android">true</target>
-        <target device="blackberry">false</target>
         <target device="ipad">true</target>
         <target device="iphone">true</target>
         <target device="mobileweb">true</target>
     </deployment-targets>
-    <sdk-version>4.1.0.GA</sdk-version>
+    <sdk-version>4.0.0.GA</sdk-version>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>
