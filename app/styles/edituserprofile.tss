@@ -156,7 +156,8 @@
 },
 ".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "12dp"
+            fontSize: "12dp",
+            fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
 },
@@ -197,7 +198,8 @@
 },
 ".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "12dp"
+            fontSize: "12dp",
+            fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
 },
@@ -237,7 +239,8 @@
 },
 ".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "12dp"
+            fontSize: "13dp",
+            fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
 },
@@ -279,7 +282,8 @@
 },
 ".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "12dp"
+            fontSize: "13dp",
+            fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
 },
@@ -322,7 +326,8 @@
 },
 ".verifyAddressButtonIcon[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "12dp"
+            fontSize: "13dp",
+            fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
 },

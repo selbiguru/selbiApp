@@ -248,6 +248,8 @@ function connectToTwitter() {
     	consumerKey: Alloy.CFG.twitter.consumerKey
 	});
 	
+	twitter.authorize();
+	
 	if (twitter.isAuthorized())
 	{
 		$.connectTwitter.touchEnabled = false;

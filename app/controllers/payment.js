@@ -1,6 +1,17 @@
+/**
+ * @class Payment
+ * This class deals with user's payment and adding/editing new payment methods
+ */
 var args = arguments[0] || {};
 
+var helpers = require('utilities/helpers'),
+paymentManager = require('managers/paymentmanager');
+
 function addNewCard(){
+    //Ti.App.fireEvent('app:fromTitaniumPaymentGetTokenFromServer', { message: 'event fired from Titanium, handled in WebView' });
+	paymentManager.getClientToken(function(err, response){
+		return;
+	});
 	Alloy.Globals.openPage('addCreditCard');
 }
 function addNewBank(){

@@ -2,15 +2,19 @@
 	<View id="addCreditCardView">
 		<View id="addCreditCardTopBar">
 			<View id="menuButton">
-				<Label icon="fa-arrow-left" id="addCreditCardButtonIcon"></Label>
-			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>			
+				<Label icon="fa-arrow-left" id="addCreditCardButtonIcon"></Label>		
 			</View>
 			<View id="titleAddCreditCardView">
 				<Label id="titleAddCreditCardLabel">Add Card</Label>
 			</View>
+			<View id="saveCreditCardView">
+				<Button onClick="saveCreditCard" id="saveCreditCardButton" class="saveCreditCardButtonIcon">Save</Button>
+			</View>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 		</View>
 		<View id="enterCCDetailView">
-			
+			<WebView id="webview" url="/webViews/addCreditCard.html">
+		</WebView>
 		</View>
 	</View>
 </Alloy>
