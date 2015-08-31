@@ -8,8 +8,8 @@ var helpers = require('utilities/helpers'),
 paymentManager = require('managers/paymentmanager');
 
 function addNewCard(){
-    //Ti.App.fireEvent('app:fromTitaniumPaymentGetTokenFromServer', { message: 'event fired from Titanium, handled in WebView' });
-	paymentManager.getClientToken(function(err, response){
+    paymentManager.getClientToken(function(err, response){
+    	//Ti.App.fireEvent('app:fromTitaniumPaymentGetTokenFromServer', { message: 'event fired from Titanium, handled in WebView' });
 		return;
 	});
 	Alloy.Globals.openPage('addCreditCard');
