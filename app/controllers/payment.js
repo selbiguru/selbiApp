@@ -9,7 +9,7 @@ paymentManager = require('managers/paymentmanager');
 
 function addNewCard(){
     paymentManager.getClientToken(function(err, response){
-    	//Ti.App.fireEvent('app:fromTitaniumPaymentGetTokenFromServer', { message: 'event fired from Titanium, handled in WebView' });
+    	Ti.App.fireEvent('app:fromTitaniumPaymentGetTokenFromServer', { token: response });
 		return;
 	});
 	Alloy.Globals.openPage('addCreditCard');
