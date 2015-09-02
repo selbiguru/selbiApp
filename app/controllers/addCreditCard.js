@@ -14,15 +14,14 @@ function saveCreditCard() {
   		 var nonceObject = e.nonceObject;
   		 var createCustomerObj = {
   		 	userId: Alloy.Globals.currentUser.attributes.id,
-  		 	userFirstName: Alloy.Globals.currentUser.attributes.firstName,
-  		 	userLastName: Alloy.Globals.currentUser.attributes.lastName,
   		 	customerCardObj: nonceObject
   		 	};
   		 paymentManager.createCustomerAndpaymentMethod(createCustomerObj, function(err, response) {
+  		 	//add return response here and close view.  Add card to payment method choice
   		 	return;
   		 });
   		 
-  		 //console.log("e.message in app", e.nonceObject);
+  		
 	 });
 	return;
 }
