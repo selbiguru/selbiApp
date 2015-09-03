@@ -10,7 +10,8 @@
 			</View>
 		</View>
 		<View id="enterBankAccountDetailView">
-			
+			<TextField id="accountNumber" placeholder="Account Number"></TextField>
+			<TextField id="routingNumber" placeholder="Routing Number"></TextField>
 		</View>
 	</View>
 </Alloy>

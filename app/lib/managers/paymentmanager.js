@@ -23,7 +23,7 @@ var createCustomerAndpaymentMethod = exports.createCustomerAndpaymentMethod = fu
 	//console.log("paymentObject ", paymentObject);
 	httpManager.execute('/payments/createCustomerAndpaymentMethod', 'POST', paymentObject, true, function(err, responseObj){
 		var a = Titanium.UI.createAlertDialog({
-        	title : 'Saved Payment Method'
+        	title : 'Save Payment Method'
     	});
 
 		if(err) {
@@ -37,3 +37,25 @@ var createCustomerAndpaymentMethod = exports.createCustomerAndpaymentMethod = fu
 		}
 	});
 };
+
+
+
+
+/*var createSubMerchant = exports.createSubMerchant = function(subMerchantObject, cb) {
+	//console.log("paymentObject ", paymentObject);
+	httpManager.execute('/payments/createSubMerchant', 'POST', subMerchantObject, true, function(err, responseObj){
+		var a = Titanium.UI.createAlertDialog({
+        	title : 'Save Bank Info'
+    	});
+
+		if(err) {
+	    	a.setMessage("Failed to connect your bank account, please try again later!");
+	    	a.show();
+			if(cb) cb(new Error(err.message), null);
+			} 
+		else {
+			// add to user object when we know what to save it as
+			cb(err, responseObj);
+		}
+	});
+};*/
