@@ -3,8 +3,8 @@ var args = arguments[0] || {};
 var helpers = require('utilities/helpers'),
 paymentManager = require('managers/paymentmanager');
 
-/*function saveSubMerchantBankInfo() {
-		var merchantSubAccountParams = {
+function saveSubMerchantBankInfo() {
+		/*var merchantSubAccountParams = {
 			individual: {
 			    firstName: Alloy.Globals.currentUser.attributes.firstName,
 			    lastName: Alloy.Globals.currentUser.attributes.lastName,
@@ -35,9 +35,9 @@ paymentManager = require('managers/paymentmanager');
 		} else {
 			
 		}
-	});
-	
-}*/
+	});*/
+	return true;
+}
 
 
 // Set the Example Check image

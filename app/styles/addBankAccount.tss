@@ -107,7 +107,7 @@
 	color: "#1BA7CD"
 },
 "#titleAddBankAccountView[if=Alloy.Globals.iPhoneFour]": {
-	right: "60dp"
+	width: "200dp"
 },
 
 "#titleAddBankAccountLabel[if=Alloy.Globals.iPhoneFour]": {
@@ -117,6 +117,13 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+".saveSubMerchantBankButtonIcon[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "12dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD"
 },
 
 
@@ -142,7 +149,7 @@
 	color: "#1BA7CD"
 },
 "#titleAddBankAccountView[if=Alloy.Globals.iPhoneFive]": {
-	right: "60dp"
+	width: "200dp"
 },
 
 "#titleAddBankAccountLabel[if=Alloy.Globals.iPhoneFive]": {
@@ -152,6 +159,13 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+".saveSubMerchantBankButtonIcon[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+            fontSize: "12dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD"
 },
 
 
@@ -177,7 +191,7 @@
 	color: "#1BA7CD"
 },
 "#titleAddBankAccountView[if=Alloy.Globals.iPhoneSix]": {
-	right: "60dp"
+	width: "255dp"
 },
 
 "#titleAddBankAccountLabel[if=Alloy.Globals.iPhoneSix]": {
@@ -187,6 +201,13 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+".saveSubMerchantBankButtonIcon[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+            fontSize: "13dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD"
 },
 
 
@@ -213,7 +234,7 @@
 	color: "#1BA7CD"
 },
 "#titleAddBankAccountView[if=Alloy.Globals.iPhoneSixPlus]": {
-	right: "60dp"
+	width: "294dp"
 },
 
 "#titleAddBankAccountLabel[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -223,6 +244,13 @@
 		fontSize: "20dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+".saveSubMerchantBankButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+            fontSize: "13dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD"
 },
 
 
@@ -249,7 +277,7 @@
 	color: "#1BA7CD"
 },
 "#titleAddBankAccountView[if=Alloy.Globals.android]": {
-	right: "60dp"
+	width: "255dp"
 },
 
 "#titleAddBankAccountLabel[if=Alloy.Globals.android]": {
@@ -259,4 +287,11 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+".saveSubMerchantBankButtonIcon[if=Alloy.Globals.android]": {
+	font: {
+            fontSize: "13dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD"
 },
