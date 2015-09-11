@@ -119,7 +119,7 @@
 ".dark-underline": {
 	height: "1dp",
 	bottom: "10dp",
-	backgroundColor:"#828282",
+	backgroundColor:"#EAEAEA",
 	width:Titanium.UI.FILL
 }
 

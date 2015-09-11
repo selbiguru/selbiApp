@@ -9,9 +9,19 @@
 				<Label id="titleAddBankAccountLabel">Add Bank Account</Label>
 			</View>
 		</View>
+		<View id="viewBankDescription">
+			<Label icon="fa-university" id="iconBankDescription"></Label>
+			<Label id="labelBankDescription"> Adding a bank allows Selbi to directly send you all the money you make!  This makes cashing out simple and flawless</Label>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>	
+		</View>
 		<View id="enterBankAccountDetailView">
-			<TextField id="accountNumber" placeholder="Account Number"></TextField>
-			<TextField id="routingNumber" placeholder="Routing Number"></TextField>
+			<TextField id="accountNumber" class="banking-number" hintText="Account Number"></TextField>
+			<View class="banking-underline"/>
+			<TextField id="routingNumber" class="banking-number" hintText="Routing Number"></TextField>
+			<View class="banking-underline"/>
+		</View>
+		<View id="viewExCheck">
+			 <ImageView id="imageExCheck" class="rowLabel"/>
 		</View>
 	</View>
 </Alloy>

@@ -35,6 +35,57 @@
 	backgroundColor:"#EAEAEA"
 },
 
+"#enterBankAccountDetailView": {
+	layout: 'vertical',
+	width: '90%',
+	height: Titanium.UI.SIZE,
+	top: "25dp"
+},
+
+".banking-number": {
+	top: "15dp"
+},
+
+".banking-underline": {
+	height: 1,
+	bottom: 10,
+	backgroundColor:"#EAEAEA",
+	width:Titanium.UI.FILL
+},
+
+"#viewExCheck": {
+	width: "90%",
+	height: Titanium.UI.FILL,
+	left: "10dp"	
+},
+
+"#imageExCheck": {
+	width: Titanium.UI.FILL,
+	height: "140dp",
+	bottom: "5dp"
+},
+
+"#viewBankDescription": {
+	width: "72%",
+	height: Titanium.UI.SIZE,
+	layout: 'vertical',
+	top: "15dp"
+},
+
+"#iconBankDescription": {
+	font: {
+            fontSize: "54dp"
+        },
+},
+
+"#labelBankDescription": {
+	font: {
+            fontSize: "12dp",
+            fontFamily: "Nunito-Bold"
+          },
+    color: "#1BA7CD",
+    top: "5dp"
+}
 
 
 //iPhone 4

@@ -18,7 +18,8 @@
       ],
       "venmoBlue": "v1440562773/assets/venmo_logo_blue.png",
       "venmoWhite": "v1440562889/assets/venmo_logo_white.png",
-      "venmoBlack": "v1440562889/assets/venmo_logo_monotone.png"
+      "venmoBlack": "v1440562889/assets/venmo_logo_monotone.png",
+      "exampleCheck": "v1441916794/assets/blank_check.png"
     },
     "keychain": {
       "account": "serveraccount",
