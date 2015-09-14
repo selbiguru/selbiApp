@@ -19,15 +19,6 @@
 	height: '40dp',
 	layout:'horizontal'
 },
-".rowLabel":{
-	left: "15dp",
-	height: "40dp",
-	font:{
-		fontSize: "16dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	color: "#545555"
-},
 ".row-icon":{
 	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
 	right: "5dp",
@@ -73,6 +64,15 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+".rowLabel[if=Alloy.Globals.iPhoneFour]":{
+	left: "15dp",
+	height: "40dp",
+	font:{
+		fontSize: "14dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: "#545555"
+},
 
 
 
@@ -107,6 +107,15 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+".rowLabel[if=Alloy.Globals.iPhoneFive]":{
+	left: "15dp",
+	height: "40dp",
+	font:{
+		fontSize: "15dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: "#545555"
 },
 
 
@@ -143,7 +152,15 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-
+".rowLabel[if=Alloy.Globals.iPhoneSix]":{
+	left: "15dp",
+	height: "40dp",
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: "#545555"
+},
 
 
 
@@ -179,7 +196,15 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-
+".rowLabel[if=Alloy.Globals.iPhoneSixPlus]":{
+	left: "15dp",
+	height: "40dp",
+	font:{
+		fontSize: "18dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: "#545555"
+},
 
 
 
@@ -214,4 +239,13 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+".rowLabel[if=Alloy.Globals.android]":{
+	left: "15dp",
+	height: "40dp",
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: "#545555"
 },
