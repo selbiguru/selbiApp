@@ -1,0 +1,19 @@
+<Alloy>
+    <View id="faqView">
+        <View id="faqTopBar">
+			<View id="menuButton">
+				<Label icon="fa-arrow-left" id="faqButtonIcon"></Label>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</View>
+			<View id="titleFAQView">
+				<Label id="titleFAQLabel">FAQ</Label>
+			</View>
+		</View>
+		<View id="viewBankDescription">
+			<Label icon="fa-plus-circle" id=""></Label>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			<Label>Blah blah blah<Label>Ant Ant Ant</Label></Label>
+			
+		</View>
+    </View>
+</Alloy>

@@ -1,9 +1,35 @@
 var args = arguments[0] || {};
 
-var helpers = require('utilities/helpers'),
+var utils = require('utilities/validate'),
+helpers = require('utilities/helpers'),
 paymentManager = require('managers/paymentmanager');
 
 function saveSubMerchantBankInfo() {
+		var a = Titanium.UI.createAlertDialog({
+		        title : 'Invalid Banking Fields'
+		    });
+		if($.accountNumber.value != "" && $.routingNumber.value != "") {
+			var validateFieldObject = {
+				accountNumber: [helpers.trim($.accountNumber.value, true), {required: true,
+	       		numeric: true, label:'Account Number field'}],
+				routingNumber: [helpers.trim($.routingNumber.value, true), {required: true,
+	       		numeric: true, label:'Routing Number field'}]
+			};
+			
+			var validateBankAccount = utils.validate(validateFieldObject);
+			for (i in validateBankAccount) {
+				if(validateBankAccount[i].message){
+				    a.setMessage("Both Routing and Account fields must be only numbers!");
+				    a.show();
+				    return;
+				}
+			}
+		} else {
+			a.setMessage("Both Routing and Account fields must be filled out!");
+			a.show();
+		    return;
+		}
+		
 		/*var merchantSubAccountParams = {
 			individual: {
 			    firstName: Alloy.Globals.currentUser.attributes.firstName,
@@ -26,7 +52,7 @@ function saveSubMerchantBankInfo() {
 		  	},
 		  	tosAccepted: true,
 		  	masterMerchantAccountId: "14ladders_marketplace",
-		  	id: Alloy.Globals.currentUser.attributes.id
+		  	id: Ti.App.Properties.getString('userId') //Id of the user
 		};
 	
 	paymentManager.createSubMerchant(merchantSubAccountParams, function(err, responseObj) {

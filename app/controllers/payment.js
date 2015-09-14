@@ -65,7 +65,7 @@ function addVenmo(){
 		  	},
 		  	tosAccepted: true,
 		  	masterMerchantAccountId: "14ladders_marketplace",
-		  	id: Alloy.Globals.currentUser.attributes.id
+		  	id: Ti.App.Properties.getString('userId') //Id of the user
   		};
   		paymentManager.createSubMerchant(merchantSubAccountParams, function(err, responseObj) {
 			if(err) {

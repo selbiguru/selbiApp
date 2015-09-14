@@ -85,6 +85,12 @@
           },
     color: "#1BA7CD",
     top: "5dp"
+},
+"#accountNumber": {
+	keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD
+},
+"#routingNumber": {
+	keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD
 }
 
 

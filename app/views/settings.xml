@@ -25,7 +25,7 @@
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="FAQ">
+			<TableViewRow class="tableRow" id="faq">
 				<View class="rowContainer">
 					<Label id="" class="rowLabel">FAQ</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>

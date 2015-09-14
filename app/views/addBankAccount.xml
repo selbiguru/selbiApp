@@ -18,9 +18,9 @@
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>	
 		</View>
 		<View id="enterBankAccountDetailView">
-			<TextField id="accountNumber" class="banking-number" hintText="Account Number"></TextField>
+			<TextField id="accountNumber" class="banking-number" hintText="Account Number" maxLength="17" required></TextField>
 			<View class="banking-underline"/>
-			<TextField id="routingNumber" class="banking-number" hintText="Routing Number"></TextField>
+			<TextField id="routingNumber" class="banking-number" hintText="Routing Number" maxLength="9"></TextField>
 			<View class="banking-underline"/>
 		</View>
 		<View id="viewExCheck">

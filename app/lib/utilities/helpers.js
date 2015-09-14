@@ -190,3 +190,14 @@ exports.getListingTitle = function(title){
 	}
 	return trimmedTitle.toUpperCase();
 };
+
+//trims string by removing spaces
+//pass true to remove all spaces or
+//pass false to remove only begining and ending spaces
+exports.trim = function(str, boolean) {
+	if (boolean) {
+		return str.replace(/\s/g,"");
+	} else {
+		return str.replace(/^\s+|\s+$/g,"");	
+	}
+};
