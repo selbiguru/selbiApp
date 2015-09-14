@@ -39,11 +39,7 @@
 	layout: 'vertical',
 	width: '90%',
 	height: Titanium.UI.SIZE,
-	top: "25dp"
-},
-
-".banking-number": {
-	top: "15dp"
+	top: "30dp"
 },
 
 ".banking-underline": {
@@ -59,12 +55,6 @@
 	left: "10dp"	
 },
 
-"#imageExCheck": {
-	width: Titanium.UI.FILL,
-	height: "140dp",
-	bottom: "5dp"
-},
-
 "#viewBankDescription": {
 	width: "72%",
 	height: Titanium.UI.SIZE,
@@ -72,20 +62,6 @@
 	top: "15dp"
 },
 
-"#iconBankDescription": {
-	font: {
-            fontSize: "54dp"
-        },
-},
-
-"#labelBankDescription": {
-	font: {
-            fontSize: "12dp",
-            fontFamily: "Nunito-Bold"
-          },
-    color: "#1BA7CD",
-    top: "5dp"
-},
 "#accountNumber": {
 	keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD
 },
@@ -131,6 +107,33 @@
         },
 	color: "#1BA7CD"
 },
+"#iconBankDescription[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "32dp"
+        },
+},
+"#imageExCheck[if=Alloy.Globals.iPhoneFour]": {
+	width: "250dp",
+	height: "100dp",
+	bottom: "5dp",
+	left: "26dp"
+},
+".banking-number[if=Alloy.Globals.iPhoneFour]": {
+	top: "5dp",
+	color: 'black',
+	font:{
+		fontSize: "12dp",
+    	fontFamily: 'Nunito-Light'
+	},
+},
+"#labelBankDescription[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "10dp",
+            fontFamily: "Nunito-Bold"
+          },
+    color: "#1BA7CD",
+    top: "6dp"
+},
 
 
 
@@ -172,6 +175,33 @@
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
+},
+"#iconBankDescription[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+            fontSize: "42dp"
+        },
+},
+"#imageExCheck[if=Alloy.Globals.iPhoneFive]": {
+	width: "250dp",
+	height: "120dp",
+	bottom: "5dp",
+	left: "26dp"
+},
+".banking-number[if=Alloy.Globals.iPhoneFive]": {
+	top: "7dp",
+	color: 'black',
+	font:{
+		fontSize: "13dp",
+    	fontFamily: 'Nunito-Light'
+	},
+},
+"#labelBankDescription[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+            fontSize: "12dp",
+            fontFamily: "Nunito-Bold"
+          },
+    color: "#1BA7CD",
+    top: "7dp"
 },
 
 
@@ -215,7 +245,27 @@
         },
 	color: "#1BA7CD"
 },
-
+"#iconBankDescription[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+            fontSize: "54dp"
+        },
+},
+"#imageExCheck[if=Alloy.Globals.iPhoneSix]": {
+	width: Titanium.UI.FILL,
+	height: "140dp",
+	bottom: "5dp"
+},
+".banking-number[if=Alloy.Globals.iPhoneSix]": {
+	top: "15dp"
+},
+"#labelBankDescription[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+            fontSize: "12dp",
+            fontFamily: "Nunito-Bold"
+          },
+    color: "#1BA7CD",
+    top: "5dp"
+},
 
 
 
@@ -258,7 +308,33 @@
         },
 	color: "#1BA7CD"
 },
-
+"#iconBankDescription[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+            fontSize: "60dp"
+        },
+},
+"#imageExCheck[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: Titanium.UI.FILL,
+	height: "160dp",
+	bottom: "5dp",
+	left: "21dp"
+},
+".banking-number[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: "15dp",
+	font: {
+            fontSize: "18dp",
+            fontFamily: "Nunito-Bold"
+          },
+    color: "black",
+},
+"#labelBankDescription[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+            fontSize: "14dp",
+            fontFamily: "Nunito-Bold"
+          },
+    color: "#1BA7CD",
+    top: "9dp"
+},
 
 
 
@@ -300,4 +376,25 @@
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
+},
+"#iconBankDescription[if=Alloy.Globals.android]": {
+	font: {
+            fontSize: "54dp"
+        },
+},
+"#imageExCheck[if=Alloy.Globals.android]": {
+	width: Titanium.UI.FILL,
+	height: "140dp",
+	bottom: "5dp"
+},
+".banking-number[if=Alloy.Globals.android]": {
+	top: "15dp"
+},
+"#labelBankDescription[if=Alloy.Globals.android]": {
+	font: {
+            fontSize: "12dp",
+            fontFamily: "Nunito-Bold"
+          },
+    color: "#1BA7CD",
+    top: "5dp"
 },
