@@ -3,17 +3,23 @@
         <View id="faqTopBar">
 			<View id="menuButton">
 				<Label icon="fa-arrow-left" id="faqButtonIcon"></Label>
-			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+				
 			</View>
 			<View id="titleFAQView">
 				<Label id="titleFAQLabel">FAQ</Label>
 			</View>
 		</View>
 		<View id="viewBankDescription">
-			<Label icon="fa-plus-circle" id=""></Label>
-			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
-			<Label>Blah blah blah<Label>Ant Ant Ant</Label></Label>
-			
+			<!--<View class="viewing">
+				<Label class="poop" icon="fa-plus-circle"></Label>
+				<Label  id="text1" class="labelQuestionNumber">Question Number 1</Label>
+			</View>
+			<Label class="labelQuestionAnswer">Blah blah blah</Label>
+			<Label   id="text2" class="labelQuestionNumber">Question Number 2</Label>
+			<Label   id="text3" class="labelQuestionNumber">Question Number 3</Label>
+			<Label   id="text4" class="labelQuestionNumber">Question Number 4</Label>-->
+					
 		</View>
+		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>	
     </View>
 </Alloy>

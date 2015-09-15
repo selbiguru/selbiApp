@@ -6,14 +6,14 @@
 "#viewAddVenmo": {
 	backgroundColor: '#3D95CE',
 	width: '90%',
-	borderRadius: "3",
+	borderRadius: "2",
 	borderWidth: "2dp",
 	borderColor: "#E1E1EA"
 },
 "#separatorLabel": {
 	font:{
 		fontSize: "16dp",
-    	fontFamily: 'Nunito-Light'
+    	fontFamily: 'Nunito-Bold'
 	},
 	color: "#545555"
 },
@@ -26,7 +26,7 @@
 	left: "5dp",
 	font:{
 		fontSize: "16dp",
-    	fontFamily: 'Nunito-Light'
+    	fontFamily: 'Nunito-Bold'
 	},
 	color: "#545555",
 	width: Ti.UI.FILL
@@ -112,7 +112,7 @@
 	width: '90%',
 	borderWidth: "2dp",
 	borderColor: "#EAEAEA",
-	borderRadius: "3"
+	borderRadius: "2"
 },
 
 
@@ -163,7 +163,7 @@
 	width: '90%',
 	borderWidth: "2dp",
 	borderColor: "#EAEAEA",
-	borderRadius: "3"
+	borderRadius: "2"
 },
 
 
@@ -214,7 +214,7 @@
 	width: '90%',
 	borderWidth: "2dp",
 	borderColor: "#EAEAEA",
-	borderRadius: "3"
+	borderRadius: "2"
 },
 
 
@@ -266,7 +266,7 @@
 	width: '90%',
 	borderWidth: "2dp",
 	borderColor: "#EAEAEA",
-	borderRadius: "3"
+	borderRadius: "2"
 },
 
 
@@ -318,5 +318,5 @@
 	width: '90%',
 	borderWidth: "2dp",
 	borderColor: "#EAEAEA",
-	borderRadius: "3"
+	borderRadius: "2"
 },

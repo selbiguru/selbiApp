@@ -31,6 +31,41 @@
 	width: Titanium.UI.FILL,
 	backgroundColor:"#EAEAEA"
 },
+"#viewBankDescription": {
+	layout: 'vertical',
+	width: "90%"
+},
+".labelQuestionNumber": {
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Bold'
+	},
+	color: "#1BA7CD",
+	left: "10dp"
+},
+".labelQuestionAnswer": {
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: "#1BA7CD",
+	width: Titanium.UI.FILL,
+	left: "27dp",
+	height: "0dp",
+	visible: false
+},
+".viewing": {
+	layout: 'horizontal',
+	height: Titanium.UI.SIZE,
+	top: "25dp",
+}
+".poop":{
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: "#1BA7CD",
+}
 
 
 
