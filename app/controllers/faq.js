@@ -12,7 +12,7 @@ var objectTest = {
 		answer: "Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here "
 	},
 	ex3: {
-		id: 'answer3 is all about this and nothing to do with any of that or does it?',
+		id: 'answer3',
 		text: "Question 3",
 		answer: "Aqua is not a thing"
 	},
@@ -21,19 +21,19 @@ var dataArray = [];
 
 for (var i in objectTest) {
 	var viewing = $.UI.create('View', {
-		classes: ["viewing"],
+		classes: ["view-question-icon"],
 		id: i
 	});
 	var icon = $.UI.create('Label', {
-		classes: ["poop"],
+		classes: ["icon-faq"],
 	});
 	var label = $.UI.create('Label', {
-        classes: ["labelQuestionNumber"],
+        classes: ["label-question-number"],
         text: objectTest[i].text,
         id: objectTest[i].id
 	});
 	var label2 = $.UI.create('Label', {
-        classes: ["labelQuestionAnswer"],
+        classes: ["label-question-answer"],
         text: objectTest[i].answer,
 	});
 	$.fa.add(icon,'fa-plus-circle');
@@ -43,24 +43,24 @@ for (var i in objectTest) {
 	dataArray.push(label2);
 }
 
-$.viewBankDescription.add(dataArray);
+$.viewFAQ.add(dataArray);
 
 //Animate show and hide FAQ answers on click
-$.viewBankDescription.addEventListener('click', function(e){
-	
-	console.log("%%%%%%%% ", e.source.id);
-	var children = $.viewBankDescription.children;
-	console.log("$$$$$$ ", children);
+$.viewFAQ.addEventListener('click', function(e){
+	var children = $.viewFAQ.children;
 	for(var i = 0 ; i < children.length; i++){
 		var child = children[i];
-		console.log("********** ", child.children[1].id);
-		if(e.source.id && e.source.id === child.id && children[i+1].height === 'SIZE') {
-			children[i + 1].hide();
-			children[i + 1].height = "0dp";
-		} else if (e.source.id && e.source.id === child.id) {
-			console.log("false", children[i], children[i].height);
-			children[i + 1].show();
-			children[i + 1].height = Ti.UI.SIZE;
+		if(child.children.length){
+			for(var k = 0 ; k < child.children.length; k++) {
+				if(child.children[k].id && e.source.id === child.children[k].id && children[i+1].height === 'SIZE') {
+					children[i + 1].hide();
+					children[i + 1].height = "0dp";
+				} else if (child.children[k].id && e.source.id === child.children[k].id) {
+					console.log("false", children[i], children[i].height);
+					children[i + 1].show();
+					children[i + 1].height = Ti.UI.SIZE;
+				}
+			}
 		}
 	}
 	
