@@ -39,6 +39,13 @@
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
+			<TableViewRow class="tableRow" id="aboutUs">
+				<View class="rowContainer">
+					<Label id="" class="rowLabel">About Us</Label>
+					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
+				</View>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</TableViewRow>
 			<TableViewRow class="tableRow" id="privacyPolicy">
 				<View class="rowContainer">
 					<Label id="" class="rowLabel">Privacy Policy</Label>

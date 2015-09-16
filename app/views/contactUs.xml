@@ -5,8 +5,8 @@
 				<Label icon="fa-arrow-left" id="contactUsButtonIcon"></Label>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
-			<View id="titlecontactUsView">
-				<Label id="titlecontactUsLabel">Contact Us</Label>
+			<View id="titleContactUsView">
+				<Label id="titleContactUsLabel">Contact Us</Label>
 			</View>
 			<View id="sendEmailView" class="validateButtons">
 				<Button onClick="sendEmailToSelbi" id="sendEmailButton" class="send-email-button-icon">Send</Button>
