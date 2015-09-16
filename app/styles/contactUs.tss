@@ -1,0 +1,226 @@
+//DEFAULT
+"#contactUsView": {
+	layout: 'vertical',
+	backgroundColor: 'white'
+},
+"#contactUsInfoView": {
+	layout: 'vertical',
+	width: '90%'
+},
+".rowContainer": {
+	width: Ti.UI.FILL,
+	height: "45dp",
+	layout: 'vertical'
+},
+
+
+
+
+
+//iPhone 4
+"#contactUsTopBar[if=Alloy.Globals.iPhoneFour]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneFour]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#contactUsButtonIcon[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleContactUsView[if=Alloy.Globals.iPhoneFour]": {
+	width: "200dp",
+},
+
+"#titleContactUsLabel[if=Alloy.Globals.iPhoneFour]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+".send-email-button-icon[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "12dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD"
+},
+
+
+
+
+
+//iPhone 5
+"#contactUsTopBar[if=Alloy.Globals.iPhoneFive]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneFive]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#contactUsButtonIcon[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleContactUsView[if=Alloy.Globals.iPhoneFive]": {
+	width: "200dp",
+},
+
+"#titleContactUsLabel[if=Alloy.Globals.iPhoneFive]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+".send-email-button-icon[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+            fontSize: "12dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD"
+},
+
+
+
+
+//iPhone 6
+"#contactUsTopBar[if=Alloy.Globals.iPhoneSix]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneSix]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#contactUsButtonIcon[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleContactUsView[if=Alloy.Globals.iPhoneSix]": {
+	width: "255dp",
+},
+
+"#titleContactUsLabel[if=Alloy.Globals.iPhoneSix]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+".send-email-button-icon[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+            fontSize: "13dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD"
+},
+
+
+
+
+
+
+//iPhone 6 Plus
+"#contactUsTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#contactUsButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+            fontSize: "20dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleContactUsView[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: "294dp"
+},
+
+"#titleContactUsLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "20dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+".send-email-button-icon[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+            fontSize: "13dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD"
+},
+
+
+
+
+
+
+
+//android -(currently same as iPhone 6)
+"#contactUsTopBar[if=Alloy.Globals.android]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FAFAFA',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.android]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FAFAFA'
+},
+"#contactUsButtonIcon[if=Alloy.Globals.android]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleContactUsView[if=Alloy.Globals.android]": {
+	width: "250dp",
+},
+
+"#titleContactUsLabel[if=Alloy.Globals.android]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+".send-email-button-icon[if=Alloy.Globals.android]": {
+	font: {
+            fontSize: "13dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD"
+},
