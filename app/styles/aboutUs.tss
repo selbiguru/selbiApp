@@ -5,7 +5,10 @@
 },
 "#aboutUsInfoView": {
 	layout: 'vertical',
-	width: '90%'
+	width: '90%',
+	height: Ti.UI.SIZE,
+	top:"15dp",
+	backgroundColor: "#FAFAFA"
 },
 ".rowContainer": {
 	width: Ti.UI.FILL,
@@ -13,18 +16,18 @@
 	layout: 'vertical'
 },
 "#aboutUsHeader": {
-	top: "15dp",
+	top: "10dp",
 	color: "#1BA7CD",
-	width: Titanium.UI.SIZE,
+	width: Ti.UI.SIZE,
 	font: {
 		fontSize: "20dp",
 		fontFamily: "Nunito-Bold"
 	}
 },
 "#aboutUsBody": {
-	top: "15dp",
+	bottom:"10dp" ,
 	color: "#1BA7CD",
-	width: Titanium.UI.SIZE,
+	width: "90%",
 	font: {
 		fontSize: "16dp",
 		fontFamily: "Nunito-light"
