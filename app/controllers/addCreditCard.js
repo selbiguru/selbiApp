@@ -12,8 +12,6 @@ function saveCreditCard() {
   		 //add check for error from webview
   		 var createCustomerObj = {
   		 	userId: Alloy.Globals.currentUser.attributes.id,
-  		 	firstName: Alloy.Globals.currentUser.attributes.firstName,
-  		 	lastName:  Alloy.Globals.currentUser.attributes.lastName,
   		 	paymentMethodNonce: e.nonceObject.nonce
   		 	};
   		 paymentManager.createCustomerAndpaymentMethod(createCustomerObj, function(err, response) {
