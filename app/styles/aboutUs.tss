@@ -12,6 +12,24 @@
 	height: "45dp",
 	layout: 'vertical'
 },
+"#aboutUsHeader": {
+	top: "15dp",
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "20dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+"#aboutUsBody": {
+	top: "15dp",
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "16dp",
+		fontFamily: "Nunito-light"
+	}
+},
 
 
 
