@@ -18,11 +18,29 @@ var getClientToken = exports.getClientToken = function(cb) {
 };
 
 
+var getCustomerPaymentMethod = exports.getCustomerPaymentMethod = function(cb) {
+	httpManager.execute('/payments/findCustomer/'+Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, paymentMethodObj){
+		console.log("^^^^^^^^^^^^: ",paymentMethodObj, err);
+		var a = Titanium.UI.createAlertDialog({
+        	title : 'Payment Method'
+    	});
+
+		if(err) {
+	    	a.setMessage("Failed to get payment method, please try again later!");
+	    	a.show();
+			if(cb) cb(new Error(err.message), null);
+			} 
+		else {
+			cb(err, paymentMethodObj);
+		}
+	});
+};
+
 
 var createCustomerAndpaymentMethod = exports.createCustomerAndpaymentMethod = function(paymentObject, cb) {
 	//console.log("paymentObject ", paymentObject);
-	httpManager.execute('/payments/createCustomerAndpaymentMethod', 'POST', paymentObject, true, function(err, responseObj){
-		console.log("#$@#$@#$## :", responseObj);
+	httpManager.execute('/payments/createCustomerAndpaymentMethod', 'POST', paymentObject, true, function(err, userPaymentObj){
+		console.log("#$@#$@#$## :", userPaymentObj);
 		var a = Titanium.UI.createAlertDialog({
         	title : 'Save Payment Method'
     	});
@@ -34,7 +52,12 @@ var createCustomerAndpaymentMethod = exports.createCustomerAndpaymentMethod = fu
 			} 
 		else {
 			// add to user object when we know what to save it as
-			cb(err, responseObj);
+			var userModel = Alloy.Models.instance('user');
+			userModel.set({username: userPaymentObj.userPaymentMethod.flag});
+			userModel.save();
+			console.log("USERMODEL: ", userModel);
+			Alloy.Globals.currentUser = userModel;
+			cb(err, Alloy.Globals.currentUser);
 		}
 	});
 };
@@ -44,7 +67,7 @@ var createCustomerAndpaymentMethod = exports.createCustomerAndpaymentMethod = fu
 
 /*var createSubMerchant = exports.createSubMerchant = function(subMerchantObject, cb) {
 	//console.log("paymentObject ", paymentObject);
-	httpManager.execute('/payments/createSubMerchant', 'POST', subMerchantObject, true, function(err, responseObj){
+	httpManager.execute('/payments/createSubMerchant', 'POST', subMerchantObject, true, function(err, userPaymentObj){
 		var a = Titanium.UI.createAlertDialog({
         	title : 'Save Bank Info'
     	});
@@ -56,7 +79,7 @@ var createCustomerAndpaymentMethod = exports.createCustomerAndpaymentMethod = fu
 			} 
 		else {
 			// add to user object when we know what to save it as
-			cb(err, responseObj);
+			cb(err, userPaymentObj);
 		}
 	});
 };*/

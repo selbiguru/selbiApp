@@ -15,7 +15,6 @@ var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
 		else {
 			a.setMessage("User profile saved!");
     		a.show();
-			userUpdateResult = userUpdateResult[0];
 			if(userUpdateResult) {
 				var userModel = Alloy.Models.instance('user');
 				userModel.set({username: userUpdateResult.username});
@@ -32,7 +31,8 @@ var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
 						userModel.set({country: userUpdateResult.userAddress.country});
 						userModel.set({zip: userUpdateResult.userAddress.zip});
 				}
-				userModel.save();		
+				userModel.save();
+				console.log("USERMODEL: ", userModel);
 				Alloy.Globals.currentUser = userModel;
 			}	
 			cb(err, Alloy.Globals.currentUser);

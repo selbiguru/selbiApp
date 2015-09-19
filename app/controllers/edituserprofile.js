@@ -16,7 +16,7 @@ fb.logout();
 //Load the user model
 Alloy.Models.user.fetch({
 	success: function(data){
-		//check for address? then hide elements and show different elements
+		//check for address? then hide elements and show different elements?
 		
 	},
 	error: function(data){		

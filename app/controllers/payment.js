@@ -85,3 +85,8 @@ function addVenmo(){
 
 // Set the Venmo button image
 $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.venmoWhite;
+
+
+paymentManager.getCustomerPaymentMethod(function(err, results){
+	console.log("%%%%%%%%%%%: ",results);
+});
