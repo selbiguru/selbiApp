@@ -46,7 +46,6 @@ var validateFields = exports.validateFields = function validateFields(textFieldO
 	var emptyFields = {},
 	textValidation = {},
 	zipCodeValidation = {};
-	console.log("what is textValidation", textFieldObject);
 	for (var i in textFieldObject){
 		if (!textFieldObject[i].trim().length) {
 			emptyFields[i] = textFieldObject[i].trim();
@@ -67,8 +66,6 @@ var validateFields = exports.validateFields = function validateFields(textFieldO
 	if (Object.keys(zipCodeValidation).length != 0) {
 		zipCodeValidation = validateZipCode(zipCodeValidation);
 	}
-	console.log("what is Now", Object.keys(textValidation).length);
-	console.log("NUMBERS", Object.keys(zipCodeValidation).length);
 	if (Object.keys(zipCodeValidation).length != 0 || Object.keys(textValidation).length != 0) {
 		for (var i in zipCodeValidation) {
 			textValidation[i] = zipCodeValidation[i];
@@ -136,12 +133,10 @@ var validateNumbers = exports.validateNumbers = function validateNumbers(textFie
 	var validRegEx = /^\d*$/;
 	for (var i in textFieldNumbersObject) {
 			var testRegEx = validRegEx.test(textFieldNumbersObject[i]);
-			//console.log("testRegEx", testRegEx);
 			if (!testRegEx) {
 				errorNumbersObj[i] = textFieldNumbersObject[i];;
 			}
 	}
-	//console.log("errorsNumberObj", errorsNumberObj);
 	if (Object.keys(errorNumbersObj).length != 0) {
 		return errorNumbersObj;
 	}
@@ -170,12 +165,10 @@ var validateZipCode = exports.validateZipCode = function zipCodeValidation(textF
 	var validRegEx = /^\d{5}(?:[-]\d{4})?$/;
 	for (var i in textFieldZipCodeObject) {
 			var testRegEx = validRegEx.test(textFieldZipCodeObject[i]);
-			//console.log("testRegEx", testRegEx);
 			if (!testRegEx) {
 				errorZipCodeObj[i] = textFieldZipCodeObject[i];;
 			}
 	}
-	//console.log("errorZipCodeObj", errorZipCodeObj);
 	if (Object.keys(errorZipCodeObj).length != 0) {
 		return errorZipCodeObj;
 	}

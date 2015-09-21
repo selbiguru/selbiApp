@@ -93,8 +93,43 @@ function addVenmo(){
 $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.venmoWhite;
 
 
+//parameters height, width, text createSliderButton(width,height,fontSize,text)
+
+var sliderView = Ti.UI.createView({top:20,height:50,width:240,backgroundColor:'#F0F0F0',layout:'composite'});
+var sliderButton = Ti.UI.createView({top:0,height:50,width:240,borderRadius:5,backgroundColor:'#D2D2D2',left:0});
+var sliderText = Ti.UI.createLabel({text:'Slide to Save...',textAlign:'center',color:'#1BA7CD'});
+$.paymentView.add(sliderView);
+sliderView.add(sliderButton);
+sliderView.add(sliderText);
+
+
+sliderButton.addEventListener('touchmove', function(e){
+	var moveX = e.x +sliderButton.animatedCenter.x - sliderButton.getWidth()/2;
+	if (moveX + sliderButton.getWidth()/2 >= sliderView.getLeft() +sliderView.getWidth()) {
+		//button rigth-edge stop
+		moveX = sliderView.getLeft() + sliderView.getWidth() - (sliderButton.getWidth()/2);
+	} else if (moveX - sliderButton.getWidth()/2 <= sliderView.getLeft()){
+		//button left-edge stop
+		moveX = sliderView.getLeft() + (sliderButton.getWidth()/2);
+	}
+	//sliderButton.animate({center:{x:240, y:0}, duration: 1});
+	sliderButton.animate({center:{x:moveX, y:0}, duration: 500});
+	sliderButton.setLeft(moveX);
+});
+
+sliderButton.addEventListener('touchend', function(e){
+	var endX = sliderButton.animatedCenter.x + (sliderButton.getWidth()/2);
+	if (endX > parseInt(sliderView.getWidth())+190) {
+		//button released at right-edge stop
+		newlockWindow.close();
+	}
+	//springback
+	sliderButton.setLeft(0);
+	sliderButton.animate({center:{x:(sliderView.getLeft()+sliderButton.getWidth()/2),y:0}, duration: 500});
+});
+
 paymentManager.getCustomerPaymentMethod(function(err, results){
-	console.log("%%%%%%%%%%%: ",results);
+	console.log("~~~~~~~~~~~~~~~~~~: ",results);
 	if(results) {
 		
 	}

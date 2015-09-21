@@ -33,7 +33,6 @@ var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
 						userModel.set({zip: userUpdateResult.userAddress.zip});
 				}
 				userModel.save();
-				console.log("USERMODEL: ", userModel);
 				Alloy.Globals.currentUser = userModel;
 			}	
 			cb(err, Alloy.Globals.currentUser);

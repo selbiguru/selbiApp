@@ -141,7 +141,6 @@ function uploadUserProfile(imageBlob){
 
 function updateUser(e){
 	// Todo: validation
-	console.log("userid is :", Ti.App.Properties.getString('userId'));
 	var textFieldObject = {
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
 		"firstName": $.firstName.value,

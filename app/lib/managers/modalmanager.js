@@ -3,9 +3,9 @@ var userManager = require('managers/usermanager');
 
 /*********************************************  DOB MODAL *****************************************************/
 var getBirthdayModal = exports.getBirthdayModal = function() {
-	var modalFont;	
-	var phones = Alloy.Globals.iPhoneFour ? 0 : Alloy.Globals.iPhoneFive ? 1 : Alloy.Globals.iPhoneSix ? 2 : Alloy.Globals.iPhoneSixPlus ? 3 : Alloy.Globals.android ? 4 : false;
-	switch(phones) {
+	var modalFont,
+		pciFont;	
+	switch(Alloy.Globals.userDevice) {
 	    case 0:
 	        modalFont = 18;
 	        pciFont = 10;
@@ -27,7 +27,6 @@ var getBirthdayModal = exports.getBirthdayModal = function() {
 	        pciFont = 12;
 	        break;
 	};
-	console.log("!!@!@!@!@!@!@ :", modalFont);
 	var transformModalOpen = Titanium.UI.create2DMatrix();
     transformModalOpen = transformModalOpen.scale(0);
 	var modalWindow = Titanium.UI.createWindow({
@@ -144,7 +143,9 @@ var getBirthdayModal = exports.getBirthdayModal = function() {
 		  if(mm<10){mm='0'+mm};
 		  return d = dd+'/'+mm+'/'+yyyy;
 		}
-	    Ti.API.info("User selected date: " + formatDate(datePicker.value));
+	    Ti.API.info("User selected date: " + datePicker.value);
+	    Ti.API.info("User pooping poop: " + datePicker.value.toLocaleString());
+	    Ti.API.info("User beeep toooot: " + formatDate(datePicker.value));
 	    //userManager.userUpdate(textFieldObject, function(err, userUpdateResult){});	
 	    modalWindow.close({transform:animateWindowClose, duration:300});
 	});

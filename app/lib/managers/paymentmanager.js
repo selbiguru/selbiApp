@@ -20,7 +20,6 @@ var getClientToken = exports.getClientToken = function(cb) {
 
 var getCustomerPaymentMethod = exports.getCustomerPaymentMethod = function(cb) {
 	httpManager.execute('/payments/findCustomer/'+Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, paymentMethodObj){
-		console.log("^^^^^^^^^^^^: ",paymentMethodObj, err);
 		var a = Titanium.UI.createAlertDialog({
         	title : 'Payment Method'
     	});
@@ -38,7 +37,6 @@ var getCustomerPaymentMethod = exports.getCustomerPaymentMethod = function(cb) {
 
 
 var createCustomerAndpaymentMethod = exports.createCustomerAndpaymentMethod = function(paymentObject, cb) {
-	//console.log("paymentObject ", paymentObject);
 	httpManager.execute('/payments/createCustomerAndpaymentMethod', 'POST', paymentObject, true, function(err, userPaymentObj){
 		var a = Titanium.UI.createAlertDialog({
         	title : 'Save Payment Method'
@@ -54,7 +52,6 @@ var createCustomerAndpaymentMethod = exports.createCustomerAndpaymentMethod = fu
 			var userModel = Alloy.Models.instance('user');
 			userModel.set({username: userPaymentObj.userPaymentMethod.flag});
 			userModel.save();
-			console.log("USERMODEL: ", userModel);
 			Alloy.Globals.currentUser = userModel;
 			cb(err, Alloy.Globals.currentUser);
 		}
@@ -65,7 +62,6 @@ var createCustomerAndpaymentMethod = exports.createCustomerAndpaymentMethod = fu
 
 
 /*var createSubMerchant = exports.createSubMerchant = function(subMerchantObject, cb) {
-	//console.log("paymentObject ", paymentObject);
 	httpManager.execute('/payments/createSubMerchant', 'POST', subMerchantObject, true, function(err, userPaymentObj){
 		var a = Titanium.UI.createAlertDialog({
         	title : 'Save Bank Info'
