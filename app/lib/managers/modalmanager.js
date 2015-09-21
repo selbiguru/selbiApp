@@ -3,6 +3,31 @@ var userManager = require('managers/usermanager');
 
 /*********************************************  DOB MODAL *****************************************************/
 var getBirthdayModal = exports.getBirthdayModal = function() {
+	var modalFont;	
+	var phones = Alloy.Globals.iPhoneFour ? 0 : Alloy.Globals.iPhoneFive ? 1 : Alloy.Globals.iPhoneSix ? 2 : Alloy.Globals.iPhoneSixPlus ? 3 : Alloy.Globals.android ? 4 : false;
+	switch(phones) {
+	    case 0:
+	        modalFont = 18;
+	        pciFont = 10;
+	        break;
+	    case 1:
+	        modalFont = 18;
+	        pciFont = 10;
+	        break;
+	    case 2:
+	        modalFont = 18;
+	        pciFont = 12;
+	        break;
+	    case 3:
+	        modalFont = 20;
+	        pciFont = 12;
+	        break;
+	    case 4: //android currently same as iphoneSix
+	        modalFont = 18;
+	        pciFont = 12;
+	        break;
+	};
+	console.log("!!@!@!@!@!@!@ :", modalFont);
 	var transformModalOpen = Titanium.UI.create2DMatrix();
     transformModalOpen = transformModalOpen.scale(0);
 	var modalWindow = Titanium.UI.createWindow({
@@ -23,7 +48,6 @@ var getBirthdayModal = exports.getBirthdayModal = function() {
     // when this animation completes, scale to normal size
     animateOpen.addEventListener('complete', function()
     {
-        Titanium.API.info('here in complete')
         var transformModalOpen2 = Titanium.UI.create2DMatrix();
         transformModalOpen2 = transformModalOpen2.scale(1.0);
         modalWindow.animate({transform:transformModalOpen2, duration:200});
@@ -49,13 +73,13 @@ var getBirthdayModal = exports.getBirthdayModal = function() {
 	var modalHeaderLabel = Titanium.UI.createLabel({
 		height: Ti.UI.SIZE,
 		width: Ti.UI.SIZE,
-		top: "5dp",
+		top: "8dp",
 		font: {
-			fontSize: "16dp",
+			fontSize: modalFont,
 			fontFamily: "Nunito-Bold"
 		},
 		color: '#1BA7CD',
-	    text: "Please enter your DOB"
+	    text: "Please enter your DOB:"
 	});
 	var datePicker = Titanium.UI.createPicker({
 		type:Ti.UI.PICKER_TYPE_DATE,
@@ -76,7 +100,7 @@ var getBirthdayModal = exports.getBirthdayModal = function() {
 	    top:"8dp",
 	    zIndex: 20,
 	    font: {
-			fontSize: "16dp",
+			fontSize: modalFont,
 			fontFamily: "Nunito-Bold"
 		},
 	    title: 'Save',
@@ -87,11 +111,11 @@ var getBirthdayModal = exports.getBirthdayModal = function() {
 		width: "90%",
 		top: "8dp",
 		font: {
-			fontSize: "12dp",
+			fontSize: pciFont,
 			fontFamily: "Nunito-light"
 		},
 		color: '#1BA7CD',
-	    text: "*Selbi is PCI compliant and thus requires your DOB when entering in banking information."
+	    text: "*Selbi is PCI compliant and thus requires your DOB when entering your banking information."
 	});
 	infoModalView.add(modalHeaderLabel);
 	infoModalView.add(datePicker);

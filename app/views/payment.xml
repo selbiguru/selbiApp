@@ -24,9 +24,6 @@
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 		</View>
 		<Label id="separatorLabel" class="topPadding">OR</Label>
-		<!--<View id="poop">
-			<Label id="red">Label over this shiz</Label>
-	</View>-->
 		<View id="viewAddVenmo" class="rowContainer topPadding">
 			 <ImageView id="imageAddVenmo" class="rowLabel" onClick="addVenmo"/>
 		</View>

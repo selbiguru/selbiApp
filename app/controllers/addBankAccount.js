@@ -2,7 +2,8 @@ var args = arguments[0] || {};
 
 var utils = require('utilities/validate'),
 helpers = require('utilities/helpers'),
-paymentManager = require('managers/paymentmanager');
+paymentManager = require('managers/paymentmanager'),
+modalManager = require('managers/modalmanager');
 
 function saveSubMerchantBankInfo() {
 		var a = Titanium.UI.createAlertDialog({
@@ -29,7 +30,10 @@ function saveSubMerchantBankInfo() {
 			a.show();
 		    return;
 		}
-		
+		console.log("HAPPY BIRTHDAY!!!!");
+		if(!Alloy.Globals.currentUser.attributes.dateOfBirth || Alloy.Globals.currentUser.attributes.dateOfBirth === null) {
+			modalManager.getBirthdayModal();
+		}
 		/*var merchantSubAccountParams = {
 			individual: {
 			    firstName: Alloy.Globals.currentUser.attributes.firstName,
