@@ -40,7 +40,6 @@ var getCustomerPaymentMethod = exports.getCustomerPaymentMethod = function(cb) {
 var createCustomerAndpaymentMethod = exports.createCustomerAndpaymentMethod = function(paymentObject, cb) {
 	//console.log("paymentObject ", paymentObject);
 	httpManager.execute('/payments/createCustomerAndpaymentMethod', 'POST', paymentObject, true, function(err, userPaymentObj){
-		console.log("#$@#$@#$## :", userPaymentObj);
 		var a = Titanium.UI.createAlertDialog({
         	title : 'Save Payment Method'
     	});

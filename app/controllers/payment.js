@@ -5,7 +5,8 @@
 var args = arguments[0] || {};
 
 var helpers = require('utilities/helpers'),
-paymentManager = require('managers/paymentmanager');
+paymentManager = require('managers/paymentmanager'),
+modalManager = require('managers/modalmanager');
 
 function addNewCard(){
     paymentManager.getClientToken(function(err, response){
@@ -32,6 +33,11 @@ function addNewBank(){
 	Alloy.Globals.openPage('addBankAccount');
 }
 function addVenmo(){
+	if(!Alloy.Globals.currentUser.attributes.dateOfBirth || Alloy.Globals.currentUser.attributes.dateOfBirth === null) {
+		modalManager.getBirthdayModal();
+	}
+	console.log("POOOOOOOOOOOP");
+	//Alloy.Globals.openPage('birthdaymodal');
 	//Selecting Venmo will not leave this page but instead send info to braintree
 	//via this js file.  Then a checkmark will appear to show they selected this option.
 	//Need to connect to Braintree if this option is selected.
@@ -89,4 +95,7 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
 
 paymentManager.getCustomerPaymentMethod(function(err, results){
 	console.log("%%%%%%%%%%%: ",results);
+	if(results) {
+		
+	}
 });
