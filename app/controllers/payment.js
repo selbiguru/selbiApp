@@ -39,22 +39,10 @@ function addVenmo(){
 			results.modalSaveButton.addEventListener('click', function() {
 				var textFieldObject = {
 					"id": Ti.App.Properties.getString('userId'), //Id of the user 
-					"dateOfBirth": formatDate(results.datePicker.value)
+					"dateOfBirth": results.datePicker.value.toISOString()
 				};
 				var animateWindowClose = Titanium.UI.create2DMatrix();
 			    animateWindowClose = animateWindowClose.scale(0);
-			    function formatDate(d) {
-				  date = new Date(d);
-				  var dd = date.getDate(); 
-				  var mm = date.getMonth()+1;
-				  var yyyy = date.getFullYear(); 
-				  if(dd<10){dd='0'+dd}; 
-				  if(mm<10){mm='0'+mm};
-				  return d = dd+'/'+mm+'/'+yyyy;
-				}
-			    Ti.API.info("User selected date: " + results.datePicker.value);
-			    Ti.API.info("User pooping poop: " + results.datePicker.value.toLocaleString());
-			    Ti.API.info("User beeep toooot: " + formatDate(results.datePicker.value));
 			    //userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
 			    	//results.modalWindow.close({transform:animateWindowClose, duration:300});
 			    	//addVenmo();

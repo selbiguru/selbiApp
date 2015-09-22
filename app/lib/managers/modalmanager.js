@@ -2,6 +2,8 @@ var userManager = require('managers/usermanager');
 
 
 /*********************************************  DOB MODAL *****************************************************/
+//Builds a DOB modal.  This function takes no arguments and returns access to all elements created.
+//This allows customization of the modalSaveButton to add a custom listener upon clicking the save button. 
 var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 	var modalWindow,
 		backgroundColorView,

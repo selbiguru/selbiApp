@@ -19,7 +19,7 @@ var getClientToken = exports.getClientToken = function(cb) {
 
 
 var getCustomerPaymentMethod = exports.getCustomerPaymentMethod = function(cb) {
-	httpManager.execute('/payments/findCustomer/'+Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, paymentMethodObj){
+	httpManager.execute('/payments/'+Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, paymentMethodObj){
 		var a = Titanium.UI.createAlertDialog({
         	title : 'Payment Method'
     	});
