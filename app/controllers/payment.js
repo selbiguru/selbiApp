@@ -83,13 +83,13 @@ function addVenmo(){
 	  		  	},
 	  			funding: {
 				    descriptor: "Selbi Sale",
-				    destination: MerchantAccount.FundingDestination.mobile,
 				    email: "Alloy.Globals.currentUser.attributes.email,
 				    mobilePhone: Alloy.Globals.currentUser.attributes.phoneNumber
 			  	},
 			  	tosAccepted: true,
 			  	masterMerchantAccountId: "14ladders_marketplace",
-			  	id: Ti.App.Properties.getString('userId') //Id of the user
+			  	id: Ti.App.Properties.getString('userId'), //Id of the user
+			  	venmo: true
 	  		};
 	  		paymentManager.createSubMerchant(merchantSubAccountParams, function(err, responseObj) {
 				if(err) {

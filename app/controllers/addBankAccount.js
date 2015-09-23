@@ -6,6 +6,7 @@ paymentManager = require('managers/paymentmanager'),
 modalManager = require('managers/modalmanager');
 
 function saveSubMerchantBankInfo() {
+	console.log("%%%%%^^^^^: ", MerchantAccount.FundingDestination.bank);
 		var a = Titanium.UI.createAlertDialog({
 		        title : 'Invalid Banking Fields'
 		    });
@@ -79,13 +80,13 @@ function saveSubMerchantBankInfo() {
 			  	},
 				funding: {
 				    descriptor: "Selbi Sale",
-				    destination: MerchantAccount.FundingDestination.bank,
 				    accountNumber: "$.accountNumber.value,
 				    routingNumber: $.routingNumber.value
 			  	},
 			  	tosAccepted: true,
 			  	masterMerchantAccountId: "14ladders_marketplace",
-			  	id: Ti.App.Properties.getString('userId') //Id of the user
+			  	id: Ti.App.Properties.getString('userId'), //Id of the user
+			  	venmo: false
 			};
 		
 		paymentManager.createSubMerchant(merchantSubAccountParams, function(err, responseObj) {
