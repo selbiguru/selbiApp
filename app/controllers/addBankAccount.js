@@ -6,7 +6,6 @@ paymentManager = require('managers/paymentmanager'),
 modalManager = require('managers/modalmanager');
 
 function saveSubMerchantBankInfo() {
-	console.log("%%%%%^^^^^: ", MerchantAccount.FundingDestination.bank);
 		var a = Titanium.UI.createAlertDialog({
 		        title : 'Invalid Banking Fields'
 		    });
