@@ -9,7 +9,7 @@
 				<Label id="titleAddBankAccountLabel">Add Bank Account</Label>
 			</View>
 			<View id="saveSubMerchantBankView">
-				<Button onClick="saveSubMerchantBankInfo" id="saveSubMerchantBankButton" class="saveSubMerchantBankButtonIcon">Save</Button>
+				<Button onClick="addBankInfo" id="saveSubMerchantBankButton" class="saveSubMerchantBankButtonIcon">Save</Button>
 			</View>
 		</View>
 		<View id="viewBankDescription">

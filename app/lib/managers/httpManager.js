@@ -24,7 +24,8 @@ var keychainItem = keychain.createKeychainItem(Alloy.CFG.keychain.account, Alloy
 exports.execute = function(relativePath, method, objectToSend, isAuth, callback) {
     var xhr = Titanium.Network.createHTTPClient(),
         url = baseUrl + relativePath; 
-
+	console.log("!!!!!!: ", xhr);
+	console.log("55555555: ", url);
     xhr.onerror = function(e) {
         Ti.API.error('Bad Server =>' + e.error);
         alert('Bad Server =>' + e.error);

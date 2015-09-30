@@ -32,7 +32,17 @@ function addNewBank(){
 	}*/
 	Alloy.Globals.openPage('addBankAccount');
 }
+
+/**
+ * @method addVenmo 
+ * Opens Birthday modal if user has not yet entered their birthday
+ * Braintree requires birthday when creating a subMerchant Account
+ */
 function addVenmo(){
+	console.log("HAPPY BIRTHDAY!!!!", !Alloy.Globals.currentUser.attributes.dateOfBirth);
+	console.log("giraffe giraffe ", Alloy.Globals.currentUser.attributes.dateOfBirth);
+	console.log("bears bears bears bears ", Alloy.Globals.currentUser.attributes);
+	console.log("LOLOLOLOLOLOLOLOOLOLOLOL", Alloy.Globals.currentUser.attributes.dateOfBirth === null);
 	if(!Alloy.Globals.currentUser.attributes.dateOfBirth || Alloy.Globals.currentUser.attributes.dateOfBirth === null) {
 		modalManager.getBirthdayModal(function(err,results){
 			console.log("!!!!!!!!!", results);
@@ -45,7 +55,7 @@ function addVenmo(){
 			    animateWindowClose = animateWindowClose.scale(0);
 			    //userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
 			    	//results.modalWindow.close({transform:animateWindowClose, duration:300});
-			    	//addVenmo();
+			    	//sendVenmoBraintree();
 			    	//return;
 			    //});
 			    	
@@ -55,7 +65,16 @@ function addVenmo(){
 		
 	} else {
 		console.log("POOOOOOOOOOOP");
-		//Alloy.Globals.openPage('birthdaymodal');
+		//sendVenmoBraintree();
+		return;
+	}
+}
+
+/**
+ * @private sendVenmoBraintree 
+ * Determines if your address is complete on your profile page and if so, creates a subMerchant account with Venmo so you can cash out.
+ */
+function sendVenmoBraintree(){
 		//Selecting Venmo will not leave this page but instead send info to braintree
 		//via this js file.  Then a checkmark will appear to show they selected this option.
 		//Need to connect to Braintree if this option is selected.
@@ -66,7 +85,7 @@ function addVenmo(){
 		/*var a = Titanium.UI.createAlertDialog({
 	        	title : 'Add Address'
 	    	});
-		if (user.address) {
+		if (Alloy.Globals.currentUser.attributes.address) {
 			var merchantSubAccountParams = {
 				individual: {
 				    firstName: Alloy.Globals.currentUser.attributes.firstName,
@@ -87,7 +106,6 @@ function addVenmo(){
 				    mobilePhone: Alloy.Globals.currentUser.attributes.phoneNumber
 			  	},
 			  	tosAccepted: true,
-			  	masterMerchantAccountId: "14ladders_marketplace",
 			  	id: Ti.App.Properties.getString('userId'), //Id of the user
 			  	venmo: true
 	  		};
@@ -100,12 +118,10 @@ function addVenmo(){
 			});
 	  		
 		} else {
-			a.setMessage("You must first complete your profile in the settings!");
+			a.setMessage("You must first complete your profile and address in the settings before continuing!");
 		    a.show();
 			return;
 		}*/
-		return;
-	}
 }
 
 // Set the Venmo button image
