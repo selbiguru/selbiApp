@@ -9,11 +9,21 @@ paymentManager = require('managers/paymentmanager'),
 modalManager = require('managers/modalmanager');
 
 function addNewCard(){
-    paymentManager.getClientToken(function(err, response){
-    	Ti.App.fireEvent('app:fromTitaniumPaymentGetTokenFromServer', { token: response });
-		return;
-	});
 	Alloy.Globals.openPage('addCreditCard');
+    paymentManager.getClientToken(function(err, response){
+    	if(err){
+    		var dialogError = Titanium.UI.createAlertDialog({
+	        	title : 'Page unable to load!'
+	    	}); 
+	    	dialogError.setMessage("Please try again! If the problem persists please contact us.");
+		    dialogError.show();
+		    Alloy.Globals.closePage('addCreditCard');
+			return;
+    	} else {
+	    	Ti.App.fireEvent('app:fromTitaniumPaymentGetTokenFromServer', { token: response });
+			return;
+		}
+	});
 }
 function addNewBank(){
 	//Add new bank page to add routing number and account number.
