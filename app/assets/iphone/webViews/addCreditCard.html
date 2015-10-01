@@ -12,23 +12,26 @@
 	<section>
 		<form action="/" id="saveCreditCardForm">
 			<fieldset class="credit-card-group">
-				<legend>Credit Card Information</legend>
+				<img id="selbiImage" src="http://dc256.4shared.com/img/IY9AQQ7B/s7/13413e9bae0/S_copy" alt="Selbi Logo" width="35" height="35">
+				<h2 id="cardHeader">Credit Card</h2>
+				<span id="cardImage" class="card-image"></span>
 				<label for="card-number">Credit Card Number</label>
 				<div id="card-number" class="card-number cardInfoInput"></div>
-				<label for="card-number">Expiration Date</label>
-				<div id="expiration-date" tabindex="-1" class="card-expiration cardInfoInput"></div>
 				<label for="card-number">CVV Number</label>
 				<div id="cvv" class="card-cvv cardInfoInput"></div>
 				<label for="card-number">Billing Zip Code</label>
 				<div id="postalCode" class="card-zip cardInfoInput"></div>
+				<label for="card-number">Expiration Date</label>
+				<div id="expiration-date" tabindex="-1" class="card-expiration cardInfoInput"></div>
+				<div id="cardName" class="">Selbi User</div>
 				<input type="submit" id="submit" value="Pay">
 			</fieldset>
 		</form>
 	</section>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-	<script src="./addCreditCardZDFS.js"></script>
-	<script src="https://js.braintreegateway.com/js/beta/braintree-hosted-fields-beta.18.js"></script>
+	<script src="./addCreditCard.js"></script>
+	<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
 	<script src="./addCreditCardBraintree.js"></script>
 
 </body>

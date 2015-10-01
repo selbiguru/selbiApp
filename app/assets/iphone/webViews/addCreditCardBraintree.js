@@ -25,7 +25,7 @@ Ti.App.addEventListener("app:fromTitaniumPaymentGetTokenFromServer", function(e)
 	        },
 	        expirationDate: {
 	        	selector: "#expiration-date",
-	            placeholder: "MM/YY"
+	            placeholder: "MMYY"
 	        },
 	        postalCode: {
 	        	selector: "#postalCode",
@@ -34,7 +34,7 @@ Ti.App.addEventListener("app:fromTitaniumPaymentGetTokenFromServer", function(e)
 	        styles: {
 	          	'input': {
 	          	'font-family': 'sans-serif',
-	       		'font-size': '14pt',
+	       		'font-size': '12pt',
 	        	'color': 'black',
 	          	}
 	        }
@@ -121,33 +121,7 @@ helpers = {
 	},
 
 	creditCardComplete: function(event) {
-		if (event.type === 'focus') {
-			$("#"+event.target.container.id + " iframe").removeClass("transitioning-out")
-				.addClass("transitioning-in");
-					
-			//setTimeout(function () {
-			// Hide the rest of the payment info fields now that the credit card
-			// has been 'clicked' on to edit.
-			$("." + defaults.fieldsetClass)
-				.find("div:gt(2)")
-				.addClass("hide");
-			$("#"+event.target.container.id).removeClass("full");
-			//}, defaults.focusDelay);
-		} else {
-			// Once this function is fired, we need to add a "transitioning" class to credit
-			// card element so that we can take advantage of our CSS animations.
-			$("#"+event.target.container.id + " iframe").addClass("transitioning-out");
-			$("#"+event.target.container.id).addClass("full");			
-
-			setTimeout(function () {
-				// Expose the rest of the payment info fields now that the credit card
-				// has been filled out.
-				$("." + defaults.fieldsetClass)
-					.find("div")
-					.removeClass("hide");
-				}, defaults.animationWait);
-					
-		}
+		
 	},
 
 	expirationDateComplete: function() {
