@@ -100,7 +100,7 @@
 	color: "#545555",
 	top:"58dp",
 	font: {
-		fontSize: "14dp",
+		fontSize: "15dp",
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -306,7 +306,7 @@
 	color: "#545555",
 	top:"75dp",
 	font: {
-		fontSize: "16dp",
+		fontSize: "17dp",
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -411,7 +411,7 @@
 	color: "#545555",
 	top:"80dp",
 	font: {
-		fontSize: "18dp",
+		fontSize: "19dp",
 		fontFamily: 'Nunito-Light'
 	}
 },
