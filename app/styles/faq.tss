@@ -68,37 +68,6 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".label-question-number[if=Alloy.Globals.iPhoneFour]": {
-	font:{
-		fontSize: "14dp",
-    	fontFamily: 'Nunito-Bold'
-	},
-	color: "#1BA7CD",
-	left: "10dp"
-},
-".label-question-answer[if=Alloy.Globals.iPhoneFour]": {
-	font:{
-		fontSize: "14dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	color: "#1BA7CD",
-	width: Titanium.UI.FILL,
-	left: "26dp",
-	height: "0dp",
-	visible: false
-},
-".view-question-icon[if=Alloy.Globals.iPhoneFour]": {
-	layout: 'horizontal',
-	height: Titanium.UI.SIZE,
-	top: "20dp",
-}
-".icon-faq[if=Alloy.Globals.iPhoneFour]":{
-	font:{
-		fontSize: "14dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	color: "#1BA7CD",
-}
 
 
 
@@ -134,37 +103,6 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".label-question-number[if=Alloy.Globals.iPhoneFive]": {
-	font:{
-		fontSize: "15dp",
-    	fontFamily: 'Nunito-Bold'
-	},
-	color: "#1BA7CD",
-	left: "10dp"
-},
-".label-question-answer[if=Alloy.Globals.iPhoneFive]": {
-	font:{
-		fontSize: "15dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	color: "#1BA7CD",
-	width: Titanium.UI.FILL,
-	left: "26dp",
-	height: "0dp",
-	visible: false
-},
-".view-question-icon[if=Alloy.Globals.iPhoneFive]": {
-	layout: 'horizontal',
-	height: Titanium.UI.SIZE,
-	top: "20dp",
-}
-".icon-faq[if=Alloy.Globals.iPhoneFive]":{
-	font:{
-		fontSize: "15dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	color: "#1BA7CD",
-}
 
 
 
@@ -199,38 +137,6 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".label-question-number[if=Alloy.Globals.iPhoneSix]": {
-	font:{
-		fontSize: "16dp",
-    	fontFamily: 'Nunito-Bold'
-	},
-	color: "#1BA7CD",
-	left: "10dp"
-},
-".label-question-answer[if=Alloy.Globals.iPhoneSix]": {
-	font:{
-		fontSize: "16dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	color: "#1BA7CD",
-	width: Titanium.UI.FILL,
-	left: "26dp",
-	height: "0dp",
-	visible: false
-},
-".view-question-icon[if=Alloy.Globals.iPhoneSix]": {
-	layout: 'horizontal',
-	height: Titanium.UI.SIZE,
-	top: "20dp",
-}
-".icon-faq[if=Alloy.Globals.iPhoneSix]":{
-	font:{
-		fontSize: "16dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	color: "#1BA7CD",
-}
-
 
 
 
@@ -264,37 +170,6 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".label-question-number[if=Alloy.Globals.iPhoneSixPlus]": {
-	font:{
-		fontSize: "18dp",
-    	fontFamily: 'Nunito-Bold'
-	},
-	color: "#1BA7CD",
-	left: "10dp"
-},
-".label-question-answer[if=Alloy.Globals.iPhoneSixPlus]": {
-	font:{
-		fontSize: "18dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	color: "#1BA7CD",
-	width: Titanium.UI.FILL,
-	left: "26dp",
-	height: "0dp",
-	visible: false
-},
-".view-question-icon[if=Alloy.Globals.iPhoneSixPlus]": {
-	layout: 'horizontal',
-	height: Titanium.UI.SIZE,
-	top: "20dp",
-}
-".icon-faq[if=Alloy.Globals.iPhoneSixPlus]":{
-	font:{
-		fontSize: "18dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	color: "#1BA7CD",
-}
 
 
 
@@ -330,34 +205,3 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".label-question-number[if=Alloy.Globals.android]": {
-	font:{
-		fontSize: "16dp",
-    	fontFamily: 'Nunito-Bold'
-	},
-	color: "#1BA7CD",
-	left: "10dp"
-},
-".label-question-answer[if=Alloy.Globals.android]": {
-	font:{
-		fontSize: "16dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	color: "#1BA7CD",
-	width: Titanium.UI.FILL,
-	left: "26dp",
-	height: "0dp",
-	visible: false
-},
-".view-question-icon[if=Alloy.Globals.android]": {
-	layout: 'horizontal',
-	height: Titanium.UI.SIZE,
-	top: "20dp",
-}
-".icon-faq[if=Alloy.Globals.android]":{
-	font:{
-		fontSize: "16dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	color: "#1BA7CD",
-}

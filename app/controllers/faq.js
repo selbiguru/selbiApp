@@ -8,7 +8,7 @@ var objectTest = {
 	},
 	ex2: {
 		id: 'answer2',
-		text: "Question 2 is this and this and how about a little of that?",
+		text: "Question 2 is this and this how about a little of that?",
 		answer: "Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here "
 	},
 	ex3: {
@@ -19,21 +19,64 @@ var objectTest = {
 };
 var dataArray = [];
 
+
+/*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
+
 for (var i in objectTest) {
-	var viewing = $.UI.create('View', {
+	/*var viewing = $.UI.create('View', {
 		classes: ["view-question-icon"],
 		id: i
+	});*/
+	switch(Alloy.Globals.userDevice) {
+	    case 0:
+	        faqFontSize = 14;
+	        break;
+	    case 1:
+	        faqFontSize = 15;
+	        break;
+	    case 2:
+	        faqFontSize = 16;
+	        break;
+	    case 3:
+	        faqFontSize = 18;
+	        break;
+	    case 4: //android currently same as iphoneSix
+	        faqFontSize = 16;
+	        break;
+	};
+	var viewing = Titanium.UI.createView({
+		layout: 'horizontal',
+		height: Titanium.UI.SIZE,
+		top: "20dp",
+		id: i
 	});
-	var icon = $.UI.create('Label', {
-		classes: ["icon-faq"],
+	var icon = Titanium.UI.createLabel({
+		font:{
+			fontSize: faqFontSize,
+	    	fontFamily: 'Nunito-Light'
+		},
+		color: "#1BA7CD"
 	});
-	var label = $.UI.create('Label', {
-        classes: ["label-question-number"],
+	var label = Titanium.UI.createLabel({
+        font:{
+			fontSize: faqFontSize,
+	    	fontFamily: 'Nunito-Bold'
+		},
+		color: "#1BA7CD",
+		left: "10dp",
         text: objectTest[i].text,
         id: objectTest[i].id
 	});
-	var label2 = $.UI.create('Label', {
-        classes: ["label-question-answer"],
+	var label2 = Titanium.UI.createLabel({
+        font:{
+			fontSize: faqFontSize,
+	    	fontFamily: 'Nunito-Light'
+		},
+		color: "#1BA7CD",
+		width: Titanium.UI.FILL,
+		left: "26dp",
+		height: "0dp",
+		visible: false,
         text: objectTest[i].answer,
 	});
 	$.fa.add(icon,'fa-plus-circle');
