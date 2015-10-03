@@ -2,8 +2,7 @@
 	<View id="paymentView">
 		<View id="paymentTopBar">
 			<View id="menuButton">
-				<Label icon="fa-arrow-left" id="paymentButtonIcon"></Label>
-			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>			
+				<Label icon="fa-arrow-left" id="paymentButtonIcon"></Label>			
 			</View>
 			<View id="titlePaymentView">
 				<Label id="titlePaymentLabel">Payment</Label>
@@ -14,18 +13,18 @@
 			<View id="viewAddCard" class="rowContainer">
 			 	<Label icon="fa-plus-square-o" id="labelAddCard" class="rowLabel" onClick="addNewCard">Add Payment Method</Label>
 			</View>
-			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			
 		</View>
 		<View id="bankingDetails" class="payment-types">
 			<Label id="bankingViewLabel" class="payment-label">Add a Bank or use your Venmo</Label>
 			<View id="viewAddBank" class="rowContainer">
 			 	<Label icon="fa-plus-square-o" id="labelAddBank" class="rowLabel" onClick="addNewBank">Add Bank Account</Label>
 			</View>
-			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 		</View>
 		<Label id="separatorLabel" class="topPadding">OR</Label>
 		<View id="viewAddVenmo" class="rowContainer topPadding">
 			 <ImageView id="imageAddVenmo" class="rowLabel" onClick="addVenmo"/>
 		</View>
+		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 	</View>
 </Alloy>

@@ -8,6 +8,13 @@ var helpers = require('utilities/helpers'),
 paymentManager = require('managers/paymentmanager'),
 modalManager = require('managers/modalmanager');
 
+
+
+/**
+ * @method addNewCard 
+ * Opens addCreditCard view so users can enter in bank account information.
+ * If error occurs fetching clientToken, alert modal shows and addCreditCard view is closed automatically.
+ */
 function addNewCard(){
 	Alloy.Globals.openPage('addCreditCard');
     paymentManager.getClientToken(function(err, response){
@@ -25,6 +32,11 @@ function addNewCard(){
 		}
 	});
 }
+
+/**
+ * @method addNewBank 
+ * Opens addBankAccount view so users can enter in bank account information.
+ */
 function addNewBank(){
 	//Add new bank page to add routing number and account number.
 	//Need to connect to Braintree if this option is selected
@@ -136,6 +148,170 @@ function sendVenmoBraintree(){
 
 // Set the Venmo button image
 $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.venmoWhite;
+
+
+/*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
+ 
+ /**
+ * @private showUserCard 
+ *  Dynamically creates XML elements to show the card that a user has entered on Selbi.
+ */
+ function showUserCard() {
+ 	switch(Alloy.Globals.userDevice) {
+	    case 0:
+	        labelFont = 14;
+	        break;
+	    case 1:
+	        labelFont = 15;
+	        break;
+	    case 2:
+	        labelFont = 16;
+	        break;
+	    case 3:
+	        labelFont = 18;
+	        break;
+	    case 4: //android currently same as iphoneSix
+	        labelFont = 16;
+	        break;
+	};
+ 	var viewUserCard = Titanium.UI.createView({
+ 		layout: 'horizontal',
+ 		height: '40dp',
+		borderWidth: "1dp",
+		borderColor: "#EAEAEA",
+ 	});
+ 	var userCardHeader = Titanium.UI.createLabel({
+ 		//borderColor: "red",
+ 		left: "15dp",
+		height: "40dp",
+		font:{
+			fontSize: labelFont,
+	    	fontFamily: 'Nunito-Light'
+		},
+		color: "#545555",
+		text: "Card Ending:"
+ 	});
+ 	var userCardNumber = Titanium.UI.createLabel({
+ 		//borderColor: "red",
+ 		left: "15dp",
+		height: "40dp",
+		font:{
+			fontSize: labelFont,
+	    	fontFamily: 'Nunito-Light'
+		},
+		color: "#545555",
+		text: "XXXX80"
+ 	});
+ 	var userCardExp = Titanium.UI.createLabel({
+ 		//borderColor: "red",
+ 		left: "15dp",
+		height: "40dp",
+		font:{
+			fontSize: labelFont,
+	    	fontFamily: 'Nunito-Light'
+		},
+		color: "#545555",
+		text: "10/17"
+ 	});
+ 	var deleteCardIcon = Titanium.UI.createLabel({
+ 		//borderColor: "red",
+		textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
+		right: "15dp",
+		width: Titanium.UI.FILL,
+		color: "#1BA7CD"
+ 	});
+ 	viewUserCard.add(userCardHeader);
+ 	viewUserCard.add(userCardNumber);
+ 	viewUserCard.add(userCardExp);
+ 	$.fa.add(deleteCardIcon, "fa-times");
+ 	viewUserCard.add(deleteCardIcon);
+ 	$.paymentDetails.add(viewUserCard);
+ 	deleteCardIcon.addEventListener('click', function() {
+ 		//delete credit card from braintree and our db
+ 		return;
+ 	});
+ };
+//showUserCard();
+
+
+
+
+/**
+ * @private showUserBank 
+ *  Dynamically creates XML elements to show the bank that a user has entered on Selbi.
+ */
+function showUserBank() {
+ 	switch(Alloy.Globals.userDevice) {
+	    case 0:
+	        labelFont = 14;
+	        break;
+	    case 1:
+	        labelFont = 15;
+	        break;
+	    case 2:
+	        labelFont = 16;
+	        break;
+	    case 3:
+	        labelFont = 18;
+	        break;
+	    case 4: //android currently same as iphoneSix
+	        labelFont = 16;
+	        break;
+	};
+ 	var viewUserBank = Titanium.UI.createView({
+ 		//backgroundColor: "blue",
+ 		layout: 'horizontal',
+ 		height: '40dp',
+		borderWidth: "1dp",
+		borderColor: "#EAEAEA",
+ 	});
+ 	var userBankHeader = Titanium.UI.createLabel({
+ 		//borderColor: "red",
+ 		left: "15dp",
+		height: "40dp",
+		font:{
+			fontSize: labelFont,
+	    	fontFamily: 'Nunito-Light'
+		},
+		color: "#545555",
+		text: "Account Ending:"
+ 	});
+ 	var userBankNumber = Titanium.UI.createLabel({
+ 		//borderColor: "red",
+ 		left: "15dp",
+		height: "40dp",
+		font:{
+			fontSize: labelFont,
+	    	fontFamily: 'Nunito-Light'
+		},
+		color: "#545555",
+		text: "XXXX80"
+ 	});
+ 	var deleteBankIcon = Titanium.UI.createLabel({
+ 		//borderColor: "red",
+		textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
+		right: "15dp",
+		width: Titanium.UI.FILL,
+		color: "#1BA7CD"
+ 	});
+ 	viewUserBank.add(userBankHeader);
+ 	viewUserBank.add(userBankNumber);
+ 	$.fa.add(deleteBankIcon, "fa-times");
+ 	viewUserBank.add(deleteBankIcon);
+ 	$.bankingDetails.add(viewUserBank);
+ 	deleteBankIcon.addEventListener('click', function() {
+ 		//delete bank account from braintree and our db
+ 		return;
+ 	});
+ };
+//showUserBank();
+
+
+
+
+
+
+
 
 
 //parameters height, width, text createSliderButton(width,height,fontSize,text)

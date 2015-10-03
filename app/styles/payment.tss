@@ -38,6 +38,44 @@
 ".topPadding": {
 	top: "5dp"
 },
+"#viewUserCard": {
+	layout: 'horizontal'
+},
+"#userCardHeader": {
+	borderColor: "red"
+},
+"#userCardNumber": {
+	borderColor: "red"
+},
+"#userCardExp": {
+	borderColor: "red"
+},
+"#userDeleteCard": {
+	borderColor: "red",
+	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
+	right: "15dp",
+	width: Titanium.UI.FILL,
+	color: "#1BA7CD"
+},
+"#viewUserBank": {
+	layout: 'horizontal',
+	backgroundColor: "yellow"
+}
+"#userBankHeader": {
+	borderColor: "red"
+},
+"#userBankNumber": {
+	borderColor: "red"
+},
+"#userDeleteBank": {
+	borderColor: "red",
+	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
+	right: "15dp",
+	width: Titanium.UI.FILL,
+	color: "#1BA7CD"
+}
+
+
 
 
 //iPhone 4
