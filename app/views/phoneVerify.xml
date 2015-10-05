@@ -1,0 +1,20 @@
+<Alloy>
+	<View id="phoneVerifyView">
+		<View id="phoneVerifyTopBar">
+			<View id="menuButton">
+				<Label icon="fa-arrow-left" id="phoneVerifyButtonIcon"></Label>			
+			</View>
+			<View id="titlePhoneVerifyView">
+				<Label id="titlePhoneVerifyLabel">Verify Phone Number</Label>
+			</View>
+		</View>
+		<View id="phoneVerify" layout='horizontal'>
+			<TextField id="firstNumber" maxLength='1' class="verify-code"></TextField>
+			<TextField id="secondNumber" maxLength='1' class="verify-code"></TextField>
+			<TextField id="thirdNumber" maxLength='1' class="verify-code"></TextField>
+			<TextField id="fourthNumber" maxLength='1' class="verify-code"></TextField>
+		</View>	
+		<Button onClick='sameCode'>Same?</Button>
+		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+	</View>
+</Alloy>

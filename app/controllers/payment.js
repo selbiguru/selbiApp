@@ -7,6 +7,7 @@ var args = arguments[0] || {};
 var helpers = require('utilities/helpers'),
 paymentManager = require('managers/paymentmanager'),
 modalManager = require('managers/modalmanager');
+twilioManager = require('managers/twiliomanager');
 
 
 
@@ -342,7 +343,14 @@ sliderButton.addEventListener('touchend', function(e){
 	var endX = sliderButton.animatedCenter.x + (sliderButton.getWidth()/2);
 	if (endX > parseInt(sliderView.getWidth())+190) {
 		//button released at right-edge stop
-		newlockWindow.close();
+		/*twilioManager.sendSMSPhone('+15157794218','7890', function(err, response){
+			if(err){
+				console.log('err form phone verify', err);
+			} else {
+				console.log('response form phone', response);*/
+				Alloy.Globals.openPage('phoneVerify', {code:'7890'});
+			/*}
+		});*/
 	}
 	//springback
 	sliderButton.setLeft(0);
