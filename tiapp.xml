@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
+    <url>http://</url>
     <id>io.selbi</id>
     <name>selbiApp</name>
     <version>1.0</version>
     <publisher>selbi</publisher>
-    <description>undefined</description>
+    <description>eCommerce Friends first selling app.</description>
     <copyright>2015 by selbi</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>42d1f5d6-44fa-451c-9888-c7d3e4f7ab39</guid>
+    <guid>cf9d7fd2-665f-436d-9222-1073fd7b03cc</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
         <manifest android:versionCode="1" android:versionName="1.0">
@@ -66,6 +67,9 @@
                 <key>CFBundleURLTypes</key>
                 <array>
                     <dict>
+                        <key>CFBundleURLName</key>
+                        <!-- Application ID same as the id value in the tiapp.xml file -->
+                        <string>APP_ID</string>
                         <key>CFBundleURLSchemes</key>
                         <array>
                             <string>fb1574963029435557</string>
@@ -102,6 +106,7 @@
         <module platform="iphone">facebook</module>
         <module platform="android">com.animecyc.animator</module>
         <module platform="iphone">com.animecyc.animator</module>
+        <module platform="commonjs">ti.cloud</module>
     </modules>
     <deployment-targets>
         <target device="android">true</target>
@@ -109,9 +114,25 @@
         <target device="iphone">true</target>
         <target device="mobileweb">true</target>
     </deployment-targets>
-    <sdk-version>4.0.0.GA</sdk-version>
+    <sdk-version>5.0.1.GA</sdk-version>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>
     <property name="appc-app-id" type="string">5560b9c12daf52a8029eee07</property>
+    <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-development" type="string">8gx5Q0j0aOxvBVpcycmoFy4k4j8jKasF</property>
+    <property name="acs-oauth-key-development" type="string">98wsDC5lmHgxsbQhsjqF7kMGOBHfUdwy</property>
+    <property name="acs-api-key-development" type="string">Uimmjr05e2YT1EzMMEHLye02tbgY8457</property>
+    <property name="acs-username-development" type="string">appc_app_user_dev</property>
+    <property name="acs-password-development" type="string">EZ7ftsrSSAJiiWLZnk</property>
+    <property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-production" type="string">MVQEhgPCX1EJfwA9FQ5lmPE2gGUhukqa</property>
+    <property name="acs-oauth-key-production" type="string">dCdPcp3ZJOHsLWkNg9iiWe2oH2v0zTYl</property>
+    <property name="acs-api-key-production" type="string">uHaWeDlYcqkSgKeZa4CLZLK2Y7UTf04D</property>
+    <property name="acs-username-production" type="string">appc_app_user</property>
+    <property name="acs-password-production" type="string">nObn3SxvjIoxrKnabC</property>
+    <property name="appc-org-id" type="string">100022840</property>
+    <property name="appc-creator-user-id" type="string">01f4bd9b-d733-4d1b-8912-cc6abaec8365</property>
 </ti:app>

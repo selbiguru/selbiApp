@@ -35,6 +35,12 @@ genItems(function(err, items){
 	listingSection.setItems(items);
 });
 
+var parentWindow = Titanium.UI.currentWindow;
+// $.menuButton.addEventListener('click', function(){
+	// console.log("menu button click", parentWindow);
+	// Titanium.API.currentTabGroup.getActiveTab().close();
+// });
+
 //$.listingListView.sections = [listingSection];
 //$.listingListView.refreshControl = control;
 //$.listingListView.addEventListener('itemclick', itemClickListener);

@@ -17,13 +17,13 @@ var keychainItem = keychain.createKeychainItem(Alloy.CFG.keychain.account, Alloy
  * It optionally provides oAuth calls.
  * @param {Object} relativePath relative path to the api
  * @param {Object} method	HttpMethod to be used (PUT, POST, GET, DELETE)
- * @param {Object} objectToSend JSON Object that needs to be sent via http 
+ * @param {Object} objectToSend JSON Object that needs to be sent via http
  * @param {Object} isAuth Indicates if the http call needs oAuth, It grabs the token from keychain
  * @param {Object} callback	Callback function after completing the http request
  */
 exports.execute = function(relativePath, method, objectToSend, isAuth, callback) {
     var xhr = Titanium.Network.createHTTPClient(),
-        url = baseUrl + relativePath; 
+        url = baseUrl + relativePath;
 	console.log("!!!!!!: ", xhr);
 	console.log("55555555: ", url);
     xhr.onerror = function(e) {
@@ -34,17 +34,17 @@ exports.execute = function(relativePath, method, objectToSend, isAuth, callback)
 
     xhr.open(method, url);
     xhr.setRequestHeader("content-type", "application/json");
-    
+
     if(isAuth) {
     	var authHeader = "Bearer " + keychainItem.valueData;
-    	console.log("!!!!!!!TOKEN ",authHeader);
+      Ti.API.info('AUTHHEADER' + authHeader);
     	xhr.setRequestHeader("Authorization", authHeader);
     }
-	
+
 	var objectJSON = objectToSend ? JSON.stringify(objectToSend) : {};
     Ti.API.info('Params' + objectJSON);
     xhr.send(objectJSON);
-	
+
     xhr.onload = function() {
         Ti.API.info('RAW =' + this.responseText);
         if (this.status == 200 || this.status == 201) {
