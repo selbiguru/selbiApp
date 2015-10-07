@@ -38,13 +38,15 @@ exports.getCustomView = function(viewName, model){
  * @param {Object} instance Instance of the window/tabgroup 
  */
 exports.createWindow = function(options, instance) {
-	var win = Ti.UI.createWindow(options);
-	win.addEventListener('swipe', function(){
-		Alloy.Globals.showHideMenu();
-	});	
+	var win = Ti.UI.createWindow(options);		
 	var headerView = Alloy.createController('header', options);
-	headerView.menuButton.addEventListener('click', function(){
-		instance.close({transition:Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
+	headerView.windowMenuButton.addEventListener('click', function(){
+		Ti.API.info("window button click",instance);
+		if(instance)
+			instance.close({transition:Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
+		
+		headerView.windowMenuButton.removeEventListener('click',arguments.callee);
+		
 	});
 	win.add(headerView.getView());
 	return win;

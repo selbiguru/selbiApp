@@ -1,14 +1,5 @@
 <Alloy>
 	<View id="listingsView">
-        <!-- <View id="listingsTopBar">
-			<View id="menuButton">
-				<Label icon="fa-arrow-left" id="listingsButtonIcon"></Label>
-			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
-			</View>
-			<View id="titleListingsView">
-				<Label id="titleListingsLabel">Listings</Label>
-			</View>
-		</View> -->
 		<View id="gridView" height="0" layout="horizontal" backgroundColor="#333">
 			
 		</View>

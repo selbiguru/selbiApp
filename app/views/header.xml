@@ -1,11 +1,11 @@
 <Alloy>
-	<View id="topBar" top="0" height="50" layout="horizontal" width="Titanium.UI.FILL" zIndex="1" backgroundColor="white">
-		<View id="menuButton"left="10" width="20" top="0" color="#62D7F5">
-			<Label icon="fa-arrow-left" id="buttonIcon"></Label>
+	<View id="windowTopBar" top="0" height="50" layout="horizontal" width="Titanium.UI.FILL" zIndex="1" backgroundColor="white">
+		<View id="windowMenuButton"left="10" width="20" top="0" color="#62D7F5">
+			<Label icon="fa-arrow-left" id="windowButtonIcon"></Label>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 		</View>
-		<View id="titleView" top="0" width="Titanium.UI.FILL"> 
-			<Label id="titleLabel" class="header-label" color="#62D7F5" width="100"></Label>
+		<View id="windowTitleView" top="0" width="Titanium.UI.FILL"> 
+			<Label id="windowTitleLabel" class="header-label" color="#62D7F5" width="100"></Label>
 		</View>
 	</View>
 </Alloy>

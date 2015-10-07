@@ -13,7 +13,6 @@ var controls=require('controls');
 // get all the view as objects
 var menuView = controls.getMenuView();
 var mainView = controls.getMainView();
-var Animator = require('com.animecyc.animator');
 
 /**
  * Initializes all the menu items, views and events associated to each menu item
@@ -43,9 +42,11 @@ var viewList = {
 	"row2": 'invitefriends',
 	"row3": 'notifications',
 	"row4": 'mylistings',
-	"row5": 'listings',
+	"row5": 'contacts',
 	"row6": 'settings'
 };
+
+var hasWindow = ['mylistings'];
 
 var controllerList = {};
 
@@ -63,26 +64,26 @@ function onMenuClickListener(e){
 	function drawView(row){
 		for (var property in viewList) {
 		    if (property === row) {
+		    	
 		    	var viewController = controls.getCustomView(viewList[row]);
-		    	if(!viewController.getView || typeof viewController.getView !== 'function') {
+		    	if(!viewController.getView || typeof viewController.getView !== 'function' || hasWindow.indexOf(viewController.__controllerPath) >= 0) {
 		    		return;
 		    	}
-		    	controllerList[row]= (viewController);
-					if(viewController.menuButton){
-			    	viewController.menuButton.addEventListener('click',function(){
-
-							$.drawermenu.showhidemenu();
-							$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
-						});
-					}
-		      $.drawermenu.drawermainview.add(viewController.getView());
+		    	controllerList[row]= viewController;
+				if(viewController.menuButton) {
+		    		viewController.menuButton.addEventListener('click', function(){
+						$.drawermenu.showhidemenu();
+						$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
+					});
+				}
+	      		$.drawermenu.drawermainview.add(viewController.getView());
 		    } else {
 		    	if(controllerList[property])
 		    		$.drawermenu.drawermainview.remove(controllerList[property].getView());
 		    }
 		}
 	};
-
+	
     $.drawermenu.showhidemenu();
     $.drawermenu.menuOpen = false; //update menuOpen status to prevent inconsistency.
     drawView(e.rowData.id);
