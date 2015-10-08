@@ -3,14 +3,20 @@ var args = arguments[0] || {};
 var codeNumbers =[];
 
 console.log("hey what are the args?", args);
-function sameCode(e){
+
+function verifyCode(e){
 	var code = args.code;
 	if(codeNumbers.join('') === args.code) {
 		console.log('YES THIS IS THE SAME');	
 	} else {
 		console.log('NO DIFFERENT CODES');
 	}
-}
+};
+
+function resendCode(){
+	return true;
+};
+
 
 $.phoneVerify.addEventListener('change', function(e){
 	var children = $.phoneVerify.children;

@@ -343,7 +343,7 @@ sliderButton.addEventListener('touchend', function(e){
 	var endX = sliderButton.animatedCenter.x + (sliderButton.getWidth()/2);
 	if (endX > parseInt(sliderView.getWidth())+190) {
 		//button released at right-edge stop
-		/*var randomNumber = Math.floor(Math.random() * 8999 + 1000);
+		/*var randomNumber = Math.floor(Math.random() * 8999 + 1000).toString().substring(0,4);
 		twilioManager.sendSMSPhone('+15157794218',randomNumber, function(err, response){
 			if(err){
 				console.log('err form phone verify', err);

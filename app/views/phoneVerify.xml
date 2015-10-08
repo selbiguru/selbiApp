@@ -8,13 +8,24 @@
 				<Label id="titlePhoneVerifyLabel">Verify Phone Number</Label>
 			</View>
 		</View>
-		<View id="phoneVerify" layout='horizontal'>
+		<View id="verifyDescriptionView">
+			<Label id="verifyHeader">Enter Code Below!</Label>
+			<Label id="verifyBody">We've sent you a text!  Just enter the 4 digit code below and take full advantage of Selbi!'</Label>
+		</View>
+		<View id="phoneVerify">
 			<TextField id="firstNumber" maxLength='1' class="verify-code"></TextField>
 			<TextField id="secondNumber" maxLength='1' class="verify-code"></TextField>
 			<TextField id="thirdNumber" maxLength='1' class="verify-code"></TextField>
 			<TextField id="fourthNumber" maxLength='1' class="verify-code"></TextField>
 		</View>	
-		<Button onClick='sameCode'>Same?</Button>
+		<Button id="verifyCode" onClick='verifyCode'>Verify</Button>
+		<Button id="resendCode" onClick='resendCode'>Resend</Button>
+		<View id="verifyDisclaimerView">
+			<Label id="verifyDisclaimer">*Selbi uses your phone number as an extra security layer for when you cash out your money.</Label>
+		</View>
+		<View>
+			<Label></Label>
+		</View>
 		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 	</View>
 </Alloy>
