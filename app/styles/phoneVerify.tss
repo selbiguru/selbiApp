@@ -25,14 +25,69 @@
 	width: Titanium.UI.FILL,
 	backgroundColor:"#EAEAEA"
 },
+"#verifyDescriptionView": {
+	layout: 'vertical',
+	height: Ti.UI.SIZE,
+	top: "35dp",
+	width: "90%"
+},
+"#verifyHeader": {
+	font: {
+		fontSize: "20dp",
+		fontFamily: 'Nunito-Bold'
+	},
+	color: "#1BA7CD"
+},
+"#verifyBody": {
+	font: {
+		fontSize: "16dp",
+		fontFamily: 'Nunito-Light'
+	},
+	color: "#1BA7CD",
+	top: '10dp'
+},
 "#phoneVerify":{
-	height: "40dp"
+	height: Ti.UI.SIZE,
+	layout: 'horizontal',
+	top: '15dp',
+	width: "90%"
+},
+"#firstNumber": {
+	left: "20dp"
 },
 ".verify-code": {
-	height: "40dp",
-	width: "40dp",
-	borderColor: "black"
+	height: "70dp",
+	width: "70dp",
+	borderColor: "#EAEAEA",
+	left: "5dp",
+	font: {
+		fontSize: '24dp',
+		fontFamily: 'Nunito-Bold'
+	},
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+},
+"#verifyDisclaimerView": {
+	height: Ti.UI.FILL,
+	width: "90%"
+},
+"#verifyDisclaimer": {
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: "#1BA7CD",
+	bottom: '5dp',
+},
+"#verifyCode":{
+	top: '10dp'
 }
+"#resendCode": {
+	top: '10dp',
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
 
 
 
