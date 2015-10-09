@@ -16,7 +16,7 @@ function getContactListTemplate() {
 	            properties: {            // Sets the label properties
 	                color: 'black',
 	                font: { fontFamily:'Arial', fontSize: '12dp', fontWeight:'bold' },
-	                left: '5dp', top: 5,
+	                left: '15dp', top: 5,
 	            },
 	        },
 	        {                            // Subtitle
@@ -25,7 +25,21 @@ function getContactListTemplate() {
 	            properties: {            // Sets the label properties
 	                color: 'gray',
 	                font: { fontFamily:'Arial', fontSize: '10dp' },
-	                left: '5dp', top: '20dp',
+	                left: '15dp', top: '20dp',
+	            }
+	        },
+	        {
+	        	type: 'Ti.UI.ImageView',     // Use a label for the subtitle
+	            bindId: 'inviteIcon',      // Maps to a custom subtitle property of the item data
+	            properties: { 
+	                right: '0dp', top: '2dp', width: 50
+	            }
+	        },
+	        {
+	        	type: 'Ti.UI.ImageView',     // Use a label for the subtitle
+	            bindId: 'addIcon',      // Maps to a custom subtitle property of the item data
+	            properties: { 
+	                right: '40dp', top: '10dp', width: 25
 	            }
 	        }
 	    ]
@@ -50,7 +64,9 @@ function loadContacts() {
 		for(var person in people) {	
 			contacts.push({
 					title: { text: people[person] ? people[person].firstName + " " + people[person].lastName: "NA"},
-				 	subtitle: {text: people[person].email.work && people[person].email.work.length > 0 ? people[person].email.work[0]: ""}
+				 	subtitle: {text: people[person].email.work && people[person].email.work.length > 0 ? people[person].email.work[0]: ""},
+				 	inviteIcon: {image: 'https://cdn0.iconfinder.com/data/icons/communication-technology/500/black_envelope-128.png'},
+				 	addIcon: {image: 'https://cdn3.iconfinder.com/data/icons/social-media-2-2/256/Add_Friend-512.png'}
 			});
 		}
 	}

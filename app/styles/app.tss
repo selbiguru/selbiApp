@@ -29,6 +29,23 @@
 	width: "60dp",
 	height: "60dp"
 }
+
+".menu-button-icon": {
+	color: "#1BA7CD",
+	top: '20'	
+}
+
+".top-bar-label": {
+	color: "#1BA7CD",
+	left: '60dp',
+	width: Titanium.UI.FILL,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	},
+	top: '20'	
+}
+
 ".wrapper-container": {
 	backgroundColor: "#62D7F5",
 	width: '80%'

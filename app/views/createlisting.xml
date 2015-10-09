@@ -1,12 +1,12 @@
 <Alloy>
 	<View id="mainView">
 		<View id="mainTopBar">
-			<View id="menuButton">
-				<Label icon="fa-arrow-left" id="notificationsButtonIcon"></Label>
+			<View id="menuButton" class="menu-button">
+				<Label icon="fa-arrow-left" class="menu-button-icon" id="notificationsButtonIcon"></Label>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
 			<View >
-				<Label>Create Listing</Label>
+				<Label class="top-bar-label">Create Listing</Label>
 			</View>
 		</View>
 		<View class="container create-listing-view" layout="absolute" id="createListing">
