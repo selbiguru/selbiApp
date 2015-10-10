@@ -73,9 +73,10 @@ var login = exports.login = function (username, password, cb){
  * @param {String} lastName
  * @param {String} email
  * @param {String} password
+ * @param {String} phoneNumber
  * @param {Object} cb
  */
-exports.userRegister = function(firstName, lastName, email, password, cb) {
+exports.userRegister = function(firstName, lastName, email, password, phoneNumber, cb) {
 	// Todo: validation
 	
 	
@@ -85,7 +86,8 @@ exports.userRegister = function(firstName, lastName, email, password, cb) {
 		"email": email,
 		"password": password,
 		"firstName": firstName,
-		"lastName": lastName
+		"lastName": lastName,
+		"phoneNumber": phoneNumber
 		
 	};
 	

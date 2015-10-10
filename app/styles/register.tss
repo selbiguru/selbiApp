@@ -35,4 +35,7 @@
 }
 ".privacy-policy-web": {
 	color: "blue"
-}
+},
+"phoneNumber": {
+	keyboardType:  Titanium.UI.KEYBOARD_NUMBER_PAD
+},
