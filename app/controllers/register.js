@@ -5,14 +5,14 @@ var AuthManager = require('managers/authmanager'),
 
 function registerUser(){
 	// Todo: validation when we have a template
-	if (!$.firstName.value || !$.lastName.value || !$.email.value || !$.password.value || !$.phoneNumber.value) {
+	/*if (!$.firstName.value || !$.lastName.value || !$.email.value || !$.password.value || !$.phoneNumber.value) {
 		var a = Titanium.UI.createAlertDialog({
         	title : 'Missing Fields'
     	});
     	a.setMessage("All fields must be filled out!");
     	a.show();
     	return;
-	}
+	}*/
 	var validatedNumber = validatePhoneNumber($.phoneNumber.value);
 	if(!validatedNumber) {
 		var c = Titanium.UI.createAlertDialog({
@@ -22,7 +22,7 @@ function registerUser(){
 		c.show();
 		return;
 	}
-	var codeNumbers =[];
+	/*var codeNumbers =[];
 	var randomNumber = Math.floor(Math.random() * 8999 + 1000);
 	var validateObject = {
 		phoneNumber: validatedNumber,
@@ -57,15 +57,15 @@ function registerUser(){
 					if(randomNumber === codeNumbers.join('')) {
 						var animateWindowClose = Titanium.UI.create2DMatrix();
 					    animateWindowClose = animateWindowClose.scale(0);	
-					    results.modalWindow.close({transform:animateWindowClose, duration:300});
-					    /*AuthManager.userRegister($.firstName.value, $.lastName.value, $.email.value, $.password.value, phoneNumber, function(err, registerResult){
+					    results.modalWindow.close({transform:animateWindowClose, duration:300});*/
+					    AuthManager.userRegister($.firstName.value, $.lastName.value, $.email.value, $.password.value, $.phoneNumber.value, function(err, registerResult){
 							if(registerResult) {
 								console.log("Successfully regsitered");
 								var homeController = Alloy.createController('masterlayout').getView();
 								homeController.open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});	
 							}
-						});*/
-					  } else {
+						});
+					  /*} else {
 					  	return;
 					  }
 				});
@@ -76,7 +76,7 @@ function registerUser(){
 				});
 			});
 		}
-	});
+	});*/
 }
 
 function closeRegisterWindow(){
