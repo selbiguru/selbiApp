@@ -177,24 +177,49 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 		modalHeaderLabel;
 	switch(Alloy.Globals.userDevice) {
 	    case 0:
-	        modalFont = 18;
-	        pciFont = 10;
+	    	textFieldFont = 20;
+	    	modalHeaderFont = 16;
+	    	modalBodyFont = 12;
+	    	verifyButtonFont = 12;
+	    	resendButtonFont = 10; 
+	    	disclaimerFont = 10;
+	    	textFieldSize = 50;
 	        break;
 	    case 1:
-	        modalFont = 18;
-	        pciFont = 10;
+	    	textFieldFont = 20;
+	    	modalHeaderFont = 16;
+	    	modalBodyFont = 12;
+	        verifyButtonFont = 12;
+	    	resendButtonFont = 10; 
+	    	disclaimerFont = 10;
+	    	textFieldSize = 50;
 	        break;
 	    case 2:
-	        modalFont = 18;
-	        pciFont = 12;
+	    	textFieldFont = 22;
+	    	modalHeaderFont = 18;
+	    	modalBodyFont = 15;
+	        verifyButtonFont = 15;
+	    	resendButtonFont = 12; 
+	    	disclaimerFont = 12;
+	    	textFieldSize = 60;
 	        break;
 	    case 3:
-	        modalFont = 20;
-	        pciFont = 12;
+	    	textFieldFont = 22;
+	    	modalHeaderFont = 20;
+	    	modalBodyFont = 16;
+	        verifyButtonFont = 16;
+	    	resendButtonFont = 12; 
+	    	disclaimerFont = 12;
+	    	textFieldSize = 60;
 	        break;
 	    case 4: //android currently same as iphoneSix
-	        modalFont = 18;
-	        pciFont = 12;
+	    	textFieldFont = 22;
+	    	modalHeaderFont = 18;
+	    	modalBodyFont = 15;
+	        verifyButtonFont = 15;
+	    	resendButtonFont = 12; 
+	    	disclaimerFont = 12;
+	    	textFieldSize = 60;
 	        break;
 	};
 	var transformModalOpen = Titanium.UI.create2DMatrix();
@@ -225,7 +250,7 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 	    backgroundColor:'black',
 	    height:"100%",
 	    width:"100%",
-	    opacity:0.3,
+	    opacity:0.4,
 	    layout:'vertical'
 	});
 	infoModalView = Titanium.UI.createView({
@@ -240,8 +265,9 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 	modalHeaderLabel = Titanium.UI.createLabel({
 		height: Ti.UI.SIZE,
 		//width: Ti.UI.SIZE,
+		top: "5dp",
 		font: {
-			fontSize: "20dp",
+			fontSize: modalHeaderFont,
 			fontFamily: 'Nunito-Bold'
 		},
 		color: "#1BA7CD",
@@ -251,7 +277,7 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 		height: Ti.UI.SIZE,
 		width: "90%",
 		font: {
-			fontSize: "16dp",
+			fontSize: modalBodyFont,
 			fontFamily: 'Nunito-Light'
 		},
 		color: "#1BA7CD",
@@ -262,17 +288,18 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 	    height: Ti.UI.SIZE,
 		layout: 'horizontal',
 		top: '15dp',
-		width: "90%"
+		width: Ti.UI.SIZE
 	});
 	for(i = 0; i < 4; i++) {
 		modalTextField = Titanium.UI.createTextField({
-			height: "70dp",
-			width: "70dp",
+			height: textFieldSize,
+			width: textFieldSize,
 			borderColor: "#EAEAEA",
 			maxLength: "1",
-			left: "5dp",
+			left: "6dp",
+			right: '6dp',
 			font: {
-				fontSize: '24dp',
+				fontSize: textFieldFont,
 				fontFamily: 'Nunito-Bold'
 			},
 			textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
@@ -284,16 +311,16 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 		height:Ti.UI.SIZE,
 	    top: '10dp',
 	    font: {
-				fontSize: '16dp',
+				fontSize: verifyButtonFont,
 				fontFamily: 'Nunito-Light'
 		},
 		title: 'Validate'
 	});
 	modalResendButton = Titanium.UI.createButton({
 		height:Ti.UI.SIZE,
-	    top: '10dp',
+	    top: '7dp',
 		font: {
-			fontSize: '12dp',
+			fontSize: resendButtonFont,
 			fontFamily: 'Nunito-Light'
 		},
 		title: 'Resend Code'
@@ -302,11 +329,12 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 		height: Ti.UI.SIZE,
 		width: "90%",
 		font: {
-			fontSize: '12dp',
+			fontSize: disclaimerFont,
 			fontFamily: 'Nunito-Light'
 		},
 		color: "#1BA7CD",
 		bottom: '5dp',
+		top: "5dp",
 	    text: "*Selbi uses your phone number as an extra security layer for when you cash out your money."
 	});
 	infoModalView.add(modalHeaderLabel);
