@@ -269,12 +269,14 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 			height: "70dp",
 			width: "70dp",
 			borderColor: "#EAEAEA",
+			maxLength: "1",
 			left: "5dp",
 			font: {
 				fontSize: '24dp',
 				fontFamily: 'Nunito-Bold'
 			},
-			textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+			textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+			id: "codeField"+[i]
 		});
 		verifyModalView.add(modalTextField);
 	};

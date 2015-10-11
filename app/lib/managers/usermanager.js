@@ -22,6 +22,7 @@ var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
 				userModel.set({lastName: userUpdateResult.lastName});
 				userModel.set({email: userUpdateResult.email});
 				userModel.set({id: userUpdateResult.id});
+				userModel.set({phoneNumber: userUpdateResult.phoneNumber});
 				userModel.set({profileImage: userUpdateResult.profileImage});
 				userModel.set({dateOfBirth: userUpdateResult.dateOfBirth});
 				if(userUpdateResult.userAddress){
@@ -53,6 +54,7 @@ var getCurrentUser = exports.getCurrentUser = function(cb){
 			userModel.set({lastName: userObject.lastName});
 			userModel.set({email: userObject.email});
 			userModel.set({id: userObject.id});
+			userModel.set({phoneNumber: userObject.phoneNumber});
 			userModel.set({profileImage: userObject.profileImage});
 			userModel.set({dateOfBirth: userObject.dateOfBirth || null});
 			if(userObject.userAddress){

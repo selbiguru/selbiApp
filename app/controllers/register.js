@@ -5,16 +5,16 @@ var AuthManager = require('managers/authmanager'),
 
 function registerUser(){
 	// Todo: validation when we have a template
-	/*if (!$.firstName.value || !$.lastName.value || !$.email.value || !$.password.value || !$.phoneNumber.value) {
+	if (!$.firstName.value || !$.lastName.value || !$.email.value || !$.password.value || !$.phoneNumber.value) {
 		var a = Titanium.UI.createAlertDialog({
         	title : 'Missing Fields'
     	});
     	a.setMessage("All fields must be filled out!");
     	a.show();
     	return;
-	}*/
+	}
 	var validatedNumber = validatePhoneNumber($.phoneNumber.value);
-	if(!validatedNumber) {
+	/*if(!validatedNumber) {
 		var c = Titanium.UI.createAlertDialog({
         	title : 'Invalid Phone Number'
     	});
@@ -22,7 +22,7 @@ function registerUser(){
 		c.show();
 		return;
 	}
-	/*var codeNumbers =[];
+	var codeNumbers =[];
 	var randomNumber = Math.floor(Math.random() * 8999 + 1000);
 	var validateObject = {
 		phoneNumber: validatedNumber,
@@ -35,9 +35,8 @@ function registerUser(){
 		} else {
 			console.log("BATMAN");
 			modalManager.getVerifyPhoneModal(function(err, results){
-				console.log("$$$$$$$", results);
 				results.verifyModalView.addEventListener('change', function(e){
-					var children = $.phoneVerify.children;
+					var children = results.verifyModalView.children;
 					for(var i = 0 ; i < children.length; i++){
 						var child = children[i],
 							nextChild = children[i+1];
@@ -54,11 +53,11 @@ function registerUser(){
 					return;
 				});
 				results.modalVerifyButton.addEventListener('click', function() {
-					if(randomNumber === codeNumbers.join('')) {
+					if(randomNumber === +codeNumbers.join('')) {
 						var animateWindowClose = Titanium.UI.create2DMatrix();
 					    animateWindowClose = animateWindowClose.scale(0);	
 					    results.modalWindow.close({transform:animateWindowClose, duration:300});*/
-					    AuthManager.userRegister($.firstName.value, $.lastName.value, $.email.value, $.password.value, $.phoneNumber.value, function(err, registerResult){
+					    AuthManager.userRegister($.firstName.value, $.lastName.value, $.email.value, $.password.value, validatedNumber, function(err, registerResult){
 							if(registerResult) {
 								console.log("Successfully regsitered");
 								var homeController = Alloy.createController('masterlayout').getView();
@@ -72,7 +71,15 @@ function registerUser(){
 				results.modalResendButton.addEventListener('click', function() {
 					randomNumber = Math.floor(Math.random() * 8999 + 1000);
 					validateObject.verifyPhone = randomNumber;
-					twilioManager.sendValidationMessage(validateObject);
+					twilioManager.sendValidationMessage(validateObject, function(error, response){
+						if(error) {
+							console.log("Ping");
+							return;
+						} else {
+							console.log("Pong");
+							return;
+						}
+					});
 				});
 			});
 		}
