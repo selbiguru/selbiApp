@@ -24,7 +24,7 @@ var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
 				userModel.set({id: userUpdateResult.id});
 				userModel.set({phoneNumber: userUpdateResult.phoneNumber});
 				userModel.set({profileImage: userUpdateResult.profileImage});
-				userModel.set({dateOfBirth: userUpdateResult.dateOfBirth});
+				userModel.set({dateOfBirth: userUpdateResult.dateOfBirth || null});
 				if(userUpdateResult.userAddress){
 						userModel.set({address: userUpdateResult.userAddress.address});
 						userUpdateResult.userAddress.address2 ? userModel.set({address2: userUpdateResult.userAddress.address2}) : userModel.set({address2: ''});

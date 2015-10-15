@@ -4,6 +4,7 @@ var utils = require('utilities/validate'),
 helpers = require('utilities/helpers'),
 paymentManager = require('managers/paymentmanager'),
 modalManager = require('managers/modalmanager');
+userManager = require('managers/usermanager');
 
 
 /**
@@ -37,21 +38,25 @@ function addBankInfo() {
 		    return;
 		}
 		console.log("HAPPY BIRTHDAY!!!!", !Alloy.Globals.currentUser.attributes.dateOfBirth);
+		console.log("OVTOBER 15TH!!!!", Alloy.Globals.currentUser.attributes.dateOfBirth);
 		if(!Alloy.Globals.currentUser.attributes.dateOfBirth || Alloy.Globals.currentUser.attributes.dateOfBirth === false) {
 			modalManager.getBirthdayModal(function(err, results){
-				console.log("!!!!!!!!!", results);
 				results.modalSaveButton.addEventListener('click', function() {
 					var textFieldObject = {
 						"id": Ti.App.Properties.getString('userId'), //Id of the user 
 						"dateOfBirth": results.datePicker.value.toISOString()
 					};
+					console.log("!!!!!!!!!", textFieldObject);
 					var animateWindowClose = Titanium.UI.create2DMatrix();
 				    animateWindowClose = animateWindowClose.scale(0);
-				    //userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
-				    	//results.modalWindow.close({transform:animateWindowClose, duration:300});
+				    userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
+				    	console.log("err!!!!!! ", err);
+				    	console.log("userUpdateResults ", userUpdateResult);
+				    	console.log("globalupdate birthday ", Alloy.Globals.currentUser.attributes.dateOfBirth);
+				    	results.modalWindow.close({transform:animateWindowClose, duration:300});
 				    	//sendBankBraintree();
-				    	//return;
-				    //});
+				    	return;
+				    });
 				    	
 				    results.modalWindow.close({transform:animateWindowClose, duration:300});
 				});
@@ -70,17 +75,17 @@ function addBankInfo() {
  * Determines if your address is complete on your profile page and if so, creates a subMerchant account with your Bank Account info so you can cash out.
  */
 function sendBankBraintree(){
-	//var a = Titanium.UI.createAlertDialog({
-	  //	title : 'Add Address'
-	  //});
-    /*if (Alloy.Globals.currentUser.attributes.address) {
+	var a = Titanium.UI.createAlertDialog({
+	  	title : 'Add Address'
+	});
+    if (Alloy.Globals.currentUser.attributes.address) {
 		var merchantSubAccountParams = {
 			individual: {
 			    firstName: Alloy.Globals.currentUser.attributes.firstName,
 			    lastName: Alloy.Globals.currentUser.attributes.lastName,
 			    email: Alloy.Globals.currentUser.attributes.email,
 			    phone: Alloy.Globals.currentUser.attributes.phoneNumber,
-			    dateOfBirth: "1981-11-19",
+			    dateOfBirth: Alloy.Globals.currentUser.attributes.dateOfBirth,
 			    address: {
 			      streetAddress: Alloy.Globals.currentUser.attributes.userAddress.address,
 			      locality: Alloy.Globals.currentUser.attributes.userAddress.city,
@@ -89,16 +94,16 @@ function sendBankBraintree(){
 			    }
 		  	},
 			funding: {
-			    descriptor: "Selbi Sale",
-			    accountNumber: "$.accountNumber.value,
+			    accountNumber: $.accountNumber.value,
 			    routingNumber: $.routingNumber.value
 		  	},
-		  	tosAccepted: true,
 		  	id: Ti.App.Properties.getString('userId'), //Id of the user
 		  	venmo: false
 		};
 	
 		paymentManager.createSubMerchant(merchantSubAccountParams, function(err, responseObj) {
+			console.log("err!!!!!", err);
+			console.log("responseobj@@@@@@@", responseObj);
 			if(err) {
 				
 			} else {
@@ -109,7 +114,7 @@ function sendBankBraintree(){
 		a.setMessage("You must first complete your profile and address in the settings before continuing!");
 		a.show();
 		return;
-	}*/
+	}
 }
 
 // Set the Example Check image

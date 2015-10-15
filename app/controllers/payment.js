@@ -115,7 +115,7 @@ function sendVenmoBraintree(){
 				    lastName: Alloy.Globals.currentUser.attributes.lastName,
 				    email: Alloy.Globals.currentUser.attributes.email,
 				    phone: Alloy.Globals.currentUser.attributes.phoneNumber,
-				    dateOfBirth: "1981-11-19",
+				    dateOfBirth: Alloy.Globals.currentUser.attributes.dateOfBirth,
 				    address: {
 				      streetAddress: Alloy.Globals.currentUser.attributes.userAddress.address,
 				      locality: Alloy.Globals.currentUser.attributes.userAddress.city,
@@ -124,8 +124,6 @@ function sendVenmoBraintree(){
 				    }
 	  		  	},
 	  			funding: {
-				    descriptor: "Selbi Sale",
-				    email: "Alloy.Globals.currentUser.attributes.email,
 				    mobilePhone: Alloy.Globals.currentUser.attributes.phoneNumber
 			  	},
 			  	tosAccepted: true,
@@ -157,7 +155,10 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  * @private showUserCard 
  *  Dynamically creates XML elements to show the card that a user has entered on Selbi.
  */
- function showUserCard() {
+ function showUserCard(cardInfo) {
+	$.viewAddBank.hide();
+	$.viewAddBank.height = '0dp';
+	$.labelAddBank.height = '0dp';
  	switch(Alloy.Globals.userDevice) {
 	    case 0:
 	        labelFont = 14;
@@ -229,6 +230,13 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  	$.paymentDetails.add(viewUserCard);
  	deleteCardIcon.addEventListener('click', function() {
  		//delete credit card from braintree and our db
+ 		console.log("im inside this%%%%");
+ 		var deleteBankAlert = Titanium.UI.createAlertDialog({
+	        	title : 'Delete Bank Account',
+	        	buttonNames: ['Cancel', 'Confirm'],
+	    }); 
+	    deleteBankAlert.setMessage("Are you sure you want to delete this bank account?  You'll have to add another account/Venmo to be able to cash out!" );
+ 		deleteBankAlert.show();
  		return;
  	});
  };
@@ -241,7 +249,7 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  * @private showUserBank 
  *  Dynamically creates XML elements to show the bank that a user has entered on Selbi.
  */
-function showUserBank() {
+function showUserBank(bankInfo) {
  	switch(Alloy.Globals.userDevice) {
 	    case 0:
 	        labelFont = 14;
@@ -286,7 +294,7 @@ function showUserBank() {
 	    	fontFamily: 'Nunito-Light'
 		},
 		color: "#545555",
-		text: "XXXX80"
+		text: "XXXX "+ bankInfo.accountNumberLast4
  	});
  	var deleteBankIcon = Titanium.UI.createLabel({
  		//borderColor: "red",
@@ -359,8 +367,12 @@ sliderButton.addEventListener('touchend', function(e){
 });
 
 paymentManager.getCustomerPaymentMethod(function(err, results){
-	console.log("~~~~~~~~~~~~~~~~~~: ",results);
-	if(results) {
-		
+	console.log("~~~~~~~~~~~~~~~~~~: ", results);
+	if(results.userPaymentMethod.lastFour) {
+		showUserCard(results.userPaymentMethod);
 	}
+	if(results.userMerchant.accountNumberLast4) {
+		showUserBank(results.userMerchant);
+	}
+	
 });
