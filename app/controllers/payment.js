@@ -8,6 +8,7 @@ var helpers = require('utilities/helpers'),
 paymentManager = require('managers/paymentmanager'),
 modalManager = require('managers/modalmanager');
 twilioManager = require('managers/twiliomanager');
+userManager = require('managers/usermanager');
 
 
 
@@ -76,11 +77,11 @@ function addVenmo(){
 				};
 				var animateWindowClose = Titanium.UI.create2DMatrix();
 			    animateWindowClose = animateWindowClose.scale(0);
-			    //userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
-			    	//results.modalWindow.close({transform:animateWindowClose, duration:300});
+			    userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
+			    	results.modalWindow.close({transform:animateWindowClose, duration:300});
 			    	//sendVenmoBraintree();
-			    	//return;
-			    //});
+			    	return;
+			    });
 			    	
 			    results.modalWindow.close({transform:animateWindowClose, duration:300});
 			});
@@ -156,9 +157,8 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  *  Dynamically creates XML elements to show the card that a user has entered on Selbi.
  */
  function showUserCard(cardInfo) {
-	$.viewAddBank.hide();
-	$.viewAddBank.height = '0dp';
-	$.labelAddBank.height = '0dp';
+ 	//$.viewAddCard.hide();
+ 	//$.viewAddCard.height = '0dp';
  	switch(Alloy.Globals.userDevice) {
 	    case 0:
 	        labelFont = 14;
@@ -184,7 +184,7 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  	});
  	var userCardHeader = Titanium.UI.createLabel({
  		//borderColor: "red",
- 		left: "15dp",
+ 		left: "5dp",
 		height: "40dp",
 		font:{
 			fontSize: labelFont,
@@ -202,7 +202,7 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
 	    	fontFamily: 'Nunito-Light'
 		},
 		color: "#545555",
-		text: "XXXX80"
+		text: 'XXXX '+ cardInfo.lastFour
  	});
  	var userCardExp = Titanium.UI.createLabel({
  		//borderColor: "red",
@@ -213,15 +213,23 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
 	    	fontFamily: 'Nunito-Light'
 		},
 		color: "#545555",
-		text: "10/17"
+		text: cardInfo.expirationDate
+ 	});
+ 	var checkedCardIcon = Titanium.UI.createLabel({
+ 		//borderColor: "red",
+		left: "10dp",
+		width: Titanium.UI.SIZE,
+		color: "#1BA7CD"
  	});
  	var deleteCardIcon = Titanium.UI.createLabel({
  		//borderColor: "red",
 		textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
 		right: "15dp",
 		width: Titanium.UI.FILL,
-		color: "#1BA7CD"
+		color: "#c10404"
  	});
+ 	$.fa.add(checkedCardIcon, "fa-check");
+ 	viewUserCard.add(checkedCardIcon);
  	viewUserCard.add(userCardHeader);
  	viewUserCard.add(userCardNumber);
  	viewUserCard.add(userCardExp);
@@ -231,12 +239,21 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  	deleteCardIcon.addEventListener('click', function() {
  		//delete credit card from braintree and our db
  		console.log("im inside this%%%%");
- 		var deleteBankAlert = Titanium.UI.createAlertDialog({
-	        	title : 'Delete Bank Account',
-	        	buttonNames: ['Cancel', 'Confirm'],
+ 		var deleteCardAlert = Titanium.UI.createAlertDialog({
+	        	title : 'Delete Card',
+	        	buttonNames: ['Confirm', 'Cancel'],
+	        	confirm: 0
 	    }); 
-	    deleteBankAlert.setMessage("Are you sure you want to delete this bank account?  You'll have to add another account/Venmo to be able to cash out!" );
- 		deleteBankAlert.show();
+	    deleteCardAlert.setMessage("Are you sure you want to delete this card?  You'll have to add another card to be able to purchase items on Selbi!" );
+ 		deleteCardAlert.addEventListener('click', function(e){
+		    if (e.index === e.source.confirm){
+			//add delete card logic here!!!!
+				Ti.API.info('The confirm button was clicked');
+				//$.viewAddCard.show();
+ 				//$.viewAddCard.height = '40dp';
+			}
+		});
+ 		deleteCardAlert.show();
  		return;
  	});
  };
@@ -250,6 +267,8 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  *  Dynamically creates XML elements to show the bank that a user has entered on Selbi.
  */
 function showUserBank(bankInfo) {
+	//$.viewAddBank.hide();
+	//$.viewAddBank.height = '0dp';
  	switch(Alloy.Globals.userDevice) {
 	    case 0:
 	        labelFont = 14;
@@ -276,7 +295,7 @@ function showUserBank(bankInfo) {
  	});
  	var userBankHeader = Titanium.UI.createLabel({
  		//borderColor: "red",
- 		left: "15dp",
+ 		left: "5dp",
 		height: "40dp",
 		font:{
 			fontSize: labelFont,
@@ -296,13 +315,21 @@ function showUserBank(bankInfo) {
 		color: "#545555",
 		text: "XXXX "+ bankInfo.accountNumberLast4
  	});
+ 	var checkedBankIcon = Titanium.UI.createLabel({
+ 		//borderColor: "red",
+		left: "10dp",
+		width: Titanium.UI.SIZE,
+		color: "#1BA7CD"
+ 	});
  	var deleteBankIcon = Titanium.UI.createLabel({
  		//borderColor: "red",
 		textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
 		right: "15dp",
 		width: Titanium.UI.FILL,
-		color: "#1BA7CD"
+		color: "#c10404"
  	});
+ 	$.fa.add(checkedBankIcon, "fa-check");
+ 	viewUserBank.add(checkedBankIcon);
  	viewUserBank.add(userBankHeader);
  	viewUserBank.add(userBankNumber);
  	$.fa.add(deleteBankIcon, "fa-times");
@@ -310,6 +337,19 @@ function showUserBank(bankInfo) {
  	$.bankingDetails.add(viewUserBank);
  	deleteBankIcon.addEventListener('click', function() {
  		//delete bank account from braintree and our db
+ 		var deleteBankAlert = Titanium.UI.createAlertDialog({
+	        	title : 'Delete Bank Account',
+	        	buttonNames: ['Confirm', 'Cancel'],
+	        	confirm: 0
+	    }); 
+	    deleteBankAlert.setMessage("Are you sure you want to delete this bank account?  You'll have to add another account/Venmo to be able to cash out!" );
+ 		deleteBankAlert.addEventListener('click', function(e){
+		    if (e.index === e.source.confirm){
+			//add delete logic here!!!!
+				Ti.API.info('The confirm button was clicked');
+			}
+		});
+ 		deleteBankAlert.show();
  		return;
  	});
  };
@@ -366,7 +406,7 @@ sliderButton.addEventListener('touchend', function(e){
 	sliderButton.animate({center:{x:(sliderView.getLeft()+sliderButton.getWidth()/2),y:0}, duration: 500});
 });
 
-paymentManager.getCustomerPaymentMethod(function(err, results){
+paymentManager.getPaymentMethods(function(err, results){
 	console.log("~~~~~~~~~~~~~~~~~~: ", results);
 	if(results.userPaymentMethod.lastFour) {
 		showUserCard(results.userPaymentMethod);

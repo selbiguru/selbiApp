@@ -16,7 +16,7 @@ function saveCreditCard() {
   		 	lastName: Alloy.Globals.currentUser.attributes.lastName,
   		 	paymentMethodNonce: e.nonceObject.nonce
   		 	};
-  		 paymentManager.createCustomerAndpaymentMethod(createCustomerObj, function(err, response) {
+  		 paymentManager.createCustomerAndPaymentMethod(createCustomerObj, function(err, response) {
   		 	//add return response here and close view.  Add card to payment method choice
   		 	return;
   		 });

@@ -18,7 +18,7 @@ var getClientToken = exports.getClientToken = function(cb) {
 };
 
 
-var getCustomerPaymentMethod = exports.getCustomerPaymentMethod = function(cb) {
+var getPaymentMethods = exports.getPaymentMethods = function(cb) {
 	httpManager.execute('/payments/'+Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, paymentMethodObj){
 		var a = Titanium.UI.createAlertDialog({
         	title : 'Payment Method'
@@ -36,8 +36,8 @@ var getCustomerPaymentMethod = exports.getCustomerPaymentMethod = function(cb) {
 };
 
 
-var createCustomerAndpaymentMethod = exports.createCustomerAndpaymentMethod = function(paymentObject, cb) {
-	httpManager.execute('/payments/createCustomerAndpaymentMethod', 'POST', paymentObject, true, function(err, userPaymentObj){
+var createCustomerAndPaymentMethod = exports.createCustomerAndPaymentMethod = function(paymentObject, cb) {
+	httpManager.execute('/payments/createCustomerAndPaymentMethod', 'POST', paymentObject, true, function(err, userPaymentObj){
 		var a = Titanium.UI.createAlertDialog({
         	title : 'Save Payment Method'
     	});
@@ -49,10 +49,10 @@ var createCustomerAndpaymentMethod = exports.createCustomerAndpaymentMethod = fu
 			} 
 		else {
 			// add to user object when we know what to save it as
-			var userModel = Alloy.Models.instance('user');
-			userModel.set({username: userPaymentObj.userPaymentMethod.flag});
-			userModel.save();
-			Alloy.Globals.currentUser = userModel;
+			//var userModel = Alloy.Models.instance('user');
+			//userModel.set({username: userPaymentObj.userPaymentMethod.flag});
+			//userModel.save();
+			//Alloy.Globals.currentUser = userModel;
 			cb(err, Alloy.Globals.currentUser);
 		}
 	});
