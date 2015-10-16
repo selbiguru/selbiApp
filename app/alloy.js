@@ -25,3 +25,4 @@ Alloy.Globals.userDevice = Alloy.Globals.iPhoneFour ? 0 : Alloy.Globals.iPhoneFi
 	
 	
 console.log("width :", Ti.Platform.displayCaps.platformWidth);
+console.log("width :", Ti.Platform.displayCaps.platformHeight);;

@@ -1,11 +1,17 @@
 <Alloy>
 	<Window backgroundColor="#62D7F5" class="wrapper">		
-		<View class="wrapper-container" layout="vertical" top="7%">
+		<View class="wrapper-container">
 			<Label class="splash-header-text">Sign Up</Label>
-			<TextField id="firstName" hintText="FirstName"></TextField>
-			<View class="signup-underline"/>
-			<TextField id="lastName" hintText="LastName"></TextField>
-			<View class="signup-underline"/>
+			<View id="nameView">
+				<View id="firstNameView">
+					<TextField id="firstName" hintText="FirstName"></TextField>
+					<View id="firstNameUnderline" class="signup-underline"/>
+				</View>
+				<View id="lastNameView">
+					<TextField id="lastName" hintText="LastName"></TextField>
+					<View id="lastNameUnderline" class="signup-underline"/>
+				</View>
+			</View>
 			<TextField id="email" hintText="Email"></TextField>
 			<View class="signup-underline"/>
 			<TextField passwordMask="true" hintText="Password" id="password"></TextField>
