@@ -251,6 +251,7 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
 				Ti.API.info('The confirm button was clicked');
 				//$.viewAddCard.show();
  				//$.viewAddCard.height = '40dp';
+ 				//paymentManager.deletePayment();
 			}
 		});
  		deleteCardAlert.show();
@@ -346,6 +347,7 @@ function showUserBank(bankInfo) {
  		deleteBankAlert.addEventListener('click', function(e){
 		    if (e.index === e.source.confirm){
 			//add delete logic here!!!!
+			//paymentManager.deletePayment();
 				Ti.API.info('The confirm button was clicked');
 			}
 		});

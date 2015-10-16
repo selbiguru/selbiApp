@@ -1,5 +1,9 @@
 var httpManager = require('managers/httpmanager');
 
+
+
+/***************************************************GET CALLS***************************************************************/
+
 var getClientToken = exports.getClientToken = function(cb) {
 	httpManager.execute('/payments/getClientToken', 'GET', null, true, function(err, responseToken){
 		var a = Titanium.UI.createAlertDialog({
@@ -36,6 +40,10 @@ var getPaymentMethods = exports.getPaymentMethods = function(cb) {
 };
 
 
+
+
+
+/***************************************************POST/UPDATE CALLS**************************************************************/
 var createCustomerAndPaymentMethod = exports.createCustomerAndPaymentMethod = function(paymentObject, cb) {
 	httpManager.execute('/payments/createCustomerAndPaymentMethod', 'POST', paymentObject, true, function(err, userPaymentObj){
 		var a = Titanium.UI.createAlertDialog({
@@ -78,3 +86,32 @@ var createCustomerAndPaymentMethod = exports.createCustomerAndPaymentMethod = fu
 		}
 	});
 };*/
+
+
+
+
+
+
+
+/***************************************************DELETE CALLS***************************************************************/
+
+var deletePayment = exports.deletePayment = function(deletePaymentObject, cb) {
+	httpManager.execute('/payments/paymentMethod/'+Ti.App.Properties.getString('userId'), 'DELETE', deletePaymentObject, true, function(err, deletePaymentResponse){
+		var a = Titanium.UI.createAlertDialog({
+        	title : 'Payment Info'
+    	});
+
+		if(err) {
+	    	a.setMessage("Failed to delete your payment info!  Please try again or contact us!");
+	    	a.show();
+			if(cb) cb(new Error(err.message), null);
+			} 
+		else {
+			// add to user object when we know what to save it as
+			cb(err, deletePaymentResponse);
+		}
+	});
+};
+
+
+
