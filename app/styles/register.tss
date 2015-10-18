@@ -1,67 +1,8 @@
 //DEFAULT
-"TextField": {
-	color: 'white',
-	font: {
-		fontSize: 14
-	},
-}
 "#nameView": {
 	layout: "horizontal",
 	height: Titanium.UI.SIZE,
 	width: Ti.UI.FILL
-},
-"#firstNameView": {
-	height: Titanium.UI.SIZE,
-	width: "50%"
-},
-"#lastNameView": {
-	layout: "vertical",
-	height: Titanium.UI.SIZE,
-	width: "50%",	
-},
-"#firstName": {
-	width: "95%",
-	left: '0dp'
-},
-"#lastName": {
-	width: "95%",
-	right: "0dp"
-},
-"#firstNameUnderline": {
-	width: "95%",
-	left: "0dp"
-},
-"#lastNameUnderline": {
-	width: "95%",
-	right: "0dp"
-},
-".wrapper-container": {
-	backgroundColor: "#62D7F5",
-	width: '80%',
-	layout: "vertical",
-	top: "7%"
-}
-
-".splash-header-text": {
-	bottom:"15%"
-}
-".cancel-txt": {
-	top: "58pd",
-	color: "white",
-	bottom: "10dp"
-}
-".terms-conditions": {
-	top: "20dp",
-	color: "white",
-	font: {
-		fontSize: 12
-	}
-}
-".signup-underline": {
-	height: "1dp",
-	bottom: "10dp",
-	backgroundColor:"white",
-	width:Titanium.UI.FILL
 },
 ".user-agreement-web": {
 	color: "blue"
@@ -82,12 +23,7 @@
 	font: {
 		fontSize: "14dp"
 	}
-},
-"#nameView[if=Alloy.Globals.iPhoneFour]": {
-	layout: "horizontal",
-	height: Titanium.UI.SIZE,
-	width: Ti.UI.FILL
-},
+}
 "#firstNameView[if=Alloy.Globals.iPhoneFour]": {
 	layout: "vertical",
 	height: Titanium.UI.SIZE,
@@ -97,22 +33,6 @@
 	layout: "vertical",
 	height: Titanium.UI.SIZE,
 	width: "50%",	
-},
-"#firstName[if=Alloy.Globals.iPhoneFour]": {
-	width: "95%",
-	left: '0dp'
-},
-"#lastName[if=Alloy.Globals.iPhoneFour]": {
-	width: "95%",
-	right: "0dp"
-},
-"#firstNameUnderline[if=Alloy.Globals.iPhoneFour]": {
-	width: "95%",
-	left: "0dp"
-},
-"#lastNameUnderline[if=Alloy.Globals.iPhoneFour]": {
-	width: "95%",
-	right: "0dp"
 },
 ".wrapper-container[if=Alloy.Globals.iPhoneFour]": {
 	backgroundColor: "#62D7F5",
@@ -144,18 +64,26 @@
 		fontFamily: "Nunito-Light"
 	}
 },
+".primary-btn[if=Alloy.Globals.iPhoneFour]": {
+	top: "15dp",
+	font: {
+		fontSize: "16dp"
+	}
+},
 ".signup-underline[if=Alloy.Globals.iPhoneFour]": {
 	height: "1dp",
 	bottom: "10dp",
 	backgroundColor:"white",
 	width:Titanium.UI.FILL
 },
-".primary-btn[if=Alloy.Globals.iPhoneFour]": {
-	top: "15dp",
-	font: {
-		fontSize: "16dp"
-	}
-}
+".format-first-name[if=Alloy.Globals.iPhoneFour]": {
+	width: "95%",
+	left: '0dp'
+},
+".format-last-name[if=Alloy.Globals.iPhoneFour]": {
+	width: "95%",
+	right: "0dp"
+},
 
 
 
@@ -173,11 +101,6 @@
 		fontSize: "14dp"
 	}
 },
-"#nameView[if=Alloy.Globals.iPhoneFive]": {
-	layout: "horizontal",
-	height: Titanium.UI.SIZE,
-	width: Ti.UI.FILL
-},
 "#firstNameView[if=Alloy.Globals.iPhoneFive]": {
 	layout: "vertical",
 	height: Titanium.UI.SIZE,
@@ -187,22 +110,6 @@
 	layout: "vertical",
 	height: Titanium.UI.SIZE,
 	width: "50%",	
-},
-"#firstName[if=Alloy.Globals.iPhoneFive]": {
-	width: "95%",
-	left: '0dp'
-},
-"#lastName[if=Alloy.Globals.iPhoneFive]": {
-	width: "95%",
-	right: "0dp"
-},
-"#firstNameUnderline[if=Alloy.Globals.iPhoneFive]": {
-	width: "95%",
-	left: "0dp"
-},
-"#lastNameUnderline[if=Alloy.Globals.iPhoneFive]": {
-	width: "95%",
-	right: "0dp"
 },
 ".wrapper-container[if=Alloy.Globals.iPhoneFive]": {
 	backgroundColor: "#62D7F5",
@@ -234,18 +141,28 @@
 		fontFamily: "Nunito-Light"
 	}
 },
+".primary-btn[if=Alloy.Globals.iPhoneFive]": {
+	top: "15dp",
+	font: {
+		fontSize: "16dp"
+	}
+},
 ".signup-underline[if=Alloy.Globals.iPhoneFive]": {
 	height: "1dp",
 	bottom: "10dp",
 	backgroundColor:"white",
 	width:Titanium.UI.FILL
 },
-".primary-btn[if=Alloy.Globals.iPhoneFive]": {
-	top: "15dp",
-	font: {
-		fontSize: "16dp"
-	}
-}
+".format-first-name[if=Alloy.Globals.iPhoneFive]": {
+	width: "95%",
+	left: '0dp'
+},
+".format-last-name[if=Alloy.Globals.iPhoneFive]": {
+	width: "95%",
+	right: "0dp"
+},
+
+
 
 
 
@@ -259,11 +176,6 @@
 		fontSize: "16dp"
 	}
 },
-"#nameView[if=Alloy.Globals.iPhoneSix]": {
-	layout: "horizontal",
-	height: Titanium.UI.SIZE,
-	width: Ti.UI.FILL
-},
 "#firstNameView[if=Alloy.Globals.iPhoneSix]": {
 	layout: "vertical",
 	height: Titanium.UI.SIZE,
@@ -273,22 +185,6 @@
 	layout: "vertical",
 	height: Titanium.UI.SIZE,
 	width: "50%",	
-},
-"#firstName[if=Alloy.Globals.iPhoneSix]": {
-	width: "95%",
-	left: '0dp'
-},
-"#lastName[if=Alloy.Globals.iPhoneSix]": {
-	width: "95%",
-	right: "0dp"
-},
-"#firstNameUnderline[if=Alloy.Globals.iPhoneSix]": {
-	width: "95%",
-	left: "0dp"
-},
-"#lastNameUnderline[if=Alloy.Globals.iPhoneSix]": {
-	width: "95%",
-	right: "0dp"
 },
 ".wrapper-container[if=Alloy.Globals.iPhoneSix]": {
 	backgroundColor: "#62D7F5",
@@ -320,18 +216,26 @@
 		fontFamily: "Nunito-Light"
 	}
 },
+".primary-btn[if=Alloy.Globals.iPhoneSix]": {
+	top: "25dp",
+	font: {
+		fontSize: "18dp"
+	}
+},
 ".signup-underline[if=Alloy.Globals.iPhoneSix]": {
 	height: "1dp",
 	bottom: "10dp",
 	backgroundColor:"white",
 	width:Titanium.UI.FILL
 },
-".primary-btn[if=Alloy.Globals.iPhoneSix]": {
-	top: "25dp",
-	font: {
-		fontSize: "18dp"
-	}
-}
+".format-first-name[if=Alloy.Globals.iPhoneSix]": {
+	width: "95%",
+	left: '0dp'
+},
+".format-last-name[if=Alloy.Globals.iPhoneSix]": {
+	width: "95%",
+	right: "0dp"
+},
 
 
 
@@ -346,11 +250,6 @@
 		fontSize: "20dp"
 	}
 },
-"#nameView[if=Alloy.Globals.iPhoneSixPlus]": {
-	layout: "horizontal",
-	height: Titanium.UI.SIZE,
-	width: Ti.UI.FILL
-},
 "#firstNameView[if=Alloy.Globals.iPhoneSixPlus]": {
 	layout: "vertical",
 	height: Titanium.UI.SIZE,
@@ -360,22 +259,6 @@
 	layout: "vertical",
 	height: Titanium.UI.SIZE,
 	width: "49%",	//not sure why not 50% on iphoneSixPlus. Should work but could be simulator issue? works for all other phones
-},
-"#firstName[if=Alloy.Globals.iPhoneSixPlus]": {
-	width: "95%",
-	left: '0dp'
-},
-"#lastName[if=Alloy.Globals.iPhoneSixPlus]": {
-	width: "95%",
-	right: "0dp"
-},
-"#firstNameUnderline[if=Alloy.Globals.iPhoneSixPlus]": {
-	width: "95%",
-	left: "0dp"
-},
-"#lastNameUnderline[if=Alloy.Globals.iPhoneSixPlus]": {
-	width: "95%",
-	right: "0dp"
 },
 ".wrapper-container[if=Alloy.Globals.iPhoneSixPlus]": {
 	backgroundColor: "#62D7F5",
@@ -393,7 +276,7 @@
 ".cancel-txt[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: "white",
 	height: Titanium.UI.SIZE,
-	top: "140dp",
+	top: "145dp",
 	font: {
 		fontSize: "22dp",
 		fontFamily: "Nunito-Light"
@@ -407,18 +290,26 @@
 		fontFamily: "Nunito-Light"
 	}
 },
+".primary-btn[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: "20dp",
+	font: {
+		fontSize: "22dp"
+	}
+},
 ".signup-underline[if=Alloy.Globals.iPhoneSixPlus]": {
 	height: "1dp",
 	bottom: "15dp",
 	backgroundColor:"white",
 	width:Titanium.UI.FILL
 },
-".primary-btn[if=Alloy.Globals.iPhoneSixPlus]": {
-	top: "25dp",
-	font: {
-		fontSize: "22dp"
-	}
-}
+".format-first-name[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: "95%",
+	left: '0dp'
+},
+".format-last-name[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: "95%",
+	right: "0dp"
+},
 
 
 
@@ -433,11 +324,6 @@
 		fontSize: "16dp"
 	}
 },
-"#nameView[if=Alloy.Globals.android]": {
-	layout: "horizontal",
-	height: Titanium.UI.SIZE,
-	width: Ti.UI.FILL
-},
 "#firstNameView[if=Alloy.Globals.android]": {
 	layout: "vertical",
 	height: Titanium.UI.SIZE,
@@ -447,22 +333,6 @@
 	layout: "vertical",
 	height: Titanium.UI.SIZE,
 	width: "50%",	
-},
-"#firstName[if=Alloy.Globals.android]": {
-	width: "95%",
-	left: '0dp'
-},
-"#lastName[if=Alloy.Globals.android]": {
-	width: "95%",
-	right: "0dp"
-},
-"#firstNameUnderline[if=Alloy.Globals.android]": {
-	width: "95%",
-	left: "0dp"
-},
-"#lastNameUnderline[if=Alloy.Globals.android]": {
-	width: "95%",
-	right: "0dp"
 },
 ".wrapper-container[if=Alloy.Globals.android]": {
 	backgroundColor: "#62D7F5",
@@ -494,15 +364,23 @@
 		fontFamily: "Nunito-Light"
 	}
 },
+".primary-btn[if=Alloy.Globals.android]": {
+	top: "25dp",
+	font: {
+		fontSize: "18dp"
+	}
+},
 ".signup-underline[if=Alloy.Globals.android]": {
 	height: "1dp",
 	bottom: "10dp",
 	backgroundColor:"white",
 	width:Titanium.UI.FILL
 },
-".primary-btn[if=Alloy.Globals.android]": {
-	top: "25dp",
-	font: {
-		fontSize: "18dp"
-	}
-}
+".format-first-name[if=Alloy.Globals.android]": {
+	width: "95%",
+	left: '0dp'
+},
+".format-last-name[if=Alloy.Globals.android]": {
+	width: "95%",
+	right: "0dp"
+},
