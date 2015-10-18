@@ -10,7 +10,7 @@
 ".privacy-policy-web": {
 	color: "blue"
 },
-"phoneNumber": {
+"#phoneNumber": {
 	keyboardType:  Titanium.UI.KEYBOARD_NUMBER_PAD
 },
 
