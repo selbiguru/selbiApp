@@ -2,6 +2,8 @@ var AuthManager = require('managers/authmanager'),
 	modalManager = require('managers/modalmanager'),
 	twilioManager = require('managers/twiliomanager'),
 	args = arguments[0] || {};
+var prevNumber = '';
+
 
 function registerUser(){
 	// Todo: validation when we have a template
@@ -103,4 +105,19 @@ function validatePhoneNumber(phoneNumber) {
 	} else {
 		return phone;
 	};
-}
+};
+
+
+
+/*************************************************Event Listeners***********************************************************/
+
+$.phoneNumber.addEventListener('change', function(e){
+	if(prevNumber.length <= this.value.length) {
+		if((validatePhoneNumber(this.value).length === 4 || validatePhoneNumber(this.value).length === 7) && prevNumber.slice(-1) !== '-') {
+			this.value = (this.value).substring(0,this.value.length - 1) +'-'+(this.value).substring(this.value.length - 1);
+		} else {
+			this.value = this.value;
+		} 	
+	}
+	prevNumber = this.value;
+});

@@ -16,7 +16,7 @@
 			<View class="signup-underline"/>
 			<TextField passwordMask="true" hintText="Password" id="password"></TextField>
 			<View class="signup-underline"/>
-			<TextField hintText="555-555-5555" id="phoneNumber" maxLength="10"></TextField>
+			<TextField hintText="555-555-5555" id="phoneNumber" maxLength="12"></TextField>
 			<View class="signup-underline"/>		
 			<Button onClick="registerUser" class="primary-btn">Let's Selbi</Button>
 			<Label class="terms-conditions">By signing up, you are agreeing to Selbi's User Agreement and Privacy Policy</Label>
