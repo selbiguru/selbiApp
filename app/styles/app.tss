@@ -90,7 +90,8 @@
 ".splash-header-text": {
 	color: "white",
 	font: {
-		fontSize: 24
+		fontSize: 24,
+		fontFamily: 'Nunito-Light'
 	}
 }
 

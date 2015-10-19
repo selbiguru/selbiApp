@@ -1,4 +1,4 @@
-
+//DEFAULT
 "Window": {
 	//backgroundImage: 'images/home-bg.png',
 	backgroundColor: "#62D7F5"
@@ -9,31 +9,254 @@
 	width: '80%'
 }
 
-"TextField": {
-	color: 'white',
-	font: {
-		fontSize: 14
-	}
-}
 
-".splash-header-text": {
-	bottom:"20%"
-}
-".cancel-txt": {
-	top: 120,
-	color: "white",
-	bottom: 10
-}
-".forgot-password": {
-	top: 20,
-	color: "white",
+
+
+
+
+
+
+//iPhone 4
+"TextField[if=Alloy.Globals.iPhoneFour]": {
+	color: '#FAFAFA',
 	font: {
-		fontSize: 12
+		fontSize: '14dp'
 	}
-}
-".login-underline": {
-	height: 1,
-	bottom: 10,
-	backgroundColor:"white",
-	width:Titanium.UI.FILL
-}
+},
+".splash-header-text[if=Alloy.Globals.iPhoneFour]": {
+	bottom:"15%",
+	font: {
+		fontSize: '24dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".cancel-txt[if=Alloy.Globals.iPhoneFour]": {
+	top: '110dp',
+	color: "#FAFAFA",
+	bottom: '10dp',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".forgot-password[if=Alloy.Globals.iPhoneFour]": {
+	top: '20dp',
+	color: "#FAFAFA",
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".login-underline[if=Alloy.Globals.iPhoneFour]": {
+	height: '1dp',
+	bottom: '7dp',
+	backgroundColor:"#FAFAFA",
+	width:Ti.UI.FILL
+},
+".primary-btn[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+
+
+
+
+
+
+//iPhone 5
+"TextField[if=Alloy.Globals.iPhoneFive]": {
+	color: '#FAFAFA',
+	font: {
+		fontSize: '14dp'
+	}
+},
+".splash-header-text[if=Alloy.Globals.iPhoneFive]": {
+	bottom:"20%",
+	font: {
+		fontSize: '24dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".cancel-txt[if=Alloy.Globals.iPhoneFive]": {
+	top: '120dp',
+	color: "#FAFAFA",
+	bottom: '10dp',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".forgot-password[if=Alloy.Globals.iPhoneFive]": {
+	top: '20dp',
+	color: "#FAFAFA",
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".login-underline[if=Alloy.Globals.iPhoneFive]": {
+	height: '1dp',
+	bottom: '10dp',
+	backgroundColor:"#FAFAFA",
+	width:Ti.UI.FILL
+},
+".primary-btn[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+
+
+
+
+
+
+
+//iPhone 6
+"TextField[if=Alloy.Globals.iPhoneSix]": {
+	color: '#FAFAFA',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".splash-header-text[if=Alloy.Globals.iPhoneSix]": {
+	bottom:"17%",
+	font: {
+		fontSize: '26dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".cancel-txt[if=Alloy.Globals.iPhoneSix]": {
+	top: '130dp',
+	color: "#FAFAFA",
+	bottom: '10dp',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".forgot-password[if=Alloy.Globals.iPhoneSix]": {
+	top: '20dp',
+	color: "#FAFAFA",
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".login-underline[if=Alloy.Globals.iPhoneSix]": {
+	height: '1dp',
+	bottom: '10dp',
+	backgroundColor:"#FAFAFA",
+	width:Ti.UI.FILL
+},
+".primary-btn[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+
+
+
+
+
+
+
+//iPhone 6 Plus
+"TextField[if=Alloy.Globals.iPhoneSixPlus]": {
+	color: '#FAFAFA',
+	font: {
+		fontSize: '18dp'
+	}
+},
+".splash-header-text[if=Alloy.Globals.iPhoneSixPlus]": {
+	bottom:"20%",
+	font: {
+		fontSize: '28dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".cancel-txt[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: '130dp',
+	color: "#FAFAFA",
+	bottom: '10dp',
+	font: {
+		fontSize: '20dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".forgot-password[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: '20dp',
+	color: "#FAFAFA",
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".login-underline[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: '1dp',
+	bottom: '15dp',
+	backgroundColor:"#FAFAFA",
+	width:Ti.UI.FILL
+},
+".primary-btn[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: '50dp',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+
+
+
+
+
+
+//android -(currently same as iPhone 6)
+"TextField[if=Alloy.Globals.android]": {
+	color: '#FAFAFA',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".splash-header-text[if=Alloy.Globals.android]": {
+	bottom:"17%",
+	font: {
+		fontSize: '26dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".cancel-txt[if=Alloy.Globals.android]": {
+	top: '130dp',
+	color: "#FAFAFA",
+	bottom: '10dp',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".forgot-password[if=Alloy.Globals.android]": {
+	top: '20dp',
+	color: "#FAFAFA",
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+".login-underline[if=Alloy.Globals.android]": {
+	height: '1dp',
+	bottom: '10dp',
+	backgroundColor:"#FAFAFA",
+	width:Ti.UI.FILL
+},
+".primary-btn[if=Alloy.Globals.android]": {
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},

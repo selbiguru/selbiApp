@@ -19,7 +19,7 @@
 
 //iPhone 4
 "TextField[if=Alloy.Globals.iPhoneFour]": {
-	color: 'white',
+	color: '#FAFAFA',
 	font: {
 		fontSize: "14dp"
 	}
@@ -48,7 +48,7 @@
 	}
 },
 ".cancel-txt[if=Alloy.Globals.iPhoneFour]": {
-	color: "white",
+	color: "#FAFAFA",
 	height: Titanium.UI.SIZE,
 	top: "50dp",
 	font: {
@@ -58,22 +58,22 @@
 },
 ".terms-conditions[if=Alloy.Globals.iPhoneFour]": {
 	top: "12dp",
-	color: "white",
+	color: "#FAFAFA",
 	font: {
-		fontSize: "12dp",
+		fontSize: "11dp",
 		fontFamily: "Nunito-Light"
 	}
 },
 ".primary-btn[if=Alloy.Globals.iPhoneFour]": {
 	top: "15dp",
 	font: {
-		fontSize: "16dp"
+		fontSize: "14dp"
 	}
 },
 ".signup-underline[if=Alloy.Globals.iPhoneFour]": {
 	height: "1dp",
-	bottom: "10dp",
-	backgroundColor:"white",
+	bottom: "7dp",
+	backgroundColor:"#FAFAFA",
 	width:Titanium.UI.FILL
 },
 ".format-first-name[if=Alloy.Globals.iPhoneFour]": {
@@ -96,7 +96,7 @@
 
 //iPhone 5
 "TextField[if=Alloy.Globals.iPhoneFive]": {
-	color: 'white',
+	color: '#FAFAFA',
 	font: {
 		fontSize: "14dp"
 	}
@@ -125,7 +125,7 @@
 	}
 },
 ".cancel-txt[if=Alloy.Globals.iPhoneFive]": {
-	color: "white",
+	color: "#FAFAFA",
 	height: Titanium.UI.SIZE,
 	top: "90dp",
 	font: {
@@ -135,9 +135,9 @@
 },
 ".terms-conditions[if=Alloy.Globals.iPhoneFive]": {
 	top: "12dp",
-	color: "white",
+	color: "#FAFAFA",
 	font: {
-		fontSize: "12dp",
+		fontSize: "11dp",
 		fontFamily: "Nunito-Light"
 	}
 },
@@ -150,7 +150,7 @@
 ".signup-underline[if=Alloy.Globals.iPhoneFive]": {
 	height: "1dp",
 	bottom: "10dp",
-	backgroundColor:"white",
+	backgroundColor:"#FAFAFA",
 	width:Titanium.UI.FILL
 },
 ".format-first-name[if=Alloy.Globals.iPhoneFive]": {
@@ -171,7 +171,7 @@
 
 //iPhone 6
 "TextField[if=Alloy.Globals.iPhoneSix]": {
-	color: 'white',
+	color: '#FAFAFA',
 	font: {
 		fontSize: "16dp"
 	}
@@ -195,12 +195,12 @@
 ".splash-header-text[if=Alloy.Globals.iPhoneSix]": {
 	bottom:"100dp",
 	font: {
-		fontSize: "28dp",
+		fontSize: "26dp",
 		fontFamily: "Nunito-Light"
 	}
 },
 ".cancel-txt[if=Alloy.Globals.iPhoneSix]": {
-	color: "white",
+	color: "#FAFAFA",
 	height: Titanium.UI.SIZE,
 	top: "140dp",
 	font: {
@@ -210,7 +210,7 @@
 },
 ".terms-conditions[if=Alloy.Globals.iPhoneSix]": {
 	top: "10dp",
-	color: "white",
+	color: "#FAFAFA",
 	font: {
 		fontSize: "12dp",
 		fontFamily: "Nunito-Light"
@@ -219,13 +219,13 @@
 ".primary-btn[if=Alloy.Globals.iPhoneSix]": {
 	top: "25dp",
 	font: {
-		fontSize: "18dp"
+		fontSize: "16dp"
 	}
 },
 ".signup-underline[if=Alloy.Globals.iPhoneSix]": {
 	height: "1dp",
 	bottom: "10dp",
-	backgroundColor:"white",
+	backgroundColor:"#FAFAFA",
 	width:Titanium.UI.FILL
 },
 ".format-first-name[if=Alloy.Globals.iPhoneSix]": {
@@ -245,9 +245,9 @@
 
 //iPhone 6 Plus
 "TextField[if=Alloy.Globals.iPhoneSixPlus]": {
-	color: 'white',
+	color: '#FAFAFA',
 	font: {
-		fontSize: "20dp"
+		fontSize: "18dp"
 	}
 },
 "#firstNameView[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -269,37 +269,38 @@
 ".splash-header-text[if=Alloy.Globals.iPhoneSixPlus]": {
 	bottom:"110dp",
 	font: {
-		fontSize: "32dp",
+		fontSize: "28dp",
 		fontFamily: "Nunito-Light"
 	}
 },
 ".cancel-txt[if=Alloy.Globals.iPhoneSixPlus]": {
-	color: "white",
+	color: "#FAFAFA",
 	height: Titanium.UI.SIZE,
 	top: "145dp",
 	font: {
-		fontSize: "22dp",
+		fontSize: "20dp",
 		fontFamily: "Nunito-Light"
 	}
 },
 ".terms-conditions[if=Alloy.Globals.iPhoneSixPlus]": {
 	top: "10dp",
-	color: "white",
+	color: "#FAFAFA",
 	font: {
-		fontSize: "14dp",
+		fontSize: "15dp",
 		fontFamily: "Nunito-Light"
 	}
 },
 ".primary-btn[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: '50dp',
 	top: "20dp",
 	font: {
-		fontSize: "22dp"
+		fontSize: "18dp"
 	}
 },
 ".signup-underline[if=Alloy.Globals.iPhoneSixPlus]": {
 	height: "1dp",
 	bottom: "15dp",
-	backgroundColor:"white",
+	backgroundColor:"#FAFAFA",
 	width:Titanium.UI.FILL
 },
 ".format-first-name[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -319,7 +320,7 @@
 
 //android -(currently same as iPhone 6)
 "TextField[if=Alloy.Globals.android]": {
-	color: 'white',
+	color: '#FAFAFA',
 	font: {
 		fontSize: "16dp"
 	}
@@ -348,7 +349,7 @@
 	}
 },
 ".cancel-txt[if=Alloy.Globals.android]": {
-	color: "white",
+	color: "#FAFAFA",
 	height: Titanium.UI.SIZE,
 	top: "140dp",
 	font: {
@@ -358,7 +359,7 @@
 },
 ".terms-conditions[if=Alloy.Globals.android]": {
 	top: "10dp",
-	color: "white",
+	color: "#FAFAFA",
 	font: {
 		fontSize: "12dp",
 		fontFamily: "Nunito-Light"
@@ -373,7 +374,7 @@
 ".signup-underline[if=Alloy.Globals.android]": {
 	height: "1dp",
 	bottom: "10dp",
-	backgroundColor:"white",
+	backgroundColor:"#FAFAFA",
 	width:Titanium.UI.FILL
 },
 ".format-first-name[if=Alloy.Globals.android]": {
