@@ -20,7 +20,7 @@
 "TextField[if=Alloy.Globals.iPhoneFour]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '14dp'
+		fontSize: '13dp'
 	}
 },
 ".splash-header-text[if=Alloy.Globals.iPhoneFour]": {
@@ -35,7 +35,7 @@
 	color: "#FAFAFA",
 	bottom: '10dp',
 	font: {
-		fontSize: '16dp',
+		fontSize: '14dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -92,7 +92,7 @@
 	top: '20dp',
 	color: "#FAFAFA",
 	font: {
-		fontSize: '12dp',
+		fontSize: '14dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -104,7 +104,7 @@
 },
 ".primary-btn[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-		fontSize: '14dp',
+		fontSize: '16dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
@@ -119,7 +119,7 @@
 "TextField[if=Alloy.Globals.iPhoneSix]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '16dp',
+		fontSize: '17dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -143,7 +143,7 @@
 	top: '20dp',
 	color: "#FAFAFA",
 	font: {
-		fontSize: '14dp',
+		fontSize: '16dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -155,7 +155,7 @@
 },
 ".primary-btn[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-		fontSize: '16dp',
+		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
@@ -193,7 +193,7 @@
 	top: '20dp',
 	color: "#FAFAFA",
 	font: {
-		fontSize: '16dp',
+		fontSize: '17dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -206,7 +206,7 @@
 ".primary-btn[if=Alloy.Globals.iPhoneSixPlus]": {
 	height: '50dp',
 	font: {
-		fontSize: '18dp',
+		fontSize: '20dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
@@ -220,7 +220,7 @@
 "TextField[if=Alloy.Globals.android]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '16dp',
+		fontSize: '17dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -244,7 +244,7 @@
 	top: '20dp',
 	color: "#FAFAFA",
 	font: {
-		fontSize: '14dp',
+		fontSize: '16dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -256,7 +256,7 @@
 },
 ".primary-btn[if=Alloy.Globals.android]": {
 	font: {
-		fontSize: '16dp',
+		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },

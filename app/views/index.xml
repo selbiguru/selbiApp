@@ -1,9 +1,9 @@
 <Alloy>
 	<Window>
-		<View layout="vertical" class="wrapper-container" top="20%">
+		<View id="splashView" layout="vertical" class="wrapper-container">
 			<Label class="splash-logo-text">Selbi</Label>
 			<Label class="splash-logo-subtext">Sell to your friends first</Label>			
-			<Label class="splash-small padding-top" onClick="learnMore">Learn more</Label>				
+			<Label id="learnMoreLabel" class="splash-small" onClick="learnMore">Learn more</Label>				
 			<Button class="primary-btn splash-signup-btn" onClick="register"> Sign Up </Button>
 			<Label top="20" class="splash-small" onClick="signIn">Already have an account ?</Label>
 		</View>

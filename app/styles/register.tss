@@ -21,7 +21,7 @@
 "TextField[if=Alloy.Globals.iPhoneFour]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: "14dp"
+		fontSize: "13dp"
 	}
 }
 "#firstNameView[if=Alloy.Globals.iPhoneFour]": {
@@ -38,7 +38,7 @@
 	backgroundColor: "#62D7F5",
 	width: '80%',
 	layout: "vertical",
-	top: "25dp"
+	top: "33dp"
 },
 ".splash-header-text[if=Alloy.Globals.iPhoneFour]": {
 	bottom:"45dp",
@@ -52,7 +52,7 @@
 	height: Titanium.UI.SIZE,
 	top: "50dp",
 	font: {
-		fontSize: "16dp",
+		fontSize: "14dp",
 		fontFamily: "Nunito-Light"
 	}
 },
@@ -115,7 +115,7 @@
 	backgroundColor: "#62D7F5",
 	width: '80%',
 	layout: "vertical",
-	top: "25dp"
+	top: "40dp"
 },
 ".splash-header-text[if=Alloy.Globals.iPhoneFive]": {
 	bottom:"75dp",
@@ -137,7 +137,7 @@
 	top: "12dp",
 	color: "#FAFAFA",
 	font: {
-		fontSize: "11dp",
+		fontSize: "12dp",
 		fontFamily: "Nunito-Light"
 	}
 },
@@ -173,7 +173,7 @@
 "TextField[if=Alloy.Globals.iPhoneSix]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: "16dp"
+		fontSize: "17dp"
 	}
 },
 "#firstNameView[if=Alloy.Globals.iPhoneSix]": {
@@ -190,7 +190,7 @@
 	backgroundColor: "#62D7F5",
 	width: '80%',
 	layout: "vertical",
-	top: "25dp"
+	top: "47dp"
 },
 ".splash-header-text[if=Alloy.Globals.iPhoneSix]": {
 	bottom:"100dp",
@@ -212,14 +212,14 @@
 	top: "10dp",
 	color: "#FAFAFA",
 	font: {
-		fontSize: "12dp",
+		fontSize: "14dp",
 		fontFamily: "Nunito-Light"
 	}
 },
 ".primary-btn[if=Alloy.Globals.iPhoneSix]": {
 	top: "25dp",
 	font: {
-		fontSize: "16dp"
+		fontSize: "18dp"
 	}
 },
 ".signup-underline[if=Alloy.Globals.iPhoneSix]": {
@@ -264,7 +264,7 @@
 	backgroundColor: "#62D7F5",
 	width: '80%',
 	layout: "vertical",
-	top: "30dp"
+	top: "51dp"
 },
 ".splash-header-text[if=Alloy.Globals.iPhoneSixPlus]": {
 	bottom:"110dp",
@@ -294,7 +294,7 @@
 	height: '50dp',
 	top: "20dp",
 	font: {
-		fontSize: "18dp"
+		fontSize: "20dp"
 	}
 },
 ".signup-underline[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -322,7 +322,7 @@
 "TextField[if=Alloy.Globals.android]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: "16dp"
+		fontSize: "17dp"
 	}
 },
 "#firstNameView[if=Alloy.Globals.android]": {
@@ -339,7 +339,7 @@
 	backgroundColor: "#62D7F5",
 	width: '80%',
 	layout: "vertical",
-	top: "25dp"
+	top: "47dp"
 },
 ".splash-header-text[if=Alloy.Globals.android]": {
 	bottom:"100dp",
@@ -361,7 +361,7 @@
 	top: "10dp",
 	color: "#FAFAFA",
 	font: {
-		fontSize: "12dp",
+		fontSize: "14dp",
 		fontFamily: "Nunito-Light"
 	}
 },
