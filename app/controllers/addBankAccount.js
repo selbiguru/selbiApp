@@ -37,8 +37,7 @@ function addBankInfo() {
 			a.show();
 		    return;
 		}
-		console.log("HAPPY BIRTHDAY!!!!", !Alloy.Globals.currentUser.attributes.dateOfBirth);
-		console.log("OVTOBER 15TH!!!!", Alloy.Globals.currentUser.attributes.dateOfBirth);
+		
 		if(!Alloy.Globals.currentUser.attributes.dateOfBirth || Alloy.Globals.currentUser.attributes.dateOfBirth === false) {
 			modalManager.getBirthdayModal(function(err, results){
 				results.modalSaveButton.addEventListener('click', function() {
@@ -46,18 +45,14 @@ function addBankInfo() {
 						"id": Ti.App.Properties.getString('userId'), //Id of the user 
 						"dateOfBirth": results.datePicker.value.toISOString()
 					};
-					console.log("!!!!!!!!!", textFieldObject);
 					var animateWindowClose = Titanium.UI.create2DMatrix();
 				    animateWindowClose = animateWindowClose.scale(0);
 				    userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
-				    	console.log("err!!!!!! ", err);
-				    	console.log("userUpdateResults ", userUpdateResult);
-				    	console.log("globalupdate birthday ", Alloy.Globals.currentUser.attributes.dateOfBirth);
 				    	results.modalWindow.close({transform:animateWindowClose, duration:300});
 				    	//sendBankBraintree();
 				    	return;
 				    });
-				    	
+		    	
 				    results.modalWindow.close({transform:animateWindowClose, duration:300});
 				});
 			});
@@ -111,7 +106,7 @@ function sendBankBraintree(){
 			}
 		});
 	} else {
-		a.setMessage("You must first complete your profile and address in the settings before continuing!");
+		a.setMessage("You must complete your profile and address in the settings before connecting an account!");
 		a.show();
 		return;
 	}

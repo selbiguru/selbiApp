@@ -63,13 +63,8 @@ function addNewBank(){
  * Braintree requires birthday when creating a subMerchant Account
  */
 function addVenmo(){
-	console.log("HAPPY BIRTHDAY!!!!", !Alloy.Globals.currentUser.attributes.dateOfBirth);
-	console.log("giraffe giraffe ", Alloy.Globals.currentUser.attributes.dateOfBirth);
-	console.log("bears bears bears bears ", Alloy.Globals.currentUser.attributes);
-	console.log("LOLOLOLOLOLOLOLOOLOLOLOL", Alloy.Globals.currentUser.attributes.dateOfBirth === null);
 	if(!Alloy.Globals.currentUser.attributes.dateOfBirth || Alloy.Globals.currentUser.attributes.dateOfBirth === null) {
 		modalManager.getBirthdayModal(function(err,results){
-			console.log("!!!!!!!!!", results);
 			results.modalSaveButton.addEventListener('click', function() {
 				var textFieldObject = {
 					"id": Ti.App.Properties.getString('userId'), //Id of the user 
@@ -86,7 +81,6 @@ function addVenmo(){
 			    results.modalWindow.close({transform:animateWindowClose, duration:300});
 			});
 		});
-		
 	} else {
 		console.log("POOOOOOOOOOOP");
 		//sendVenmoBraintree();
@@ -99,51 +93,51 @@ function addVenmo(){
  * Determines if your address is complete on your profile page and if so, creates a subMerchant account with Venmo so you can cash out.
  */
 function sendVenmoBraintree(){
-		//Selecting Venmo will not leave this page but instead send info to braintree
-		//via this js file.  Then a checkmark will appear to show they selected this option.
-		//Need to connect to Braintree if this option is selected.
-		//If selected, Braintree uses phone number, which we will have,
-		//to send funds to venmo when somone purchases from this vendor
-		//To create a merchant we need an address so we check to see if the user model has an address, 
-		//otherwise we send back an alert
-		/*var a = Titanium.UI.createAlertDialog({
-	        	title : 'Add Address'
-	    	});
-		if (Alloy.Globals.currentUser.attributes.address) {
-			var merchantSubAccountParams = {
-				individual: {
-				    firstName: Alloy.Globals.currentUser.attributes.firstName,
-				    lastName: Alloy.Globals.currentUser.attributes.lastName,
-				    email: Alloy.Globals.currentUser.attributes.email,
-				    phone: Alloy.Globals.currentUser.attributes.phoneNumber,
-				    dateOfBirth: Alloy.Globals.currentUser.attributes.dateOfBirth,
-				    address: {
-				      streetAddress: Alloy.Globals.currentUser.attributes.userAddress.address,
-				      locality: Alloy.Globals.currentUser.attributes.userAddress.city,
-				      region: Alloy.Globals.currentUser.attributes.userAddress.state,
-				      postalCode: Alloy.Globals.currentUser.attributes.userAddress.zip
-				    }
-	  		  	},
-	  			funding: {
-				    mobilePhone: Alloy.Globals.currentUser.attributes.phoneNumber
-			  	},
-			  	tosAccepted: true,
-			  	id: Ti.App.Properties.getString('userId'), //Id of the user
-			  	venmo: true
-	  		};
-	  		paymentManager.createSubMerchant(merchantSubAccountParams, function(err, responseObj) {
-				if(err) {
-					
-				} else {
-					
-				}
-			});
-	  		
-		} else {
-			a.setMessage("You must first complete your profile and address in the settings before continuing!");
-		    a.show();
-			return;
-		}*/
+	//Selecting Venmo will not leave this page but instead send info to braintree
+	//via this js file.  Then a checkmark will appear to show they selected this option.
+	//Need to connect to Braintree if this option is selected.
+	//If selected, Braintree uses phone number, which we will have,
+	//to send funds to venmo when somone purchases from this vendor
+	//To create a merchant we need an address so we check to see if the user model has an address, 
+	//otherwise we send back an alert
+	var a = Titanium.UI.createAlertDialog({
+        	title : 'Add Address'
+    	});
+	if (Alloy.Globals.currentUser.attributes.address) {
+		var merchantSubAccountParams = {
+			individual: {
+			    firstName: Alloy.Globals.currentUser.attributes.firstName,
+			    lastName: Alloy.Globals.currentUser.attributes.lastName,
+			    email: Alloy.Globals.currentUser.attributes.email,
+			    phone: Alloy.Globals.currentUser.attributes.phoneNumber,
+			    dateOfBirth: Alloy.Globals.currentUser.attributes.dateOfBirth,
+			    address: {
+			      streetAddress: Alloy.Globals.currentUser.attributes.userAddress.address,
+			      locality: Alloy.Globals.currentUser.attributes.userAddress.city,
+			      region: Alloy.Globals.currentUser.attributes.userAddress.state,
+			      postalCode: Alloy.Globals.currentUser.attributes.userAddress.zip
+			    }
+  		  	},
+  			funding: {
+			    mobilePhone: Alloy.Globals.currentUser.attributes.phoneNumber
+		  	},
+		  	tosAccepted: true,
+		  	id: Ti.App.Properties.getString('userId'), //Id of the user
+		  	venmo: true
+  		};
+  		paymentManager.createSubMerchant(merchantSubAccountParams, function(err, responseObj) {
+			if(err) {
+				
+			} else {
+				
+			}
+		});
+  		
+	} else {
+		a.setMessage("You must complete your profile and address in the settings before connecting an account!");
+	    a.show();
+		return;
+	}
 }
 
 // Set the Venmo button image
@@ -258,7 +252,6 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  		return;
  	});
  };
-//showUserCard();
 
 
 
@@ -355,7 +348,6 @@ function showUserBank(bankInfo) {
  		return;
  	});
  };
-//showUserBank();
 
 
 

@@ -69,14 +69,14 @@ var createCustomerAndPaymentMethod = exports.createCustomerAndPaymentMethod = fu
 
 
 
-/*var createSubMerchant = exports.createSubMerchant = function(subMerchantObject, cb) {
+var createSubMerchant = exports.createSubMerchant = function(subMerchantObject, cb) {
 	httpManager.execute('/payments/createSubMerchant', 'POST', subMerchantObject, true, function(err, userPaymentObj){
 		var a = Titanium.UI.createAlertDialog({
-        	title : 'Save Bank Info'
+        	title : 'Venmo'
     	});
 
 		if(err) {
-	    	a.setMessage("Failed to connect your bank account, please try again later!");
+	    	a.setMessage("Failed to connect your Venmo account, make sure you already have a Venmo account active or add a bank account instead!");
 	    	a.show();
 			if(cb) cb(new Error(err.message), null);
 			} 
@@ -85,7 +85,7 @@ var createCustomerAndPaymentMethod = exports.createCustomerAndPaymentMethod = fu
 			cb(err, userPaymentObj);
 		}
 	});
-};*/
+};
 
 
 
