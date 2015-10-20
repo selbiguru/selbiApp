@@ -245,7 +245,14 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
 				Ti.API.info('The confirm button was clicked');
 				//$.viewAddCard.show();
  				//$.viewAddCard.height = '40dp';
- 				//paymentManager.deletePayment();
+ 				paymentManager.deletePayment(function(err, response){
+					if(err){
+						console.log("made and error somewhere!", err);
+					} else {
+						console.log("made a response while deleting!", response);						
+					}
+					return;				
+ 				});
 			}
 		});
  		deleteCardAlert.show();
@@ -403,9 +410,11 @@ sliderButton.addEventListener('touchend', function(e){
 paymentManager.getPaymentMethods(function(err, results){
 	console.log("~~~~~~~~~~~~~~~~~~: ", results);
 	if(results.userPaymentMethod.lastFour) {
+		console.log("WEEEEE");
 		showUserCard(results.userPaymentMethod);
 	}
 	if(results.userMerchant.accountNumberLast4) {
+		console.log("STOOOOOOOOP");
 		showUserBank(results.userMerchant);
 	}
 	

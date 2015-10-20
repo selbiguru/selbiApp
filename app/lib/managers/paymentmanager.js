@@ -49,18 +49,19 @@ var createCustomerAndPaymentMethod = exports.createCustomerAndPaymentMethod = fu
 		var a = Titanium.UI.createAlertDialog({
         	title : 'Save Payment Method'
     	});
-
 		if(err) {
+			console.log("STOP BEING AN ERROR>>>>>>", err);
 	    	a.setMessage("Failed to save your credit card, please try again later!");
 	    	a.show();
-			if(cb) cb(new Error(err.message), null);
+			if(cb) cb(err, null);
 			} 
 		else {
 			// add to user object when we know what to save it as
 			//var userModel = Alloy.Models.instance('user');
 			//userModel.set({username: userPaymentObj.userPaymentMethod.flag});
 			//userModel.save();
-			//Alloy.Globals.currentUser = userModel;
+			//Alloy.Globals.currentUser = userModel
+			console.log("this is my repsone finally", userPaymentObj);
 			cb(err, Alloy.Globals.currentUser);
 		}
 	});
