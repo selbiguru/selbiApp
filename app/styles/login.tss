@@ -18,6 +18,9 @@
 
 
 
+
+
+
 //iPhone 4
 "TextField[if=Alloy.Globals.iPhoneFour]": {
 	color: '#FAFAFA',
@@ -67,6 +70,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
 //iPhone 5
 "TextField[if=Alloy.Globals.iPhoneFive]": {
 	color: '#FAFAFA',
@@ -110,6 +122,15 @@
 		fontFamily: 'Nunito-Light'
 	}	
 },
+
+
+
+
+
+
+
+
+
 
 
 
@@ -168,6 +189,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
 //iPhone 6 Plus
 "TextField[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: '#FAFAFA',
@@ -212,6 +242,14 @@
 		fontFamily: 'Nunito-Light'
 	}	
 },
+
+
+
+
+
+
+
+
 
 
 

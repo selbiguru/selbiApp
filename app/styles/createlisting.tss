@@ -3,20 +3,10 @@
 	layout: 'vertical',
 	backgroundColor: '#FDFDFD'
 },
-"#createListingDetails": {
-	width:'95%',
-	height: Titanium.UI.FILL,
-	top: '20dp',
-	layout: "composite"
-},
 "#step1": {
 	layout: 'vertical',
 	visible: true
 },
-
-
-
-//NEED TO UPDATE STILL
 "#step2": {
 	layout: 'vertical',
 	visible: false,
@@ -62,6 +52,126 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+"#createListingDetails[if=Alloy.Globals.iPhoneFour]": {
+	width:'90%',
+	height: Titanium.UI.FILL,
+	top: '20dp',
+	layout: "composite"
+},
+"#selectionView[if=Alloy.Globals.iPhoneFour]":{
+	layout: 'vertical',
+	borderColor: '#EAEAEA',
+	borderWidth: '2dp',
+	height: '38%'
+},
+".fade-text[if=Alloy.Globals.iPhoneFour]": {
+	color: '#aaa',
+	top: '10dp',
+	width: Ti.UI.FILL,
+	textAlign: 'center',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+"#capturePhotoBtn[if=Alloy.Globals.iPhoneFour]": {
+	top: '10dp',
+},
+".create-listing-capture-btn[if=Alloy.Globals.iPhoneFour]": {
+	height: '40dp',
+	width: '90%',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	backgroundColor: '#1BA7CD',
+	color: '#fff'
+},
+".top-size[if=Alloy.Globals.iPhoneFour]": {
+	top: '10dp'
+}
+"ImageView[if=Alloy.Globals.iPhoneFour]": {
+	height: '100dp',
+	width: '100dp',
+	borderColor: 'red',
+	borderWidth: '2dp'
+},
+".image-gallery-view[if=Alloy.Globals.iPhoneFour]":{
+	layout: 'horizontal',
+	height: '175dp',
+	top: '7dp'	
+},
+"#nextButtonView[if=Alloy.Globals.iPhoneFour]": {
+	height: Ti.UI.FILL,
+	width: Ti.UI.FILL
+},
+".dock-bottom[if=Alloy.Globals.iPhoneFour]": {
+	bottom: '15dp',
+	width: '49%',
+	right: '0dp',
+},
+"TextField[if=Alloy.Globals.iPhoneFour]": {
+	borderWidth: '2dp', 
+	borderColor: '#EAEAEA',
+	width: Titanium.UI.FILL,
+	height: '30dp'
+},
+"TextArea[if=Alloy.Globals.iPhoneFour]": {
+	borderWidth: '2dp', 
+	borderColor: '#EAEAEA',
+	width: Titanium.UI.FILL,
+	top: '10dp',
+	height: '120dp'
+},
+".listing-detail-container[if=Alloy.Globals.iPhoneFour]": {
+	layout: 'vertical',
+	height: '288dp',
+},
+"#hintTextLabel[if=Alloy.Globals.iPhoneFour]": {
+	left: '10dp',
+	top:'18dp',
+	color: "lightgray"
+},
+"#description[if=Alloy.Globals.iPhoneFour]": {
+	top: '10dp'
+},
+"#price[if=Alloy.Globals.iPhoneFour]": {
+	keyboardType: Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION,
+	top: '10dp'
+},
+".font-style[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+"#switchView[if=Alloy.Globals.iPhoneFour]": {
+	layout: 'horizontal'
+},
+"#switchLabel[if=Alloy.Globals.iPhoneFour]": {
+	left: '10dp',
+},
+"#listingButtonView[if=Alloy.Globals.iPhoneFour]": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL	
+},
+"#backListing[if=Alloy.Globals.iPhoneFour]": {
+	left: '0dp',
+},
+"#saveListing[if=Alloy.Globals.iPhoneFour]": {
+	right: '0dp',
+},
+".half-btn[if=Alloy.Globals.iPhoneFour]": {
+	width: '49%',
+	bottom: '15dp'
+},
+
+
+
+
+
+
 
 
 
@@ -100,6 +210,129 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+"#createListingDetails[if=Alloy.Globals.iPhoneFive]": {
+	width:'90%',
+	height: Titanium.UI.FILL,
+	top: '20dp',
+	layout: "composite"
+},
+"#selectionView[if=Alloy.Globals.iPhoneFive]":{
+	layout: 'vertical',
+	borderColor: '#EAEAEA',
+	borderWidth: '2dp',
+	height: '42%'
+},
+".fade-text[if=Alloy.Globals.iPhoneFive]": {
+	color: '#aaa',
+	top: '35dp',
+	width: Ti.UI.FILL,
+	textAlign: 'center',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+"#capturePhotoBtn[if=Alloy.Globals.iPhoneFive]": {
+	top: '35dp',
+},
+".create-listing-capture-btn[if=Alloy.Globals.iPhoneFive]": {
+	height: '40dp',
+	width: '90%',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	backgroundColor: '#1BA7CD',
+	color: '#fff'
+},
+".top-size[if=Alloy.Globals.iPhoneFive]": {
+	top: '12dp'
+}
+"ImageView[if=Alloy.Globals.iPhoneFive]": {
+	height: '100dp',
+	width: '100dp',
+	borderColor: 'red',
+	borderWidth: '2dp'
+},
+".image-gallery-view[if=Alloy.Globals.iPhoneFive]":{
+	layout: 'horizontal',
+	height: '195dp',
+	top: '7dp'
+},
+"#nextButtonView[if=Alloy.Globals.iPhoneFive]": {
+	height: Ti.UI.FILL,
+	width: Ti.UI.FILL
+},
+".dock-bottom[if=Alloy.Globals.iPhoneFive]": {
+	bottom: '20dp',
+	width: '49%',
+	right: '0dp',
+},
+"TextField[if=Alloy.Globals.iPhoneFive]": {
+	borderWidth: '2dp', 
+	borderColor: '#EAEAEA',
+	width: Titanium.UI.FILL,
+	height: '35dp'
+},
+"TextArea[if=Alloy.Globals.iPhoneFive]": {
+	borderWidth: '2dp', 
+	borderColor: '#EAEAEA',
+	width: Titanium.UI.FILL,
+	top: '12dp',
+	height: '140dp'
+},
+".listing-detail-container[if=Alloy.Globals.iPhoneFive]": {
+	layout: 'vertical',
+	height: '340dp',
+},
+"#hintTextLabel[if=Alloy.Globals.iPhoneFive]": {
+	left: '10dp',
+	top:'19dp',
+	color: "lightgray"
+},
+"#description[if=Alloy.Globals.iPhoneFive]": {
+	top: '12dp'
+},
+"#price[if=Alloy.Globals.iPhoneFive]": {
+	keyboardType: Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION,
+	top: '12dp'
+},
+".font-style[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+"#switchView[if=Alloy.Globals.iPhoneFive]": {
+	layout: 'horizontal'
+},
+"#switchLabel[if=Alloy.Globals.iPhoneFive]": {
+	left: '10dp'
+},
+"#listingButtonView[if=Alloy.Globals.iPhoneFive]": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL	
+},
+"#backListing[if=Alloy.Globals.iPhoneFive]": {
+	left: '0dp',
+},
+"#saveListing[if=Alloy.Globals.iPhoneFive]": {
+	right: '0dp',
+},
+".half-btn[if=Alloy.Globals.iPhoneFive]": {
+	width: '49%',
+	bottom: '20dp'
+},
+
+
+
+
+
+
+
+
+
 
 
 
@@ -136,6 +369,12 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+"#createListingDetails[if=Alloy.Globals.iPhoneSix]": {
+	width:'95%',
+	height: Titanium.UI.FILL,
+	top: '20dp',
+	layout: "composite"
+},
 "#selectionView[if=Alloy.Globals.iPhoneSix]":{
 	layout: 'vertical',
 	borderColor: '#EAEAEA',
@@ -166,7 +405,7 @@
 	backgroundColor: '#1BA7CD',
 	color: '#fff'
 },
-".top-size": {
+".top-size[if=Alloy.Globals.iPhoneSix]": {
 	top: '15dp'
 }
 "ImageView[if=Alloy.Globals.iPhoneSix]": {
@@ -206,7 +445,7 @@
 	layout: 'vertical',
 	height: '400dp',
 },
-"#hintTextLabel": {
+"#hintTextLabel[if=Alloy.Globals.iPhoneSix]": {
 	left: '10dp',
 	top:'22dp',
 	color: "lightgray"
@@ -224,10 +463,10 @@
 		fontFamily: 'Nunito-Light'
 	}
 },
-"#switchView": {
+"#switchView[if=Alloy.Globals.iPhoneSix]": {
 	layout: 'horizontal'
 },
-"#switchLabel": {
+"#switchLabel[if=Alloy.Globals.iPhoneSix]": {
 	left: '10dp'
 },
 "#listingButtonView[if=Alloy.Globals.iPhoneSix]": {
@@ -269,7 +508,7 @@
 },
 "#createListingButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "20dp"
+            fontSize: "22dp"
         },
 	color: "#1BA7CD"
 },
@@ -281,10 +520,131 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "20dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
 	}
 },
+"#createListingDetails[if=Alloy.Globals.iPhoneSixPlus]": {
+	width:'95%',
+	height: Titanium.UI.FILL,
+	top: '20dp',
+	layout: "composite"
+},
+"#selectionView[if=Alloy.Globals.iPhoneSixPlus]":{
+	layout: 'vertical',
+	borderColor: '#EAEAEA',
+	borderWidth: '2dp',
+	height: '45%'
+},
+".fade-text[if=Alloy.Globals.iPhoneSixPlus]": {
+	color: '#aaa',
+	top: '70dp',
+	width: Ti.UI.FILL,
+	textAlign: 'center',
+	font: {
+		fontSize: '24dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+"#capturePhotoBtn[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: '55dp',
+},
+".create-listing-capture-btn[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: '50dp',
+	width: '90%',
+	font: {
+		fontSize: '20dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	backgroundColor: '#1BA7CD',
+	color: '#fff'
+},
+".top-size[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: '15dp'
+}
+"ImageView[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: '100dp',
+	width: '100dp',
+	borderColor: 'red',
+	borderWidth: '2dp'
+},
+".image-gallery-view[if=Alloy.Globals.iPhoneSixPlus]":{
+	layout: 'horizontal',
+	height: '260dp',
+	top: '10dp'
+},
+"#nextButtonView[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: Ti.UI.FILL,
+	width: Ti.UI.FILL
+},
+".dock-bottom[if=Alloy.Globals.iPhoneSixPlus]": {
+	bottom: '20dp',
+	width: '49%',
+	right: '0dp',
+},
+"TextField[if=Alloy.Globals.iPhoneSixPlus]": {
+	borderWidth: '2dp', 
+	borderColor: '#EAEAEA',
+	width: Titanium.UI.FILL,
+	height: '45dp'
+},
+"TextArea[if=Alloy.Globals.iPhoneSixPlus]": {
+	borderWidth: '2dp', 
+	borderColor: '#EAEAEA',
+	width: Titanium.UI.FILL,
+	top: '10dp',
+	height: '200dp'
+},
+".listing-detail-container[if=Alloy.Globals.iPhoneSixPlus]": {
+	layout: 'vertical',
+	height: '400dp',
+},
+"#hintTextLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+	left: '10dp',
+	top:'22dp',
+	color: "lightgray"
+},
+"#description[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: '15dp'
+},
+"#price[if=Alloy.Globals.iPhoneSixPlus]": {
+	keyboardType: Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION,
+	top: '15dp'
+},
+".font-style[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+		fontSize: '20dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+"#switchView[if=Alloy.Globals.iPhoneSixPlus]": {
+	layout: 'horizontal'
+},
+"#switchLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+	left: '10dp'
+},
+"#listingButtonView[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL	
+},
+"#backListing[if=Alloy.Globals.iPhoneSixPlus]": {
+	left: '0dp',
+},
+"#saveListing[if=Alloy.Globals.iPhoneSixPlus]": {
+	right: '0dp',
+},
+".half-btn[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: '49%',
+	bottom: '20dp'
+},
+
+
+
+
+
+
+
 
 
 
@@ -321,4 +681,112 @@
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#selectionView[if=Alloy.Globals.android]":{
+	layout: 'vertical',
+	borderColor: '#EAEAEA',
+	borderWidth: '2dp',
+	height: '45%'
+},
+".fade-text[if=Alloy.Globals.android]": {
+	color: '#aaa',
+	top: '60dp',
+	width: Ti.UI.FILL,
+	textAlign: 'center',
+	font: {
+		fontSize: '22dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+"#capturePhotoBtn[if=Alloy.Globals.android]": {
+	top: '45dp',
+},
+".create-listing-capture-btn[if=Alloy.Globals.android]": {
+	height: '50dp',
+	width: '90%',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	backgroundColor: '#1BA7CD',
+	color: '#fff'
+},
+".top-size[if=Alloy.Globals.android]": {
+	top: '15dp'
+}
+"ImageView[if=Alloy.Globals.android]": {
+	height: '100dp',
+	width: '100dp',
+	borderColor: 'red',
+	borderWidth: '2dp'
+},
+".image-gallery-view[if=Alloy.Globals.android]":{
+	layout: 'horizontal',
+	height: '230dp',
+	top: '10dp'	
+},
+"#nextButtonView[if=Alloy.Globals.android]": {
+	height: Ti.UI.FILL,
+	width: Ti.UI.FILL
+},
+".dock-bottom[if=Alloy.Globals.android]": {
+	bottom: '20dp',
+	width: '49%',
+	right: '0dp',
+},
+"TextField[if=Alloy.Globals.android]": {
+	borderWidth: '2dp', 
+	borderColor: '#EAEAEA',
+	width: Titanium.UI.FILL,
+	height: '40dp'
+},
+"TextArea[if=Alloy.Globals.android]": {
+	borderWidth: '2dp', 
+	borderColor: '#EAEAEA',
+	width: Titanium.UI.FILL,
+	top: '10dp',
+	height: '180dp'
+},
+".listing-detail-container[if=Alloy.Globals.android]": {
+	layout: 'vertical',
+	height: '400dp',
+},
+"#hintTextLabel[if=Alloy.Globals.android]": {
+	left: '10dp',
+	top:'22dp',
+	color: "lightgray"
+},
+"#description[if=Alloy.Globals.android]": {
+	top: '15dp'
+},
+"#price[if=Alloy.Globals.android]": {
+	keyboardType: Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION,
+	top: '15dp'
+},
+".font-style[if=Alloy.Globals.android]": {
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
+"#switchView[if=Alloy.Globals.android]": {
+	layout: 'horizontal'
+},
+"#switchLabel[if=Alloy.Globals.android]": {
+	left: '10dp'
+},
+"#listingButtonView[if=Alloy.Globals.android]": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL	
+},
+"#backListing[if=Alloy.Globals.android]": {
+	left: '0dp',
+},
+"#saveListing[if=Alloy.Globals.android]": {
+	right: '0dp',
+},
+".half-btn[if=Alloy.Globals.android]": {
+	width: '49%',
+	bottom: '20dp'
 },

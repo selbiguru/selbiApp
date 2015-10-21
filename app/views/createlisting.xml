@@ -31,7 +31,7 @@
 					<TextField hintText="Item Price (include shipping cost)" id="price" class="font-style"></TextField>
 					<View id="switchView" class="top-size">
 						<Switch id="privateSwitch" value="false" onChange="outputState"/>
-						<Label id="switchLabel" class="font-style">( Only my friends can see this item )</Label>
+						<Label id="switchLabel" class="font-style">Private (Only my friends)</Label>
 					</View>
 				</View>
 				<View id="listingButtonView">

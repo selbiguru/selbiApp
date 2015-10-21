@@ -144,7 +144,6 @@ $.hintTextLabel.addEventListener('click', function(e){
 		$.hintTextLabel.hide();
 	}
 });
-
 $.description.addEventListener('focus',function(e){
     if(e.source.value.length > 0){
         $.hintTextLabel.hide();
@@ -176,20 +175,20 @@ function createImageView(event) {
 		deleteIconFontSize, imageViewTop;
 	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
-	        thumbnailWidth = '113dp';
-	        thumbnailLeft = '5dp';
+	        thumbnailWidth = '86dp';
+	        thumbnailLeft = '10dp';
 	        zeroDP = '0dp';
-	        imgViewSize = '100dp';
-	        deleteIconFontSize = '16dp';
-	        imageViewTop = '15dp';
+	        imgViewSize = '76dp';
+	        deleteIconFontSize = '12dp';
+	        imageViewTop = '11dp';
 	        break;
 	    case 1: //iphoneFive
-	        thumbnailWidth = '113dp';
-	        thumbnailLeft = '5dp';
+	        thumbnailWidth = '93dp';
+	        thumbnailLeft = '3dp';
 	        zeroDP = '0dp';
-	        imgViewSize = '100dp';
-	        deleteIconFontSize = '16dp';
-	        imageViewTop = '15dp';
+	        imgViewSize = '83dp';
+	        deleteIconFontSize = '14dp';
+	        imageViewTop = '12dp';
 	        break;
 	    case 2: //iphoneSix
 	        thumbnailWidth = '113dp';
@@ -200,11 +199,11 @@ function createImageView(event) {
 	        imageViewTop = '15dp';
 	        break;
 	    case 3: //iphoneSixPlus
-	        thumbnailWidth = '113dp';
+	        thumbnailWidth = '125dp';
 	        thumbnailLeft = '5dp';
 	        zeroDP = '0dp';
-	        imgViewSize = '100dp';
-	        deleteIconFontSize = '16dp';
+	        imgViewSize = '110dp';
+	        deleteIconFontSize = '18dp';
 	        imageViewTop = '15dp';
 	        break;
 	    case 4: //android currently same as iphoneSix
@@ -219,7 +218,7 @@ function createImageView(event) {
 	var thumbnailView = Ti.UI.createImageView({
 		width : thumbnailWidth,
 		height : Ti.UI.SIZE,
-		left: thumbnailLeft,
+		left: thumbnailLeft
 	});
 	
 	var imageView = Ti.UI.createImageView({
