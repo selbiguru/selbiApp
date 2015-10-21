@@ -154,16 +154,16 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  	//$.viewAddCard.hide();
  	//$.viewAddCard.height = '0dp';
  	switch(Alloy.Globals.userDevice) {
-	    case 0:
+	    case 0: //iphoneFour
 	        labelFont = 14;
 	        break;
-	    case 1:
+	    case 1: //iphoneFive
 	        labelFont = 15;
 	        break;
-	    case 2:
+	    case 2: //iphoneSix
 	        labelFont = 16;
 	        break;
-	    case 3:
+	    case 3: //iphoneSixPlus
 	        labelFont = 18;
 	        break;
 	    case 4: //android currently same as iphoneSix

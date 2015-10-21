@@ -37,14 +37,16 @@ exports.getUserListings = function(userId, cb){
  * @param {String} title Title of the given listing
  * @param {String} description Description for the listing
  * @param {String} price Price for the listing
+ * @param {BOOLEAN} privateListing Sets private status for the listing
  * @param {Function} cb Callback function
  */
-exports.createListing = function(title, description, price, cb){
+exports.createListing = function(title, description, price, privateListing, cb){
 	
 	var listingRequest = {
 		"title": title,
 		"description": description,
 		"price": price,
+		"private": privateListing,
 		"isPreview": true,
 		"isPublished": false,
 		"userId": Ti.App.Properties.getString('userId')

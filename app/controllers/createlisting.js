@@ -52,14 +52,9 @@ function showCamera() {
 		autohide : false, //Important!
 
 		success : function(event) {
-
-			var imageView = Ti.UI.createImageView({
-				width : "100",
-				height : "100",
-				image : event.media
-			});
-			$.imgView.add(imageView);
-			imageCollection.push(event.media);
+			if(imageCollection.length < 6 ) {
+				createImageView(event);
+			}
 		},
 
 		error : function(error) {
@@ -80,15 +75,9 @@ function showGallery() {
 	Titanium.Media.openPhotoGallery({
 		showControls : true,
 		success : function(event) {
-
-			var imageView = Ti.UI.createImageView({
-				width : "100",
-				height : "100",
-				image : event.media
-			});
-
-			$.imgView.add(imageView);
-			imageCollection.push(event.media);
+			if(imageCollection.length < 6 ) {
+				createImageView(event);
+			}
 		},
 
 		error : function(error) {
@@ -115,7 +104,7 @@ function saveListing() {
 	});
 
 	indicatorWindow.openIndicator();
-	listingManager.createListing($.title.value, $.description.value, $.price.value, function(err, saveResult) {
+	listingManager.createListing($.title.value, $.description.value, $.price.value, $.privateSwitch.value, function(err, saveResult) {
 		if (saveResult) {
 			listingManager.uploadImagesForListing(saveResult.id, imageCollection, function(err, imgUrls) {
 				if (imgUrls && imgUrls.length > 0) {
@@ -141,3 +130,132 @@ function saveListing() {
 		}
 	});
 }
+
+
+
+/*----------------------------------------------------Event Listeners--------------------------------------------------------*/
+
+
+// The below three event listeners are a hack to add "Hint Text" to a TextArea 
+// Appcelerator does not support hint text TextArea
+$.hintTextLabel.addEventListener('click', function(e){
+	$.description.focus();
+	if($.description.value.length > 0) {
+		$.hintTextLabel.hide();
+	}
+});
+
+$.description.addEventListener('focus',function(e){
+    if(e.source.value.length > 0){
+        $.hintTextLabel.hide();
+    }
+});
+$.description.addEventListener('blur',function(e){
+    if(e.source.value.length <= 0){
+        $.hintTextLabel.show();
+    }
+});
+$.description.addEventListener('change',function(e){
+    if(e.source.value.length > 0){
+        $.hintTextLabel.hide();
+    } else {
+    	$.hintTextLabel.show();
+    }
+});
+
+
+
+/*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
+
+ /**
+ * @private createImageView 
+ *  Dynamically creates XML elements to show the images the user has selected for their item.
+ */
+function createImageView(event) {
+	var thumbnailWidth, thumbnailLeft, zeroDP, imgViewSize,
+		deleteIconFontSize, imageViewTop;
+	switch(Alloy.Globals.userDevice) {
+	    case 0: //iphoneFour
+	        thumbnailWidth = '113dp';
+	        thumbnailLeft = '5dp';
+	        zeroDP = '0dp';
+	        imgViewSize = '100dp';
+	        deleteIconFontSize = '16dp';
+	        imageViewTop = '15dp';
+	        break;
+	    case 1: //iphoneFive
+	        thumbnailWidth = '113dp';
+	        thumbnailLeft = '5dp';
+	        zeroDP = '0dp';
+	        imgViewSize = '100dp';
+	        deleteIconFontSize = '16dp';
+	        imageViewTop = '15dp';
+	        break;
+	    case 2: //iphoneSix
+	        thumbnailWidth = '113dp';
+	        thumbnailLeft = '5dp';
+	        zeroDP = '0dp';
+	        imgViewSize = '100dp';
+	        deleteIconFontSize = '16dp';
+	        imageViewTop = '15dp';
+	        break;
+	    case 3: //iphoneSixPlus
+	        thumbnailWidth = '113dp';
+	        thumbnailLeft = '5dp';
+	        zeroDP = '0dp';
+	        imgViewSize = '100dp';
+	        deleteIconFontSize = '16dp';
+	        imageViewTop = '15dp';
+	        break;
+	    case 4: //android currently same as iphoneSix
+	        thumbnailWidth = '113dp';
+	        thumbnailLeft = '5dp';
+	        zeroDP = '0dp';
+	        imgViewSize = '100dp';
+	        deleteIconFontSize = '16dp';
+	        imageViewTop = '15dp';
+	        break;
+	};
+	var thumbnailView = Ti.UI.createImageView({
+		width : thumbnailWidth,
+		height : Ti.UI.SIZE,
+		left: thumbnailLeft,
+	});
+	
+	var imageView = Ti.UI.createImageView({
+		width : imgViewSize,
+		height : imgViewSize,
+		top: imageViewTop,
+		left: zeroDP,
+		image : event.media
+	});
+	
+	var deleteIcon = Titanium.UI.createLabel({
+		top: zeroDP,
+		right: zeroDP,
+		width: Titanium.UI.SIZE,
+		color: "#EAEAEA",
+		font: {
+			fontSize: deleteIconFontSize
+		}
+	});
+	$.fa.add(deleteIcon, "fa-times");
+	thumbnailView.add(deleteIcon);
+	thumbnailView.add(imageView);
+	$.imgView.add(thumbnailView);
+	imageCollection.push(event.media);
+	
+	deleteIcon.addEventListener('click', function(e) {
+		$.imgView.remove(thumbnailView);
+		var index = imageCollection.indexOf(event.media);
+		imageCollection.splice(index, 1);
+		console.log("imagecolletion IS THIS OL THING", imageCollection);
+		console.log("imagecolletion length", imageCollection.length);
+	});
+	return;
+}
+
+function outputState(){
+    Ti.API.info('Switch value: ' + $.privateSwitch.value);
+    Ti.API.info('Switch TYPE: ' + typeof $.privateSwitch.value);
+};
