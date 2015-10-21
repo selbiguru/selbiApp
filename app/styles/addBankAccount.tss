@@ -222,7 +222,7 @@
 },
 "#addBankAccountButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "18dp"
+            fontSize: "20dp"
         },
 	color: "#1BA7CD"
 },
@@ -234,7 +234,7 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "18dp",
+		fontSize: "20dp",
 		fontFamily: "Nunito-Bold"
 	}
 },
@@ -285,7 +285,7 @@
 },
 "#addBankAccountButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "20dp"
+            fontSize: "22dp"
         },
 	color: "#1BA7CD"
 },
@@ -297,7 +297,7 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "20dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
 	}
 },
@@ -354,7 +354,7 @@
 },
 "#addBankAccountButtonIcon[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "18dp"
+            fontSize: "20dp"
         },
 	color: "#1BA7CD"
 },
@@ -366,7 +366,7 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "18dp",
+		fontSize: "20dp",
 		fontFamily: "Nunito-Bold"
 	}
 },
