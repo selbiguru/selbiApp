@@ -246,7 +246,7 @@
 	left: "15dp",
 	height: "40dp",
 	font:{
-		fontSize: "16dp",
+		fontSize: "18dp",
     	fontFamily: 'Nunito-Light'
 	},
 	color: "#545555"
@@ -306,7 +306,7 @@
 	color: "#545555",
 	top:"75dp",
 	font: {
-		fontSize: "17dp",
+		fontSize: "20dp",
 		fontFamily: 'Nunito-Light'
 	}
 },
