@@ -131,7 +131,7 @@
 "#hintTextLabel[if=Alloy.Globals.iPhoneFour]": {
 	left: '10dp',
 	top:'18dp',
-	color: "lightgray"
+	color: "#CBCBCB"
 },
 "#description[if=Alloy.Globals.iPhoneFour]": {
 	top: '10dp'
@@ -289,7 +289,7 @@
 "#hintTextLabel[if=Alloy.Globals.iPhoneFive]": {
 	left: '10dp',
 	top:'19dp',
-	color: "lightgray"
+	color: "#CBCBCB"
 },
 "#description[if=Alloy.Globals.iPhoneFive]": {
 	top: '12dp'
@@ -448,7 +448,7 @@
 "#hintTextLabel[if=Alloy.Globals.iPhoneSix]": {
 	left: '10dp',
 	top:'22dp',
-	color: "lightgray"
+	color: "#CBCBCB"
 },
 "#description[if=Alloy.Globals.iPhoneSix]": {
 	top: '15dp'
@@ -603,7 +603,7 @@
 "#hintTextLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	left: '10dp',
 	top:'22dp',
-	color: "lightgray"
+	color: "#CBCBCB"
 },
 "#description[if=Alloy.Globals.iPhoneSixPlus]": {
 	top: '15dp'
@@ -755,7 +755,7 @@
 "#hintTextLabel[if=Alloy.Globals.android]": {
 	left: '10dp',
 	top:'22dp',
-	color: "lightgray"
+	color: "#CBCBCB"
 },
 "#description[if=Alloy.Globals.android]": {
 	top: '15dp'
