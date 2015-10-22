@@ -46,7 +46,7 @@ exports.createListing = function(title, description, price, privateListing, cb){
 		"title": title,
 		"description": description,
 		"price": price,
-		"private": privateListing,
+		"isPrivate": privateListing,
 		"isPreview": true,
 		"isPublished": false,
 		"userId": Ti.App.Properties.getString('userId')
