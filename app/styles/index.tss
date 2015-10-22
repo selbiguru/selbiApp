@@ -68,7 +68,7 @@
 	top: "89dp"
 },
 "#learnMoreLabel[if=Alloy.Globals.iPhoneFive]": {
-	top: '210dp'
+	top: '220dp'
 },
 ".splash-logo-text[if=Alloy.Globals.iPhoneFive]":{
 	font: {
