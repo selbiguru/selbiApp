@@ -71,8 +71,6 @@
 	backgroundColor: 'FFB246',
 	color: '#fff',
 	width: Titanium.UI.FILL,
-	top: 25,
-	height: 40,
 	font: {
 		fontFamily: "Nunito-Light"
 	}

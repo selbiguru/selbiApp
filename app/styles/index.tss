@@ -11,7 +11,6 @@
 	height: Ti.UI.SIZE,
 	color: "#FAFAFA",
 	font: {
-		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
 	},
 	textAlign: 'center'
@@ -26,7 +25,7 @@
 	top: "75dp"
 },
 "#learnMoreLabel[if=Alloy.Globals.iPhoneFour]": {
-	top: '160dp'
+	top: '175dp'
 },
 ".splash-logo-text[if=Alloy.Globals.iPhoneFour]":{
 	font: {
@@ -36,21 +35,26 @@
 },
 ".splash-logo-subtext[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-		fontSize: '16dp',
+		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
 ".splash-small[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-		fontSize:'13dp',
+		fontSize:'14dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
 ".splash-signup-btn[if=Alloy.Globals.iPhoneFour]": {
+	height: '40dp',
+	top: '20dp',
 	font: {
 		fontSize:'14dp',
 		fontFamily: 'Nunito-Light'
 	}
+},
+"#alreadySelbiUser[if=Alloy.Globals.iPhoneFour]": {
+	top: "20dp"
 },
 
 
@@ -64,7 +68,7 @@
 	top: "89dp"
 },
 "#learnMoreLabel[if=Alloy.Globals.iPhoneFive]": {
-	top: '190dp'
+	top: '210dp'
 },
 ".splash-logo-text[if=Alloy.Globals.iPhoneFive]":{
 	font: {
@@ -74,23 +78,27 @@
 },
 ".splash-logo-subtext[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-		fontSize: '18dp',
+		fontSize: '20dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
 ".splash-small[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-		fontSize:'15dp',
+		fontSize:'16dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
 ".splash-signup-btn[if=Alloy.Globals.iPhoneFive]": {
+	height: '40dp',
+	top: '20dp',
 	font: {
 		fontSize:'16dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
-
+"#alreadySelbiUser[if=Alloy.Globals.iPhoneFive]": {
+	top: "20dp"
+},
 
 
 
@@ -106,7 +114,7 @@
 },
 ".splash-logo-text[if=Alloy.Globals.iPhoneSix]":{
 	font: {
-		fontSize: '40dp',
+		fontSize: '42dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
@@ -118,17 +126,21 @@
 },
 ".splash-small[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-		fontSize:'17dp',
+		fontSize:'18dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
 ".splash-signup-btn[if=Alloy.Globals.iPhoneSix]": {
+	height: '40dp',
+	top: '25dp',
 	font: {
 		fontSize:'18dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
-
+"#alreadySelbiUser[if=Alloy.Globals.iPhoneSix]": {
+	top: "25dp"
+},
 
 
 
@@ -140,7 +152,7 @@
 	top: "90dp"
 },
 "#learnMoreLabel[if=Alloy.Globals.iPhoneSixPlus]": {
-	top: '320dp'
+	top: '325dp'
 },
 ".splash-logo-text[if=Alloy.Globals.iPhoneSixPlus]":{
 	font: {
@@ -156,17 +168,21 @@
 },
 ".splash-small[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-		fontSize:'19dp',
+		fontSize:'20dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
 ".splash-signup-btn[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: '50dp',
+	top: '25dp',
 	font: {
 		fontSize:'20dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
-
+"#alreadySelbiUser[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: "25dp"
+},
 
 
 
@@ -200,8 +216,13 @@
 	}	
 },
 ".splash-signup-btn[if=Alloy.Globals.android]": {
+	height: '40dp',
+	top: '25dp',
 	font: {
-		fontSize:'16dp',
+		fontSize:'18dp',
 		fontFamily: 'Nunito-Light'
 	}
+},
+"#alreadySelbiUser[if=Alloy.Globals.android]": {
+	top: "25dp"
 },

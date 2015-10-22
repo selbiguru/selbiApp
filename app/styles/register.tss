@@ -65,6 +65,7 @@
 	}
 },
 ".primary-btn[if=Alloy.Globals.iPhoneFour]": {
+	height: '40dp',
 	top: "15dp",
 	font: {
 		fontSize: "14dp"
@@ -142,6 +143,7 @@
 	}
 },
 ".primary-btn[if=Alloy.Globals.iPhoneFive]": {
+	height: '40dp',
 	top: "15dp",
 	font: {
 		fontSize: "16dp"
@@ -217,6 +219,7 @@
 	}
 },
 ".primary-btn[if=Alloy.Globals.iPhoneSix]": {
+	height: '40dp',
 	top: "25dp",
 	font: {
 		fontSize: "18dp"
@@ -366,6 +369,7 @@
 	}
 },
 ".primary-btn[if=Alloy.Globals.android]": {
+	height: '40dp',
 	top: "25dp",
 	font: {
 		fontSize: "18dp"

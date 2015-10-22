@@ -5,7 +5,7 @@
 			<Label class="splash-logo-subtext">Sell to your friends first</Label>			
 			<Label id="learnMoreLabel" class="splash-small" onClick="learnMore">Learn more</Label>				
 			<Button class="primary-btn splash-signup-btn" onClick="register"> Sign Up </Button>
-			<Label top="20" class="splash-small" onClick="signIn">Already have an account?</Label>
+			<Label id="alreadySelbiUser" class="splash-small" onClick="signIn">Already have an account?</Label>
 		</View>
 	</Window>
 </Alloy>
