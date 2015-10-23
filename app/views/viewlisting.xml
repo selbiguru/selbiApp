@@ -1,38 +1,33 @@
 <Alloy>
-	<View id="mainView">
-		<View id="mainTopBar">
-			<View class="backButton">
-				<Label icon="fa-times" onClick="goBack" class="backButtonlabel"></Label>
+	<View id="viewListingView">
+		<View id="viewListingTopBar">
+			<View id="menuButton">
+				<Label icon="fa-arrow-left" id="viewListingButtonIcon"></Label>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
-			<View >
-				<Label>Listing Name</Label>
+			<View id="titleViewListingView">
+				<Label id="titleViewListingLabel">Preview Listing</Label>
 			</View>
 		</View>
-		<ScrollView layout="vertical">
-			<View layout="horizontal" id="header">
+		<ScrollView id="viewListingScrollView">
+			<View id="viewListingHeader">
 				<!-- profile image -->
-				Header
+				<ImageView id="sellerImage"/>
+				<Label id="sellerName">first and last name</Label>
 			</View>
-			<ScrollableView showPagingControl="true" layout="horizontal" id="imageGallery">
+			<ScrollableView id="imageGallery">
 			</ScrollableView>
 				
 			<View layout="vertical" class="product-info">
-				<Label id="title" class="product-title">Product Title</Label>
-				<Label id="price" class="product-price">0.00</Label>
+				<Label id="viewListingProductTitle" class="product-title">Product Title</Label>
+				<Label id="viewListingProductPrice" class="product-price">0.00</Label>
 				<View class="line-separator"></View>				
-				<Label id="description" class="product-description"></Label>				
+				<Label id="viewListingProductDescription" class="product-description"></Label>				
 			</View>	
-			<View layout="horizontal" height="100">
-				<View width="47%">
-				<Button class="secondary-btn half-btn">Back</Button>
-				</View>
-				<View width="2%"></View>
-				<View width="50%">
-				<Button id="saveListing" class="secondary-btn half-btn">Looks good</Button>
-				</View>
-			</View>
-			
 		</ScrollView>
+		<View id="viewListingButtonView">
+			<Button id="editListing" class="reverse-btn half-btn">Edit Listing</Button>
+			<Button id="saveListing" class="secondary-btn half-btn" onClick="publishListing">Looks Good</Button>
+		</View>
 	</View>
 </Alloy>

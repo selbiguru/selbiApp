@@ -7,6 +7,11 @@
 var httpManager = require('managers/httpmanager');
 var imageManager = require('managers/imagemanager');
 
+
+
+/***************************************************GET CALLS***************************************************************/
+
+
 /**
  * @method getListing
  * Obtain the listing details for a given listing identifier
@@ -31,6 +36,13 @@ exports.getUserListings = function(userId, cb){
 	});
 };
 
+
+
+
+
+/***************************************************POST CALLS***************************************************************/
+
+
 /**
  * @method createListing
  * Create a listing for a given user and upload the images
@@ -51,8 +63,10 @@ exports.createListing = function(title, description, price, privateListing, cb){
 		"isPublished": false,
 		"userId": Ti.App.Properties.getString('userId')
 	};
-	
+	console.log("this is the object we are sending through..maybe errors here? ", listingRequest);
 	httpManager.execute('/listing', 'POST', listingRequest, true, function(err, createListingResult){
+		console.log("WHY IS THIS AN ERR ", err);
+		console.log("success one time ", createListingResult);
 		if(err) {
 			var a = Titanium.UI.createAlertDialog({
                 title : 'Listing'
@@ -97,6 +111,15 @@ exports.uploadImagesForListing = function(listingId, imageCollection, cb){
 	}	
 };
 
+
+
+
+
+
+/***************************************************PUT CALLS***************************************************************/
+
+
+
 /**
  * @method updateListing
  * Updates the listing by listing id
@@ -110,7 +133,7 @@ exports.updateListing = function(listingRequest, cb){
 			var a = Titanium.UI.createAlertDialog({
                 title : 'Listing'
             });
-            a.setMessage("Failed to create your listing, please try again later!");
+            a.setMessage("Failed to publish your listing, please try again later!");
             a.show();
             if(cb) cb(new Error(err.message), null);
 		} else {
@@ -118,3 +141,10 @@ exports.updateListing = function(listingRequest, cb){
 		}
 	});
 };
+
+
+
+
+
+
+/***************************************************DELETE CALLS***************************************************************/
