@@ -30,10 +30,10 @@
 },
 "#imageGallery": {
 	height: '250dp',
-	width: '100%',
+	width: '95%',
 	showPagingControl: "true",
 	overlayEnabled: true,
-	pagingControlColor: "#FAFAFA",
+	pagingControlColor: "transparent",
 	layout: "horizontal"
 },
 ".product-info": {
