@@ -3,7 +3,7 @@
         <View id="aboutUsTopBar">
 			<View id="menuButton" class="validateButtons">
 				<Label icon="fa-arrow-left" id="aboutUsButtonIcon"></Label>
-			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
 			<View id="titleAboutUsView">
 				<Label id="titleAboutUsLabel">About Us</Label>

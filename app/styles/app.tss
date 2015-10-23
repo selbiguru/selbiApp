@@ -81,8 +81,9 @@
 	backgroundColor: '#1BA7CD',
 	color: '#fff',
 	width: Titanium.UI.FILL,
-	top: 25,
-	height: 40
+	font: {
+		fontFamily: "Nunito-Light"
+	}
 }
 
 ".splash-header-text": {
@@ -101,8 +102,8 @@
 	color: "red"
 }
 ".line-separator":{
-	height: 1,
-	borderWidth: 1,
+	height: '1dp',
+	borderWidth: '1dp',
 	borderColor: '#1BA7CD'
 }
 
@@ -113,23 +114,29 @@
 
 /********************************* Product ************************************/
 ".product-title":{
-	color: '#555',
+	color: '#9B9B9B',
 	font:{
-		fontSize: '18',
-		fontWeight: 'bold'
+		fontFamily: 'Nunito-Bold'
 	},
-	width: Ti.UI.SIZE,
+	width: Ti.UI.FILL,
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
 }
 
 ".product-price": {
 	color: '#1BA7CD',
-	width: Ti.UI.SIZE,
+	font:{
+		fontFamily: 'Nunito-Light'
+	},
+	width: Ti.UI.FILL,
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
 }
 
 ".product-description": {
-	width: Ti.UI.SIZE,
+	color: '#9B9B9B',
+	width: Ti.UI.FILL,
+	font:{
+		fontFamily: 'Nunito-Light'
+	},
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
 }
 

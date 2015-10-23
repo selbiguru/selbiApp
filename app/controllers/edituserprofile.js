@@ -24,8 +24,7 @@ Alloy.Models.user.fetch({
 });
 // Set the user profile image
 imageManager.getMenuProfileImage(function(err, profileImage){
-	$.userProfileImage.image = profileImage;
-	console.log("#########: ", $.userProfileImage.image);	
+	$.userProfileImage.image = profileImage;	
 });
 
 /**

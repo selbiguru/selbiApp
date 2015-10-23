@@ -10,11 +10,6 @@
 	top:"15dp",
 	backgroundColor: "#FAFAFA"
 },
-".rowContainer": {
-	width: Ti.UI.FILL,
-	height: "45dp",
-	layout: 'vertical'
-},
 "#aboutUsHeader": {
 	top: "10dp",
 	color: "#1BA7CD",

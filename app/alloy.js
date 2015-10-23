@@ -23,6 +23,6 @@ Alloy.Globals.social = require('alloy/social');
 //Aids in tss markup.
 Alloy.Globals.userDevice = Alloy.Globals.iPhoneFour ? 0 : Alloy.Globals.iPhoneFive ? 1 : Alloy.Globals.iPhoneSix ? 2 : Alloy.Globals.iPhoneSixPlus ? 3 : Alloy.Globals.android ? 4 : false;
 	
-	
+
 console.log("width :", Ti.Platform.displayCaps.platformWidth);
 console.log("width :", Ti.Platform.displayCaps.platformHeight);;
