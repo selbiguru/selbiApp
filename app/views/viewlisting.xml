@@ -26,7 +26,7 @@
 			</View>	
 		</ScrollView>
 		<View id="viewListingButtonView">
-			<Button id="editListing" class="reverse-btn half-btn">Edit Listing</Button>
+			<Button id="editListing" class="half-btn" onClick="editListing">Edit Listing</Button>
 			<Button id="saveListing" class="secondary-btn half-btn" onClick="publishListing">Looks Good</Button>
 		</View>
 	</View>

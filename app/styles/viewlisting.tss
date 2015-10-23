@@ -10,10 +10,10 @@
 "#viewListingHeader": {
 	layout: "horizontal",
 	height: '50dp',
+	width: '90%',
 	backgroundColor: '#FAFAFA'
 },
 "#sellerImage": {
-	left: '10dp',
 	top: '5dp',
 	height: "40dp",
 	borderRadius: '20dp'
@@ -129,7 +129,88 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-
+"#viewListingScrollView[if=Alloy.Globals.iPhoneFour]": {
+	layout: 'vertical',
+	height: '345dp'
+}
+"#viewListingHeader[if=Alloy.Globals.iPhoneFour]": {
+	layout: "horizontal",
+	height: '50dp',
+	width: '90%',
+	backgroundColor: '#FAFAFA'
+},
+"#sellerImage[if=Alloy.Globals.iPhoneFour]": {
+	top: '5dp',
+	height: "40dp",
+	borderRadius: '20dp'
+},
+"#sellerName[if=Alloy.Globals.iPhoneFour]": {
+	height: Ti.UI.FILL,
+	verticalAlign: Titanium.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
+	left: '10dp',
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: "#9B9B9B"
+},
+"#imageGallery[if=Alloy.Globals.iPhoneFour]": {
+	height: '210dp',
+	width: '90%',
+	showPagingControl: "true",
+	overlayEnabled: true,
+	pagingControlColor: "transparent",
+	layout: "horizontal"
+},
+".product-info[if=Alloy.Globals.iPhoneFour]": {
+	top: '5dp',
+	width: '90%',
+	height: Ti.UI.SIZE
+},
+"#viewListingProductTitle[if=Alloy.Globals.iPhoneFour]":{
+	font: {
+		fontSize: '16dp'
+	}
+},
+"#viewListingProductPrice[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+		fontSize: '16dp'
+	}
+},
+".line-separator[if=Alloy.Globals.iPhoneFour]": {
+	top: '5dp'
+},
+"#viewListingProductDescription[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+		fontSize: '14dp'
+	},
+	top: '10dp',
+},
+"#viewListingButtonView[if=Alloy.Globals.iPhoneFour]": {
+	width: '90%',
+	height: Ti.UI.FILL
+},
+"#editListing[if=Alloy.Globals.iPhoneFour]": {
+	left: '0dp',
+	textAlign: 'center',
+	backgroundColor: '#FAFAFA',
+	color: '#9B9B9B',
+	borderColor: "#9B9B9B",
+	font: {
+		fontFamily: "Nunito-Light"
+	}
+},
+"#saveListing[if=Alloy.Globals.iPhoneFour]": {
+	right: '0dp',
+},
+".half-btn[if=Alloy.Globals.iPhoneFour]": {
+	width: '49%',
+	height: '40dp',
+	bottom: '20dp',
+	font: {
+		fontSize: '14dp'
+	}
+},
 
 
 
@@ -174,7 +255,88 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-
+"#viewListingScrollView[if=Alloy.Globals.iPhoneFive]": {
+	layout: 'vertical',
+	height: '433dp'
+}
+"#viewListingHeader[if=Alloy.Globals.iPhoneFive]": {
+	layout: "horizontal",
+	height: '50dp',
+	width: '90%',
+	backgroundColor: '#FAFAFA'
+},
+"#sellerImage[if=Alloy.Globals.iPhoneFive]": {
+	top: '5dp',
+	height: "40dp",
+	borderRadius: '20dp'
+},
+"#sellerName[if=Alloy.Globals.iPhoneFive]": {
+	height: Ti.UI.FILL,
+	verticalAlign: Titanium.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
+	left: '10dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: "#9B9B9B"
+},
+"#imageGallery[if=Alloy.Globals.iPhoneFive]": {
+	height: '250dp',
+	width: '90%',
+	showPagingControl: "true",
+	overlayEnabled: true,
+	pagingControlColor: "transparent",
+	layout: "horizontal"
+},
+".product-info[if=Alloy.Globals.iPhoneFive]": {
+	top: '5dp',
+	width: '90%',
+	height: Ti.UI.SIZE
+},
+"#viewListingProductTitle[if=Alloy.Globals.iPhoneFive]":{
+	font: {
+		fontSize: '18dp'
+	}
+},
+"#viewListingProductPrice[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+		fontSize: '18dp'
+	}
+},
+".line-separator[if=Alloy.Globals.iPhoneFive]": {
+	top: '5dp'
+},
+"#viewListingProductDescription[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+		fontSize: '16dp'
+	},
+	top: '10dp',
+},
+"#viewListingButtonView[if=Alloy.Globals.iPhoneFive]": {
+	width: '90%',
+	height: Ti.UI.FILL
+},
+"#editListing[if=Alloy.Globals.iPhoneFive]": {
+	left: '0dp',
+	textAlign: 'center',
+	backgroundColor: '#FAFAFA',
+	color: '#9B9B9B',
+	borderColor: "#9B9B9B",
+	font: {
+		fontFamily: "Nunito-Light"
+	}
+},
+"#saveListing[if=Alloy.Globals.iPhoneFive]": {
+	right: '0dp',
+},
+".half-btn[if=Alloy.Globals.iPhoneFive]": {
+	width: '49%',
+	height: '40dp',
+	bottom: '20dp',
+	font: {
+		fontSize: '16dp'
+	}
+},
 
 
 
