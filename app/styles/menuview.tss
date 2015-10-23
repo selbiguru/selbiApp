@@ -82,6 +82,7 @@
 "#menuUserImage[if=Alloy.Globals.iPhoneFour]":{
 	height:"55dp",
 	right: "75dp",
+	borderRadius: '27dp',
 	top: "7dp"
 },
 "#menuUserName[if=Alloy.Globals.iPhoneFour]":{
@@ -172,6 +173,7 @@
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneFive]":{
 	height:"60dp",
+	borderRadius: '30dp',
 	right: "75dp",
 	top: "7dp"
 },
@@ -263,6 +265,7 @@
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneSix]":{
 	height:"65dp",
+	borderRadius: '32dp',
 	right: "85dp",
 	top: "10dp"
 },
@@ -355,6 +358,7 @@
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneSixPlus]":{
 	height:"70dp",
+	borderRadius: '35dp',
 	right: "90dp",
 	top: "11dp"
 },
