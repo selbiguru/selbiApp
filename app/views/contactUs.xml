@@ -13,7 +13,12 @@
 			</View>
 		</View>
 		<View id="contactUsInfoView">
-			<Label id="emailSelbiEmail">Or email us at Selbiguru@gmail.com</Label>
+			<TextField id="emailTitle" class="font-style"></TextField>
+			<View id="messageView">
+				<TextArea id="emailBody" class="font-style"></TextArea>
+				<Label id="hintTextLabel" class="font-style">Let us know how we can help you today</Label>
+			</View>
+			<!--<Label id="emailSelbiEmail">Or email us at Selbiguru@gmail.com</Label> -->
 		</View>
     </View>
 </Alloy>

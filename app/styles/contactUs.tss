@@ -1,16 +1,41 @@
 //DEFAULT
 "#contactUsView": {
 	layout: 'vertical',
-	backgroundColor: 'white'
+	backgroundColor: '#FAFAFA'
 },
 "#contactUsInfoView": {
 	layout: 'vertical',
-	width: '90%'
+	width: '90%',
+	top: '30dp'
 },
-".rowContainer": {
-	width: Ti.UI.FILL,
-	height: "45dp",
-	layout: 'vertical'
+"#emailTitle": {
+	borderWidth: '2dp', 
+	borderColor: '#E5E5E5',
+	backgroundColor: "#FFF",
+	width: Titanium.UI.FILL,
+	height: '35dp',
+	hintText: "Email Subject"
+},
+"#messageView": {
+	height: Ti.UI.SIZE,
+},
+"#emailBody": {
+	borderWidth: '2dp', 
+	borderColor: '#E5E5E5',
+	width: Titanium.UI.FILL,
+	top: '12dp',
+	height: '260dp'
+},
+"#hintTextLabel": {
+	left: '10dp',
+	top:'19dp',
+	color: "#CBCBCB"
+},
+".font-style": {
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	}
 },
 
 
@@ -21,13 +46,13 @@
 "#contactUsTopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneFour]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#contactUsButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
@@ -63,13 +88,13 @@
 "#contactUsTopBar[if=Alloy.Globals.iPhoneFive]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneFive]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#contactUsButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
@@ -104,13 +129,13 @@
 "#contactUsTopBar[if=Alloy.Globals.iPhoneSix]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneSix]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#contactUsButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
@@ -147,13 +172,13 @@
 "#contactUsTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#contactUsButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
@@ -191,13 +216,13 @@
 "#contactUsTopBar[if=Alloy.Globals.android]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.android]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#contactUsButtonIcon[if=Alloy.Globals.android]": {
 	font: {
