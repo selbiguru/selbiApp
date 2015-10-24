@@ -136,7 +136,7 @@
 "#viewListingHeader[if=Alloy.Globals.iPhoneFour]": {
 	layout: "horizontal",
 	height: '50dp',
-	width: '90%',
+	width: '85%',
 	backgroundColor: '#FAFAFA'
 },
 "#sellerImage[if=Alloy.Globals.iPhoneFour]": {
@@ -155,8 +155,8 @@
 	color: "#9B9B9B"
 },
 "#imageGallery[if=Alloy.Globals.iPhoneFour]": {
-	height: '210dp',
-	width: '90%',
+	height: '200dp',
+	width: '85%',
 	showPagingControl: "true",
 	overlayEnabled: true,
 	pagingControlColor: "transparent",
@@ -164,7 +164,7 @@
 },
 ".product-info[if=Alloy.Globals.iPhoneFour]": {
 	top: '5dp',
-	width: '90%',
+	width: '85%',
 	height: Ti.UI.SIZE
 },
 "#viewListingProductTitle[if=Alloy.Globals.iPhoneFour]":{
@@ -187,7 +187,7 @@
 	top: '10dp',
 },
 "#viewListingButtonView[if=Alloy.Globals.iPhoneFour]": {
-	width: '90%',
+	width: '85%',
 	height: Ti.UI.FILL
 },
 "#editListing[if=Alloy.Globals.iPhoneFour]": {
@@ -197,6 +197,7 @@
 	color: '#9B9B9B',
 	borderColor: "#9B9B9B",
 	font: {
+		fontSize: '14dp',
 		fontFamily: "Nunito-Light"
 	}
 },
@@ -323,6 +324,7 @@
 	color: '#9B9B9B',
 	borderColor: "#9B9B9B",
 	font: {
+		fontSize: '16dp',
 		fontFamily: "Nunito-Light"
 	}
 },
@@ -427,7 +429,90 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-
+"#viewListingScrollView[if=Alloy.Globals.iPhoneSixPlus]": {
+	layout: 'vertical',
+	height: '591dp'
+}
+"#viewListingHeader[if=Alloy.Globals.iPhoneSixPlus]": {
+	layout: "horizontal",
+	height: '60dp',
+	width: '95%',
+	backgroundColor: '#FAFAFA'
+},
+"#sellerImage[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: '5dp',
+	height: "50dp",
+	borderRadius: '25dp'
+},
+"#sellerName[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: Ti.UI.FILL,
+	verticalAlign: Titanium.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
+	left: '10dp',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: "#9B9B9B"
+},
+"#imageGallery[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: '300dp',
+	width: '95%',
+	showPagingControl: "true",
+	overlayEnabled: true,
+	pagingControlColor: "transparent",
+	layout: "horizontal"
+},
+".product-info[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: '10dp',
+	width: '95%',
+	height: Ti.UI.SIZE
+},
+"#viewListingProductTitle[if=Alloy.Globals.iPhoneSixPlus]":{
+	font: {
+		fontSize: '22dp'
+	}
+},
+"#viewListingProductPrice[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: '5dp',
+	font: {
+		fontSize: '22dp'
+	}
+},
+".line-separator[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: '5dp'
+},
+"#viewListingProductDescription[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+		fontSize: '20dp'
+	},
+	top: '10dp',
+},
+"#viewListingButtonView[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: '95%',
+	height: Ti.UI.FILL
+},
+"#editListing[if=Alloy.Globals.iPhoneSixPlus]": {
+	left: '0dp',
+	textAlign: 'center',
+	backgroundColor: '#FAFAFA',
+	color: '#9B9B9B',
+	borderColor: "#9B9B9B",
+	font: {
+		fontSize: '20dp',
+		fontFamily: "Nunito-Light"
+	}
+},
+"#saveListing[if=Alloy.Globals.iPhoneSixPlus]": {
+	right: '0dp',
+},
+".half-btn[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: '49%',
+	height: '50dp',
+	bottom: '20dp',
+	font: {
+		fontSize: '20dp'
+	}
+},
 
 
 
