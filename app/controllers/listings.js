@@ -111,5 +111,5 @@ function genItems(cb){
 
 
 function openListing(listingId){
-	Alloy.Globals.openPage('viewlisting', listingId);
+	Alloy.Globals.openPage('viewlisting', {id: listingId});
 }

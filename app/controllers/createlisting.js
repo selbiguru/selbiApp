@@ -5,6 +5,8 @@ var listingManager = require('managers/listingmanager');
 var indicator = require('uielements/indicatorwindow');
 var imageCollection = [];
 
+
+
 function addItemToGrid(title, image) {
 	$.fg.addGridItem({
 		title : title,
@@ -53,7 +55,7 @@ function showCamera() {
 
 		success : function(event) {
 			if(imageCollection.length < 6 ) {
-				createImageView(event);
+				createImageView(event.media);
 			}
 		},
 
@@ -76,7 +78,7 @@ function showGallery() {
 		showControls : true,
 		success : function(event) {
 			if(imageCollection.length < 6 ) {
-				createImageView(event);
+				createImageView(event.media);
 			}
 		},
 
@@ -94,7 +96,36 @@ function showGallery() {
 	});
 }
 
-function saveListing() {
+
+function previewListing(){
+	var dialogError = Titanium.UI.createAlertDialog({
+	        	title : 'Empty Fields'
+	}); 
+	if($.title.value.length < 1 || $.description.value.length < 1 || $.price.value.length < 1 || imageCollection.length < 1) {
+		dialogError.setMessage("Please make sure all fields are filled out including adding some images!");
+    	dialogError.show();	
+	} else {
+		var previewListingObj = {
+			title: $.title.value,
+			description: $.description.value,
+			price: $.price.value,
+			privateSwitch: $.privateSwitch.value,
+			images: imageCollection,
+			id: false
+		};
+		var indicatorWindow = indicator.createIndicatorWindow({
+			message : "Creating Preview"
+		});
+		indicatorWindow.openIndicator();
+		Alloy.Globals.openPage('viewlisting', previewListingObj);
+		indicatorWindow.closeIndicator();
+	}
+};
+
+
+
+//To delete below saveFunction
+/*function saveListing() {
 	var a = Titanium.UI.createAlertDialog({
 		title : 'Listing'
 	});
@@ -129,7 +160,7 @@ function saveListing() {
 			a.show();
 		}
 	});
-}
+}*/
 
 
 
@@ -170,15 +201,15 @@ $.description.addEventListener('change',function(e){
  * @private createImageView 
  *  Dynamically creates XML elements to show the images the user has selected for their item.
  */
-function createImageView(event) {
+function createImageView(media) {
 	var thumbnailWidth, thumbnailLeft, zeroDP, imgViewSize,
 		deleteIconFontSize, imageViewTop;
 	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
-	        thumbnailWidth = '86dp';
-	        thumbnailLeft = '10dp';
+	        thumbnailWidth = '83dp';
+	        thumbnailLeft = '7dp';
 	        zeroDP = '0dp';
-	        imgViewSize = '76dp';
+	        imgViewSize = '73dp';
 	        deleteIconFontSize = '12dp';
 	        imageViewTop = '11dp';
 	        break;
@@ -226,7 +257,7 @@ function createImageView(event) {
 		height : imgViewSize,
 		top: imageViewTop,
 		left: zeroDP,
-		image : event.media
+		image : media
 	});
 	
 	var deleteIcon = Titanium.UI.createLabel({
@@ -242,19 +273,12 @@ function createImageView(event) {
 	thumbnailView.add(deleteIcon);
 	thumbnailView.add(imageView);
 	$.imgView.add(thumbnailView);
-	imageCollection.push(event.media);
+	imageCollection.push(media);
 	
 	deleteIcon.addEventListener('click', function(e) {
 		$.imgView.remove(thumbnailView);
-		var index = imageCollection.indexOf(event.media);
+		var index = imageCollection.indexOf(media);
 		imageCollection.splice(index, 1);
-		console.log("imagecolletion IS THIS OL THING", imageCollection);
-		console.log("imagecolletion length", imageCollection.length);
 	});
 	return;
 }
-
-function outputState(){
-    Ti.API.info('Switch value: ' + $.privateSwitch.value);
-    Ti.API.info('Switch TYPE: ' + typeof $.privateSwitch.value);
-};

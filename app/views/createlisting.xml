@@ -30,13 +30,13 @@
 					</View>
 					<TextField hintText="Item Price (include shipping cost)" id="price" class="font-style"></TextField>
 					<View id="switchView" class="top-size">
-						<Switch id="privateSwitch" value="false" onChange="outputState"/>
+						<Switch id="privateSwitch" value="false"/>
 						<Label id="switchLabel" class="font-style">Private (Only my friends)</Label>
 					</View>
 				</View>
 				<View id="listingButtonView">
 					<Button id="backListing" onClick="gotoStep1" class="create-listing-capture-btn half-btn">Back</Button>
-					<Button id="saveListing" onClick="saveListing" class="create-listing-capture-btn half-btn">Save Listing</Button>
+					<Button id="saveListing" onClick="previewListing" class="create-listing-capture-btn half-btn">Preview Listing</Button>
 				</View>
 			</View>		
 		</View>

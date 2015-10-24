@@ -6,7 +6,7 @@
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
 			<View id="titleViewListingView">
-				<Label id="titleViewListingLabel">Preview Listing</Label>
+				<Label id="titleViewListingLabel"></Label>
 			</View>
 		</View>
 		<ScrollView id="viewListingScrollView">
@@ -26,8 +26,6 @@
 			</View>	
 		</ScrollView>
 		<View id="viewListingButtonView">
-			<Button id="editListing" class="half-btn" onClick="editListing">Edit Listing</Button>
-			<Button id="saveListing" class="secondary-btn half-btn" onClick="publishListing">Looks Good</Button>
 		</View>
 	</View>
 </Alloy>

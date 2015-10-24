@@ -46,21 +46,22 @@ exports.getUserListings = function(userId, cb){
 /**
  * @method createListing
  * Create a listing for a given user and upload the images
- * @param {String} title Title of the given listing
- * @param {String} description Description for the listing
- * @param {String} price Price for the listing
- * @param {BOOLEAN} privateListing Sets private status for the listing
+ * @param {Object} listingData Object containing the four following key/values:
+ * 	{String} title Title of the given listing
+ * 	{String} description Description for the listing
+ *	{String} price Price for the listing
+ * 	{BOOLEAN} privateListing Sets private status for the listing
  * @param {Function} cb Callback function
  */
-exports.createListing = function(title, description, price, privateListing, cb){
+exports.createListing = function(listingData, cb){
 	
 	var listingRequest = {
-		"title": title,
-		"description": description,
-		"price": price,
-		"isPrivate": privateListing,
-		"isPreview": true,
-		"isPublished": false,
+		"title": listingData.title,
+		"description": listingData.description,
+		"price": listingData.price,
+		"isPrivate": listingData.privateListing,
+		"isPreview": false,
+		"isPublished": true,
 		"userId": Ti.App.Properties.getString('userId')
 	};
 	console.log("this is the object we are sending through..maybe errors here? ", listingRequest);
@@ -133,7 +134,7 @@ exports.updateListing = function(listingRequest, cb){
 			var a = Titanium.UI.createAlertDialog({
                 title : 'Listing'
             });
-            a.setMessage("Failed to publish your listing, please try again later!");
+            a.setMessage("Failed to update your listing, please try again later!");
             a.show();
             if(cb) cb(new Error(err.message), null);
 		} else {
