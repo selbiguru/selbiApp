@@ -64,27 +64,6 @@
 	width: '100%',
 	height: Ti.UI.FILL
 },
-"#editListing": {
-	left: '0dp',
-	textAlign: 'center',
-	backgroundColor: '#FAFAFA',
-	color: '#9B9B9B',
-	borderColor: "#9B9B9B",
-	font: {
-		fontFamily: "Nunito-Light"
-	}
-},
-"#saveListing": {
-	right: '0dp',
-},
-".half-btn": {
-	width: '49%',
-	height: '40dp',
-	bottom: '20dp',
-	font: {
-		fontSize: '16dp'
-	}
-},
 
 
 
@@ -190,28 +169,6 @@
 	width: '85%',
 	height: Ti.UI.FILL
 },
-"#editListing[if=Alloy.Globals.iPhoneFour]": {
-	left: '0dp',
-	textAlign: 'center',
-	backgroundColor: '#FAFAFA',
-	color: '#9B9B9B',
-	borderColor: "#9B9B9B",
-	font: {
-		fontSize: '14dp',
-		fontFamily: "Nunito-Light"
-	}
-},
-"#saveListing[if=Alloy.Globals.iPhoneFour]": {
-	right: '0dp',
-},
-".half-btn[if=Alloy.Globals.iPhoneFour]": {
-	width: '49%',
-	height: '40dp',
-	bottom: '20dp',
-	font: {
-		fontSize: '14dp'
-	}
-},
 
 
 
@@ -316,28 +273,6 @@
 "#viewListingButtonView[if=Alloy.Globals.iPhoneFive]": {
 	width: '90%',
 	height: Ti.UI.FILL
-},
-"#editListing[if=Alloy.Globals.iPhoneFive]": {
-	left: '0dp',
-	textAlign: 'center',
-	backgroundColor: '#FAFAFA',
-	color: '#9B9B9B',
-	borderColor: "#9B9B9B",
-	font: {
-		fontSize: '16dp',
-		fontFamily: "Nunito-Light"
-	}
-},
-"#saveListing[if=Alloy.Globals.iPhoneFive]": {
-	right: '0dp',
-},
-".half-btn[if=Alloy.Globals.iPhoneFive]": {
-	width: '49%',
-	height: '40dp',
-	bottom: '20dp',
-	font: {
-		fontSize: '16dp'
-	}
 },
 
 
@@ -490,28 +425,6 @@
 "#viewListingButtonView[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: '95%',
 	height: Ti.UI.FILL
-},
-"#editListing[if=Alloy.Globals.iPhoneSixPlus]": {
-	left: '0dp',
-	textAlign: 'center',
-	backgroundColor: '#FAFAFA',
-	color: '#9B9B9B',
-	borderColor: "#9B9B9B",
-	font: {
-		fontSize: '20dp',
-		fontFamily: "Nunito-Light"
-	}
-},
-"#saveListing[if=Alloy.Globals.iPhoneSixPlus]": {
-	right: '0dp',
-},
-".half-btn[if=Alloy.Globals.iPhoneSixPlus]": {
-	width: '49%',
-	height: '50dp',
-	bottom: '20dp',
-	font: {
-		fontSize: '20dp'
-	}
 },
 
 
