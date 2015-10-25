@@ -120,6 +120,7 @@
 "TextArea[if=Alloy.Globals.iPhoneFour]": {
 	borderWidth: '2dp', 
 	borderColor: '#E5E5E5',
+	backgroundColor : 'transparent',
 	width: Titanium.UI.FILL,
 	top: '10dp',
 	height: '120dp'
@@ -438,6 +439,7 @@
 "TextArea[if=Alloy.Globals.iPhoneSix]": {
 	borderWidth: '2dp', 
 	borderColor: '#E5E5E5',
+	backgroundColor : 'transparent',
 	width: Titanium.UI.FILL,
 	top: '10dp',
 	height: '180dp'
@@ -593,6 +595,7 @@
 "TextArea[if=Alloy.Globals.iPhoneSixPlus]": {
 	borderWidth: '2dp', 
 	borderColor: '#E5E5E5',
+	backgroundColor : 'transparent',
 	width: Titanium.UI.FILL,
 	top: '10dp',
 	height: '200dp'
@@ -745,6 +748,7 @@
 "TextArea[if=Alloy.Globals.android]": {
 	borderWidth: '2dp', 
 	borderColor: '#E5E5E5',
+	backgroundColor : 'transparent',
 	width: Titanium.UI.FILL,
 	top: '10dp',
 	height: '180dp'
