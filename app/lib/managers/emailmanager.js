@@ -2,7 +2,7 @@
  * @class EmailManager
  * EmailManager class to perform email manipulation related operations
  */
-var httpClient = require('managers/httpmanager');
+var httpManager = require('managers/httpmanager');
 
 
 /**

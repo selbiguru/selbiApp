@@ -17,7 +17,7 @@ function sendEmailToSelbi() {
 	} else {
 		var emailObj = {
 			subject: $.emailTitle.value,
-			body: $.emailBody.value,
+			body: $.emailBody.value+" User Id: "+ Alloy.Globals.currentUser.attributes.id ,
 			email: Alloy.Globals.currentUser.attributes.email,
 			name: Alloy.Globals.currentUser.attributes.firstName +" "+Alloy.Globals.currentUser.attributes.lastName
 		};
@@ -29,6 +29,8 @@ function sendEmailToSelbi() {
 			if(emailResult) {
 				dialogError.setMessage("Selbi has received your message!  We will get back to you asap! ");
 		    	dialogError.show();	
+		    	$.emailBody.value = '';
+		    	$.emailTitle.value = '';
 			}
 			return;
 		});
