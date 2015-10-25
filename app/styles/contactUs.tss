@@ -143,7 +143,7 @@
 	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
 	top: '12dp',
-	height: '260dp'
+	height: '290dp'
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneFive]": {
 	left: '10dp',
