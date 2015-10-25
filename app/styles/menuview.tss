@@ -80,9 +80,10 @@
 	height:"85dp"
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneFour]":{
-	height:"55dp",
-	right: "75dp",
+	height: "55dp",
+	width: "55dp",
 	borderRadius: '27dp',
+	left: "95dp",
 	top: "7dp"
 },
 "#menuUserName[if=Alloy.Globals.iPhoneFour]":{
@@ -173,8 +174,9 @@
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneFive]":{
 	height:"60dp",
+	width: "60dp",
 	borderRadius: '30dp',
-	right: "75dp",
+	left: "92dp",
 	top: "7dp"
 },
 "#menuUserName[if=Alloy.Globals.iPhoneFive]":{
@@ -265,8 +267,9 @@
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneSix]":{
 	height:"65dp",
+	width: "65dp",
 	borderRadius: '32dp',
-	right: "85dp",
+	left: "112dp",
 	top: "10dp"
 },
 "#menuUserName[if=Alloy.Globals.iPhoneSix]":{
@@ -357,9 +360,10 @@
 	height:"125dp"
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneSixPlus]":{
-	height:"70dp",
-	borderRadius: '35dp',
-	right: "90dp",
+	height:"75dp",
+	width: "75dp",
+	borderRadius: '37dp',
+	left: "124dp",
 	top: "11dp"
 },
 "#menuUserName[if=Alloy.Globals.iPhoneSixPlus]":{
@@ -447,8 +451,10 @@
 	height:"100dp"
 },
 "#menuUserImage[if=Alloy.Globals.android]":{
-	height:"60dp",
-	right: "85dp",
+	height:"65dp",
+	width: "65dp",
+	borderRadius: '32dp',
+	left: "112dp",
 	top: "10dp"
 },
 "#userImage[if=Alloy.Globals.android]": {
