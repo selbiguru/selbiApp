@@ -1,14 +1,38 @@
 var args = arguments[0] || {};
+var emailManager = require('managers/emailmanager');
 
+
+/**
+ * @method sendEmailToSelbi
+ * Send an email from a given user to Selbi via 'Contact Us' view
+ */
 function sendEmailToSelbi() {
-	var emailObj = {
-		subject: $.emailTitle.value,
-		body: $.emailBody.value,
-		email: Alloy.Globals.currentUser.attributes.email,
-		phoneNumber: Alloy.Globals.currentUser.attributes.phoneNumber,
-		id: Alloy.Globals.currentUser.attributes.id
-	};
-	return;
+	var dialogError = Titanium.UI.createAlertDialog({
+	        	title : 'Empty Fields'
+	}); 
+	if($.emailTitle.value.length < 1 || $.emailBody.value.length < 1) {
+		dialogError.setMessage("Please make sure both the subject and message are filled out");
+    	dialogError.show();	
+    	return;
+	} else {
+		var emailObj = {
+			subject: $.emailTitle.value,
+			body: $.emailBody.value,
+			email: Alloy.Globals.currentUser.attributes.email,
+			name: Alloy.Globals.currentUser.attributes.firstName +" "+Alloy.Globals.currentUser.attributes.lastName
+		};
+		
+		emailManager.sendContactSelbiEmail(emailObj, function(err, emailResult){
+			var dialogError = Titanium.UI.createAlertDialog({
+	        	title : 'Email Sent!'
+			}); 
+			if(emailResult) {
+				dialogError.setMessage("Selbi has received your message!  We will get back to you asap! ");
+		    	dialogError.show();	
+			}
+			return;
+		});
+	}
 }
 
 
