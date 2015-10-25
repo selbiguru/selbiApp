@@ -1,7 +1,7 @@
 //DEFAULT
 "#createListingView":{
 	layout: 'vertical',
-	backgroundColor: '#FDFDFD'
+	backgroundColor: '#FAFAFA'
 },
 "#step1": {
 	layout: 'vertical',
@@ -26,13 +26,13 @@
 "#createListingTopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneFour]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#createListingButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
@@ -60,7 +60,7 @@
 },
 "#selectionView[if=Alloy.Globals.iPhoneFour]":{
 	layout: 'vertical',
-	borderColor: '#EAEAEA',
+	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
 	height: '38%'
 },
@@ -113,13 +113,13 @@
 },
 "TextField[if=Alloy.Globals.iPhoneFour]": {
 	borderWidth: '2dp', 
-	borderColor: '#EAEAEA',
+	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
 	height: '30dp'
 },
 "TextArea[if=Alloy.Globals.iPhoneFour]": {
 	borderWidth: '2dp', 
-	borderColor: '#EAEAEA',
+	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
 	top: '10dp',
 	height: '120dp'
@@ -184,13 +184,13 @@
 "#createListingTopBar[if=Alloy.Globals.iPhoneFive]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneFive]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#createListingButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
@@ -218,7 +218,7 @@
 },
 "#selectionView[if=Alloy.Globals.iPhoneFive]":{
 	layout: 'vertical',
-	borderColor: '#EAEAEA',
+	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
 	height: '42%'
 },
@@ -271,13 +271,14 @@
 },
 "TextField[if=Alloy.Globals.iPhoneFive]": {
 	borderWidth: '2dp', 
-	borderColor: '#EAEAEA',
+	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
 	height: '35dp'
 },
 "TextArea[if=Alloy.Globals.iPhoneFive]": {
 	borderWidth: '2dp', 
-	borderColor: '#EAEAEA',
+	borderColor: '#E5E5E5',
+	backgroundColor : 'transparent',
 	width: Titanium.UI.FILL,
 	top: '12dp',
 	height: '140dp'
@@ -344,13 +345,13 @@
 "#createListingTopBar[if=Alloy.Globals.iPhoneSix]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneSix]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#createListingButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
@@ -377,7 +378,7 @@
 },
 "#selectionView[if=Alloy.Globals.iPhoneSix]":{
 	layout: 'vertical',
-	borderColor: '#EAEAEA',
+	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
 	height: '45%'
 },
@@ -430,13 +431,13 @@
 },
 "TextField[if=Alloy.Globals.iPhoneSix]": {
 	borderWidth: '2dp', 
-	borderColor: '#EAEAEA',
+	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
 	height: '40dp'
 },
 "TextArea[if=Alloy.Globals.iPhoneSix]": {
 	borderWidth: '2dp', 
-	borderColor: '#EAEAEA',
+	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
 	top: '10dp',
 	height: '180dp'
@@ -498,13 +499,13 @@
 "#createListingTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#createListingButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
@@ -532,7 +533,7 @@
 },
 "#selectionView[if=Alloy.Globals.iPhoneSixPlus]":{
 	layout: 'vertical',
-	borderColor: '#EAEAEA',
+	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
 	height: '45%'
 },
@@ -585,13 +586,13 @@
 },
 "TextField[if=Alloy.Globals.iPhoneSixPlus]": {
 	borderWidth: '2dp', 
-	borderColor: '#EAEAEA',
+	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
 	height: '45dp'
 },
 "TextArea[if=Alloy.Globals.iPhoneSixPlus]": {
 	borderWidth: '2dp', 
-	borderColor: '#EAEAEA',
+	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
 	top: '10dp',
 	height: '200dp'
@@ -656,13 +657,13 @@
 "#createListingTopBar[if=Alloy.Globals.android]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.android]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#createListingButtonIcon[if=Alloy.Globals.android]": {
 	font: {
@@ -684,7 +685,7 @@
 },
 "#selectionView[if=Alloy.Globals.android]":{
 	layout: 'vertical',
-	borderColor: '#EAEAEA',
+	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
 	height: '45%'
 },
@@ -737,13 +738,13 @@
 },
 "TextField[if=Alloy.Globals.android]": {
 	borderWidth: '2dp', 
-	borderColor: '#EAEAEA',
+	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
 	height: '40dp'
 },
 "TextArea[if=Alloy.Globals.android]": {
 	borderWidth: '2dp', 
-	borderColor: '#EAEAEA',
+	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
 	top: '10dp',
 	height: '180dp'

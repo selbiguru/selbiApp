@@ -159,7 +159,6 @@ function createPreviewButtons() {
 		bottom: '20dp',
 		left: '0dp',
 		textAlign: 'center',
-		backgroundColor: '#FAFAFA',
 		color: '#9B9B9B',
 		borderColor: "#9B9B9B",
 		font: {
@@ -237,7 +236,7 @@ function createPurchasingButtons() {
 			fontSize: '16dp',
 			fontFamily: "Nunito-Light"
 		},
-		title: 'Looks Good'
+		title: 'Slide to Buy'
 	});
 
 
