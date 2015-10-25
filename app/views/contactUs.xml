@@ -2,14 +2,13 @@
 	<View id="contactUsView">
         <View id="contactUsTopBar">
 			<View id="menuButton" class="validateButtons">
-				<Label icon="fa-arrow-left" id="contactUsButtonIcon"></Label>
-			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+				<Label icon="fa-arrow-left" id="contactUsButtonIcon" class="icon-buttons"></Label>
 			</View>
 			<View id="titleContactUsView">
 				<Label id="titleContactUsLabel">Contact Us</Label>
 			</View>
 			<View id="sendEmailView" class="validateButtons">
-				<Button onClick="sendEmailToSelbi" id="sendEmailButton" class="send-email-button-icon">Send</Button>
+				<Button icon="fa-envelope-o" onClick="sendEmailToSelbi" id="sendEmailButton" class="icon-buttons"></Button>
 			</View>
 		</View>
 		<View id="contactUsInfoView">
@@ -20,5 +19,6 @@
 			</View>
 			<!--<Label id="emailSelbiEmail">Or email us at Selbiguru@gmail.com</Label> -->
 		</View>
+		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
     </View>
 </Alloy>
