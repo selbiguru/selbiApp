@@ -66,12 +66,12 @@
 	borderWidth: '2dp', 
 	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
-	top: '12dp',
+	top: '17dp',
 	height: '245dp'
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneFour]": {
 	left: '10dp',
-	top:'20dp',
+	top:'25dp',
 	color: "#CBCBCB"
 },
 ".font-style[if=Alloy.Globals.iPhoneFour]": {
@@ -142,12 +142,12 @@
 	borderWidth: '2dp', 
 	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
-	top: '12dp',
+	top: '17dp',
 	height: '290dp'
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneFive]": {
 	left: '10dp',
-	top:'19dp',
+	top:'24dp',
 	color: "#CBCBCB"
 },
 ".font-style[if=Alloy.Globals.iPhoneFive]": {
