@@ -1,7 +1,7 @@
 //DEFAULT
 "#paymentView":{
 	layout: 'vertical',
-	backgroundColor: '#FDFDFD'
+	backgroundColor: '#FAFAFA'
 },
 "#viewAddVenmo": {
 	backgroundColor: '#3D95CE',
@@ -20,7 +20,7 @@
 	height: '40dp',
 	layout:'horizontal',
 	borderWidth: "1dp",
-	borderColor: "#EAEAEA",
+	borderColor: "#E5E5E5",
 },
 ".row-icon":{
 	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
@@ -33,7 +33,7 @@
 	top:"0dp",
 	left:"15dp",
 	width: Titanium.UI.FILL,
-	backgroundColor:"#EAEAEA"
+	backgroundColor:"#E5E5E5"
 },
 ".topPadding": {
 	top: "5dp"
@@ -82,13 +82,13 @@
 "#paymentTopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneFour]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#paymentButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
@@ -121,7 +121,7 @@
 	height: Ti.UI.SIZE,
 	width: '90%',
 	borderWidth: "2dp",
-	borderColor: "#EAEAEA",
+	borderColor: "#E5E5E5",
 	borderRadius: "2"
 },
 "#separatorLabel[if=Alloy.Globals.iPhoneFour]": {
@@ -167,13 +167,13 @@
 "#paymentTopBar[if=Alloy.Globals.iPhoneFive]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneFive]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#paymentButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
@@ -206,7 +206,7 @@
 	height: Ti.UI.SIZE,
 	width: '90%',
 	borderWidth: "2dp",
-	borderColor: "#EAEAEA",
+	borderColor: "#E5E5E5",
 	borderRadius: "2"
 },
 "#separatorLabel[if=Alloy.Globals.iPhoneFive]": {
@@ -246,13 +246,13 @@
 "#paymentTopBar[if=Alloy.Globals.iPhoneSix]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneSix]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#paymentButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
@@ -285,7 +285,7 @@
 	height: Ti.UI.SIZE,
 	width: '90%',
 	borderWidth: "2dp",
-	borderColor: "#EAEAEA",
+	borderColor: "#E5E5E5",
 	borderRadius: "2"
 },
 "#separatorLabel[if=Alloy.Globals.iPhoneSix]": {
@@ -328,13 +328,13 @@
 "#paymentTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#paymentButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
@@ -367,7 +367,7 @@
 	height: Ti.UI.SIZE,
 	width: '90%',
 	borderWidth: "2dp",
-	borderColor: "#EAEAEA",
+	borderColor: "#E5E5E5",
 	borderRadius: "2"
 },
 "#separatorLabel[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -410,13 +410,13 @@
 "#paymentTopBar[if=Alloy.Globals.android]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.android]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#paymentButtonIcon[if=Alloy.Globals.android]": {
 	font: {
@@ -449,7 +449,7 @@
 	height: Ti.UI.SIZE,
 	width: '90%',
 	borderWidth: "2dp",
-	borderColor: "#EAEAEA",
+	borderColor: "#E5E5E5",
 	borderRadius: "2"
 },
 "#separatorLabel[if=Alloy.Globals.android]": {
