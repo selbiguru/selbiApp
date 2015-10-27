@@ -200,7 +200,37 @@
         },
 	color: "#1BA7CD"
 },
-
+"#contactUsInfoView[if=Alloy.Globals.iPhoneSix]": {
+	layout: 'vertical',
+	width: '92%',
+	top: '30dp'
+},
+"#emailTitle[if=Alloy.Globals.iPhoneSix]": {
+	borderWidth: '2dp', 
+	borderColor: '#E5E5E5',
+	backgroundColor: "#FFF",
+	width: Titanium.UI.FILL,
+	height: '40dp',
+	hintText: "Email Subject"
+},
+"#emailBody[if=Alloy.Globals.iPhoneSix]": {
+	borderWidth: '2dp', 
+	borderColor: '#E5E5E5',
+	width: Titanium.UI.FILL,
+	top: '20dp',
+	height: '345dp'
+},
+"#hintTextLabel[if=Alloy.Globals.iPhoneSix]": {
+	left: '10dp',
+	top:'27dp',
+	color: "#CBCBCB"
+},
+".font-style[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
 
 
 
@@ -324,4 +354,35 @@
             fontSize: "20dp"
         },
 	color: "#1BA7CD"
-}
+},
+"#contactUsInfoView[if=Alloy.Globals.android]": {
+	layout: 'vertical',
+	width: '92%',
+	top: '30dp'
+},
+"#emailTitle[if=Alloy.Globals.android]": {
+	borderWidth: '2dp', 
+	borderColor: '#E5E5E5',
+	backgroundColor: "#FFF",
+	width: Titanium.UI.FILL,
+	height: '40dp',
+	hintText: "Email Subject"
+},
+"#emailBody[if=Alloy.Globals.android]": {
+	borderWidth: '2dp', 
+	borderColor: '#E5E5E5',
+	width: Titanium.UI.FILL,
+	top: '20dp',
+	height: '345dp'
+},
+"#hintTextLabel[if=Alloy.Globals.android]": {
+	left: '10dp',
+	top:'27dp',
+	color: "#CBCBCB"
+},
+".font-style[if=Alloy.Globals.android]": {
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	}
+},
