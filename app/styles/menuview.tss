@@ -219,25 +219,23 @@
 	width:"67%"
 },
 ".rowContainer[if=Alloy.Globals.iPhoneSix]":{
-	height: '40dp',
+	height: '45dp',
 	layout:'horizontal'
 },
 ".rowLabel[if=Alloy.Globals.iPhoneSix]":{
-	top: "7dp",
+	top: '3dp',
 	left: "15dp",
 	height: "40dp",
 	font:{
 		fontSize: "18dp",
     	fontFamily: 'Nunito-Light'
 	},
-	color: "#545555",
-	borderColor: 'red'
+	color: "#545555"
 },
 ".row-icon[if=Alloy.Globals.iPhoneSix]": {
 	width: '25dp',
 	color: "#1BA7CD",
-	left: "35dp",
-	borderColor: 'yellow'
+	left: "45dp"
 },
 ".menuTable[if=Alloy.Globals.iPhoneSix]":{
 	separatorStyle:'NONE',
@@ -255,15 +253,15 @@
 	scrollable: false
 },
 "#menuSeparator[if=Alloy.Globals.iPhoneSix]": {
-	top: "170dp",
+	top: "140dp",
 	bottom: "13dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneSix]":{
-	height: '40dp'
+	height: '45dp'
 },
 "#row0[if=Alloy.Globals.iPhoneSix]":{
 	layout: 'vertical',
-	height:"100dp"
+	height:"110dp"
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneSix]":{
 	height:"65dp",
@@ -277,7 +275,6 @@
 },
 "#userName[if=Alloy.Globals.iPhoneSix]": {
 	color: "#545555",
-	top:"75dp",
 	font: {
 		fontSize: "20dp",
 		fontFamily: 'Nunito-Light'
