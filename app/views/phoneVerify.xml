@@ -12,7 +12,7 @@
 			<Label id="verifyHeader">Enter Code Below!</Label>
 			<Label id="verifyBody">We've sent you a text!  Just enter the 4 digit code below and take full advantage of Selbi!'</Label>
 		</View>
-		<View id="phoneVerify">
+		<View id="phoneVerifyNumber">
 			<TextField id="firstNumber" maxLength='1' class="verify-code"></TextField>
 			<TextField id="secondNumber" maxLength='1' class="verify-code"></TextField>
 			<TextField id="thirdNumber" maxLength='1' class="verify-code"></TextField>

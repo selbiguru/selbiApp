@@ -18,8 +18,8 @@ function resendCode(){
 };
 
 
-$.phoneVerify.addEventListener('change', function(e){
-	var children = $.phoneVerify.children;
+$.phoneVerifyNumber.addEventListener('change', function(e){
+	var children = $.phoneVerifyNumber.children;
 	for(var i = 0 ; i < children.length; i++){
 		var child = children[i],
 			nextChild = children[i+1];

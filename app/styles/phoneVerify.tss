@@ -46,7 +46,7 @@
 	color: "#1BA7CD",
 	top: '10dp'
 },
-"#phoneVerify":{
+"#phoneVerifyNumber":{
 	height: Ti.UI.SIZE,
 	layout: 'horizontal',
 	top: '15dp',
