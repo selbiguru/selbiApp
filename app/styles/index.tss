@@ -110,7 +110,7 @@
 	top: "90dp"
 },
 "#learnMoreLabel[if=Alloy.Globals.iPhoneSix]": {
-	top: '290dp'
+	top: '280dp'
 },
 ".splash-logo-text[if=Alloy.Globals.iPhoneSix]":{
 	font: {
@@ -131,7 +131,7 @@
 	}	
 },
 ".splash-signup-btn[if=Alloy.Globals.iPhoneSix]": {
-	height: '40dp',
+	height: '50dp',
 	top: '25dp',
 	font: {
 		fontSize:'18dp',

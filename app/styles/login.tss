@@ -146,7 +146,7 @@
 "TextField[if=Alloy.Globals.iPhoneSix]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '17dp',
+		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -181,7 +181,7 @@
 	width:Ti.UI.FILL
 },
 ".primary-btn[if=Alloy.Globals.iPhoneSix]": {
-	height: '40dp',
+	height: '50dp',
 	top: '25dp',
 	font: {
 		fontSize: '18dp',
