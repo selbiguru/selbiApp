@@ -37,6 +37,14 @@
 
 
 
+
+
+
+
+
+
+
+
 //iPhone 4
 "#settingsTopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,
@@ -130,6 +138,13 @@
 
 
 
+
+
+
+
+
+
+
 //iPhone 6
 "#settingsTopBar[if=Alloy.Globals.iPhoneSix]":{
 	width: Ti.UI.FILL,
@@ -162,12 +177,19 @@
 },
 ".rowLabel[if=Alloy.Globals.iPhoneSix]":{
 	left: "15dp",
-	height: "40dp",
+	height: '45dp',
 	font:{
 		fontSize: "18dp",
     	fontFamily: 'Nunito-Light'
 	}
 },
+
+
+
+
+
+
+
 
 
 
@@ -216,6 +238,13 @@
 
 
 
+
+
+
+
+
+
+
 //android -(currently same as iPhone 6)
 "#settingsTopBar[if=Alloy.Globals.android]":{
 	width: Ti.UI.FILL,
@@ -248,7 +277,7 @@
 },
 ".rowLabel[if=Alloy.Globals.android]":{
 	left: "15dp",
-	height: "40dp",
+	height: '45dp',
 	font:{
 		fontSize: "18dp",
     	fontFamily: 'Nunito-Light'

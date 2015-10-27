@@ -143,13 +143,13 @@ function createPreviewButtons() {
 	        buttonHeight = '40dp';
 	        break;
 	    case 2: //iphoneSix
-	        buttonHeight = '0dp';
+	        buttonHeight = '50dp';
 	        break;
 	    case 3: //iphoneSixPlus
 	        buttonHeight = '50dp';
 	        break;
 	    case 4: //android currently same as iphoneSix
-	        buttonHeight = '0dp';
+	        buttonHeight = '50dp';
 	        break;
 	};
 
@@ -214,13 +214,13 @@ function createPurchasingButtons() {
 	        buttonHeight = '40dp';
 	        break;
 	    case 2: //iphoneSix
-	        buttonHeight = '0dp';
+	        buttonHeight = '50dp';
 	        break;
 	    case 3: //iphoneSixPlus
 	        buttonHeight = '50dp';
 	        break;
 	    case 4: //android currently same as iphoneSix
-	        buttonHeight = '0dp';
+	        buttonHeight = '50dp';
 	        break;
 	};
 	
