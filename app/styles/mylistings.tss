@@ -1,5 +1,57 @@
 //DEFAULT
-"#listingView":{
+"#gridView": {
+	height: "0",
+	layout: "horizontal"
+},
+
+//iPhone 4
+"#listingsView[if=Alloy.Globals.iPhoneFour]":{
 	layout: 'vertical',
-	backgroundColor: '#cacaca'
-}
+	backgroundColor: '#FAFAFA',
+	top: '53dp'
+},
+
+
+
+
+
+//iPhone 5
+"#listingsView[if=Alloy.Globals.iPhoneFive]":{
+	layout: 'vertical',
+	backgroundColor: '#FAFAFA',
+	top: '53dp'
+},
+
+
+
+
+
+//iPhone 6
+"#listingsView[if=Alloy.Globals.iPhoneSix]":{
+	layout: 'vertical',
+	backgroundColor: '#FAFAFA',
+	top: '50dp'
+},
+
+
+
+
+
+//iPhone 6 Plus
+"#listingsView[if=Alloy.Globals.iPhoneSixPlus]":{
+	layout: 'vertical',
+	backgroundColor: '#FAFAFA',
+	top: '47dp'
+},
+
+
+
+
+
+
+//android -(currently same as iPhone 6)
+"#listingsView[if=Alloy.Globals.android]":{
+	layout: 'vertical',
+	backgroundColor: '#FAFAFA',
+	top: '50dp'
+},

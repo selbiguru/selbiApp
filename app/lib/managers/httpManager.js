@@ -42,11 +42,11 @@ exports.execute = function(relativePath, method, objectToSend, isAuth, callback)
     }
 
 	var objectJSON = objectToSend ? JSON.stringify(objectToSend) : {};
-    Ti.API.info('Params' + objectJSON);
+   // Ti.API.info('Params' + objectJSON);
     xhr.send(objectJSON);
 
     xhr.onload = function() {
-        Ti.API.info('RAW =' + this.responseText);
+       // Ti.API.info('RAW =' + this.responseText);
         if (this.status == 200 || this.status == 201) {
             Ti.API.info('got my response, http status code ' + this.status);
             if (this.readyState == 4) {

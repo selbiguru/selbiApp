@@ -1,0 +1,12 @@
+<Alloy>
+	 <View id="listingItem">
+        <ImageView bindId="listingThumb" id="listingThumb" image="http://www.lorempixel.com/700/600/" class="listing-thumb" />
+        <View id="listingDetailsView">
+		    <Label bindId="listingTitle" id="listingTitle" class="listing-title">Product Title</Label>
+		    <View id="priceImageView">
+			    <Label bindId="listingPrice" id="listingPrice" class="listing-price">$XX.XX</Label>
+			    <Label bindId="listingImages" id="listingImages" class="listing-images">1 Image</Label>
+			</View>
+	    </View> 
+    </View>
+</Alloy>

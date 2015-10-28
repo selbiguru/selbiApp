@@ -41,12 +41,12 @@ var viewList = {
 	"row1": 'createlisting',
 	"row2": 'invitefriends',
 	"row3": 'notifications',
-	"row4": 'mylistings',
+	"row4": 'tabgroup',
 	"row5": 'contacts',
 	"row6": 'settings'
 };
 
-var hasWindow = ['mylistings'];
+var hasWindow = ['tabgroup'];
 
 var controllerList = {};
 

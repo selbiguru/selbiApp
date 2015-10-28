@@ -1,8 +1,0 @@
-<Alloy>
-	<View id="listingsView">
-		<View id="gridView" height="0" layout="horizontal" backgroundColor="#333">
-			
-		</View>
-		<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
-    </View>
-</Alloy>

@@ -1,3 +1,8 @@
 <Alloy>
-	<!-- <Require type="widget" src="com.tmjam.tabsui" id="Tabs" /> -->
+	<View id="listingsView">
+		<View id="gridView">
+			
+		</View>
+		<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
+    </View>
 </Alloy>

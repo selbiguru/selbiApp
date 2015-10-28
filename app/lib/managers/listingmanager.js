@@ -67,7 +67,7 @@ exports.createListing = function(listingData, cb){
 	console.log("this is the object we are sending through..maybe errors here? ", listingRequest);
 	httpManager.execute('/listing', 'POST', listingRequest, true, function(err, createListingResult){
 		console.log("WHY IS THIS AN ERR ", err);
-		console.log("success one time ", createListingResult);
+		//console.log("success one time ", createListingResult);
 		if(err) {
 			var a = Titanium.UI.createAlertDialog({
                 title : 'Listing'

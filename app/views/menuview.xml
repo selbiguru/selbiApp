@@ -38,8 +38,8 @@
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="row4">
 				<View class="rowContainer">
-					<Label icon="fa-users" class="rowLabel row-icon" id="menuMyListingsIcon"></Label>
-					<Label id="myListingsLabel" class="rowLabel">Listings</Label>
+					<Label icon="fa-users" class="rowLabel row-icon" id="menuListingsIcon"></Label>
+					<Label id="listingsLabel" class="rowLabel">Listings</Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>

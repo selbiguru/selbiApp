@@ -40,12 +40,12 @@ exports.getCustomView = function(viewName, model){
 exports.createWindow = function(options, instance) {
 	var win = Ti.UI.createWindow(options);		
 	var headerView = Alloy.createController('header', options);
-	headerView.windowMenuButton.addEventListener('click', function(){
+	headerView.menuButton.addEventListener('click', function(){
 		Ti.API.info("window button click",instance);
 		if(instance)
 			instance.close({transition:Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
 		
-		headerView.windowMenuButton.removeEventListener('click',arguments.callee);
+		headerView.menuButton.removeEventListener('click',arguments.callee);
 		
 	});
 	win.add(headerView.getView());
