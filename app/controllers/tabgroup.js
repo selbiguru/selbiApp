@@ -15,7 +15,7 @@ var controls = require('controls');
  All Listings tab.
  */
 var allListingsWindow = controls.createWindow({ title: 'Selbi USA', backgroundColor: '#FAFAFA', navBarHidden:true  }, tabGroup);
-allListingsWindow.add(controls.getCustomView('mylistings').getView());
+allListingsWindow.add(controls.getCustomView('listings', 'selbiUSA').getView());
 var allListingsTab = Ti.UI.createTab({
 	title: 'Selbi USA',
 	backgroundColor: '#FAFAFA',
@@ -29,12 +29,12 @@ tabGroup.addTab(allListingsTab);
 /*
  Friends Listing tab.
  */
-var friendsListingsWindow  = controls.createWindow({ title: 'Friends', backgroundColor: '#FAFAFA', navBarHidden:true }, tabGroup);
-var friendsListingView = controls.getCustomView('mylistings');
+var friendsListingsWindow  = controls.createWindow({ title: 'My Friends', backgroundColor: '#FAFAFA', navBarHidden:true }, tabGroup);
+var friendsListingView = controls.getCustomView('listings', 'friends');
 friendsListingsWindow.add(friendsListingView.getView());
 
 tabGroup.addTab(Ti.UI.createTab({
-	title: 'Friends',
+	title: 'My Friends',
     icon: Ti.UI.iPhone.SystemIcon.DOWNLOADS,
     backgroundColor: 'FAFAFA',
     window: friendsListingsWindow
@@ -45,7 +45,7 @@ tabGroup.addTab(Ti.UI.createTab({
  My Listings tab.
  */
 var tabGroupWindow  = controls.createWindow({ title: 'My Listings', backgroundColor: '#FAFAFA' , navBarHidden:true}, tabGroup);
-tabGroupWindow.add(controls.getCustomView('mylistings').getView());
+tabGroupWindow.add(controls.getCustomView('listings', 'mylistings').getView());
 tabGroup.addTab(Ti.UI.createTab({
 	title: 'My Listings',
 	backgroundColor: '#FAFAFA',

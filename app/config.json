@@ -9,8 +9,9 @@
         },
         "imageSize": {
             "menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
-            "listingView": "h_300,fl_progressive/",
+            "listingView": "h_450,w_450,fl_progressive/",
             "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+            "friendlistView": "w_450,c_fill,fl_progressive/",
             "intro": [
                 "w_380/v1433472934/intro_1",
                 "w_380/v1433472934/intro_2",

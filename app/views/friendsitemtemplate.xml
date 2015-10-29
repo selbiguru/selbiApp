@@ -1,0 +1,12 @@
+<Alloy>
+	 <View id="friendsListingItem" borderColor="#e5e5e5">
+	 	 <View id="friendsListingDetailsView">
+		    <ImageView bindId="friendsImageThumb" id="friendsImageThumb" image="http://www.lorempixel.com/700/600/" class="friends-image-thumb" />
+		    <View id="nameNumberView">
+			    <Label bindId="friendsListingName" id="friendsListingName" class="friends-listing-name">$XX.XX</Label>
+			    <Label bindId="friendsListingNumber" id="friendsListingNumber" class="friends-listing-number">1 Image</Label>
+			</View>
+	    </View> 
+        <ImageView bindId="friendsListingThumb" id="friendsListingThumb" image="http://www.lorempixel.com/700/600/" class="listing-thumb" />
+    </View>
+</Alloy>

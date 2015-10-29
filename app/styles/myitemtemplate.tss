@@ -1,3 +1,17 @@
+//Default
+
+
+
+
+
+
+
+
+
+
+
+
+
 //iPhone 4
 "#listingItem[if=Alloy.Globals.iPhoneFour]": {
 	layout: "vertical",
@@ -35,7 +49,7 @@
 		fontFamily: 'Nunito-Light'
 	}	
 },
-".listing-images[if=Alloy.Globals.iPhoneFour]": {
+".listing-images-count[if=Alloy.Globals.iPhoneFour]": {
 	right: '5dp',
 	top: '4dp',
 	color: '#9B9B9B',
@@ -93,7 +107,7 @@
 		fontFamily: 'Nunito-Light'
 	}	
 },
-".listing-images[if=Alloy.Globals.iPhoneFive]": {
+".listing-images-count[if=Alloy.Globals.iPhoneFive]": {
 	right: '5dp',
 	top: '4dp',
 	color: '#9B9B9B',
@@ -150,7 +164,7 @@
 		fontFamily: 'Nunito-Light'
 	}	
 },
-".listing-images[if=Alloy.Globals.iPhoneSix]": {
+".listing-images-count[if=Alloy.Globals.iPhoneSix]": {
 	right: '7dp',
 	top: '3dp',
 	color: '#9B9B9B',
@@ -206,7 +220,7 @@
 		fontFamily: 'Nunito-Light'
 	}	
 },
-".listing-images[if=Alloy.Globals.iPhoneSixPlus]": {
+".listing-images-count[if=Alloy.Globals.iPhoneSixPlus]": {
 	right: '7dp',
 	top: '3dp',
 	color: '#9B9B9B',
@@ -265,7 +279,7 @@
 		fontFamily: 'Nunito-Light'
 	}	
 },
-".listing-images[if=Alloy.Globals.android]": {
+".listing-images-count[if=Alloy.Globals.android]": {
 	right: '7dp',
 	top: '3dp',
 	color: '#9B9B9B',

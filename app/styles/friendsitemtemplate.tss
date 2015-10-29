@@ -1,0 +1,281 @@
+//Default
+
+
+
+
+
+
+
+
+
+
+
+
+//iPhone 4
+"#friendsListingItem[if=Alloy.Globals.iPhoneFour]": {
+	layout: "vertical",
+	height: Ti.UI.FILL,
+	borderWidth: '1dp',
+	borderColor: '#E5E5E5'
+},
+"#friendsListingThumb[if=Alloy.Globals.iPhoneFour]": {
+	top: "5dp",
+	width: Ti.UI.FILL,
+	height: '195dp'
+},
+"#friendsListingDetailsView[if=Alloy.Globals.iPhoneFour]": {
+	layout:"horizontal",
+	height: Ti.UI.SIZE
+},
+"#nameNumberView[if=Alloy.Globals.iPhoneFour]": {
+	layout: 'vertical',
+	height: '50dp',
+	width: Ti.UI.FILL
+},
+".friends-image-thumb[if=Alloy.Globals.iPhoneFour]": {
+	left: '5dp',
+	top: '5dp',
+	height: "50dp",
+	borderRadius: '25dp'
+},
+".friends-listing-name[if=Alloy.Globals.iPhoneFour]": {
+	right: '7dp',
+	top: '9dp',
+	color: '#9B9B9B',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+".friends-listing-number[if=Alloy.Globals.iPhoneFour]": {
+	right: '7dp',
+	color: '#9B9B9B',
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+
+
+
+
+
+
+
+
+
+
+//iPhone 5
+"#friendsListingItem[if=Alloy.Globals.iPhoneFive]": {
+	layout: "vertical",
+	height: Ti.UI.FILL,
+	borderWidth: '1dp',
+	borderColor: '#E5E5E5'
+},
+"#friendsListingThumb[if=Alloy.Globals.iPhoneFive]": {
+	top: "5dp",
+	width: Ti.UI.FILL,
+	height: '195dp'
+},
+"#friendsListingDetailsView[if=Alloy.Globals.iPhoneFive]": {
+	layout:"horizontal",
+	height: Ti.UI.SIZE
+},
+"#nameNumberView[if=Alloy.Globals.iPhoneFive]": {
+	layout: 'vertical',
+	height: '50dp',
+	width: Ti.UI.FILL
+},
+".friends-image-thumb[if=Alloy.Globals.iPhoneFive]": {
+	left: '5dp',
+	top: '5dp',
+	height: "50dp",
+	borderRadius: '25dp'
+},
+".friends-listing-name[if=Alloy.Globals.iPhoneFive]": {
+	right: '7dp',
+	top: '8dp',
+	color: '#9B9B9B',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+".friends-listing-number[if=Alloy.Globals.iPhoneFive]": {
+	right: '7dp',
+	color: '#9B9B9B',
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+
+
+
+
+
+
+
+
+
+//iPhone 6
+"#friendsListingItem[if=Alloy.Globals.iPhoneSix]": {
+	layout: "vertical",
+	height: Ti.UI.SIZE,
+	borderWidth: '1dp',
+	borderColor: '#E5E5E5'
+},
+"#friendsListingThumb[if=Alloy.Globals.iPhoneSix]": {
+	top: "5dp",
+	width: Ti.UI.FILL,
+	height: '230dp',
+},
+"#friendsListingDetailsView[if=Alloy.Globals.iPhoneSix]": {
+	layout:"horizontal",
+	height: Ti.UI.SIZE
+},
+"#nameNumberView[if=Alloy.Globals.iPhoneSix]": {
+	layout: 'vertical',
+	height: '60dp',
+	width: Ti.UI.FILL
+},
+".friends-image-thumb[if=Alloy.Globals.iPhoneSix]": {
+	left: '10dp',
+	top: '5dp',
+	height: "60dp",
+	borderRadius: '30dp'
+},
+".friends-listing-name[if=Alloy.Globals.iPhoneSix]": {
+	right: '15dp',
+	top: '12dp',
+	color: '#9B9B9B',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+".friends-listing-number[if=Alloy.Globals.iPhoneSix]": {
+	right: '15dp',
+	color: '#9B9B9B',
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+
+
+
+
+
+
+
+
+//iPhone 6 Plus
+"#friendsListingItem[if=Alloy.Globals.iPhoneSixPlus]": {
+	layout: "vertical",
+	height: Ti.UI.FILL,
+	borderWidth: '1dp',
+	borderColor: '#E5E5E5'
+},
+"#friendsListingThumb[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: "5dp",
+	width: Ti.UI.FILL,
+	height: '260dp'
+},
+"#friendsListingDetailsView[if=Alloy.Globals.iPhoneSixPlus]": {
+	layout:"horizontal",
+	height: Ti.UI.SIZE
+},
+"#nameNumberView[if=Alloy.Globals.iPhoneSixPlus]": {
+	layout: 'vertical',
+	height: '70dp',
+	width: Ti.UI.FILL
+},
+".friends-image-thumb[if=Alloy.Globals.iPhoneSixPlus]": {
+	left: '10dp',
+	top: '5dp',
+	height: "70dp",
+	borderRadius: '35dp'
+},
+".friends-listing-name[if=Alloy.Globals.iPhoneSixPlus]": {
+	right: '15dp',
+	top: '14dp',
+	color: '#9B9B9B',
+	font: {
+		fontSize: '20dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+".friends-listing-number[if=Alloy.Globals.iPhoneSixPlus]": {
+	right: '15dp',
+	color: '#9B9B9B',
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+
+
+
+
+
+
+
+
+
+
+
+//android (Currently same as iPhone 6)
+"#friendsListingItem[if=Alloy.Globals.android]": {
+	layout: "vertical",
+	height: Ti.UI.FILL,
+	borderWidth: '1dp',
+	borderColor: '#E5E5E5'
+},
+"#friendsListingThumb[if=Alloy.Globals.android]": {
+	top: "5dp",
+	width: Ti.UI.FILL,
+	height: '230dp'
+},
+"#friendsListingDetailsView[if=Alloy.Globals.android]": {
+	layout:"horizontal",
+	height: Ti.UI.SIZE
+},
+"#nameNumberView[if=Alloy.Globals.android]": {
+	layout: 'vertical',
+	height: '60dp',
+	width: Ti.UI.FILL
+},
+".friends-image-thumb[if=Alloy.Globals.android]": {
+	left: '10dp',
+	top: '5dp',
+	height: "60dp",
+	borderRadius: '30dp'
+},
+".friends-listing-name[if=Alloy.Globals.android]": {
+	right: '15dp',
+	top: '12dp',
+	color: '#9B9B9B',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+".friends-listing-number[if=Alloy.Globals.android]": {
+	right: '15dp',
+	color: '#9B9B9B',
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
