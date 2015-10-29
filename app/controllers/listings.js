@@ -102,7 +102,7 @@ function genMyItems(cb){
 		        		image: imageUrl
 		        	},
 		        	'#listingTitle': {
-		        		text: helper.getListingTitle(userListings[listing].title, 14, true)
+		        		text: helper.alterTextFormat(userListings[listing].title, 14, true)
 		        	},
 		        	'#listingPrice':{ 
 		        		text: userListings[listing].price.formatMoney(2)	
@@ -174,7 +174,7 @@ function genFriendsItems(cb){
 		        		image: practiceImage
 		        	},
 		        	'#friendsListingName':{ 
-		        		text: helper.getListingTitle(Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName, 20, false)	
+		        		text: helper.alterTextFormat(Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName, 20, false)	
 	        		},
 	        		'#friendsListingNumber':{ 
 		        		text: userListings[listing].imageUrls.length > 1 ? "+" + userListings[listing].imageUrls.length + " Listings" : userListings[listing].imageUrls.length + " Listing"	
@@ -245,7 +245,7 @@ function genUSAItems(cb){
 		        		image: practiceImage
 		        	},
 		        	'#usaListingName':{ 
-		        		text: helper.getListingTitle(Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName, 12, false)
+		        		text: helper.alterTextFormat(Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName, 12, false)
 	        		},
 	        		'#usaListingNumber':{ 
 		        		text: userListings[listing].imageUrls.length > 1 ? "+" + userListings[listing].imageUrls.length + " Listings" : userListings[listing].imageUrls.length + " Listing"	

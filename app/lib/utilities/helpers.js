@@ -176,12 +176,19 @@ var validateZipCode = exports.validateZipCode = function zipCodeValidation(textF
 };
 
 
-exports.getListingTitle = function(title){
-	var trimmedTitle = title.trim();
-	if(trimmedTitle.length > 14) {
-		trimmedTitle = trimmedTitle.slice(0,14) + '...';	
+/**
+ * @method alterTextFormat
+ * Obtain the listing details for a given listing identifier
+ * @param {String} text Text you want altered
+ * @param {Number} length Maximum length of word to be followed by '..' to show word continues
+ * @param {Boolean} toUpperCase True or false if you want all letters in the word to be Uppercase
+ */
+exports.alterTextFormat = function(text, length, toUpperCase){
+	var trimmedTitle = text.trim();
+	if(trimmedTitle.length > length) {
+		trimmedTitle = trimmedTitle.slice(0, length) + '..';	
 	}
-	return trimmedTitle.toUpperCase();
+	return toUpperCase ? trimmedTitle.toUpperCase() : trimmedTitle;
 };
 
 //trims string by removing spaces
