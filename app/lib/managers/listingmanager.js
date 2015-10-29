@@ -62,6 +62,7 @@ exports.createListing = function(listingData, cb){
 		"isPrivate": listingData.privateListing,
 		"isPreview": false,
 		"isPublished": true,
+		"isSold": false,
 		"userId": Ti.App.Properties.getString('userId')
 	};
 	console.log("this is the object we are sending through..maybe errors here? ", listingRequest);
