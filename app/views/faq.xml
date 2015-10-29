@@ -9,8 +9,8 @@
 				<Label id="titleFAQLabel">FAQ</Label>
 			</View>
 		</View>
-		<View id="viewFAQ">					
-		</View>
+		<ScrollView id="viewFAQ">					
+		</ScrollView>
 		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>	
     </View>
 </Alloy>

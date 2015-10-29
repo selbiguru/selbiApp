@@ -16,6 +16,51 @@ var objectTest = {
 		text: "Question 3",
 		answer: "Aqua is not a thing"
 	},
+	ex4: {
+		id: 'answer4',
+		text: "Question 4 is this and that?",
+		answer: "Blue is skyline"
+	},
+	ex5: {
+		id: 'answer5',
+		text: "Question 5 is this and this how about a little of that?",
+		answer: "Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here "
+	},
+	ex6: {
+		id: 'answer6',
+		text: "Question 6",
+		answer: "Aqua is not a thing"
+	},
+	ex7: {
+		id: 'answer7',
+		text: "Question 7 is this and that?",
+		answer: "Blue is skyline"
+	},
+	ex8: {
+		id: 'answer8',
+		text: "Question 8 is this and this how about a little of that?",
+		answer: "Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here "
+	},
+	ex9: {
+		id: 'answer9',
+		text: "Question 9",
+		answer: "Aqua is not a thing"
+	},
+	ex10: {
+		id: 'answer10',
+		text: "Question 10 is this and that?",
+		answer: "Blue is skyline"
+	},
+	ex11: {
+		id: 'answer11',
+		text: "Question 11 is this and this how about a little of that?",
+		answer: "Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here "
+	},
+	ex12: {
+		id: 'answer12',
+		text: "Question 12",
+		answer: "Aqua is not a thing"
+	},
 };
 var dataArray = [];
 
@@ -23,25 +68,21 @@ var dataArray = [];
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
 
 for (var i in objectTest) {
-	/*var viewing = $.UI.create('View', {
-		classes: ["view-question-icon"],
-		id: i
-	});*/
 	switch(Alloy.Globals.userDevice) {
 	    case 0:
 	        faqFontSize = 14;
 	        break;
 	    case 1:
-	        faqFontSize = 15;
+	        faqFontSize = 16;
 	        break;
 	    case 2:
-	        faqFontSize = 16;
-	        break;
-	    case 3:
 	        faqFontSize = 18;
 	        break;
+	    case 3:
+	        faqFontSize = 20;
+	        break;
 	    case 4: //android currently same as iphoneSix
-	        faqFontSize = 16;
+	        faqFontSize = 18;
 	        break;
 	};
 	var viewing = Titanium.UI.createView({
@@ -57,7 +98,7 @@ for (var i in objectTest) {
 		},
 		color: "#1BA7CD"
 	});
-	var label = Titanium.UI.createLabel({
+	var questionLabel = Titanium.UI.createLabel({
         font:{
 			fontSize: faqFontSize,
 	    	fontFamily: 'Nunito-Bold'
@@ -67,7 +108,7 @@ for (var i in objectTest) {
         text: objectTest[i].text,
         id: objectTest[i].id
 	});
-	var label2 = Titanium.UI.createLabel({
+	var answerlabel = Titanium.UI.createLabel({
         font:{
 			fontSize: faqFontSize,
 	    	fontFamily: 'Nunito-Light'
@@ -81,9 +122,9 @@ for (var i in objectTest) {
 	});
 	$.fa.add(icon,'fa-plus-circle');
 	viewing.add(icon);
-	viewing.add(label);
+	viewing.add(questionLabel);
 	dataArray.push(viewing);
-	dataArray.push(label2);
+	dataArray.push(answerlabel);
 }
 
 $.viewFAQ.add(dataArray);

@@ -1,35 +1,7 @@
 //DEFAULT
 "#faqView":{
 	layout: 'vertical',
-	backgroundColor: '#FDFDFD'
-},
-".tableRow":{
-	height: '40dp'
-},
-".rowContainer":{
-	height: '40dp',
-	layout:'horizontal'
-},
-".rowLabel":{
-	left: "15dp",
-	height: "40dp",
-	font:{
-		fontSize: "16dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	color: "#545555"
-},
-".row-icon":{
-	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
-	right: "5dp",
-	width: Titanium.UI.FILL,
-	color: "#1BA7CD"
-},
-".menu-underline": {
-	height: "1dp",
-	top:"0dp",
-	width: Titanium.UI.FILL,
-	backgroundColor:"#EAEAEA"
+	backgroundColor: '#FAFAFA'
 },
 "#viewFAQ": {
 	layout: 'vertical',
@@ -42,13 +14,13 @@
 "#faqTopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneFour]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#faqButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
@@ -77,13 +49,13 @@
 "#faqTopBar[if=Alloy.Globals.iPhoneFive]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneFive]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#faqButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
@@ -111,13 +83,13 @@
 "#faqTopBar[if=Alloy.Globals.iPhoneSix]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneSix]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#faqButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
@@ -144,13 +116,13 @@
 "#faqTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#faqButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
@@ -179,13 +151,13 @@
 "#faqTopBar[if=Alloy.Globals.android]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.android]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#faqButtonIcon[if=Alloy.Globals.android]": {
 	font: {
