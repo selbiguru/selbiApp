@@ -3,7 +3,6 @@
         <View id="faqTopBar">
 			<View id="menuButton">
 				<Label icon="fa-arrow-left" id="faqButtonIcon"></Label>
-				
 			</View>
 			<View id="titleFAQView">
 				<Label id="titleFAQLabel">FAQ</Label>
