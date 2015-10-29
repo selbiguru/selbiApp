@@ -178,7 +178,7 @@ var validateZipCode = exports.validateZipCode = function zipCodeValidation(textF
 
 /**
  * @method alterTextFormat
- * Obtain the listing details for a given listing identifier
+ * Alters text to limit the number of characters shown.  Additional characters shown as '..'
  * @param {String} text Text you want altered
  * @param {Number} length Maximum length of word to be followed by '..' to show word continues
  * @param {Boolean} toUpperCase True or false if you want all letters in the word to be Uppercase
@@ -200,4 +200,14 @@ exports.trim = function(str, boolean) {
 	} else {
 		return str.replace(/^\s+|\s+$/g,"");	
 	}
+};
+
+
+/**
+ * @method capFirstLetter
+ * Capitalizes the first letter of a word
+ * @param {String} word Word you want capitalized
+ */
+exports.capFirstLetter = function(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
 };

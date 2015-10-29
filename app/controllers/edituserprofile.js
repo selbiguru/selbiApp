@@ -142,8 +142,8 @@ function updateUser(e){
 	// Todo: validation
 	var textFieldObject = {
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
-		"firstName": $.firstName.value,
-		"lastName": $.lastName.value,
+		"firstName": helpers.capFirstLetter($.firstName.value),
+		"lastName": helpers.capFirstLetter($.lastName.value)
 	};
 	/*var validateFields = helpers.validateFields(textFieldObject);
 	for (var i in textFieldObject) {
@@ -159,7 +159,12 @@ function updateUser(e){
 		//Todo send back error message
 	}*/
 	
-	userManager.userUpdate(textFieldObject, function(err, userUpdateResult){});	
+	userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
+		if(userUpdateResult) {
+			$.firstName.value = helpers.capFirstLetter($.firstName.value);
+			$.lastName.value = helpers.capFirstLetter($.lastName.value);
+		}
+	});	
 };
 
 
