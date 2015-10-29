@@ -56,7 +56,7 @@ if(tabView === 1) {
 		console.log("used 7");
 	});
 } else {
-	genMyItems(function(err, items){
+	genUSAItems(function(err, items){
 		console.log("used 8");
 	});
 }
@@ -102,7 +102,7 @@ function genMyItems(cb){
 		        		image: imageUrl
 		        	},
 		        	'#listingTitle': {
-		        		text: helper.getListingTitle(userListings[listing].title)
+		        		text: helper.getListingTitle(userListings[listing].title, 14, true)
 		        	},
 		        	'#listingPrice':{ 
 		        		text: userListings[listing].price.formatMoney(2)	
@@ -174,7 +174,7 @@ function genFriendsItems(cb){
 		        		image: practiceImage
 		        	},
 		        	'#friendsListingName':{ 
-		        		text: Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName	
+		        		text: helper.getListingTitle(Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName, 20, false)	
 	        		},
 	        		'#friendsListingNumber':{ 
 		        		text: userListings[listing].imageUrls.length > 1 ? "+" + userListings[listing].imageUrls.length + " Listings" : userListings[listing].imageUrls.length + " Listing"	
@@ -200,6 +200,79 @@ function genFriendsItems(cb){
 
 
 
+
+
+
+
+/**
+ * @method genUSAItems 
+ * Generates the view for friends using 'usaitemtemplates' as the defacto template.
+ * @param {Function} cb Callback function
+ */
+function genUSAItems(cb){
+	console.log("used 10");
+	listingManager.getUserListings(Ti.App.Properties.getString('userId'), function(err, userListings){
+		var listItems = [];		
+		if(userListings && userListings.length > 0) {
+			for(var listing in userListings) {
+				var view = Alloy.createController('usaitemtemplate');
+				var imageUrl = userListings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.mylistView + Alloy.CFG.cloudinary.bucket + userListings[listing].imageUrls[0] : "";
+				var practiceImage = userListings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + Alloy.Globals.currentUser.attributes.profileImage : "";
+				var tmp = {
+					image :  imageUrl,
+		            usaListingThumb : {
+		                image :  imageUrl
+		            },
+		            usaImageThumb : {
+		                image : practiceImage
+		            },
+		            usaListingName: {
+		            	text: Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName
+		            },
+		            usaListingNumber: {
+		            	text: userListings[listing].imageUrls.length > 1 ? "+" + userListings[listing].imageUrls.length + " Listings" : userListings[listing].imageUrls.length + " Listing"
+		            },  
+		            template: 'usaitemtemplate',
+		            properties: {
+		            	userId: userListings[listing].user
+		            }
+		        };
+		        view.updateViews({
+		        	'#usaListingThumb':{
+		        		image: imageUrl
+		        	},
+		        	'#usaImageThumb': {
+		        		image: practiceImage
+		        	},
+		        	'#usaListingName':{ 
+		        		text: helper.getListingTitle(Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName, 12, false)
+	        		},
+	        		'#usaListingNumber':{ 
+		        		text: userListings[listing].imageUrls.length > 1 ? "+" + userListings[listing].imageUrls.length + " Listings" : userListings[listing].imageUrls.length + " Listing"	
+	        		}
+		        });
+		        
+		        lView = view.getView();
+				listItems.push(tmp);
+				items.push({
+			        view: lView,
+			        data: tmp
+			    });
+			    obj.push(lView);
+			}
+			
+			//ADD ALL THE ITEMS TO THE GRID
+			$.fg.addGridItems(items);
+			
+		}	
+		cb(err, listItems);	
+	});
+};
+
+
+
+
+
 /**
  * @method openListing 
  * Opens viewlisting view and shows the targeted item that was clicked on
@@ -222,11 +295,11 @@ function openListing(listingId){
 switch(Alloy.Globals.userDevice) {
     case 0: //iphoneFour
         myListingPadding = 7;
-        myListingItemHeight = 44;
+        myListingItemHeight = 45;
         friendsPadding = 10;
         friendsItemHeight = -45;
         selbiUSAPadding = 7;
-        selbiUSAItemHeight = 44;
+        selbiUSAItemHeight = 45;
         break;
     case 1: //iphoneFive
         myListingPadding = 7;
@@ -238,11 +311,11 @@ switch(Alloy.Globals.userDevice) {
         break;
     case 2: //iphoneSix
         myListingPadding = 10;
-        myListingItemHeight = 47;
+        myListingItemHeight = 49;
         friendsPadding = 10;
         friendsItemHeight = -50;
         selbiUSAPadding = 10;
-        selbiUSAItemHeight = 47;
+        selbiUSAItemHeight = 49;
         break;
     case 3: //iphoneSixPlus
         myListingPadding = 13;
@@ -250,7 +323,7 @@ switch(Alloy.Globals.userDevice) {
         friendsPadding = 13;
         friendsItemHeight = -49;
         selbiUSAPadding = 13;
-        selbiUSAItemHeight = 49;
+        selbiUSAItemHeight = 54;
         break;
     case 4: //android currently same as iphoneSix
         myListingPadding = 10;

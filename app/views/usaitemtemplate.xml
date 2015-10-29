@@ -1,0 +1,12 @@
+<Alloy>
+	 <View id="usaListingItem" borderColor="#e5e5e5">
+	 	 <View id="usaListingDetailsView">
+		    <ImageView bindId="usaImageThumb" id="usaImageThumb" image="http://www.lorempixel.com/700/600/" class="usa-image-thumb" />
+		    <View id="nameNumberView">
+			    <Label bindId="usaListingName" id="usaListingName" class="usa-listing-name">$XX.XX</Label>
+			    <Label bindId="usaListingNumber" id="usaListingNumber" class="usa-listing-number">1 Image</Label>
+			</View>
+	    </View> 
+        <ImageView bindId="usaListingThumb" id="usaListingThumb" image="http://www.lorempixel.com/700/600/" class="listing-thumb" />
+    </View>
+</Alloy>

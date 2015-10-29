@@ -14,7 +14,7 @@
 //iPhone 4
 "#friendsListingItem[if=Alloy.Globals.iPhoneFour]": {
 	layout: "vertical",
-	height: Ti.UI.FILL,
+	height: Ti.UI.SIZE,
 	borderWidth: '1dp',
 	borderColor: '#E5E5E5'
 },
@@ -70,7 +70,7 @@
 //iPhone 5
 "#friendsListingItem[if=Alloy.Globals.iPhoneFive]": {
 	layout: "vertical",
-	height: Ti.UI.FILL,
+	height: Ti.UI.SIZE,
 	borderWidth: '1dp',
 	borderColor: '#E5E5E5'
 },
@@ -179,7 +179,7 @@
 //iPhone 6 Plus
 "#friendsListingItem[if=Alloy.Globals.iPhoneSixPlus]": {
 	layout: "vertical",
-	height: Ti.UI.FILL,
+	height: Ti.UI.SIZE,
 	borderWidth: '1dp',
 	borderColor: '#E5E5E5'
 },
@@ -236,14 +236,14 @@
 //android (Currently same as iPhone 6)
 "#friendsListingItem[if=Alloy.Globals.android]": {
 	layout: "vertical",
-	height: Ti.UI.FILL,
+	height: Ti.UI.SIZE,
 	borderWidth: '1dp',
 	borderColor: '#E5E5E5'
 },
 "#friendsListingThumb[if=Alloy.Globals.android]": {
 	top: "5dp",
 	width: Ti.UI.FILL,
-	height: '230dp'
+	height: '230dp',
 },
 "#friendsListingDetailsView[if=Alloy.Globals.android]": {
 	layout:"horizontal",

@@ -1,0 +1,281 @@
+//Default
+
+
+
+
+
+
+
+
+
+
+
+
+//iPhone 4
+"#usaListingItem[if=Alloy.Globals.iPhoneFour]": {
+	layout: "vertical",
+	height: Ti.UI.SIZE,
+	borderWidth: '1dp',
+	borderColor: '#E5E5E5'
+},
+"#usaListingThumb[if=Alloy.Globals.iPhoneFour]": {
+	top: "1dp",
+	width: Ti.UI.FILL,
+	height: '150dp'
+},
+"#usaListingDetailsView[if=Alloy.Globals.iPhoneFour]": {
+	layout:"horizontal",
+	height: Ti.UI.SIZE
+},
+"#nameNumberView[if=Alloy.Globals.iPhoneFour]": {
+	layout: 'vertical',
+	height: '41dp',
+	width: Ti.UI.FILL
+},
+".usa-image-thumb[if=Alloy.Globals.iPhoneFour]": {
+	left: '4dp',
+	top: '2dp',
+	height: "41dp",
+	borderRadius: '21dp'
+},
+".usa-listing-name[if=Alloy.Globals.iPhoneFour]": {
+	right: '4dp',
+	top: '5dp',
+	color: '#9B9B9B',
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+".usa-listing-number[if=Alloy.Globals.iPhoneFour]": {
+	right: '4dp',
+	color: '#9B9B9B',
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+
+
+
+
+
+
+
+
+
+
+//iPhone 5
+"#usaListingItem[if=Alloy.Globals.iPhoneFive]": {
+	layout: "vertical",
+	height: Ti.UI.SIZE,
+	borderWidth: '1dp',
+	borderColor: '#E5E5E5'
+},
+"#usaListingThumb[if=Alloy.Globals.iPhoneFive]": {
+	top: "1dp",
+	width: Ti.UI.FILL,
+	height: '150dp'
+},
+"#usaListingDetailsView[if=Alloy.Globals.iPhoneFive]": {
+	layout:"horizontal",
+	height: Ti.UI.SIZE
+},
+"#nameNumberView[if=Alloy.Globals.iPhoneFive]": {
+	layout: 'vertical',
+	height: '41dp',
+	width: Ti.UI.FILL
+},
+".usa-image-thumb[if=Alloy.Globals.iPhoneFive]": {
+	left: '4dp',
+	top: '2dp',
+	height: "41dp",
+	borderRadius: '21dp'
+},
+".usa-listing-name[if=Alloy.Globals.iPhoneFive]": {
+	right: '4dp',
+	top: '5dp',
+	color: '#9B9B9B',
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+".usa-listing-number[if=Alloy.Globals.iPhoneFive]": {
+	right: '4dp',
+	color: '#9B9B9B',
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+
+
+
+
+
+
+
+
+
+//iPhone 6
+"#usaListingItem[if=Alloy.Globals.iPhoneSix]": {
+	layout: "vertical",
+	height: Ti.UI.SIZE,
+	borderWidth: '1dp',
+	borderColor: '#E5E5E5'
+},
+"#usaListingThumb[if=Alloy.Globals.iPhoneSix]": {
+	top: "1dp",
+	width: Ti.UI.FILL,
+	height: '172dp',
+},
+"#usaListingDetailsView[if=Alloy.Globals.iPhoneSix]": {
+	layout:"horizontal",
+	height: Ti.UI.SIZE
+},
+"#nameNumberView[if=Alloy.Globals.iPhoneSix]": {
+	layout: 'vertical',
+	height: '46dp',
+	width: Ti.UI.FILL
+},
+".usa-image-thumb[if=Alloy.Globals.iPhoneSix]": {
+	left: '5dp',
+	top: '2dp',
+	height: "46dp",
+	borderRadius: '23dp'
+},
+".usa-listing-name[if=Alloy.Globals.iPhoneSix]": {
+	right: '5dp',
+	top: '5dp',
+	color: '#9B9B9B',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+".usa-listing-number[if=Alloy.Globals.iPhoneSix]": {
+	right: '5dp',
+	color: '#9B9B9B',
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+
+
+
+
+
+
+
+
+//iPhone 6 Plus
+"#usaListingItem[if=Alloy.Globals.iPhoneSixPlus]": {
+	layout: "vertical",
+	height: Ti.UI.SIZE,
+	borderWidth: '1dp',
+	borderColor: '#E5E5E5'
+},
+"#usaListingThumb[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: '1dp',
+	width: Ti.UI.FILL,
+	height: '187dp'
+},
+"#usaListingDetailsView[if=Alloy.Globals.iPhoneSixPlus]": {
+	layout:"horizontal",
+	height: Ti.UI.SIZE
+},
+"#nameNumberView[if=Alloy.Globals.iPhoneSixPlus]": {
+	layout: 'vertical',
+	height: '50dp',
+	width: Ti.UI.FILL
+},
+".usa-image-thumb[if=Alloy.Globals.iPhoneSixPlus]": {
+	left: '4dp',
+	top: '2dp',
+	height: "50dp",
+	borderRadius: '25dp'
+},
+".usa-listing-name[if=Alloy.Globals.iPhoneSixPlus]": {
+	right: '4dp',
+	top: '4dp',
+	color: '#9B9B9B',
+	font: {
+		fontSize: '15dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+".usa-listing-number[if=Alloy.Globals.iPhoneSixPlus]": {
+	right: '4dp',
+	color: '#9B9B9B',
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	font: {
+		fontSize: '15dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+
+
+
+
+
+
+
+
+
+
+
+//android (Currently same as iPhone 6)
+"#usaListingItem[if=Alloy.Globals.android]": {
+	layout: "vertical",
+	height: Ti.UI.SIZE,
+	borderWidth: '1dp',
+	borderColor: '#E5E5E5'
+},
+"#usaListingThumb[if=Alloy.Globals.android]": {
+	top: "1dp",
+	width: Ti.UI.FILL,
+	height: '172dp',
+},
+"#usaListingDetailsView[if=Alloy.Globals.android]": {
+	layout:"horizontal",
+	height: Ti.UI.SIZE
+},
+"#nameNumberView[if=Alloy.Globals.android]": {
+	layout: 'vertical',
+	height: '46dp',
+	width: Ti.UI.FILL
+},
+".usa-image-thumb[if=Alloy.Globals.android]": {
+	left: '5dp',
+	top: '2dp',
+	height: "46dp",
+	borderRadius: '23dp'
+},
+".usa-listing-name[if=Alloy.Globals.android]": {
+	right: '5dp',
+	top: '5dp',
+	color: '#9B9B9B',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
+".usa-listing-number[if=Alloy.Globals.android]": {
+	right: '5dp',
+	color: '#9B9B9B',
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	}	
+},
