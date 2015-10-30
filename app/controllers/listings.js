@@ -144,39 +144,39 @@ function genFriendsItems(cb){
 		var listItems = [];		
 		if(userListings && userListings.length > 0) {
 			for(var listing in userListings) {
-				var view = Alloy.createController('friendsitemtemplate');
+				var view = Alloy.createController('userTwoColumnTemplate');
 				var imageUrl = userListings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + userListings[listing].imageUrls[0] : "";
 				var practiceImage = userListings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + Alloy.Globals.currentUser.attributes.profileImage : "";
 				var tmp = {
 					image :  imageUrl,
-		            friendsListingThumb : {
+		            usaListingThumb : {
 		                image :  imageUrl
 		            },
-		            friendsImageThumb : {
+		            usaImageThumb : {
 		                image : practiceImage
 		            },
-		            friendsListingName: {
+		            usaListingName: {
 		            	text: Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName
 		            },
-		            friendsListingNumber: {
+		            usaListingNumber: {
 		            	text: userListings[listing].imageUrls.length > 1 ? "+" + userListings[listing].imageUrls.length + " Listings" : userListings[listing].imageUrls.length + " Listing"
 		            },  
-		            template: 'friendsitemtemplate',
+		            template: 'userTwoColumnTemplate',
 		            properties: {
 		            	userId: userListings[listing].user
 		            }
 		        };
 		        view.updateViews({
-		        	'#friendsListingThumb':{
+		        	'#usaListingThumb':{
 		        		image: imageUrl
 		        	},
-		        	'#friendsImageThumb': {
+		        	'#usaImageThumb': {
 		        		image: practiceImage
 		        	},
-		        	'#friendsListingName':{ 
-		        		text: helper.alterTextFormat(Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName, 20, false)	
+		        	'#usaListingName':{ 
+		        		text: helper.alterTextFormat(Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName, 12, false)
 	        		},
-	        		'#friendsListingNumber':{ 
+	        		'#usaListingNumber':{ 
 		        		text: userListings[listing].imageUrls.length > 1 ? "+" + userListings[listing].imageUrls.length + " Listings" : userListings[listing].imageUrls.length + " Listing"	
 	        		}
 		        });
@@ -215,8 +215,8 @@ function genUSAItems(cb){
 		var listItems = [];		
 		if(userListings && userListings.length > 0) {
 			for(var listing in userListings) {
-				var view = Alloy.createController('usaitemtemplate');
-				var imageUrl = userListings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.mylistView + Alloy.CFG.cloudinary.bucket + userListings[listing].imageUrls[0] : "";
+				var view = Alloy.createController('userTwoColumnTemplate');
+				var imageUrl = userListings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + userListings[listing].imageUrls[0] : "";
 				var practiceImage = userListings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + Alloy.Globals.currentUser.attributes.profileImage : "";
 				var tmp = {
 					image :  imageUrl,
@@ -232,7 +232,7 @@ function genUSAItems(cb){
 		            usaListingNumber: {
 		            	text: userListings[listing].imageUrls.length > 1 ? "+" + userListings[listing].imageUrls.length + " Listings" : userListings[listing].imageUrls.length + " Listing"
 		            },  
-		            template: 'usaitemtemplate',
+		            template: 'userTwoColumnTemplate',
 		            properties: {
 		            	userId: userListings[listing].user
 		            }
@@ -296,46 +296,46 @@ switch(Alloy.Globals.userDevice) {
     case 0: //iphoneFour
         myListingPadding = 7;
         myListingItemHeight = 45;
-        friendsPadding = 10;
-        friendsItemHeight = -45;
+        friendsPadding = 7;//10; For 1 column layout
+        friendsItemHeight = 45;//-45; For 1 column layout
         selbiUSAPadding = 7;
         selbiUSAItemHeight = 45;
         break;
     case 1: //iphoneFive
         myListingPadding = 7;
         myListingItemHeight = 45;
-        friendsPadding = 10;
-        friendsItemHeight = -45;
+        friendsPadding = 7;//10; For 1 column layout
+        friendsItemHeight = 45;//-45; For 1 column layout
         selbiUSAPadding = 7;
         selbiUSAItemHeight = 45;
         break;
     case 2: //iphoneSix
         myListingPadding = 10;
         myListingItemHeight = 49;
-        friendsPadding = 10;
-        friendsItemHeight = -50;
+        friendsPadding = 10;//10; For 1 column layout
+        friendsItemHeight = 49;//-50; For 1 column layout
         selbiUSAPadding = 10;
         selbiUSAItemHeight = 49;
         break;
     case 3: //iphoneSixPlus
         myListingPadding = 13;
         myListingItemHeight = 49;
-        friendsPadding = 13;
-        friendsItemHeight = -49;
+        friendsPadding = 13;//13; For 1 column layout
+        friendsItemHeight = 54;//-49; For 1 column layout
         selbiUSAPadding = 13;
         selbiUSAItemHeight = 54;
         break;
     case 4: //android currently same as iphoneSix
         myListingPadding = 10;
         myListingItemHeight = 47;
-        friendsPadding = 10;
-        friendsItemHeight = -50;
+        friendsPadding = 10;//10; For 1 column layout
+        friendsItemHeight = 49;//-50; For 1 column layout
         selbiUSAPadding = 10;
         selbiUSAItemHeight = 47;
         break;
 };
 $.fg.init({
-    columns: tabView === 2 ? 1 : 2,
+    columns: tabView === 1 ? 2 : tabView === 2 ? 2 : 2,
     space: tabView === 1 ? myListingPadding : tabView === 2 ? friendsPadding : selbiUSAPadding,
     gridBackgroundColor:'#FAFAFA',
     itemHeightDelta: tabView === 1 ? myListingItemHeight : tabView === 2 ? friendsItemHeight : selbiUSAItemHeight,

@@ -14,7 +14,7 @@ var controls = require('controls');
 /*
  All Listings tab.
  */
-var allListingsWindow = controls.createWindow({ title: 'Selbi USA', backgroundColor: '#FAFAFA', navBarHidden:true  }, tabGroup);
+var allListingsWindow = controls.createWindow({ title: 'Selbi USA', backgroundColor: '#FAFAFA', navBarHidden:true }, tabGroup);
 allListingsWindow.add(controls.getCustomView('listings', 'selbiUSA').getView());
 var allListingsTab = Ti.UI.createTab({
 	title: 'Selbi USA',
@@ -22,8 +22,6 @@ var allListingsTab = Ti.UI.createTab({
     icon: Ti.UI.iPhone.SystemIcon.TOP_RATED,
     window: allListingsWindow
 });
-
-
 tabGroup.addTab(allListingsTab);
 
 /*
@@ -33,26 +31,49 @@ var friendsListingsWindow  = controls.createWindow({ title: 'My Friends', backgr
 var friendsListingView = controls.getCustomView('listings', 'friends');
 friendsListingsWindow.add(friendsListingView.getView());
 
-tabGroup.addTab(Ti.UI.createTab({
+var friendsListingsTab = Ti.UI.createTab({
 	title: 'My Friends',
     icon: Ti.UI.iPhone.SystemIcon.DOWNLOADS,
     backgroundColor: 'FAFAFA',
     window: friendsListingsWindow
-}));
-
+});
+tabGroup.addTab(friendsListingsTab);
 
 /*
  My Listings tab.
  */
-var tabGroupWindow  = controls.createWindow({ title: 'My Listings', backgroundColor: '#FAFAFA' , navBarHidden:true}, tabGroup);
-tabGroupWindow.add(controls.getCustomView('listings', 'mylistings').getView());
-tabGroup.addTab(Ti.UI.createTab({
+var myListingsWindow  = controls.createWindow({ title: 'My Listings', backgroundColor: '#FAFAFA' , navBarHidden:true }, tabGroup);
+myListingsWindow.add(controls.getCustomView('listings', 'mylistings').getView());
+var myListingsTab = Ti.UI.createTab({
 	title: 'My Listings',
 	backgroundColor: '#FAFAFA',
     icon: Ti.UI.iPhone.SystemIcon.RECENTS,
-    window: tabGroupWindow
-}));
+    window: myListingsWindow
+});
+tabGroup.addTab(myListingsTab);
+
+
+/*allListingsWindow.addEventListener('click', function(){
+	var myListingsWindow  = controls.createWindow({ title: 'My Listings', backgroundColor: '#FAFAFA' , navBarHidden:true}, tabGroup);
+	myListingsWindow.add(controls.getCustomView('listings', 'mylistings').getView());
+	allListingsTab.open(myListingsWindow);
+	myListingsWindow.addEventListener('blur', function(){
+		allListingsTab.close(myListingsWindow);
+	});
+	
+});
+friendsListingsWindow.addEventListener('click', function(e){
+	var myListingsWindow  = controls.createWindow({ title: 'My Listings', backgroundColor: '#FAFAFA' , navBarHidden:true}, tabGroup);
+	myListingsWindow.add(controls.getCustomView('listings', 'mylistings').getView());
+	friendsListingsTab.open(myListingsWindow);
+	console.log("more importantly what is 'e' ", e.source.data.properties.userId);
+	myListingsWindow.addEventListener('blur', function(){
+		friendsListingsTab.close(myListingsWindow);
+	});
+	
+});*/
 
 
 // Open Tab group
+tabGroup.setActiveTab(1);
 tabGroup.open({transition:Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT});
