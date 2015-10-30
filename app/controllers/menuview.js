@@ -4,10 +4,7 @@ var imageManager = require('managers/imagemanager');
 var userManager = require('managers/usermanager');
 
 imageManager.getMenuProfileImage(function(err, profileImage){
-	var profileImage = Ti.UI.createImageView({
-		image: profileImage
-	});	
-	$.menuUserImage.add(profileImage);	
+	$.menuUserImage.image = profileImage;	
 });
 
 userManager.getCurrentUser(function(err, currentUser){

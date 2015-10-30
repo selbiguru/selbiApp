@@ -6,8 +6,7 @@
 		<View class="menu-underline"/>
 		<TableView class="menuTable" id="menuTable">
 			<TableViewRow class="" id="row0">
-				<View id="menuUserImage">
-       			</View>
+				<ImageView id="menuUserImage" image="http://www.lorempixel.com/600/600/" />
        			<View id="menuUserName">
 					<Label id="userName" class="">Danny Boy</Label>
 				</View>
