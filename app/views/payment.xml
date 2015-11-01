@@ -1,5 +1,5 @@
 <Alloy>
-	<View id="paymentView">
+	<View borderColor="blue" id="paymentView">
 		<View id="paymentTopBar">
 			<View id="menuButton">
 				<Label icon="fa-arrow-left" id="paymentButtonIcon"></Label>			

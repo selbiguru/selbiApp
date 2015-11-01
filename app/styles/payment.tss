@@ -17,7 +17,7 @@
 	height: '40dp'
 },
 ".rowContainer":{
-	height: '40dp',
+	height: Ti.UI.SIZE,
 	layout:'horizontal',
 	borderWidth: "1dp",
 	borderColor: "#E5E5E5",
@@ -36,7 +36,7 @@
 	backgroundColor:"#E5E5E5"
 },
 ".topPadding": {
-	top: "5dp"
+	top: "7dp"
 },
 "#viewUserCard": {
 	layout: 'horizontal'
@@ -109,10 +109,10 @@
 	}
 },
 "#imageAddVenmo[if=Alloy.Globals.iPhoneFour]": {
-	height: '16dp',
+	height: '15dp',
 	width: '84dp',
-	left: '102dp',
-	top: '12dp'
+	left: '101dp',
+	top: '10dp'
 },
 ".payment-types[if=Alloy.Globals.iPhoneFour]":{
 	layout: 'vertical',
@@ -145,13 +145,18 @@
 },
 ".rowLabel[if=Alloy.Globals.iPhoneFour]":{
 	left: "15dp",
-	height: "40dp",
+	height: "35dp",
 	font:{
 		fontSize: "14dp",
     	fontFamily: 'Nunito-Light'
 	},
 	color: "#545555"
 },
+"#viewAddVenmo[if=Alloy.Globals.iPhoneFour]": {
+	height: '35dp'
+},
+
+
 
 
 
@@ -211,7 +216,7 @@
 },
 "#separatorLabel[if=Alloy.Globals.iPhoneFive]": {
 	font:{
-		fontSize: "15dp",
+		fontSize: "16dp",
     	fontFamily: 'Nunito-Bold'
 	},
 	color: "#545555"
@@ -221,7 +226,7 @@
 	top: "7dp",
 	left: "5dp",
 	font:{
-		fontSize: "15dp",
+		fontSize: "16dp",
     	fontFamily: 'Nunito-Bold'
 	},
 	color: "#545555",
@@ -232,11 +237,22 @@
 	left: "15dp",
 	height: "40dp",
 	font:{
-		fontSize: "15dp",
+		fontSize: "16dp",
     	fontFamily: 'Nunito-Light'
 	},
 	color: "#545555"
 },
+"#viewAddVenmo[if=Alloy.Globals.iPhoneFive]": {
+	height: '40dp'
+},
+
+
+
+
+
+
+
+
 
 
 
@@ -273,10 +289,10 @@
 	}
 },
 "#imageAddVenmo[if=Alloy.Globals.iPhoneSix]": {
-	height: '20dp',
+	height: '22dp',
 	width: '105dp',
-	left: '119dp',
-	top: '10dp'
+	left: '117dp',
+	top: '12dp'
 },
 ".payment-types[if=Alloy.Globals.iPhoneSix]":{
 	layout: 'vertical',
@@ -290,7 +306,7 @@
 },
 "#separatorLabel[if=Alloy.Globals.iPhoneSix]": {
 	font:{
-		fontSize: "16dp",
+		fontSize: "18dp",
     	fontFamily: 'Nunito-Bold'
 	},
 	color: "#545555"
@@ -300,7 +316,7 @@
 	top: "7dp",
 	left: "5dp",
 	font:{
-		fontSize: "16dp",
+		fontSize: "18dp",
     	fontFamily: 'Nunito-Bold'
 	},
 	color: "#545555",
@@ -309,13 +325,21 @@
 },
 ".rowLabel[if=Alloy.Globals.iPhoneSix]":{
 	left: "15dp",
-	height: "40dp",
+	height: "45dp",
 	font:{
-		fontSize: "16dp",
+		fontSize: "18dp",
     	fontFamily: 'Nunito-Light'
 	},
 	color: "#545555"
 },
+"#viewAddVenmo[if=Alloy.Globals.iPhoneSix]": {
+	height: '45dp'
+},
+
+
+
+
+
 
 
 
@@ -355,10 +379,10 @@
 	}
 },
 "#imageAddVenmo[if=Alloy.Globals.iPhoneSixPlus]": {
-	height: '20dp',
+	height: '22dp',
 	width: '105dp',
-	left: '134dp',
-	top: '10dp'
+	left: '132dp',
+	top: '14dp'
 },
 ".payment-types[if=Alloy.Globals.iPhoneSixPlus]":{
 	layout: 'vertical',
@@ -372,7 +396,7 @@
 },
 "#separatorLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	font:{
-		fontSize: "18dp",
+		fontSize: "20dp",
     	fontFamily: 'Nunito-Bold'
 	},
 	color: "#545555"
@@ -382,7 +406,7 @@
 	top: "7dp",
 	left: "5dp",
 	font:{
-		fontSize: "18dp",
+		fontSize: "20dp",
     	fontFamily: 'Nunito-Bold'
 	},
 	color: "#545555",
@@ -391,13 +415,20 @@
 },
 ".rowLabel[if=Alloy.Globals.iPhoneSixPlus]":{
 	left: "15dp",
-	height: "40dp",
+	height: "50dp",
 	font:{
-		fontSize: "18dp",
+		fontSize: "20dp",
     	fontFamily: 'Nunito-Light'
 	},
 	color: "#545555"
 },
+"#viewAddVenmo[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: '50dp'
+},
+
+
+
+
 
 
 
@@ -437,10 +468,10 @@
 	}
 },
 "#imageAddVenmo[if=Alloy.Globals.android]": {
-	height: '20dp',
+	height: '22dp',
 	width: '105dp',
-	left: '119dp',
-	top: '10dp'
+	left: '117dp',
+	top: '12dp'
 },
 ".payment-types[if=Alloy.Globals.android]":{
 	layout: 'vertical',
@@ -473,10 +504,14 @@
 },
 ".rowLabel[if=Alloy.Globals.android]":{
 	left: "15dp",
-	height: "40dp",
+	height: "45dp",
 	font:{
 		fontSize: "16dp",
     	fontFamily: 'Nunito-Light'
 	},
 	color: "#545555"
 },
+"#viewAddVenmo[if=Alloy.Globals.android]": {
+	height: '45dp'
+}
+

@@ -156,30 +156,35 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
 	        labelFont = 14;
+	        labelHeight = '35dp';
 	        break;
 	    case 1: //iphoneFive
-	        labelFont = 15;
+	        labelFont = 16;
+	        labelHeight = '40dp';
 	        break;
 	    case 2: //iphoneSix
-	        labelFont = 16;
+	        labelFont = 18;
+	        labelHeight = '45dp';
 	        break;
 	    case 3: //iphoneSixPlus
-	        labelFont = 18;
+	        labelFont = 20;
+	        labelHeight = '50dp';
 	        break;
 	    case 4: //android currently same as iphoneSix
-	        labelFont = 16;
+	        labelFont = 18;
+	        labelHeight = '45dp';
 	        break;
 	};
  	var viewUserCard = Titanium.UI.createView({
  		layout: 'horizontal',
- 		height: '40dp',
+ 		height: labelHeight,
 		borderWidth: "1dp",
 		borderColor: "#EAEAEA",
  	});
  	var userCardHeader = Titanium.UI.createLabel({
  		//borderColor: "red",
  		left: "5dp",
-		height: "40dp",
+		height: labelHeight,
 		font:{
 			fontSize: labelFont,
 	    	fontFamily: 'Nunito-Light'
@@ -190,7 +195,7 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  	var userCardNumber = Titanium.UI.createLabel({
  		//borderColor: "red",
  		left: "15dp",
-		height: "40dp",
+		height: labelHeight,
 		font:{
 			fontSize: labelFont,
 	    	fontFamily: 'Nunito-Light'
@@ -201,7 +206,7 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  	var userCardExp = Titanium.UI.createLabel({
  		//borderColor: "red",
  		left: "15dp",
-		height: "40dp",
+		height: labelHeight,
 		font:{
 			fontSize: labelFont,
 	    	fontFamily: 'Nunito-Light'
@@ -271,33 +276,38 @@ function showUserBank(bankInfo) {
 	//$.viewAddBank.hide();
 	//$.viewAddBank.height = '0dp';
  	switch(Alloy.Globals.userDevice) {
-	    case 0:
+	    case 0: //iphoneFour
 	        labelFont = 14;
+	        labelHeight = '35dp';
 	        break;
-	    case 1:
-	        labelFont = 15;
-	        break;
-	    case 2:
+	    case 1: //iphoneFive
 	        labelFont = 16;
+	        labelHeight = '40dp';
 	        break;
-	    case 3:
+	    case 2: //iphoneSix
 	        labelFont = 18;
+	        labelHeight = '45dp';
+	        break;
+	    case 3: //iphoneSixPlus
+	        labelFont = 20;
+	        labelHeight = '50dp';
 	        break;
 	    case 4: //android currently same as iphoneSix
-	        labelFont = 16;
+	        labelFont = 18;
+	        labelHeight = '45dp';
 	        break;
 	};
  	var viewUserBank = Titanium.UI.createView({
  		//backgroundColor: "blue",
  		layout: 'horizontal',
- 		height: '40dp',
+ 		height: labelHeight,
 		borderWidth: "1dp",
 		borderColor: "#EAEAEA",
  	});
  	var userBankHeader = Titanium.UI.createLabel({
  		//borderColor: "red",
  		left: "5dp",
-		height: "40dp",
+		height: labelHeight,
 		font:{
 			fontSize: labelFont,
 	    	fontFamily: 'Nunito-Light'
@@ -308,7 +318,7 @@ function showUserBank(bankInfo) {
  	var userBankNumber = Titanium.UI.createLabel({
  		//borderColor: "red",
  		left: "15dp",
-		height: "40dp",
+		height: labelHeight,
 		font:{
 			fontSize: labelFont,
 	    	fontFamily: 'Nunito-Light'
