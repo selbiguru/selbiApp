@@ -1,4 +1,5 @@
-var args = arguments[0] || {};
+var args = arguments[0][0] || {},
+	argsID = arguments[0][1] || {};
 var listingManager = require('managers/listingmanager'),
 	helper = require('utilities/helpers');
 var myListingPadding, myListingItemHeight,
@@ -12,7 +13,7 @@ var tabsObject = Object.freeze({
 	'selbiUSA': 3
 });
 var tabView = tabsObject[args];
-console.log("this is the user i need ", Alloy.Globals.currentUser.attributes)
+
 /*var control = Ti.UI.createRefreshControl({
     tintColor:'#1BA7CD'
 });
@@ -71,7 +72,7 @@ if(tabView === 1) {
  */
 function genMyItems(cb){
 	console.log("used 5");
-	listingManager.getUserListings(Ti.App.Properties.getString('userId'), function(err, userListings){
+	listingManager.getUserListings(argsID, function(err, userListings){
 		var listItems = [];		
 		//console.log("listing%%%%% ", userListings);
 		if(userListings && userListings.length > 0) {
@@ -140,7 +141,7 @@ function genMyItems(cb){
  */
 function genFriendsItems(cb){
 	console.log("used 9");
-	listingManager.getUserListings(Ti.App.Properties.getString('userId'), function(err, userListings){
+	listingManager.getUserListings(argsID, function(err, userListings){
 		var listItems = [];		
 		if(userListings && userListings.length > 0) {
 			for(var listing in userListings) {
@@ -211,7 +212,7 @@ function genFriendsItems(cb){
  */
 function genUSAItems(cb){
 	console.log("used 10");
-	listingManager.getUserListings(Ti.App.Properties.getString('userId'), function(err, userListings){
+	listingManager.getUserListings(argsID, function(err, userListings){
 		var listItems = [];		
 		if(userListings && userListings.length > 0) {
 			for(var listing in userListings) {

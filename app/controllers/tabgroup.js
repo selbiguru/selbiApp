@@ -15,7 +15,7 @@ var controls = require('controls');
  All Listings tab.
  */
 var allListingsWindow = controls.createWindow({ title: 'Selbi USA', backgroundColor: '#FAFAFA', navBarHidden:true }, tabGroup);
-allListingsWindow.add(controls.getCustomView('listings', 'selbiUSA').getView());
+allListingsWindow.add(controls.getCustomView('listings', ['selbiUSA', Ti.App.Properties.getString('userId')]).getView());
 var allListingsTab = Ti.UI.createTab({
 	title: 'Selbi USA',
 	backgroundColor: '#FAFAFA',
@@ -28,7 +28,7 @@ tabGroup.addTab(allListingsTab);
  Friends Listing tab.
  */
 var friendsListingsWindow  = controls.createWindow({ title: 'My Friends', backgroundColor: '#FAFAFA', navBarHidden:true }, tabGroup);
-var friendsListingView = controls.getCustomView('listings', 'friends');
+var friendsListingView = controls.getCustomView('listings', ['friends', Ti.App.Properties.getString('userId')]);
 friendsListingsWindow.add(friendsListingView.getView());
 
 var friendsListingsTab = Ti.UI.createTab({
@@ -43,7 +43,7 @@ tabGroup.addTab(friendsListingsTab);
  My Listings tab.
  */
 var myListingsWindow  = controls.createWindow({ title: 'My Listings', backgroundColor: '#FAFAFA' , navBarHidden:true }, tabGroup);
-myListingsWindow.add(controls.getCustomView('listings', 'mylistings').getView());
+myListingsWindow.add(controls.getCustomView('listings', ['mylistings', Ti.App.Properties.getString('userId')]).getView());
 var myListingsTab = Ti.UI.createTab({
 	title: 'My Listings',
 	backgroundColor: '#FAFAFA',
@@ -53,9 +53,9 @@ var myListingsTab = Ti.UI.createTab({
 tabGroup.addTab(myListingsTab);
 
 
-/*allListingsWindow.addEventListener('click', function(){
+allListingsWindow.addEventListener('click', function(e){
 	var myListingsWindow  = controls.createWindow({ title: 'My Listings', backgroundColor: '#FAFAFA' , navBarHidden:true}, tabGroup);
-	myListingsWindow.add(controls.getCustomView('listings', 'mylistings').getView());
+	myListingsWindow.add(controls.getCustomView('listings', ['mylistings', e.source.data.properties.userId]).getView());
 	allListingsTab.open(myListingsWindow);
 	myListingsWindow.addEventListener('blur', function(){
 		allListingsTab.close(myListingsWindow);
@@ -64,14 +64,14 @@ tabGroup.addTab(myListingsTab);
 });
 friendsListingsWindow.addEventListener('click', function(e){
 	var myListingsWindow  = controls.createWindow({ title: 'My Listings', backgroundColor: '#FAFAFA' , navBarHidden:true}, tabGroup);
-	myListingsWindow.add(controls.getCustomView('listings', 'mylistings').getView());
+	myListingsWindow.add(controls.getCustomView('listings', ['mylistings', e.source.data.properties.userId]).getView());
 	friendsListingsTab.open(myListingsWindow);
 	console.log("more importantly what is 'e' ", e.source.data.properties.userId);
 	myListingsWindow.addEventListener('blur', function(){
 		friendsListingsTab.close(myListingsWindow);
 	});
 	
-});*/
+});
 
 
 // Open Tab group
