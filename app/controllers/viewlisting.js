@@ -7,7 +7,7 @@ var	previewListing,
 
 
 if(args.id){
-	//show correct 'buy' buttons with correctg event listeners
+	//show correct 'buy' buttons with correct event listeners
 	previewListing = false;
 	createPurchasingButtons();
 	$.titleViewListingLabel.text = 'View Listing';
@@ -17,7 +17,7 @@ if(args.id){
 		}
 	});
 } else {
-	//show correct buttons dynamically created with correctg event listeners
+	//show correct buttons dynamically created with correct event listeners
 	previewListing = true;
 	$.titleViewListingLabel.text = 'Preview Listing';
 	createPreviewButtons();
@@ -134,22 +134,27 @@ function editListing() {
  *  Dynamically creates XML elements to show the buttons when viewlisting is for preview listing.
  */
 function createPreviewButtons() {
-	var buttonHeight;
+	var buttonHeight, buttonFontSize;
 	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
 			buttonHeight = '40dp';
+			buttonFontSize = '14dp';
 	        break;
 	    case 1: //iphoneFive
 	        buttonHeight = '40dp';
+	        buttonFontSize = '16dp';
 	        break;
 	    case 2: //iphoneSix
 	        buttonHeight = '50dp';
+	        buttonFontSize = '18dp';
 	        break;
 	    case 3: //iphoneSixPlus
 	        buttonHeight = '50dp';
+	        buttonFontSize = '20dp';
 	        break;
 	    case 4: //android currently same as iphoneSix
 	        buttonHeight = '50dp';
+	        buttonFontSize = '18dp';
 	        break;
 	};
 
@@ -162,7 +167,7 @@ function createPreviewButtons() {
 		color: '#9B9B9B',
 		borderColor: "#9B9B9B",
 		font: {
-			fontSize: '16dp',
+			fontSize: buttonFontSize,
 			fontFamily: "Nunito-Light"
 		},
 		title: 'Edit Listing'
@@ -177,7 +182,7 @@ function createPreviewButtons() {
 		backgroundColor: '#1BA7CD',
 		color: '#fff',
 		font: {
-			fontSize: '16dp',
+			fontSize: buttonFontSize,
 			fontFamily: "Nunito-Light"
 		},
 		title: 'Looks Good'
@@ -205,47 +210,103 @@ function createPreviewButtons() {
  *  Dynamically creates XML elements to show the buttons when viewlisting is for purchasing a listing.
  */
 function createPurchasingButtons() {
-	var buttonHeight;
+	var buttonHeight, buttonFontSize;
 	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
 			buttonHeight = '40dp';
+			buttonFontSize = '14dp';
+			buttonWidth = 133;
 	        break;
 	    case 1: //iphoneFive
 	        buttonHeight = '40dp';
+	        buttonFontSize = '16dp';
+	        buttonWidth = 141;
 	        break;
 	    case 2: //iphoneSix
 	        buttonHeight = '50dp';
+	        buttonFontSize = '18dp';
+	        buttonWidth = 175;
 	        break;
 	    case 3: //iphoneSixPlus
 	        buttonHeight = '50dp';
+	        buttonFontSize = '20dp';
+	        buttonWidth = 193;
 	        break;
 	    case 4: //android currently same as iphoneSix
 	        buttonHeight = '50dp';
+	        buttonFontSize = '18dp';
+	        buttonWidth = 175;
 	        break;
 	};
-	
-	var purchaseListingButton = Ti.UI.createButton({
-		width: '49%',
-		height: buttonHeight,
-		bottom: '20dp',
-		right: '0dp',
-		textAlign: 'center',
-		backgroundColor: '#1BA7CD',
-		color: '#fff',
-		font: {
-			fontSize: '16dp',
-			fontFamily: "Nunito-Light"
-		},
-		title: 'Slide to Buy'
-	});
-
-
-	$.viewListingButtonView.add(purchaseListingButton);
-	
-	purchaseListingButton.addEventListener('click', function(e) {
-		//to update with purchasing call
-		return;
-	});
+	createSlideButton(buttonHeight, buttonWidth, buttonFontSize, 'Slide to Buy');
 	return;
 }
+
+
+
+
+/**
+ * @private createSlideButton
+ * Create a sliding button that on 'touchend' calls an API route
+ * @param {String} height Height of button
+ * @param {Number} width Width of button 
+ * @param {String} fontSize FontSize of text
+ * @param {String} text Text string you want on the button
+ */
+function createSlideButton(height, width, fontSize, text){
+	var sliderView = Ti.UI.createView({
+		bottom:'20dp',
+		right: '0dp',
+		height: height,
+		width: width,
+		backgroundColor: '#EAEAEA',
+		layout: 'composite'
+	});
+	var sliderButton = Ti.UI.createView({
+		top: '0dp',
+		height: height,
+		width: width,
+		backgroundColor: '#1BA7CD',
+		left: 0
+	});
+	var sliderText = Ti.UI.createLabel({
+		text: text + '...',
+		textAlign: 'center',
+		color: '#FFF',
+		font: {
+			fontSize: fontSize,
+			fontFamily: "Nunito-Light"
+		},
+	});
+
+	$.viewListingButtonView.add(sliderView);
+	sliderView.add(sliderButton);
+	sliderView.add(sliderText);
+	
+	sliderButton.addEventListener('touchmove', function(e){
+		var moveX = e.x +sliderButton.animatedCenter.x - sliderButton.getWidth()/2;
+		if (moveX + sliderButton.getWidth()/2 >= sliderView.getLeft() +sliderView.getWidth()) {
+			//button right-edge stop
+			moveX = sliderView.getLeft() + sliderView.getWidth() - (sliderButton.getWidth()/2);
+		} else if (moveX - sliderButton.getWidth()/2 <= sliderView.getLeft()){
+			//button left-edge stop
+			moveX = sliderView.getLeft() + (sliderButton.getWidth()/2);
+		}
+		//sliderButton.animate({center:{x:240, y:0}, duration: 1});
+		sliderButton.animate({center:{x:moveX, y:0}, duration: 500});
+		sliderButton.setLeft(moveX);
+	});
+
+	sliderButton.addEventListener('touchend', function(e){
+		var endX = sliderButton.animatedCenter.x + (sliderButton.getWidth()/2);
+		if (endX > parseInt(sliderView.getWidth())+ width) {
+			//button released at right-edge stop
+			//IN HERE ADD PURCHASING CALL
+		}
+		//springback
+		sliderButton.setLeft(0);
+		sliderButton.animate({center:{x:(sliderView.getLeft()+sliderButton.getWidth()/2),y:0}, duration: 500});
+	});
+}
+
 
