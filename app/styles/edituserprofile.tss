@@ -396,10 +396,10 @@
 	color: "#1BA7CD"
 },
 "#userProfileImage[if=Alloy.Globals.iPhoneSix]": {
-	height: "90dp",
-	width: "90dp",
+	height: "85dp",
+	width: "85dp",
 	top: "10dp",
-	borderRadius: '45dp'
+	borderRadius: '43dp'
 },
 "#cameraOverlay[if=Alloy.Globals.iPhoneSix]": {
 	font: {
@@ -456,7 +456,7 @@
 	color: '#545555'
 },
 "#userLabel[if=Alloy.Globals.iPhoneSix]": {
-	top: "5dp",
+	top: "8dp",
 },
 "#userView[if=Alloy.Globals.iPhoneSix]": {
 	height: Ti.UI.SIZE,
@@ -465,7 +465,7 @@
 	borderColor: "#9B9B9B"
 },
 "#addressLabel[if=Alloy.Globals.iPhoneSix]": {
-	top: "40dp",
+	top: "43dp",
 },
 "#addressInfo[if=Alloy.Globals.iPhoneSix]":{
 	layout: 'vertical',
@@ -529,10 +529,10 @@
 	color: "#1BA7CD"
 },
 "#userProfileImage[if=Alloy.Globals.iPhoneSixPlus]": {
-	height: "100dp",
-	width: "100dp",
+	height: "95dp",
+	width: "95dp",
 	top: "15dp",
-	borderRadius: '50dp'
+	borderRadius: '47dp'
 },
 "#cameraOverlay[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
@@ -598,7 +598,7 @@
 	borderColor: "#9B9B9B"
 },
 "#addressLabel[if=Alloy.Globals.iPhoneSixPlus]": {
-	top: "45dp",
+	top: "50dp",
 },
 "#addressInfo[if=Alloy.Globals.iPhoneSixPlus]":{
 	layout: 'vertical',
