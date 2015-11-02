@@ -3,14 +3,14 @@
 	<View id="editUserProfileView">
         <View id="editUserProfileTopBar">
 			<View id="menuButton" class="validateButtons">
-				<Label icon="fa-arrow-left" id="editUserProfileButtonIcon"></Label>
+				<Label icon="fa-arrow-left" id="editUserProfileButtonIcon" class="icon-buttons"></Label>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
 			<View id="titleEditUserProfileView">
 				<Label id="titleEditUserProfileLabel">Profile</Label>
 			</View>
 			<View id="saveInfo" class="validateButtons">
-				<Button onClick="updateUser" id="saveInfoButtonIcon" class="verifyAddressButtonIcon">Save</Button>
+				<Button onClick="updateUser" id="saveInfoButtonIcon" class="icon-buttons">Save</Button>
 			</View>
 		</View>
 		<ScrollView id="editUserInfoView">
@@ -18,18 +18,22 @@
 				<ImageView id="userProfileImage"/>
 				<Label id="cameraOverlay" icon="fa-camera"></Label>
 			</View>
-        	<View id="userInfo" class="rowContainer">
-		        <TextField id="firstName" hintText="First Name" class="user-profile-text-fields" value="{user.firstName}"></TextField>
-		        <View class="dark-underline"/>
-		    </View>
-		    <View class="rowContainer">
-		        <TextField id="lastName" hintText="Last Name" class="user-profile-text-fields" value="{user.lastName}"></TextField>
-		        <View class="dark-underline"/>
-		    </View>
-		    <View class="rowContainer">
-		        <TextField id="username" hintText="Username" class="user-profile-text-fields" value="{user.email}"></TextField>
-		        <View class="dark-underline"/>
-		    </View>
+			<Label id="userLabel" class='label-grids'>User Info:</Label>
+			<View id="userView">
+	        	<View id="userInfo" class="rowContainer">
+			        <TextField id="firstName" hintText="First Name" class="user-profile-text-fields" value="{user.firstName}"></TextField>
+			        <View class="dark-underline"/>
+			    </View>
+			    <View class="rowContainer">
+			        <TextField id="lastName" hintText="Last Name" class="user-profile-text-fields" value="{user.lastName}"></TextField>
+			        <View class="dark-underline"/>
+			    </View>
+			    <View class="rowContainer">
+			        <TextField id="username" hintText="Username" class="user-profile-text-fields" value="{user.username}"></TextField>
+			        <View class="dark-underline"/>
+			    </View>
+			</View>
+		    <Label id="addressLabel" class='label-grids'>Address:</Label>
 		    <View id="addressInfo">
 			    <View id="userAddress" class="rowContainer">
 			        <TextField id="streetAddress" hintText="Street Address" class="user-profile-text-fields" value="{user.address}  {user.address2}" editable="false"></TextField>
@@ -48,11 +52,11 @@
 		        <Label icon="fa-map-marker" class="edit-profile-social-icon address-map" id="editProfileGoogleAddress"></Label>
 		        <Button onClick="getGoogleMaps" id="googleAddress" class="edit-profile-social-text address-map">Update Address</Button>
 		    </View>
-		    <View class="edit-user-profile-buttons-view edit-user-profile-button">
+		    <View id="facebookView" class="edit-user-profile-buttons-view edit-user-profile-button">
 		    	<Label icon="fa-facebook" class="edit-profile-social-icon social-facebook" id="editProfileFacebookConnect"></Label>
 		        <Button id="connectFacebook" class="edit-profile-social-text social-facebook" onClick="connectToFaceBook">Connect to Facebook</Button>
 		    </View>
-		    <View class="edit-user-profile-buttons-view edit-user-profile-button">
+		    <View id="twitterView" class="edit-user-profile-buttons-view edit-user-profile-button">
 		        <Label icon="fa-twitter" class="edit-profile-social-icon social-twitter" id="editProfileTwitterConnect"></Label>
 		        <Button id="connectTwitter" class="edit-profile-social-text social-twitter" onClick="connectToTwitter">Connect to Twitter</Button>
 		    </View>

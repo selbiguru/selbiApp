@@ -1,13 +1,7 @@
 //DEFAULT
 "#editUserProfileView": {
 	layout: 'vertical',
-	backgroundColor: 'white'
-},
-
-"#userProfileImage": {
-	height: "80dp",
-	width: "80dp",
-	top: "15dp"
+	backgroundColor: '#FAFAFA'
 },
 "#editUserInfoView": {
 	layout: 'vertical',
@@ -15,30 +9,12 @@
 },
 ".rowContainer": {
 	width: Ti.UI.FILL,
-	height: "45dp",
+	height: Ti.UI.SIZE,
 	layout: 'vertical'
 },
-"#addressInfo":{
-	layout: 'vertical',
-	height: Ti.UI.SIZE
-}
-"#cameraOverlay": {
-	font: {
-		fontSize: '30dp'
-	},
-	top: '60dp',
-	width: Ti.UI.SIZE,
-	height: Ti.UI.SIZE,
-	color: '#000',
-	opacity: 0.4
-},
 "#profileImage": {
-	layout: "absolute",
 	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE
-},
-"#userInfo": {
-	top: "20dp"
 },
 /*".user-profile-labels": {
 	width: Ti.UI.FILL,
@@ -64,77 +40,67 @@
 	paddingLeft: "10dp",
 	paddingRight: "10dp"
 }*/
+"#twitterView":{
+	height: '0dp',
+	visible: false
+},
+"#facebookView":{
+	height: '0dp',
+	visible: false
+},
 ".edit-user-profile-buttons-view": {
 	height: Ti.UI.SIZE,
-	layout: "horizontal",
-	bottom: "10dp"
-},
-".edit-user-profile-button": {
-	width: Ti.UI.FILL,
-	height: "25dp",
-	height: "40dp",
-	top: "15dp",
-	font:{
-		fontSize: "16dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	borderColor: "#EAEAEA",
-	borderWidth: "1dp"
+	layout: "horizontal"
 },
 ".social-facebook": {
-	color: "#FAFAFA",
+	color: "#FFF",
 	backgroundColor: "#3b5998",
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
-}
+},
 ".social-twitter": {
-	color: "#FAFAFA",
+	color: "#FFF",
 	backgroundColor: "#45b0e3",
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
-}
+},
 ".address-map": {
-	color: "#FAFAFA",
+	color: "#FFF",
 	backgroundColor: "#53C71A",
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
-}
-".edit-profile-social-icon": {
-	width: "48dp",
-	borderColor: "#828282",
-	borderWidth: "1dp",
-	height: Ti.UI.FILL
-}
-".edit-profile-social-text": {
-	width: Ti.UI.FILL,
-	height: Ti.UI.FILL
-}
+},
 "#editProfileTwitterConnect": {
 	backgroundColor: "#40a2d1",
 	borderColor: "#979797",
-}
+},
 "#editProfileFacebookConnect": {
 	backgroundColor: "#354f88"
-}
+},
 "#editProfileGoogleAddress": {
 	backgroundColor: "#48AC16"
-}
+},
 ".dark-underline": {
 	height: "1dp",
-	bottom: "10dp",
+	bottom: "1dp",
 	backgroundColor:"#EAEAEA",
 	width:Titanium.UI.FILL
-}
+},
+
+
+
+
+
 
 
 //iPhone 4
 "#editUserProfileTopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneFour]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#editUserProfileButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
@@ -154,13 +120,102 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneFour]": {
+"#saveInfo[if=Alloy.Globals.iPhoneFour]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "12dp",
+            fontSize: "14dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
 },
+"#userProfileImage[if=Alloy.Globals.iPhoneFour]": {
+	height: "65dp",
+	width: "65dp",
+	top: "7dp",
+	borderRadius: '33dp'
+},
+"#cameraOverlay[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+		fontSize: '24dp'
+	},
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: '#000',
+	opacity: 0.3,
+	top: '30dp'
+},
+"TextField[if=Alloy.Globals.iPhoneFour]": {
+	color: '#545555',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "30dp"
+},
+".edit-user-profile-button[if=Alloy.Globals.iPhoneFour]": {
+	width: Ti.UI.FILL,
+	height: "40dp",
+	top: "20dp",
+	font:{
+		fontSize: "14dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	borderColor: "#EAEAEA",
+	borderWidth: "1dp"
+},
+".edit-profile-social-icon[if=Alloy.Globals.iPhoneFour]": {
+	width: "45dp",
+	borderColor: "#828282",
+	borderWidth: "1dp",
+	height: Ti.UI.FILL,
+	font:{
+		fontSize: "14dp",
+	},
+}
+".edit-profile-social-text[if=Alloy.Globals.iPhoneFour]": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL,
+	font:{
+		fontSize: "14dp",
+    	fontFamily: 'Nunito-Light'
+	},
+},
+".label-grids[if=Alloy.Globals.iPhoneFour]": {
+	font:{
+		fontSize: "14dp",
+    	fontFamily: 'Nunito-Bold'
+	},
+	left: '0dp',
+	color: '#545555'
+},
+"#userLabel[if=Alloy.Globals.iPhoneFour]": {
+	top: "3dp",
+},
+"#userView[if=Alloy.Globals.iPhoneFour]": {
+	height: Ti.UI.SIZE,
+	layout: "vertical",
+	top: "3dp",
+	borderColor: "#9B9B9B"
+},
+"#addressLabel[if=Alloy.Globals.iPhoneFour]": {
+	top: "30dp",
+},
+"#addressInfo[if=Alloy.Globals.iPhoneFour]":{
+	layout: 'vertical',
+	height: Ti.UI.SIZE,
+	borderColor: "#9b9b9b",
+	top: '3dp'
+},
+
+
+
+
+
+
+
+
 
 
 
@@ -170,13 +225,13 @@
 "#editUserProfileTopBar[if=Alloy.Globals.iPhoneFive]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneFive]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#editUserProfileButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
@@ -196,13 +251,106 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneFive]": {
+"#saveInfo[if=Alloy.Globals.iPhoneFive]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "12dp",
+            fontSize: "14dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
 },
+"#userProfileImage[if=Alloy.Globals.iPhoneFive]": {
+	height: "75dp",
+	width: "75dp",
+	top: "7dp",
+	borderRadius: '37dp'
+},
+"#cameraOverlay[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+		fontSize: '24dp'
+	},
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: '#000',
+	opacity: 0.3,
+	top: '35dp'
+},
+"TextField[if=Alloy.Globals.iPhoneFive]": {
+	color: '#545555',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "35dp"
+},
+".edit-user-profile-button[if=Alloy.Globals.iPhoneFive]": {
+	width: Ti.UI.FILL,
+	height: "40dp",
+	top: "20dp",
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	borderColor: "#EAEAEA",
+	borderWidth: "1dp"
+},
+".edit-profile-social-icon[if=Alloy.Globals.iPhoneFive]": {
+	width: "45dp",
+	borderColor: "#828282",
+	borderWidth: "1dp",
+	height: Ti.UI.FILL,
+	font:{
+		fontSize: "16dp",
+	},
+}
+".edit-profile-social-text[if=Alloy.Globals.iPhoneFive]": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL,
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+},
+".label-grids[if=Alloy.Globals.iPhoneFive]": {
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Bold'
+	},
+	left: '0dp',
+	color: '#545555'
+},
+"#userLabel[if=Alloy.Globals.iPhoneFive]": {
+	top: "3dp",
+},
+"#userView[if=Alloy.Globals.iPhoneFive]": {
+	height: Ti.UI.SIZE,
+	layout: "vertical",
+	top: "5dp",
+	borderColor: "#9B9B9B"
+},
+"#addressLabel[if=Alloy.Globals.iPhoneFive]": {
+	top: "35dp",
+},
+"#addressInfo[if=Alloy.Globals.iPhoneFive]":{
+	layout: 'vertical',
+	height: Ti.UI.SIZE,
+	borderColor: "#9b9b9b",
+	top: '5dp'
+},
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -211,13 +359,13 @@
 "#editUserProfileTopBar[if=Alloy.Globals.iPhoneSix]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneSix]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#editUserProfileButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
@@ -237,13 +385,103 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneSix]": {
+"#saveInfo[if=Alloy.Globals.iPhoneSix]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "13dp",
+            fontSize: "17dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
 },
+"#userProfileImage[if=Alloy.Globals.iPhoneSix]": {
+	height: "90dp",
+	width: "90dp",
+	top: "10dp",
+	borderRadius: '45dp'
+},
+"#cameraOverlay[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+		fontSize: '30dp'
+	},
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: '#000',
+	opacity: 0.3,
+	top: '43dp'
+},
+"TextField[if=Alloy.Globals.iPhoneSix]": {
+	color: '#545555',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "40dp"
+},
+".edit-user-profile-button[if=Alloy.Globals.iPhoneSix]": {
+	width: Ti.UI.FILL,
+	height: "50dp",
+	top: "25dp",
+	font:{
+		fontSize: "18dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	borderColor: "#EAEAEA",
+	borderWidth: "1dp"
+},
+".edit-profile-social-icon[if=Alloy.Globals.iPhoneSix]": {
+	width: "50dp",
+	borderColor: "#828282",
+	borderWidth: "1dp",
+	height: Ti.UI.FILL,
+	font:{
+		fontSize: "18dp",
+	},
+}
+".edit-profile-social-text[if=Alloy.Globals.iPhoneSix]": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL,
+	font:{
+		fontSize: "18dp",
+    	fontFamily: 'Nunito-Light'
+	},
+},
+".label-grids[if=Alloy.Globals.iPhoneSix]": {
+	font:{
+		fontSize: "18dp",
+    	fontFamily: 'Nunito-Bold'
+	},
+	left: '0dp',
+	color: '#545555'
+},
+"#userLabel[if=Alloy.Globals.iPhoneSix]": {
+	top: "5dp",
+},
+"#userView[if=Alloy.Globals.iPhoneSix]": {
+	height: Ti.UI.SIZE,
+	layout: "vertical",
+	top: "7dp",
+	borderColor: "#9B9B9B"
+},
+"#addressLabel[if=Alloy.Globals.iPhoneSix]": {
+	top: "40dp",
+},
+"#addressInfo[if=Alloy.Globals.iPhoneSix]":{
+	layout: 'vertical',
+	height: Ti.UI.SIZE,
+	borderColor: "#9b9b9b",
+	top: '7dp'
+},
+
+
+
+
+
+
+
+
+
 
 
 
@@ -254,13 +492,13 @@
 "#editUserProfileTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#editUserProfileButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
@@ -280,13 +518,101 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
+"#saveInfo[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "13dp",
+            fontSize: "18dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
 },
+"#userProfileImage[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: "100dp",
+	width: "100dp",
+	top: "15dp",
+	borderRadius: '50dp'
+},
+"#cameraOverlay[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+		fontSize: '35dp'
+	},
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: '#000',
+	opacity: 0.3,
+	top: '50dp'
+},
+"TextField[if=Alloy.Globals.iPhoneSixPlus]": {
+	color: '#545555',
+	font: {
+		fontSize: '20dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "45dp"
+},
+".edit-user-profile-button[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: Ti.UI.FILL,
+	height: "50dp",
+	top: "25dp",
+	font:{
+		fontSize: "20dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	borderColor: "#EAEAEA",
+	borderWidth: "1dp"
+},
+".edit-profile-social-icon[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: "55dp",
+	borderColor: "#828282",
+	borderWidth: "1dp",
+	height: Ti.UI.FILL,
+	font:{
+		fontSize: "20dp",
+	},
+}
+".edit-profile-social-text[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL,
+	font:{
+		fontSize: "20dp",
+    	fontFamily: 'Nunito-Light'
+	},
+},
+".label-grids[if=Alloy.Globals.iPhoneSixPlus]": {
+	font:{
+		fontSize: "20dp",
+    	fontFamily: 'Nunito-Bold'
+	},
+	left: '0dp',
+	color: '#545555'
+},
+"#userLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: "10dp",
+},
+"#userView[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: Ti.UI.SIZE,
+	layout: "vertical",
+	top: "7dp",
+	borderColor: "#9B9B9B"
+},
+"#addressLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: "45dp",
+},
+"#addressInfo[if=Alloy.Globals.iPhoneSixPlus]":{
+	layout: 'vertical',
+	height: Ti.UI.SIZE,
+	borderColor: "#9b9b9b",
+	top: '7dp'
+},
+
+
+
+
+
+
+
 
 
 
@@ -298,13 +624,13 @@
 "#editUserProfileTopBar[if=Alloy.Globals.android]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.android]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#FFF'
 },
 "#editUserProfileButtonIcon[if=Alloy.Globals.android]": {
 	font: {
@@ -324,9 +650,12 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".verifyAddressButtonIcon[if=Alloy.Globals.android]": {
+"#saveInfo[if=Alloy.Globals.android]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "13dp",
+            fontSize: "16dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"

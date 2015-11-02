@@ -143,7 +143,8 @@ function updateUser(e){
 	var textFieldObject = {
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
 		"firstName": helpers.capFirstLetter($.firstName.value),
-		"lastName": helpers.capFirstLetter($.lastName.value)
+		"lastName": helpers.capFirstLetter($.lastName.value),
+		"username": $.username.value
 	};
 	/*var validateFields = helpers.validateFields(textFieldObject);
 	for (var i in textFieldObject) {
@@ -163,6 +164,7 @@ function updateUser(e){
 		if(userUpdateResult) {
 			$.firstName.value = helpers.capFirstLetter($.firstName.value);
 			$.lastName.value = helpers.capFirstLetter($.lastName.value);
+			$.username.value = $.username.value;
 		}
 	});	
 };
