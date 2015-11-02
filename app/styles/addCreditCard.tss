@@ -1,7 +1,7 @@
 //DEFAULT
 "#addCreditCardView":{
 	layout: 'vertical',
-	backgroundColor: '#FDFDFD'
+	backgroundColor: '#FAFAFA'
 },
 ".tableRow":{
 	height: '40dp'
@@ -44,13 +44,13 @@
 "#addCreditCardTopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#fff',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneFour]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#fff'
 },
 "#addCreditCardButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
@@ -70,9 +70,12 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".saveCreditCardButtonIcon[if=Alloy.Globals.iPhoneFour]": {
+"#saveCreditCardView[if=Alloy.Globals.iPhoneFour]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "12dp",
+            fontSize: "14dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
@@ -86,13 +89,13 @@
 "#addCreditCardTopBar[if=Alloy.Globals.iPhoneFive]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#fff',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneFive]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#fff'
 },
 "#addCreditCardButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
@@ -112,9 +115,12 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".saveCreditCardButtonIcon[if=Alloy.Globals.iPhoneFive]": {
+"#saveCreditCardView[if=Alloy.Globals.iPhoneFive]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "12dp",
+            fontSize: "14dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
@@ -128,13 +134,13 @@
 "#addCreditCardTopBar[if=Alloy.Globals.iPhoneSix]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#fff',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneSix]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#fff'
 },
 "#addCreditCardButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
@@ -154,9 +160,12 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".saveCreditCardButtonIcon[if=Alloy.Globals.iPhoneSix]": {
+"#saveCreditCardView[if=Alloy.Globals.iPhoneSix]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "13dp",
+            fontSize: "17dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
@@ -171,13 +180,13 @@
 "#addCreditCardTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#fff',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#fff'
 },
 "#addCreditCardButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
@@ -197,9 +206,12 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".saveCreditCardButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
+"#saveCreditCardView[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "13dp",
+            fontSize: "18dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
@@ -214,13 +226,13 @@
 "#addCreditCardTopBar[if=Alloy.Globals.android]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#fff',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.android]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#fff'
 },
 "#addCreditCardButtonIcon[if=Alloy.Globals.android]": {
 	font: {
@@ -240,9 +252,12 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".saveCreditCardButtonIcon[if=Alloy.Globals.android]": {
+"#saveCreditCardView[if=Alloy.Globals.android]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "13dp",
+            fontSize: "17dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"

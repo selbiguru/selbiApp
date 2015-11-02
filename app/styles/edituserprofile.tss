@@ -655,8 +655,87 @@
 },
 ".icon-buttons[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "16dp",
+            fontSize: "17dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
 },
+"#userProfileImage[if=Alloy.Globals.android]": {
+	height: "85dp",
+	width: "85dp",
+	top: "10dp",
+	borderRadius: '43dp'
+},
+"#cameraOverlay[if=Alloy.Globals.android]": {
+	font: {
+		fontSize: '30dp'
+	},
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: '#000',
+	opacity: 0.3,
+	top: '43dp'
+},
+"TextField[if=Alloy.Globals.android]": {
+	color: '#545555',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "40dp"
+},
+".edit-user-profile-button[if=Alloy.Globals.android]": {
+	width: Ti.UI.FILL,
+	height: "50dp",
+	top: "25dp",
+	font:{
+		fontSize: "18dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	borderColor: "#EAEAEA",
+	borderWidth: "1dp"
+},
+".edit-profile-social-icon[if=Alloy.Globals.android]": {
+	width: "50dp",
+	borderColor: "#828282",
+	borderWidth: "1dp",
+	height: Ti.UI.FILL,
+	font:{
+		fontSize: "18dp",
+	},
+}
+".edit-profile-social-text[if=Alloy.Globals.android]": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL,
+	font:{
+		fontSize: "18dp",
+    	fontFamily: 'Nunito-Light'
+	},
+},
+".label-grids[if=Alloy.Globals.android]": {
+	font:{
+		fontSize: "18dp",
+    	fontFamily: 'Nunito-Bold'
+	},
+	left: '0dp',
+	color: '#545555'
+},
+"#userLabel[if=Alloy.Globals.android]": {
+	top: "8dp",
+},
+"#userView[if=Alloy.Globals.android]": {
+	height: Ti.UI.SIZE,
+	layout: "vertical",
+	top: "7dp",
+	borderColor: "#9B9B9B"
+},
+"#addressLabel[if=Alloy.Globals.android]": {
+	top: "43dp",
+},
+"#addressInfo[if=Alloy.Globals.android]":{
+	layout: 'vertical',
+	height: Ti.UI.SIZE,
+	borderColor: "#9b9b9b",
+	top: '7dp'
+},
+
