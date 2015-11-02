@@ -369,7 +369,10 @@ function showUserBank(bankInfo) {
 
 
 
-
+/**
+ * @method getPaymentMethods 
+ *  On page load, dynamically loads the user's payment methods and calls correlating function to dynamically create XML.
+ */
 paymentManager.getPaymentMethods(function(err, results){
 	console.log("~~~~~~~~~~~~~~~~~~: ", results);
 	if(results.userPaymentMethod.lastFour) {
@@ -380,5 +383,4 @@ paymentManager.getPaymentMethods(function(err, results){
 		console.log("STOOOOOOOOP");
 		showUserBank(results.userMerchant);
 	}
-	
 });
