@@ -123,7 +123,21 @@ function editListing() {
 	Alloy.Globals.closePage('viewlisting');
 };
 
+/**
+ * @method buyItem
+ * Buys the listed item.
+ */
+function buyItem(){
+	console.log("HITTING buy item YAYYYY!!!!");
+};
 
+/**
+ * @method deleteItem
+ * Deletes the listed item form the users listings.
+ */
+function deleteItem(){
+	console.log("HITTING delete item YAYYYY!!!!");
+}
 
 
 
@@ -210,35 +224,42 @@ function createPreviewButtons() {
  *  Dynamically creates XML elements to show the buttons when viewlisting is for purchasing a listing.
  */
 function createPurchasingButtons() {
-	var buttonHeight, buttonFontSize;
+	var buttonHeight, buttonFontSize, buttonWidth, backgroundColor;
 	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
 			buttonHeight = '40dp';
 			buttonFontSize = '14dp';
 			buttonWidth = 133;
+			backgroundColor = '#1BA7CD';
 	        break;
 	    case 1: //iphoneFive
 	        buttonHeight = '40dp';
 	        buttonFontSize = '16dp';
 	        buttonWidth = 141;
+	        backgroundColor = '#1BA7CD';
 	        break;
 	    case 2: //iphoneSix
 	        buttonHeight = '50dp';
 	        buttonFontSize = '18dp';
 	        buttonWidth = 175;
+	        backgroundColor = '#1BA7CD';
 	        break;
 	    case 3: //iphoneSixPlus
 	        buttonHeight = '50dp';
 	        buttonFontSize = '20dp';
 	        buttonWidth = 193;
+	        backgroundColor = '#1BA7CD';
 	        break;
 	    case 4: //android currently same as iphoneSix
 	        buttonHeight = '50dp';
 	        buttonFontSize = '18dp';
 	        buttonWidth = 175;
+	        backgroundColor = '#1BA7CD';
 	        break;
 	};
-	createSlideButton(buttonHeight, buttonWidth, buttonFontSize, 'Slide to Buy');
+	var purchaseItem = buyItem;
+	//createSlideButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Slide to Buy', purchaseItem);
+	createSlideButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Slide to Delete', purchaseItem);
 	return;
 }
 
@@ -251,9 +272,11 @@ function createPurchasingButtons() {
  * @param {String} height Height of button
  * @param {Number} width Width of button 
  * @param {String} fontSize FontSize of text
+ * @param {String} background BackgroundColor hex you want the button
  * @param {String} text Text string you want on the button
+ * @param {Function} apiSupport APISupport is the function passed in that determines the proper API route to hit
  */
-function createSlideButton(height, width, fontSize, text){
+function createSlideButton(height, width, fontSize, background, text, apiSupport){
 	var sliderView = Ti.UI.createView({
 		bottom:'20dp',
 		right: '0dp',
@@ -266,7 +289,7 @@ function createSlideButton(height, width, fontSize, text){
 		top: '0dp',
 		height: height,
 		width: width,
-		backgroundColor: '#1BA7CD',
+		backgroundColor: background,
 		left: 0
 	});
 	var sliderText = Ti.UI.createLabel({
@@ -302,11 +325,66 @@ function createSlideButton(height, width, fontSize, text){
 		if (endX > parseInt(sliderView.getWidth())+ width) {
 			//button released at right-edge stop
 			//IN HERE ADD PURCHASING CALL
+			poop();
 		}
 		//springback
 		sliderButton.setLeft(0);
 		sliderButton.animate({center:{x:(sliderView.getLeft()+sliderButton.getWidth()/2),y:0}, duration: 500});
 	});
+	return sliderButton;
 }
 
 
+/**
+ * @private createDeleteButton
+ * Dynamically creates a delete listing button to delete a user listing from the Database
+ */
+function createDeleteButton() {
+	var buttonHeight, buttonFontSize;
+	switch(Alloy.Globals.userDevice) {
+	    case 0: //iphoneFour
+			buttonHeight = '40dp';
+			buttonFontSize = '14dp';
+	        break;
+	    case 1: //iphoneFive
+	        buttonHeight = '40dp';
+	        buttonFontSize = '16dp';
+	        break;
+	    case 2: //iphoneSix
+	        buttonHeight = '50dp';
+	        buttonFontSize = '18dp';
+	        break;
+	    case 3: //iphoneSixPlus
+	        buttonHeight = '50dp';
+	        buttonFontSize = '20dp';
+	        break;
+	    case 4: //android currently same as iphoneSix
+	        buttonHeight = '50dp';
+	        buttonFontSize = '18dp';
+	        break;
+	};
+
+	var deleteListingButton = Ti.UI.createButton({
+		width: '49%',
+		height: buttonHeight,
+		bottom: '20dp',
+		left: '0dp',
+		textAlign: 'center',
+		backgroundColor: '#c10404',
+		color: '#fff',
+		borderColor: "#9B9B9B",
+		font: {
+			fontSize: buttonFontSize,
+			fontFamily: "Nunito-Light"
+		},
+		title: 'Delete Listing'
+	});
+
+	$.viewListingButtonView.add(deleteListingButton);
+	
+	deleteListingButton.addEventListener('click', function(e) {
+		//deleteListingButton();
+		console.log("INSIDE DELETE!!!!!!!!");
+	});
+	return;
+}

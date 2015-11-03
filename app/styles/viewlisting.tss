@@ -67,7 +67,7 @@
 	verticalAlign: Titanium.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
 	left: '10dp',
 	font: {
-		fontSize: '12dp',
+		fontSize: '14dp',
 		fontFamily: 'Nunito-Light'
 	},
 	color: "#9B9B9B"
@@ -172,7 +172,7 @@
 	verticalAlign: Titanium.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
 	left: '10dp',
 	font: {
-		fontSize: '14dp',
+		fontSize: '16dp',
 		fontFamily: 'Nunito-Light'
 	},
 	color: "#9B9B9B"
@@ -277,7 +277,7 @@
 	verticalAlign: Titanium.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
 	left: '10dp',
 	font: {
-		fontSize: '16dp',
+		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
 	},
 	color: "#9B9B9B"
@@ -384,7 +384,7 @@
 	verticalAlign: Titanium.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
 	left: '10dp',
 	font: {
-		fontSize: '18dp',
+		fontSize: '20dp',
 		fontFamily: 'Nunito-Light'
 	},
 	color: "#9B9B9B"
@@ -491,7 +491,7 @@
 	verticalAlign: Titanium.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
 	left: '10dp',
 	font: {
-		fontSize: '16dp',
+		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
 	},
 	color: "#9B9B9B"
