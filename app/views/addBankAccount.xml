@@ -2,19 +2,19 @@
 	<View id="addBankAccountView">
 		<View id="addBankAccountTopBar">
 			<View id="menuButton">
-				<Label icon="fa-arrow-left" id="addBankAccountButtonIcon"></Label>
+				<Label icon="fa-arrow-left" id="addBankAccountButtonIcon" class="icon-buttons"></Label>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>			
 			</View>
 			<View id="titleAddBankAccountView">
 				<Label id="titleAddBankAccountLabel">Add Bank Account</Label>
 			</View>
 			<View id="saveSubMerchantBankView">
-				<Button onClick="addBankInfo" id="saveSubMerchantBankButton" class="saveSubMerchantBankButtonIcon">Save</Button>
+				<Button onClick="addBankInfo" id="saveSubMerchantBankButton" class="icon-buttons">Save</Button>
 			</View>
 		</View>
 		<View id="viewBankDescription">
 			<Label icon="fa-university" id="iconBankDescription"></Label>
-			<Label id="labelBankDescription"> Adding a bank allows Selbi to directly send you all the money you make!  This makes cashing out simple and flawless</Label>
+			<Label id="labelBankDescription"> Adding a bank allows Selbi to directly send you all the money you make!  This makes cashing out simple and flawless!</Label>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>	
 		</View>
 		<View id="enterBankAccountDetailView">

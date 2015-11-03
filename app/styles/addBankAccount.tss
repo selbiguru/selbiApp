@@ -1,16 +1,7 @@
 //DEFAULT
 "#addBankAccountView":{
 	layout: 'vertical',
-	backgroundColor: '#FDFDFD'
-},
-".tableRow":{
-	height: '40dp'
-},
-".rowContainer":{
-	height: '40dp',
-	layout:'horizontal',
-	borderWidth: "1dp",
-	borderColor: "#EAEAEA",
+	backgroundColor: '#FAFAFA'
 },
 ".rowLabel":{
 	left: "15dp",
@@ -21,66 +12,53 @@
 	},
 	color: "#545555"
 },
-".row-icon":{
-	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
-	right: "15dp",
-	width: Titanium.UI.FILL,
-	color: "#1BA7CD"
-},
-".menu-underline": {
-	height: "1dp",
-	top:"0dp",
-	left:"15dp",
-	width: Titanium.UI.FILL,
-	backgroundColor:"#EAEAEA"
-},
-
-"#enterBankAccountDetailView": {
-	layout: 'vertical',
-	width: '90%',
-	height: Titanium.UI.SIZE,
-	top: "30dp"
-},
-
 ".banking-underline": {
 	height: 1,
 	bottom: 10,
 	backgroundColor:"#EAEAEA",
 	width:Titanium.UI.FILL
 },
-
 "#viewExCheck": {
 	width: "90%",
 	height: Titanium.UI.FILL,
 	left: "10dp"	
 },
-
 "#viewBankDescription": {
 	width: "72%",
 	height: Titanium.UI.SIZE,
 	layout: 'vertical',
 	top: "15dp"
 },
-
 "#accountNumber": {
 	keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD
 },
 "#routingNumber": {
 	keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD
-}
+},
+
+
+
+
+
+
+
+
+
+
+
 
 
 //iPhone 4
 "#addBankAccountTopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#fff',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneFour]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#fff'
 },
 "#addBankAccountButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
@@ -100,40 +78,61 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".saveSubMerchantBankButtonIcon[if=Alloy.Globals.iPhoneFour]": {
+"#saveSubMerchantBankView[if=Alloy.Globals.iPhoneFour]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "12dp",
+            fontSize: "14dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
 },
 "#iconBankDescription[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "32dp"
-        },
+            fontSize: "38dp"
+    },
+    color: "#1BA7CD"
 },
 "#imageExCheck[if=Alloy.Globals.iPhoneFour]": {
-	width: "250dp",
-	height: "100dp",
-	bottom: "5dp",
-	left: "26dp"
+	width: Ti.UI.FILL,
+	height: "130dp",
+	bottom: "10dp"
 },
 ".banking-number[if=Alloy.Globals.iPhoneFour]": {
 	top: "5dp",
-	color: 'black',
-	font:{
-		fontSize: "12dp",
-    	fontFamily: 'Nunito-Light'
+	color: '#545555',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
 	},
+	height: "30dp"
 },
 "#labelBankDescription[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "10dp",
+            fontSize: "12dp",
             fontFamily: "Nunito-Bold"
           },
     color: "#1BA7CD",
     top: "6dp"
 },
+"#enterBankAccountDetailView[if=Alloy.Globals.iPhoneFour]": {
+	layout: 'vertical',
+	width: '90%',
+	height: Titanium.UI.SIZE,
+	top: "15dp"
+},
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -143,13 +142,13 @@
 "#addBankAccountTopBar[if=Alloy.Globals.iPhoneFive]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#fff',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneFive]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#fff'
 },
 "#addBankAccountButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
@@ -169,31 +168,35 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".saveSubMerchantBankButtonIcon[if=Alloy.Globals.iPhoneFive]": {
+"#saveSubMerchantBankView[if=Alloy.Globals.iPhoneFive]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "12dp",
+            fontSize: "14dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
 },
 "#iconBankDescription[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "42dp"
-        },
+            fontSize: "44dp"
+    },
+    color: "#1BA7CD"
 },
 "#imageExCheck[if=Alloy.Globals.iPhoneFive]": {
-	width: "250dp",
-	height: "120dp",
-	bottom: "5dp",
-	left: "26dp"
+	width: Ti.UI.FILL,
+	height: "140dp",
+	bottom: "10dp"
 },
 ".banking-number[if=Alloy.Globals.iPhoneFive]": {
 	top: "7dp",
-	color: 'black',
-	font:{
-		fontSize: "13dp",
-    	fontFamily: 'Nunito-Light'
+	color: '#545555',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
 	},
+	height: "35dp"
 },
 "#labelBankDescription[if=Alloy.Globals.iPhoneFive]": {
 	font: {
@@ -203,6 +206,22 @@
     color: "#1BA7CD",
     top: "7dp"
 },
+"#enterBankAccountDetailView[if=Alloy.Globals.iPhoneFive]": {
+	layout: 'vertical',
+	width: '90%',
+	height: Titanium.UI.SIZE,
+	top: "15dp"
+},
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -212,13 +231,13 @@
 "#addBankAccountTopBar[if=Alloy.Globals.iPhoneSix]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#fff',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneSix]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#fff'
 },
 "#addBankAccountButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
@@ -238,9 +257,12 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".saveSubMerchantBankButtonIcon[if=Alloy.Globals.iPhoneSix]": {
+"#saveSubMerchantBankView[if=Alloy.Globals.iPhoneSix]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "13dp",
+            fontSize: "17dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
@@ -248,24 +270,47 @@
 "#iconBankDescription[if=Alloy.Globals.iPhoneSix]": {
 	font: {
             fontSize: "54dp"
-        },
+    },
+   	color: "#1BA7CD"
 },
 "#imageExCheck[if=Alloy.Globals.iPhoneSix]": {
 	width: Titanium.UI.FILL,
-	height: "140dp",
-	bottom: "5dp"
+	height: "160dp",
+	bottom: "10dp"
 },
 ".banking-number[if=Alloy.Globals.iPhoneSix]": {
-	top: "15dp"
+	top: "10dp",
+	color: '#545555',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "40dp"
 },
 "#labelBankDescription[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "12dp",
+            fontSize: "14dp",
             fontFamily: "Nunito-Bold"
           },
     color: "#1BA7CD",
-    top: "5dp"
+    top: "10dp"
 },
+"#enterBankAccountDetailView[if=Alloy.Globals.iPhoneSix]": {
+	layout: 'vertical',
+	width: '90%',
+	height: Titanium.UI.SIZE,
+	top: "20dp"
+},
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -275,13 +320,13 @@
 "#addBankAccountTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#fff',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#fff'
 },
 "#addBankAccountButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
@@ -301,9 +346,12 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".saveSubMerchantBankButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
+"#saveSubMerchantBankView[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "13dp",
+            fontSize: "18dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
@@ -311,30 +359,48 @@
 "#iconBankDescription[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
             fontSize: "60dp"
-        },
+   	},
+    color: "#1BA7CD"
 },
 "#imageExCheck[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: Titanium.UI.FILL,
-	height: "160dp",
-	bottom: "5dp",
+	height: "175dp",
+	bottom: "15dp",
 	left: "21dp"
 },
 ".banking-number[if=Alloy.Globals.iPhoneSixPlus]": {
-	top: "15dp",
+	top: "10dp",
+    color: '#545555',
 	font: {
-            fontSize: "18dp",
-            fontFamily: "Nunito-Bold"
-          },
-    color: "black",
+		fontSize: '20dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "45dp"
 },
 "#labelBankDescription[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "14dp",
+            fontSize: "15dp",
             fontFamily: "Nunito-Bold"
           },
     color: "#1BA7CD",
-    top: "9dp"
+    top: "10dp"
 },
+"#enterBankAccountDetailView[if=Alloy.Globals.iPhoneSixPlus]": {
+	layout: 'vertical',
+	width: '90%',
+	height: Titanium.UI.SIZE,
+	top: "25dp"
+},
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -344,13 +410,13 @@
 "#addBankAccountTopBar[if=Alloy.Globals.android]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
-	backgroundColor: '#FAFAFA',
+	backgroundColor: '#fff',
 	layout: 'horizontal'
 },
 "#menuButton[if=Alloy.Globals.android]":{
 	height: "60dp",
 	width: "60dp",
-	backgroundColor: '#FAFAFA'
+	backgroundColor: '#fff'
 },
 "#addBankAccountButtonIcon[if=Alloy.Globals.android]": {
 	font: {
@@ -370,9 +436,12 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-".saveSubMerchantBankButtonIcon[if=Alloy.Globals.android]": {
+"#saveSubMerchantBankView[if=Alloy.Globals.android]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "13dp",
+            fontSize: "17dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
@@ -380,21 +449,34 @@
 "#iconBankDescription[if=Alloy.Globals.android]": {
 	font: {
             fontSize: "54dp"
-        },
+    },
+    color: "#1BA7CD"
 },
 "#imageExCheck[if=Alloy.Globals.android]": {
 	width: Titanium.UI.FILL,
-	height: "140dp",
+	height: "160dp",
 	bottom: "5dp"
 },
 ".banking-number[if=Alloy.Globals.android]": {
-	top: "15dp"
+	top: "10dp",
+	color: '#545555',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "40dp"
 },
 "#labelBankDescription[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "12dp",
+            fontSize: "14dp",
             fontFamily: "Nunito-Bold"
           },
     color: "#1BA7CD",
-    top: "5dp"
+    top: "10dp"
+},
+"#enterBankAccountDetailView[if=Alloy.Globals.android]": {
+	layout: 'vertical',
+	width: '90%',
+	height: Titanium.UI.SIZE,
+	top: "20dp"
 },
