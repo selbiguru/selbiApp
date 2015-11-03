@@ -15,6 +15,7 @@ function registerUser(){
     	a.show();
     	return;
 	}
+	var userName = ($.email.value).replace(/@.*$/,"")+(Math.floor(Math.random() * 9000000)+1000000);
 	var validatedNumber = validatePhoneNumber($.phoneNumber.value);
 	/*if(!validatedNumber) {
 		var c = Titanium.UI.createAlertDialog({
@@ -59,7 +60,7 @@ function registerUser(){
 						var animateWindowClose = Titanium.UI.create2DMatrix();
 					    animateWindowClose = animateWindowClose.scale(0);	
 					    results.modalWindow.close({transform:animateWindowClose, duration:300});*/
-					    AuthManager.userRegister($.firstName.value, $.lastName.value, $.email.value, $.password.value, validatedNumber, function(err, registerResult){
+					    AuthManager.userRegister($.firstName.value, $.lastName.value, $.email.value, userName, $.password.value, validatedNumber, function(err, registerResult){
 							if(registerResult) {
 								console.log("Successfully regsitered");
 								var homeController = Alloy.createController('masterlayout').getView();
