@@ -1,6 +1,7 @@
 var args = arguments[0] || {};
 var listingManager = require('managers/listingmanager');
 var ImageUtils = require('utilities/imageutils');
+var helpers = require('utilities/helpers');
 var indicator = require('uielements/indicatorwindow');
 var	previewListing,
 	views = [];
@@ -12,8 +13,12 @@ if(args.id){
 	createPurchasingButtons();
 	$.titleViewListingLabel.text = 'View Listing';
 	listingManager.getListing(args.id, function(err, listing){
-		if(!err && listing) {
+		if(err) {
+			helpers.alertUser('Listing','Unable to get the listing!');
+			return;
+		} else {
 			populateViewListing(listing);
+			return;
 		}
 	});
 } else {
@@ -79,10 +84,6 @@ function populateViewListing(listingData) {
  * Also saves the users chose of public or private listing for the item.
  */
 function saveListing() {
-	var a = Titanium.UI.createAlertDialog({
-		title : 'Listing'
-	});
-
 	var indicatorWindow = indicator.createIndicatorWindow({
 		message : "Saving"
 	});
@@ -95,22 +96,23 @@ function saveListing() {
 					delete saveResult.rev;
 					saveResult.imageUrls = imgUrls;
 					listingManager.updateListing(saveResult, function(err, updateResult) {
+						if(err) {
+							//helpers.alertUser('Listing','Failed to update your listing, please try again later!');
+							Ti.API.warn("Failed to update listing, please try again later!" + saveResult.id);
+						}
 						indicatorWindow.closeIndicator();
-						a.setMessage("Listing created successfully");
-						a.show();
-						Alloy.Globals.openPage('createlisting');
+						helpers.alertUser('Listing','Listing created successfully');
+						Alloy.Globals.openPage('createlisting');	
 					});
 				} else {
 					indicatorWindow.closeIndicator();
-					a.setMessage("Listing created successfully");
-					a.show();
+					helpers.alertUser('Listing','Listing created successfully');
 					Alloy.Globals.openPage('createlisting');
 				}
 			});
 		} else {
 			indicatorWindow.closeIndicator();
-			a.setMessage("Failed to create listing. Please try again!");
-			a.show();
+			helpers.alertUser('Listing','Failed to create your listing. Please try again!');
 		}
 	});
 }

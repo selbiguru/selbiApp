@@ -5,6 +5,7 @@
 
 var cloudinary = require('cloudinary/cloudinary'),
 	userManager = require('managers/usermanager'),
+	helpers = require('utilities/helpers'),
     httpClient = require('managers/httpmanager');
 
 /**
@@ -27,6 +28,7 @@ exports.getMenuProfileImage = function(cb) {
 		if(currentUser && currentUser.get('profileImage')){
 			profileImageUrl = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + currentUser.get('profileImage');
 		} else {
+			helpers.alertUser('Image','Failed to get user profile image, please try again later!');
 			profileImageUrl = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
 		}
 		cb(null, profileImageUrl);		

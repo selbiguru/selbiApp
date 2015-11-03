@@ -67,17 +67,10 @@ exports.createListing = function(listingData, cb){
 	};
 	console.log("this is the object we are sending through..maybe errors here? ", listingRequest);
 	httpManager.execute('/listing', 'POST', listingRequest, true, function(err, createListingResult){
-		console.log("WHY IS THIS AN ERR ", err);
-		//console.log("success one time ", createListingResult);
 		if(err) {
-			var a = Titanium.UI.createAlertDialog({
-                title : 'Listing'
-            });
-            a.setMessage("Failed to create your listing, please try again later!");
-            a.show();
-            if(cb) cb(new Error(err.message), null);
+            cb(err, null);
 		} else {
-			if(cb) cb(null, createListingResult);
+			cb(null, createListingResult);
 		}
 	});
 };
@@ -132,14 +125,9 @@ exports.updateListing = function(listingRequest, cb){
 	
 	httpManager.execute('/listing/'+ listingRequest.id, 'PUT', listingRequest, true, function(err, updateListingResult){
 		if(err) {
-			var a = Titanium.UI.createAlertDialog({
-                title : 'Listing'
-            });
-            a.setMessage("Failed to update your listing, please try again later!");
-            a.show();
-            if(cb) cb(new Error(err.message), null);
+            cb(err, null);
 		} else {
-			if(cb) cb(null, updateListingResult);
+			cb(null, updateListingResult);
 		}
 	});
 };

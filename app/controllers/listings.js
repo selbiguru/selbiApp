@@ -1,7 +1,7 @@
 var args = arguments[0][0] || {},
 	argsID = arguments[0][1] || {};
 var listingManager = require('managers/listingmanager'),
-	helper = require('utilities/helpers');
+	helpers = require('utilities/helpers');
 var myListingPadding, myListingItemHeight,
 	friendsPadding, friendsItemHeight,
 	selbiUSAPadding, selbiUSAItemHeight;
@@ -50,14 +50,25 @@ control.addEventListener('refreshstart',function(e){
 }*/
 if(tabView === 1) {
 	genMyItems(function(err, items){
+		if(err) {
+			helpers.alertUser('Listings','Unable to get user listings, please try again later!');
+			return;
+		}
 		console.log("used 3");
 	});
 } else if(tabView === 2) {
 	genFriendsItems(function(err, items){
+		if(err) {
+			helpers.alertUser('Listings','Unable to get friend\'s listings, please try again later!');
+			return;
+		}
 		console.log("used 7");
 	});
 } else {
 	genUSAItems(function(err, items){
+		if(err) {
+			helpers.alertUser('Listings','Unable to get USA listings, please try again later!');
+		}
 		console.log("used 8");
 	});
 }
@@ -73,8 +84,7 @@ if(tabView === 1) {
 function genMyItems(cb){
 	console.log("used 5");
 	listingManager.getUserListings(argsID, function(err, userListings){
-		var listItems = [];		
-		//console.log("listing%%%%% ", userListings);
+		var listItems = [];
 		if(userListings && userListings.length > 0) {
 			for(var listing in userListings) {
 				var view = Alloy.createController('myitemtemplate');
@@ -103,7 +113,7 @@ function genMyItems(cb){
 		        		image: imageUrl
 		        	},
 		        	'#listingTitle': {
-		        		text: helper.alterTextFormat(userListings[listing].title, 14, true)
+		        		text: helpers.alterTextFormat(userListings[listing].title, 14, true)
 		        	},
 		        	'#listingPrice':{ 
 		        		text: userListings[listing].price.formatMoney(2)	
@@ -175,7 +185,7 @@ function genFriendsItems(cb){
 		        		image: practiceImage
 		        	},
 		        	'#usaListingName':{ 
-		        		text: helper.alterTextFormat(Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName, 12, false)
+		        		text: helpers.alterTextFormat(Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName, 12, false)
 	        		},
 	        		'#usaListingNumber':{ 
 		        		text: userListings[listing].imageUrls.length > 1 ? "+" + userListings[listing].imageUrls.length + " Listings" : userListings[listing].imageUrls.length + " Listing"	
@@ -246,7 +256,7 @@ function genUSAItems(cb){
 		        		image: practiceImage
 		        	},
 		        	'#usaListingName':{ 
-		        		text: helper.alterTextFormat(Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName, 12, false)
+		        		text: helpers.alterTextFormat(Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName, 12, false)
 	        		},
 	        		'#usaListingNumber':{ 
 		        		text: userListings[listing].imageUrls.length > 1 ? "+" + userListings[listing].imageUrls.length + " Listings" : userListings[listing].imageUrls.length + " Listing"	

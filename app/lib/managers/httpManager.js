@@ -28,7 +28,6 @@ exports.execute = function(relativePath, method, objectToSend, isAuth, callback)
 	console.log("55555555: ", url);
     xhr.onerror = function(e) {
         Ti.API.error('Bad Server =>' + e.error);
-        alert('Bad Server =>' + e.error);
         callback(e.error, null);
     };
 
@@ -55,15 +54,11 @@ exports.execute = function(relativePath, method, objectToSend, isAuth, callback)
             } else {
                 alert('HTTP Ready State != 4');
             }
-            if (callback) {
-                callback(null, response);
-            }
+            callback(null, response);
         } else {
             alert('HTTp Error Response Status Code = ' + this.status);
             Ti.API.error("Error =>" + this.response);
-            if (callback) {
-                callback(new Error(this.response));
-            }
+            callback(this.response, null);
         }
 
     };

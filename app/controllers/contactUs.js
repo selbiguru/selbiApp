@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
 var emailManager = require('managers/emailmanager');
+var helpers = require('utilities/helpers');
 
 
 /**
@@ -7,12 +8,8 @@ var emailManager = require('managers/emailmanager');
  * Send an email from a given user to Selbi via 'Contact Us' view
  */
 function sendEmailToSelbi() {
-	var dialogError = Titanium.UI.createAlertDialog({
-	        	title : 'Empty Fields'
-	}); 
 	if($.emailTitle.value.length < 1 || $.emailBody.value.length < 1) {
-		dialogError.setMessage("Please make sure both the subject and message are filled out");
-    	dialogError.show();	
+		helpers.alertUser('Empty Fields','Please make sure both the subject and message are filled out!');
     	return;
 	} else {
 		var emailObj = {
@@ -23,12 +20,11 @@ function sendEmailToSelbi() {
 		};
 		
 		emailManager.sendContactSelbiEmail(emailObj, function(err, emailResult){
-			var dialogError = Titanium.UI.createAlertDialog({
-	        	title : 'Email Sent!'
-			}); 
-			if(emailResult) {
-				dialogError.setMessage("Selbi has received your message!  We will get back to you asap! ");
-		    	dialogError.show();	
+			if(err) {
+				helpers.alertUser('Email Failed','Failed to send email.  Please try again later!');
+				return;
+			} else {
+				helpers.alertUser('Email Sent!','Selbi has received your message!  We will get back to you asap!');
 		    	$.emailBody.value = '';
 		    	$.emailTitle.value = '';
 			}

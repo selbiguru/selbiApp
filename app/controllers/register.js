@@ -1,6 +1,7 @@
 var AuthManager = require('managers/authmanager'),
 	modalManager = require('managers/modalmanager'),
 	twilioManager = require('managers/twiliomanager'),
+	helpers = require('utilities/helpers'),
 	args = arguments[0] || {};
 var prevNumber = '';
 
@@ -8,11 +9,7 @@ var prevNumber = '';
 function registerUser(){
 	// Todo: validation when we have a template
 	if (!$.firstName.value || !$.lastName.value || !$.email.value || !$.password.value || !$.phoneNumber.value) {
-		var a = Titanium.UI.createAlertDialog({
-        	title : 'Missing Fields'
-    	});
-    	a.setMessage("All fields must be filled out!");
-    	a.show();
+    	helpers.alertUser('Missing Fields','All fields must be filled out!');
     	return;
 	}
 	var userName = ($.email.value).replace(/@.*$/,"")+(Math.floor(Math.random() * 9000000)+1000000);
@@ -21,8 +18,7 @@ function registerUser(){
 		var c = Titanium.UI.createAlertDialog({
         	title : 'Invalid Phone Number'
     	});
-		c.setMessage("Please enter a valid phone number beginning with area code");
-		c.show();
+    	helpers.alertUser('Invalid Phone Number','Please enter a valid phone number beginning with area code.');
 		return;
 	}
 	var codeNumbers =[];
@@ -34,6 +30,7 @@ function registerUser(){
 	twilioManager.sendValidationMessage(validateObject, function(error, response){
 		if(error) {
 			console.log("ROBIN");
+			helpers.alertUser('Phone Number Validation','Failed to send SMS text, please check your phone number and try again!');
 			return;
 		} else {
 			console.log("BATMAN");
@@ -61,7 +58,10 @@ function registerUser(){
 					    animateWindowClose = animateWindowClose.scale(0);	
 					    results.modalWindow.close({transform:animateWindowClose, duration:300});*/
 					    AuthManager.userRegister($.firstName.value, $.lastName.value, $.email.value, userName, $.password.value, validatedNumber, function(err, registerResult){
-							if(registerResult) {
+							if(err) {
+								helpers.alertUser('Register','Unable to register, please try again!');
+								return;
+							} else {
 								console.log("Successfully regsitered");
 								var homeController = Alloy.createController('masterlayout').getView();
 								homeController.open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});	
@@ -77,6 +77,7 @@ function registerUser(){
 					twilioManager.sendValidationMessage(validateObject, function(error, response){
 						if(error) {
 							console.log("Ping");
+							helpers.alertUser('Phone Number Validation','Failed to send SMS text, please check your phone number and try again!');
 							return;
 						} else {
 							console.log("Pong");

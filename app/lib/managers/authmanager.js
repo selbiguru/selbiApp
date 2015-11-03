@@ -33,7 +33,6 @@ var login = exports.login = function (username, password, cb){
 			
 			if(loginResult.user) {
 				// Set user properties
-				console.log("@#@$@#$@ ",loginResult.user);
 				userModel.set({username: loginResult.user.username});
 				userModel.set({password: password });
 				userModel.set({firstName: loginResult.user.firstName});
@@ -58,10 +57,9 @@ var login = exports.login = function (username, password, cb){
 			Ti.App.Properties.setString('userId', loginResult.user.id);
 			Ti.App.Properties.setString('isAuth', true);
 			
-			if(cb) cb(null, authModel);
-			
+			cb(null, authModel);
 		} else {
-			if(cb) cb(err, null);
+			cb(err, null);
 		}		
 	}); 
 };
@@ -91,12 +89,11 @@ exports.userRegister = function(firstName, lastName, email, username, password, 
 		"phoneNumber": phoneNumber
 		
 	};
-	
 	httpClient.execute("/register", "POST", registerRequest, true, function(err, registerResults) {
 		if(!err && registerResults) {
 			login(email, password, cb);
 		} else {
-			if(cb) cb(err, null);
+			cb(err, null);
 		}
 	}); 
 };

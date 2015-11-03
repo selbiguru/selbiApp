@@ -3,6 +3,7 @@ var animation = require('alloy/animation');
 var imageManager = require('managers/imagemanager');
 var listingManager = require('managers/listingmanager');
 var indicator = require('uielements/indicatorwindow');
+var helpers = require('utilities/helpers');
 var imageCollection = [];
 
 
@@ -60,15 +61,11 @@ function showCamera() {
 		},
 
 		error : function(error) {
-			var a = Titanium.UI.createAlertDialog({
-				title : 'Camera'
-			});
 			if (error.code == Titanium.Media.NO_CAMERA || error.code == Titanium.Media.NO_VIDEO) {
-				a.setMessage(L('no_camera'));
+				helpers.alertUser('Camera', L('no_camera'));
 			} else {
-				a.setMessage('Unexpected error: ' + error.code);
+				helpers.alertUser('Camera', ('Unexpected error: ' + error.code));
 			}
-			a.show();
 		}
 	});
 }
@@ -83,27 +80,19 @@ function showGallery() {
 		},
 
 		error : function(error) {
-			var a = Titanium.UI.createAlertDialog({
-				title : 'Camera'
-			});
 			if (error.code == Titanium.Media.NO_CAMERA || error.code == Titanium.Media.NO_VIDEO) {
-				a.setMessage(L('no_camera'));
+				helpers.alertUser('Camera', L('no_camera'));
 			} else {
-				a.setMessage('Unexpected error: ' + error.code);
+				helpers.alertUser('Camera', ('Unexpected error: ' + error.code));
 			}
-			a.show();
 		}
 	});
 }
 
 
 function previewListing(){
-	var dialogError = Titanium.UI.createAlertDialog({
-	        	title : 'Empty Fields'
-	}); 
 	if($.title.value.length < 1 || $.description.value.length < 1 || $.price.value.length < 1 || imageCollection.length < 1) {
-		dialogError.setMessage("Please make sure all fields are filled out including adding some images!");
-    	dialogError.show();	
+    	helpers.alertUser('Empty Fields', 'Please make sure all fields are filled out including adding some images!');
 	} else {
 		var previewListingObj = {
 			title: $.title.value,

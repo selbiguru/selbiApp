@@ -6,8 +6,8 @@ var args = arguments[0] || {};
 
 var helpers = require('utilities/helpers'),
 paymentManager = require('managers/paymentmanager'),
-modalManager = require('managers/modalmanager');
-twilioManager = require('managers/twiliomanager');
+modalManager = require('managers/modalmanager'),
+twilioManager = require('managers/twiliomanager'),
 userManager = require('managers/usermanager');
 
 
@@ -21,11 +21,7 @@ function addNewCard(){
 	Alloy.Globals.openPage('addCreditCard');
     paymentManager.getClientToken(function(err, response){
     	if(err){
-    		var dialogError = Titanium.UI.createAlertDialog({
-	        	title : 'Page unable to load!'
-	    	}); 
-	    	dialogError.setMessage("Please try again! If the problem persists please contact us.");
-		    dialogError.show();
+	    	helpers.alertUser('Payment Token','Failed to get payment token. If the problem persists please contact us!');
 		    Alloy.Globals.closePage('addCreditCard');
 			return;
     	} else {
@@ -37,24 +33,19 @@ function addNewCard(){
 
 /**
  * @method addNewBank 
- * Opens addBankAccount view so users can enter in bank account information.
+ * Checks for a user address which is required by Braintree. If one exists, opens addBankAccount view so users can enter in bank account information.
  */
 function addNewBank(){
 	//Add new bank page to add routing number and account number.
 	//Need to connect to Braintree if this option is selected
 	//To create a merchant we need an address so we check to see if the user model has an address, 
 	//otherwise we send back an alert
-	/*var a = Titanium.UI.createAlertDialog({
-        	title : 'Add Address'
-    	});
-	if (user.address) {
+	if(Alloy.Globals.currentUser.attributes.address) {
 		Alloy.Globals.openPage('addBankAccount');
 	} else {
-		a.setMessage("You must first add an address under your profile!");
-	    a.show();
+		helpers.alertUser('Add Address', 'You must complete your profile and address in the settings before connecting a bank account!');
 		return;
-	}*/
-	Alloy.Globals.openPage('addBankAccount');
+	}
 }
 
 /**
@@ -73,11 +64,15 @@ function addVenmo(){
 				var animateWindowClose = Titanium.UI.create2DMatrix();
 			    animateWindowClose = animateWindowClose.scale(0);
 			    userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
-			    	results.modalWindow.close({transform:animateWindowClose, duration:300});
-			    	//sendVenmoBraintree();
-			    	return;
+			    	if(err) {
+			    		helpers.alertUser('Update User','Failed to save your birthday, please try again!');
+			    		return;
+			    	} else {
+			    		results.modalWindow.close({transform:animateWindowClose, duration:300});
+				    	//sendVenmoBraintree();
+				    	return;
+				    }
 			    });
-			    	
 			    results.modalWindow.close({transform:animateWindowClose, duration:300});
 			});
 		});
@@ -100,9 +95,6 @@ function sendVenmoBraintree(){
 	//to send funds to venmo when somone purchases from this vendor
 	//To create a merchant we need an address so we check to see if the user model has an address, 
 	//otherwise we send back an alert
-	var a = Titanium.UI.createAlertDialog({
-        	title : 'Add Address'
-    	});
 	if (Alloy.Globals.currentUser.attributes.address) {
 		var merchantSubAccountParams = {
 			individual: {
@@ -127,15 +119,13 @@ function sendVenmoBraintree(){
   		};
   		paymentManager.createSubMerchant(merchantSubAccountParams, function(err, responseObj) {
 			if(err) {
-				
+				helpers.alertUser('Venmo','Failed to connect your Venmo account, make sure you already have a Venmo account active or add a bank account instead!');
 			} else {
-				
+				//add something here!!!!!
 			}
 		});
-  		
 	} else {
-		a.setMessage("You must complete your profile and address in the settings before connecting an account!");
-	    a.show();
+		helpers.alertUser('Add Address','You must complete your profile and address in the settings before connecting an account!');
 		return;
 	}
 }
@@ -237,7 +227,6 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  	$.paymentDetails.add(viewUserCard);
  	deleteCardIcon.addEventListener('click', function() {
  		//delete credit card from braintree and our db
- 		console.log("im inside this%%%%");
  		var deleteCardAlert = Titanium.UI.createAlertDialog({
 	        	title : 'Delete Card',
 	        	buttonNames: ['Confirm', 'Cancel'],
@@ -253,10 +242,13 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  				paymentManager.deletePayment(function(err, response){
 					if(err){
 						console.log("made and error somewhere!", err);
+						helpers.alertUser('Delete Payment','Unable to delete payment, please try again or contact us!');
+						return;
 					} else {
-						console.log("made a response while deleting!", response);						
-					}
-					return;				
+						console.log("made a response while deleting!", response);	
+						helpers.alertUser('Deleted Payment','Payment method deleted. Add another card to buy more items!');
+						return;					
+					}			
  				});
 			}
 		});
@@ -375,6 +367,10 @@ function showUserBank(bankInfo) {
  */
 paymentManager.getPaymentMethods(function(err, results){
 	console.log("~~~~~~~~~~~~~~~~~~: ", results);
+	if(err) {
+		helpers.alertUser('Payment Methods','Unable to load your payment methods. If the problem persists please contact us!');
+		return;
+	}
 	if(results.userPaymentMethod.lastFour) {
 		console.log("WEEEEE");
 		showUserCard(results.userPaymentMethod);

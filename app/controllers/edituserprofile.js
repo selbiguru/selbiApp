@@ -69,7 +69,7 @@ function showCamera(){
 			// Do nothing
 		},
 		error: function(){
-			alert("Unable to load the image");
+			helpers.alertUser('Image','Unable to load the image!');
 		},
 		saveToPhotoGallery:true,
 	    // allowEditing and mediaTypes are iOS-only settings
@@ -92,7 +92,7 @@ function openGallery(){
 			//Do nothing		
 		},
 		error: function(){
-			alert("Unable to load the image");
+			helpers.alertUser('Image','Unable to load the image!');
 		},
 		// allowEditing and mediaTypes are iOS-only settings
 		allowEditing:true,
@@ -114,11 +114,18 @@ function uploadUserProfile(imageBlob){
 		if(currentUser) {
 			currentUser.set({'profileImage': result.public_id});
 			currentUser.save();
-			userManager.userUpdate(currentUser.toJSON(), function(){				
-				imageManager.getMenuProfileImage(function(err, profileImage){
-					$.userProfileImage.image = profileImage;
-					indicatorWindow.closeIndicator();
-				});				
+			userManager.userUpdate(currentUser.toJSON(), function(err, results){
+				if(err) {
+					helpers.alertUser('Update User','Failed to update user, please try again later!');
+					return;
+				} else {
+					helpers.alertUser('Updated User', 'User profile saved!');
+					imageManager.getMenuProfileImage(function(err, profileImage){
+						$.userProfileImage.image = profileImage;
+						indicatorWindow.closeIndicator();
+					});
+					return;	
+				}			
 			});
 		} else {
 			indicatorWindow.closeIndicator();
@@ -161,7 +168,11 @@ function updateUser(e){
 	}*/
 	
 	userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
-		if(userUpdateResult) {
+		if(err) {
+			helpers.alertUser('Update User','Failed to update user, please try again later!');
+			return;
+		} else {
+			helpers.alertUser('Updated User', 'User profile saved!');
 			$.firstName.value = helpers.capFirstLetter($.firstName.value);
 			$.lastName.value = helpers.capFirstLetter($.lastName.value);
 			$.username.value = $.username.value;

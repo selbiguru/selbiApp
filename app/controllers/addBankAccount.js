@@ -13,9 +13,6 @@ userManager = require('managers/usermanager');
  * Braintree requires birthday when creating a subMerchant Account
  */
 function addBankInfo() {
-		var a = Titanium.UI.createAlertDialog({
-		        title : 'Invalid Banking Fields'
-		    });
 		if($.accountNumber.value != "" && $.routingNumber.value != "") {
 			var validateFieldObject = {
 				accountNumber: [helpers.trim($.accountNumber.value, true), {required: true,
@@ -27,14 +24,12 @@ function addBankInfo() {
 			var validateBankAccount = utils.validate(validateFieldObject);
 			for (i in validateBankAccount) {
 				if(validateBankAccount[i].message){
-				    a.setMessage("Both Routing and Account fields must be only numbers!");
-				    a.show();
+					helpers.alertUser('Invalid Banking Fields','Both Routing and Account fields must be only numbers!');
 				    return;
 				}
 			}
 		} else {
-			a.setMessage("Both Routing and Account fields must be filled out!");
-			a.show();
+			helpers.alertUser('Invalid Banking Fields','Both Routing and Account fields must be filled out!');
 		    return;
 		}
 		
@@ -48,9 +43,15 @@ function addBankInfo() {
 					var animateWindowClose = Titanium.UI.create2DMatrix();
 				    animateWindowClose = animateWindowClose.scale(0);
 				    userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
-				    	results.modalWindow.close({transform:animateWindowClose, duration:300});
-				    	//sendBankBraintree();
-				    	return;
+				    	if(err) {
+				    		helpers.alertUser('Update User','Failed to save your birthday, please try again later!');
+				    		return;
+				    	} else {
+				    		helpers.alertUser('Updated User', 'Saved Birthday!');
+				    		results.modalWindow.close({transform:animateWindowClose, duration:300});
+					    	//sendBankBraintree();
+					    	return;
+				    	}
 				    });
 		    	
 				    results.modalWindow.close({transform:animateWindowClose, duration:300});
@@ -67,49 +68,39 @@ function addBankInfo() {
 
 /**
  * @private sendBankBraintree 
- * Determines if your address is complete on your profile page and if so, creates a subMerchant account with your Bank Account info so you can cash out.
+ * Creates a subMerchant account with your Bank Account info so you can cash out.
  */
 function sendBankBraintree(){
-	var a = Titanium.UI.createAlertDialog({
-	  	title : 'Add Address'
-	});
-    if (Alloy.Globals.currentUser.attributes.address) {
-		var merchantSubAccountParams = {
-			individual: {
-			    firstName: Alloy.Globals.currentUser.attributes.firstName,
-			    lastName: Alloy.Globals.currentUser.attributes.lastName,
-			    email: Alloy.Globals.currentUser.attributes.email,
-			    phone: Alloy.Globals.currentUser.attributes.phoneNumber,
-			    dateOfBirth: Alloy.Globals.currentUser.attributes.dateOfBirth,
-			    address: {
-			      streetAddress: Alloy.Globals.currentUser.attributes.userAddress.address,
-			      locality: Alloy.Globals.currentUser.attributes.userAddress.city,
-			      region: Alloy.Globals.currentUser.attributes.userAddress.state,
-			      postalCode: Alloy.Globals.currentUser.attributes.userAddress.zip
-			    }
-		  	},
-			funding: {
-			    accountNumber: $.accountNumber.value,
-			    routingNumber: $.routingNumber.value
-		  	},
-		  	id: Ti.App.Properties.getString('userId'), //Id of the user
-		  	venmo: false
-		};
+	var merchantSubAccountParams = {
+		individual: {
+		    firstName: Alloy.Globals.currentUser.attributes.firstName,
+		    lastName: Alloy.Globals.currentUser.attributes.lastName,
+		    email: Alloy.Globals.currentUser.attributes.email,
+		    phone: Alloy.Globals.currentUser.attributes.phoneNumber,
+		    dateOfBirth: Alloy.Globals.currentUser.attributes.dateOfBirth,
+		    address: {
+		      streetAddress: Alloy.Globals.currentUser.attributes.userAddress.address,
+		      locality: Alloy.Globals.currentUser.attributes.userAddress.city,
+		      region: Alloy.Globals.currentUser.attributes.userAddress.state,
+		      postalCode: Alloy.Globals.currentUser.attributes.userAddress.zip
+		    }
+	  	},
+		funding: {
+		    accountNumber: $.accountNumber.value,
+		    routingNumber: $.routingNumber.value
+	  	},
+	  	id: Ti.App.Properties.getString('userId'), //Id of the user
+	  	venmo: false
+	};
+	paymentManager.createSubMerchant(merchantSubAccountParams, function(err, responseObj) {
+		console.log("responseobj@@@@@@@", responseObj);
+		if(err) {
+			helpers.alertUser('Save Bank Info','Failed to save your bank info, please try again later!');
+			return;
+		} else {
 	
-		paymentManager.createSubMerchant(merchantSubAccountParams, function(err, responseObj) {
-			console.log("err!!!!!", err);
-			console.log("responseobj@@@@@@@", responseObj);
-			if(err) {
-				
-			} else {
-		
-			}
-		});
-	} else {
-		a.setMessage("You must complete your profile and address in the settings before connecting an account!");
-		a.show();
-		return;
-	}
+		}
+	}); 	
 }
 
 // Set the Example Check image

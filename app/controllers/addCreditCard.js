@@ -19,10 +19,14 @@ function saveCreditCard() {
   		 console.log("THIS IS MY CARD", createCustomerObj);
   		 paymentManager.createCustomerAndPaymentMethod(createCustomerObj, function(err, response) {
   		 	//add return response here and close view.  Add card to payment method choice
-  		 	return;
-  		 });
-  		 
-  		
+  		 	if(err) {
+  		 		helpers.alertUser('Save Payment Method','Failed to save your credit card, please try again later!');
+  		 		return;
+  		 	} else {
+  		 		helpers.alertUser('Saved!','Your credit card has been saved!');
+  		 		return;	
+  		 	}
+  		 });	
 	 });
 	return;
 }

@@ -3,18 +3,9 @@ var httpManager = require('managers/httpmanager');
 var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
 	// Todo: validation on userUpdateObj
 	httpManager.execute('/UserData/' + userUpdateObj.id, 'PUT', userUpdateObj, true, function(err, userUpdateResult){
-		var a = Titanium.UI.createAlertDialog({
-        	title : 'Update User'
-    	});
-
 		if(err) {
-	    	a.setMessage("Failed to update user, please try again later!");
-	    	a.show();
-			if(cb) cb(new Error(err.message), null);
-			} 
-		else {
-			a.setMessage("User profile saved!");
-    		a.show();
+			cb(err, null);
+		} else {
 			if(userUpdateResult) {
 				var userModel = Alloy.Models.instance('user');
 				userModel.set({username: userUpdateResult.username});
@@ -46,8 +37,9 @@ var getCurrentUser = exports.getCurrentUser = function(cb){
 	console.warn("Fetching user information UserID: " + Ti.App.Properties.getString('userId'));
 	
 	httpManager.execute('/UserData/' + Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, userObject){
-		//console.log("$$$$$$$$$$$$$: ", userObject);
-		if(userObject) {
+		if(err) {
+			cb(err, null);
+		} else {
 			var userModel = Alloy.Models.instance('user');
 			userModel.set({username: userObject.username});
 			userModel.set({firstName: userObject.firstName});
@@ -67,8 +59,7 @@ var getCurrentUser = exports.getCurrentUser = function(cb){
 			}
 			userModel.save();		
 			Alloy.Globals.currentUser = userModel;
-			//console.log("BIRTHDAY BOY ", userModel);
+			cb(err, Alloy.Globals.currentUser);
 		}	
-		cb(err, Alloy.Globals.currentUser);
 	});	
 };

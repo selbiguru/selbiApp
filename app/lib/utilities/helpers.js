@@ -211,3 +211,23 @@ exports.trim = function(str, boolean) {
 exports.capFirstLetter = function(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
 };
+
+
+
+/**
+ * @method alertUser
+ * Sends an alert to the user's phone
+ * @param {String} alertTitle Title you want in the alert shown to the user
+ * @param {String} alertMessage Message you want in the alert shown to the user
+ */
+exports.alertUser = function(alertTitle, alertMessage) {
+    var a = Titanium.UI.createAlertDialog({
+        	title : alertTitle
+    });
+	a.setMessage(alertMessage);
+	a.show();
+	return;
+};
+
+
+

@@ -1,6 +1,7 @@
 var args = arguments[0] || {};
 var utils = require('utilities/validate');
-userManager = require('managers/usermanager');
+var userManager = require('managers/usermanager');
+var helpers = require('utilities/helpers');
 var address =  args[0];
 
 // Populates the address fields on page load
@@ -32,9 +33,9 @@ function validateAddressView(){
 		label: "Apt/Street #",
 		required: false
 	};
-	var car = utils.validate(value, options);
-	if (car.message) {
-		alert(car.message);
+	var aptNumber = utils.validate(value, options);
+	if (aptNumber.message) {
+		alert(aptNumber.message);
 		//$.addClass($.userAptNumber, "error");
 		return;	
 	} else {
@@ -49,8 +50,16 @@ function validateAddressView(){
 						"country": $.country.value
 						}
 		};
-		userManager.userUpdate(textFieldObject, function(err, userUpdateResult){});
-		$.verifyAddressCancelButton.fireEvent('click');
+		userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
+			if(err) {
+				helpers.alertUser('Update Address','Failed to update address, please try again!');
+				return;
+			} else {
+				helpers.alertUser('Updated Address', 'User address saved!');
+				$.verifyAddressCancelButton.fireEvent('click');
+				return;
+			}
+		});
 	}
 	
 }
