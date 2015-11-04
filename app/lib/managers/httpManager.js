@@ -27,8 +27,11 @@ exports.execute = function(relativePath, method, objectToSend, isAuth, callback)
 	console.log("!!!!!!: ", xhr);
 	console.log("55555555: ", url);
     xhr.onerror = function(e) {
-        Ti.API.error('Bad Server =>' + e.error);
-        callback(e.error, null);
+    	var extendedError = xhr.responseText != 'null' ? xhr.responseText : e.error;
+        Ti.API.error('Bad Server =>' + e.error);  
+        Ti.API.error('EXTENDED ERROR =>' + extendedError);
+        Ti.API.error('XHR Error: ' + xhr.status + ' - ' + typeof xhr.responseText);
+        callback(extendedError, null);
     };
 
     xhr.open(method, url);

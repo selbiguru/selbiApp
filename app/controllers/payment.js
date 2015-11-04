@@ -149,7 +149,7 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
 	        labelHeight = '35dp';
 	        break;
 	    case 1: //iphoneFive
-	        labelFont = 16;
+	        labelFont = 14;
 	        labelHeight = '40dp';
 	        break;
 	    case 2: //iphoneSix
@@ -184,18 +184,18 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  	});
  	var userCardNumber = Titanium.UI.createLabel({
  		//borderColor: "red",
- 		left: "15dp",
+ 		left: "10dp",
 		height: labelHeight,
 		font:{
 			fontSize: labelFont,
 	    	fontFamily: 'Nunito-Light'
 		},
 		color: "#545555",
-		text: 'XXXX '+ cardInfo.lastFour
+		text: 'XX '+ cardInfo.lastFour
  	});
  	var userCardExp = Titanium.UI.createLabel({
  		//borderColor: "red",
- 		left: "15dp",
+ 		left: "10dp",
 		height: labelHeight,
 		font:{
 			fontSize: labelFont,
@@ -241,12 +241,11 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  				//$.viewAddCard.height = '40dp';
  				paymentManager.deletePayment(function(err, response){
 					if(err){
-						console.log("made and error somewhere!", err);
 						helpers.alertUser('Delete Payment','Unable to delete payment, please try again or contact us!');
 						return;
 					} else {
-						console.log("made a response while deleting!", response);	
-						helpers.alertUser('Deleted Payment','Payment method deleted. Add another card to buy more items!');
+						$.paymentDetails.remove(viewUserCard);
+						helpers.alertUser('Deleted Payment','Payment method deleted. Add another card to buy from friends!');
 						return;					
 					}			
  				});

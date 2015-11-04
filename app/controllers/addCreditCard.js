@@ -33,13 +33,22 @@ function savingStuff(e){
 		 paymentManager.createCustomerAndPaymentMethod(createCustomerObj, function(err, response) {
 		 	//add return response here and close view.  Add card to payment method choice
 		 	if(err) {
+		 		if(err === 'false') {
+			 		helpers.alertUser('Payment Nonce','Unable to find a payment nonce. Please contact us so we can remedy the situation!');
+		 		} else {
+			 		helpers.alertUser('Save Payment Failed','Unable to save your credit card, please try again!');
+		 		}
 		 		indicatorWindow.closeIndicator();
-		 		helpers.alertUser('Save Payment Failed','Unable to save your credit card, please try again later!');
+		 		return;
+		 	} else if(!response.cardStatus) {
+		 		indicatorWindow.closeIndicator();
+		 		helpers.alertUser('Declined','Your Credit Card was declined, please try another card!');
 		 		return;
 		 	} else {
 		 		indicatorWindow.closeIndicator();
 		 		helpers.alertUser('Saved!','Your credit card has been saved!');
 		 		Alloy.Globals.closePage('addCreditCard');
+		 		Alloy.Globals.openPage('payment');
 		 		return;	
 		 	}
 		 });	

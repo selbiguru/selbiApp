@@ -43,7 +43,7 @@ var createCustomerAndPaymentMethod = exports.createCustomerAndPaymentMethod = fu
 			//userModel.save();
 			//Alloy.Globals.currentUser = userModel
 			console.log("this is my repsone finally", userPaymentObj);
-			cb(err, Alloy.Globals.currentUser);
+			cb(err, userPaymentObj);
 		}
 	});
 };
@@ -71,8 +71,8 @@ var createSubMerchant = exports.createSubMerchant = function(subMerchantObject, 
 
 /***************************************************DELETE CALLS***************************************************************/
 
-var deletePayment = exports.deletePayment = function(deletePaymentObject, cb) {
-	httpManager.execute('/payments/paymentMethod/'+Ti.App.Properties.getString('userId'), 'DELETE', deletePaymentObject, true, function(err, deletePaymentResponse){
+var deletePayment = exports.deletePayment = function(cb) {
+	httpManager.execute('/payments/paymentMethod/'+Ti.App.Properties.getString('userId'), 'DELETE', null, true, function(err, deletePaymentResponse){
 		if(err) {
 			cb(err, null);
 			} 
