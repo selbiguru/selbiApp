@@ -361,6 +361,10 @@ function showUserBank(bankInfo) {
 
 
 
+
+
+/*----------------------------------------------On page load API calls---------------------------------------------*/
+
 /**
  * @method getPaymentMethods 
  *  On page load, dynamically loads the user's payment methods and calls correlating function to dynamically create XML.
@@ -380,3 +384,6 @@ paymentManager.getPaymentMethods(function(err, results){
 		showUserBank(results.userMerchant);
 	}
 });
+
+//Close addCreditCard page on payment.js load otherwise webview braintree doesn't properly read the save cc view
+Alloy.Globals.closePage('addCreditCard');
