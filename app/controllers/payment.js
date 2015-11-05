@@ -348,9 +348,20 @@ function showUserBank(bankInfo) {
 	    deleteBankAlert.setMessage("Are you sure you want to delete this bank account?  You'll have to add another account/Venmo to be able to cash out!" );
  		deleteBankAlert.addEventListener('click', function(e){
 		    if (e.index === e.source.confirm){
-			//add delete logic here!!!!
-			//paymentManager.deletePayment();
+				//add delete logic here!!!!
 				Ti.API.info('The confirm button was clicked');
+				//$.viewAddCard.show();
+ 				//$.viewAddCard.height = '40dp';
+ 				paymentManager.deletePayment(function(err, response){
+					if(err){
+						helpers.alertUser('Delete Bank','Unable to delete bank, please try again or contact us!');
+						return;
+					} else {
+						$.bankingDetails.remove(viewUserBank);
+						helpers.alertUser('Bank Deleted','Add another account to be able to sell more items!');
+						return;					
+					}			
+ 				});
 			}
 		});
  		deleteBankAlert.show();
