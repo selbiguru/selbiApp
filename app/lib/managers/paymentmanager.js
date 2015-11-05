@@ -51,8 +51,8 @@ var createCustomerAndPaymentMethod = exports.createCustomerAndPaymentMethod = fu
 
 
 
-var createSubMerchant = exports.createSubMerchant = function(subMerchantObject, cb) {
-	httpManager.execute('/payments/createSubMerchant', 'POST', subMerchantObject, true, function(err, userPaymentObj){
+var createSubMerchantAccount = exports.createSubMerchantAccount = function(subMerchantObject, cb) {
+	httpManager.execute('/payments/createSubMerchantAccount/'+Ti.App.Properties.getString('userId'), 'POST', subMerchantObject, true, function(err, userPaymentObj){
 		if(err) {
 			cb(err, null);
 			} 

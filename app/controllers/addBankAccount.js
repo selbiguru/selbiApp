@@ -1,10 +1,11 @@
 var args = arguments[0] || {};
 
 var utils = require('utilities/validate'),
-helpers = require('utilities/helpers'),
-paymentManager = require('managers/paymentmanager'),
-modalManager = require('managers/modalmanager');
-userManager = require('managers/usermanager');
+	helpers = require('utilities/helpers'),
+	paymentManager = require('managers/paymentmanager'),
+	indicator = require('uielements/indicatorwindow'),
+	modalManager = require('managers/modalmanager'),
+	userManager = require('managers/usermanager');
 
 
 /**
@@ -47,9 +48,9 @@ function addBankInfo() {
 				    		helpers.alertUser('Update User','Failed to save your birthday, please try again later!');
 				    		return;
 				    	} else {
-				    		helpers.alertUser('Updated User', 'Saved Birthday!');
+				    		helpers.alertUser('User Updated', 'Saved Birthday!');
 				    		results.modalWindow.close({transform:animateWindowClose, duration:300});
-					    	//sendBankBraintree();
+					    	sendBankBraintree();
 					    	return;
 				    	}
 				    });
@@ -59,7 +60,7 @@ function addBankInfo() {
 			});
 		} else {
 			console.log("pee");
-			//sendBankBraintree();
+			sendBankBraintree();
 			return;
 		}
 	return;
@@ -79,10 +80,10 @@ function sendBankBraintree(){
 		    phone: Alloy.Globals.currentUser.attributes.phoneNumber,
 		    dateOfBirth: Alloy.Globals.currentUser.attributes.dateOfBirth,
 		    address: {
-		      streetAddress: Alloy.Globals.currentUser.attributes.userAddress.address,
-		      locality: Alloy.Globals.currentUser.attributes.userAddress.city,
-		      region: Alloy.Globals.currentUser.attributes.userAddress.state,
-		      postalCode: Alloy.Globals.currentUser.attributes.userAddress.zip
+		      streetAddress: Alloy.Globals.currentUser.attributes.address,
+		      locality: Alloy.Globals.currentUser.attributes.city,
+		      region: Alloy.Globals.currentUser.attributes.state,
+		      postalCode: Alloy.Globals.currentUser.attributes.zip
 		    }
 	  	},
 		funding: {
@@ -92,13 +93,20 @@ function sendBankBraintree(){
 	  	id: Ti.App.Properties.getString('userId'), //Id of the user
 	  	venmo: false
 	};
-	paymentManager.createSubMerchant(merchantSubAccountParams, function(err, responseObj) {
-		console.log("responseobj@@@@@@@", responseObj);
+	var indicatorWindow = indicator.createIndicatorWindow({
+			message : "Saving Banking Info"
+	});
+	indicatorWindow.openIndicator();
+	paymentManager.createSubMerchantAccount(merchantSubAccountParams, function(err, responseObj) {
 		if(err) {
-			helpers.alertUser('Save Bank Info','Failed to save your bank info, please try again later!');
+			helpers.alertUser('Failed to Save','Please make sure your bank information is correct and try again!');
+			indicatorWindow.closeIndicator();
 			return;
 		} else {
-	
+			helpers.alertUser('Saved','Your bank information has been saved!');
+			Alloy.Globals.closePage('addBankAccount');
+			Alloy.Globals.openPage('payment');
+			indicatorWindow.closeIndicator();
 		}
 	}); 	
 }

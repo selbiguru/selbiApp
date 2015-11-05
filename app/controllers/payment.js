@@ -68,6 +68,7 @@ function addVenmo(){
 			    		helpers.alertUser('Update User','Failed to save your birthday, please try again!');
 			    		return;
 			    	} else {
+			    		helpers.alertUser('User Updated', 'Saved Birthday!');
 			    		results.modalWindow.close({transform:animateWindowClose, duration:300});
 				    	//sendVenmoBraintree();
 				    	return;
@@ -104,10 +105,10 @@ function sendVenmoBraintree(){
 			    phone: Alloy.Globals.currentUser.attributes.phoneNumber,
 			    dateOfBirth: Alloy.Globals.currentUser.attributes.dateOfBirth,
 			    address: {
-			      streetAddress: Alloy.Globals.currentUser.attributes.userAddress.address,
-			      locality: Alloy.Globals.currentUser.attributes.userAddress.city,
-			      region: Alloy.Globals.currentUser.attributes.userAddress.state,
-			      postalCode: Alloy.Globals.currentUser.attributes.userAddress.zip
+			      streetAddress: Alloy.Globals.currentUser.attributes.address,
+			      locality: Alloy.Globals.currentUser.attributes.city,
+			      region: Alloy.Globals.currentUser.attributes.state,
+			      postalCode: Alloy.Globals.currentUser.attributes.zip
 			    }
   		  	},
   			funding: {
@@ -117,7 +118,7 @@ function sendVenmoBraintree(){
 		  	id: Ti.App.Properties.getString('userId'), //Id of the user
 		  	venmo: true
   		};
-  		paymentManager.createSubMerchant(merchantSubAccountParams, function(err, responseObj) {
+  		paymentManager.createSubMerchantAccount(merchantSubAccountParams, function(err, responseObj) {
 			if(err) {
 				helpers.alertUser('Venmo','Failed to connect your Venmo account, make sure you already have a Venmo account active or add a bank account instead!');
 			} else {
@@ -386,3 +387,4 @@ paymentManager.getPaymentMethods(function(err, results){
 
 //Close addCreditCard page on payment.js load otherwise webview braintree doesn't properly read the save cc view
 Alloy.Globals.closePage('addCreditCard');
+Alloy.Globals.closePage('addBankAccount');
