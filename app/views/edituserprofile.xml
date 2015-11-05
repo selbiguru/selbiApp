@@ -21,30 +21,34 @@
 			<Label id="userLabel" class='label-grids'>User Info:</Label>
 			<View id="userView">
 	        	<View id="userInfo" class="rowContainer">
-			        <TextField id="firstName" hintText="First Name" class="user-profile-text-fields" value="{user.firstName}"></TextField>
+			        <TextField id="firstName" hintText="First Name" class="" value="{user.firstName}"></TextField>
 			        <View class="dark-underline"/>
 			    </View>
 			    <View class="rowContainer">
-			        <TextField id="lastName" hintText="Last Name" class="user-profile-text-fields" value="{user.lastName}"></TextField>
+			        <TextField id="lastName" hintText="Last Name" class="" value="{user.lastName}"></TextField>
 			        <View class="dark-underline"/>
 			    </View>
 			    <View class="rowContainer">
-			        <TextField id="username" hintText="Username" class="user-profile-text-fields" value="{user.username}"></TextField>
+			    	<View id="usernameView">
+			        	<TextField id="username" hintText="Username" class="" value="{user.username}" maxLength="20"></TextField>
+			        	<Label id="usernameCheckIcon" class='icon-username' icon="fa-check-circle-o"></Label>
+			        	<Label id="usernameXIcon" class='icon-username' icon="fa-times"></Label>
+			        </View>
 			        <View class="dark-underline"/>
 			    </View>
 			</View>
 		    <Label id="addressLabel" class='label-grids'>Address:</Label>
 		    <View id="addressInfo">
 			    <View id="userAddress" class="rowContainer">
-			        <TextField id="streetAddress" hintText="Street Address" class="user-profile-text-fields" value="{user.address}  {user.address2}" editable="false"></TextField>
+			        <TextField id="streetAddress" hintText="Street Address" class="" value="{user.address}  {user.address2}" editable="false"></TextField>
 			        <View class="dark-underline"/>
 			    </View>
 			    <View class="rowContainer">
-			        <TextField id="city" hintText="City" class="user-profile-text-fields" value="{user.city}, {user.state} {user.zip}" editable="false"></TextField>
+			        <TextField id="city" hintText="City" class="" value="{user.city}, {user.state} {user.zip}" editable="false"></TextField>
 			        <View class="dark-underline"/>
 			    </View>
 			    <View class="rowContainer">
-			        <TextField id="country" hintText="Country" class="user-profile-text-fields" value="{user.country}" editable="false"></TextField>
+			        <TextField id="country" hintText="Country" class="" value="{user.country}" editable="false"></TextField>
 			        <View class="dark-underline"/>
 			    </View>
 			</View>
@@ -54,11 +58,11 @@
 		    </View>
 		    <View id="facebookView" class="edit-user-profile-buttons-view edit-user-profile-button">
 		    	<Label icon="fa-facebook" class="edit-profile-social-icon social-facebook" id="editProfileFacebookConnect"></Label>
-		        <Button id="connectFacebook" class="edit-profile-social-text social-facebook" onClick="connectToFaceBook">Connect to Facebook</Button>
+		        <Button id="connectFacebook" class="edit-profile-social-text social-facebook">Connect to Facebook</Button>
 		    </View>
 		    <View id="twitterView" class="edit-user-profile-buttons-view edit-user-profile-button">
 		        <Label icon="fa-twitter" class="edit-profile-social-icon social-twitter" id="editProfileTwitterConnect"></Label>
-		        <Button id="connectTwitter" class="edit-profile-social-text social-twitter" onClick="connectToTwitter">Connect to Twitter</Button>
+		        <Button id="connectTwitter" class="edit-profile-social-text social-twitter">Connect to Twitter</Button>
 		    </View>
 		    <Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 	   </ScrollView>

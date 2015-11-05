@@ -16,30 +16,6 @@
 	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE
 },
-/*".user-profile-labels": {
-	width: Ti.UI.FILL,
-	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
-	font:{
-		fontSize: "16dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	color: "#545555",
-	left: "10dp"
-},*/
-/*".user-profile-text-fields": {
-	borderColor: "#EAEAEA",
-	width: Ti.UI.FILL,
-	font:{
-		fontSize: "16dp",
-    	fontFamily: 'Nunito-Light'
-	},
-	backgroundColor: "white",
-	color: "#545555",
-	height: "35dp",
-	borderRadius: "5",
-	paddingLeft: "10dp",
-	paddingRight: "10dp"
-}*/
 "#twitterView":{
 	height: '0dp',
 	visible: false
@@ -83,6 +59,25 @@
 	backgroundColor:"#EAEAEA",
 	width:Titanium.UI.FILL
 },
+"#usernameView": {
+	height: Ti.UI.SIZE
+},
+"#usernameCheckIcon": {
+	color:"#1BA7CD"
+},
+"#usernameXIcon": {
+	color: "#c10404"
+},
+".icon-username": {
+	right: '10dp',
+	font: {
+		fontSize: '16dp'
+	}
+}
+
+
+
+
 
 
 
@@ -152,7 +147,8 @@
 		fontSize: '14dp',
 		fontFamily: 'Nunito-Light'
 	},
-	height: "30dp"
+	height: "30dp",
+	zIndex: 3
 },
 ".edit-user-profile-button[if=Alloy.Globals.iPhoneFour]": {
 	width: Ti.UI.FILL,
@@ -283,7 +279,8 @@
 		fontSize: '16dp',
 		fontFamily: 'Nunito-Light'
 	},
-	height: "35dp"
+	height: "35dp",
+	zIndex: 3
 },
 ".edit-user-profile-button[if=Alloy.Globals.iPhoneFive]": {
 	width: Ti.UI.FILL,
@@ -417,7 +414,8 @@
 		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
 	},
-	height: "40dp"
+	height: "40dp",
+	zIndex: 3
 },
 ".edit-user-profile-button[if=Alloy.Globals.iPhoneSix]": {
 	width: Ti.UI.FILL,
@@ -550,7 +548,8 @@
 		fontSize: '20dp',
 		fontFamily: 'Nunito-Light'
 	},
-	height: "45dp"
+	height: "45dp",
+	zIndex: 3
 },
 ".edit-user-profile-button[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: Ti.UI.FILL,
@@ -682,7 +681,8 @@
 		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
 	},
-	height: "40dp"
+	height: "40dp",
+	zIndex: 3
 },
 ".edit-user-profile-button[if=Alloy.Globals.android]": {
 	width: Ti.UI.FILL,

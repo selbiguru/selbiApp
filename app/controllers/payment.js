@@ -135,6 +135,13 @@ function sendVenmoBraintree(){
 $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.venmoWhite;
 
 
+
+
+
+
+
+
+
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
  
  /**

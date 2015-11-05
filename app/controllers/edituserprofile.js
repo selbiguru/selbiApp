@@ -5,27 +5,15 @@
 args = arguments[0] || {};
 
 var helpers = require('utilities/helpers'),
-userManager = require('managers/usermanager'),
-imageManager = require('managers/imagemanager'),
-currentUser = null,
-indicator = require('uielements/indicatorwindow'),
-fb = require('facebook'); 
+	userManager = require('managers/usermanager'),
+	imageManager = require('managers/imagemanager'),
+	currentUser = null,
+	userNameUnique = true,
+	indicator = require('uielements/indicatorwindow'),
+	fb = require('facebook'); 
 //logout from facebook everytime for testing
-fb.logout();
+//fb.logout();
 
-//Load the user model
-Alloy.Models.user.fetch({
-	success: function(data){
-		//check for address? then hide elements and show different elements?
-		
-	},
-	error: function(data){		
-	}
-});
-// Set the user profile image
-imageManager.getMenuProfileImage(function(err, profileImage){
-	$.userProfileImage.image = profileImage;	
-});
 
 /**
  * @method onCameraClick
@@ -146,6 +134,11 @@ function uploadUserProfile(imageBlob){
 }
 
 function updateUser(e){
+	if(!userNameUnique) {
+		helpers.alertUser('Sorry','Usernames can only be letters and numbers!');
+		return;
+	}
+	console.log("MISSED ME BITCH");
 	// Todo: validation
 	var textFieldObject = {
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
@@ -180,8 +173,45 @@ function updateUser(e){
 	});	
 };
 
+$.username.addEventListener('change',function(e){
+	var uniqueUserRegEx = ($.username.value).match(/^[a-zA-Z\d\_]+$/);
+	if(uniqueUserRegEx === null) {
+		userNameUnique = false;
+		$.usernameCheckIcon.hide();
+		$.usernameXIcon.show();
+	} else if(this.value.length > 6) {
+		updateUserName();
+	} else {
+		userNameUnique = false;
+		$.usernameCheckIcon.hide();
+		$.usernameXIcon.show();
+	}
+});
+function updateUserName() {
+	var uniqueObject = {
+		username: ($.username.value).toLowerCase(),
+		email: (Alloy.Globals.currentUser.attributes.email).toLowerCase(),
+		userId: Ti.App.Properties.getString('userId')
+	};
+	userManager.isUnique(uniqueObject, function(err, uniqueResult){
+		if(err) {
+			helpers.alertUser('Oops','Something went wrong checking for usernames, please try again later!');
+			return;
+		} else if(uniqueResult){
+			userNameUnique = true;
+			$.username.value = $.username.value;
+			$.usernameXIcon.hide();
+			$.usernameCheckIcon.show();
+		} else {
+			userNameUnique = false;
+			$.usernameCheckIcon.hide();
+			$.usernameXIcon.show();
+		}
+	});	
+};
 
-// Don't forget to set your requested permissions, else the login button won't be effective.
+
+/*// Don't forget to set your requested permissions, else the login button won't be effective.
 var win = (Ti.Platform.name === 'android') ? Ti.UI.createWindow({backgroundColor: 'white'}) : null;
 
 
@@ -281,7 +311,7 @@ function connectToTwitter() {
 	    message: "friends unite! " + Math.random().toString(),
 	    success: function(e) {alert('Success!');},
 	    error: function(e) {alert('Error!' + e);}
-	});*/
+	});
 	
 	console.log('just shared : + ');
 	
@@ -293,9 +323,47 @@ function connectToTwitter() {
 	//Do not Deauthorize the application
 	//twitter.deauthorize();
 	console.log('twitter.isAuthorized(): ' + twitter.isAuthorized());
-}
+}*/
 
 function getGoogleMaps(e){
 	Alloy.Globals.openPage('addressgooglemap');
 }
+
+
+
+
+
+
+
+/*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------On page load API calls---------------------------------------------*/
+
+
+//Load the user model
+Alloy.Models.user.fetch({
+	success: function(data){
+		//check for address? then hide elements and show different elements?
+		
+	},
+	error: function(data){		
+	}
+});
+// Set the user profile image
+imageManager.getMenuProfileImage(function(err, profileImage){
+	$.userProfileImage.image = profileImage;	
+});
+
+// Hide the x-icon on username load until user types and we use isUnique API route to see if available
+$.usernameXIcon.hide();
 
