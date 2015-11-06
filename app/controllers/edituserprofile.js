@@ -144,7 +144,7 @@ function updateUser(e){
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
 		"firstName": helpers.capFirstLetter($.firstName.value),
 		"lastName": helpers.capFirstLetter($.lastName.value),
-		"username": $.username.value
+		"username": $.username.value.toLowerCase()
 	};
 	/*var validateFields = helpers.validateFields(textFieldObject);
 	for (var i in textFieldObject) {

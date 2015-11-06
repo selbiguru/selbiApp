@@ -12,7 +12,7 @@ function registerUser(){
     	helpers.alertUser('Missing Fields','All fields must be filled out!');
     	return;
 	}
-	var userName = ($.email.value).replace(/@.*$/,"")+(Math.floor(Math.random() * 9000000)+1000000);
+	var userName = (($.email.value).replace(/@.*$/,"")).lowerCase()+(Math.floor(Math.random() * 9000000)+1000000);
 	var validatedNumber = validatePhoneNumber($.phoneNumber.value);
 	/*if(!validatedNumber) {
 		var c = Titanium.UI.createAlertDialog({
