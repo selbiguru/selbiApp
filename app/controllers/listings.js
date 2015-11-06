@@ -13,6 +13,9 @@ var tabsObject = Object.freeze({
 	'selbiUSA': 3
 });
 var tabView = tabsObject[args];
+console.log("#################", args);
+console.log("*******************", args[0][0]);
+console.log("@@@@@@@@@@@@@@@@@@@@", args[0][1]);
 
 /*var control = Ti.UI.createRefreshControl({
     tintColor:'#1BA7CD'
@@ -84,6 +87,7 @@ if(tabView === 1) {
 function genMyItems(cb){
 	console.log("used 5");
 	listingManager.getUserListings(argsID, function(err, userListings){
+		console.log("%%%%%%%%%%%%%%%%%%%%", userListings);
 		var listItems = [];
 		if(userListings && userListings.length > 0) {
 			for(var listing in userListings) {
@@ -105,7 +109,8 @@ function genMyItems(cb){
 		            },  
 		            template: 'myitemtemplate',
 		            properties: {
-		            	itemId: userListings[listing].id
+		            	itemId: userListings[listing].id,
+		            	userId: userListings[listing].user
 		            }
 		        };
 		        view.updateViews({
@@ -287,11 +292,14 @@ function genUSAItems(cb){
 /**
  * @method openListing 
  * Opens viewlisting view and shows the targeted item that was clicked on
- * @param {String} listingId ListingId of the item
+ * @param {Object} listingId Object containing listingId and userId for the item
  */
-function openListing(listingId){
-	console.log("used 6", typeof listingId);
-	Alloy.Globals.openPage('viewlisting', {id: listingId});
+function openListing(listingIDs){
+	console.log("used 6", typeof listingIDs);
+	Alloy.Globals.openPage('viewlisting', {
+		itemId: listingIDs.itemId,
+		userId: listingIDs.userId
+	});
 };
 
 
@@ -357,5 +365,8 @@ $.fg.init({
 });
 $.fg.setOnItemClick(function(e){
 	console.log("used 1", e.source.data);
-    openListing(e.source.data.properties.itemId);
+    openListing({
+    	itemId:e.source.data.properties.itemId,
+    	userId:e.source.data.properties.userId,		
+    });
 });

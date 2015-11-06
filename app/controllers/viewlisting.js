@@ -6,13 +6,14 @@ var indicator = require('uielements/indicatorwindow');
 var	previewListing,
 	views = [];
 
-
-if(args.id){
+console.log('listing id?',args.itemId);
+console.log('what is in args?',args);
+if(args.itemId){
 	//show correct 'buy' buttons with correct event listeners
 	previewListing = false;
 	createPurchasingButtons();
 	$.titleViewListingLabel.text = 'View Listing';
-	listingManager.getListing(args.id, function(err, listing){
+	listingManager.getListing(args.itemId, function(err, listing){
 		if(err) {
 			helpers.alertUser('Listing','Unable to get the listing!');
 			return;
@@ -139,6 +140,37 @@ function buyItem(){
  */
 function deleteItem(){
 	console.log("HITTING delete item YAYYYY!!!!");
+	var indicatorWindow = indicator.createIndicatorWindow({
+		message : "Saving"
+	});
+
+	indicatorWindow.openIndicator();
+	listingManager.deleteListing(args.itemId, function(err, saveResult) {
+		if (saveResult) {
+			listingManager.uploadImagesForListing(saveResult.id, imageCollection, function(err, imgUrls) {
+				if (imgUrls && imgUrls.length > 0) {
+					delete saveResult.rev;
+					saveResult.imageUrls = imgUrls;
+					listingManager.updateListing(saveResult, function(err, updateResult) {
+						if(err) {
+							//helpers.alertUser('Listing','Failed to update your listing, please try again later!');
+							Ti.API.warn("Failed to update listing, please try again later!" + saveResult.id);
+						}
+						indicatorWindow.closeIndicator();
+						helpers.alertUser('Listing','Listing created successfully');
+						Alloy.Globals.openPage('createlisting');	
+					});
+				} else {
+					indicatorWindow.closeIndicator();
+					helpers.alertUser('Listing','Listing created successfully');
+					Alloy.Globals.openPage('createlisting');
+				}
+			});
+		} else {
+			indicatorWindow.closeIndicator();
+			helpers.alertUser('Listing','Failed to create your listing. Please try again!');
+		}
+	});
 }
 
 
@@ -259,9 +291,13 @@ function createPurchasingButtons() {
 	        backgroundColor = '#1BA7CD';
 	        break;
 	};
-	var purchaseItem = buyItem;
-	//createSlideButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Slide to Buy', purchaseItem);
-	createSlideButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Slide to Delete', purchaseItem);
+	var purchaseListing = buyItem;
+	var deleteListing = deleteItem;
+	if(args.userId === Ti.App.Properties.getString('userId')) {
+		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Slide to Delete', deleteListing);
+	} else {
+		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Slide to Buy', purchaseListing);
+	}
 	return;
 }
 

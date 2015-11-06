@@ -100,7 +100,7 @@ function previewListing(){
 			price: $.price.value,
 			privateSwitch: $.privateSwitch.value,
 			images: imageCollection,
-			id: false
+			itemId: false
 		};
 		var indicatorWindow = indicator.createIndicatorWindow({
 			message : "Creating Preview"

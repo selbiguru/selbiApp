@@ -137,4 +137,22 @@ exports.updateListing = function(listingRequest, cb){
 
 
 
-/***************************************************DELETE CALLS***************************************************************/
+/***************************************************DELETE CALLS***********************************************************/
+
+
+/**
+ * @method deleteListing
+ * Deletes the listing by listing id
+ * @param {Object} listingRequest Listing Request object
+ * @param {Function} cb Callback function
+ */
+exports.deleteListing = function(listingRequest, cb){
+	
+	httpManager.execute('/listing/'+ listingRequest.id, 'DELETE', null, true, function(err, deletedListingResult){
+		if(err) {
+            cb(err, null);
+		} else {
+			cb(null, deletedListingResult);
+		}
+	});
+};
