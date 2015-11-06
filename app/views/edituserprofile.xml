@@ -30,7 +30,7 @@
 			    </View>
 			    <View class="rowContainer">
 			    	<View id="usernameView">
-			        	<TextField id="username" hintText="Username" class="" value="{user.username}" maxLength="20"></TextField>
+			        	<TextField id="username" hintText="Username" class="" value="{user.username}" maxLength="25"></TextField>
 			        	<Label id="usernameCheckIcon" class='icon-username' icon="fa-check-circle-o"></Label>
 			        	<Label id="usernameXIcon" class='icon-username' icon="fa-times"></Label>
 			        </View>
