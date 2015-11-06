@@ -25,7 +25,7 @@
 "TextField[if=Alloy.Globals.iPhoneFour]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '13dp'
+		fontSize: '14dp'
 	}
 },
 ".splash-header-text[if=Alloy.Globals.iPhoneFour]": {
@@ -48,7 +48,7 @@
 	top: '20dp',
 	color: "#FAFAFA",
 	font: {
-		fontSize: '12dp',
+		fontSize: '13dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -85,7 +85,7 @@
 "TextField[if=Alloy.Globals.iPhoneFive]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '14dp'
+		fontSize: '15dp'
 	}
 },
 ".splash-header-text[if=Alloy.Globals.iPhoneFive]": {
@@ -208,7 +208,7 @@
 "TextField[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '18dp'
+		fontSize: '20dp'
 	}
 },
 ".splash-header-text[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -228,10 +228,10 @@
 	}
 },
 ".forgot-password[if=Alloy.Globals.iPhoneSixPlus]": {
-	top: '20dp',
+	top: '25dp',
 	color: "#FAFAFA",
 	font: {
-		fontSize: '17dp',
+		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -267,7 +267,7 @@
 "TextField[if=Alloy.Globals.android]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '17dp',
+		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
