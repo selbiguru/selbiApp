@@ -48,7 +48,6 @@ function addBankInfo() {
 				    		helpers.alertUser('Update User','Failed to save your birthday, please try again later!');
 				    		return;
 				    	} else {
-				    		helpers.alertUser('User Updated', 'Saved Birthday!');
 				    		results.modalWindow.close({transform:animateWindowClose, duration:300});
 					    	sendBankBraintree();
 					    	return;

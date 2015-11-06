@@ -68,7 +68,6 @@ function addVenmo(){
 			    		helpers.alertUser('Update User','Failed to save your birthday, please try again!');
 			    		return;
 			    	} else {
-			    		helpers.alertUser('User Updated', 'Saved Birthday!');
 			    		results.modalWindow.close({transform:animateWindowClose, duration:300});
 				    	//sendVenmoBraintree();
 				    	return;
