@@ -68,12 +68,6 @@
 "#usernameXIcon": {
 	color: "#c10404"
 },
-".icon-username": {
-	right: '10dp',
-	font: {
-		fontSize: '16dp'
-	}
-}
 
 
 
@@ -204,7 +198,12 @@
 	borderColor: "#9b9b9b",
 	top: '3dp'
 },
-
+".icon-username[if=Alloy.Globals.iPhoneFour]": {
+	right: '10dp',
+	font: {
+		fontSize: '14dp'
+	}
+}
 
 
 
@@ -336,7 +335,12 @@
 	borderColor: "#9b9b9b",
 	top: '5dp'
 },
-
+".icon-username[if=Alloy.Globals.iPhoneFive]": {
+	right: '10dp',
+	font: {
+		fontSize: '16dp'
+	}
+}
 
 
 
@@ -471,7 +475,12 @@
 	borderColor: "#9b9b9b",
 	top: '7dp'
 },
-
+".icon-username[if=Alloy.Globals.iPhoneSix]": {
+	right: '10dp',
+	font: {
+		fontSize: '18dp'
+	}
+}
 
 
 
@@ -605,6 +614,13 @@
 	borderColor: "#9b9b9b",
 	top: '7dp'
 },
+".icon-username[if=Alloy.Globals.iPhoneSixPlus]": {
+	right: '10dp',
+	font: {
+		fontSize: '20dp'
+	}
+}
+
 
 
 
@@ -738,4 +754,9 @@
 	borderColor: "#9b9b9b",
 	top: '7dp'
 },
-
+".icon-username[if=Alloy.Globals.android]": {
+	right: '10dp',
+	font: {
+		fontSize: '18dp'
+	}
+}

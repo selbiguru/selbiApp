@@ -154,22 +154,27 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
 	        labelFont = 14;
+	        iconFont = 14;
 	        labelHeight = '35dp';
 	        break;
 	    case 1: //iphoneFive
 	        labelFont = 14;
+	        iconFont = 14;
 	        labelHeight = '40dp';
 	        break;
 	    case 2: //iphoneSix
-	        labelFont = 18;
+	        labelFont = 17;
+	        iconFont = 17;
 	        labelHeight = '45dp';
 	        break;
 	    case 3: //iphoneSixPlus
-	        labelFont = 20;
+	        labelFont = 19;
+	        iconFont = 19;
 	        labelHeight = '50dp';
 	        break;
 	    case 4: //android currently same as iphoneSix
-	        labelFont = 18;
+	        labelFont = 17;
+	        iconFont = 17;
 	        labelHeight = '45dp';
 	        break;
 	};
@@ -216,14 +221,20 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  		//borderColor: "red",
 		left: "10dp",
 		width: Titanium.UI.SIZE,
-		color: "#1BA7CD"
+		color: "#1BA7CD",
+		font: {
+			fontSize: iconFont
+		}
  	});
  	var deleteCardIcon = Titanium.UI.createLabel({
  		//borderColor: "red",
 		textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
 		right: "15dp",
 		width: Titanium.UI.FILL,
-		color: "#c10404"
+		color: "#c10404",
+		font: {
+			fontSize: iconFont
+		}
  	});
  	$.fa.add(checkedCardIcon, "fa-check");
  	viewUserCard.add(checkedCardIcon);
@@ -277,22 +288,27 @@ function showUserBank(bankInfo) {
  	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
 	        labelFont = 14;
+	        iconFont = 14;
 	        labelHeight = '35dp';
 	        break;
 	    case 1: //iphoneFive
-	        labelFont = 16;
+	        labelFont = 14;
+	        iconFont = 14;
 	        labelHeight = '40dp';
 	        break;
 	    case 2: //iphoneSix
-	        labelFont = 18;
+	        labelFont = 17;
+	        iconFont = 17;
 	        labelHeight = '45dp';
 	        break;
 	    case 3: //iphoneSixPlus
-	        labelFont = 20;
+	        labelFont = 19;
+	        iconFont = 19;
 	        labelHeight = '50dp';
 	        break;
 	    case 4: //android currently same as iphoneSix
-	        labelFont = 18;
+	        labelFont = 17;
+	        iconFont = 17;
 	        labelHeight = '45dp';
 	        break;
 	};
@@ -329,14 +345,20 @@ function showUserBank(bankInfo) {
  		//borderColor: "red",
 		left: "10dp",
 		width: Titanium.UI.SIZE,
-		color: "#1BA7CD"
+		color: "#1BA7CD",
+		font: {
+			fontSize: iconFont
+		}
  	});
  	var deleteBankIcon = Titanium.UI.createLabel({
  		//borderColor: "red",
 		textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
 		right: "15dp",
 		width: Titanium.UI.FILL,
-		color: "#c10404"
+		color: "#c10404",
+		font: {
+			fontSize: iconFont
+		}
  	});
  	$.fa.add(checkedBankIcon, "fa-check");
  	viewUserBank.add(checkedBankIcon);
