@@ -68,7 +68,7 @@ var getCurrentUser = exports.getCurrentUser = function(cb){
 
 
 var isUnique = exports.isUnique = function(uniqueObject, cb){
-	httpManager.execute('/userData/uniqueUser', 'POST', uniqueObject, true, function(err, uniqueResult){
+	httpManager.execute('/userData/uniqueUsername', 'POST', uniqueObject, true, function(err, uniqueResult){
 		if(err) {
 			cb(err, null);
 		} else {
