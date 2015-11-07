@@ -27,12 +27,12 @@ tabGroup.addTab(allListingsTab);
 /*
  Friends Listing tab.
  */
-var friendsListingsWindow  = controls.createWindow({ title: 'My Friends', backgroundColor: '#FAFAFA', navBarHidden:true }, tabGroup);
+var friendsListingsWindow  = controls.createWindow({ title: 'Friends', backgroundColor: '#FAFAFA', navBarHidden:true }, tabGroup);
 var friendsListingView = controls.getCustomView('listings', ['friends', Ti.App.Properties.getString('userId')]);
 friendsListingsWindow.add(friendsListingView.getView());
 
 var friendsListingsTab = Ti.UI.createTab({
-	title: 'My Friends',
+	title: 'Friends',
     icon: Ti.UI.iPhone.SystemIcon.DOWNLOADS,
     backgroundColor: 'FAFAFA',
     window: friendsListingsWindow
