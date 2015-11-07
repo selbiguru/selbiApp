@@ -95,27 +95,32 @@ var dataArray = [];
 for (var i in objectTest) {
 	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
-	        faqFontSize = 14;
+	        faqFontSizeAnswer = 14;
+	        faqFontSizeQuestion = 15;
 	        faqTop = '8dp';
 	        faqQLeft = '7dp';
 	        break;
 	    case 1: //iphoneFive
-	        faqFontSize = 16;
+	        faqFontSizeAnswer = 15;
+	        faqFontSizeQuestion = 16;
 	        faqTop = '8dp';
 	        faqQLeft = '7dp';
 	        break;
 	    case 2: //iphoneSix
-	        faqFontSize = 18;
+	        faqFontSizeAnswer = 17;
+	        faqFontSizeQuestion = 19;
 	        faqTop = '10dp';
 	        faqQLeft = '10dp';
 	        break;
 	    case 3: //iphoneSixPlus
-	        faqFontSize = 20;
+	        faqFontSizeAnswer = 19;
+	        faqFontSizeQuestion = 21;
 	        faqTop = '13dp';
 	        faqQLeft = '10dp';
 	        break;
 	    case 4: //android currently same as iphoneSix
-	        faqFontSize = 18;
+	        faqFontSizeAnswer = 17;
+	        faqFontSizeQuestion = 19;
 	        faqTop = '10dp';
 	        faqQLeft = '10dp';
 	        break;
@@ -128,24 +133,24 @@ for (var i in objectTest) {
 	});
 	var questionLabel = Titanium.UI.createLabel({
         font:{
-			fontSize: faqFontSize,
-	    	fontFamily: 'Nunito-Bold'
+			fontSize: faqFontSizeQuestion,
+	    	fontFamily: 'Nunito-Light'
 		},
-		color: "#9B9B9B",
+		color: "#545555",
 		left: faqQLeft,
         text: objectTest[i].text,
         id: objectTest[i].id
 	});
 	var answerlabel = Titanium.UI.createLabel({
         font:{
-			fontSize: faqFontSize,
+			fontSize: faqFontSizeAnswer,
 	    	fontFamily: 'Nunito-Light'
 		},
-		color: "#9B9B9B",
-		width: '90%',
+		color: "#545555",
+		width: '88%',
 		height: "0dp",
 		visible: false,
-        text: objectTest[i].answer,
+        text: objectTest[i].answer
 	});
 	var underline = Titanium.UI.createView({
 		height: "1dp",
