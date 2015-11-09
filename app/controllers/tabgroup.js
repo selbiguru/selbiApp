@@ -54,23 +54,26 @@ tabGroup.addTab(myListingsTab);
 
 
 allListingsWindow.addEventListener('click', function(e){
-	var myListingsWindow  = controls.createWindow({ title: 'My Listings', backgroundColor: '#FAFAFA' , navBarHidden:true}, tabGroup);
-	myListingsWindow.add(controls.getCustomView('listings', ['mylistings', e.source.data.properties.userId]).getView());
-	allListingsTab.open(myListingsWindow);
-	myListingsWindow.addEventListener('blur', function(){
-		allListingsTab.close(myListingsWindow);
-	});
-	
+	if(e.source.toString() === '[object TiUIView]') {
+		var myListingsWindow  = controls.createWindow({ title: 'My Listings', backgroundColor: '#FAFAFA' , navBarHidden:true}, tabGroup);
+		myListingsWindow.add(controls.getCustomView('listings', ['mylistings', e.source.data.properties.userId]).getView());
+		allListingsTab.open(myListingsWindow);
+		myListingsWindow.addEventListener('blur', function(){
+			allListingsTab.close(myListingsWindow);
+		});	
+	}
 });
 friendsListingsWindow.addEventListener('click', function(e){
-	var myListingsWindow  = controls.createWindow({ title: 'My Listings', backgroundColor: '#FAFAFA' , navBarHidden:true}, tabGroup);
-	myListingsWindow.add(controls.getCustomView('listings', ['mylistings', e.source.data.properties.userId]).getView());
-	friendsListingsTab.open(myListingsWindow);
-	console.log("more importantly what is 'e' ", e.source.data.properties.userId);
-	myListingsWindow.addEventListener('blur', function(){
-		friendsListingsTab.close(myListingsWindow);
-	});
-	
+	if(e.source.toString() === '[object TiUIView]') {
+		var myListingsWindow  = controls.createWindow({ title: 'My Listings', backgroundColor: '#FAFAFA' , navBarHidden:true}, tabGroup);
+		myListingsWindow.add(controls.getCustomView('listings', ['mylistings', e.source.data.properties.userId]).getView());
+		friendsListingsTab.open(myListingsWindow);
+		myListingsWindow.addEventListener('blur', function(){
+			friendsListingsTab.close(myListingsWindow);
+		});
+	}
+			
+	return;
 });
 
 
