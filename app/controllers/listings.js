@@ -9,49 +9,16 @@ var items = [],
 	obj = [];
 var tabsObject = Object.freeze({
 	'mylistings': 1,
-	'friends': 2,
-	'selbiUSA': 3
+	'friendslistings': 2,
+	'selbiusa': 3
 });
 var tabView = tabsObject[args];
 console.log("#################", args);
-console.log("*******************", args[0][0]);
-console.log("@@@@@@@@@@@@@@@@@@@@", args[0][1]);
+console.log("*******************", argsID);
 
-/*var control = Ti.UI.createRefreshControl({
-    tintColor:'#1BA7CD'
-});
-control.addEventListener('refreshstart',function(e){
-	console.log("used 2");
-    Ti.API.info('refreshstart');
-    genItems(function(err, items){
-		listingSection.setItems(items);
-		control.endRefreshing();
-	});
-});*/
-
-//var listingSection = Ti.UI.createListSection({ headerTitle: ''});
-/*genItems(function(err, items){
-	console.log("used 3");
-	//listingSection.setItems(items);
-});
-
-//var parentWindow = Titanium.UI.currentWindow;
-// $.menuButton.addEventListener('click', function(){
-	// console.log("menu button click", parentWindow);
-	// Titanium.API.currentTabGroup.getActiveTab().close();
-// });
-
-//$.listingListView.sections = [listingSection];
-//$.listingListView.refreshControl = control;
-//$.listingListView.addEventListener('itemclick', itemClickListener);*/
-
-
-/*function itemClickListener(e){
-	console.log("used 4");
-	 var item = listingSection.getItemAt(e.itemIndex);
-	 openListing(item.properties.itemId);
-}*/
 if(tabView === 1) {
+	$.closeUserView.hide();
+	$.titleListingsLabel.text = "My Listings";
 	genMyItems(function(err, items){
 		if(err) {
 			helpers.alertUser('Listings','Unable to get user listings, please try again later!');
@@ -60,6 +27,8 @@ if(tabView === 1) {
 		console.log("used 3");
 	});
 } else if(tabView === 2) {
+	$.closeUserView.hide();
+	$.titleListingsLabel.text = "Friends";
 	genFriendsItems(function(err, items){
 		if(err) {
 			helpers.alertUser('Listings','Unable to get friend\'s listings, please try again later!');
@@ -67,12 +36,24 @@ if(tabView === 1) {
 		}
 		console.log("used 7");
 	});
-} else {
+} else if(tabView === 3) {
+	$.closeUserView.hide();
+	$.titleListingsLabel.text = "Selbi USA";
 	genUSAItems(function(err, items){
 		if(err) {
 			helpers.alertUser('Listings','Unable to get USA listings, please try again later!');
 		}
 		console.log("used 8");
+	});
+} else {
+	$.closeUserView.show();
+	$.titleListingsLabel.text = args;
+	genMyItems(function(err, items){
+		if(err) {
+			helpers.alertUser('Listings','Unable to get user listings, please try again later!');
+			return;
+		}
+		console.log("used 19");
 	});
 }
 
@@ -110,7 +91,8 @@ function genMyItems(cb){
 		            template: 'myitemtemplate',
 		            properties: {
 		            	itemId: userListings[listing].id,
-		            	userId: userListings[listing].user
+		            	userName: Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName
+		            	//userId: userListings[listing].user,
 		            }
 		        };
 		        view.updateViews({
@@ -179,7 +161,8 @@ function genFriendsItems(cb){
 		            },  
 		            template: 'userTwoColumnTemplate',
 		            properties: {
-		            	userId: userListings[listing].user
+		            	userId: userListings[listing].user,
+		            	userName: Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName
 		            }
 		        };
 		        view.updateViews({
@@ -219,7 +202,6 @@ function genFriendsItems(cb){
 
 
 
-
 /**
  * @method genUSAItems 
  * Generates the view for friends using 'usaitemtemplates' as the defacto template.
@@ -250,7 +232,8 @@ function genUSAItems(cb){
 		            },  
 		            template: 'userTwoColumnTemplate',
 		            properties: {
-		            	userId: userListings[listing].user
+		            	userId: userListings[listing].user,
+		            	userName: Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName
 		            }
 		        };
 		        view.updateViews({
@@ -295,14 +278,16 @@ function genUSAItems(cb){
  * @param {Object} listingId Object containing listingId and userId for the item
  */
 function openListing(listingIDs){
-	console.log("used 6", typeof listingIDs);
-	Alloy.Globals.openPage('viewlisting', {
+	console.log("used 6",listingIDs);
+	/*Alloy.Globals.openPage('viewlisting', {
 		itemId: listingIDs.itemId,
 		userId: listingIDs.userId
-	});
+	});*/
+	Alloy.Globals.openPage('listings', [
+		listingIDs.userName, listingIDs.userId
+	]);
+	
 };
-
-
 
 
 
@@ -367,6 +352,11 @@ $.fg.setOnItemClick(function(e){
 	console.log("used 1", e.source.data);
     openListing({
     	itemId:e.source.data.properties.itemId,
-    	userId:e.source.data.properties.userId,		
+    	userId:e.source.data.properties.userId,	
+    	userName:e.source.data.properties.userName,	
     });
+});
+
+$.closeUserView.addEventListener('click', function(e){
+	Alloy.Globals.closePage('listings');
 });

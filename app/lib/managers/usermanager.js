@@ -67,6 +67,21 @@ var getCurrentUser = exports.getCurrentUser = function(cb){
 
 
 
+
+var getUserByUsername = exports.getUserByUsername = function(usernameObj, cb){
+	console.warn("Fetching user information UserID: " + usernameObj.username);
+	
+	httpManager.execute('/UserData/userName/' + usernameObj.username, 'GET', null, true, function(err, userObject){
+		if(err) {
+			cb(err, null);
+		} else {
+			cb(err, userObject);
+		}	
+	});	
+};
+
+
+
 var isUnique = exports.isUnique = function(uniqueObject, cb){
 	httpManager.execute('/userData/uniqueUsername', 'POST', uniqueObject, true, function(err, uniqueResult){
 		if(err) {

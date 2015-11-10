@@ -69,7 +69,7 @@
 	scrollable: false
 },
 "#menuSeparator[if=Alloy.Globals.iPhoneFour]": {
-	top: "65dp",
+	top: "35dp",
 	bottom: "7dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneFour]":{
@@ -162,7 +162,7 @@
 	scrollable: false
 },
 "#menuSeparator[if=Alloy.Globals.iPhoneFive]": {
-	top: "130dp",
+	top: "100dp",
 	bottom: "13dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneFive]":{
@@ -253,7 +253,7 @@
 	scrollable: false
 },
 "#menuSeparator[if=Alloy.Globals.iPhoneSix]": {
-	top: "140dp",
+	top: "105dp",
 	bottom: "13dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneSix]":{
@@ -346,7 +346,7 @@
 	scrollable: false
 },
 "#menuSeparator[if=Alloy.Globals.iPhoneSixPlus]": {
-	top: "160dp",
+	top: "105dp",
 	bottom: "15dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneSixPlus]":{
@@ -438,7 +438,7 @@
 	scrollable: false
 },
 "#menuSeparator[if=Alloy.Globals.android]": {
-	top: "140dp",
+	top: "105dp",
 	bottom: "13dp"
 },
 ".tableRow[if=Alloy.Globals.android]":{

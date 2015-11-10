@@ -1,12 +1,12 @@
 <Alloy>
-	<View id="listingsView">
-		<View id="listingsTopBar">
+	<View id="myListingsView">
+		<View id="myListingsTopBar">
 			<View id="menuButton">
-				<Label icon="fa-arrow-left" id="listingsButtonIcon" class="icon-buttons"></Label>
+				<Label icon="fa-arrow-left" id="myListingsButtonIcon" class="icon-buttons"></Label>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>			
 			</View>
-			<View id="titleListingsView">
-				<Label id="titleListingsLabel">Listings</Label>
+			<View id="titleMyListingsView">
+				<Label id="titleMyListingsLabel">Listings</Label>
 			</View>
 			<View id="closeUserView">
 				<Button id="closeUserButton" class="icon-buttons">Back</Button>

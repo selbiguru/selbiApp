@@ -23,28 +23,35 @@
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="row2">
 				<View class="rowContainer">
-					<Label icon="fa-user-plus" class="rowLabel row-icon" id="menuAddFriendsIcon"></Label>
-					<Label id="configLabel" class="rowLabel">Invite Friends</Label>
-				</View>
-				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
-			</TableViewRow>
-			<TableViewRow class="tableRow" id="row3">
-				<View class="rowContainer">
 					<Label icon="fa-bell" class="rowLabel row-icon" id="menuNotificationIcon"></Label>
 					<Label id="notificationsLabel" class="rowLabel">Notifications</Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
+			<TableViewRow class="tableRow" id="row3">
+				<View class="rowContainer">
+					<Label icon="fa-users" class="rowLabel row-icon" id="menuFriendsListingIcon"></Label>
+					<Label id="friendsListingLabel" class="rowLabel">Friends Listings</Label>
+				</View>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</TableViewRow>
 			<TableViewRow class="tableRow" id="row4">
 				<View class="rowContainer">
-					<Label icon="fa-users" class="rowLabel row-icon" id="menuListingsIcon"></Label>
-					<Label id="listingsLabel" class="rowLabel">Listings</Label>
+					<Label icon="fa-globe" class="rowLabel row-icon" id="menuSelbiListingIcon"></Label>
+					<Label id="selbiListingLabel" class="rowLabel">Selbi USA</Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="row5">
 				<View class="rowContainer">
-					<Label icon="fa-user" class="rowLabel row-icon" id="menuContactIcon"></Label>
+					<Label icon="fa-user" class="rowLabel row-icon" id="menuMyListingIcon"></Label>
+					<Label id="myListingLabel" class="rowLabel">My Listings</Label>
+				</View>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</TableViewRow>
+			<TableViewRow class="tableRow" id="row6">
+				<View class="rowContainer">
+					<Label icon="fa-book" class="rowLabel row-icon" id="menuContactIcon"></Label>
 					<Label id="listingLabel" class="rowLabel">Contacts</Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
@@ -52,14 +59,14 @@
 		</TableView>
 		<View id="menuSeparator" class="menu-underline"></View>
 		<TableView class="menuTable2" id="menuTable2">
-			<TableViewRow class="tableRow" id="row6">
+			<TableViewRow class="tableRow" id="row7">
 				<View class="rowContainer">
 					<Label icon="fa-gears" class="rowLabel row-icon" id="menuSettingsIcon"></Label>
 					<Label id="settingsLabel" class="rowLabel">Settings</Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="row7">
+			<TableViewRow class="tableRow" id="row8">
 				<View class="rowContainer" onClick="logout">
 					<Label icon="fa-sign-out" class="rowLabel row-icon" id="menuSignOutIcon"></Label>
 					<Label id="signOutLabel" class="rowLabel">Sign-out</Label>

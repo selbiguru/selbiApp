@@ -39,14 +39,15 @@ var viewList = {
 	"row": 'mainView',
 	"row0": 'edituserprofile',
 	"row1": 'createlisting',
-	"row2": 'invitefriends',
-	"row3": 'notifications',
-	"row4": 'tabgroup',
-	"row5": 'contacts',
-	"row6": 'settings'
+	"row2": 'notifications',
+	"row3": 'friendslistings',
+	"row4": 'selbiusa',
+	"row5": 'mylistings',
+	"row6": 'contacts',
+	"row7": 'settings'
 };
 
-var hasWindow = ['tabgroup'];
+var listings = ['row3', 'row4', 'row5'];
 
 var controllerList = {};
 
@@ -64,10 +65,10 @@ function onMenuClickListener(e){
 	function drawView(row){
 		for (var property in viewList) {
 		    if (property === row) {
-		    	
-		    	var viewController = controls.getCustomView(viewList[row]);
-		    	if(!viewController.getView || typeof viewController.getView !== 'function' || hasWindow.indexOf(viewController.__controllerPath) >= 0) {
-		    		return;
+		    	if(listings.indexOf(property) >= 0) {
+		    		var viewController = controls.getCustomView(viewList[row], [viewList[row], Ti.App.Properties.getString('userId')]);
+		    	} else {
+		    		var viewController = controls.getCustomView(viewList[row]);	
 		    	}
 		    	controllerList[row]= viewController;
 				if(viewController.menuButton) {
@@ -98,13 +99,13 @@ function onMenuClickListener(e){
  * @param {Object} model	model to be passed to the view
  */
 Alloy.Globals.openPage = function openPage(viewName, model){
+	console.log("77777777777777");
 	viewList[viewName] = controls.getCustomView(viewName, model);
 	if(viewList[viewName]){
 		for (var property in viewList) {
 		    if (property === viewName) {
 		    	var newView = viewList[viewName].getView();
 			    $.drawermenu.drawermainview.add(newView);
-
 				if(viewList[viewName].menuButton) {
 			      viewList[viewName].menuButton.addEventListener('click',function(){
 						$.drawermenu.showhidemenu();

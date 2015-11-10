@@ -1,0 +1,17 @@
+<Alloy>
+	<View id="friendsListingsView">
+		<View id="friendsListingsTopBar">
+			<View id="menuButton">
+				<Label icon="fa-arrow-left" id="friendsListingsButtonIcon" class="icon-buttons"></Label>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>			
+			</View>
+			<View id="titleFriendsListingsView">
+				<Label id="titleFriendsListingsLabel">friendsListings</Label>
+			</View>
+		</View>
+		<View id="gridView">
+			
+		</View>
+		<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
+    </View>
+</Alloy>

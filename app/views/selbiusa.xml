@@ -1,0 +1,23 @@
+<Alloy>
+	<View id="selbiUSAView">
+		<View id="selbiUSATopBar">
+			<View id="menuButton">
+				<Label icon="fa-arrow-left" id="selbiUSAButtonIcon" class="icon-buttons"></Label>			
+			</View>
+			<View id="titleSelbiUSAView">
+				<Label id="titleSelbiUSALabel">SelbiUSA</Label>
+			</View>
+			<View id="searchUserView">
+				<Button onClick='findUserListings' id="searchUserButton" class="icon-buttons" icon="fa-search"></Button>
+			</View>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+		</View>
+		<View borderColor='yellow' id="selbiUSASerchView">
+			<TextField id='usernameSearch' hintText="Enter Username"></TextField>
+		</View>
+		<View id="gridView">
+			
+		</View>
+		<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
+    </View>
+</Alloy>

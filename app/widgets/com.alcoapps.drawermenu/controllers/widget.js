@@ -10,10 +10,10 @@ handlers.close = function(){};
 var init=function(opts){
 	$.drawermainview.add(opts.mainview);
 	$.drawermenuview.add(opts.menuview);
-	duration=opts.duration;
+	duration=opts.duration;	
 	parent=opts.parent;
 	console.log('initialized');
-	setSwipe();
+	//setSwipe();
 };
 
 var setSwipe=function(){

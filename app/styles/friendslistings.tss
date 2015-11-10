@@ -3,7 +3,7 @@
 	height: "0",
 	layout: "horizontal"
 },
-"#listingsView":{
+"#friendsListingsView":{
 	layout: 'vertical',
 	backgroundColor: '#FAFAFA'
 },
@@ -21,7 +21,7 @@
 
 
 //iPhone 4
-"#listingsTopBar[if=Alloy.Globals.iPhoneFour]":{
+"#friendsListingsTopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#fff',
@@ -32,25 +32,22 @@
 	width: "60dp",
 	backgroundColor: '#fff'
 },
-"#listingsButtonIcon[if=Alloy.Globals.iPhoneFour]": {
+"#friendsListingsButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
             fontSize: "18dp"
         },
 	color: "#1BA7CD"
 },
-"#titleListingsView[if=Alloy.Globals.iPhoneFour]": {
+"#titleFriendsListingsView[if=Alloy.Globals.iPhoneFour]": {
 	width: "200dp"
 },
-"#titleListingsLabel[if=Alloy.Globals.iPhoneFour]": {
+"#titleFriendsListingsLabel[if=Alloy.Globals.iPhoneFour]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
-},
-"#closeUserView[if=Alloy.Globals.iPhoneFour]": {
-	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneFour]": {
 	font: {
@@ -76,7 +73,7 @@
 
 
 //iPhone 5
-"#listingsTopBar[if=Alloy.Globals.iPhoneFive]":{
+"#friendsListingsTopBar[if=Alloy.Globals.iPhoneFive]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#fff',
@@ -87,25 +84,22 @@
 	width: "60dp",
 	backgroundColor: '#fff'
 },
-"#listingsButtonIcon[if=Alloy.Globals.iPhoneFive]": {
+"#friendsListingsButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
             fontSize: "18dp"
         },
 	color: "#1BA7CD"
 },
-"#titleListingsView[if=Alloy.Globals.iPhoneFive]": {
+"#titleFriendsListingsView[if=Alloy.Globals.iPhoneFive]": {
 	width: "200dp"
 },
-"#titleListingsLabel[if=Alloy.Globals.iPhoneFive]": {
+"#titleFriendsListingsLabel[if=Alloy.Globals.iPhoneFive]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
 		fontSize: "18dp",
 		fontFamily: "Nunito-Bold"
 	}
-},
-"#closeUserView[if=Alloy.Globals.iPhoneFive]": {
-	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneFive]": {
 	font: {
@@ -130,7 +124,7 @@
 
 
 //iPhone 6
-"#listingsTopBar[if=Alloy.Globals.iPhoneSix]":{
+"#friendsListingsTopBar[if=Alloy.Globals.iPhoneSix]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#fff',
@@ -141,25 +135,22 @@
 	width: "60dp",
 	backgroundColor: '#fff'
 },
-"#listingsButtonIcon[if=Alloy.Globals.iPhoneSix]": {
+"#friendsListingsButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
             fontSize: "20dp"
         },
 	color: "#1BA7CD"
 },
-"#titleListingsView[if=Alloy.Globals.iPhoneSix]": {
+"#titleFriendsListingsView[if=Alloy.Globals.iPhoneSix]": {
 	width: "255dp"
 },
-"#titleListingsLabel[if=Alloy.Globals.iPhoneSix]": {
+"#titleFriendsListingsLabel[if=Alloy.Globals.iPhoneSix]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
 		fontSize: "20dp",
 		fontFamily: "Nunito-Bold"
 	}
-},
-"#closeUserView[if=Alloy.Globals.iPhoneSix]": {
-	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
 	font: {
@@ -183,7 +174,7 @@
 
 
 //iPhone 6 Plus
-"#listingsTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
+"#friendsListingsTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#fff',
@@ -194,25 +185,22 @@
 	width: "60dp",
 	backgroundColor: '#fff'
 },
-"#listingsButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
+"#friendsListingsButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
             fontSize: "22dp"
         },
 	color: "#1BA7CD"
 },
-"#titleListingsView[if=Alloy.Globals.iPhoneSixPlus]": {
+"#titleFriendsListingsView[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: "294dp"
 },
-"#titleListingsLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+"#titleFriendsListingsLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
 		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
 	}
-},
-"#closeUserView[if=Alloy.Globals.iPhoneSixPlus]": {
-	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
@@ -236,7 +224,7 @@
 
 
 //android -(currently same as iPhone 6)
-"#listingsTopBar[if=Alloy.Globals.android]":{
+"#friendsListingsTopBar[if=Alloy.Globals.android]":{
 	width: Ti.UI.FILL,
 	height: "60dp",
 	backgroundColor: '#fff',
@@ -247,25 +235,22 @@
 	width: "60dp",
 	backgroundColor: '#fff'
 },
-"#listingsButtonIcon[if=Alloy.Globals.android]": {
+"#friendsListingsButtonIcon[if=Alloy.Globals.android]": {
 	font: {
             fontSize: "20dp"
         },
 	color: "#1BA7CD"
 },
-"#titleListingsView[if=Alloy.Globals.android]": {
+"#titleFriendsListingsView[if=Alloy.Globals.android]": {
 	width: "255dp"
 },
-"#titleListingsLabel[if=Alloy.Globals.android]": {
+"#titleFriendsListingsLabel[if=Alloy.Globals.android]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
 		fontSize: "20dp",
 		fontFamily: "Nunito-Bold"
 	}
-},
-"#closeUserView[if=Alloy.Globals.android]": {
-	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.android]": {
 	font: {

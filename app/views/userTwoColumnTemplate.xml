@@ -1,5 +1,5 @@
 <Alloy>
-	 <View id="usaListingItem" borderColor="#e5e5e5">
+	 <View id="usaListingItem">
 	 	 <View id="usaListingDetailsView">
 		    <ImageView bindId="usaImageThumb" id="usaImageThumb" image="http://www.lorempixel.com/700/600/" class="usa-image-thumb" />
 		    <View id="nameNumberView">

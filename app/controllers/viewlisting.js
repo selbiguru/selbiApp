@@ -13,6 +13,7 @@ if(args.itemId){
 	previewListing = false;
 	createPurchasingButtons();
 	$.titleViewListingLabel.text = 'View Listing';
+	$.backListingView.show();
 	listingManager.getListing(args.itemId, function(err, listing){
 		if(err) {
 			helpers.alertUser('Listing','Unable to get the listing!');
@@ -26,6 +27,7 @@ if(args.itemId){
 	//show correct buttons dynamically created with correct event listeners
 	previewListing = true;
 	$.titleViewListingLabel.text = 'Preview Listing';
+	$.backListingView.hide();
 	createPreviewButtons();
 	populateViewListing(args);
 }
@@ -251,6 +253,13 @@ function createPreviewButtons() {
 }
 
 
+/**
+ * @private backButton 
+ *  Closes the current view to reveal the previous still opened view.
+ */
+function backButton() {
+	Alloy.Globals.closePage('viewlisting');
+}
 
 
 /**
@@ -293,6 +302,7 @@ function createPurchasingButtons() {
 	};
 	var purchaseListing = buyItem;
 	var deleteListing = deleteItem;
+	console.log("argsid ", args.userId, "tiID ",Ti.App.Properties.getString('userId'));
 	if(args.userId === Ti.App.Properties.getString('userId')) {
 		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Slide to Delete', deleteListing);
 	} else {

@@ -39,14 +39,19 @@ exports.getCustomView = function(viewName, model){
  */
 exports.createWindow = function(options, instance) {
 	var win = Ti.UI.createWindow(options);		
+	console.log("()()()()()()()()()()",arguments);
+	console.log("999999999999999999",arguments);
 	var headerView = Alloy.createController('header', options);
 	headerView.menuButton.addEventListener('click', function(){
 		Ti.API.info("window button click",instance);
-		if(instance)
-			instance.close({transition:Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
+		var slide_it_right = Titanium.UI.createAnimation();
+		slide_it_right.left = 245; // or -640
+		slide_it_right.duration = 300;
+		instance.animate(slide_it_right); // Existing showing window.
+		//if(instance)
+			//instance.close({transition:Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
 		
 		headerView.menuButton.removeEventListener('click',arguments.callee);
-		
 	});
 	win.add(headerView.getView());
 	return win;
