@@ -1,170 +1,97 @@
 var args = arguments[0] || {};
+var helpers = require('utilities/helpers'),
+	faqManager = require('managers/faqmanager');
 
-var objectTest = {
-	ex1: {
-		id: 'answer1',
-		text: "What is Selbi?",
-		answer: "Blue is skyline"
-	},
-	ex2: {
-		id: 'answer2',
-		text: "Why use Selbi?",
-		answer: "Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here "
-	},
-	ex3: {
-		id: 'answer3',
-		text: "How do you pronounce Selbi?",
-		answer: "Aqua is not a thing"
-	},
-	ex4: {
-		id: 'answer4',
-		text: "Are my bank and credit card data safe?",
-		answer: "Blue is skyline"
-	},
-	ex5: {
-		id: 'answer5',
-		text: "How do I purchase a product?",
-		answer: "Yellow is here for you to be Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here "
-	},
-	ex6: {
-		id: 'answer6',
-		text: "How do I know where to mail and item I've sold?",
-		answer: "Aqua is not a thing"
-	},
-	ex7: {
-		id: 'answer7',
-		text: "How do I get paid?",
-		answer: "Blue is skyline"
-	},
-	ex8: {
-		id: 'answer8',
-		text: "How fast do I get paid?",
-		answer: "Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here "
-	},
-	ex9: {
-		id: 'answer9',
-		text: "What happens if I don't receive my item?",
-		answer: "Aqua is not a thing"
-	},
-	ex10: {
-		id: 'answer10',
-		text: "How long does it take to receive an item?",
-		answer: "Blue is skyline"
-	},
-	ex11: {
-		id: 'answer11',
-		text: "How many items can I list at once?",
-		answer: "Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here "
-	},
-	ex12: {
-		id: 'answer12',
-		text: "How long are my items listed for?",
-		answer: "Aqua is not a thing"
-	},
-	ex13: {
-		id: 'answer13',
-		text: "I only want my friends to see items I list.",
-		answer: "Blue is skyline"
-	},
-	ex14: {
-		id: 'answer14',
-		text: "Is Selbi free to use?",
-		answer: "Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here "
-	},
-	ex15: {
-		id: 'answer15',
-		text: "How does Selbi make money?",
-		answer: "Aqua is not a thing"
-	},
-	ex16: {
-		id: 'answer16',
-		text: "I'm not receiving emails telling me when an item was sold.",
-		answer: "Blue is skyline"
-	},
-	ex17: {
-		id: 'answer17',
-		text: "Trouble Shooting...",
-		answer: "Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here Yellow is here "
-	},
-};
 var dataArray = [];
 
 
+
+faqManager.getFAQ(function(err, faqResults) {
+	if(err) {
+		//helpers.alertUser('Oops!')
+		//build out no FAQ template
+		return;
+	}
+	showFAQ(faqResults);
+	return;
+});
+
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
 
-for (var i in objectTest) {
-	switch(Alloy.Globals.userDevice) {
-	    case 0: //iphoneFour
-	        faqFontSizeAnswer = 14;
-	        faqFontSizeQuestion = 15;
-	        faqTop = '8dp';
-	        faqQLeft = '7dp';
-	        break;
-	    case 1: //iphoneFive
-	        faqFontSizeAnswer = 15;
-	        faqFontSizeQuestion = 16;
-	        faqTop = '8dp';
-	        faqQLeft = '7dp';
-	        break;
-	    case 2: //iphoneSix
-	        faqFontSizeAnswer = 17;
-	        faqFontSizeQuestion = 19;
-	        faqTop = '10dp';
-	        faqQLeft = '10dp';
-	        break;
-	    case 3: //iphoneSixPlus
-	        faqFontSizeAnswer = 19;
-	        faqFontSizeQuestion = 21;
-	        faqTop = '13dp';
-	        faqQLeft = '10dp';
-	        break;
-	    case 4: //android currently same as iphoneSix
-	        faqFontSizeAnswer = 17;
-	        faqFontSizeQuestion = 19;
-	        faqTop = '10dp';
-	        faqQLeft = '10dp';
-	        break;
-	};
-	var questionView = Titanium.UI.createView({
-		layout: 'horizontal',
-		height: Titanium.UI.SIZE,
-		top: faqTop,
-		id: i
-	});
-	var questionLabel = Titanium.UI.createLabel({
-        font:{
-			fontSize: faqFontSizeQuestion,
-	    	fontFamily: 'Nunito-Light'
-		},
-		color: "#545555",
-		left: faqQLeft,
-        text: objectTest[i].text,
-        id: objectTest[i].id
-	});
-	var answerlabel = Titanium.UI.createLabel({
-        font:{
-			fontSize: faqFontSizeAnswer,
-	    	fontFamily: 'Nunito-Light'
-		},
-		color: "#545555",
-		width: '88%',
-		height: "0dp",
-		visible: false,
-        text: objectTest[i].answer
-	});
-	var underline = Titanium.UI.createView({
-		height: "1dp",
-		top: faqTop,
-		backgroundColor:"#EAEAEA",
-		width: Ti.UI.FILL
-	});
-	questionView.add(questionLabel);
-	dataArray.push(questionView);
-	dataArray.push(answerlabel);
-	dataArray.push(underline);
+function showFAQ(faqObject) {
+	for (var i in faqObject) {
+		switch(Alloy.Globals.userDevice) {
+		    case 0: //iphoneFour
+		        faqFontSizeAnswer = 14;
+		        faqFontSizeQuestion = 15;
+		        faqTop = '8dp';
+		        faqQLeft = '7dp';
+		        break;
+		    case 1: //iphoneFive
+		        faqFontSizeAnswer = 15;
+		        faqFontSizeQuestion = 16;
+		        faqTop = '8dp';
+		        faqQLeft = '7dp';
+		        break;
+		    case 2: //iphoneSix
+		        faqFontSizeAnswer = 17;
+		        faqFontSizeQuestion = 18;
+		        faqTop = '10dp';
+		        faqQLeft = '10dp';
+		        break;
+		    case 3: //iphoneSixPlus
+		        faqFontSizeAnswer = 19;
+		        faqFontSizeQuestion = 20;
+		        faqTop = '10dp';
+		        faqQLeft = '10dp';
+		        break;
+		    case 4: //android currently same as iphoneSix
+		        faqFontSizeAnswer = 17;
+		        faqFontSizeQuestion = 18;
+		        faqTop = '10dp';
+		        faqQLeft = '10dp';
+		        break;
+		};
+		var questionView = Titanium.UI.createView({
+			layout: 'horizontal',
+			height: Titanium.UI.SIZE,
+			top: faqTop,
+			id: i
+		});
+		var questionLabel = Titanium.UI.createLabel({
+	        font:{
+				fontSize: faqFontSizeQuestion,
+		    	fontFamily: 'Nunito-Light'
+			},
+			color: "#545555",
+			left: faqQLeft,
+	        text: faqObject[i].question,
+	        id: faqObject[i].id
+		});
+		var answerlabel = Titanium.UI.createLabel({
+	        font:{
+				fontSize: faqFontSizeAnswer,
+		    	fontFamily: 'Nunito-Light'
+			},
+			color: "#7A7B7B",
+			width: '88%',
+			height: "0dp",
+			visible: false,
+	        text: faqObject[i].answer
+		});
+		var underline = Titanium.UI.createView({
+			height: "1dp",
+			top: faqTop,
+			backgroundColor:"#EAEAEA",
+			width: Ti.UI.FILL
+		});
+		questionView.add(questionLabel);
+		dataArray.push(questionView);
+		dataArray.push(answerlabel);
+		dataArray.push(underline);
+	}
+	$.viewFAQ.add(dataArray);
 }
-
-$.viewFAQ.add(dataArray);
 
 
 //Animate show and hide FAQ answers on click

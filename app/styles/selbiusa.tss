@@ -257,7 +257,7 @@
 	layout: "horizontal",
 	height: Ti.UI.SIZE,
 	width: '388dp',
-	top: '5dp'
+	top: '10dp'
 },
 "TextField[if=Alloy.Globals.iPhoneSixPlus]": {
 	borderColor: '#E5E5E5',
