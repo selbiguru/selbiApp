@@ -9,8 +9,6 @@ var tabsObject = Object.freeze({
 	'mylistings': 1,
 });
 var tabView = tabsObject[args];
-console.log("#################", args);
-console.log("*******************", argsID);
 
 if(tabView === 1) {
 	$.closeUserView.hide();
@@ -24,7 +22,6 @@ genMyItems(function(err, items){
 			helpers.alertUser('Listings','Unable to get user listings, please try again later!');
 			return;
 		}
-		console.log("used 19");
 	});
 
 //------------------------------------------------FUNCTION-------------------------------------------------------------//
@@ -36,7 +33,6 @@ genMyItems(function(err, items){
  * @param {Function} cb Callback function
  */
 function genMyItems(cb){
-	console.log("used 5");
 	listingManager.getUserListings(argsID, function(err, userListings){
 		var listItems = [];
 		if(userListings && userListings.length > 0) {
@@ -107,7 +103,6 @@ function genMyItems(cb){
  * @param {Object} listingId Object containing listingId and userId for the item
  */
 function openListing(listingIDs){
-	console.log("used 6",listingIDs);
 	Alloy.Globals.openPage('viewlisting', {
 		itemId: listingIDs.itemId,
 		userId: listingIDs.userId
@@ -154,7 +149,6 @@ $.fg.init({
     itemBorderRadius:0
 });
 $.fg.setOnItemClick(function(e){
-	console.log("used 1", e.source.data);
     openListing({
     	itemId:e.source.data.properties.itemId,
     	userId:e.source.data.properties.userId,	

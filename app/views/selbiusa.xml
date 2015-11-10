@@ -12,10 +12,10 @@
 			</View>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 		</View>
-		<View borderColor='yellow' id="selbiUSASerchView">
+		<View id="selbiUSASerchView">
 			<TextField id='usernameSearch' hintText="Enter Username"></TextField>
 		</View>
-		<View id="gridView">
+		<View top="0dp" id="gridView">
 			
 		</View>
 		<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>

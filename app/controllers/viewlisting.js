@@ -6,8 +6,7 @@ var indicator = require('uielements/indicatorwindow');
 var	previewListing,
 	views = [];
 
-console.log('listing id?',args.itemId);
-console.log('what is in args?',args);
+
 if(args.itemId){
 	//show correct 'buy' buttons with correct event listeners
 	previewListing = false;

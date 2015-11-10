@@ -7,15 +7,12 @@ var	selbiUSAPadding, selbiUSAItemHeight;
 var items = [],
 	obj = [];
 
-console.log("#################", args);
-console.log("*******************", argsID);
 
 $.titleSelbiUSALabel.text = "Selbi USA";
 genUSAItems(function(err, items){
 	if(err) {
 		helpers.alertUser('Listings','Unable to get All listings, please try again later!');
 	}
-	console.log("used 8");
 });
 
 //------------------------------------------------FUNCTION-------------------------------------------------------------//
@@ -28,7 +25,6 @@ genUSAItems(function(err, items){
  * @param {Function} cb Callback function
  */
 function genUSAItems(cb){
-	console.log("used 10");
 	listingManager.getUserListings(argsID, function(err, userListings){
 		var listItems = [];		
 		if(userListings && userListings.length > 0) {
@@ -97,7 +93,6 @@ function findUserListings(){
 		username: $.usernameSearch.value
 	};
 	userManager.getUserByUsername(userNameSearchObj, function (err, usernameResults) {
-		console.log("9090909090 ", usernameResults, "errrrrrrr ", err);
 		if(err){
 	    	helpers.alertUser('Oops!','Sorry this user does not exist!');
 			return;
@@ -118,7 +113,6 @@ function findUserListings(){
  * @param {Object} listingId Object containing listingId and userId for the item
  */
 function openListing(listingIDs){
-	console.log("used 6",listingIDs);
 	Alloy.Globals.openPage('mylistings', [
 		listingIDs.userName, listingIDs.userId
 	]);
@@ -165,7 +159,6 @@ $.fg.init({
     itemBorderRadius:0
 });
 $.fg.setOnItemClick(function(e){
-	console.log("used 1", e.source.data);
     openListing({
     	userId:e.source.data.properties.userId,	
     	userName:e.source.data.properties.userName,	
