@@ -5,6 +5,7 @@
 
 var args = arguments[0] || {};
 var helpers = require('utilities/helpers'),
+	dynamicElement = require('utilities/dynamicElement'),
 	AboutUsManager = require('managers/aboutusmanager');
 var aboutUsFontSize;
 
@@ -17,7 +18,9 @@ var aboutUsFontSize;
  */
 AboutUsManager.getAboutUs(function(err, aboutUsResults) {
 	if(err) {
-		defaultLabel('Guess there isn\'t much to learn about Selbi!  Check back later!');
+		dynamicElement.defaultLabel('Guess there isn\'t much to learn about Selbi!  Check back later!', function(err, results) {
+			$.aboutUsInfoView.add(results);
+		});
 		return;
 	} else {
 		aboutUsBody(aboutUsResults[0].aboutus);
@@ -73,25 +76,4 @@ function aboutUsBody(aboutUsText) {
 		text: aboutUsText
 	});
 	$.aboutUsInfoView.add(aboutUsStatement);
-};
-
-
-
-/**
- * @method defaultLabel 
- * @param {String} defaultText Text string for About Us in case of error
- * If error occurs fetching About Us text from the server, dynamically add a default label.
- */
-function defaultLabel(defaultText) {
-	var aboutUsDefault = Titanium.UI.createLabel({
-		color: "#1BA7CD",
-		height: Ti.UI.FILL,
-		width: defaultLabelWidth,
-		font: {
-			fontSize: aboutUsFontSize,
-			fontFamily: "Nunito-Bold"
-		},
-		text: defaultText
-	});
-	$.aboutUsInfoView.add(aboutUsDefault);
 };

@@ -5,6 +5,7 @@
 
 var args = arguments[0] || {};
 var helpers = require('utilities/helpers'),
+	dynamicElement = require('utilities/dynamicElement'),
 	faqManager = require('managers/faqmanager');
 
 var dataArray = [];
@@ -13,8 +14,9 @@ var dataArray = [];
 
 faqManager.getFAQ(function(err, faqResults) {
 	if(err) {
-		//helpers.alertUser('Oops!')
-		//build out no FAQ template
+		dynamicElement.defaultLabel('Oh no!  We are asking ourselves too many questions! Not to fear, FAQ\'s will be back soon!', function(err, results) {
+			$.viewFAQ.add(results);
+		});
 		return;
 	}
 	showFAQ(faqResults);
