@@ -1,7 +1,8 @@
 var args = arguments[0][0] || {},
 	argsID = arguments[0][1] || {};
 var listingManager = require('managers/listingmanager'),
-	helpers = require('utilities/helpers');
+	helpers = require('utilities/helpers'),
+	dynamicElement = require('utilities/dynamicElement');
 var friendsPadding, friendsItemHeight;
 var items = [],
 	obj = [];
@@ -16,7 +17,6 @@ genFriendsItems(function(err, items){
 		helpers.alertUser('Listings','Unable to get friend\'s listings, please try again later!');
 		return;
 	}
-	console.log("used 7");
 });
 
 //------------------------------------------------FUNCTION-------------------------------------------------------------//
@@ -32,10 +32,14 @@ genFriendsItems(function(err, items){
  * @param {Function} cb Callback function
  */
 function genFriendsItems(cb){
-	console.log("used 9");
 	listingManager.getUserListings(argsID, function(err, userListings){
-		var listItems = [];		
-		if(userListings && userListings.length > 0) {
+		var listItems = [];
+		if(err) {
+			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading your friend\'s listings!', function(err, results) {
+				$.defaultView.height= Ti.UI.FILL;
+				$.defaultView.add(results);
+			});
+		} else if(userListings && userListings.length > 0) {
 			for(var listing in userListings) {
 				var view = Alloy.createController('userTwoColumnTemplate');
 				var imageUrl = userListings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + userListings[listing].imageUrls[0] : "";
@@ -87,8 +91,13 @@ function genFriendsItems(cb){
 			//ADD ALL THE ITEMS TO THE GRID
 			$.fg.addGridItems(items);
 			
-		}	
-		cb(err, listItems);	
+		} else {
+			dynamicElement.defaultLabel('Your Friend\'s are not currently listing anything for sale.  We suggest adding more friends under \'Contacts\' in the menu, or check out what the rest of Selbi is selling under \'Selbi USA!\'', function(err, results) {
+				$.defaultView.height= Ti.UI.FILL;
+				$.defaultView.add(results);
+			});
+		}
+		cb(err, listItems);		
 	});
 };
 

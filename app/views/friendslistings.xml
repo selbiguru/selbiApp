@@ -9,6 +9,9 @@
 				<Label id="titleFriendsListingsLabel">friendsListings</Label>
 			</View>
 		</View>
+		<View id='defaultView'>
+			
+		</View>
 		<View id="gridView">
 			
 		</View>
