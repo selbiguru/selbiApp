@@ -1,7 +1,8 @@
 var args = arguments[0][0] || {},
 	argsID = arguments[0][1] || {};
 var listingManager = require('managers/listingmanager'),
-	helpers = require('utilities/helpers');
+	helpers = require('utilities/helpers'),
+	dynamicElement = require('utilities/dynamicElement');
 var myListingPadding, myListingItemHeight;
 var items = [],
 	obj = [];
@@ -10,7 +11,7 @@ var tabsObject = Object.freeze({
 });
 var tabView = tabsObject[args];
 
-if(tabView === 1) {
+if(tabView === 1 || Ti.App.Properties.getString('userId') === argsID) {
 	$.closeUserView.hide();
 	$.titleMyListingsLabel.text = "My Listings";
 } else {
@@ -18,11 +19,8 @@ if(tabView === 1) {
 	$.titleMyListingsLabel.text = args;
 }
 genMyItems(function(err, items){
-		if(err) {
-			helpers.alertUser('Listings','Unable to get user listings, please try again later!');
-			return;
-		}
-	});
+
+});
 
 //------------------------------------------------FUNCTION-------------------------------------------------------------//
 
@@ -35,7 +33,12 @@ genMyItems(function(err, items){
 function genMyItems(cb){
 	listingManager.getUserListings(argsID, function(err, userListings){
 		var listItems = [];
-		if(userListings && userListings.length > 0) {
+		if(err) {
+			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading listings!', function(err, results) {
+				$.defaultView.height= Ti.UI.FILL;
+				$.defaultView.add(results);
+			});
+		} else if(userListings && userListings.length > 0) {
 			for(var listing in userListings) {
 				var view = Alloy.createController('myitemtemplate');
 				var imageUrl = userListings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.mylistView + Alloy.CFG.cloudinary.bucket + userListings[listing].imageUrls[0] : "";
@@ -87,8 +90,16 @@ function genMyItems(cb){
 			//ADD ALL THE ITEMS TO THE GRID
 			$.fg.addGridItems(items);
 			
+		} else if (userListings && userListings.length === 0 && Ti.App.Properties.getString('userId') === argsID) {
+			dynamicElement.defaultLabel('Wait what! You don\'t have any listings!  Add some now so you can start making money!', function(err, results) {
+				$.defaultView.height= Ti.UI.FILL;
+				$.defaultView.add(results);
+			});
 		} else if (userListings && userListings.length === 0) {
-			helpers.alertUser('Sorry','It looks like this user doesn\'t have any listings!');
+			dynamicElement.defaultLabel('Sorry, It looks like this user doesn\'t have any listings!', function(err, results) {
+				$.defaultView.height= Ti.UI.FILL;
+				$.defaultView.add(results);
+			});
 		}
 		cb(err, listItems);	
 	});

@@ -13,10 +13,7 @@ console.log("*******************", argsID);
 
 $.titleFriendsListingsLabel.text = "Friends";
 genFriendsItems(function(err, items){
-	if(err) {
-		helpers.alertUser('Listings','Unable to get friend\'s listings, please try again later!');
-		return;
-	}
+
 });
 
 //------------------------------------------------FUNCTION-------------------------------------------------------------//

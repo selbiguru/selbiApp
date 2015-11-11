@@ -11,9 +11,7 @@ var items = [],
 
 $.titleSelbiUSALabel.text = "Selbi USA";
 genUSAItems(function(err, items){
-	if(err) {
-		helpers.alertUser('Listings','Unable to get All listings, please try again later!');
-	}
+
 });
 
 //------------------------------------------------FUNCTION-------------------------------------------------------------//

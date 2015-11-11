@@ -12,6 +12,9 @@
 				<Button id="closeUserButton" class="icon-buttons">Back</Button>
 			</View>
 		</View>
+		<View id='defaultView'>
+			
+		</View>
 		<View id="gridView">
 			
 		</View>

@@ -9,6 +9,9 @@
 },
 '#closeUserButton': {
 	left: '0dp'
+},
+"#defaultView": {
+	height: '0dp'
 }
 
 
