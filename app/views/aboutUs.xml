@@ -10,8 +10,6 @@
 			</View>
 		</View>
 		<ScrollView id="aboutUsInfoView">
-			<Label id="aboutUsBody">
-			</Label>
 		</ScrollView>
     </View>
 </Alloy>

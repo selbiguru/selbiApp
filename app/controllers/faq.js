@@ -1,3 +1,8 @@
+/**
+ * @class FAQ
+ * This class deals with Selbi's FAQ page
+ */
+
 var args = arguments[0] || {};
 var helpers = require('utilities/helpers'),
 	faqManager = require('managers/faqmanager');

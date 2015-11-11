@@ -69,7 +69,7 @@
 	scrollable: false
 },
 "#menuSeparator[if=Alloy.Globals.iPhoneFour]": {
-	top: "35dp",
+	top: "32dp",
 	bottom: "7dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneFour]":{

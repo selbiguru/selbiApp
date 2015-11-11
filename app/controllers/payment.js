@@ -144,7 +144,8 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
  
  /**
- * @private showUserCard 
+ * @private showUserCard
+ * @param {Object} cardInfo	CardInfo object containing user's payment information
  *  Dynamically creates XML elements to show the card that a user has entered on Selbi.
  */
  function showUserCard(cardInfo) {
@@ -279,6 +280,7 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
 
 /**
  * @private showUserBank 
+ * @param {Object} bankInfo	BankInfo object containing user's payment information
  *  Dynamically creates XML elements to show the bank that a user has entered on Selbi.
  */
 function showUserBank(bankInfo) {
