@@ -2,7 +2,8 @@ var args = arguments[0][0] || {},
 	argsID = arguments[0][1] || {};
 var listingManager = require('managers/listingmanager'),
 	userManager = require('managers/usermanager'),
-	helpers = require('utilities/helpers');
+	helpers = require('utilities/helpers'),
+	dynamicElement = require('utilities/dynamicElement');
 var	selbiUSAPadding, selbiUSAItemHeight;
 var items = [],
 	obj = [];
@@ -26,8 +27,13 @@ genUSAItems(function(err, items){
  */
 function genUSAItems(cb){
 	listingManager.getUserListings(argsID, function(err, userListings){
-		var listItems = [];		
-		if(userListings && userListings.length > 0) {
+		var listItems = [];	
+		if(err) {
+			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading all the USA listings!', function(err, results) {
+				$.defaultView.height= Ti.UI.FILL;
+				$.defaultView.add(results);
+			});
+		} else if(userListings && userListings.length > 0) {
 			for(var listing in userListings) {
 				var view = Alloy.createController('userTwoColumnTemplate');
 				var imageUrl = userListings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + userListings[listing].imageUrls[0] : "";
@@ -79,6 +85,11 @@ function genUSAItems(cb){
 			//ADD ALL THE ITEMS TO THE GRID
 			$.fg.addGridItems(items);
 			
+		} else {
+			dynamicElement.defaultLabel('Looks like no one is selling anything at the moment :( Check back soon!', function(err, results) {
+				$.defaultView.height= Ti.UI.FILL;
+				$.defaultView.add(results);
+			});
 		}	
 		cb(err, listItems);	
 	});

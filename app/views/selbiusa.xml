@@ -15,7 +15,10 @@
 		<View id="selbiUSASerchView">
 			<TextField id='usernameSearch' hintText="Enter Username"></TextField>
 		</View>
-		<View top="0dp" id="gridView">
+		<View id='defaultView'>
+			
+		</View>
+		<View id="gridView">
 			
 		</View>
 		<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
