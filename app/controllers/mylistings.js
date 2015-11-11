@@ -32,6 +32,7 @@ genMyItems(function(err, items){
  */
 function genMyItems(cb){
 	listingManager.getUserListings(argsID, function(err, userListings){
+		console.log("GERGERGERGERGERGERGERG ", userListings);
 		var listItems = [];
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading listings!', function(err, results) {

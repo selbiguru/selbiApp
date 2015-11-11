@@ -22,7 +22,8 @@ $.verifyAddressCancelButton.addEventListener('click', function(){
 	Alloy.Globals.closePage('verifyaddress');
 });
 
-//
+
+
 function validateAddressView(){
 	var value = {
 		value: $.apartmenNumber.value,
@@ -43,7 +44,7 @@ function validateAddressView(){
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
 		"userAddress": {
 						"address": $.route.value,
-						"address2": $.apartmenNumber.value, 
+						"address2": '#'+ $.apartmenNumber.value, 
 						"city": $.locality.value, 
 						"state": $.administrative_area_level_1.value,
 						"zip": $.postal_code.value,
