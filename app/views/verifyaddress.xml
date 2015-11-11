@@ -14,7 +14,7 @@
 		</View>
 		<View id='addressValidationView'>
 			<View id="userAddress" class="rowContainer">
-		        <TextField id="route" editable="false" hintText="Street Address" value="the cat" class="user-profile-text-fields"></TextField>
+		        <TextField id="route" editable="false" hintText="Street Address" class="user-profile-text-fields"></TextField>
 		        <View class="login-underline"/>
 		    </View>
 		    <View id="userAptNumber" class="rowContainer">
