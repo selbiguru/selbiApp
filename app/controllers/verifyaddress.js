@@ -30,8 +30,8 @@ function validateAddressView(){
 	};
 	var options = {
 		trim: true,
-		regexp: /^([a-zA-Z0-9\.\#]+\s?)*$/,
-		label: "Apt/Street #",
+		regexp: /^([a-zA-Z0-9\.]+\s?)*$/,
+		label: "Apt/Bldg #",
 		required: false
 	};
 	var aptNumber = utils.validate(value, options);
@@ -45,7 +45,7 @@ function validateAddressView(){
 		"userAddress": {
 						"address": $.route.value,
 						"address2": '#'+ $.apartmenNumber.value, 
-						"city": $.locality.value, 
+						"city": $.locality.value+",", 
 						"state": $.administrative_area_level_1.value,
 						"zip": $.postal_code.value,
 						"country": $.country.value

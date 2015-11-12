@@ -51,7 +51,7 @@
 			        <View class="dark-underline"/>
 			    </View>
 			    <View class="rowContainer">
-			        <TextField id="city" hintText="City" class="" value="{user.city}, {user.state} {user.zip}" editable="false"></TextField>
+			        <TextField id="city" hintText="City" class="" value="{user.city} {user.state} {user.zip}" editable="false"></TextField>
 			        <View class="dark-underline"/>
 			    </View>
 			    <View class="rowContainer">
