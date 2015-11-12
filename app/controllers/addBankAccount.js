@@ -112,3 +112,18 @@ function sendBankBraintree(){
 
 // Set the Example Check image
 $.imageExCheck.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.exampleCheck;
+
+
+
+
+/*-------------------------------------------------Event Listeners---------------------------------------------------*/
+
+
+
+$.accountNumberView.addEventListener('click', function(e){
+	this.children[1].focus();
+});
+
+$.routingNumberView.addEventListener('click', function(e){
+	this.children[1].focus();
+});

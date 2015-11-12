@@ -35,6 +35,14 @@
 "#routingNumber": {
 	keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD
 },
+".number-views": {
+	height: Ti.UI.SIZE
+},
+
+
+
+
+
 
 
 
@@ -100,7 +108,6 @@
 	bottom: "10dp"
 },
 ".banking-number[if=Alloy.Globals.iPhoneFour]": {
-	top: "5dp",
 	color: '#545555',
 	font: {
 		fontSize: '14dp',
@@ -122,6 +129,20 @@
 	height: Titanium.UI.SIZE,
 	top: "15dp"
 },
+".account-number-labels[if=Alloy.Globals.iPhoneFour]":{
+	left: '5dp',
+	font: {
+		fontSize: '13dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+".left-padding[if=Alloy.Globals.iPhoneFour]": {
+	left: '105dp'
+},
+
+
+
 
 
 
@@ -190,7 +211,6 @@
 	bottom: "10dp"
 },
 ".banking-number[if=Alloy.Globals.iPhoneFive]": {
-	top: "7dp",
 	color: '#545555',
 	font: {
 		fontSize: '16dp',
@@ -212,6 +232,24 @@
 	height: Titanium.UI.SIZE,
 	top: "15dp"
 },
+".account-number-labels[if=Alloy.Globals.iPhoneFive]":{
+	left: '5dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+".left-padding[if=Alloy.Globals.iPhoneFive]": {
+	left: '110dp'
+},
+
+
+
+
+
+
+
 
 
 
@@ -279,7 +317,6 @@
 	bottom: "10dp"
 },
 ".banking-number[if=Alloy.Globals.iPhoneSix]": {
-	top: "10dp",
 	color: '#545555',
 	font: {
 		fontSize: '18dp',
@@ -301,6 +338,19 @@
 	height: Titanium.UI.SIZE,
 	top: "20dp"
 },
+".account-number-labels[if=Alloy.Globals.iPhoneSix]":{
+	left: '10dp',
+	font: {
+		fontSize: '17dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+".left-padding[if=Alloy.Globals.iPhoneSix]": {
+	left: '140dp'
+},
+
+
 
 
 
@@ -369,7 +419,6 @@
 	left: "21dp"
 },
 ".banking-number[if=Alloy.Globals.iPhoneSixPlus]": {
-	top: "10dp",
     color: '#545555',
 	font: {
 		fontSize: '20dp',
@@ -391,7 +440,17 @@
 	height: Titanium.UI.SIZE,
 	top: "25dp"
 },
-
+".account-number-labels[if=Alloy.Globals.iPhoneSixPlus]":{
+	left: '10dp',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+".left-padding[if=Alloy.Globals.iPhoneSixPlus]": {
+	left: '150dp'
+},
 
 
 
@@ -458,7 +517,6 @@
 	bottom: "5dp"
 },
 ".banking-number[if=Alloy.Globals.android]": {
-	top: "10dp",
 	color: '#545555',
 	font: {
 		fontSize: '18dp',
@@ -479,4 +537,15 @@
 	width: '90%',
 	height: Titanium.UI.SIZE,
 	top: "20dp"
+},
+".account-number-labels[if=Alloy.Globals.android]":{
+	left: '10dp',
+	font: {
+		fontSize: '17dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+".left-padding[if=Alloy.Globals.android]": {
+	left: '140dp'
 },
