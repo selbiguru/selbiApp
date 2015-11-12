@@ -7,6 +7,29 @@
 	layout: 'vertical',
 	width: "90%"
 },
+"#activityIndicator": {
+	style: 13,
+	indicatorDiameter: 2,
+	indicatorColor: '#9B9B9B',
+	height: Ti.UI.FILL
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -40,6 +63,20 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -79,6 +116,18 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 //iPhone 6
 "#faqTopBar[if=Alloy.Globals.iPhoneSix]":{
 	width: Ti.UI.FILL,
@@ -112,6 +161,22 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //iPhone 6 Plus
 "#faqTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
 	width: Ti.UI.FILL,
@@ -142,6 +207,19 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

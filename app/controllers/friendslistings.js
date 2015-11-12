@@ -11,6 +11,7 @@ var items = [],
 console.log("#################", args);
 console.log("*******************", argsID);
 
+$.activityIndicator.show();
 $.titleFriendsListingsLabel.text = "Friends";
 genFriendsItems(function(err, items){
 
@@ -94,6 +95,8 @@ function genFriendsItems(cb){
 				$.defaultView.add(results);
 			});
 		}
+		$.activityIndicator.hide();
+		$.activityIndicator.height = '0dp';
 		cb(err, listItems);		
 	});
 };

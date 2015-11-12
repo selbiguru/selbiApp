@@ -8,6 +8,7 @@
 				<Label id="titleFAQLabel">FAQ</Label>
 			</View>
 		</View>
+		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<ScrollView id="viewFAQ">					
 		</ScrollView>
 		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>	

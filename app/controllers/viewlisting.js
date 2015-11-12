@@ -6,6 +6,7 @@ var indicator = require('uielements/indicatorwindow');
 var	previewListing,
 	views = [];
 
+$.activityIndicator.show();
 
 if(args.itemId){
 	//show correct 'buy' buttons with correct event listeners
@@ -16,11 +17,12 @@ if(args.itemId){
 	listingManager.getListing(args.itemId, function(err, listing){
 		if(err) {
 			helpers.alertUser('Listing','Unable to get the listing!');
-			return;
 		} else {
 			populateViewListing(listing);
-			return;
 		}
+		$.activityIndicator.hide();
+		$.activityIndicator.height = '0dp';
+		return;
 	});
 } else {
 	//show correct buttons dynamically created with correct event listeners
@@ -29,6 +31,8 @@ if(args.itemId){
 	$.backListingView.hide();
 	createPreviewButtons();
 	populateViewListing(args);
+	$.activityIndicator.hide();
+	$.activityIndicator.height = '0dp';
 }
 
 

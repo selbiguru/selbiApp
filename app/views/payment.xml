@@ -8,6 +8,7 @@
 				<Label id="titlePaymentLabel">Payment</Label>
 			</View>
 		</View>
+		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<View id="paymentDetails" class="payment-types">
 			<Label id="paymentViewLabel" class="payment-label">Add/Edit Payment Method</Label>
 			<View id="viewAddCard" class="rowContainer">

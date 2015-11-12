@@ -10,6 +10,7 @@ var helpers = require('utilities/helpers'),
 var aboutUsFontSize;
 
 
+$.activityIndicator.show();
 
 /**
  * @method getAboutUs 
@@ -21,11 +22,12 @@ AboutUsManager.getAboutUs(function(err, aboutUsResults) {
 		dynamicElement.defaultLabel('Guess there isn\'t much to learn about Selbi!  Check back later!', function(err, results) {
 			$.aboutUsInfoView.add(results);
 		});
-		return;
 	} else {
 		aboutUsBody(aboutUsResults[0].aboutus);
-		return;	
 	}
+	$.activityIndicator.hide();
+	$.activityIndicator.height = '0dp';
+	return;
 });
 
 

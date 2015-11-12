@@ -9,6 +9,7 @@
 				<Label id="titleAboutUsLabel">About Selbi</Label>
 			</View>
 		</View>
+		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<ScrollView id="aboutUsInfoView">
 		</ScrollView>
     </View>

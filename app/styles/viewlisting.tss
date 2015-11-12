@@ -5,7 +5,13 @@
 },
 "#backListingButton": {
 	left: '0dp'
-}
+},
+"#activityIndicator": {
+	style: 13,
+	indicatorDiameter: 2,
+	indicatorColor: '#9B9B9B',
+	height: Ti.UI.FILL
+},
 
 
 

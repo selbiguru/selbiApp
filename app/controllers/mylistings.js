@@ -11,6 +11,7 @@ var tabsObject = Object.freeze({
 });
 var tabView = tabsObject[args];
 
+$.activityIndicator.show();
 if(tabView === 1 || Ti.App.Properties.getString('userId') === argsID) {
 	$.closeUserView.hide();
 	$.titleMyListingsLabel.text = "My Listings";
@@ -102,6 +103,8 @@ function genMyItems(cb){
 				$.defaultView.add(results);
 			});
 		}
+		$.activityIndicator.hide();
+		$.activityIndicator.height = '0dp';
 		cb(err, listItems);	
 	});
 };

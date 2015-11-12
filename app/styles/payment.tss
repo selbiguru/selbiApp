@@ -73,7 +73,26 @@
 	right: "15dp",
 	width: Titanium.UI.FILL,
 	color: "#1BA7CD"
-}
+},
+"#activityIndicator": {
+	style: 13,
+	indicatorDiameter: 2,
+	indicatorColor: '#9B9B9B',
+	height: Ti.UI.FILL
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -155,6 +174,11 @@
 "#viewAddVenmo[if=Alloy.Globals.iPhoneFour]": {
 	height: '35dp'
 },
+
+
+
+
+
 
 
 
@@ -258,6 +282,13 @@
 
 
 
+
+
+
+
+
+
+
 //iPhone 6
 "#paymentTopBar[if=Alloy.Globals.iPhoneSix]":{
 	width: Ti.UI.FILL,
@@ -335,6 +366,11 @@
 "#viewAddVenmo[if=Alloy.Globals.iPhoneSix]": {
 	height: '45dp'
 },
+
+
+
+
+
 
 
 

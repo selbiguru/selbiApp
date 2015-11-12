@@ -12,6 +12,7 @@
 				<Button id="backListingButton" class="icon-buttons" onClick="backButton">Back</Button>
 			</View>
 		</View>
+		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<ScrollView id="viewListingScrollView">
 			<View id="viewListingHeader">
 				<!-- profile image -->

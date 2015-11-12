@@ -8,7 +8,7 @@ var	selbiUSAPadding, selbiUSAItemHeight;
 var items = [],
 	obj = [];
 
-
+$.activityIndicator.show();
 $.titleSelbiUSALabel.text = "Selbi USA";
 genUSAItems(function(err, items){
 
@@ -88,7 +88,9 @@ function genUSAItems(cb){
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
-		}	
+		}
+		$.activityIndicator.hide();
+		$.activityIndicator.height = '0dp';
 		cb(err, listItems);	
 	});
 };
