@@ -59,7 +59,7 @@
 	backgroundColor:"#EAEAEA",
 	width:Titanium.UI.FILL
 },
-"#usernameView": {
+".info-views": {
 	height: Ti.UI.SIZE
 },
 "#usernameCheckIcon": {
@@ -68,7 +68,6 @@
 "#usernameXIcon": {
 	color: "#c10404"
 },
-
 
 
 
@@ -203,7 +202,18 @@
 	font: {
 		fontSize: '14dp'
 	}
-}
+},
+".info-labels[if=Alloy.Globals.iPhoneFour]":{
+	left: '10dp',
+	font: {
+		fontSize: '11dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+".left-padding[if=Alloy.Globals.iPhoneFour]": {
+	left: '70dp'
+},
 
 
 
@@ -340,7 +350,18 @@
 	font: {
 		fontSize: '16dp'
 	}
-}
+},
+".info-labels[if=Alloy.Globals.iPhoneFive]":{
+	left: '10dp',
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+".left-padding[if=Alloy.Globals.iPhoneFive]": {
+	left: '75dp'
+},
 
 
 
@@ -480,7 +501,18 @@
 	font: {
 		fontSize: '18dp'
 	}
-}
+},
+".info-labels[if=Alloy.Globals.iPhoneSix]":{
+	left: '10dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+".left-padding[if=Alloy.Globals.iPhoneSix]": {
+	left: '85dp'
+},
 
 
 
@@ -619,7 +651,18 @@
 	font: {
 		fontSize: '20dp'
 	}
-}
+},
+".info-labels[if=Alloy.Globals.iPhoneSixPlus]":{
+	left: '10dp',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+".left-padding[if=Alloy.Globals.iPhoneSixPlus]": {
+	left: '100dp'
+},
 
 
 
@@ -759,4 +802,15 @@
 	font: {
 		fontSize: '18dp'
 	}
-}
+},
+".info-labels[if=Alloy.Globals.android]":{
+	left: '10dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+".left-padding[if=Alloy.Globals.android]": {
+	left: '85dp'
+},

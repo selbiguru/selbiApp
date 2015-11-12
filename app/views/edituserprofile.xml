@@ -21,16 +21,23 @@
 			<Label id="userLabel" class='label-grids'>User Info:</Label>
 			<View id="userView">
 	        	<View id="userInfo" class="rowContainer">
-			        <TextField id="firstName" hintText="First Name" class="" value="{user.firstName}"></TextField>
+	        		<View id='firstNameView' class='info-views'>
+	        			<Label class='info-labels'>First:</Label>
+			        	<TextField id="firstName" hintText="First Name" class="left-padding" value="{user.firstName}"></TextField>
+	        		</View>
 			        <View class="dark-underline"/>
 			    </View>
 			    <View class="rowContainer">
-			        <TextField id="lastName" hintText="Last Name" class="" value="{user.lastName}"></TextField>
+			    	<View id='lastNameView' class='info-views'>
+				    	<Label class='info-labels'>Last:</Label>
+				        <TextField id="lastName" hintText="Last Name" class="left-padding" value="{user.lastName}"></TextField>
+				    </View>
 			        <View class="dark-underline"/>
 			    </View>
 			    <View class="rowContainer">
-			    	<View id="usernameView">
-			        	<TextField id="username" hintText="Username" class="" value="{user.username}" maxLength="25"></TextField>
+			    	<View id="usernameView" class='info-views'>
+			    		<Label class='info-labels'>Username:</Label>
+			        	<TextField id="username" hintText="Username" class="left-padding" value="{user.username}" maxLength="25"></TextField>
 			        	<Label id="usernameCheckIcon" class='icon-username' icon="fa-check-circle-o"></Label>
 			        	<Label id="usernameXIcon" class='icon-username' icon="fa-times"></Label>
 			        </View>

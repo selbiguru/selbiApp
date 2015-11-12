@@ -173,20 +173,7 @@ function updateUser(e){
 	});	
 };
 
-$.username.addEventListener('change',function(e){
-	var uniqueUserRegEx = ($.username.value).match(/^[a-zA-Z\d\_]+$/);
-	if(uniqueUserRegEx === null) {
-		userNameUnique = false;
-		$.usernameCheckIcon.hide();
-		$.usernameXIcon.show();
-	} else if(this.value.length > 6) {
-		updateUserName();
-	} else {
-		userNameUnique = false;
-		$.usernameCheckIcon.hide();
-		$.usernameXIcon.show();
-	}
-});
+
 function updateUserName() {
 	var uniqueObject = {
 		username: ($.username.value).toLowerCase(),
@@ -365,3 +352,41 @@ imageManager.getMenuProfileImage(function(err, profileImage){
 // Hide the x-icon on username load until user types and we use isUnique API route to see if available
 $.usernameXIcon.hide();
 
+
+
+
+
+/*-------------------------------------------------Event Listeners---------------------------------------------------*/
+
+
+
+$.firstNameView.addEventListener('click', function(e){
+	this.children[1].focus();
+});
+
+$.lastNameView.addEventListener('click', function(e){
+	this.children[1].focus();
+});
+
+$.usernameView.addEventListener('click', function(e){
+	this.children[1].focus();
+});
+
+
+
+
+
+$.username.addEventListener('change',function(e){
+	var uniqueUserRegEx = ($.username.value).match(/^[a-zA-Z\d\_]+$/);
+	if(uniqueUserRegEx === null) {
+		userNameUnique = false;
+		$.usernameCheckIcon.hide();
+		$.usernameXIcon.show();
+	} else if(this.value.length > 6) {
+		updateUserName();
+	} else {
+		userNameUnique = false;
+		$.usernameCheckIcon.hide();
+		$.usernameXIcon.show();
+	}
+});
