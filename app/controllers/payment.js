@@ -19,16 +19,6 @@ userManager = require('managers/usermanager');
  */
 function addNewCard(){
 	Alloy.Globals.openPage('addCreditCard');
-    paymentManager.getClientToken(function(err, response){
-    	if(err){
-	    	helpers.alertUser('Payment Token','Failed to get payment token. If the problem persists please contact us!');
-		    Alloy.Globals.closePage('addCreditCard');
-			return;
-    	} else {
-	    	Ti.App.fireEvent('app:fromTitaniumPaymentGetTokenFromServer', { token: response });
-			return;
-		}
-	});
 }
 
 /**
@@ -406,6 +396,9 @@ function showUserBank(bankInfo) {
 
 /*----------------------------------------------On page load API calls---------------------------------------------*/
 
+
+$.activityIndicator.show();
+
 /**
  * @method getPaymentMethods 
  *  On page load, dynamically loads the user's payment methods and calls correlating function to dynamically create XML.
@@ -414,16 +407,15 @@ paymentManager.getPaymentMethods(function(err, results){
 	console.log("~~~~~~~~~~~~~~~~~~: ", results);
 	if(err) {
 		helpers.alertUser('Payment Methods','Unable to load your payment methods. If the problem persists please contact us!');
-		return;
 	}
 	if(results.userPaymentMethod.lastFour) {
-		console.log("WEEEEE");
 		showUserCard(results.userPaymentMethod);
 	}
 	if(results.userMerchant.accountNumberLast4) {
-		console.log("STOOOOOOOOP");
 		showUserBank(results.userMerchant);
 	}
+	$.activityIndicator.hide();
+	$.activityIndicator.height = '0dp';
 });
 
 //Close addCreditCard page on payment.js load otherwise webview braintree doesn't properly read the save cc view

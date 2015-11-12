@@ -1,5 +1,5 @@
 Ti.App.addEventListener("app:fromTitaniumPaymentGetTokenFromServer", paymentToken);
-
+Ti.App.fireEvent('app:BrainTreeHostLoad', { braintree: 'true' });
 
 defaults = {
 	fieldsetClass: "credit-card-group",

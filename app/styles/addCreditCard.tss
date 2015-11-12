@@ -36,7 +36,28 @@
 },
 "#webview": {
 	willHandleTouches: false
-}
+},
+"#activityIndicator": {
+	style: 13,
+	indicatorDiameter: 2,
+	indicatorColor: '#9B9B9B',
+	height: Ti.UI.FILL
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -85,6 +106,21 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //iPhone 5
 "#addCreditCardTopBar[if=Alloy.Globals.iPhoneFive]":{
 	width: Ti.UI.FILL,
@@ -125,6 +161,22 @@
         },
 	color: "#1BA7CD"
 },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -176,6 +228,20 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //iPhone 6 Plus
 "#addCreditCardTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
 	width: Ti.UI.FILL,
@@ -216,6 +282,23 @@
         },
 	color: "#1BA7CD"
 },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

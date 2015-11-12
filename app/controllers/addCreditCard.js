@@ -3,6 +3,20 @@ var args = arguments[0] || {};
 var helpers = require('utilities/helpers'),
 	indicator = require('uielements/indicatorwindow'),
 	paymentManager = require('managers/paymentmanager');
+var array = [];
+
+
+Ti.App.addEventListener("app:BrainTreeHostLoad", function(e){
+	if(e.braintree) {
+		array.push(e.braintree);
+	}
+	Ti.App.removeEventListener("app:BrainTreeHostLoad", function(e){
+		if(e.braintree) {
+			array.push(e.braintree);
+		}
+	});
+});
+
 
 function saveCreditCard() {
 	//get the nonce from the webView and pass it to our server in paymentManager
@@ -54,3 +68,23 @@ function savingStuff(e){
 		 });	
 	}
 };
+
+
+
+
+
+/*-----------------------------------------------On page load API calls----------------------------------------------*/
+
+$.activityIndicator.show();
+
+paymentManager.getClientToken(function(err, response){
+	if(err || array.length <= 0){
+    	helpers.alertUser('Oops!','Something went wrong.  Please try again!');
+    	Alloy.Globals.closePage('addCreditCard');
+	} else {
+    	Ti.App.fireEvent('app:fromTitaniumPaymentGetTokenFromServer', { token: response });
+	}
+	$.activityIndicator.hide();
+	$.activityIndicator.height = '0dp';
+	return;
+});

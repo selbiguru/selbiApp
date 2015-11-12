@@ -12,6 +12,7 @@
 			</View>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 		</View>
+		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<View id="enterCCDetailView">
 			<WebView id="webview" url="/webViews/addCreditCard.html">
 		</WebView>
