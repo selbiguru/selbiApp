@@ -12,16 +12,35 @@
 
 ".rowContainer": {
 	width: Ti.UI.FILL,
-	height: "35dp",
+	height: Ti.UI.SIZE,
 	layout: 'vertical'
 },
 
 ".login-underline": {
 	height: 1,
-	bottom: 10,
-	backgroundColor:"#FAFAFA",
+	backgroundColor:"#EAEAEA",
 	width:Titanium.UI.FILL
 },
+".info-views": {
+	height: Ti.UI.SIZE
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //iPhone 4
@@ -57,6 +76,39 @@
 "#cancelAddress[if=Alloy.Globals.iPhoneFour]": {
 	left: "7dp",
 },
+"TextField[if=Alloy.Globals.iPhoneFour]": {
+	color: '#545555',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "30dp"
+},
+".address-labels[if=Alloy.Globals.iPhoneFour]": {
+	left: '10dp',
+	font: {
+		fontSize: '11dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+".left-padding[if=Alloy.Globals.iPhoneFour]": {
+	left: '80dp'
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -94,6 +146,43 @@
 "#cancelAddress[if=Alloy.Globals.iPhoneFive]": {
 	left: "7dp",
 },
+"TextField[if=Alloy.Globals.iPhoneFive]": {
+	color: '#545555',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "35dp"
+},
+".address-labels[if=Alloy.Globals.iPhoneFive]": {
+	left: '10dp',
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+".left-padding[if=Alloy.Globals.iPhoneFive]": {
+	left: '80dp'
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -130,6 +219,42 @@
 "#cancelAddress[if=Alloy.Globals.iPhoneSix]": {
 	left: "10dp",
 },
+"TextField[if=Alloy.Globals.iPhoneSix]": {
+	color: '#545555',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "40dp"
+},
+".address-labels[if=Alloy.Globals.iPhoneSix]": {
+	left: '10dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+".left-padding[if=Alloy.Globals.iPhoneSix]": {
+	left: '95dp'
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -167,6 +292,38 @@
 "#cancelAddress[if=Alloy.Globals.iPhoneSixPlus]": {
 	left: "15dp",
 },
+"TextField[if=Alloy.Globals.iPhoneSixPlus]": {
+	color: '#545555',
+	font: {
+		fontSize: '20dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "45dp"
+},
+".address-labels[if=Alloy.Globals.iPhoneSixPlus]": {
+	left: '10dp',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+".left-padding[if=Alloy.Globals.iPhoneSixPlus]": {
+	left: '105dp'
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -204,4 +361,23 @@
 },
 "#cancelAddress[if=Alloy.Globals.android]": {
 	left: "10dp",
+},
+"TextField[if=Alloy.Globals.android]": {
+	color: '#545555',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "40dp"
+},
+".address-labels[if=Alloy.Globals.android]": {
+	left: '10dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+".left-padding[if=Alloy.Globals.android]": {
+	left: '95dp'
 },

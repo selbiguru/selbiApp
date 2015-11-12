@@ -7,11 +7,11 @@ var address =  args[0];
 // Populates the address fields on page load
 for(i = 0; i < $.addressValidationView.children.length; i++) {
 	var row = $.addressValidationView.children[i];
-	if (address[row.children[0].id]) {
-		if (row.children[0].id === "route" && address["street_number"] !== "short_name") {
-			row.children[0].value = address["street_number"] +" "+ address[row.children[0].id];
+	if (address[row.children[0].children[1].id]) {
+		if (row.children[0].children[1].id === "route" && address["street_number"] !== "short_name") {
+			row.children[0].children[1].value = address["street_number"] +" "+ address[row.children[0].children[1].id];
 		} else {
-			row.children[0].value = address[row.children[0].id];
+			row.children[0].children[1].value = address[row.children[0].children[1].id];
 		}
 	}
 }
@@ -69,3 +69,15 @@ function validateAddressView(){
 	$.removeClass($.userAptNumber, "error");
 });*/
 //save to model..grab user object, update/ add address to user model. couchdb
+
+
+
+
+
+/*-------------------------------------------------Event Listeners---------------------------------------------------*/
+
+
+
+$.aptNumberView.addEventListener('click', function(e){
+	this.children[1].focus();
+});
