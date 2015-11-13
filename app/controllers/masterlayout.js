@@ -69,11 +69,8 @@ menuView.menuTable2.addEventListener('click',onMenuClickListener);
 
 function onMenuClickListener(e){
 	function drawView(row){
-		console.log('570570570570570',row);
-		console.log('looplooplooplooploop',viewList);
 		for (var property in viewList) {
 		    if (property === row) {
-		    	console.log('OHHHHHHHH SNAP!');
 		    	if(listings.indexOf(property) >= 0) {
 		    		var viewController = controls.getCustomView(viewList[row], [viewList[row], Ti.App.Properties.getString('userId')]);
 		    	} else {
@@ -88,11 +85,9 @@ function onMenuClickListener(e){
 				}
 	      		$.drawermenu.drawermainview.add(viewController.getView());
 		    } else {
-		    	console.log('********************', property);
 		    	if(controllerList[property]) {
 		    		$.drawermenu.drawermainview.remove(controllerList[property].getView());
 		    	} else if(secondaryPages.indexOf(property) >= 0){
-		    		console.log('BUMMERRRRRR');
 		    		Alloy.Globals.closePage(''+property+'');
 		    	}
 		    }
@@ -138,10 +133,7 @@ Alloy.Globals.openPage = function openPage(viewName, model){
  * Close a page that is open. Silently returns if the page is not open
  */
 Alloy.Globals.closePage = function(pageName){
-	//console.log("pagename ", pageName);
-	//console.log("viewList ", viewList);
 	if(viewList[pageName]) {
-		console.log('BUMME222222222222222');
 		$.drawermenu.drawermainview.remove(viewList[pageName].getView());
 	}
 };
