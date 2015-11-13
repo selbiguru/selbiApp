@@ -49,6 +49,12 @@ var viewList = {
 
 var listings = ['row3', 'row4', 'row5'];
 
+var secondaryPages = ['aboutUs', 'addBankAccount', 'addCreditCard', 'addressgooglemap',
+					 'faq', 'invitefriends', 'payment', 'phoneVerify', 'verifyaddress',
+					 'viewlisting', 'contactUs' 
+					];
+
+
 var controllerList = {};
 
 initialize();
@@ -63,8 +69,11 @@ menuView.menuTable2.addEventListener('click',onMenuClickListener);
 
 function onMenuClickListener(e){
 	function drawView(row){
+		console.log('570570570570570',row);
+		console.log('looplooplooplooploop',viewList);
 		for (var property in viewList) {
 		    if (property === row) {
+		    	console.log('OHHHHHHHH SNAP!');
 		    	if(listings.indexOf(property) >= 0) {
 		    		var viewController = controls.getCustomView(viewList[row], [viewList[row], Ti.App.Properties.getString('userId')]);
 		    	} else {
@@ -79,8 +88,13 @@ function onMenuClickListener(e){
 				}
 	      		$.drawermenu.drawermainview.add(viewController.getView());
 		    } else {
-		    	if(controllerList[property])
+		    	console.log('********************', property);
+		    	if(controllerList[property]) {
 		    		$.drawermenu.drawermainview.remove(controllerList[property].getView());
+		    	} else if(secondaryPages.indexOf(property) >= 0){
+		    		console.log('BUMMERRRRRR');
+		    		Alloy.Globals.closePage(''+property+'');
+		    	}
 		    }
 		}
 	};
@@ -99,7 +113,6 @@ function onMenuClickListener(e){
  * @param {Object} model	model to be passed to the view
  */
 Alloy.Globals.openPage = function openPage(viewName, model){
-	console.log("77777777777777");
 	viewList[viewName] = controls.getCustomView(viewName, model);
 	if(viewList[viewName]){
 		for (var property in viewList) {
@@ -127,9 +140,8 @@ Alloy.Globals.openPage = function openPage(viewName, model){
 Alloy.Globals.closePage = function(pageName){
 	//console.log("pagename ", pageName);
 	//console.log("viewList ", viewList);
-	console.log("!!!!");
 	if(viewList[pageName]) {
-		console.log("@@@@@");
+		console.log('BUMME222222222222222');
 		$.drawermenu.drawermainview.remove(viewList[pageName].getView());
 	}
 };
