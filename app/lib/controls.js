@@ -10,7 +10,7 @@ var Alloy=require('alloy');
  * Returns instance of the main view
  */
 exports.getMainView=function(){
-	return Alloy.createController('mainview');
+	return Alloy.createController('friendslistings', ['friendslistings', Ti.App.Properties.getString('userId')]);
 };
 
 /**
