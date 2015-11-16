@@ -73,7 +73,7 @@ function loadContacts() {
 	Titanium.API.info(JSON.stringify(contacts));
 	contactList.setItems(contacts);  
 	contactListView.sections = [contactList];
-	$.mainView.add(contactListView);
+	$.addFriendsView.add(contactListView);
 }
 
 /**
@@ -81,7 +81,7 @@ function loadContacts() {
  * Delegate callback executed when access to contacts is not allowed
  */
 function addressBookDisallowed() {	
-	$.mainView.add(Ti.UI.createLabel({
+	$.addFriendsView.add(Ti.UI.createLabel({
 		text: 'No contacts imported'
 	}));
 }
