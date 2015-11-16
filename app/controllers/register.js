@@ -14,7 +14,6 @@ function registerUser(){
 	}
 	var userName = (($.email.value).replace(/@.*$/,"")).toLowerCase()+(Math.floor(Math.random() * 9000000)+1000000);
 	var validatedNumber = validatePhoneNumber($.phoneNumber.value);
-	console.log("usernAME", userName);
 	/*if(!validatedNumber) {
 		var c = Titanium.UI.createAlertDialog({
         	title : 'Invalid Phone Number'

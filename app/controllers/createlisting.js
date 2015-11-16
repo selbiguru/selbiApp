@@ -43,7 +43,6 @@ function gotoStep1() {
 
 function showCamera() {
 
-	console.log("Show camera");
 
 	var _picsTaken = 0;
 	var timer = {};

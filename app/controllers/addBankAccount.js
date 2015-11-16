@@ -58,7 +58,6 @@ function addBankInfo() {
 				});
 			});
 		} else {
-			console.log("pee");
 			sendBankBraintree();
 			return;
 		}

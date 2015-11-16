@@ -114,7 +114,6 @@ $.viewFAQ.addEventListener('click', function(e){
 					children[i + 1].hide();
 					children[i + 1].height = "0dp";
 				} else if (child.children[k].id && e.source.id === child.children[k].id) {
-					console.log("false", children[i], children[i].height);
 					children[i + 1].show();
 					children[i + 1].height = Ti.UI.SIZE;
 				}
