@@ -8,9 +8,6 @@
 				<Label id="titleAddFriendsLabel">Add Friends</Label>
 			</View>
 		</View>
-		<View id="addFriendsSearchView">
-			<TextField id='usernameSearch' hintText="Enter Username"></TextField>
-		</View>
 		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 	</View>
 	

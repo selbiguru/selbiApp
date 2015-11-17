@@ -54,39 +54,6 @@
 	width: '85%',
 	top: '20dp'
 },
-"#addFriendsSearchView[if=Alloy.Globals.iPhoneFour]": {
-	layout: "horizontal",
-	height: Ti.UI.SIZE,
-	width: '306dp',
-	top: '10dp',
-	bottom: '10dp'
-},
-"TextField[if=Alloy.Globals.iPhoneFour]": {
-	borderColor: '#E5E5E5',
-	paddingLeft: "10dp",
-	borderRadius: '4',
-	borderWidth: '1'
-},
-"#usernameSearch[if=Alloy.Globals.iPhoneFour]": {
-	width: Ti.UI.FILL,
-	height: '35dp',
-	font: {
-		fontSize: '14dp',
-		fontFamily: 'Nunito-Light'
-	},
-	color: '#9B9B9B'
-},
-"#hintTextLabel[if=Alloy.Globals.iPhoneFour]": {
-	left: '10dp',
-	top:'25dp',
-	color: "#CBCBCB"
-},
-".font-style[if=Alloy.Globals.iPhoneFour]": {
-	font: {
-		fontSize: '14dp',
-		fontFamily: 'Nunito-Light'
-	}
-},
 
 
 
@@ -137,39 +104,6 @@
 	width: '90%',
 	top: '30dp'
 },
-"#addFriendsSearchView[if=Alloy.Globals.iPhoneFive]": {
-	layout: "horizontal",
-	height: Ti.UI.SIZE,
-	width: '306dp',
-	top: '10dp',
-	bottom: '10dp'
-},
-"TextField[if=Alloy.Globals.iPhoneFive]": {
-	borderColor: '#E5E5E5',
-	paddingLeft: "10dp",
-	borderRadius: '4',
-	borderWidth: '1'
-},
-"#usernameSearch[if=Alloy.Globals.iPhoneFive]": {
-	width: Ti.UI.FILL,
-	height: '40dp',
-	font: {
-		fontSize: '16dp',
-		fontFamily: 'Nunito-Light'
-	},
-	color: '#9B9B9B'
-},
-"#hintTextLabel[if=Alloy.Globals.iPhoneFive]": {
-	left: '10dp',
-	top:'24dp',
-	color: "#CBCBCB"
-},
-".font-style[if=Alloy.Globals.iPhoneFive]": {
-	font: {
-		fontSize: '16dp',
-		fontFamily: 'Nunito-Light'
-	}
-},
 
 
 
@@ -218,39 +152,6 @@
 	layout: 'vertical',
 	width: '92%',
 	top: '30dp'
-},
-"#addFriendsSearchView[if=Alloy.Globals.iPhoneSix]": {
-	layout: "horizontal",
-	height: Ti.UI.SIZE,
-	width: '355dp',
-	top: '10dp',
-	bottom: '10dp'
-},
-"TextField[if=Alloy.Globals.iPhoneSix]": {
-	borderColor: '#E5E5E5',
-	paddingLeft: "10dp",
-	borderRadius: '4',
-	borderWidth: '1'
-},
-"#usernameSearch[if=Alloy.Globals.iPhoneSix]": {
-	width: Ti.UI.FILL,
-	height: '46dp',
-	font: {
-		fontSize: '18dp',
-		fontFamily: 'Nunito-Light'
-	},
-	color: '#9B9B9B'
-},
-"#hintTextLabel[if=Alloy.Globals.iPhoneSix]": {
-	left: '10dp',
-	top:'27dp',
-	color: "#CBCBCB"
-},
-".font-style[if=Alloy.Globals.iPhoneSix]": {
-	font: {
-		fontSize: '18dp',
-		fontFamily: 'Nunito-Light'
-	}
 },
 
 
@@ -303,39 +204,7 @@
 	width: '92%',
 	top: '30dp'
 },
-"#addFriendsSearchView[if=Alloy.Globals.iPhoneSixPlus]": {
-	layout: "horizontal",
-	height: Ti.UI.SIZE,
-	width: '388dp',
-	top: '10dp',
-	bottom: '10dp'
-},
-"TextField[if=Alloy.Globals.iPhoneSixPlus]": {
-	borderColor: '#E5E5E5',
-	paddingLeft: "10dp",
-	borderRadius: '4',
-	borderWidth: '1'
-},
-"#usernameSearch[if=Alloy.Globals.iPhoneSixPlus]": {
-	width: Ti.UI.FILL,
-	height: '50dp',
-	font: {
-		fontSize: '20dp',
-		fontFamily: 'Nunito-Light'
-	},
-	color: '#9B9B9B'
-},
-"#hintTextLabel[if=Alloy.Globals.iPhoneSixPlus]": {
-	left: '10dp',
-	top:'32dp',
-	color: "#CBCBCB"
-},
-".font-style[if=Alloy.Globals.iPhoneSixPlus]": {
-	font: {
-		fontSize: '20dp',
-		fontFamily: 'Nunito-Light'
-	}
-},
+
 
 
 
@@ -387,37 +256,4 @@
 	layout: 'vertical',
 	width: '92%',
 	top: '30dp'
-},
-"#addFriendsSearchView[if=Alloy.Globals.android]": {
-	layout: "horizontal",
-	height: Ti.UI.SIZE,
-	width: '355dp',
-	top: '10dp',
-	bottom: '10dp'
-},
-"TextField[if=Alloy.Globals.android]": {
-	borderColor: '#E5E5E5',
-	paddingLeft: "10dp",
-	borderRadius: '4',
-	borderWidth: '1'
-},
-"#usernameSearch[if=Alloy.Globals.android]": {
-	width: Ti.UI.FILL,
-	height: '46dp',
-	font: {
-		fontSize: '18dp',
-		fontFamily: 'Nunito-Light'
-	},
-	color: '#9B9B9B'
-},
-"#hintTextLabel[if=Alloy.Globals.android]": {
-	left: '10dp',
-	top:'27dp',
-	color: "#CBCBCB"
-},
-".font-style[if=Alloy.Globals.android]": {
-	font: {
-		fontSize: '18dp',
-		fontFamily: 'Nunito-Light'
-	}
 },

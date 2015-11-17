@@ -17,12 +17,18 @@ function getContactListTemplate() {
 		 childTemplates: [
 		 	{
 		 		type: 'Ti.UI.View',
+		 		bindId: 'data',
 		 		properties: {
 		 			width: Ti.UI.FILL,
 		 			height: Ti.UI.FILL,
-		 			backgroundColor: '#FAFAFA',
-		 			touchEnabled: false
-		 		}
+		 			backgroundColor: '#FAFAFA'
+		 		},
+		 		events: {
+	                // Bind event callbacks only to the subcomponent
+	                click: function(e){
+	                	console.log('232424423423423423423', e.source.data);
+	                }
+            	},
 		 	},
 	        {                            // Title
 	            type: 'Ti.UI.Label',     // Use a label for the title
@@ -103,49 +109,54 @@ function loadContacts() {
 		},
 		defaultItemTemplate: 'template',
 		backgroundColor: '#FAFAFA',
-		allowsSelection: false
+		//allowsSelection: false
 	});
-	var contactList = Ti.UI.createListSection({
-		headerView: createCustomView('Friends on Selbi')
+	var usersContactList = Ti.UI.createListSection({
+		headerView: createCustomView('Invite friends Selbi')
 	
 	});
-	
-	var contactList2 = Ti.UI.createListSection({
-		headerView: createCustomView('Invite to Selbi')
-	});
-	var contacts = [];
+	var currentUsers = [];
+	var nonUsers = [];
 	var phoneArray = [];
 	var people = Ti.Contacts.getAllPeople();
 	if(people) {
 		for(var person in people) {
-			contacts.push({
-					title: { text: people[person] ? people[person].firstName + " " + people[person].lastName: "NA"},
-				 	subtitle: {text: people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : ""},
-				 	addIcon: {image: 'https://cdn3.iconfinder.com/data/icons/social-media-2-2/256/Add_Friend-512.png'}
-				});
-			contacts.push({
-				title: { text: people[person] ? people[person].firstName + " " + people[person].lastName: "NA"},
-			 	subtitle: {text: people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : ""},
-			 	addIcon: {image: 'https://cdn3.iconfinder.com/data/icons/social-media-2-2/256/Add_Friend-512.png'}
-			});
+			if((people[person].phone.mobile && people[person].phone.mobile.length > 0) || (people[person].phone.work && people[person].phone.work.length > 0) || (people[person].phone.home && people[person].phone.home.length > 0) || (people[person].phone.other && people[person].phone.other.length > 0)) {
+				var phone = people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : "";
+				phone = phone.replace(/\D+/g, "");
+				phoneArray.push(phone);
+			};
 		};
-				/*contacts.push({
-					title: { text: people[person] ? people[person].firstName + " " + people[person].lastName: "NA"},
-				 	subtitle: {text: people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : ""},
-				 	addIcon: {image: 'https://cdn3.iconfinder.com/data/icons/social-media-2-2/256/Add_Friend-512.png'}
-				});
-				contacts.push({
-					title: { text: people[person] ? people[person].firstName + " " + people[person].lastName: "NA"},
-				 	subtitle: {text: people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : ""},
-				 	addIcon: {image: 'https://cdn3.iconfinder.com/data/icons/social-media-2-2/256/Add_Friend-512.png'}
-				});	*/
+		friendsManager.getSelbiUsersByPhones(phoneArray,function(err, results){
+			if(err) {
+				helpers.alertUser('Oops','Having trouble getting your friends. Please try again later!');
+				addressBookDisallowed();
+			}
+			if(results) {
+				console.log("WHAT ARE THE RESULTS", results);
+				for(var person in people) {
+					var phone = people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : "";
+						phone = phone.replace(/\D+/g, "");
+					if(results[person].phoneNumber === phone){
+						currentUsers.push({
+							title: { text: people[person] ? people[person].firstName + " " + people[person].lastName: "NA"},
+						 	subtitle: {text: "Uses Selbi"},
+						 	data: { data: 1},
+						});
+					} else {
+						currentUsers.push({
+							title: { text: people[person] ? people[person].firstName + " " + people[person].lastName: "NA"},
+						 	subtitle: {text: people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : ""},
+							data: { data: 0},
+						});
+					}
+				}
+				usersContactList.setItems(currentUsers); 
+				contactListView.sections = [usersContactList];
+				$.addFriendsView.add(contactListView);
+			}	
+		});
 	}
-	Titanium.API.info(JSON.stringify(contacts));
-	contactList.setItems(contacts);  
-	contactList2.setItems(contacts); 
-	contactListView.sections = [contactList, contactList2];
-	$.addFriendsView.add(contactListView);
-	Titanium.Platform.openURL('sms:'+5157794218);
 }
 
 /**
