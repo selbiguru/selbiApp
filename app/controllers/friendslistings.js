@@ -43,7 +43,7 @@ function genFriendsItems(cb){
 				if(userListings.listings[listing].imageUrls){
 					var view = Alloy.createController('userTwoColumnTemplate');
 					var imageUrl = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + userListings.listings[listing].imageUrls[0] : "";
-					var practiceImage = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + Alloy.Globals.currentUser.attributes.profileImage : "";
+					var practiceImage = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg" : "";
 					var tmp = {
 						image :  imageUrl,
 			            usaListingThumb : {
@@ -117,7 +117,7 @@ function findUserListings(){
 		return;
 	}
 	var userNameSearchObj = {
-		username: $helpers.trim($.usernameSearch.value)
+		username: helpers.trim($.usernameSearch.value)
 	};
 	console.log('NOOOO STOP');
 	userManager.getUserByUsername(userNameSearchObj, function (err, usernameResults) {

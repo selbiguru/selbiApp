@@ -346,7 +346,7 @@ Alloy.Models.user.fetch({
 });
 // Set the user profile image
 imageManager.getMenuProfileImage(function(err, profileImage){
-	$.userProfileImage.image = profileImage;	
+	$.userProfileImage.image = profileImage;
 });
 
 // Hide the x-icon on username load until user types and we use isUnique API route to see if available

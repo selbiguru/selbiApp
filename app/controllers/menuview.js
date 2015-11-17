@@ -5,7 +5,7 @@ var userManager = require('managers/usermanager');
 var helpers = require('utilities/helpers');
 
 imageManager.getMenuProfileImage(function(err, profileImage){
-	$.menuUserImage.image = profileImage;	
+	$.menuUserImage.image = profileImage;
 });
 
 userManager.getCurrentUser(function(err, currentUser){

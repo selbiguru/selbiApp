@@ -8,7 +8,6 @@ var	previewListing,
 	views = [];
 
 $.activityIndicator.show();
-console.log('333333333333', args);
 if(args.itemId){
 	//show correct 'buy' buttons with correct event listeners
 	previewListing = false;
