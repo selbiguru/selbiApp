@@ -8,7 +8,7 @@ var	previewListing,
 	views = [];
 
 $.activityIndicator.show();
-
+console.log('333333333333', args);
 if(args.itemId){
 	//show correct 'buy' buttons with correct event listeners
 	previewListing = false;
@@ -98,7 +98,7 @@ function saveListing() {
 	indicatorWindow.openIndicator();
 	listingManager.createListing(args, function(err, saveResult) {
 		if (saveResult) {
-			listingManager.uploadImagesForListing(saveResult.id, imageCollection, function(err, imgUrls) {
+			listingManager.uploadImagesForListing(saveResult.id, args.images, function(err, imgUrls) {
 				if (imgUrls && imgUrls.length > 0) {
 					delete saveResult.rev;
 					saveResult.imageUrls = imgUrls;
@@ -162,7 +162,7 @@ function deleteItem(){
 	indicatorWindow.openIndicator();
 	listingManager.deleteListing(args.itemId, function(err, saveResult) {
 		if (saveResult) {
-			listingManager.uploadImagesForListing(saveResult.id, imageCollection, function(err, imgUrls) {
+			listingManager.uploadImagesForListing(saveResult.id, args.images, function(err, imgUrls) {
 				if (imgUrls && imgUrls.length > 0) {
 					delete saveResult.rev;
 					saveResult.imageUrls = imgUrls;
