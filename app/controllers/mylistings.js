@@ -42,51 +42,53 @@ function genMyItems(cb){
 			});
 		} else if(userListings && userListings.listings.length > 0) {
 			for(var listing in userListings.listings) {
-				var view = Alloy.createController('myitemtemplate');
-				var imageUrl = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.mylistView + Alloy.CFG.cloudinary.bucket + userListings.listings[listing].imageUrls[0] : "";
-				var tmp = {
-					image :  imageUrl,
-		            listingThumb : {
-		                image :  imageUrl
-		            },
-		            listingTitle : {
-		                text : userListings.listings[listing].title
-		            },
-		            listingPrice: {
-		            	text: userListings.listings[listing].price.formatMoney(2)
-		            },
-		            listingImagesCount: {
-		            	text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"
-		            },  
-		            template: 'myitemtemplate',
-		            properties: {
-		            	itemId: userListings.listings[listing].id,
-		            	userName: userListings.firstName +" "+ userListings.lastName,
-		            	userId: userListings.listings[listing].user,
-		            }
-		        };
-		        view.updateViews({
-		        	'#listingThumb':{
-		        		image: imageUrl
-		        	},
-		        	'#listingTitle': {
-		        		text: helpers.alterTextFormat(userListings.listings[listing].title, 14, true)
-		        	},
-		        	'#listingPrice':{ 
-		        		text: userListings.listings[listing].price.formatMoney(2)	
-	        		},
-	        		'#listingImagesCount':{ 
-		        		text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"	
-	        		}
-		        });
-		        
-		        lView = view.getView();
-				listItems.push(tmp);
-				items.push({
-			        view: lView,
-			        data: tmp
-			    });
-			    obj.push(lView);
+				if(userListings.listings[listing].imageUrls){
+					var view = Alloy.createController('myitemtemplate');
+					var imageUrl = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.mylistView + Alloy.CFG.cloudinary.bucket + userListings.listings[listing].imageUrls[0] : "";
+					var tmp = {
+						image :  imageUrl,
+			            listingThumb : {
+			                image :  imageUrl
+			            },
+			            listingTitle : {
+			                text : userListings.listings[listing].title
+			            },
+			            listingPrice: {
+			            	text: userListings.listings[listing].price.formatMoney(2)
+			            },
+			            listingImagesCount: {
+			            	text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"
+			            },  
+			            template: 'myitemtemplate',
+			            properties: {
+			            	itemId: userListings.listings[listing].id,
+			            	userName: userListings.firstName +" "+ userListings.lastName,
+			            	userId: userListings.listings[listing].user,
+			            }
+			        };
+			        view.updateViews({
+			        	'#listingThumb':{
+			        		image: imageUrl
+			        	},
+			        	'#listingTitle': {
+			        		text: helpers.alterTextFormat(userListings.listings[listing].title, 14, true)
+			        	},
+			        	'#listingPrice':{ 
+			        		text: userListings.listings[listing].price.formatMoney(2)	
+		        		},
+		        		'#listingImagesCount':{ 
+			        		text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"	
+		        		}
+			        });
+			        
+			        lView = view.getView();
+					listItems.push(tmp);
+					items.push({
+				        view: lView,
+				        data: tmp
+				    });
+				    obj.push(lView);
+				}
 			}
 			
 			//ADD ALL THE ITEMS TO THE GRID

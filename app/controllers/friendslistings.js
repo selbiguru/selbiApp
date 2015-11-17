@@ -40,51 +40,53 @@ function genFriendsItems(cb){
 			});
 		} else if(userListings && userListings.listings.length > 0) {
 			for(var listing in userListings.listings) {
-				var view = Alloy.createController('userTwoColumnTemplate');
-				var imageUrl = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + userListings.listings[listing].imageUrls[0] : "";
-				var practiceImage = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + Alloy.Globals.currentUser.attributes.profileImage : "";
-				var tmp = {
-					image :  imageUrl,
-		            usaListingThumb : {
-		                image :  imageUrl
-		            },
-		            usaImageThumb : {
-		                image : practiceImage
-		            },
-		            usaListingName: {
-		            	text: userListings.firstName +" "+ userListings.lastName
-		            },
-		            usaListingNumber: {
-		            	text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Listings" : userListings.listings[listing].imageUrls.length + " Listing"
-		            },  
-		            template: 'userTwoColumnTemplate',
-		            properties: {
-		            	userId: userListings.listings[listing].user,
-		            	userName: userListings.firstName +" "+ userListings.lastName
-		            }
-		        };
-		        view.updateViews({
-		        	'#usaListingThumb':{
-		        		image: imageUrl
-		        	},
-		        	'#usaImageThumb': {
-		        		image: practiceImage
-		        	},
-		        	'#usaListingName':{ 
-		        		text: helpers.alterTextFormat(userListings.firstName +" "+ userListings.lastName, 12, false)
-	        		},
-	        		'#usaListingNumber':{ 
-		        		text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Listings" : userListings.listings[listing].imageUrls.length + " Listing"	
-	        		}
-		        });
-		        
-		        lView = view.getView();
-				listItems.push(tmp);
-				items.push({
-			        view: lView,
-			        data: tmp
-			    });
-			    obj.push(lView);
+				if(userListings.listings[listing].imageUrls){
+					var view = Alloy.createController('userTwoColumnTemplate');
+					var imageUrl = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + userListings.listings[listing].imageUrls[0] : "";
+					var practiceImage = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + Alloy.Globals.currentUser.attributes.profileImage : "";
+					var tmp = {
+						image :  imageUrl,
+			            usaListingThumb : {
+			                image :  imageUrl
+			            },
+			            usaImageThumb : {
+			                image : practiceImage
+			            },
+			            usaListingName: {
+			            	text: userListings.firstName +" "+ userListings.lastName
+			            },
+			            usaListingNumber: {
+			            	text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Listings" : userListings.listings[listing].imageUrls.length + " Listing"
+			            },  
+			            template: 'userTwoColumnTemplate',
+			            properties: {
+			            	userId: userListings.listings[listing].user,
+			            	userName: userListings.firstName +" "+ userListings.lastName
+			            }
+			        };
+			        view.updateViews({
+			        	'#usaListingThumb':{
+			        		image: imageUrl
+			        	},
+			        	'#usaImageThumb': {
+			        		image: practiceImage
+			        	},
+			        	'#usaListingName':{ 
+			        		text: helpers.alterTextFormat(userListings.firstName +" "+ userListings.lastName, 12, false)
+		        		},
+		        		'#usaListingNumber':{ 
+			        		text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Listings" : userListings.listings[listing].imageUrls.length + " Listing"	
+		        		}
+			        });
+			        
+			        lView = view.getView();
+					listItems.push(tmp);
+					items.push({
+				        view: lView,
+				        data: tmp
+				    });
+				    obj.push(lView);
+				}
 			}
 			
 			//ADD ALL THE ITEMS TO THE GRID
@@ -115,7 +117,7 @@ function findUserListings(){
 		return;
 	}
 	var userNameSearchObj = {
-		username: $.usernameSearch.value
+		username: $helpers.trim($.usernameSearch.value)
 	};
 	console.log('NOOOO STOP');
 	userManager.getUserByUsername(userNameSearchObj, function (err, usernameResults) {
