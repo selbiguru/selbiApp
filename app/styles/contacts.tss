@@ -54,20 +54,27 @@
 	width: '85%',
 	top: '20dp'
 },
-"#emailTitle[if=Alloy.Globals.iPhoneFour]": {
-	borderWidth: '2dp', 
-	borderColor: '#E5E5E5',
-	backgroundColor: "#FFF",
-	width: Titanium.UI.FILL,
-	height: '30dp',
-	hintText: "Email Subject"
+"#addFriendsSearchView[if=Alloy.Globals.iPhoneFour]": {
+	layout: "horizontal",
+	height: Ti.UI.SIZE,
+	width: '306dp',
+	top: '10dp',
+	bottom: '10dp'
 },
-"#emailBody[if=Alloy.Globals.iPhoneFour]": {
-	borderWidth: '2dp', 
+"TextField[if=Alloy.Globals.iPhoneFour]": {
 	borderColor: '#E5E5E5',
-	width: Titanium.UI.FILL,
-	top: '17dp',
-	height: '245dp'
+	paddingLeft: "10dp",
+	borderRadius: '4',
+	borderWidth: '1'
+},
+"#usernameSearch[if=Alloy.Globals.iPhoneFour]": {
+	width: Ti.UI.FILL,
+	height: '35dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#9B9B9B'
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneFour]": {
 	left: '10dp',
@@ -130,20 +137,27 @@
 	width: '90%',
 	top: '30dp'
 },
-"#emailTitle[if=Alloy.Globals.iPhoneFive]": {
-	borderWidth: '2dp', 
-	borderColor: '#E5E5E5',
-	backgroundColor: "#FFF",
-	width: Titanium.UI.FILL,
-	height: '35dp',
-	hintText: "Email Subject"
+"#addFriendsSearchView[if=Alloy.Globals.iPhoneFive]": {
+	layout: "horizontal",
+	height: Ti.UI.SIZE,
+	width: '306dp',
+	top: '10dp',
+	bottom: '10dp'
 },
-"#emailBody[if=Alloy.Globals.iPhoneFive]": {
-	borderWidth: '2dp', 
+"TextField[if=Alloy.Globals.iPhoneFive]": {
 	borderColor: '#E5E5E5',
-	width: Titanium.UI.FILL,
-	top: '17dp',
-	height: '290dp'
+	paddingLeft: "10dp",
+	borderRadius: '4',
+	borderWidth: '1'
+},
+"#usernameSearch[if=Alloy.Globals.iPhoneFive]": {
+	width: Ti.UI.FILL,
+	height: '40dp',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#9B9B9B'
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneFive]": {
 	left: '10dp',
@@ -205,20 +219,27 @@
 	width: '92%',
 	top: '30dp'
 },
-"#emailTitle[if=Alloy.Globals.iPhoneSix]": {
-	borderWidth: '2dp', 
-	borderColor: '#E5E5E5',
-	backgroundColor: "#FFF",
-	width: Titanium.UI.FILL,
-	height: '40dp',
-	hintText: "Email Subject"
+"#addFriendsSearchView[if=Alloy.Globals.iPhoneSix]": {
+	layout: "horizontal",
+	height: Ti.UI.SIZE,
+	width: '355dp',
+	top: '10dp',
+	bottom: '10dp'
 },
-"#emailBody[if=Alloy.Globals.iPhoneSix]": {
-	borderWidth: '2dp', 
+"TextField[if=Alloy.Globals.iPhoneSix]": {
 	borderColor: '#E5E5E5',
-	width: Titanium.UI.FILL,
-	top: '20dp',
-	height: '345dp'
+	paddingLeft: "10dp",
+	borderRadius: '4',
+	borderWidth: '1'
+},
+"#usernameSearch[if=Alloy.Globals.iPhoneSix]": {
+	width: Ti.UI.FILL,
+	height: '46dp',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#9B9B9B'
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneSix]": {
 	left: '10dp',
@@ -282,20 +303,27 @@
 	width: '92%',
 	top: '30dp'
 },
-"#emailTitle[if=Alloy.Globals.iPhoneSixPlus]": {
-	borderWidth: '2dp', 
-	borderColor: '#E5E5E5',
-	backgroundColor: "#FFF",
-	width: Titanium.UI.FILL,
-	height: '45dp',
-	hintText: "Email Subject"
+"#addFriendsSearchView[if=Alloy.Globals.iPhoneSixPlus]": {
+	layout: "horizontal",
+	height: Ti.UI.SIZE,
+	width: '388dp',
+	top: '10dp',
+	bottom: '10dp'
 },
-"#emailBody[if=Alloy.Globals.iPhoneSixPlus]": {
-	borderWidth: '2dp', 
+"TextField[if=Alloy.Globals.iPhoneSixPlus]": {
 	borderColor: '#E5E5E5',
-	width: Titanium.UI.FILL,
-	top: '25dp',
-	height: '375dp'
+	paddingLeft: "10dp",
+	borderRadius: '4',
+	borderWidth: '1'
+},
+"#usernameSearch[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: Ti.UI.FILL,
+	height: '50dp',
+	font: {
+		fontSize: '20dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#9B9B9B'
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	left: '10dp',
@@ -360,20 +388,27 @@
 	width: '92%',
 	top: '30dp'
 },
-"#emailTitle[if=Alloy.Globals.android]": {
-	borderWidth: '2dp', 
-	borderColor: '#E5E5E5',
-	backgroundColor: "#FFF",
-	width: Titanium.UI.FILL,
-	height: '40dp',
-	hintText: "Email Subject"
+"#addFriendsSearchView[if=Alloy.Globals.android]": {
+	layout: "horizontal",
+	height: Ti.UI.SIZE,
+	width: '355dp',
+	top: '10dp',
+	bottom: '10dp'
 },
-"#emailBody[if=Alloy.Globals.android]": {
-	borderWidth: '2dp', 
+"TextField[if=Alloy.Globals.android]": {
 	borderColor: '#E5E5E5',
-	width: Titanium.UI.FILL,
-	top: '20dp',
-	height: '345dp'
+	paddingLeft: "10dp",
+	borderRadius: '4',
+	borderWidth: '1'
+},
+"#usernameSearch[if=Alloy.Globals.android]": {
+	width: Ti.UI.FILL,
+	height: '46dp',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#9B9B9B'
 },
 "#hintTextLabel[if=Alloy.Globals.android]": {
 	left: '10dp',

@@ -60,7 +60,7 @@
         },
 	color: "#1BA7CD"
 },
-"#selbiUSASerchView[if=Alloy.Globals.iPhoneFour]": {
+"#selbiUSASearchView[if=Alloy.Globals.iPhoneFour]": {
 	layout: "horizontal",
 	height: Ti.UI.SIZE,
 	width: '306dp',
@@ -129,7 +129,7 @@
         },
 	color: "#1BA7CD"
 },
-"#selbiUSASerchView[if=Alloy.Globals.iPhoneFive]": {
+"#selbiUSASearchView[if=Alloy.Globals.iPhoneFive]": {
 	layout: "horizontal",
 	height: Ti.UI.SIZE,
 	width: '306dp',
@@ -196,7 +196,7 @@
         },
 	color: "#1BA7CD"
 },
-"#selbiUSASerchView[if=Alloy.Globals.iPhoneSix]": {
+"#selbiUSASearchView[if=Alloy.Globals.iPhoneSix]": {
 	layout: "horizontal",
 	height: Ti.UI.SIZE,
 	width: '355dp',
@@ -262,7 +262,7 @@
         },
 	color: "#1BA7CD"
 },
-"#selbiUSASerchView[if=Alloy.Globals.iPhoneSixPlus]": {
+"#selbiUSASearchView[if=Alloy.Globals.iPhoneSixPlus]": {
 	layout: "horizontal",
 	height: Ti.UI.SIZE,
 	width: '388dp',
@@ -328,7 +328,7 @@
         },
 	color: "#1BA7CD"
 },
-"#selbiUSASerchView[if=Alloy.Globals.android]": {
+"#selbiUSASearchView[if=Alloy.Globals.android]": {
 	layout: "horizontal",
 	height: Ti.UI.SIZE,
 	width: '355dp',

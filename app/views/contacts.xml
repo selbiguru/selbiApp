@@ -5,14 +5,13 @@
 				<Label icon="fa-arrow-left" id="addFriendsButtonIcon" class="icon-buttons"></Label>
 			</View>
 			<View id="titleAddFriendsView">
-				<Label id="titleAddFriendsLabel">Contact Us</Label>
+				<Label id="titleAddFriendsLabel">Add Friends</Label>
 			</View>
-			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 		</View>
-		<View class="container contact-view" layout="vertical" id="contactView" height="70">
-			<Label>Your contacts</Label>
-			<Button onClick="importContacts">Import your contacts </Button>
+		<View id="addFriendsSearchView">
+			<TextField id='usernameSearch' hintText="Enter Username"></TextField>
 		</View>
+		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 	</View>
 	
 </Alloy>
