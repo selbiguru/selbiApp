@@ -128,30 +128,37 @@ function loadContacts() {
 		for(var person in people) {
 			if((people[person].phone.mobile && people[person].phone.mobile.length > 0) || (people[person].phone.work && people[person].phone.work.length > 0) || (people[person].phone.home && people[person].phone.home.length > 0) || (people[person].phone.other && people[person].phone.other.length > 0)) {
 				var phone = people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : "";
-				phone = phone.replace(/\D+/g, "");
-				phoneArray.push(phone);
+				var newPhone = phone.replace(/\D+/g, "");
+				var userPhoneObject = {
+					newNumber: newPhone,
+					originalNumber: phone,
+					contactName: people[person] ? people[person].firstName + " " + people[person].lastName: "NA",
+				};
+				phoneArray.push(userPhoneObject);
 			};
 		};
 		friendsManager.getSelbiUsersByPhones(phoneArray,function(err, results){
 			if(err) {
-				helpers.alertUser('Oops','Having trouble getting your friends. Please try again later!');
+				helpers.alertUser('Oops','Having trouble getting your phone contacts. Please try again later!');
 				addressBookDisallowed();
 			}
 			if(results) {
-				console.log("WHAT ARE THE RESULTS", results);
-				for(var person in people) {
-					var phone = people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : "";
-						phone = phone.replace(/\D+/g, "");
-					if(results[person].phoneNumber === phone){
+				results.sort(function(a, b) {
+				    var textA = a.contactName.toUpperCase();
+				    var textB = b.contactName.toUpperCase();
+				    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+				});
+				for(var user in results) {
+					if(results[user].isActiveUser){
 						currentUsers.push({
-							title: { text: people[person] ? people[person].firstName + " " + people[person].lastName: "NA"},
-						 	subtitle: {text: "Uses Selbi"},
+							title: { text: results[user].contactName },
+						 	subtitle: {text: "Using Selbi"},
 						 	data: { data: 1},
 						});
 					} else {
 						currentUsers.push({
-							title: { text: people[person] ? people[person].firstName + " " + people[person].lastName: "NA"},
-						 	subtitle: {text: people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : ""},
+							title: { text: results[user].contactName },
+						 	subtitle: {text: results[user].originalNumber },
 							data: { data: 0},
 						});
 					}
