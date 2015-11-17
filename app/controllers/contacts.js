@@ -4,6 +4,7 @@
 
 var args = arguments[0] || {};
 var friendsManager = require('managers/friendsmanager');
+var helpers = require('utilities/helpers');
 var nameFontSize, iconSize, labelTop, labelLeft, 
 	iconRight, headerViewHeight, headerLabelFontSize;
 

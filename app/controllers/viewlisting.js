@@ -13,7 +13,7 @@ if(args.itemId){
 	previewListing = false;
 	createPurchasingButtons();
 	$.titleViewListingLabel.text = 'View Listing';
-	$.backListingView.show();
+	//$.backListingView.show();
 	listingManager.getListing(args.itemId, function(err, listing){
 		if(err) {
 			helpers.alertUser('Listing','Unable to get the listing!');
@@ -28,7 +28,7 @@ if(args.itemId){
 	//show correct buttons dynamically created with correct event listeners
 	previewListing = true;
 	$.titleViewListingLabel.text = 'Preview Listing';
-	$.backListingView.hide();
+	//$.backListingView.hide();
 	createPreviewButtons();
 	populateViewListing(args);
 	$.activityIndicator.hide();
@@ -123,13 +123,6 @@ function saveListing() {
 	});
 }
 
-/**
- * @method editListing
- * Closes the preview page to reveal the createlisting view to be further updated by the user
- */
-function editListing() {
-	Alloy.Globals.closePage('viewlisting');
-};
 
 /**
  * @method buyItem
@@ -255,7 +248,7 @@ function createPreviewButtons() {
 	$.viewListingButtonView.add(saveListingButton);
 	
 	editListingButton.addEventListener('click', function(e) {
-		editListing();
+		backButton();
 	});
 	
 	saveListingButton.addEventListener('click', function(e) {
