@@ -2,12 +2,18 @@
 	<View id="friendsListingsView">
 		<View id="friendsListingsTopBar">
 			<View id="menuButton">
-				<Label icon="fa-arrow-left" id="friendsListingsButtonIcon" class="icon-buttons"></Label>
-			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>			
+				<Label icon="fa-arrow-left" id="friendsListingsButtonIcon" class="icon-buttons"></Label>			
 			</View>
 			<View id="titleFriendsListingsView">
 				<Label id="titleFriendsListingsLabel">friendsListings</Label>
 			</View>
+			<View id="searchUserView">
+				<Button onClick='findUserListings' id="searchUserButton" class="icon-buttons" icon="fa-search"></Button>
+			</View>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>	
+		</View>
+		<View id="friendsListingsSearchView">
+			<TextField id='usernameSearch' hintText="Enter Username"></TextField>
 		</View>
 		<View id='defaultView'>
 			
