@@ -112,7 +112,11 @@ function loadContacts() {
 		//allowsSelection: false
 	});
 	var usersContactList = Ti.UI.createListSection({
-		headerView: createCustomView('Invite friends Selbi')
+		headerView: createCustomView('Invite friends Selbi'),
+		footerView: Ti.UI.createView({
+		        backgroundColor: '#E5E5E5',
+		        height: '1dp'
+		})
 	
 	});
 	var currentUsers = [];
