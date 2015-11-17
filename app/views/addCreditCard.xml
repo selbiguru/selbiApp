@@ -2,7 +2,7 @@
 	<View id="addCreditCardView">
 		<View id="addCreditCardTopBar">
 			<View id="menuButton">
-				<Label icon="fa-arrow-left" id="addCreditCardButtonIcon" class="icon-buttons"></Label>		
+				<Label icon="fa-bars" id="addCreditCardButtonIcon" class="icon-buttons"></Label>		
 			</View>
 			<View id="titleAddCreditCardView">
 				<Label id="titleAddCreditCardLabel">Add Credit Card</Label>

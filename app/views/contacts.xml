@@ -2,7 +2,7 @@
 	<View id="addFriendsView">
 		<View id="addFriendsTopBar">
 			<View id="menuButton" class="validateButtons">
-				<Label icon="fa-arrow-left" id="addFriendsButtonIcon" class="icon-buttons"></Label>
+				<Label icon="fa-bars" id="addFriendsButtonIcon" class="icon-buttons"></Label>
 			</View>
 			<View id="titleAddFriendsView">
 				<Label id="titleAddFriendsLabel">Add Friends</Label>

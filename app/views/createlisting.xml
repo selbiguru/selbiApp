@@ -2,7 +2,7 @@
 	<View id="createListingView">
 		<View id="createListingTopBar">
 			<View id="menuButton">
-				<Label icon="fa-arrow-left" id="createListingButtonIcon"></Label>
+				<Label icon="fa-bars" id="createListingButtonIcon"></Label>
 			</View>
 			<View id="titleCreateListingView">
 				<Label id="titleCreateListingLabel">Create Listing</Label>

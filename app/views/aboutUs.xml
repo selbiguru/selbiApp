@@ -2,7 +2,7 @@
 	<View id="aboutUsView">
         <View id="aboutUsTopBar">
 			<View id="menuButton" class="validateButtons">
-				<Label icon="fa-arrow-left" id="aboutUsButtonIcon"></Label>
+				<Label icon="fa-bars" id="aboutUsButtonIcon"></Label>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
 			<View id="titleAboutUsView">

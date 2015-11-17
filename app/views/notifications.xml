@@ -2,7 +2,7 @@
     <View id="notificationsView">
         <View id="notificationsTopBar">
             <View id="menuButton">
-				<Label icon="fa-arrow-left" id="notificationsButtonIcon"></Label>
+				<Label icon="fa-bars" id="notificationsButtonIcon"></Label>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
 			<View id="titleNotificationsView">

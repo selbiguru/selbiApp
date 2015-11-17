@@ -2,7 +2,7 @@
 	<View id="addBankAccountView">
 		<View id="addBankAccountTopBar">
 			<View id="menuButton">
-				<Label icon="fa-arrow-left" id="addBankAccountButtonIcon" class="icon-buttons"></Label>
+				<Label icon="fa-bars" id="addBankAccountButtonIcon" class="icon-buttons"></Label>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>			
 			</View>
 			<View id="titleAddBankAccountView">

@@ -2,7 +2,7 @@
 	<View id="selbiUSAView">
 		<View id="selbiUSATopBar">
 			<View id="menuButton">
-				<Label icon="fa-arrow-left" id="selbiUSAButtonIcon" class="icon-buttons"></Label>			
+				<Label icon="fa-bars" id="selbiUSAButtonIcon" class="icon-buttons"></Label>			
 			</View>
 			<View id="titleSelbiUSAView">
 				<Label id="titleSelbiUSALabel">SelbiUSA</Label>

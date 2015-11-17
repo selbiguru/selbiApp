@@ -3,7 +3,7 @@
 	<View id="editUserProfileView">
         <View id="editUserProfileTopBar">
 			<View id="menuButton" class="validateButtons">
-				<Label icon="fa-arrow-left" id="editUserProfileButtonIcon" class="icon-buttons"></Label>
+				<Label icon="fa-bars" id="editUserProfileButtonIcon" class="icon-buttons"></Label>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
 			<View id="titleEditUserProfileView">

@@ -1,16 +1,16 @@
 <Alloy>
 	<View id="viewListingView">
 		<View id="viewListingTopBar">
-			<View id="menuButton">
-				<Label icon="fa-arrow-left" id="viewListingButtonIcon"></Label>
+			<View id="backViewButton" onClick="backButton">
+				<Label icon="fa-reply" id="viewListingButtonIcon"></Label>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
 			<View id="titleViewListingView">
 				<Label id="titleViewListingLabel"></Label>
 			</View>
-			<View id="backListingView">
+			<!--<View id="backListingView">
 				<Button id="backListingButton" class="icon-buttons" onClick="backButton">Back</Button>
-			</View>
+			</View>-->
 		</View>
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<ScrollView id="viewListingScrollView">

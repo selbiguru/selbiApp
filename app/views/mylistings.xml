@@ -2,7 +2,7 @@
 	<View id="myListingsView">
 		<View id="myListingsTopBar">
 			<View id="menuButton">
-				<Label icon="fa-arrow-left" id="myListingsButtonIcon" class="icon-buttons"></Label>
+				<Label icon="fa-bars" id="myListingsButtonIcon" class="icon-buttons"></Label>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>			
 			</View>
 			<View id="titleMyListingsView">

@@ -1,7 +1,7 @@
 <Alloy>
 	<View id="headerTopBar">
 		<View id="menuButton">
-			<Label icon="fa-arrow-left" id="headerButtonIcon"></Label>
+			<Label icon="fa-bars" id="headerButtonIcon"></Label>
 		</View>
 		<View id="titleHeaderView"> 
 			<Label id="titleHeaderLabel"></Label>
