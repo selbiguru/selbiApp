@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
 var listingManager = require('managers/listingmanager');
+var paymentManager = require('managers/paymentmanager');
 var ImageUtils = require('utilities/imageutils');
 var helpers = require('utilities/helpers');
 var indicator = require('uielements/indicatorwindow');
@@ -137,6 +138,15 @@ function editListing() {
  */
 function buyItem(){
 	console.log("HITTING buy item YAYYYY!!!!");
+	paymentManager.createOrder(object, function(err, results){
+		if(err) {
+			helpers.alertUser('Failed','Failed to purchase item, please try again!');
+		} else {
+			console.log("congrats bought this shit");
+			backButton();
+			Alloy.Globals.openPage('friendslistings', ['friendslistings', Ti.App.Properties.getString('userId')]);
+		}
+	});
 };
 
 /**
@@ -307,7 +317,8 @@ function createPurchasingButtons() {
 	var deleteListing = deleteItem;
 	console.log("argsid ", args.userId, "tiID ",Ti.App.Properties.getString('userId'));
 	if(args.userId === Ti.App.Properties.getString('userId')) {
-		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Slide to Delete', deleteListing);
+		//createSlideButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Slide to Delete', deleteListing);
+		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Slide to Buy', purchaseListing);
 	} else {
 		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Slide to Buy', purchaseListing);
 	}

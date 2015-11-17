@@ -65,6 +65,21 @@ var createSubMerchantAccount = exports.createSubMerchantAccount = function(subMe
 
 
 
+var createOrder = exports.createOrder = function(createOrderObj, cb) {
+	httpManager.execute('/payments/createOrder', 'POST', createOrderObj, true, function(err, completedOrder){
+		console.log("errrrrrreerrrrrr", err);
+		console.log("SUCCESS COMPLETED ORDER", completedOrder);
+		if(err) {
+			cb(err, null);
+			} 
+		else {
+			// add to user object when we know what to save it as
+			cb(err, completedOrder);
+		}
+	});
+};
+
+
 
 
 
