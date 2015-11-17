@@ -40,29 +40,29 @@ function genMyItems(cb){
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
-		} else if(userListings && userListings.length > 0) {
-			for(var listing in userListings) {
+		} else if(userListings && userListings.listings.length > 0) {
+			for(var listing in userListings.listings) {
 				var view = Alloy.createController('myitemtemplate');
-				var imageUrl = userListings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.mylistView + Alloy.CFG.cloudinary.bucket + userListings[listing].imageUrls[0] : "";
+				var imageUrl = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.mylistView + Alloy.CFG.cloudinary.bucket + userListings.listings[listing].imageUrls[0] : "";
 				var tmp = {
 					image :  imageUrl,
 		            listingThumb : {
 		                image :  imageUrl
 		            },
 		            listingTitle : {
-		                text : userListings[listing].title
+		                text : userListings.listings[listing].title
 		            },
 		            listingPrice: {
-		            	text: userListings[listing].price.formatMoney(2)
+		            	text: userListings.listings[listing].price.formatMoney(2)
 		            },
 		            listingImagesCount: {
-		            	text: userListings[listing].imageUrls.length > 1 ? "+" + userListings[listing].imageUrls.length + " Images" : userListings[listing].imageUrls.length + " Image"
+		            	text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"
 		            },  
 		            template: 'myitemtemplate',
 		            properties: {
-		            	itemId: userListings[listing].id,
-		            	userName: Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName,
-		            	userId: userListings[listing].user,
+		            	itemId: userListings.listings[listing].id,
+		            	userName: userListings.firstName +" "+ userListings.lastName,
+		            	userId: userListings.listings[listing].user,
 		            }
 		        };
 		        view.updateViews({
@@ -70,13 +70,13 @@ function genMyItems(cb){
 		        		image: imageUrl
 		        	},
 		        	'#listingTitle': {
-		        		text: helpers.alterTextFormat(userListings[listing].title, 14, true)
+		        		text: helpers.alterTextFormat(userListings.listings[listing].title, 14, true)
 		        	},
 		        	'#listingPrice':{ 
-		        		text: userListings[listing].price.formatMoney(2)	
+		        		text: userListings.listings[listing].price.formatMoney(2)	
 	        		},
 	        		'#listingImagesCount':{ 
-		        		text: userListings[listing].imageUrls.length > 1 ? "+" + userListings[listing].imageUrls.length + " Images" : userListings[listing].imageUrls.length + " Image"	
+		        		text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"	
 	        		}
 		        });
 		        
@@ -92,12 +92,12 @@ function genMyItems(cb){
 			//ADD ALL THE ITEMS TO THE GRID
 			$.fg.addGridItems(items);
 			
-		} else if (userListings && userListings.length === 0 && Ti.App.Properties.getString('userId') === argsID) {
+		} else if (userListings && userListings.listings.length === 0 && Ti.App.Properties.getString('userId') === argsID) {
 			dynamicElement.defaultLabel('Wait what! You don\'t have any listings!  Add some now so you can start making money!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
-		} else if (userListings && userListings.length === 0) {
+		} else if (userListings && userListings.listings.length === 0) {
 			dynamicElement.defaultLabel('Sorry, It looks like this user doesn\'t have any listings!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);

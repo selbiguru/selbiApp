@@ -31,11 +31,11 @@ function genUSAItems(cb){
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
-		} else if(userListings && userListings.length > 0) {
-			for(var listing in userListings) {
+		} else if(userListings && userListings.listings.length > 0) {
+			for(var listing in userListings.listings) {
 				var view = Alloy.createController('userTwoColumnTemplate');
-				var imageUrl = userListings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + userListings[listing].imageUrls[0] : "";
-				var practiceImage = userListings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + Alloy.Globals.currentUser.attributes.profileImage : "";
+				var imageUrl = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + userListings.listings[listing].imageUrls[0] : "";
+				var practiceImage = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + Alloy.Globals.currentUser.attributes.profileImage : "";
 				var tmp = {
 					image :  imageUrl,
 		            usaListingThumb : {
@@ -45,15 +45,15 @@ function genUSAItems(cb){
 		                image : practiceImage
 		            },
 		            usaListingName: {
-		            	text: Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName
+		            	text: userListings.firstName +" "+ userListings.lastName
 		            },
 		            usaListingNumber: {
-		            	text: userListings[listing].imageUrls.length > 1 ? "+" + userListings[listing].imageUrls.length + " Listings" : userListings[listing].imageUrls.length + " Listing"
+		            	text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Listings" : userListings.listings[listing].imageUrls.length + " Listing"
 		            },  
 		            template: 'userTwoColumnTemplate',
 		            properties: {
-		            	userId: userListings[listing].user,
-		            	userName: Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName
+		            	userId: userListings.listings[listing].user,
+		            	userName: userListings.firstName +" "+ userListings.lastName
 		            }
 		        };
 		        view.updateViews({
@@ -64,10 +64,10 @@ function genUSAItems(cb){
 		        		image: practiceImage
 		        	},
 		        	'#usaListingName':{ 
-		        		text: helpers.alterTextFormat(Alloy.Globals.currentUser.attributes.firstName +" "+ Alloy.Globals.currentUser.attributes.lastName, 12, false)
+		        		text: helpers.alterTextFormat(userListings.firstName +" "+ userListings.lastName, 12, false)
 	        		},
 	        		'#usaListingNumber':{ 
-		        		text: userListings[listing].imageUrls.length > 1 ? "+" + userListings[listing].imageUrls.length + " Listings" : userListings[listing].imageUrls.length + " Listing"	
+		        		text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Listings" : userListings.listings[listing].imageUrls.length + " Listing"	
 	        		}
 		        });
 		        
@@ -97,8 +97,10 @@ function genUSAItems(cb){
 
 
 
-
-
+/**
+ * @method findUserListings 
+ * When button is clicked, finds user listings of entered username
+ */
 function findUserListings(){
 	var userNameSearchObj = {
 		username: $.usernameSearch.value
