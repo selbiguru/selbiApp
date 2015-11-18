@@ -61,7 +61,8 @@ function genFriendsItems(cb){
 			            template: 'userTwoColumnTemplate',
 			            properties: {
 			            	userId: userListings.listings[listing].user,
-			            	userName: userListings.firstName +" "+ userListings.lastName
+			            	userName: userListings.firstName +" "+ userListings.lastName,
+			            	friends: true
 			            }
 			        };
 			        view.updateViews({
@@ -127,7 +128,8 @@ function findUserListings(){
     	} else {
     		openListing({
     			userId: usernameResults.id,	
-    			userName: usernameResults.firstName + ' ' + usernameResults.lastName	
+    			userName: usernameResults.firstName + ' ' + usernameResults.lastName,
+    			friends: true
    		 	});
 			return;
 		}
@@ -144,7 +146,7 @@ function findUserListings(){
 function openListing(listingIDs){
 	console.log("used 6",listingIDs);
 	Alloy.Globals.openPage('mylistings', [
-		listingIDs.userName, listingIDs.userId
+		listingIDs.userName, listingIDs.userId, listingIDs.friends
 	]);
 	
 };
@@ -192,6 +194,7 @@ $.fg.setOnItemClick(function(e){
 	console.log("used 1", e.source.data);
     openListing({
     	userId:e.source.data.properties.userId,	
-    	userName:e.source.data.properties.userName,	
+    	userName:e.source.data.properties.userName,
+    	friends:e.source.data.properties.friends,	
     });
 });

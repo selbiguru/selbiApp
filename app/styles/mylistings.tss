@@ -7,9 +7,6 @@
 	layout: 'vertical',
 	backgroundColor: '#FAFAFA'
 },
-'#closeUserButton': {
-	left: '0dp'
-},
 "#defaultView": {
 	height: '0dp'
 },
@@ -41,7 +38,12 @@
 },
 "#menuButton[if=Alloy.Globals.iPhoneFour]":{
 	height: "60dp",
-	width: "60dp",
+	width: "70dp",
+	backgroundColor: '#fff'
+},
+".top-bar-icon-view[if=Alloy.Globals.iPhoneFour]":{
+	height: "60dp",
+	width: "70dp",
 	backgroundColor: '#fff'
 },
 "#myListingsButtonIcon[if=Alloy.Globals.iPhoneFour]": {
@@ -51,7 +53,7 @@
 	color: "#1BA7CD"
 },
 "#titleMyListingsView[if=Alloy.Globals.iPhoneFour]": {
-	width: "200dp"
+	width: "180dp"
 },
 "#titleMyListingsLabel[if=Alloy.Globals.iPhoneFour]": {
 	color: "#1BA7CD",
@@ -61,13 +63,12 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-"#closeUserView[if=Alloy.Globals.iPhoneFour]": {
-	width: '60dp'
+"#friendRequestView[if=Alloy.Globals.iPhoneFour]": {
+	width: '70dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "14dp",
-            fontFamily: "Nunito-Bold"
+            fontSize: "13dp"
         },
 	color: "#1BA7CD"
 },
@@ -96,7 +97,12 @@
 },
 "#menuButton[if=Alloy.Globals.iPhoneFive]":{
 	height: "60dp",
-	width: "60dp",
+	width: "70dp",
+	backgroundColor: '#fff'
+},
+".top-bar-icon-view[if=Alloy.Globals.iPhoneFive]":{
+	height: "60dp",
+	width: "70dp",
 	backgroundColor: '#fff'
 },
 "#myListingsButtonIcon[if=Alloy.Globals.iPhoneFive]": {
@@ -106,7 +112,7 @@
 	color: "#1BA7CD"
 },
 "#titleMyListingsView[if=Alloy.Globals.iPhoneFive]": {
-	width: "200dp"
+	width: "180dp"
 },
 "#titleMyListingsLabel[if=Alloy.Globals.iPhoneFive]": {
 	color: "#1BA7CD",
@@ -116,13 +122,12 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-"#closeUserView[if=Alloy.Globals.iPhoneFive]": {
-	width: '60dp'
+"#friendRequestView[if=Alloy.Globals.iPhoneFive]": {
+	width: '70dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "14dp",
-            fontFamily: "Nunito-Bold"
+            fontSize: "13dp"
         },
 	color: "#1BA7CD"
 },
@@ -150,7 +155,12 @@
 },
 "#menuButton[if=Alloy.Globals.iPhoneSix]":{
 	height: "60dp",
-	width: "60dp",
+	width: "77dp",
+	backgroundColor: '#fff'
+},
+".top-bar-icon-view[if=Alloy.Globals.iPhoneSix]":{
+	height: "60dp",
+	width: "77dp",
 	backgroundColor: '#fff'
 },
 "#myListingsButtonIcon[if=Alloy.Globals.iPhoneSix]": {
@@ -160,7 +170,7 @@
 	color: "#1BA7CD"
 },
 "#titleMyListingsView[if=Alloy.Globals.iPhoneSix]": {
-	width: "255dp"
+	width: "221dp"
 },
 "#titleMyListingsLabel[if=Alloy.Globals.iPhoneSix]": {
 	color: "#1BA7CD",
@@ -170,13 +180,12 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-"#closeUserView[if=Alloy.Globals.iPhoneSix]": {
-	width: '60dp'
+"#friendRequestView[if=Alloy.Globals.iPhoneSix]": {
+	width: '77dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "17dp",
-            fontFamily: "Nunito-Bold"
+            fontSize: "15dp"
         },
 	color: "#1BA7CD"
 },
@@ -203,7 +212,12 @@
 },
 "#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
 	height: "60dp",
-	width: "60dp",
+	width: "85dp",
+	backgroundColor: '#fff'
+},
+".top-bar-icon-view[if=Alloy.Globals.iPhoneSixPlus]":{
+	height: "60dp",
+	width: "85dp",
 	backgroundColor: '#fff'
 },
 "#myListingsButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -213,7 +227,7 @@
 	color: "#1BA7CD"
 },
 "#titleMyListingsView[if=Alloy.Globals.iPhoneSixPlus]": {
-	width: "294dp"
+	width: "244dp"
 },
 "#titleMyListingsLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: "#1BA7CD",
@@ -223,13 +237,12 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-"#closeUserView[if=Alloy.Globals.iPhoneSixPlus]": {
-	width: '60dp'
+"#friendRequestView[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: '85dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "18dp",
-            fontFamily: "Nunito-Bold"
+            fontSize: "16dp"
         },
 	color: "#1BA7CD"
 },
@@ -256,7 +269,12 @@
 },
 "#menuButton[if=Alloy.Globals.android]":{
 	height: "60dp",
-	width: "60dp",
+	width: "77dp",
+	backgroundColor: '#fff'
+},
+".top-bar-icon-view[if=Alloy.Globals.android]":{
+	height: "60dp",
+	width: "77dp",
 	backgroundColor: '#fff'
 },
 "#myListingsButtonIcon[if=Alloy.Globals.android]": {
@@ -266,7 +284,7 @@
 	color: "#1BA7CD"
 },
 "#titleMyListingsView[if=Alloy.Globals.android]": {
-	width: "255dp"
+	width: "221dp"
 },
 "#titleMyListingsLabel[if=Alloy.Globals.android]": {
 	color: "#1BA7CD",
@@ -276,13 +294,12 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-"#closeUserView[if=Alloy.Globals.android]": {
-	width: '60dp'
+"#friendRequestView[if=Alloy.Globals.android]": {
+	width: '77dp'
 },
 ".icon-buttons[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "17dp",
-            fontFamily: "Nunito-Bold"
+            fontSize: "15dp"
         },
 	color: "#1BA7CD"
 },

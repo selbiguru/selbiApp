@@ -1,9 +1,11 @@
 var args = arguments[0][0] || {},
-	argsID = arguments[0][1] || {};
+	argsID = arguments[0][1] || {},
+	argsFriend = arguments[0][2] || false;
 var listingManager = require('managers/listingmanager'),
 	helpers = require('utilities/helpers'),
 	dynamicElement = require('utilities/dynamicElement');
-var myListingPadding, myListingItemHeight, myListingFontSize;
+var myListingPadding, myListingItemHeight,
+	myListingFontSize, myTopBarFontSize;
 var items = [],
 	obj = [];
 var tabsObject = Object.freeze({
@@ -11,12 +13,52 @@ var tabsObject = Object.freeze({
 });
 var tabView = tabsObject[args];
 
+switch(Alloy.Globals.userDevice) {
+    case 0: //iphoneFour
+        myListingPadding = 7;
+        myListingItemHeight = 45;
+        myListingFontSize = '12dp';
+        myTopBarFontSize = '13dp';
+        break;
+    case 1: //iphoneFive
+        myListingPadding = 7;
+        myListingItemHeight = 45;
+        myListingFontSize = '12dp';
+        myTopBarFontSize = '13dp';
+        break;
+    case 2: //iphoneSix
+        myListingPadding = 10;
+        myListingItemHeight = 49;
+        myListingFontSize = '14dp';
+        myTopBarFontSize = '15dp';
+        break;
+    case 3: //iphoneSixPlus
+        myListingPadding = 13;
+        myListingItemHeight = 49;
+        myListingFontSize = '15dp';
+        myTopBarFontSize = '16dp';
+        break;
+    case 4: //android currently same as iphoneSix
+        myListingPadding = 10;
+        myListingItemHeight = 47;
+        myListingFontSize = '14dp';
+        myTopBarFontSize = '15dp';
+        break;
+};
+
+
+
+
+
+
 $.activityIndicator.show();
 if(tabView === 1 || Ti.App.Properties.getString('userId') === argsID) {
-	$.closeUserView.hide();
+	$.myListingsTopBar.remove($.backViewButton);
+	$.friendRequestView.hide();
 	$.titleMyListingsLabel.text = "My Listings";
 } else {
-	$.closeUserView.show();
+	$.myListingsTopBar.remove($.menuButton);
+	friendRequest();
 	$.titleMyListingsLabel.text = args;
 }
 genMyItems(function(err, items){
@@ -33,7 +75,6 @@ genMyItems(function(err, items){
  */
 function genMyItems(cb){
 	listingManager.getUserListings(argsID, function(err, userListings){
-		console.log("GERGERGERGERGERGERGERG ", userListings);
 		var listItems = [];
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading listings!', function(err, results) {
@@ -41,6 +82,7 @@ function genMyItems(cb){
 				$.defaultView.add(results);
 			});
 		} else if(userListings && userListings.listings.length > 0) {
+			console.log("Does this work?", myTopBarFontSize, myListingFontSize);
 			for(var listing in userListings.listings) {
 				if(userListings.listings[listing].imageUrls){
 					var view = Alloy.createController('myitemtemplate');
@@ -138,39 +180,66 @@ function openListing(listingIDs){
 };
 
 
+/**
+ * @private backButton 
+ *  Closes the current view to reveal the previous still opened view.
+ */
+function backButton() {
+	Alloy.Globals.closePage('mylistings');
+};
 
+
+
+/**
+ * @private friendRequest
+ *  Adds/removes friend to/from user
+ */
+function friendRequest() {
+	if($.friendRequestView.children.length > 0){
+		$.friendRequestView.remove($.friendRequestView.children[0]);
+	};
+	console.log("what is happening here?", myTopBarFontSize, myListingFontSize);
+	if(argsFriend) {
+		var unfriendLabel = Titanium.UI.createLabel({
+			font: {
+            	fontSize: myTopBarFontSize
+        	},
+			color: "#1BA7CD",
+			id: 'friendRequestButton',
+			text: 'Unfriend',
+			data: true
+		});
+		$.fa.add(unfriendLabel, 'fa-check-square');
+		unfriendLabel.addEventListener('click', function(e) {
+			friendRequest();
+		});
+		$.friendRequestView.add(unfriendLabel);
+		argsFriend = false;
+	} else {
+		var friendLabel = Titanium.UI.createLabel({
+			font: {
+	            fontSize: myTopBarFontSize
+	        },
+			color: "#1BA7CD",
+			id: 'friendRequestButton',
+			text: 'Friend',
+			data: false
+		});
+		$.fa.add(friendLabel, 'fa-plus-square-o');
+		friendLabel.addEventListener('click', function(e) {
+			friendRequest();
+		});
+		$.friendRequestView.add(friendLabel);
+		argsFriend = true;
+	}
+	return;
+}
 
 
 
 //-------------------------------------------Initializing Views/Styles----------------------------------------------------//
 
-switch(Alloy.Globals.userDevice) {
-    case 0: //iphoneFour
-        myListingPadding = 7;
-        myListingItemHeight = 45;
-        myListingFontSize = '12dp';
-        break;
-    case 1: //iphoneFive
-        myListingPadding = 7;
-        myListingItemHeight = 45;
-        myListingFontSize = '12dp';
-        break;
-    case 2: //iphoneSix
-        myListingPadding = 10;
-        myListingItemHeight = 49;
-        myListingFontSize = '14dp';
-        break;
-    case 3: //iphoneSixPlus
-        myListingPadding = 13;
-        myListingItemHeight = 49;
-        myListingFontSize = '15dp';
-        break;
-    case 4: //android currently same as iphoneSix
-        myListingPadding = 10;
-        myListingItemHeight = 47;
-        myListingFontSize = '14dp';
-        break;
-};
+
 $.fg.init({
     columns: 2,
     space: myListingPadding,
@@ -188,8 +257,4 @@ $.fg.setOnItemClick(function(e){
     	userName:e.source.data.properties.userName,
     	isSold: e.source.data.properties.isSold	
     });
-});
-
-$.closeUserView.addEventListener('click', function(e){
-	Alloy.Globals.closePage('mylistings');
 });

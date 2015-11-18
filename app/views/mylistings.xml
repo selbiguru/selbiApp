@@ -1,16 +1,18 @@
 <Alloy>
 	<View id="myListingsView">
 		<View id="myListingsTopBar">
-			<View id="menuButton">
-				<Label icon="fa-bars" id="myListingsButtonIcon" class="icon-buttons"></Label>
-			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>			
+			<View id="menuButton" class='top-bar-icon-view'>
+				<Label icon="fa-bars" id="myListingsButtonIcon" class="icon-buttons"></Label>		
+			</View>
+			<View id="backViewButton" class='top-bar-icon-view'>
+				<Button icon="fa-reply" id="myListingsButtonIcon" class="icon-buttons" onClick="backButton"></Button>		
 			</View>
 			<View id="titleMyListingsView">
 				<Label id="titleMyListingsLabel">Listings</Label>
 			</View>
-			<View id="closeUserView">
-				<Button id="closeUserButton" class="icon-buttons">Back</Button>
+			<View id="friendRequestView">
 			</View>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>	
 		</View>
 		<View id='defaultView'>
 			

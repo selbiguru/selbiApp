@@ -2,7 +2,7 @@
 	<View id="viewListingView">
 		<View id="viewListingTopBar">
 			<View id="backViewButton" onClick="backButton">
-				<Label icon="fa-reply" id="viewListingButtonIcon"></Label>
+				<Button icon="fa-reply" id="viewListingButtonIcon"></Button>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
 			<View id="titleViewListingView">

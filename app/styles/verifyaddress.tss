@@ -339,7 +339,7 @@
 },
 ".validateButtons[if=Alloy.Globals.android]": {
 	height: "70dp",
-	width: "60dp",
+	width: "70dp",
 	backgroundColor: '#FAFAFA'
 }
 ".verifyAddressButtonIcon[if=Alloy.Globals.android]": {
@@ -349,7 +349,7 @@
 	color: "#1BA7CD"
 },
 "#titleVerifyAddressView[if=Alloy.Globals.android]": {
-	width: "235dp",
+	width: "215dp",
 },
 "#titleVerifyAddressLabel[if=Alloy.Globals.android]": {
 	color: "#1BA7CD",

@@ -54,7 +54,8 @@ function genUSAItems(cb){
 			            template: 'userTwoColumnTemplate',
 			            properties: {
 			            	userId: userListings.listings[listing].user,
-			            	userName: userListings.firstName +" "+ userListings.lastName
+			            	userName: userListings.firstName +" "+ userListings.lastName,
+			            	friends: false
 			            }
 			        };
 			        view.updateViews({
@@ -118,7 +119,8 @@ function findUserListings(){
     	} else {
     		openListing({
     			userId: usernameResults.id,	
-    			userName: usernameResults.firstName + ' ' + usernameResults.lastName	
+    			userName: usernameResults.firstName + ' ' + usernameResults.lastName,
+    			friends: false	
    		 	});
 			return;
 		}
@@ -133,7 +135,7 @@ function findUserListings(){
  */
 function openListing(listingIDs){
 	Alloy.Globals.openPage('mylistings', [
-		listingIDs.userName, listingIDs.userId
+		listingIDs.userName, listingIDs.userId, listingIDs.friends
 	]);
 	
 };
@@ -180,6 +182,7 @@ $.fg.init({
 $.fg.setOnItemClick(function(e){
     openListing({
     	userId:e.source.data.properties.userId,	
-    	userName:e.source.data.properties.userName,	
+    	userName:e.source.data.properties.userName,
+    	friends: e.source.data.properties.friends
     });
 });
