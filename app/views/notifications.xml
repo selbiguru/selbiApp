@@ -3,16 +3,14 @@
         <View id="notificationsTopBar">
             <View id="menuButton">
 				<Label icon="fa-bars" id="notificationsButtonIcon"></Label>
-			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
 			<View id="titleNotificationsView">
 				<Label id="titleNotificationsLabel">Notifications</Label>
 			</View>
         </View>
-        <TableView>
-            <TableViewRow id="row">
-                <View id="view" backgroundColor="red" width="20" height="20"/>
-            </TableViewRow>
-        </TableView>
+        <ActivityIndicator id="activityIndicator" message="Loading..."/>
+        <ScrollView id="viewNotifications">					
+		</ScrollView>
+        <Widget id="fa" src="com.mattmcfarland.fontawesome"/>
     </View>
 </Alloy>
