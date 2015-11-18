@@ -28,8 +28,9 @@
 	layout:"vertical",
 	height: Ti.UI.FILL
 },
-"#priceImageView[if=Alloy.Globals.iPhoneFour]": {
+".description-view[if=Alloy.Globals.iPhoneFour]": {
 	layout: 'horizontal',
+	height: Ti.UI.SIZE
 },
 ".listing-title[if=Alloy.Globals.iPhoneFour]": {
 	left: '5dp',
@@ -86,8 +87,9 @@
 	layout:"vertical",
 	height: Ti.UI.FILL
 },
-"#priceImageView[if=Alloy.Globals.iPhoneFive]": {
+".description-view[if=Alloy.Globals.iPhoneFive]": {
 	layout: 'horizontal',
+	height: Ti.UI.SIZE
 },
 ".listing-title[if=Alloy.Globals.iPhoneFive]": {
 	left: '5dp',
@@ -143,8 +145,9 @@
 	layout:"vertical",
 	height: Ti.UI.FILL
 },
-"#priceImageView[if=Alloy.Globals.iPhoneSix]": {
+".description-view[if=Alloy.Globals.iPhoneSix]": {
 	layout: 'horizontal',
+	height: Ti.UI.SIZE
 },
 ".listing-title[if=Alloy.Globals.iPhoneSix]": {
 	left: '7dp',
@@ -199,8 +202,9 @@
 	layout:"vertical",
 	height: Ti.UI.FILL
 },
-"#priceImageView[if=Alloy.Globals.iPhoneSixPlus]": {
+".description-view[if=Alloy.Globals.iPhoneSixPlus]": {
 	layout: 'horizontal',
+	height: Ti.UI.SIZE
 },
 ".listing-title[if=Alloy.Globals.iPhoneSixPlus]": {
 	left: '7dp',
@@ -258,8 +262,9 @@
 	layout:"vertical",
 	height: Ti.UI.FILL
 },
-"#priceImageView[if=Alloy.Globals.android]": {
+".description-view[if=Alloy.Globals.android]": {
 	layout: 'horizontal',
+	height: Ti.UI.SIZE
 },
 ".listing-title[if=Alloy.Globals.android]": {
 	left: '7dp',

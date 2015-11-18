@@ -3,7 +3,7 @@ var args = arguments[0][0] || {},
 var listingManager = require('managers/listingmanager'),
 	helpers = require('utilities/helpers'),
 	dynamicElement = require('utilities/dynamicElement');
-var myListingPadding, myListingItemHeight;
+var myListingPadding, myListingItemHeight, myListingFontSize;
 var items = [],
 	obj = [];
 var tabsObject = Object.freeze({
@@ -47,6 +47,9 @@ function genMyItems(cb){
 					var imageUrl = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.mylistView + Alloy.CFG.cloudinary.bucket + userListings.listings[listing].imageUrls[0] : "";
 					var tmp = {
 						image :  imageUrl,
+						listingItem:{
+			        		borderColor: userListings.listings[listing].isSold ? "#1BA7CD" : "#E5E5E5" 
+			        	},
 			            listingThumb : {
 			                image :  imageUrl
 			            },
@@ -57,16 +60,22 @@ function genMyItems(cb){
 			            	text: userListings.listings[listing].price.formatMoney(2)
 			            },
 			            listingImagesCount: {
-			            	text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"
+			            	text: userListings.listings[listing].isSold ? "SOLD" : userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"	,
+		        			font: userListings.listings[listing].isSold ? {fontFamily: 'Nunito-Bold', fontSize: myListingFontSize } : {fontFamily: 'Nunito-Light', fontSize: myListingFontSize } ,
+		        			color: userListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
 			            },  
 			            template: 'myitemtemplate',
 			            properties: {
 			            	itemId: userListings.listings[listing].id,
 			            	userName: userListings.firstName +" "+ userListings.lastName,
 			            	userId: userListings.listings[listing].user,
+			            	isSold: userListings.listings[listing].isSold
 			            }
 			        };
 			        view.updateViews({
+			        	'#listingItem':{
+			        		borderColor: userListings.listings[listing].isSold ? "#1BA7CD" : "#E5E5E5" 
+			        	},
 			        	'#listingThumb':{
 			        		image: imageUrl
 			        	},
@@ -77,7 +86,9 @@ function genMyItems(cb){
 			        		text: userListings.listings[listing].price.formatMoney(2)	
 		        		},
 		        		'#listingImagesCount':{ 
-			        		text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"	
+			        		text: userListings.listings[listing].isSold ? "SOLD" : userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"	,
+		        			font: userListings.listings[listing].isSold ? {fontFamily: 'Nunito-Bold', fontSize: myListingFontSize } : {fontFamily: 'Nunito-Light', fontSize: myListingFontSize } ,
+		        			color: userListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
 		        		}
 			        });
 			        
@@ -137,22 +148,27 @@ switch(Alloy.Globals.userDevice) {
     case 0: //iphoneFour
         myListingPadding = 7;
         myListingItemHeight = 45;
+        myListingFontSize = '12dp';
         break;
     case 1: //iphoneFive
         myListingPadding = 7;
         myListingItemHeight = 45;
+        myListingFontSize = '12dp';
         break;
     case 2: //iphoneSix
         myListingPadding = 10;
         myListingItemHeight = 49;
+        myListingFontSize = '14dp';
         break;
     case 3: //iphoneSixPlus
         myListingPadding = 13;
         myListingItemHeight = 49;
+        myListingFontSize = '15dp';
         break;
     case 4: //android currently same as iphoneSix
         myListingPadding = 10;
         myListingItemHeight = 47;
+        myListingFontSize = '14dp';
         break;
 };
 $.fg.init({
@@ -169,7 +185,8 @@ $.fg.setOnItemClick(function(e){
     openListing({
     	itemId:e.source.data.properties.itemId,
     	userId:e.source.data.properties.userId,	
-    	userName:e.source.data.properties.userName,	
+    	userName:e.source.data.properties.userName,
+    	isSold: e.source.data.properties.isSold	
     });
 });
 
