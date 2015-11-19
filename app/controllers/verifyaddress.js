@@ -30,7 +30,7 @@ function validateAddressView(){
 	};
 	var options = {
 		trim: true,
-		regexp: /^([a-zA-Z0-9\.]+\s?)*$/,
+		regexp: /^([a-zA-Z0-9\.\-]+\s?)*$/,
 		label: "Apt/Bldg #",
 		required: false
 	};
@@ -44,7 +44,7 @@ function validateAddressView(){
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
 		"userAddress": {
 						"address": $.route.value,
-						"address2": '#'+ $.apartmenNumber.value, 
+						"address2": helpers.trim($.apartmenNumber.value, true).length > 0 ? '#'+ helpers.trim($.apartmenNumber.value, true) : '', 
 						"city": $.locality.value+",", 
 						"state": $.administrative_area_level_1.value,
 						"zip": $.postal_code.value,
