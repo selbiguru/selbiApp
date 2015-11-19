@@ -5,7 +5,7 @@
 },
 "#viewNotifications": {
 	layout: 'vertical',
-	width: "90%"
+	width: "90%",
 },
 "#activityIndicator": {
 	style: 13,
@@ -48,6 +48,64 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+".friend-notification-btn[if=Alloy.Globals.iPhoneFour]": {
+	height: '20dp',
+	width: '85dp',
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	borderColor: '#9B9B9B',
+	color: '#9B9B9B',
+	bottom: '0dp',
+	right: '115dp'
+},
+".friend-notification-btns[if=Alloy.Globals.iPhoneFour]": {
+	height: '20dp',
+	width: '85dp',
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	backgroundColor: '#1BA7CD',
+	color: '#fff',
+	bottom: '0dp',
+	right: '15dp'
+},
+".friend-notification-btns2[if=Alloy.Globals.iPhoneFour]": {
+	height: '20dp',
+	width: '85dp',
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	backgroundColor: '#1BA7CD',
+	color: '#fff',
+	bottom: '0dp',
+	right: '15dp'
+},
+"#labelJordan[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: "#9B9B9B",
+	top: '2dp',
+	left: '65dp'
+},
+".dark-underline": {
+	height: "1dp",
+	backgroundColor:"#EAEAEA",
+	width:Titanium.UI.FILL
+},
+
+
+
+
+
 
 
 

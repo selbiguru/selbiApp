@@ -9,7 +9,28 @@
 			</View>
         </View>
         <ActivityIndicator id="activityIndicator" message="Loading..."/>
-        <ScrollView id="viewNotifications">					
+        <ScrollView id="viewNotifications">
+        	<!--<View  height='55dp' layout='horizonal' top='5dp'>
+        		<ImageView id="menuUserImage" top='5dp' left='5dp' height='50dp' width='50dp' borderRadius="25dp" image="http://www.lorempixel.com/600/600/" />
+        		<View>
+	        		<Label id='labelJordan'>Nathanie!</Label>
+	        		<View height='Ti.UI.SIZE' bottom='0dp'>
+	        			<Button class='friend-notification-btn'  >Decline</Button>
+	        			<Button class='friend-notification-btns' >Add</Button>
+	        		</View>
+	        	</View>
+        	</View>>
+        	<View class="dark-underline" top='5dp'/>
+        	<View  height='55dp' layout='horizonal' top='5dp'>
+        		<ImageView id="menuUserImage" top='5dp' left='5dp' height='50dp' width='50dp' borderRadius="25dp" image="http://www.lorempixel.com/600/600/" />
+        		<View>
+	        		<Label id='labelJordan'>Nathaniel Stephensbdicksurg purchased your item!</Label>
+	        		<View  height='Ti.UI.SIZE' bottom='0dp'>
+	        			<Button class='friend-notification-btns2'>Cool!</Button>
+	        		</View>
+	        	</View>
+        	</View>
+        	<View class="dark-underline" top='5dp'/>-->				
 		</ScrollView>
         <Widget id="fa" src="com.mattmcfarland.fontawesome"/>
     </View>
