@@ -42,14 +42,14 @@ var notificationsArray = [
 			id: 9
 		},
 		{
-			name: 'Bernie King purchased your item!',
+			name: 'Bernie King purchased  jsd hdjs fjksd fjs dfjks your item!',
 			type: 'sold',
 			userId: '7777777',
 			requesterId: '707070707',
 			id: 11
 		},
 		{
-			name: 'Larry Browns purchased your item!',
+			name: 'Larry Browns purchased hfhjs dfhjs dfhjsd fhjsd fhjsd fhjsd fhjsd fhjsd your item!',
 			type: 'friend',
 			userId: '888888',
 			requesterId: '80808080',
@@ -61,63 +61,123 @@ function showNotifications(notificationsArray) {
 	for (var i in notificationsArray) {
 		switch(Alloy.Globals.userDevice) {
 		    case 0: //iphoneFour
-		        notificationFontSizeAnswer = 14;
-		        notificationFontSizeQuestion = 15;
-		        notificationTop = '8dp';
-		        notificationLeft = '7dp';
+		        mainViewHeight = '65dp';
+		        mainViewTop = '2dp';
+		        horizontalViewHeight = '59dp';
+		        imgViewHeight = '50dp';
+		        imgViewWidth = '50dp';
+		        imgViewTop = '4dp';
+		        imgViewLeft = '5dp';
+		        imgViewBorderRadius = '25dp';
+		        notificationFontSize = '12dp';
+		        nameLabelViewTop = '2dp';
+		        nameLabelViewLeft = '7dp';
+		        friendButtonHeight = '20dp';
+		        friendButtonWidth = '75dp';
+		        declineButtonRight = '105dp';
+		        acceptButtonRight = '15dp';
+		        underlineViewTop = '5dp';
 		        break;
 		    case 1: //iphoneFive
-		        notificationFontSizeAnswer = 15;
-		        notificationFontSizeQuestion = 16;
-		        notificationTop = '8dp';
-		        notificationLeft = '7dp';
+		        mainViewHeight = '65dp';
+		        mainViewTop = '2dp';
+		        horizontalViewHeight = '59dp';
+		        imgViewHeight = '50dp';
+		        imgViewWidth = '50dp';
+		        imgViewTop = '4dp';
+		        imgViewLeft = '5dp';
+		        imgViewBorderRadius = '25dp';
+		        notificationFontSize = '12dp';
+		        nameLabelViewTop = '2dp';
+		        nameLabelViewLeft = '7dp';
+		        friendButtonHeight = '20dp';
+		        friendButtonWidth = '75dp';
+		        declineButtonRight = '105dp';
+		        acceptButtonRight = '15dp';
+		        underlineViewTop = '5dp';
 		        break;
 		    case 2: //iphoneSix
-		        notificationFontSizeAnswer = 17;
-		        notificationFontSizeQuestion = 18;
-		        notificationTop = '10dp';
-		        notificationLeft = '10dp';
+		        mainViewHeight = '70dp';
+		        mainViewTop = '2dp';
+		        horizontalViewHeight = '64dp';
+		        imgViewHeight = '55dp';
+		        imgViewWidth = '55dp';
+		        imgViewTop = '4dp';
+		        imgViewLeft = '5dp';
+		        imgViewBorderRadius = '27dp';
+		        notificationFontSize = '14dp';
+		        nameLabelViewTop = '2dp';
+		        nameLabelViewLeft = '7dp';
+		        friendButtonHeight = '25dp';
+		        friendButtonWidth = '85dp';
+		        declineButtonRight = '115dp';
+		        acceptButtonRight = '15dp';
+		        underlineViewTop = '5dp';
 		        break;
 		    case 3: //iphoneSixPlus
-		        notificationFontSizeAnswer = 19;
-		        notificationFontSizeQuestion = 20;
-		        notificationTop = '10dp';
-		        notificationLeft = '10dp';
+		        mainViewHeight = '77dp';
+		        mainViewTop = '2dp';
+		        horizontalViewHeight = '69dp';
+		        imgViewHeight = '60dp';
+		        imgViewWidth = '60dp';
+		        imgViewTop = '4dp';
+		        imgViewLeft = '5dp';
+		        imgViewBorderRadius = '30dp';
+		        notificationFontSize = '15dp';
+		        nameLabelViewTop = '2dp';
+		        nameLabelViewLeft = '7dp';
+		        friendButtonHeight = '28dp';
+		        friendButtonWidth = '90dp';
+		        declineButtonRight = '120dp';
+		        acceptButtonRight = '15dp';
+		        underlineViewTop = '5dp';
 		        break;
 		    case 4: //android currently same as iphoneSix
-		        notificationFontSizeAnswer = 17;
-		        notificationFontSizeQuestion = 18;
-		        notificationTop = '10dp';
-		        notificationLeft = '10dp';
+		        mainViewHeight = '70dp';
+		        mainViewTop = '2dp';
+		        horizontalViewHeight = '64dp';
+		        imgViewHeight = '55dp';
+		        imgViewWidth = '55dp';
+		        imgViewTop = '4dp';
+		        imgViewLeft = '5dp';
+		        imgViewBorderRadius = '27dp';
+		        notificationFontSize = '14dp';
+		        nameLabelViewTop = '2dp';
+		        nameLabelViewLeft = '7dp';
+		        friendButtonHeight = '25dp';
+		        friendButtonWidth = '85dp';
+		        declineButtonRight = '115dp';
+		        acceptButtonRight = '15dp';
+		        underlineViewTop = '5dp';
 		        break;
 		};
 		var mainView = Titanium.UI.createView({
 			layout: 'vertical',
-			height: '65dp',
-			top: '2dp',
+			height: mainViewHeight,
+			top: mainViewTop,
 			id: notificationsArray[i].id
 		});
 		var horizontalView = Titanium.UI.createView({
 			layout: 'horizontal',
-			height: '59dp',
+			height: horizontalViewHeight,
 		});
 		var imgView = Titanium.UI.createImageView({
-			top: '4dp',
-			left: '5dp',
-			height: '50dp',
-			width: '50dp',
-			borderRadius: "25dp",
+			top: imgViewTop,
+			left: imgViewLeft,
+			height: imgViewHeight,
+			width: imgViewWidth,
+			borderRadius: imgViewBorderRadius,
 			image: "http://www.lorempixel.com/600/600/"
 		});
 		var subView = Titanium.UI.createView({});
 		var nameLabel = Titanium.UI.createLabel({
 	        font: {
-				fontSize: '12dp',
+				fontSize: notificationFontSize,
 				fontFamily: 'Nunito-Light'
 			},
 			color: "#9B9B9B",
-			top: '2dp',
-			left: '7dp',
+			top: nameLabelViewTop,
+			left: nameLabelViewLeft,
 	        text: notificationsArray[i].name
 		});
 		var buttonsView = Titanium.UI.createView({
@@ -125,17 +185,17 @@ function showNotifications(notificationsArray) {
 			bottom: '0dp'
 		});
 		var declineFriendButton = Titanium.UI.createButton({
-			height: '20dp',
-			width: '85dp',
+			height: friendButtonHeight,
+			width: friendButtonWidth,
 			font: {
-				fontSize: '12dp',
+				fontSize: notificationFontSize,
 				fontFamily: 'Nunito-Light'
 			},
 			textAlign: 'center',
 			borderColor: '#9B9B9B',
 			color: '#9B9B9B',
 			bottom: '0dp',
-			right: '115dp',
+			right: declineButtonRight,
 			title: 'Decline',
 			data: {
 				isSold: notificationsArray[i].type === 'sold' ? true : false,
@@ -145,17 +205,17 @@ function showNotifications(notificationsArray) {
 			ext: mainView
 		});
 		var acceptFriendButton = Titanium.UI.createButton({
-			height: '20dp',
-			width: '85dp',
+			height: friendButtonHeight,
+			width: friendButtonWidth,
 			font: {
-				fontSize: '12dp',
+				fontSize: notificationFontSize,
 				fontFamily: 'Nunito-Light'
 			},
 			textAlign: 'center',
 			backgroundColor: '#1BA7CD',
 			color: '#fff',
 			bottom: '0dp',
-			right: '15dp',
+			right: acceptButtonRight,
 			title: notificationsArray[i].type === 'sold' ? 'Cool!' : 'Add',
 			data: {
 				isSold: notificationsArray[i].type === 'sold' ? true : false,
@@ -167,7 +227,7 @@ function showNotifications(notificationsArray) {
 		var underline = Titanium.UI.createView({
 			height: "1dp",
 			backgroundColor:"#E5E5E5",
-			top: '5dp',
+			top: underlineViewTop,
 			width:Titanium.UI.FILL
 		});
 		if(notificationsArray[i].type === 'friend') {
