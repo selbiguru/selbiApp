@@ -21,13 +21,28 @@ function getContactListTemplate() {
 		 		bindId: 'data',
 		 		properties: {
 		 			width: Ti.UI.FILL,
-		 			height: Ti.UI.FILL,
+		 			height: heightDataView,
 		 			backgroundColor: '#FAFAFA'
 		 		},
 		 		events: {
 	                // Bind event callbacks only to the subcomponent
 	                click: function(e){
-	                	console.log('232424423423423423423', e.source.data);
+	                	console.log('DATA', e.bindId);
+	                	if(e.source.children && e.source.children.length > 0 && e.bindId === 'data' ) {
+	                		e.source.remove(e.source.children[0]);
+	                	} else {
+	                		var checkMark = Ti.UI.createLabel({
+		                		width: Ti.UI.SIZE,
+		                		color: '#1BA7CD',
+		                		right: rightCheckMark,
+		                		font: {
+		                			fontSize: fontSizeCheckMark,
+		                		},
+		                		touchEnabled:false
+		                	});
+		                	$.fa.add(checkMark, 'fa-check');
+		                	e.source.add(checkMark);
+	                	}
 	                }
             	},
 		 	},
@@ -37,11 +52,11 @@ function getContactListTemplate() {
 	            properties: {            // Sets the label properties
 	                color: '#9B9B9B',
 	                font: {
-						fontSize: '16dp',
+						fontSize: fontSizeTitleLabel,
 						fontFamily: 'Nunito-Bold'
 					},
-	                left: '15dp', 
-	                top: '3dp',
+	                left: leftLabel, 
+	                top: topTitleLabel
 	            },
 	        },
 	        {                            // Subtitle
@@ -50,25 +65,12 @@ function getContactListTemplate() {
 	            properties: {            // Sets the label properties
 	                color: '#9B9B9B',
 	                font: {
-						fontSize: '12dp',
+						fontSize: fontSizeSubtitleLabel,
 						fontFamily: 'Nunito-Light'
 					},
-	                left: '15dp', 
-	                top: '25dp',
+	                left: leftLabel, 
+	                top: topSubtitleLabel
 	            },
-	        },
-	        {
-	        	type: 'Ti.UI.ImageView',     // Use a label for the subtitle
-	            bindId: 'addIcon',      // Maps to a custom subtitle property of the item data
-	            properties: { 
-	            	color: '#E5E5E5',
-	                right: '10dp', 
-	                font: {
-						fontSize: '16dp',
-					},
-	                top: '10dp', 
-	                width: '25dp',
-	            }
 	        }
 	    ]
 	};
@@ -83,15 +85,15 @@ function getContactListTemplate() {
 var createCustomView = function(title) {
     var view = Ti.UI.createView({
         backgroundColor: '#E5E5E5',
-        height: '25dp'
+        height: heightHeader
     });
     var text = Ti.UI.createLabel({
         text: title,
         font: {
-			fontSize: '14dp',
+			fontSize: fontSizeHeader,
 			fontFamily: 'Nunito-Bold'
 		},
-        left: '15dp',
+        left: leftLabel,
         color: '#9B9B9B',
     });
     view.add(text);
@@ -110,15 +112,14 @@ function loadContacts() {
 		},
 		defaultItemTemplate: 'template',
 		backgroundColor: '#FAFAFA',
-		//allowsSelection: false
+		allowsSelection: false
 	});
 	var usersContactList = Ti.UI.createListSection({
-		headerView: createCustomView('Invite friends Selbi'),
+		headerView: createCustomView('Invite friends to Selbi'),
 		footerView: Ti.UI.createView({
 		        backgroundColor: '#E5E5E5',
 		        height: '1dp'
-		})
-	
+		})	
 	});
 	var currentUsers = [];
 	var nonUsers = [];
@@ -152,14 +153,20 @@ function loadContacts() {
 					if(results[user].isActiveUser){
 						currentUsers.push({
 							title: { text: results[user].contactName },
-						 	subtitle: {text: "Using Selbi"},
+						 	subtitle: {text: "Using Selbi", color:'#1BA7CD'},
 						 	data: { data: 1},
+						 	properties: {
+								height: Ti.UI.SIZE
+							}
 						});
 					} else {
 						currentUsers.push({
 							title: { text: results[user].contactName },
 						 	subtitle: {text: results[user].originalNumber },
 							data: { data: 0},
+							properties: {
+								height: Ti.UI.SIZE
+							}
 						});
 					}
 				}
@@ -209,49 +216,64 @@ function importContacts() {
 
 switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
-	        nameFontSize = '14dp';
-	        iconSize = '14dp';
-	        labelTop = '35dp';
-	        labelLeft = '35dp';
-	        iconRight = '35dp';
-	        headerViewHeight = '40dp';
-			headerLabelFontSize = '14dp';
+	        heightDataView = '40dp';
+	        fontSizeCheckMark = '14dp';
+	        rightCheckMark = '15dp';
+	        fontSizeTitleLabel = '14dp';
+	        topTitleLabel = '3dp';
+			fontSizeSubtitleLabel = '11dp';
+			topSubtitleLabel = '22dp';
+			fontSizeHeader = '13dp';
+			heightHeader = '25dp';
+			leftLabel = '15dp';
 	        break;
 	    case 1: //iphoneFive
-	        nameFontSize = '14dp';
-	        iconSize = '14dp';
-	        labelTop = '35dp';
-	        labelLeft = '35dp';
-	        iconRight = '35dp';
-	        headerViewHeight = '40dp';
-			headerLabelFontSize = '14dp';
+	    	heightDataView = '45dp';
+	        fontSizeCheckMark = '16dp';
+	        rightCheckMark = '15dp';
+	        fontSizeTitleLabel = '16dp';
+	        topTitleLabel = '4dp';
+			fontSizeSubtitleLabel = '13dp';
+			topSubtitleLabel = '24dp';
+			fontSizeHeader = '14dp';
+			heightHeader = '28dp';
+			leftLabel = '15dp';
 	        break;
 	    case 2: //iphoneSix
-	        nameFontSize = '14dp';
-	        iconSize = '14dp';
-	        labelTop = '35dp';
-	        labelLeft = '35dp';
-	        iconRight = '35dp';
-	        headerViewHeight = '40dp';
-			headerLabelFontSize = '14dp';
+	        heightDataView = '50dp';
+	        fontSizeCheckMark = '18dp';
+	        rightCheckMark = '20dp';
+	        fontSizeTitleLabel = '18dp';
+	        topTitleLabel = '4dp';
+			fontSizeSubtitleLabel = '15dp';
+			topSubtitleLabel = '27dp';
+			fontSizeHeader = '16dp';
+			heightHeader = '28dp';
+			leftLabel = '20dp';
 	        break;
 	    case 3: //iphoneSixPlus
-	        nameFontSize = '14dp';
-	        iconSize = '14dp';
-	        labelTop = '35dp';
-	        labelLeft = '35dp';
-	        iconRight = '35dp';
-	        headerViewHeight = '40dp';
-			headerLabelFontSize = '14dp';
+	    	heightDataView = '55dp';
+	        fontSizeCheckMark = '20dp';
+	        rightCheckMark = '20dp';
+	        fontSizeTitleLabel = '20dp';
+	        topTitleLabel = '4dp';
+			fontSizeSubtitleLabel = '16dp';
+			topSubtitleLabel = '29dp';
+			fontSizeHeader = '17dp';
+			heightHeader = '30dp';
+			leftLabel = '20dp';
 	        break;
 	    case 4: //android currently same as iphoneSix
-	        nameFontSize = '14dp';
-	        iconSize = '14dp';
-	        labelTop = '35dp';
-	        labelLeft = '35dp';
-	        iconRight = '35dp';
-	        headerViewHeight = '40dp';
-			headerLabelFontSize = '14dp';
+	        heightDataView = '50dp';
+	        fontSizeCheckMark = '18dp';
+	        rightCheckMark = '20dp';
+	        fontSizeTitleLabel = '18dp';
+	        topTitleLabel = '4dp';
+			fontSizeSubtitleLabel = '16dp';
+			topSubtitleLabel = '27dp';
+			fontSizeHeader = '16dp';
+			heightHeader = '28dp';
+			leftLabel = '20dp';
 	        break;
 	};
 
