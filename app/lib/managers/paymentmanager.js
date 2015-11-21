@@ -86,6 +86,11 @@ var createOrder = exports.createOrder = function(createOrderObj, cb) {
 
 /***************************************************DELETE CALLS***************************************************************/
 
+
+/**
+ * @method deletePayment
+ * Delete the CC payment info from Selbi Servers and BrainTree
+ */
 var deletePayment = exports.deletePayment = function(cb) {
 	httpManager.execute('/payments/paymentMethod/'+Ti.App.Properties.getString('userId'), 'DELETE', null, true, function(err, deletePaymentResponse){
 		if(err) {
@@ -98,5 +103,22 @@ var deletePayment = exports.deletePayment = function(cb) {
 	});
 };
 
+
+
+/**
+ * @method deleteMerchant
+ * Delete the merchant from Selbi Servers not BrainTree
+ */
+var deleteMerchant = exports.deleteMerchant = function(cb) {
+	httpManager.execute('/payments/merchant/'+Ti.App.Properties.getString('userId'), 'DELETE', null, true, function(err, deleteMerchantResponse){
+		if(err) {
+			cb(err, null);
+			} 
+		else {
+			// add to user object when we know what to save it as
+			cb(err, deleteMerchantResponse);
+		}
+	});
+};
 
 

@@ -5,10 +5,11 @@
 var args = arguments[0] || {};
 
 var helpers = require('utilities/helpers'),
-paymentManager = require('managers/paymentmanager'),
-modalManager = require('managers/modalmanager'),
-twilioManager = require('managers/twiliomanager'),
-userManager = require('managers/usermanager');
+	paymentManager = require('managers/paymentmanager'),
+	modalManager = require('managers/modalmanager'),
+	indicator = require('uielements/indicatorwindow'),
+	twilioManager = require('managers/twiliomanager'),
+	userManager = require('managers/usermanager');
 
 
 
@@ -244,17 +245,21 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
 	    deleteCardAlert.setMessage("Are you sure you want to delete this card?  You'll have to add another card to be able to purchase items on Selbi!" );
  		deleteCardAlert.addEventListener('click', function(e){
 		    if (e.index === e.source.confirm){
-			//add delete card logic here!!!!
+				var indicatorWindow = indicator.createIndicatorWindow({
+					message : "Deleting Credit Card"
+				});
+				indicatorWindow.openIndicator();
 				Ti.API.info('The confirm button was clicked');
 				//$.viewAddCard.show();
  				//$.viewAddCard.height = '40dp';
  				paymentManager.deletePayment(function(err, response){
 					if(err){
+						indicatorWindow.closeIndicator();
 						helpers.alertUser('Delete Payment','Unable to delete payment, please try again or contact us!');
 						return;
 					} else {
 						$.paymentDetails.remove(viewUserCard);
-						helpers.alertUser('Deleted Payment','Payment method deleted. Add another card to buy from friends!');
+						indicatorWindow.closeIndicator();
 						return;					
 					}			
  				});
@@ -368,17 +373,21 @@ function showUserBank(bankInfo) {
 	    deleteBankAlert.setMessage("Are you sure you want to delete this bank account?  You'll have to add another account/Venmo to be able to cash out!" );
  		deleteBankAlert.addEventListener('click', function(e){
 		    if (e.index === e.source.confirm){
-				//add delete logic here!!!!
+				var indicatorWindow = indicator.createIndicatorWindow({
+					message : "Deleting Bank"
+				});
+				indicatorWindow.openIndicator();
 				Ti.API.info('The confirm button was clicked');
 				//$.viewAddCard.show();
  				//$.viewAddCard.height = '40dp';
- 				paymentManager.deletePayment(function(err, response){
+ 				paymentManager.deleteMerchant(function(err, response){
 					if(err){
+						indicatorWindow.closeIndicator();
 						helpers.alertUser('Delete Bank','Unable to delete bank, please try again or contact us!');
 						return;
 					} else {
 						$.bankingDetails.remove(viewUserBank);
-						helpers.alertUser('Bank Deleted','Add another account to be able to sell more items!');
+						indicatorWindow.closeIndicator();
 						return;					
 					}			
  				});
