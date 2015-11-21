@@ -275,9 +275,9 @@
 	height: "1dp",
 	//bottom: "1dp",
 	top: '51dp',
-	left: '100dp',
+	left: '15dp',
 	backgroundColor:"#9B9B9B",
-	width: '100%'
+	width: Ti.UI.FILL
 },
 "#usernameSearch[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: Ti.UI.FILL,

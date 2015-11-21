@@ -122,7 +122,6 @@ function getFriendsSection() {
 	            	width: Ti.UI.FILL,
 					height: heightDataView,	            		            	
 	                color: '#9B9B9B',
-	                borderColor: 'red',
 	                font: {
 						fontSize: fontSizeTitleLabel,
 						fontFamily: 'Nunito-Light'
@@ -149,7 +148,6 @@ function getFriendsSection() {
 									var hiddenView = Ti.UI.createView({
 										width: Ti.UI.SIZE,
 										height: Ti.UI.SIZE,
-										borderColor: 'green',
 										ext: e.source,
 										right: rightCheckMark,
 										data: 1
