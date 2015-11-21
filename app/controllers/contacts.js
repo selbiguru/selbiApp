@@ -3,10 +3,40 @@
  */
 
 var args = arguments[0] || {};
-var friendsManager = require('managers/friendsmanager');
+var friendsManager = require('managers/friendsmanager'),
+	userManager = require('managers/usermanager');
 var helpers = require('utilities/helpers');
 var nameFontSize, iconSize, labelTop, labelLeft, 
 	iconRight, headerViewHeight, headerLabelFontSize;
+
+
+$.usernameSearch.addEventListener('change', function(e) {
+	var usernameObject = {
+		username: e.value
+	};
+	if(e.value.length > 5){
+		userManager.getUserByUsername( usernameObject, function(err, results) {
+			//console.log('Results of username Search', results,'errererrrr' ,err);
+			if($.addFriendsSearchView.children.length > 2) {
+				$.addFriendsSearchView.remove($.addFriendsSearchView.children[2]);
+			};
+			if(results || err) {
+				var labelStuff = Ti.UI.createLabel({
+					right: '15dp',
+					font: {
+						fontSize: '18dp'
+					}
+				});
+				$.fa.add(labelStuff, 'fa-plus-square-o');
+				$.addFriendsSearchView.add(labelStuff);
+			}
+		});
+	} else {
+		if($.addFriendsSearchView.children.length > 2) {
+			$.addFriendsSearchView.remove($.addFriendsSearchView.children[2]);
+		};
+	}
+});
 
 
 /**
@@ -27,7 +57,7 @@ function getContactListTemplate() {
 		 		events: {
 	                // Bind event callbacks only to the subcomponent
 	                click: function(e){
-	                	console.log('DATA', e.bindId);
+	                	//console.log('DATA', e.bindId);
 	                	if(e.source.children && e.source.children.length > 0 && e.bindId === 'data' ) {
 	                		e.source.remove(e.source.children[0]);
 	                	} else {
@@ -74,6 +104,106 @@ function getContactListTemplate() {
 	        }
 	    ]
 	};
+};
+
+
+
+/**
+ * @method getContactListTemplate
+ * Returns a template used by contact list
+ */
+function getFriendsSection() {
+	return {
+		 childTemplates: [
+	        {                           	// Title
+	            type: 'Ti.UI.TextField',    // Use a label for the title
+	            bindId: 'bear',         	// Maps to a custom title property of the item data
+	            properties: { 	         	// Sets the label properties
+	            	width: Ti.UI.FILL,
+					height: heightDataView,	            		            	
+	                color: '#9B9B9B',
+	                borderColor: 'red',
+	                font: {
+						fontSize: fontSizeTitleLabel,
+						fontFamily: 'Nunito-Light'
+					},
+	                left: leftLabel,
+	                hintText: 'Enter a username to add a friend!'
+	            },
+	            events: {
+	                // Bind event callbacks only to the subcomponent
+	                change: function(e){
+                		var usernameObject = {
+							username: e.value
+						};
+						if(e.source.children.length > 0 ){
+								e.source.remove(e.source.children[0]);
+						};
+						if(e.value.length > 5){
+							userManager.getUserByUsername( usernameObject, function(err, results) {
+								//console.log('Results of username Search', results,'errererrrr' ,err);
+								if(results || err) {
+									if(e.source.children.length > 0 ){
+										e.source.remove(e.source.children[0]);
+									};
+									var hiddenView = Ti.UI.createView({
+										width: Ti.UI.SIZE,
+										height: Ti.UI.SIZE,
+										borderColor: 'green',
+										ext: e.source,
+										right: rightCheckMark,
+										data: 1
+									});
+									var labelStuff = Ti.UI.createLabel({
+										width: Ti.UI.SIZE,
+				                		color: '#1BA7CD',
+				                		font: {
+				                			fontSize: fontSizeCheckMark,
+				                		},
+				                		touchEnabled: false
+									});
+									$.fa.add(labelStuff, 'fa-plus-square-o');
+									hiddenView.add(labelStuff);
+									e.source.add(hiddenView);
+									hiddenView.addEventListener('click', function(e) {
+										if(e.source.data === 1) {
+											e.source.remove(e.source.children[0]);
+											var checkSquare = Ti.UI.createLabel({
+												width: Ti.UI.SIZE,
+						                		color: '#1BA7CD',
+						                		font: {
+						                			fontSize: fontSizeCheckMark,
+						                		},
+						                		data: 0,
+						                		touchEnabled: false
+											});
+											e.source.data = 0;
+											$.fa.add(checkSquare, 'fa-check-square');
+											e.source.add(checkSquare);
+										} else {
+											e.source.remove(e.source.children[0]);
+											var plusSquare = Ti.UI.createLabel({
+												width: Ti.UI.SIZE,
+						                		color: '#1BA7CD',
+						                		font: {
+						                			fontSize: fontSizeCheckMark,
+						                		},
+							                	touchEnabled: false
+											});
+											e.source.data = 1;
+											$.fa.add(plusSquare, 'fa-plus-square-o');
+											e.source.add(plusSquare);
+										}
+									});
+								}
+							});
+						
+						}
+	                }
+            	},
+	        },
+	    ]
+	};
 }
 
 
@@ -108,7 +238,8 @@ var createCustomView = function(title) {
 function loadContacts() {
 	var contactListView = Ti.UI.createListView({
 		templates: {
-			'template': getContactListTemplate()
+			'template': getContactListTemplate(),
+			'getFriendsSection': getFriendsSection()
 		},
 		defaultItemTemplate: 'template',
 		backgroundColor: '#FAFAFA',
@@ -121,8 +252,15 @@ function loadContacts() {
 		        height: '1dp'
 		})	
 	});
+	var addFriendSection = Ti.UI.createListSection({
+		headerView: createCustomView('Add friends on Selbi'),
+		/*footerView: Ti.UI.createView({
+		        backgroundColor: '#E5E5E5',
+		        height: '1dp'
+		})*/	
+	});
 	var currentUsers = [];
-	var nonUsers = [];
+	var nonUser = [];
 	var phoneArray = [];
 	var people = Ti.Contacts.getAllPeople();
 	if(people) {
@@ -156,7 +294,7 @@ function loadContacts() {
 						 	subtitle: {text: "Using Selbi", color:'#1BA7CD'},
 						 	data: { data: 1},
 						 	properties: {
-								height: Ti.UI.SIZE
+								height: heightDataView
 							}
 						});
 					} else {
@@ -165,13 +303,20 @@ function loadContacts() {
 						 	subtitle: {text: results[user].originalNumber },
 							data: { data: 0},
 							properties: {
-								height: Ti.UI.SIZE
+								height: heightDataView
 							}
 						});
 					}
 				}
-				usersContactList.setItems(currentUsers); 
-				contactListView.sections = [usersContactList];
+				nonUser.push({
+					properties: {
+						height: heightDataView
+					},
+					template: 'getFriendsSection'	
+				});
+				usersContactList.setItems(currentUsers);
+				addFriendSection.setItems(nonUser);
+				contactListView.sections = [addFriendSection, usersContactList];
 				$.addFriendsView.add(contactListView);
 			}	
 		});
