@@ -80,10 +80,11 @@ var createFriendInvitation = exports.createFriendInvitation = function(invitatio
  * 		@param {String} userFrom Id of the user sending friendRequest
  * 		@param {String} userTo Id of the user receiving friendRequest
  * 		@param {String} status String of the status being sent (Default is approved)
+ * @param {String} invitationId String of the invitationId that corresponds to the invitation to be updated
  * @param {Function} cb Callback function
  */
-var updateFriendInvitation = exports.updateFriendInvitation = function(invitationObject, cb) {
-	httpManager.execute('/friend/request/:invitationId/:status', 'PUT', invitationObject, true, function(err, invitationResponse){
+var updateFriendInvitation = exports.updateFriendInvitation = function(invitationObject, invitationId, cb) {
+	httpManager.execute('/friend/request/'+invitationId, 'PUT', invitationObject, true, function(err, invitationResponse){
 		if(err) {
 			cb(err, null);
 		} else {

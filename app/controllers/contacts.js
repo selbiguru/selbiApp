@@ -112,8 +112,8 @@ function getFriendsSection() {
 						};
 						if(e.value.length > 5){
 							friendsManager.getInvitationByUsername( usernameObject, function(err, results) {
-								console.log('Results of username Search', results,'errererrrr' ,err);
-								if(results || err) {
+								//console.log('Results of username Search', results,'errererrrr' ,err);
+								if(results) {
 									if(e.source.children.length > 0 ){
 										e.source.remove(e.source.children[0]);
 									};
@@ -122,7 +122,8 @@ function getFriendsSection() {
 										height: Ti.UI.SIZE,
 										ext: e.source,
 										right: rightCheckMark,
-										data: 1
+										data: results,
+										status: results.invitation.length <= 0 ? "new" : results.invitation[0].status 
 									});
 									var labelStuff = Ti.UI.createLabel({
 										width: Ti.UI.SIZE,
@@ -132,42 +133,25 @@ function getFriendsSection() {
 				                		},
 				                		touchEnabled: false
 									});
-									$.fa.add(labelStuff, 'fa-plus-square-o');
+									var labelIcon = results.invitation.length <= 0 ? 'fa-plus-square-o' : results.invitation[0].status === 'denied' ? 'fa-plus-square-o' :  results.invitation[0].status != 'pending' && results.invitation[0].userFrom != Ti.App.Properties.getString('userId') ? 'fa-plus-square-o' : 'fa-check-square';
+									$.fa.add(labelStuff, labelIcon);
 									hiddenView.add(labelStuff);
 									e.source.add(hiddenView);
-									hiddenView.addEventListener('click', function(e) {
-										if(e.source.data === 1) {
-											e.source.remove(e.source.children[0]);
-											var checkSquare = Ti.UI.createLabel({
-												width: Ti.UI.SIZE,
-						                		color: '#1BA7CD',
-						                		font: {
-						                			fontSize: fontSizeCheckMark,
-						                		},
-						                		data: 0,
-						                		touchEnabled: false
-											});
-											e.source.data = 0;
-											$.fa.add(checkSquare, 'fa-check-square');
-											e.source.add(checkSquare);
-										} else {
-											e.source.remove(e.source.children[0]);
-											var plusSquare = Ti.UI.createLabel({
-												width: Ti.UI.SIZE,
-						                		color: '#1BA7CD',
-						                		font: {
-						                			fontSize: fontSizeCheckMark,
-						                		},
-							                	touchEnabled: false
-											});
-											e.source.data = 1;
-											$.fa.add(plusSquare, 'fa-plus-square-o');
-											e.source.add(plusSquare);
+									hiddenView.addEventListener('click', function(e) {										
+										if(e.source.status === 'new') {
+											friendRequestDynamic(e, 'pending');
+										} else if(e.source.status === 'denied') {
+											friendRequestDynamic(e, 'pending');
+										} else if(e.source.status === 'pending' && e.source.data.invitation[0].userTo === Ti.App.Properties.getString('userId')) {
+											friendRequestDynamic(e, 'approved');
+										} else if(e.source.status === 'pending' && e.source.data.invitation[0].userFrom === Ti.App.Properties.getString('userId') ) {
+											friendRequestDynamic(e, 'denied');
+										} else if(e.source.status === 'approved') {
+											friendRequestDynamic(e, 'denied');
 										}
 									});
 								}
 							});
-						
 						}
 	                }
             	},
@@ -175,6 +159,77 @@ function getFriendsSection() {
 	    ]
 	};
 }
+
+
+
+function friendRequestDynamic(e, newStatus){
+	var createInvitationObject = {
+			userFrom: Ti.App.Properties.getString('userId'),
+			userTo: e.source.data.id,
+			status: newStatus,
+	};
+	e.source.remove(e.source.children[0]);
+	if(e.source.status === 'new') {
+		friendsManager.createFriendInvitation( createInvitationObject, function(err, createInviteResult) {
+			if(err) {
+				return;
+			} else {
+				var checkSquare = Ti.UI.createLabel({
+					width: Ti.UI.SIZE,
+            		color: '#1BA7CD',
+            		font: {
+            			fontSize: fontSizeCheckMark,
+            		},
+            		touchEnabled: false
+				});
+				e.source.status = createInviteResult.status;
+				e.source.data.invitation = [createInviteResult]; 
+				$.fa.add(checkSquare, 'fa-check-square');
+				e.source.add(checkSquare);
+			}
+		});
+	} else if(newStatus === 'denied') {
+		friendsManager.updateFriendInvitation( createInvitationObject, e.source.data.invitation[0].id, function(err, updateInvitationResult) {
+			if(err) {
+				return;
+			} else {
+				var plusSquare = Ti.UI.createLabel({
+					width: Ti.UI.SIZE,
+					color: '#1BA7CD',
+					font: {
+						fontSize: fontSizeCheckMark,
+					},
+					touchEnabled: false
+				});
+				e.source.status = updateInvitationResult[0].status;
+				e.source.data.invitation = updateInvitationResult;
+				$.fa.add(plusSquare, 'fa-plus-square-o');
+				e.source.add(plusSquare);
+			}
+		});
+	} else {
+		friendsManager.updateFriendInvitation( createInvitationObject, e.source.data.invitation[0].id, function(err, updateInvitationResult) {
+			if(err) {
+				return;
+			} else {
+				var checkSquare = Ti.UI.createLabel({
+					width: Ti.UI.SIZE,
+            		color: '#1BA7CD',
+            		font: {
+            			fontSize: fontSizeCheckMark,
+            		},
+            		touchEnabled: false
+				});
+				e.source.status = updateInvitationResult[0].status;
+				e.source.data.invitation = updateInvitationResult; 
+				$.fa.add(checkSquare, 'fa-check-square');
+				e.source.add(checkSquare);
+			}
+		});
+	}
+}
+
+
 
 
 
