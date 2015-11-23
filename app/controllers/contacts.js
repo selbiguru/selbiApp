@@ -111,8 +111,8 @@ function getFriendsSection() {
 								e.source.remove(e.source.children[0]);
 						};
 						if(e.value.length > 5){
-							userManager.getUserByUsername( usernameObject, function(err, results) {
-								//console.log('Results of username Search', results,'errererrrr' ,err);
+							friendsManager.getInvitationByUsername( usernameObject, function(err, results) {
+								console.log('Results of username Search', results,'errererrrr' ,err);
 								if(results || err) {
 									if(e.source.children.length > 0 ){
 										e.source.remove(e.source.children[0]);

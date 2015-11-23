@@ -7,6 +7,33 @@ var httpManager = require('managers/httpmanager');
 
 
 
+
+/***************************************************GET CALLS***************************************************************/
+
+/**
+ * @method getInvitationByUsername
+ * @param {Object} usernameObject Object containgin the following:
+ * 		@param {String} username String of the username you are trying to find
+ * @param {Function} cb Callback function
+ */
+var getInvitationByUsername = exports.getInvitationByUsername = function(usernameObject, cb) {
+	httpManager.execute('/friend/username/'+Ti.App.Properties.getString('userId')+'/'+usernameObject.username, 'GET', null, true, function(err, invitationResponse){
+		if(err) {
+			cb(err, null);
+		} else {
+			cb(err, invitationResponse);
+		}
+	});
+};
+
+
+
+
+
+
+
+/***************************************************POST/UPDATE CALLS*******************************************************/
+
 /**
  * @method getSelbiUsersByPhones
  * Create a listing for a given user and upload the images
@@ -19,6 +46,48 @@ var getSelbiUsersByPhones = exports.getSelbiUsersByPhones = function(phoneArray,
 			cb(err, null);
 		} else {
 			cb(err, phoneResponse);
+		}
+	});
+};
+
+
+
+
+/**
+ * @method createFriendInvitation
+ * @param {Object} invitationObject Object containing the following:
+ * 		@param {String} userFrom Id of the user sending friendRequest
+ * 		@param {String} userTo Id of the user receiving friendRequest
+ * 		@param {String} status String of the status being sent (Default is approved)
+ * @param {Function} cb Callback function
+ */
+var createFriendInvitation = exports.createFriendInvitation = function(invitationObject, cb) {
+	httpManager.execute('/friend/request', 'POST', invitationObject, true, function(err, invitationResponse){
+		if(err) {
+			cb(err, null);
+		} else {
+			cb(err, invitationResponse);
+		}
+	});
+};
+
+
+
+
+/**
+ * @method updateFriendInvitation
+ * @param {Object} invitationObject Object containing the following:
+ * 		@param {String} userFrom Id of the user sending friendRequest
+ * 		@param {String} userTo Id of the user receiving friendRequest
+ * 		@param {String} status String of the status being sent (Default is approved)
+ * @param {Function} cb Callback function
+ */
+var updateFriendInvitation = exports.updateFriendInvitation = function(invitationObject, cb) {
+	httpManager.execute('/friend/request/:invitationId/:status', 'PUT', invitationObject, true, function(err, invitationResponse){
+		if(err) {
+			cb(err, null);
+		} else {
+			cb(err, invitationResponse);
 		}
 	});
 };
