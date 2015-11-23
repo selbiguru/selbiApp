@@ -10,34 +10,6 @@ var nameFontSize, iconSize, labelTop, labelLeft,
 	iconRight, headerViewHeight, headerLabelFontSize;
 
 
-$.usernameSearch.addEventListener('change', function(e) {
-	var usernameObject = {
-		username: e.value
-	};
-	if(e.value.length > 5){
-		userManager.getUserByUsername( usernameObject, function(err, results) {
-			//console.log('Results of username Search', results,'errererrrr' ,err);
-			if($.addFriendsSearchView.children.length > 2) {
-				$.addFriendsSearchView.remove($.addFriendsSearchView.children[2]);
-			};
-			if(results || err) {
-				var labelStuff = Ti.UI.createLabel({
-					right: '15dp',
-					font: {
-						fontSize: '18dp'
-					}
-				});
-				$.fa.add(labelStuff, 'fa-plus-square-o');
-				$.addFriendsSearchView.add(labelStuff);
-			}
-		});
-	} else {
-		if($.addFriendsSearchView.children.length > 2) {
-			$.addFriendsSearchView.remove($.addFriendsSearchView.children[2]);
-		};
-	}
-});
-
 
 /**
  * @method getContactListTemplate
