@@ -162,6 +162,10 @@ function getFriendsSection() {
 
 
 
+/**
+ * @method friendRequestDynamic
+ * Returns friend invitation and corresponding icon to be displayed
+ */
 function friendRequestDynamic(e, newStatus){
 	var createInvitationObject = {
 			userFrom: Ti.App.Properties.getString('userId'),
