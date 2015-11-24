@@ -112,8 +112,8 @@ function getFriendsSection() {
 						};
 						if(e.value.length > 5){
 							friendsManager.getInvitationByUsername( usernameObject, function(err, results) {
-								//console.log('Results of username Search', results,'errererrrr' ,err);
-								if(results) {
+								console.log('Results of username Search', results,'errererrrr' ,err);
+								if(results && results.id != Ti.App.Properties.getString('userId')) {
 									if(e.source.children.length > 0 ){
 										e.source.remove(e.source.children[0]);
 									};
@@ -133,7 +133,7 @@ function getFriendsSection() {
 				                		},
 				                		touchEnabled: false
 									});
-									var labelIcon = results.invitation.length <= 0 ? 'fa-plus-square-o' : results.invitation[0].status === 'denied' ? 'fa-plus-square-o' :  results.invitation[0].status != 'pending' && results.invitation[0].userFrom != Ti.App.Properties.getString('userId') ? 'fa-plus-square-o' : 'fa-check-square';
+									var labelIcon = results.invitation.length <= 0 ? 'fa-plus-square-o' : results.invitation[0].status === 'denied' ? 'fa-plus-square-o' :  results.invitation[0].status === 'pending' && results.invitation[0].userFrom != Ti.App.Properties.getString('userId') ? 'fa-plus-square-o' : 'fa-check-square';
 									$.fa.add(labelStuff, labelIcon);
 									hiddenView.add(labelStuff);
 									e.source.add(hiddenView);
