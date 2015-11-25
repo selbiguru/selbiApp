@@ -26,13 +26,32 @@ exports.getListing = function(listingId, cb){
 
 /**
  * @method getUserListings
- * Obtains all the listings for a give user
+ * Obtains all the listings for a given user
  * @param {String} userId User Identifier
  * @param {Function} cb Callback function
  */
 exports.getUserListings = function(userId, cb){
 	httpManager.execute('/userlistings/'+ userId, 'GET', null, true, function(err, listingsResult){
 		cb(err, listingsResult);
+	});
+};
+
+
+
+
+/**
+ * @method getFriendsListings
+ * Obtains all friends listings for a given user
+ * @param {String} userId User Identifier
+ * @param {Function} cb Callback function
+ */
+exports.getFriendsListings = function(userId, cb){
+	httpManager.execute('/userlistings/friendlistings/'+ userId, 'GET', null, true, function(err, friendListingsResult){
+		if(err) {
+            cb(err, null);
+		} else {
+			cb(null, friendListingsResult);
+		}
 	});
 };
 

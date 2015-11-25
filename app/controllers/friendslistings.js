@@ -31,37 +31,38 @@ genFriendsItems(function(err, items){
  * @param {Function} cb Callback function
  */
 function genFriendsItems(cb){
-	listingManager.getUserListings(argsID, function(err, userListings){
+	listingManager.getFriendsListings(argsID, function(err, friendsListings){
+		console.log('3333333000000000 ', friendsListings);
 		var listItems = [];
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading your friend\'s listings!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
-		} else if(userListings && userListings.listings.length > 0) {
-			for(var listing in userListings.listings) {
-				if(userListings.listings[listing].imageUrls){
+		} else if(friendsListings && friendsListings.length > 0) {
+			for(var listing in friendsListings) {
+				if(friendsListings[listing].imageUrls){
 					var view = Alloy.createController('userTwoColumnTemplate');
-					var imageUrl = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + userListings.listings[listing].imageUrls[0] : "";
-					var practiceImage = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg" : "";
+					var imageUrl = friendsListings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + friendsListings[listing].imageUrls[0] : "";
+					var profileImage = friendsListings[listing].friend.profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + friendsListings[listing].friend.profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
 					var tmp = {
 						image :  imageUrl,
 			            usaListingThumb : {
 			                image :  imageUrl
 			            },
 			            usaImageThumb : {
-			                image : practiceImage
+			                image : profileImage
 			            },
 			            usaListingName: {
-			            	text: userListings.firstName +" "+ userListings.lastName
+			            	text: friendsListings[listing].friend.firstName +" "+ friendsListings[listing].friend.lastName
 			            },
 			            usaListingNumber: {
-			            	text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Listings" : userListings.listings[listing].imageUrls.length + " Listing"
+			            	text: friendsListings[listing].imageUrls.length > 1 ? "+" + friendsListings[listing].imageUrls.length + " Listings" : friendsListings[listing].imageUrls.length + " Listing"
 			            },  
 			            template: 'userTwoColumnTemplate',
 			            properties: {
-			            	userId: userListings.listings[listing].user,
-			            	userName: userListings.firstName +" "+ userListings.lastName,
+			            	userId: friendsListings[listing].user,
+			            	userName: friendsListings[listing].friend.firstName +" "+ friendsListings[listing].friend.lastName,
 			            	friends: true
 			            }
 			        };
@@ -70,13 +71,13 @@ function genFriendsItems(cb){
 			        		image: imageUrl
 			        	},
 			        	'#usaImageThumb': {
-			        		image: practiceImage
+			        		image: profileImage
 			        	},
 			        	'#usaListingName':{ 
-			        		text: helpers.alterTextFormat(userListings.firstName +" "+ userListings.lastName, 12, false)
+			        		text: helpers.alterTextFormat(friendsListings[listing].friend.firstName +" "+ friendsListings[listing].friend.lastName, 12, false)
 		        		},
 		        		'#usaListingNumber':{ 
-			        		text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Listings" : userListings.listings[listing].imageUrls.length + " Listing"	
+			        		text: friendsListings[listing].imageUrls.length > 1 ? "+" + friendsListings[listing].imageUrls.length + " Listings" : friendsListings[listing].imageUrls.length + " Listing"	
 		        		}
 			        });
 			        
