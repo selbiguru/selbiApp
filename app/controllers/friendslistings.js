@@ -2,15 +2,13 @@ var args = arguments[0][0] || {},
 	argsID = arguments[0][1] || {};
 var listingManager = require('managers/listingmanager'),
 	userManager = require('managers/usermanager'),
+	friendsManager = require('managers/friendsmanager'),
 	helpers = require('utilities/helpers'),
 	dynamicElement = require('utilities/dynamicElement');
 var friendsPadding, friendsItemHeight;
 var items = [],
 	obj = [];
-	
 
-console.log("#################", args);
-console.log("*******************", argsID);
 
 $.activityIndicator.show();
 $.titleFriendsListingsLabel.text = "Friends";
@@ -63,7 +61,7 @@ function genFriendsItems(cb){
 			            properties: {
 			            	userId: friendsListings[listing].user,
 			            	userName: friendsListings[listing].friend.firstName +" "+ friendsListings[listing].friend.lastName,
-			            	friends: friendsListings[listings].invitation
+			            	friends: friendsListings[listing].invitation
 			            }
 			        };
 			        view.updateViews({
@@ -121,7 +119,7 @@ function findUserListings(){
 	var userNameSearchObj = {
 		username: helpers.trim($.usernameSearch.value)
 	};
-	userManager.getUserByUsername(userNameSearchObj, function (err, usernameResults) {
+	friendsManager.getInvitationByUsername(userNameSearchObj, function (err, usernameResults) {
 		if(err){
 	    	helpers.alertUser('Oops!','Sorry this user does not exist!');
 			return;
@@ -129,7 +127,7 @@ function findUserListings(){
     		openListing({
     			userId: usernameResults.id,	
     			userName: usernameResults.firstName + ' ' + usernameResults.lastName,
-    			friends: true
+    			friends: usernameResults.invitation
    		 	});
 			return;
 		}
@@ -191,7 +189,6 @@ $.fg.init({
     itemBorderRadius:0
 });
 $.fg.setOnItemClick(function(e){
-	console.log("used 1", e.source.data);
     openListing({
     	userId:e.source.data.properties.userId,	
     	userName:e.source.data.properties.userName,
