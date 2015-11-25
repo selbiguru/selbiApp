@@ -2,6 +2,7 @@ var args = arguments[0][0] || {},
 	argsID = arguments[0][1] || {};
 var listingManager = require('managers/listingmanager'),
 	userManager = require('managers/usermanager'),
+	friendsManager = require('managers/friendsmanager'),
 	helpers = require('utilities/helpers'),
 	dynamicElement = require('utilities/dynamicElement');
 var	selbiUSAPadding, selbiUSAItemHeight;
@@ -112,7 +113,7 @@ function findUserListings(){
 	var userNameSearchObj = {
 		username: helpers.trim($.usernameSearch.value)
 	};
-	userManager.getUserByUsername(userNameSearchObj, function (err, usernameResults) {
+	friendsManager.getInvitationByUsername(userNameSearchObj, function (err, usernameResults) {
 		if(err){
 	    	helpers.alertUser('Oops!','Sorry this user does not exist!');
 			return;
@@ -120,7 +121,7 @@ function findUserListings(){
     		openListing({
     			userId: usernameResults.id,	
     			userName: usernameResults.firstName + ' ' + usernameResults.lastName,
-    			friends: false	
+    			friends: usernameResults.invitation	
    		 	});
 			return;
 		}
