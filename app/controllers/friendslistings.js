@@ -57,13 +57,13 @@ function genFriendsItems(cb){
 			            	text: friendsListings[listing].friend.firstName +" "+ friendsListings[listing].friend.lastName
 			            },
 			            usaListingNumber: {
-			            	text: friendsListings[listing].imageUrls.length > 1 ? "+" + friendsListings[listing].imageUrls.length + " Listings" : friendsListings[listing].imageUrls.length + " Listing"
+			            	text: friendsListings[listing].counter.count > 1 ? friendsListings[listing].counter.count + " Listings" : friendsListings[listing].counter.count + " Listing"
 			            },  
 			            template: 'userTwoColumnTemplate',
 			            properties: {
 			            	userId: friendsListings[listing].user,
 			            	userName: friendsListings[listing].friend.firstName +" "+ friendsListings[listing].friend.lastName,
-			            	friends: true
+			            	friends: friendsListings[listings].invitation
 			            }
 			        };
 			        view.updateViews({
@@ -77,7 +77,7 @@ function genFriendsItems(cb){
 			        		text: helpers.alterTextFormat(friendsListings[listing].friend.firstName +" "+ friendsListings[listing].friend.lastName, 12, false)
 		        		},
 		        		'#usaListingNumber':{ 
-			        		text: friendsListings[listing].imageUrls.length > 1 ? "+" + friendsListings[listing].imageUrls.length + " Listings" : friendsListings[listing].imageUrls.length + " Listing"	
+			        		text: friendsListings[listing].counter.count > 1 ? friendsListings[listing].counter.count + " Listings" : friendsListings[listing].counter.count + " Listing"	
 		        		}
 			        });
 			        
@@ -121,7 +121,6 @@ function findUserListings(){
 	var userNameSearchObj = {
 		username: helpers.trim($.usernameSearch.value)
 	};
-	console.log('NOOOO STOP');
 	userManager.getUserByUsername(userNameSearchObj, function (err, usernameResults) {
 		if(err){
 	    	helpers.alertUser('Oops!','Sorry this user does not exist!');
