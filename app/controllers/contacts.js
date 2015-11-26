@@ -105,13 +105,18 @@ function getFriendsSection() {
 	            events: {
 	                // Bind event callbacks only to the subcomponent
 	                change: function(e){
+	                	var uniqueUserRegEx = e.value.length > 0 ? (e.value).match(/^[a-zA-Z\d\_]+$/) : '';
                 		var usernameObject = {
-							username: e.value
+							username: helpers.trim(e.value, true).toLowerCase()
 						};
-						if(e.source.children.length > 0 ){
+						if(e.source.children.length > 0 && (!uniqueUserRegEx || uniqueUserRegEx)){
 								e.source.remove(e.source.children[0]);
 						};
-						if(e.value.length > 5){
+						if(uniqueUserRegEx === null) {
+							helpers.alertUser('Oops','Usernames are only letters and numbers!');
+	                		return;
+	                	}
+						if(helpers.trim(e.value, true).length > 6){
 							friendsManager.getInvitationByUsername( usernameObject, function(err, results) {
 								console.log('Results of username Search', results,'errererrrr' ,err);
 								if(results && results.id != Ti.App.Properties.getString('userId')) {
