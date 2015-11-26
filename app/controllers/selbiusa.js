@@ -106,12 +106,17 @@ function genUSAItems(cb){
  * When button is clicked, finds user listings of entered username
  */
 function findUserListings(){
-	if(helpers.trim($.usernameSearch.value).length < 5) {
-		$.usernameSearch.value = '';
+	var uniqueUserRegEx = ($.usernameSearch.value.toLowerCase()).match(/^[a-zA-Z\d\_]+$/);
+	if(uniqueUserRegEx === null) {
+		helpers.alertUser('Oops','Usernames are only letters and numbers!');
+		return;
+	}
+	if(helpers.trim($.usernameSearch.value, true).length < 6) {
+		helpers.alertUser('Oops','Usernames are at least 6 letters long!');
 		return;
 	}
 	var userNameSearchObj = {
-		username: helpers.trim($.usernameSearch.value)
+		username: helpers.trim($.usernameSearch.value, true).toLowerCase()
 	};
 	friendsManager.getInvitationByUsername(userNameSearchObj, function (err, usernameResults) {
 		if(err){
