@@ -13,7 +13,7 @@
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 		</View>
 		<View id="selbiUSASearchView">
-			<TextField id='usernameSearch' hintText="Enter Username"></TextField>
+			<TextField id='usernameSearch' hintText="Enter Username" maxLength="20"></TextField>
 		</View>
 		<View id='defaultView'>
 			

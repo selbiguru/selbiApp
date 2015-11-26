@@ -89,10 +89,11 @@ function getFriendsSection() {
 		 childTemplates: [
 	        {                           	// Title
 	            type: 'Ti.UI.TextField',    // Use a label for the title
-	            bindId: 'bear',         	// Maps to a custom title property of the item data
+	            bindId: 'userNameSearch',   // Maps to a custom title property of the item data
 	            properties: { 	         	// Sets the label properties
 	            	width: Ti.UI.FILL,
-					height: heightDataView,	            		            	
+					height: heightDataView,
+					maxLength: "20",	            		            	
 	                color: '#9B9B9B',
 	                font: {
 						fontSize: fontSizeTitleLabel,

@@ -135,16 +135,19 @@ function uploadUserProfile(imageBlob){
 
 function updateUser(e){
 	if(!userNameUnique) {
-		helpers.alertUser('Sorry','Usernames can only be letters and numbers!');
+		if(helpers.trim($.username.value, true).length < 6 ) {
+			helpers.alertUser('Sorry','Usernames must be at least 6 characters!');
+		} else {
+			helpers.alertUser('Sorry','Usernames can only be letters and numbers!');
+		}
 		return;
 	}
-	console.log("MISSED ME BITCH");
 	// Todo: validation
 	var textFieldObject = {
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
 		"firstName": helpers.capFirstLetter($.firstName.value),
 		"lastName": helpers.capFirstLetter($.lastName.value),
-		"username": $.username.value.toLowerCase()
+		"username": helpers.trim($.username.value, true).toLowerCase()
 	};
 	/*var validateFields = helpers.validateFields(textFieldObject);
 	for (var i in textFieldObject) {
