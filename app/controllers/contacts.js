@@ -164,6 +164,8 @@ function getFriendsSection() {
 
 /**
  * @method friendRequestDynamic
+ * @param {Object} e is the clicked object returned by Appcelerator
+ * @param {String} newStatus Stringed status that invitation should be updated to
  * Returns friend invitation and corresponding icon to be displayed
  */
 function friendRequestDynamic(e, newStatus){

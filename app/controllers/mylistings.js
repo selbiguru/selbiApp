@@ -3,6 +3,7 @@ var args = arguments[0][0] || {},
 	argsFriend = arguments[0][2] || false;
 var listingManager = require('managers/listingmanager'),
 	helpers = require('utilities/helpers'),
+	friendsManager = require('managers/friendsmanager'),
 	dynamicElement = require('utilities/dynamicElement');
 var myListingPadding, myListingItemHeight,
 	myListingFontSize, myTopBarFontSize;
@@ -82,7 +83,6 @@ function genMyItems(cb){
 				$.defaultView.add(results);
 			});
 		} else if(userListings && userListings.listings.length > 0) {
-			console.log("Does this work?", myTopBarFontSize, myListingFontSize);
 			for(var listing in userListings.listings) {
 				if(userListings.listings[listing].imageUrls){
 					var view = Alloy.createController('myitemtemplate');
@@ -198,42 +198,129 @@ function friendRequest() {
 	if($.friendRequestView.children.length > 0){
 		$.friendRequestView.remove($.friendRequestView.children[0]);
 	};
-	console.log("what is happening here?", myTopBarFontSize, myListingFontSize);
-	if(argsFriend) {
-		var unfriendLabel = Titanium.UI.createLabel({
+	
+	var hiddenView = Ti.UI.createView({
+		width: Ti.UI.SIZE,
+		height: Ti.UI.SIZE,
+		data: argsFriend
+	});
+	$.friendRequestView.add(hiddenView);
+	if(argsFriend.length > 0 && (argsFriend[0].status === 'approved' || (argsFriend[0].status === 'pending' && argsFriend[0].userFrom === Ti.App.Properties.getString('userId')) ) ) {
+		var checkSquare = Titanium.UI.createLabel({
 			font: {
             	fontSize: myTopBarFontSize
         	},
 			color: "#1BA7CD",
 			id: 'friendRequestButton',
-			text: 'Unfriend',
-			data: true
+			text: argsFriend[0].status === 'approved' ? 'Friends' : 'Pending',
+			touchEnabled: false
 		});
-		$.fa.add(unfriendLabel, 'fa-check-square');
-		unfriendLabel.addEventListener('click', function(e) {
-			friendRequest();
-		});
-		$.friendRequestView.add(unfriendLabel);
-		argsFriend = false;
+		$.fa.add(checkSquare, 'fa-check-square');
+		hiddenView.add(checkSquare);
 	} else {
-		var friendLabel = Titanium.UI.createLabel({
+		var plusSquare = Titanium.UI.createLabel({
 			font: {
 	            fontSize: myTopBarFontSize
 	        },
 			color: "#1BA7CD",
 			id: 'friendRequestButton',
-			text: 'Friend',
-			data: false
+			text: 'Add',
+			touchEnabled: false
 		});
-		$.fa.add(friendLabel, 'fa-plus-square-o');
-		friendLabel.addEventListener('click', function(e) {
-			friendRequest();
-		});
-		$.friendRequestView.add(friendLabel);
-		argsFriend = true;
+		$.fa.add(plusSquare, 'fa-plus-square-o');
+		hiddenView.add(plusSquare);
 	}
+	hiddenView.addEventListener('click', function(e) {
+			if(e.source.data.length <= 0) {
+				friendRequestDynamic(e, 'pending');
+			} else if(e.source.data[0].status === 'denied') {
+				friendRequestDynamic(e, 'pending');
+			} else if(e.source.data[0].status === 'pending' && e.source.data[0].userTo === Ti.App.Properties.getString('userId')) {
+				friendRequestDynamic(e, 'approved');
+			} else if(e.source.data[0].status === 'pending' && e.source.data[0].userFrom === Ti.App.Properties.getString('userId') ) {
+				friendRequestDynamic(e, 'denied');
+			} else if(e.source.data[0].status === 'approved') {
+				friendRequestDynamic(e, 'denied');
+			}
+		});
 	return;
 }
+
+
+
+/**
+ * @method friendRequestDynamic
+ * @param {Object} e is the clicked object returned by Appcelerator
+ * @param {String} newStatus Stringed status that invitation should be updated to
+ * Returns friend invitation and corresponding icon to be displayed
+ */
+function friendRequestDynamic(e, newStatus){
+	var createInvitationObject = {
+			userFrom: Ti.App.Properties.getString('userId'),
+			userTo: argsID,
+			status: newStatus,
+	};
+	e.source.remove(e.source.children[0]);
+	if(e.source.data.length <= 0) {
+		friendsManager.createFriendInvitation( createInvitationObject, function(err, createInviteResult) {
+			if(err) {
+				return;
+			} else {
+				var checkSquare = Ti.UI.createLabel({
+					font: {
+		            	fontSize: myTopBarFontSize
+		        	},
+					color: "#1BA7CD",
+					id: 'friendRequestButton',
+					text: 'Pending',
+					touchEnabled: false
+				});
+				e.source.data = [createInviteResult]; 
+				$.fa.add(checkSquare, 'fa-check-square');
+				e.source.add(checkSquare);
+			}
+		});
+	} else if(newStatus === 'denied') {
+		friendsManager.updateFriendInvitation( createInvitationObject, e.source.data[0].id, function(err, updateInvitationResult) {
+			if(err) {
+				return;
+			} else {
+				var plusSquare = Ti.UI.createLabel({
+					font: {
+			            fontSize: myTopBarFontSize
+			        },
+					color: "#1BA7CD",
+					id: 'friendRequestButton',
+					text: 'Add',
+					touchEnabled: false
+				});
+				e.source.data = updateInvitationResult;
+				$.fa.add(plusSquare, 'fa-plus-square-o');
+				e.source.add(plusSquare);
+			}
+		});
+	} else {
+		friendsManager.updateFriendInvitation( createInvitationObject, e.source.data[0].id, function(err, updateInvitationResult) {
+			if(err) {
+				return;
+			} else {
+				var checkSquare = Ti.UI.createLabel({
+					font: {
+		            	fontSize: myTopBarFontSize
+		        	},
+					color: "#1BA7CD",
+					id: 'friendRequestButton',
+					text: updateInvitationResult[0].status === 'approved' ? 'Friends' : 'Pending',
+					touchEnabled: false
+				});
+				e.source.data = updateInvitationResult; 
+				$.fa.add(checkSquare, 'fa-check-square');
+				e.source.add(checkSquare);
+			}
+		});
+	}
+}
+
 
 
 
