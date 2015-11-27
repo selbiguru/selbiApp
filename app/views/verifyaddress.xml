@@ -23,7 +23,7 @@
 		    <View id="userAptNumber" class="rowContainer">
 		    	<View id='aptNumberView' class="info-views">
 		    		<Label class='address-labels'>Apt/Bldg #:</Label>
-		        	<TextField id="apartmenNumber" class="user-profile-text-fields left-padding"></TextField>
+		        	<TextField id="apartmenNumber" class="user-profile-text-fields left-padding" maxLength='25'></TextField>
 		        </View>
 		        <View class="login-underline"/>
 		    </View>

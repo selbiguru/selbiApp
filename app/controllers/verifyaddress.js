@@ -25,32 +25,45 @@ $.verifyAddressCancelButton.addEventListener('click', function(){
 
 
 function validateAddressView(){
+	var leadingWords = ['building','bldg', 'apartment', 'apt', 'suite', 'ste'];
 	var value = {
 		value: $.apartmenNumber.value,
 	};
 	var options = {
 		trim: true,
-		regexp: /^([a-zA-Z0-9\.\-]+\s?)*$/,
+		regexp: /^([a-zA-Z0-9\-]+\s?)*$/,
 		label: "Apt/Bldg #",
 		required: false
 	};
 	var aptNumber = utils.validate(value, options);
 	if (aptNumber.message) {
-		alert(aptNumber.message);
-		//$.addClass($.userAptNumber, "error");
+		helpers.alertUser('Oops', 'Apt/Bldg can only contain letters/numbers/-');
 		return;	
 	} else {
+		var leadingWordsAdj = false;
+		if(leadingWords.indexOf(value.value.toLowerCase().split(" ")[0]) != -1) {
+			if(value.value.toLowerCase().split(" ")[0] === 'building') {
+				value.value = helpers.capFirstLetter(value.value.toLowerCase().replace("building", "bldg"));
+			} else if(value.value.toLowerCase().split(" ")[0] === 'apartment') {
+				value.value = helpers.capFirstLetter(value.value.toLowerCase().replace("apartment", "apt"));
+			} else if(value.value.toLowerCase().split(" ")[0] === 'suite') {
+				value.value = helpers.capFirstLetter(value.value.toLowerCase().replace("suite", "ste"));
+			}
+			value.value = helpers.capFirstLetter(value.value);
+			leadingWordsAdj = true;
+		};
 		var textFieldObject = {
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
 		"userAddress": {
 						"address": $.route.value,
-						"address2": helpers.trim($.apartmenNumber.value, true).length > 0 ? '#'+ helpers.trim($.apartmenNumber.value, true) : '', 
+						"address2": helpers.trim($.apartmenNumber.value, true).length > 0 ? leadingWordsAdj ? value.value : '#'+ helpers.capFirstLetter(value.value) : '', 
 						"city": $.locality.value+",", 
 						"state": $.administrative_area_level_1.value,
 						"zip": $.postal_code.value,
 						"country": $.country.value
 						}
 		};
+		return;
 		userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
 			if(err) {
 				helpers.alertUser('Update Address','Failed to update address, please try again!');
