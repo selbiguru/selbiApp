@@ -1,4 +1,5 @@
 var httpManager = require('managers/httpmanager');
+var helpers = require('utilities/helpers');
 
 var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
 	// Todo: validation on userUpdateObj
@@ -9,8 +10,8 @@ var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
 			if(userUpdateResult) {
 				var userModel = Alloy.Models.instance('user');
 				userModel.set({username: userUpdateResult.username});
-				userModel.set({firstName: userUpdateResult.firstName});
-				userModel.set({lastName: userUpdateResult.lastName});
+				userModel.set({firstName: helpers.capFirstLetter(userUpdateResult.firstName)});
+				userModel.set({lastName: helpers.capFirstLetter(userUpdateResult.lastName)});
 				userModel.set({email: userUpdateResult.email});
 				userModel.set({id: userUpdateResult.id});
 				userModel.set({phoneNumber: userUpdateResult.phoneNumber});
@@ -42,8 +43,8 @@ var getCurrentUser = exports.getCurrentUser = function(cb){
 		} else {
 			var userModel = Alloy.Models.instance('user');
 			userModel.set({username: userObject.username});
-			userModel.set({firstName: userObject.firstName});
-			userModel.set({lastName: userObject.lastName});
+			userModel.set({firstName: helpers.capFirstLetter(userObject.firstName)});
+			userModel.set({lastName: helpers.capFirstLetter(userObject.lastName)});
 			userModel.set({email: userObject.email});
 			userModel.set({id: userObject.id});
 			userModel.set({phoneNumber: userObject.phoneNumber});

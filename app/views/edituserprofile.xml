@@ -23,14 +23,14 @@
 	        	<View id="userInfo" class="rowContainer">
 	        		<View id='firstNameView' class='info-views'>
 	        			<Label class='info-labels'>First:</Label>
-			        	<TextField id="firstName" hintText="First Name" class="left-padding" value="{user.firstName}"></TextField>
+			        	<TextField id="firstName" hintText="First Name" class="left-padding" value="{user.firstName}" maxLength="50"></TextField>
 	        		</View>
 			        <View class="dark-underline"/>
 			    </View>
 			    <View class="rowContainer">
 			    	<View id='lastNameView' class='info-views'>
 				    	<Label class='info-labels'>Last:</Label>
-				        <TextField id="lastName" hintText="Last Name" class="left-padding" value="{user.lastName}"></TextField>
+				        <TextField id="lastName" hintText="Last Name" class="left-padding" value="{user.lastName}" maxLength="50"></TextField>
 				    </View>
 			        <View class="dark-underline"/>
 			    </View>

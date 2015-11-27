@@ -134,6 +134,9 @@ function uploadUserProfile(imageBlob){
 }
 
 function updateUser(e){
+	var uniqueFirstNameRegEx = ($.firstName.value).match(/^[a-zA-Z]+$/);
+	var uniqueLastNameRegEx = ($.lastName.value).match(/^[a-zA-Z]+$/);
+	
 	if(!userNameUnique) {
 		if(helpers.trim($.username.value, true).length < 6 ) {
 			helpers.alertUser('Sorry','Usernames must be at least 6 characters!');
@@ -141,27 +144,18 @@ function updateUser(e){
 			helpers.alertUser('Sorry','Usernames can only be letters and numbers!');
 		}
 		return;
+	};
+	
+	if(!uniqueFirstNameRegEx || !uniqueLastNameRegEx) {
+		helpers.alertUser('Sorry','First and Last name can only be letters and must be at least 1 character long!');
+		return;
 	}
-	// Todo: validation
 	var textFieldObject = {
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
-		"firstName": helpers.capFirstLetter($.firstName.value),
-		"lastName": helpers.capFirstLetter($.lastName.value),
+		"firstName": helpers.trim($.firstName.value, true).toLowerCase(),
+		"lastName": helpers.trim($.lastName.value, true).toLowerCase(),
 		"username": helpers.trim($.username.value, true).toLowerCase()
 	};
-	/*var validateFields = helpers.validateFields(textFieldObject);
-	for (var i in textFieldObject) {
-		if($.[i])
-		$.removeClass($[i], "error");
-		
-	}
-	if(validateFields != true){
-		console.log("validateFields", validateFields);
-		for (var i in validateFields) {
-			$.addClass($[i], "error");
-		}
-		//Todo send back error message
-	}*/
 	
 	userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
 		if(err) {
@@ -169,8 +163,8 @@ function updateUser(e){
 			return;
 		} else {
 			helpers.alertUser('Updated User', 'User profile saved!');
-			$.firstName.value = helpers.capFirstLetter($.firstName.value);
-			$.lastName.value = helpers.capFirstLetter($.lastName.value);
+			$.firstName.value = $.firstName.value;
+			$.lastName.value = $.lastName.value;
 			$.username.value = $.username.value;
 		}
 	});	
