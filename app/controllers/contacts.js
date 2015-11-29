@@ -20,33 +20,11 @@ function getContactListTemplate() {
 		 childTemplates: [
 		 	{
 		 		type: 'Ti.UI.View',
-		 		bindId: 'data',
 		 		properties: {
 		 			width: Ti.UI.FILL,
 		 			height: heightDataView,
 		 			backgroundColor: '#FAFAFA'
 		 		},
-		 		events: {
-	                // Bind event callbacks only to the subcomponent
-	                click: function(e){
-	                	//console.log('DATA', e.bindId);
-	                	if(e.source.children && e.source.children.length > 0 && e.bindId === 'data' ) {
-	                		e.source.remove(e.source.children[0]);
-	                	} else {
-	                		var checkMark = Ti.UI.createLabel({
-		                		width: Ti.UI.SIZE,
-		                		color: '#1BA7CD',
-		                		right: rightCheckMark,
-		                		font: {
-		                			fontSize: fontSizeCheckMark,
-		                		},
-		                		touchEnabled:false
-		                	});
-		                	$.fa.add(checkMark, 'fa-check');
-		                	e.source.add(checkMark);
-	                	}
-	                }
-            	},
 		 	},
 	        {                            // Title
 	            type: 'Ti.UI.Label',     // Use a label for the title
@@ -73,7 +51,53 @@ function getContactListTemplate() {
 	                left: leftLabel, 
 	                top: topSubtitleLabel
 	            },
-	        }
+	        },
+	        {
+		 		type: 'Ti.UI.View',
+		 		bindId: 'data',
+		 		properties: {
+		 			width: '20dp',
+		 			height: '20dp',
+		 			right: rightCheckMark,
+		 			
+		 		},
+		 		childTemplates: [ {
+                // View subcomponents can also have subcomponents
+	               	type: 'Ti.UI.Label',
+	               	bindId: 'checkmark',
+			 		properties: {
+			 			touchEnabled:false,
+					    font : {
+					        fontFamily : "FontAwesome",
+					        fontSize: fontSizeCheckMark,
+					    },
+					    color: '#1BA7CD'
+			 		},
+            	}],
+		 		events: {
+	                // Bind event callbacks only to the subcomponent
+	                click: function(e){
+	                	//console.log('11111000001010101', e.source.data);
+	                	//console.log('777773333333', e.source.id);
+	                	//console.log('777773333333', e.source.status);
+	                	//console.log('99990000000000', e.source.children);
+	                	//console.log('DATA', e.bindId);
+                		if(e.source.status === 'new') {
+							friendRequestDynamic(e, 'pending');
+						} else if(e.source.status === 'denied') {
+							friendRequestDynamic(e, 'pending');
+						} else if(e.source.status === 'pending' && e.source.data.invitation[0].userTo === Ti.App.Properties.getString('userId')) {
+							friendRequestDynamic(e, 'approved');
+						} else if(e.source.status === 'pending' && e.source.data.invitation[0].userFrom === Ti.App.Properties.getString('userId') ) {
+							friendRequestDynamic(e, 'denied');
+						} else if(e.source.status === 'approved') {
+							console.log('Made it%%%%5555 ', e);
+							friendRequestDynamic(e, 'denied');
+						}
+	                }
+            	},
+		 	},
+		 	
 	    ]
 	};
 };
@@ -118,7 +142,7 @@ function getFriendsSection() {
 	                	}
 						if(helpers.trim(e.value, true).length > 6){
 							friendsManager.getInvitationByUsername( usernameObject, function(err, results) {
-								console.log('Results of username Search', results,'errererrrr' ,err);
+								//console.log('Results of username Search', results,'errererrrr' ,err);
 								if(results && results.id != Ti.App.Properties.getString('userId')) {
 									if(e.source.children.length > 0 ){
 										e.source.remove(e.source.children[0]);
@@ -282,8 +306,11 @@ function loadContacts() {
 		backgroundColor: '#FAFAFA',
 		allowsSelection: false
 	});
-	var usersContactList = Ti.UI.createListSection({
-		headerView: createCustomView('Invite friends to Selbi'),
+	var contactsOnSelbi = Ti.UI.createListSection({
+		headerView: createCustomView('Friends on Selbi'),
+	});
+	var contactsNotUsers = Ti.UI.createListSection({
+		headerView: createCustomView('Not on Selbi'),
 		footerView: Ti.UI.createView({
 		        backgroundColor: '#E5E5E5',
 		        height: '1dp'
@@ -291,16 +318,19 @@ function loadContacts() {
 	});
 	var addFriendSection = Ti.UI.createListSection({
 		headerView: createCustomView('Add friends on Selbi'),
-		/*footerView: Ti.UI.createView({
-		        backgroundColor: '#E5E5E5',
-		        height: '1dp'
-		})*/	
 	});
 	var currentUsers = [];
-	var nonUser = [];
+	var searchUsers = [];
+	var nonUsers = [];
 	var phoneArray = [];
 	var people = Ti.Contacts.getAllPeople();
 	if(people) {
+		var practiceToDelete = {
+			newNumber: '5551290222',
+			originalNumber: '5551290222',
+			contactName: 'Tony Stevens',
+		};
+		phoneArray.push(practiceToDelete);
 		for(var person in people) {
 			if((people[person].phone.mobile && people[person].phone.mobile.length > 0) || (people[person].phone.work && people[person].phone.work.length > 0) || (people[person].phone.home && people[person].phone.home.length > 0) || (people[person].phone.other && people[person].phone.other.length > 0)) {
 				var phone = people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : "";
@@ -314,6 +344,7 @@ function loadContacts() {
 			};
 		};
 		friendsManager.getSelbiUsersByPhones(phoneArray,function(err, results){
+			//console.log('!2121212121212 ', results);
 			if(err) {
 				helpers.alertUser('Oops','Having trouble getting your phone contacts. Please try again later!');
 				addressBookDisallowed();
@@ -329,31 +360,41 @@ function loadContacts() {
 						currentUsers.push({
 							title: { text: results[user].contactName },
 						 	subtitle: {text: "Using Selbi", color:'#1BA7CD'},
-						 	data: { data: 1},
+						 	data: { data: {invitation: results[user].invitation, id:results[user].id}, id: results[user].username, status: results[user].invitation.length <= 0 ? "new" : results[user].invitation[0].status },
+						 	checkmark : {data: results[user].invitation, text : results[user].invitation.length <= 0 ? '\uf196' : determineStatus(results[user].invitation[0]), visible: true, ext: results[user].username},
 						 	properties: {
 								height: heightDataView
 							}
 						});
 					} else {
-						currentUsers.push({
+						nonUsers.push({
 							title: { text: results[user].contactName },
 						 	subtitle: {text: results[user].originalNumber },
-							data: { data: 0},
+							data: { data: {invitation: results[user].invitation , id:results[user].id }, id: results[user].username},
+							checkmark : {data: results[user].invitation, text : '\uf196', visible: false , ext: results[user].username, touchEnabled: false},
 							properties: {
 								height: heightDataView
 							}
 						});
 					}
 				}
-				nonUser.push({
+				if(currentUsers.length === 0) {
+					currentUsers.push({
+						properties: {
+							height: heightDataView
+						}
+					});
+			}
+				searchUsers.push({
 					properties: {
 						height: heightDataView
 					},
 					template: 'getFriendsSection'	
 				});
-				usersContactList.setItems(currentUsers);
-				addFriendSection.setItems(nonUser);
-				contactListView.sections = [addFriendSection, usersContactList];
+				contactsOnSelbi.setItems(currentUsers);
+				contactsNotUsers.setItems(nonUsers);
+				addFriendSection.setItems(searchUsers);
+				contactListView.sections = [addFriendSection, contactsOnSelbi, contactsNotUsers];
 				$.addFriendsView.add(contactListView);
 			}	
 		});
@@ -388,10 +429,27 @@ function importContacts() {
 	} else {
 	    addressBookDisallowed();
 	}
-}
+};
 
 
-
+/**
+ * @method determineStatus
+ * @param {Object} invitation is the invitation object returned by Selbi
+ * Determines invitation status for dynamic fontawesome elements
+ */
+function determineStatus(invitation) {
+	if(invitation.status === 'new') {
+		return '\uf196';
+	} else if(invitation.status === 'denied') {
+		return '\uf196';
+	} else if(invitation.status === 'pending' && invitation.userTo === Ti.App.Properties.getString('userId')) {
+		return '\uf196';
+	} else if(invitation.status === 'pending' && invitation.userFrom === Ti.App.Properties.getString('userId') ) {
+		return '\uf14a';
+	} else if(invitation.status === 'approved') {
+		return '\uf14a';
+	}
+};
 
 
 /*----------------------------------------------Dynamic Elements---------------------------------------------*/
@@ -468,3 +526,4 @@ switch(Alloy.Globals.userDevice) {
 /*----------------------------------------------On page load calls---------------------------------------------*/
 
 importContacts();
+

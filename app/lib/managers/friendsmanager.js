@@ -27,13 +27,6 @@ var getInvitationByUsername = exports.getInvitationByUsername = function(usernam
 };
 
 
-
-
-
-
-
-/***************************************************POST/UPDATE CALLS*******************************************************/
-
 /**
  * @method getSelbiUsersByPhones
  * Create a listing for a given user and upload the images
@@ -41,7 +34,7 @@ var getInvitationByUsername = exports.getInvitationByUsername = function(usernam
  * @param {Function} cb Callback function
  */
 var getSelbiUsersByPhones = exports.getSelbiUsersByPhones = function(phoneArray, cb) {
-	httpManager.execute('/user/byphone', 'POST', phoneArray, true, function(err, phoneResponse){
+	httpManager.execute('/user/byphone/'+ Ti.App.Properties.getString('userId'), 'POST', phoneArray, true, function(err, phoneResponse){
 		if(err) {
 			cb(err, null);
 		} else {
@@ -49,6 +42,14 @@ var getSelbiUsersByPhones = exports.getSelbiUsersByPhones = function(phoneArray,
 		}
 	});
 };
+
+
+
+
+
+
+/***************************************************POST/UPDATE CALLS*******************************************************/
+
 
 
 
