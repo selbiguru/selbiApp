@@ -1,7 +1,7 @@
 var args = arguments[0] || {};
 var helpers = require('utilities/helpers'),
 	dynamicElement = require('utilities/dynamicElement');//,
-	//notificationManager = require('managers/notificationmanager');
+	notificationManager = require('managers/notificationmanager');
 var dataArray = [];
 
 //$.activityIndicator.show();
