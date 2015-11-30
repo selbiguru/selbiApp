@@ -56,9 +56,9 @@ function getContactListTemplate() {
 		 		type: 'Ti.UI.View',
 		 		bindId: 'data',
 		 		properties: {
-		 			width: '20dp',
-		 			height: '20dp',
-		 			right: rightCheckMark,
+		 			width: Ti.UI.SIZE,
+					height: Ti.UI.SIZE,
+		 			right: rightCheckMark
 		 			
 		 		},
 		 		childTemplates: [ {
@@ -328,7 +328,7 @@ function loadContacts() {
 		var practiceToDelete = {
 			newNumber: '5551290222',
 			originalNumber: '5551290222',
-			contactName: 'Tony Stevens',
+			contactName: 'Tishmingandspp Stevensnfmgndmgndsdfsmfngm'
 		};
 		phoneArray.push(practiceToDelete);
 		for(var person in people) {
@@ -358,7 +358,7 @@ function loadContacts() {
 				for(var user in results) {
 					if(results[user].isActiveUser){
 						currentUsers.push({
-							title: { text: results[user].contactName },
+							title: { text: helpers.alterTextFormat(results[user].contactName, 28, false) },
 						 	subtitle: {text: "Using Selbi", color:'#1BA7CD'},
 						 	data: { data: {invitation: results[user].invitation, id:results[user].id}, id: results[user].username, status: results[user].invitation.length <= 0 ? "new" : results[user].invitation[0].status },
 						 	checkmark : {data: results[user].invitation, text : results[user].invitation.length <= 0 ? '\uf196' : determineStatus(results[user].invitation[0]), visible: true, ext: results[user].username},
@@ -368,7 +368,7 @@ function loadContacts() {
 						});
 					} else {
 						nonUsers.push({
-							title: { text: results[user].contactName },
+							title: { text: helpers.alterTextFormat(results[user].contactName, 28, false) },
 						 	subtitle: {text: results[user].originalNumber },
 							data: { data: {invitation: results[user].invitation , id:results[user].id }, id: results[user].username},
 							checkmark : {data: results[user].invitation, text : '\uf196', visible: false , ext: results[user].username, touchEnabled: false},
