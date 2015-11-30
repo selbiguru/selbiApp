@@ -63,7 +63,6 @@ function validateAddressView(){
 						"country": $.country.value
 						}
 		};
-		return;
 		userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
 			if(err) {
 				helpers.alertUser('Update Address','Failed to update address, please try again!');
