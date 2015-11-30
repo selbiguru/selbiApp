@@ -86,12 +86,11 @@ function getContactListTemplate() {
 							friendRequestDynamic(e, 'pending');
 						} else if(e.source.status === 'denied') {
 							friendRequestDynamic(e, 'pending');
-						} else if(e.source.status === 'pending' && e.source.data.invitation[0].userTo === Ti.App.Properties.getString('userId')) {
+						} else if(e.source.status === 'pending' && e.source.invitation[0].userTo === Ti.App.Properties.getString('userId')) {
 							friendRequestDynamic(e, 'approved');
-						} else if(e.source.status === 'pending' && e.source.data.invitation[0].userFrom === Ti.App.Properties.getString('userId') ) {
+						} else if(e.source.status === 'pending' && e.source.invitation[0].userFrom === Ti.App.Properties.getString('userId') ) {
 							friendRequestDynamic(e, 'denied');
 						} else if(e.source.status === 'approved') {
-							console.log('Made it%%%%5555 ', e);
 							friendRequestDynamic(e, 'denied');
 						}
 	                }
@@ -153,6 +152,7 @@ function getFriendsSection() {
 										ext: e.source,
 										right: rightCheckMark,
 										data: results,
+										invitation: results.invitation,
 										status: results.invitation.length <= 0 ? "new" : results.invitation[0].status 
 									});
 									var labelStuff = Ti.UI.createLabel({
@@ -172,9 +172,9 @@ function getFriendsSection() {
 											friendRequestDynamic(e, 'pending');
 										} else if(e.source.status === 'denied') {
 											friendRequestDynamic(e, 'pending');
-										} else if(e.source.status === 'pending' && e.source.data.invitation[0].userTo === Ti.App.Properties.getString('userId')) {
+										} else if(e.source.status === 'pending' && e.source.invitation[0].userTo === Ti.App.Properties.getString('userId')) {
 											friendRequestDynamic(e, 'approved');
-										} else if(e.source.status === 'pending' && e.source.data.invitation[0].userFrom === Ti.App.Properties.getString('userId') ) {
+										} else if(e.source.status === 'pending' && e.source.invitation[0].userFrom === Ti.App.Properties.getString('userId') ) {
 											friendRequestDynamic(e, 'denied');
 										} else if(e.source.status === 'approved') {
 											friendRequestDynamic(e, 'denied');
@@ -219,13 +219,13 @@ function friendRequestDynamic(e, newStatus){
             		touchEnabled: false
 				});
 				e.source.status = createInviteResult.status;
-				e.source.data.invitation = [createInviteResult]; 
+				e.source.invitation = [createInviteResult]; 
 				$.fa.add(checkSquare, 'fa-check-square');
 				e.source.add(checkSquare);
 			}
 		});
 	} else if(newStatus === 'denied') {
-		friendsManager.updateFriendInvitation( createInvitationObject, e.source.data.invitation[0].id, function(err, updateInvitationResult) {
+		friendsManager.updateFriendInvitation( createInvitationObject, e.source.invitation[0].id, function(err, updateInvitationResult) {
 			if(err) {
 				return;
 			} else {
@@ -238,13 +238,13 @@ function friendRequestDynamic(e, newStatus){
 					touchEnabled: false
 				});
 				e.source.status = updateInvitationResult[0].status;
-				e.source.data.invitation = updateInvitationResult;
+				e.source.invitation = updateInvitationResult;
 				$.fa.add(plusSquare, 'fa-plus-square-o');
 				e.source.add(plusSquare);
 			}
 		});
 	} else {
-		friendsManager.updateFriendInvitation( createInvitationObject, e.source.data.invitation[0].id, function(err, updateInvitationResult) {
+		friendsManager.updateFriendInvitation( createInvitationObject, e.source.invitation[0].id, function(err, updateInvitationResult) {
 			if(err) {
 				return;
 			} else {
@@ -257,7 +257,7 @@ function friendRequestDynamic(e, newStatus){
             		touchEnabled: false
 				});
 				e.source.status = updateInvitationResult[0].status;
-				e.source.data.invitation = updateInvitationResult; 
+				e.source.invitation = updateInvitationResult;
 				$.fa.add(checkSquare, 'fa-check-square');
 				e.source.add(checkSquare);
 			}
@@ -326,8 +326,8 @@ function loadContacts() {
 	var people = Ti.Contacts.getAllPeople();
 	if(people) {
 		var practiceToDelete = {
-			newNumber: '5551290222',
-			originalNumber: '5551290222',
+			newNumber: '5558277467',
+			originalNumber: '5558277467',
 			contactName: 'Tishmingandspp Stevensnfmgndmgndsdfsmfngm'
 		};
 		phoneArray.push(practiceToDelete);
@@ -360,8 +360,8 @@ function loadContacts() {
 						currentUsers.push({
 							title: { text: helpers.alterTextFormat(results[user].contactName, 28, false) },
 						 	subtitle: {text: "Using Selbi", color:'#1BA7CD'},
-						 	data: { data: {invitation: results[user].invitation, id:results[user].id}, id: results[user].username, status: results[user].invitation.length <= 0 ? "new" : results[user].invitation[0].status },
-						 	checkmark : {data: results[user].invitation, text : results[user].invitation.length <= 0 ? '\uf196' : determineStatus(results[user].invitation[0]), visible: true, ext: results[user].username},
+						 	data: { data: {invitation: results[user].invitation, id: results[user].id }, id: results[user].username, status: results[user].invitation.length <= 0 ? "new" : results[user].invitation[0].status, invitation: results[user].invitation },
+						 	checkmark : {data: results[user].invitation, text : results[user].invitation.length <= 0 ? '\uf196' : determineStatus(results[user].invitation), visible: true, ext: results[user].username},
 						 	properties: {
 								height: heightDataView
 							}
@@ -370,7 +370,7 @@ function loadContacts() {
 						nonUsers.push({
 							title: { text: helpers.alterTextFormat(results[user].contactName, 28, false) },
 						 	subtitle: {text: results[user].originalNumber },
-							data: { data: {invitation: results[user].invitation , id:results[user].id }, id: results[user].username},
+							data: { data: {invitation: results[user].invitation, id: results[user].id }, id: results[user].username, invitation: results[user].invitation},
 							checkmark : {data: results[user].invitation, text : '\uf196', visible: false , ext: results[user].username, touchEnabled: false},
 							properties: {
 								height: heightDataView
@@ -434,19 +434,19 @@ function importContacts() {
 
 /**
  * @method determineStatus
- * @param {Object} invitation is the invitation object returned by Selbi
+ * @param {Array} invitation is the invitation object returned by Selbi
  * Determines invitation status for dynamic fontawesome elements
  */
 function determineStatus(invitation) {
-	if(invitation.status === 'new') {
+	if(invitation.length <= 0 ) {
 		return '\uf196';
-	} else if(invitation.status === 'denied') {
+	} else if(invitation[0].status === 'denied') {
 		return '\uf196';
-	} else if(invitation.status === 'pending' && invitation.userTo === Ti.App.Properties.getString('userId')) {
+	} else if(invitation[0].status === 'pending' && invitation[0].userTo === Ti.App.Properties.getString('userId')) {
 		return '\uf196';
-	} else if(invitation.status === 'pending' && invitation.userFrom === Ti.App.Properties.getString('userId') ) {
+	} else if(invitation[0].status === 'pending' && invitation[0].userFrom === Ti.App.Properties.getString('userId') ) {
 		return '\uf14a';
-	} else if(invitation.status === 'approved') {
+	} else if(invitation[0].status === 'approved') {
 		return '\uf14a';
 	}
 };
