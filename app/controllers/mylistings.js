@@ -90,16 +90,19 @@ function genMyItems(cb){
 					var tmp = {
 						image :  imageUrl,
 						listingItem:{
-			        		borderColor: userListings.listings[listing].isSold ? "#1BA7CD" : "#E5E5E5" 
+			        		borderColor: userListings.listings[listing].isSold ? "#1BA7CD" : "#E5E5E5",
+			        		borderWidth: userListings.listings[listing].isSold ? '3dp' : '1dp'
 			        	},
 			            listingThumb : {
 			                image :  imageUrl
 			            },
 			            listingTitle : {
-			                text : userListings.listings[listing].title
+			                text : userListings.listings[listing].title,
+			                color: userListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
 			            },
 			            listingPrice: {
-			            	text: userListings.listings[listing].price.formatMoney(2)
+			            	text: userListings.listings[listing].price.formatMoney(2),
+			            	color: userListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
 			            },
 			            listingImagesCount: {
 			            	text: userListings.listings[listing].isSold ? "SOLD" : userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"	,
@@ -116,16 +119,20 @@ function genMyItems(cb){
 			        };
 			        view.updateViews({
 			        	'#listingItem':{
-			        		borderColor: userListings.listings[listing].isSold ? "#1BA7CD" : "#E5E5E5" 
+			        		borderColor: userListings.listings[listing].isSold ? "#1BA7CD" : "#E5E5E5",
+			        		borderWidth: userListings.listings[listing].isSold ? '3dp' : '1dp'
 			        	},
 			        	'#listingThumb':{
 			        		image: imageUrl
 			        	},
 			        	'#listingTitle': {
-			        		text: helpers.alterTextFormat(userListings.listings[listing].title, 14, true)
+			        		text: helpers.alterTextFormat(userListings.listings[listing].title, 14, true),
+			        		color: userListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
 			        	},
 			        	'#listingPrice':{ 
-			        		text: userListings.listings[listing].price.formatMoney(2)	
+			        		text: userListings.listings[listing].price.formatMoney(2),
+			        		color: userListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"	
+
 		        		},
 		        		'#listingImagesCount':{ 
 			        		text: userListings.listings[listing].isSold ? "SOLD" : userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"	,
