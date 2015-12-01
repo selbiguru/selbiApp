@@ -324,7 +324,7 @@ function loadContacts() {
 		var practiceToDelete = {
 			newNumber: '5551112222',
 			originalNumber: '5551112222',
-			contactName: 'Tishmingandspp Stevensnfmgndmgndsdfsmfngm'
+			contactName: 'Steven Collins'
 		};
 		phoneArray.push(practiceToDelete);
 		for(var person in people) {
@@ -336,7 +336,9 @@ function loadContacts() {
 					originalNumber: phone,
 					contactName: people[person] ? people[person].firstName + " " + people[person].lastName: "NA",
 				};
-				phoneArray.push(userPhoneObject);
+				if(Alloy.Globals.currentUser.attributes.phoneNumber != newPhone) {
+					phoneArray.push(userPhoneObject);
+				}
 			};
 		};
 		friendsManager.getSelbiUsersByPhones(phoneArray,function(err, results){
