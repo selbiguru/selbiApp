@@ -230,6 +230,12 @@ function showNotifications(notificationsArray) {
 						return;
 					} else {
 						$.viewNotifications.remove(e.source.ext);
+						if($.viewNotifications.children.length <= 0) {
+							dynamicElement.defaultLabel('No new notifications!', function(err, results) {
+								$.defaultView.height= Ti.UI.FILL;
+								$.defaultView.add(results);
+							});
+						}
 					}
 				});
 			} else {
@@ -245,6 +251,12 @@ function showNotifications(notificationsArray) {
 						return;
 					} else {
 						$.viewNotifications.remove(e.source.ext);
+						if($.viewNotifications.children.length <= 0) {
+							dynamicElement.defaultLabel('No new notifications!', function(err, results) {
+								$.defaultView.height= Ti.UI.FILL;
+								$.defaultView.add(results);
+							});
+						}
 					}
 				});
 			}
@@ -262,6 +274,12 @@ function showNotifications(notificationsArray) {
 					return;
 				} else {
 					$.viewNotifications.remove(e.source.ext);
+					if($.viewNotifications.children.length <= 0) {
+						dynamicElement.defaultLabel('No new notifications!', function(err, results) {
+							$.defaultView.height= Ti.UI.FILL;
+							$.defaultView.add(results);
+						});
+					}
 				}
 			});
 		});

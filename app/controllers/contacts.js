@@ -303,7 +303,7 @@ function loadContacts() {
 		allowsSelection: false
 	});
 	var contactsOnSelbi = Ti.UI.createListSection({
-		headerView: createCustomView('Friends on Selbi'),
+		headerView: createCustomView('Contacts on Selbi'),
 	});
 	var contactsNotUsers = Ti.UI.createListSection({
 		headerView: createCustomView('Not on Selbi'),
