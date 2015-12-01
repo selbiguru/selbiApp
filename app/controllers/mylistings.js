@@ -275,7 +275,7 @@ function friendRequestDynamic(e, newStatus){
 					text: 'Pending',
 					touchEnabled: false
 				});
-				e.source.data = [createInviteResult]; 
+				e.source.data = [createInviteResult.invitation]; 
 				$.fa.add(checkSquare, 'fa-check-square');
 				e.source.add(checkSquare);
 			}
@@ -294,7 +294,7 @@ function friendRequestDynamic(e, newStatus){
 					text: 'Add',
 					touchEnabled: false
 				});
-				e.source.data = updateInvitationResult;
+				e.source.data = updateInvitationResult.invitation;
 				$.fa.add(plusSquare, 'fa-plus-square-o');
 				e.source.add(plusSquare);
 			}
@@ -310,10 +310,10 @@ function friendRequestDynamic(e, newStatus){
 		        	},
 					color: "#1BA7CD",
 					id: 'friendRequestButton',
-					text: updateInvitationResult[0].status === 'approved' ? 'Friends' : 'Pending',
+					text: updateInvitationResult.invitation[0].status === 'approved' ? 'Friends' : 'Pending',
 					touchEnabled: false
 				});
-				e.source.data = updateInvitationResult; 
+				e.source.data = updateInvitationResult.invitation; 
 				$.fa.add(checkSquare, 'fa-check-square');
 				e.source.add(checkSquare);
 			}
