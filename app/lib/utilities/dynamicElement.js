@@ -47,7 +47,6 @@ var defaultLabel = exports.defaultLabel = function(defaultText, cb) {
 	var aboutUsDefault = Titanium.UI.createLabel({
 		color: "#1BA7CD",
 		height: Ti.UI.FILL,
-		width: defaultLabelWidth,
 		font: {
 			fontSize: aboutUsFontSize,
 			fontFamily: "Nunito-Bold"
