@@ -14,7 +14,8 @@
 	height: Ti.UI.FILL
 },
 "#defaultView": {
-	height: '0dp'
+	height: '0dp',
+	width: '85%'
 },
 
 

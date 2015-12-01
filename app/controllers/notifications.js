@@ -1,6 +1,7 @@
 var args = arguments[0] || {};
 var helpers = require('utilities/helpers'),
-	dynamicElement = require('utilities/dynamicElement');
+	dynamicElement = require('utilities/dynamicElement'),
+	friendsManager = require('managers/friendsmanager');
 	notificationManager = require('managers/notificationmanager');
 var dataArray = [];
 
@@ -176,8 +177,9 @@ function showNotifications(notificationsArray) {
 			title: 'Decline',
 			data: {
 				isSold: notificationsArray[i].type === 'sold' ? true : false,
-				requesterId: notificationsArray[i].userFrom,
-				userId: notificationsArray[i].userTo,			
+				userFrom: notificationsArray[i].userFrom,
+				userTo: notificationsArray[i].userTo,
+				notificationId: notificationsArray[i].id			
 			},
 			ext: mainView
 		});
@@ -196,8 +198,9 @@ function showNotifications(notificationsArray) {
 			title: notificationsArray[i].type === 'sold' ? 'Cool!' : 'Add',
 			data: {
 				isSold: notificationsArray[i].type === 'sold' ? true : false,
-				requesterId: notificationsArray[i].userFrom,
-				userId: notificationsArray[i].userTo,			
+				userFrom: notificationsArray[i].userFrom,
+				userTo: notificationsArray[i].userTo,
+				notificationId: notificationsArray[i].id
 			},
 			ext: mainView
 		});
@@ -207,7 +210,7 @@ function showNotifications(notificationsArray) {
 			top: underlineViewTop,
 			width:Titanium.UI.FILL
 		});
-		if(notificationsArray[i].type === 'friend') {
+		if(notificationsArray[i].type === 'friendrequest') {
 			buttonsView.add(declineFriendButton);
 		}
 		buttonsView.add(acceptFriendButton);
@@ -219,17 +222,56 @@ function showNotifications(notificationsArray) {
 		mainView.add(underline);
 		dataArray.push(mainView);
 		acceptFriendButton.addEventListener('click', function(e) {
-			if(e.source.data) {
-				console.log("is sold", e.source.data.userId);
+			if(e.source.data.isSold) {
+				var deleteObj = {
+					notificationId: e.source.data.id
+				};
+				notificationManager.deleteNotification(deleteObj, function(err, deleteResults) {
+					console.log('-------' , err);
+					console.log('++++++++' , deleteResults);
+					if(err) {
+						helpers.alertUser('Oops','We are having trouble processing your request!');
+						return;
+					} else {
+						$.viewNotifications.remove(e.source.ext);
+					}
+				});
 			} else {
-				console.log("is friend request");
+				var invitationObject = {
+					userFrom: e.source.data.userTo,
+					userTo: e.source.data.userFrom,
+					status: 'approved',
+					notificationId: e.source.data.notificationId
+				};
+				friendsManager.updateFriendInvitationByUserIds( invitationObject, function(err, updateResult) {
+					console.log('-------' , err);
+					console.log('++++++++' , updateResult);
+					if(err) {
+						helpers.alertUser('Oops','We are having trouble processing your request!');
+						return;
+					} else {
+						$.viewNotifications.remove(e.source.ext);
+					}
+				});
 			}
-			$.viewNotifications.remove(e.source.ext);
 		});
 		declineFriendButton.addEventListener('click', function(e) {
-			console.log("declinging friend", e.owner);
-			console.log("is sold", e.source.ext);
-			$.viewNotifications.remove(e.source.ext);
+			var invitationObject = {
+				userFrom: e.source.data.userTo,
+				userTo: e.source.data.userFrom,
+				status: 'denied',
+				notificationId: e.source.data.notificationId
+			};
+			friendsManager.updateFriendInvitationByUserIds( invitationObject, function(err, updateResult) {
+				console.log('=========== ' , err);
+				console.log('&&&&&&&&&&& ' , updateResult);
+				if(err) {
+					helpers.alertUser('Oops','We are having trouble processing your request!');
+					return;
+				} else {
+					$.viewNotifications.remove(e.source.ext);
+				}
+			});
 		});
 	}
 	$.viewNotifications.add(dataArray);

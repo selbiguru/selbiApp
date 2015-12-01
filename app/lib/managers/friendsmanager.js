@@ -78,7 +78,7 @@ var createFriendInvitation = exports.createFriendInvitation = function(invitatio
 /**
  * @method updateFriendInvitation
  * @param {Object} invitationObject Object containing the following:
- * 		@param {String} userFrom Id of the user sending friendRequest
+ * 		@param {String} userFrom Id of the user updating friendRequest
  * 		@param {String} userTo Id of the user receiving friendRequest
  * 		@param {String} status String of the status being sent (Default is approved)
  * @param {String} invitationId String of the invitationId that corresponds to the invitation to be updated
@@ -86,6 +86,27 @@ var createFriendInvitation = exports.createFriendInvitation = function(invitatio
  */
 var updateFriendInvitation = exports.updateFriendInvitation = function(invitationObject, invitationId, cb) {
 	httpManager.execute('/friend/request/'+invitationId, 'PUT', invitationObject, true, function(err, invitationResponse){
+		if(err) {
+			cb(err, null);
+		} else {
+			cb(err, invitationResponse);
+		}
+	});
+};
+
+
+
+
+/**
+ * @method updateFriendInvitationByUserIds
+ * @param {Object} invitationObject Object containing the following:
+ * 		@param {String} userFrom Id of the user updating friendRequest
+ * 		@param {String} userTo Id of the user receiving friendRequest
+ * 		@param {String} status String of the status being sent (Default is approved)
+ * @param {Function} cb Callback function
+ */
+var updateFriendInvitationByUserIds = exports.updateFriendInvitationByUserIds = function(invitationObject, cb) {
+	httpManager.execute('/friend/friendinvitation', 'PUT', invitationObject, true, function(err, invitationResponse){
 		if(err) {
 			cb(err, null);
 		} else {
