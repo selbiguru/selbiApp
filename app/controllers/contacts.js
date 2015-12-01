@@ -77,10 +77,6 @@ function getContactListTemplate() {
 		 		events: {
 	                // Bind event callbacks only to the subcomponent
 	                click: function(e){
-	                	//console.log('11111000001010101', e.source.data);
-	                	//console.log('777773333333', e.source.id);
-	                	//console.log('777773333333', e.source.status);
-	                	//console.log('99990000000000', e.source.children);
 	                	//console.log('DATA', e.bindId);
                 		if(e.source.status === 'new') {
 							friendRequestDynamic(e, 'pending');
@@ -218,8 +214,8 @@ function friendRequestDynamic(e, newStatus){
             		},
             		touchEnabled: false
 				});
-				e.source.status = createInviteResult.status;
-				e.source.invitation = [createInviteResult]; 
+				e.source.status = createInviteResult.invitation.status;
+				e.source.invitation = [createInviteResult.invitation];
 				$.fa.add(checkSquare, 'fa-check-square');
 				e.source.add(checkSquare);
 			}
@@ -237,8 +233,8 @@ function friendRequestDynamic(e, newStatus){
 					},
 					touchEnabled: false
 				});
-				e.source.status = updateInvitationResult[0].status;
-				e.source.invitation = updateInvitationResult;
+				e.source.status = updateInvitationResult.invitation[0].status;
+				e.source.invitation = updateInvitationResult.invitation;
 				$.fa.add(plusSquare, 'fa-plus-square-o');
 				e.source.add(plusSquare);
 			}
@@ -256,8 +252,8 @@ function friendRequestDynamic(e, newStatus){
             		},
             		touchEnabled: false
 				});
-				e.source.status = updateInvitationResult[0].status;
-				e.source.invitation = updateInvitationResult;
+				e.source.status = updateInvitationResult.invitation[0].status;
+				e.source.invitation = updateInvitationResult.invitation;
 				$.fa.add(checkSquare, 'fa-check-square');
 				e.source.add(checkSquare);
 			}
@@ -326,8 +322,8 @@ function loadContacts() {
 	var people = Ti.Contacts.getAllPeople();
 	if(people) {
 		var practiceToDelete = {
-			newNumber: '5558277467',
-			originalNumber: '5558277467',
+			newNumber: '5551112222',
+			originalNumber: '5551112222',
 			contactName: 'Tishmingandspp Stevensnfmgndmgndsdfsmfngm'
 		};
 		phoneArray.push(practiceToDelete);

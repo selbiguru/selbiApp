@@ -11,8 +11,6 @@ $.activityIndicator.show();
 
 
 notificationManager.getNotificationByUserId(function(err, notificationResults) {
-	console.log('++++++++++ ', notificationResults);
-	console.log('---------- ', err);
 	if(err) {
 		dynamicElement.defaultLabel('Dang! We are having trouble getting your notifications. Please try again shortly.', function(err, results) {
 			$.defaultView.height= Ti.UI.FILL;
@@ -227,8 +225,6 @@ function showNotifications(notificationsArray) {
 					notificationId: e.source.data.id
 				};
 				notificationManager.deleteNotification(deleteObj, function(err, deleteResults) {
-					console.log('-------' , err);
-					console.log('++++++++' , deleteResults);
 					if(err) {
 						helpers.alertUser('Oops','We are having trouble processing your request!');
 						return;
@@ -244,8 +240,6 @@ function showNotifications(notificationsArray) {
 					notificationId: e.source.data.notificationId
 				};
 				friendsManager.updateFriendInvitationByUserIds( invitationObject, function(err, updateResult) {
-					console.log('-------' , err);
-					console.log('++++++++' , updateResult);
 					if(err) {
 						helpers.alertUser('Oops','We are having trouble processing your request!');
 						return;
@@ -263,8 +257,6 @@ function showNotifications(notificationsArray) {
 				notificationId: e.source.data.notificationId
 			};
 			friendsManager.updateFriendInvitationByUserIds( invitationObject, function(err, updateResult) {
-				console.log('=========== ' , err);
-				console.log('&&&&&&&&&&& ' , updateResult);
 				if(err) {
 					helpers.alertUser('Oops','We are having trouble processing your request!');
 					return;
@@ -281,7 +273,7 @@ function showNotifications(notificationsArray) {
 
 function createText(notification) {
 	var newText = '';
-	if(notification.type === 'sold') {
+	if(notification.type === 'friendrequest') {
 		newText = notification.user.firstName +" "+ notification.user.lastName + " added you!";	
 	} else {
 		newText = notification.user.firstName +" "+ notification.user.lastName + ' purchased your item!';
