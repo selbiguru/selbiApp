@@ -8,6 +8,9 @@
 				<Label id="titleNotificationsLabel">Notifications</Label>
 			</View>
         </View>
+        <View id='defaultView'>
+			
+		</View>
         <ActivityIndicator id="activityIndicator" message="Loading..."/>
         <ScrollView id="viewNotifications">		
 		</ScrollView>

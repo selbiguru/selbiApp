@@ -13,6 +13,9 @@
 	indicatorColor: '#9B9B9B',
 	height: Ti.UI.FILL
 },
+"#defaultView": {
+	height: '0dp'
+},
 
 
 

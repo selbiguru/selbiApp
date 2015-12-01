@@ -59,7 +59,7 @@ var getByNotificationId = exports.getByNotificationId = function(notificationObj
  * @param {Object} notificationObject Object containing the following:
  * 		@param {String} userFrom Id of the user sending friendRequest
  * 		@param {String} userTo Id of the user receiving friendRequest
- * 		@param {String} type String of the type of notification being sent ('default','sold','friend','accepted',)
+ * 		@param {String} type String of the type of notification being sent ('default','sold','friendrequest')
  * @param {Function} cb Callback function
  */
 var createNotification = exports.createNotification = function(notificationObject, cb) {
@@ -82,7 +82,7 @@ var createNotification = exports.createNotification = function(notificationObjec
  * @param {Object} notificationObject Object containing the following:
  * 		@param {String} userFrom Id of the user sending friendRequest
  * 		@param {String} userTo Id of the user receiving friendRequest
- * 		@param {String} status String of the status being sent ('default','sold','friend','accepted',)
+ * 		@param {String} status String of the status being sent ('default','sold','friendrequest')
  * @param {String} notificationId String of the notificationId that corresponds to the notification to be updated
  * @param {Function} cb Callback function
  */
@@ -106,7 +106,7 @@ var updateNotificationById = exports.updateNotificationById = function(notificat
  * @param {Object} notificationObject Object containing the following:
  * 		@param {String} userFrom Id of the user sending friendRequest
  * 		@param {String} userTo Id of the user receiving friendRequest
- * 		@param {String} status String of the status being sent ('default','sold','friend','accepted',)
+ * 		@param {String} status String of the status being sent ('default','sold','friendrequest')
  * @param {Function} cb Callback function
  */
 var updateNotificationByUsers = exports.updateNotificationByUsers = function(notificationObject, cb) {

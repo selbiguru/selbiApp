@@ -1,61 +1,38 @@
 var args = arguments[0] || {};
 var helpers = require('utilities/helpers'),
-	dynamicElement = require('utilities/dynamicElement');//,
+	dynamicElement = require('utilities/dynamicElement');
 	notificationManager = require('managers/notificationmanager');
 var dataArray = [];
 
-//$.activityIndicator.show();
-$.activityIndicator.hide();
-$.activityIndicator.height = '0dp';
+$.activityIndicator.show();
 
 
 
 
-/*notificationManager.getFAQ(function(err, faqResults) {
+notificationManager.getNotificationByUserId(function(err, notificationResults) {
+	console.log('++++++++++ ', notificationResults);
+	console.log('---------- ', err);
 	if(err) {
-		dynamicElement.defaultLabel('Oh no!  We are asking ourselves too many questions! Not to fear, FAQ\'s will be back soon!', function(err, results) {
-			$.viewFAQ.add(results);
+		dynamicElement.defaultLabel('Dang! We are having trouble getting your notifications. Please try again shortly.', function(err, results) {
+			$.defaultView.height= Ti.UI.FILL;
+			$.defaultView.add(results);
 		});
+	} else if(notificationResults.length > 0) {
+		showNotifications(notificationResults);	
 	} else {
-		showFAQ(faqResults);	
+		dynamicElement.defaultLabel('No new notifications!', function(err, results) {
+			$.defaultView.height= Ti.UI.FILL;
+			$.defaultView.add(results);
+		});
 	}
 	$.activityIndicator.hide();
 	$.activityIndicator.height = '0dp';
 	return;
-});*/
+});
 
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
 
-var notificationsArray = [
-		{
-			name: 'Jordan Burrows purchased your item!',
-			type: 'sold',
-			userId: '11111111',
-			requesterId: '1010101',
-			id: 6
-		},
-		{
-			name: 'Johnny Benchman added you!',
-			type: 'friend',
-			userId: '4444444',
-			requesterId: '4040404',
-			id: 9
-		},
-		{
-			name: 'Bernie King purchased  jsd hdjs fjksd fjs dfjks your item!',
-			type: 'sold',
-			userId: '7777777',
-			requesterId: '707070707',
-			id: 11
-		},
-		{
-			name: 'Larry Browns purchased hfhjs dfhjs dfhjsd fhjsd fhjsd fhjsd fhjsd fhjsd your item!',
-			type: 'friend',
-			userId: '888888',
-			requesterId: '80808080',
-			id: 11
-		}
-	];
+
 
 function showNotifications(notificationsArray) {
 	for (var i in notificationsArray) {
@@ -167,7 +144,7 @@ function showNotifications(notificationsArray) {
 			height: imgViewHeight,
 			width: imgViewWidth,
 			borderRadius: imgViewBorderRadius,
-			image: "http://www.lorempixel.com/600/600/"
+			image: notificationsArray[i].profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + notificationsArray[i].profileImage: "http://www.lorempixel.com/600/600/"
 		});
 		var subView = Titanium.UI.createView({});
 		var nameLabel = Titanium.UI.createLabel({
@@ -178,7 +155,7 @@ function showNotifications(notificationsArray) {
 			color: "#9B9B9B",
 			top: nameLabelViewTop,
 			left: nameLabelViewLeft,
-	        text: notificationsArray[i].name
+	        text: createText(notificationsArray[i])
 		});
 		var buttonsView = Titanium.UI.createView({
 			height: Ti.UI.SIZE,
@@ -199,8 +176,8 @@ function showNotifications(notificationsArray) {
 			title: 'Decline',
 			data: {
 				isSold: notificationsArray[i].type === 'sold' ? true : false,
-				requesterId: notificationsArray[i].requesterId,
-				userId: notificationsArray[i].userId,			
+				requesterId: notificationsArray[i].userFrom,
+				userId: notificationsArray[i].userTo,			
 			},
 			ext: mainView
 		});
@@ -219,8 +196,8 @@ function showNotifications(notificationsArray) {
 			title: notificationsArray[i].type === 'sold' ? 'Cool!' : 'Add',
 			data: {
 				isSold: notificationsArray[i].type === 'sold' ? true : false,
-				requesterId: notificationsArray[i].requesterId,
-				userId: notificationsArray[i].userId,			
+				requesterId: notificationsArray[i].userFrom,
+				userId: notificationsArray[i].userTo,			
 			},
 			ext: mainView
 		});
@@ -256,9 +233,18 @@ function showNotifications(notificationsArray) {
 		});
 	}
 	$.viewNotifications.add(dataArray);
+};
+
+
+
+function createText(notification) {
+	var newText = '';
+	if(notification.type === 'sold') {
+		newText = notification.user.firstName +" "+ notification.user.lastName + " added you!";	
+	} else {
+		newText = notification.user.firstName +" "+ notification.user.lastName + ' purchased your item!';
+	}
+	return newText;
 }
-
-
-showNotifications(notificationsArray);
 
 
