@@ -350,6 +350,11 @@ imageManager.getMenuProfileImage(function(err, profileImage){
 $.usernameXIcon.hide();
 
 
+//On page load, this is a hack to show hintText instead of empty field for city and streetAddress
+if(helpers.trim($.city.value).length === 0 && helpers.trim($.streetAddress.value).length === 0) {
+	$.city.value = '';
+	$.streetAddress.value = '';
+}
 
 
 
