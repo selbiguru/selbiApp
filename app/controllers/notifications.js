@@ -222,9 +222,11 @@ function showNotifications(notificationsArray) {
 		acceptFriendButton.addEventListener('click', function(e) {
 			if(e.source.data.isSold) {
 				var deleteObj = {
-					notificationId: e.source.data.id
+					notificationId: e.source.data.notificationId
 				};
 				notificationManager.deleteNotification(deleteObj, function(err, deleteResults) {
+					console.log('++++', err);
+					console.log('++++', deleteResults);
 					if(err) {
 						helpers.alertUser('Oops','We are having trouble processing your request!');
 						return;

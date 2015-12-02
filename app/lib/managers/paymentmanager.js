@@ -4,6 +4,11 @@ var httpManager = require('managers/httpmanager');
 
 /***************************************************GET CALLS***************************************************************/
 
+/**
+ * @method getClientToken
+ * Gets getClientToken from braintree for hosted fields
+ * @param {Function} cb Callback function
+ */
 var getClientToken = exports.getClientToken = function(cb) {
 	httpManager.execute('/payments/getClientToken', 'GET', null, true, function(err, responseToken){
 		if(err) {
@@ -16,6 +21,12 @@ var getClientToken = exports.getClientToken = function(cb) {
 };
 
 
+
+/**
+ * @method getPaymentMethods
+ * Gets paymentMethods of user including credit card and banking info if available
+ * @param {Function} cb Callback function
+ */
 var getPaymentMethods = exports.getPaymentMethods = function(cb) {
 	httpManager.execute('/payments/'+Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, paymentMethodObj){
 		if(err) {
@@ -32,6 +43,17 @@ var getPaymentMethods = exports.getPaymentMethods = function(cb) {
 
 
 /***************************************************POST/UPDATE CALLS**************************************************************/
+
+
+/**
+ * @method createCustomerAndPaymentMethod
+ * @param {Object} paymentObject Object containing the following:
+ * 		@param {String} userId Id of the user adding a credit card
+ * 		@param {String} firstName firstName of the user wadding a credit card
+ * 		@param {String} lastName lastName of the user wadding a credit card
+ * 		@param {String} paymentMethodNonce Braintree nonce received with encrypted credit card info 
+ * @param {Function} cb Callback function
+ */
 var createCustomerAndPaymentMethod = exports.createCustomerAndPaymentMethod = function(paymentObject, cb) {
 	httpManager.execute('/payments/createCustomerAndPaymentMethod', 'POST', paymentObject, true, function(err, userPaymentObj){
 		if(err) {
@@ -65,10 +87,17 @@ var createSubMerchantAccount = exports.createSubMerchantAccount = function(subMe
 
 
 
-var createOrder = exports.createOrder = function(createOrderObj, cb) {
-	httpManager.execute('/payments/createOrder', 'POST', createOrderObj, true, function(err, completedOrder){
-		console.log("errrrrrreerrrrrr", err);
-		console.log("SUCCESS COMPLETED ORDER", completedOrder);
+/**
+ * @method createOrder
+ * Creates an order when an item is purchased and updates corresponding db models
+ * @param {Object} orderObject Object containing the following:
+ * 		@param {String} listingId Id of the listing you are buying
+ * 		@param {String} sellerId Id of the seller who's item it is
+ * 		@param {String} buyerId Id of the buyer buying the item
+ * @param {Function} cb Callback function
+ */
+var createOrder = exports.createOrder = function(orderObject, cb) {
+	httpManager.execute('/payments/createOrder', 'POST', orderObject, true, function(err, completedOrder){
 		if(err) {
 			cb(err, null);
 			} 
@@ -90,6 +119,7 @@ var createOrder = exports.createOrder = function(createOrderObj, cb) {
 /**
  * @method deletePayment
  * Delete the CC payment info from Selbi Servers and BrainTree
+ * @param {Function} cb Callback function
  */
 var deletePayment = exports.deletePayment = function(cb) {
 	httpManager.execute('/payments/paymentMethod/'+Ti.App.Properties.getString('userId'), 'DELETE', null, true, function(err, deletePaymentResponse){
@@ -108,6 +138,7 @@ var deletePayment = exports.deletePayment = function(cb) {
 /**
  * @method deleteMerchant
  * Delete the merchant from Selbi Servers not BrainTree
+ * @param {Function} cb Callback function
  */
 var deleteMerchant = exports.deleteMerchant = function(cb) {
 	httpManager.execute('/payments/merchant/'+Ti.App.Properties.getString('userId'), 'DELETE', null, true, function(err, deleteMerchantResponse){

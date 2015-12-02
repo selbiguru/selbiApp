@@ -133,7 +133,7 @@ var updateNotificationByUsers = exports.updateNotificationByUsers = function(not
  * @param {Function} cb Callback function
  */
 var deleteNotification = exports.deleteNotification = function(notificationObject, cb) {
-	httpManager.execute('/notification/delete/'+ notificationObject.notificationId, 'POST', null, true, function(err, notificationResponse){
+	httpManager.execute('/notification/delete/'+ notificationObject.notificationId, 'DELETE', null, true, function(err, notificationResponse){
 		if(err) {
 			cb(err, null);
 		} else {

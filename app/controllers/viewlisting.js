@@ -128,13 +128,26 @@ function saveListing() {
  * @method buyItem
  * Buys the listed item.
  */
-function buyItem(){
-	console.log("HITTING buy item YAYYYY!!!!");
-	paymentManager.createOrder(object, function(err, results){
+function buyItem(e){
+	var createOrderObj = {
+		sellerId: args.userId,
+		buyerId: Ti.App.Properties.getString('userId'),
+		listingId: args.itemId
+	};
+	var indicatorWindow = indicator.createIndicatorWindow({
+		message : "Purchasing"
+	});
+
+	indicatorWindow.openIndicator();
+	paymentManager.createOrder(createOrderObj, function(err, results){
+		console.log("======== ", results);
+		console.log("-------- ", err);
 		if(err) {
+			indicatorWindow.closeIndicator();
 			helpers.alertUser('Failed','Failed to purchase item, please try again!');
 		} else {
-			console.log("congrats bought this shit");
+			indicatorWindow.closeIndicator();
+			helpers.alertUser('Purchased!','You purchased an item on Selbi!');
 			backButton();
 			Alloy.Globals.openPage('friendslistings', ['friendslistings', Ti.App.Properties.getString('userId')]);
 		}
@@ -379,7 +392,7 @@ function createSlideButton(height, width, fontSize, background, text, apiSupport
 		if (endX > parseInt(sliderView.getWidth())+ width) {
 			//button released at right-edge stop
 			//IN HERE ADD PURCHASING CALL
-			poop();
+			apiSupport(e);
 		}
 		//springback
 		sliderButton.setLeft(0);
