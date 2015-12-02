@@ -225,8 +225,6 @@ function showNotifications(notificationsArray) {
 					notificationId: e.source.data.notificationId
 				};
 				notificationManager.deleteNotification(deleteObj, function(err, deleteResults) {
-					console.log('++++', err);
-					console.log('++++', deleteResults);
 					if(err) {
 						helpers.alertUser('Oops','We are having trouble processing your request!');
 						return;
