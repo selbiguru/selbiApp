@@ -12,7 +12,7 @@ var httpManager = require('managers/httpmanager');
 
 /**
  * @method getInvitationByUsername
- * @param {Object} usernameObject Object containgin the following:
+ * @param {Object} usernameObject Object containing the following:
  * 		@param {String} username String of the username you are trying to find
  * @param {Function} cb Callback function
  */
