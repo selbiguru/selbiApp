@@ -1,7 +1,7 @@
 var args = arguments[0] || {};
 var helpers = require('utilities/helpers'),
 	dynamicElement = require('utilities/dynamicElement'),
-	friendsManager = require('managers/friendsmanager');
+	friendsManager = require('managers/friendsmanager'),
 	notificationManager = require('managers/notificationmanager');
 var dataArray = [];
 

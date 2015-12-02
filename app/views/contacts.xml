@@ -8,6 +8,10 @@
 				<Label id="titleAddFriendsLabel">Add Friends</Label>
 			</View>
 		</View>
+		<View id='defaultView'>
+			
+		</View>
+		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 	</View>
 </Alloy>

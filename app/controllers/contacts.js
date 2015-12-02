@@ -4,11 +4,13 @@
 
 var args = arguments[0] || {};
 var friendsManager = require('managers/friendsmanager'),
-	userManager = require('managers/usermanager');
+	userManager = require('managers/usermanager'),
+	dynamicElement = require('utilities/dynamicElement');
 var helpers = require('utilities/helpers');
 var nameFontSize, iconSize, labelTop, labelLeft, 
 	iconRight, headerViewHeight, headerLabelFontSize;
 
+$.activityIndicator.show();
 
 
 /**
@@ -336,7 +338,7 @@ function loadContacts() {
 					originalNumber: phone,
 					contactName: people[person] ? people[person].firstName + " " + people[person].lastName: "NA",
 				};
-				if(Alloy.Globals.currentUser.attributes.phoneNumber != newPhone) {
+				if(Alloy.Globals.currentUser && Alloy.Globals.currentUser.attributes.phoneNumber != newPhone) {
 					phoneArray.push(userPhoneObject);
 				}
 			};
@@ -394,6 +396,8 @@ function loadContacts() {
 				addFriendSection.setItems(searchUsers);
 				contactListView.sections = [addFriendSection, contactsOnSelbi, contactsNotUsers];
 				$.addFriendsView.add(contactListView);
+				$.activityIndicator.hide();
+				$.activityIndicator.height = '0dp';
 			}	
 		});
 	}
@@ -404,9 +408,12 @@ function loadContacts() {
  * Delegate callback executed when access to contacts is not allowed
  */
 function addressBookDisallowed() {	
-	$.addFriendsView.add(Ti.UI.createLabel({
-		text: 'No contacts imported'
-	}));
+	dynamicElement.defaultLabel('No access to contacts!', function(err, results) {
+		$.defaultView.height= Ti.UI.FILL;
+		$.defaultView.add(results);
+	});
+	$.activityIndicator.hide();
+	$.activityIndicator.height = '0dp';
 }
 
 /**
