@@ -15,6 +15,7 @@ var helpers = require('utilities/helpers'),
 //fb.logout();
 
 
+
 /**
  * @method onCameraClick
  * This method gives users options to click a picture or select from gallery
@@ -105,12 +106,14 @@ function uploadUserProfile(imageBlob){
 			userManager.userUpdate(currentUser.toJSON(), function(err, results){
 				if(err) {
 					helpers.alertUser('Update User','Failed to update user, please try again later!');
+					indicatorWindow.closeIndicator();
 					return;
 				} else {
-					helpers.alertUser('Updated User', 'User profile saved!');
 					imageManager.getMenuProfileImage(function(err, profileImage){
 						$.userProfileImage.image = profileImage;
 						indicatorWindow.closeIndicator();
+						helpers.alertUser('Updated User', 'User profile saved!');
+						addressHack();
 					});
 					return;	
 				}			
@@ -167,6 +170,7 @@ function updateUser(e){
 			$.lastName.value = $.lastName.value;
 			$.username.value = $.username.value;
 		}
+		addressHack();
 	});	
 };
 
@@ -334,9 +338,11 @@ function getGoogleMaps(e){
 /*----------------------------------------------On page load API calls---------------------------------------------*/
 
 
+
 //Load the user model
 Alloy.Models.user.fetch({
 	success: function(data){
+		currentUser = data;
 	},
 	error: function(data){		
 	}
@@ -351,10 +357,14 @@ $.usernameXIcon.hide();
 
 
 //On page load, this is a hack to show hintText instead of empty field for city and streetAddress
-if(helpers.trim($.city.value).length === 0 && helpers.trim($.streetAddress.value).length === 0) {
-	$.city.value = '';
-	$.streetAddress.value = '';
+function addressHack() {
+	if(helpers.trim($.city.value).length === 0 && helpers.trim($.streetAddress.value).length === 0) {
+		$.city.value = '';
+		$.streetAddress.value = '';
+	}
 }
+
+addressHack();
 
 
 
