@@ -265,6 +265,9 @@ function createPreviewButtons() {
 	});
 	
 	saveListingButton.addEventListener('click', function(e) {
+		//saveListingButton.touchEnabled = false;
+		//console.log('********',e);
+		//console.log('^^^^^^^',this);
 		saveListing();
 	});
 	return;

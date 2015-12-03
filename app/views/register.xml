@@ -18,9 +18,9 @@
 			<View class="signup-underline"/>
 			<TextField hintText="555-555-5555" id="phoneNumber" maxLength="12"></TextField>
 			<View class="signup-underline"/>		
-			<Button onClick="registerUser" class="primary-btn">Let's Selbi</Button>
+			<Button id='registerButton' onClick="registerUser" class="primary-btn">Let's Selbi</Button>
 			<Label class="terms-conditions">By signing up, you are agreeing to Selbi's User Agreement and Privacy Policy</Label>
-			<Label onClick="closeRegisterWindow" class="cancel-txt">Already Selbi?</Label>
+			<Label id='closeRegister' onClick="closeRegisterWindow" class="cancel-txt">Already Selbi?</Label>
 		</View>
 	</Window>
 </Alloy>

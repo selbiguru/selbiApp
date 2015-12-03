@@ -408,7 +408,7 @@ function loadContacts() {
  * Delegate callback executed when access to contacts is not allowed
  */
 function addressBookDisallowed() {	
-	dynamicElement.defaultLabel('No access to contacts!', function(err, results) {
+	dynamicElement.defaultLabel('Go to your phone settings and turn on Contacts.', function(err, results) {
 		$.defaultView.height= Ti.UI.FILL;
 		$.defaultView.add(results);
 	});
@@ -435,6 +435,8 @@ function importContacts() {
 	    addressBookDisallowed();
 	}
 };
+
+
 
 
 /**

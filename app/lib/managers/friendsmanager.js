@@ -114,3 +114,23 @@ var updateFriendInvitationByUserIds = exports.updateFriendInvitationByUserIds = 
 		}
 	});
 };
+
+
+
+
+/**
+ * @method addFriendsByPhone
+ * @param {Array} phoneArray array containing the user's contact's phone numbers
+ * @param {Function} cb Callback function
+ */
+var addFriendsByPhone = exports.addFriendsByPhone = function(phoneArray, cb) {
+	httpManager.execute('/friends/phonenumber/'+ Ti.App.Properties.getString('userId'), 'POST', phoneArray, true, function(err, phoneResponse){
+		console.log('------', err);
+		console.log('+++++++', phoneResponse);
+		if(err) {
+			cb(err, null);
+		} else {
+			cb(err, phoneResponse);
+		}
+	});
+};
