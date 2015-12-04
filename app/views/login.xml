@@ -4,11 +4,11 @@
 			<Label class="splash-header-text">Sign In</Label>
 			<TextField id="username" hintText="Email"></TextField>
 			<View class="login-underline"/>
-			<TextField passwordMask="true" hintText="Password" id="password"></TextField>
+			<TextField passwordMask="true" hintText="Password" id="password" maxLength="254"></TextField>
 			<View class="login-underline"/>	
-			<Button onClick="loginUser" class="primary-btn">Let's Selbi</Button>
-			<Label onClick="forgotPassword" class="forgot-password">Forgot your password?</Label>
-			<Label class="cancel-txt" onClick="closeWindow">Cancel</Label>
+			<Button id="loginUser" onClick="loginUser" class="primary-btn">Let's Selbi</Button>
+			<Label id="forgotPassword" onClick="forgotPassword" class="forgot-password">Forgot your password?</Label>
+			<Label id="closeWindow" class="cancel-txt" onClick="closeWindow">Cancel</Label>
 		</View>
 	</Window>
 </Alloy>
