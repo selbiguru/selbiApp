@@ -25,6 +25,7 @@
 				<View class="rowContainer">
 					<Label icon="fa-bell" class="rowLabel row-icon" id="menuNotificationIcon"></Label>
 					<Label id="notificationsLabel" class="rowLabel">Notifications</Label>
+					<Label id="notificationsCounter">3</Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>

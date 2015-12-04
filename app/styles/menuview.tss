@@ -10,6 +10,13 @@
 
 
 
+
+
+
+
+
+
+
 //iPhone 4
 "#menuTopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,
@@ -25,6 +32,21 @@
 		fontSize: "20dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#notificationsCounter[if=Alloy.Globals.iPhoneFour]": {
+	borderRadius: '8dp',
+	height: '15dp',
+	width: '15dp',
+	left: '10dp',
+	backgroundColor: '#9B9B9B',
+	color: '#fff',
+	top: '7dp',
+	font: {
+		fontSize: '11dp',
+		fontFamily: 'Nunito-Light'
+	},
+	borderColor: '#1BA7CD',
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 },
 ".menu-underline[if=Alloy.Globals.iPhoneFour]": {
 	height: "1dp",
@@ -103,6 +125,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //iPhone 5
 "#menuTopBar[if=Alloy.Globals.iPhoneFive]":{
 	width: Ti.UI.FILL,
@@ -118,6 +157,21 @@
 		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#notificationsCounter[if=Alloy.Globals.iPhoneFive]": {
+	borderRadius: '9dp',
+	height: '18dp',
+	width: '18dp',
+	left: '10dp',
+	backgroundColor: '#9B9B9B',
+	color: '#fff',
+	top: '9dp',
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	},
+	borderColor: '#1BA7CD',
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 },
 ".menu-underline[if=Alloy.Globals.iPhoneFive]": {
 	height: "1dp",
@@ -194,6 +248,25 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //iPhone 6
 "#menuTopBar[if=Alloy.Globals.iPhoneSix]":{
 	width: Ti.UI.FILL,
@@ -210,6 +283,21 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+"#notificationsCounter[if=Alloy.Globals.iPhoneSix]": {
+	borderRadius: '10dp',
+	height: '20dp',
+	width: '20dp',
+	left: '13dp',
+	backgroundColor: '#9B9B9B',
+	color: '#fff',
+	top: '13dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	borderColor: '#1BA7CD',
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+},
 ".menu-underline[if=Alloy.Globals.iPhoneSix]": {
 	height: "1dp",
 	top:"0dp",
@@ -220,7 +308,7 @@
 },
 ".rowContainer[if=Alloy.Globals.iPhoneSix]":{
 	height: '45dp',
-	layout:'horizontal'
+	layout:'horizontal',
 },
 ".rowLabel[if=Alloy.Globals.iPhoneSix]":{
 	top: '3dp',
@@ -230,7 +318,7 @@
 		fontSize: "18dp",
     	fontFamily: 'Nunito-Light'
 	},
-	color: "#545555"
+	color: "#545555",
 },
 ".row-icon[if=Alloy.Globals.iPhoneSix]": {
 	width: '25dp',
@@ -288,6 +376,22 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //iPhone 6 plus
 "#menuTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
 	width: Ti.UI.FILL,
@@ -303,6 +407,21 @@
 		fontSize: "26dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#notificationsCounter[if=Alloy.Globals.iPhoneSixPlus]": {
+	borderRadius: '12dp',
+	height: '24dp',
+	width: '24dp',
+	left: '15dp',
+	backgroundColor: '#9B9B9B',
+	color: '#fff',
+	top: '13dp',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	},
+	borderColor: '#1BA7CD',
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 },
 ".menu-underline[if=Alloy.Globals.iPhoneSixPlus]": {
 	height: "1dp",
@@ -373,6 +492,35 @@
 		fontFamily: 'Nunito-Light'
 	}
 },
+"#notificationsCounter[if=Alloy.Globals.iPhoneSix]": {
+	borderRadius: '10dp',
+	height: '20dp',
+	width: '20dp',
+	left: '13dp',
+	backgroundColor: '#9B9B9B',
+	color: '#fff',
+	top: '13dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	borderColor: '#1BA7CD',
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -394,6 +542,21 @@
 		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#notificationsCounter[if=Alloy.Globals.android]": {
+	borderRadius: '10dp',
+	height: '20dp',
+	width: '20dp',
+	left: '13dp',
+	backgroundColor: '#9B9B9B',
+	color: '#fff',
+	top: '13dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	borderColor: '#1BA7CD',
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 },
 ".menu-underline[if=Alloy.Globals.android]": {
 	height: "1dp",
