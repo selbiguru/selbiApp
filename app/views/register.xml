@@ -4,15 +4,15 @@
 			<Label class="splash-header-text">Sign Up</Label>
 			<View id="nameView">
 				<View id="firstNameView">
-					<TextField id="firstName" class="format-first-name" hintText="First Name"></TextField>
+					<TextField id="firstName" class="format-first-name" hintText="First Name" maxLength="50"></TextField>
 					<View id="firstNameUnderline" class="signup-underline format-first-name"/>
 				</View>
 				<View id="lastNameView">
-					<TextField id="lastName" class="format-last-name" hintText="Last Name"></TextField>
+					<TextField id="lastName" class="format-last-name" hintText="Last Name" maxLength="50"></TextField>
 					<View id="lastNameUnderline" class="signup-underline format-last-name"/>
 				</View>
 			</View>
-			<TextField id="email" hintText="Email"></TextField>
+			<TextField id="email" hintText="Email" maxLength="254"></TextField>
 			<View class="signup-underline"/>
 			<TextField passwordMask="true" hintText="Password" id="password"></TextField>
 			<View class="signup-underline"/>

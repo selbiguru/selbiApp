@@ -3,6 +3,7 @@ var AuthManager = require('managers/authmanager'),
 	friendsManager = require('managers/friendsmanager'),
 	twilioManager = require('managers/twiliomanager'),
 	helpers = require('utilities/helpers'),
+	utils = require('utilities/validate'),
 	indicator = require('uielements/indicatorwindow'),
 	args = arguments[0] || {};
 var prevNumber = '';
@@ -19,18 +20,30 @@ function registerUser(){
     	helpers.alertUser('Missing Fields','All fields must be filled out!');
     	buttonOn();
     	return;
-	}
-	var userName = (($.email.value).replace(/@.*$/,"")).toLowerCase()+(Math.floor(Math.random() * 9000000)+1000000);
+	} 
+	var validateEmailObj = {
+   		email: [(helpers.trim($.email.value, true)).toLowerCase(), {required: true,
+   		email: true, label:'Email field'}]
+	};
+	var validateFirstName = (helpers.capFirstLetter(helpers.trim($.firstName.value, false))).match(/^[a-z ,.'-]+$/i);
+	var validateLastName = (helpers.capFirstLetter(helpers.trim($.lastName.value, false))).match(/^[a-z ,.'-]+$/i);
+	var validatedEmail = utils.validate(validateEmailObj);
 	var validatedNumber = validatePhoneNumber($.phoneNumber.value);
-	/*if(!validatedNumber) {
-		var c = Titanium.UI.createAlertDialog({
-        	title : 'Invalid Phone Number'
-    	});
-    	helpers.alertUser('Invalid Phone Number','Please enter a valid phone number beginning with area code.');
+	if(!validateFirstName || !validateLastName ) {
+		helpers.alertUser('Invalid Name','Please enter a valid first and last name.');
+		buttonOn();
+		return;
+	} else if(validatedEmail.email.message) {
+		helpers.alertUser('Invalid Email', validatedEmail.email.message);
+		buttonOn();
+		return;
+	} else if(!validatedNumber || validatedNumber.length != 10) {
+    	helpers.alertUser('Invalid Phone Number','Please enter a valid 10 digit phone number beginning with area code.');
     	buttonOn();
 		return;
 	}
-	var codeNumbers =[];
+	var username = (helpers.trim(validateFirstName[0].concat(validateLastName[0]), true).replace(/\W+/g, '').toLowerCase()+(Math.floor(Math.random() * 9000000)+1000000)).slice(0,20);
+	/*var codeNumbers =[];
 	var randomNumber = Math.floor(Math.random() * 8999 + 1000);
 	var validateObject = {
 		phoneNumber: validatedNumber,
@@ -75,7 +88,7 @@ function registerUser(){
 								indicatorWindow.closeIndicator();
 								return;
 							} else {
-								console.log("Successfully regsitered");
+								console.log("Successfully registered");
 								importContacts();
 								//var homeController = Alloy.createController('masterlayout').getView();
 								//homeController.open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});	
