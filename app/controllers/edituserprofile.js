@@ -137,26 +137,25 @@ function uploadUserProfile(imageBlob){
 }
 
 function updateUser(e){
-	var uniqueFirstNameRegEx = ($.firstName.value).match(/^[a-zA-Z]+$/);
-	var uniqueLastNameRegEx = ($.lastName.value).match(/^[a-zA-Z]+$/);
+	var uniqueFirstNameRegEx = (helpers.capFirstLetter(helpers.trim($.firstName.value, false))).match(/^[a-z ,.'-]+$/i);
+	var uniqueLastNameRegEx = (helpers.capFirstLetter(helpers.trim($.lastName.value, false))).match(/^[a-z ,.'-]+$/i);
 	
 	if(!userNameUnique) {
 		if(helpers.trim($.username.value, true).length < 6 ) {
 			helpers.alertUser('Sorry','Usernames must be at least 6 characters!');
 		} else {
-			helpers.alertUser('Sorry','Usernames can only be letters and numbers!');
+			helpers.alertUser('Sorry','Usernames can only be letters, numbers or an _.');
 		}
 		return;
 	};
-	
 	if(!uniqueFirstNameRegEx || !uniqueLastNameRegEx) {
-		helpers.alertUser('Sorry','First and Last name can only be letters and must be at least 1 character long!');
+		helpers.alertUser('Sorry','Please enter a valid first and last name!');
 		return;
 	}
 	var textFieldObject = {
 		"id": Ti.App.Properties.getString('userId'), //Id of the user 
-		"firstName": helpers.trim($.firstName.value, true).toLowerCase(),
-		"lastName": helpers.trim($.lastName.value, true).toLowerCase(),
+		"firstName": uniqueFirstNameRegEx[0],
+		"lastName": uniqueLastNameRegEx[0],
 		"username": helpers.trim($.username.value, true).toLowerCase()
 	};
 	
@@ -389,7 +388,7 @@ $.usernameView.addEventListener('click', function(e){
 
 
 $.username.addEventListener('change',function(e){
-	var uniqueUserRegEx = ($.username.value).match(/^[a-zA-Z\d\_]+$/);
+	var uniqueUserRegEx = ($.username.value).match(/\W+/g);
 	if(uniqueUserRegEx === null) {
 		userNameUnique = false;
 		$.usernameCheckIcon.hide();
