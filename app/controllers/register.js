@@ -29,6 +29,7 @@ function registerUser(){
 	var validateLastName = (helpers.capFirstLetter(helpers.trim($.lastName.value, false))).match(/^[a-z ,.'-]+$/i);
 	var validatedEmail = utils.validate(validateEmailObj);
 	var validatedNumber = validatePhoneNumber($.phoneNumber.value);
+	var validatedPassword = helpers.trim($.password.value, false);
 	if(!validateFirstName || !validateLastName ) {
 		helpers.alertUser('Invalid Name','Please enter a valid first and last name.');
 		buttonOn();
@@ -41,8 +42,12 @@ function registerUser(){
     	helpers.alertUser('Invalid Phone Number','Please enter a valid 10 digit phone number beginning with area code.');
     	buttonOn();
 		return;
+	} else if(validatedPassword.length < 8) {
+		helpers.alertUser('Password','Your password must be at least 8 characters long.');
+    	buttonOn();
+		return;
 	}
-	var username = (helpers.trim(validateFirstName[0].concat(validateLastName[0]), true).replace(/\W+/g, '').toLowerCase()+(Math.floor(Math.random() * 9000000)+1000000)).slice(0,20);
+	var userName = (helpers.trim(validateFirstName[0].concat(validateLastName[0]), true).replace(/\W+/g, '').toLowerCase()+(Math.floor(Math.random() * 9000000)+1000000)).slice(0,20);
 	/*var codeNumbers =[];
 	var randomNumber = Math.floor(Math.random() * 8999 + 1000);
 	var validateObject = {
@@ -81,7 +86,7 @@ function registerUser(){
 					    animateWindowClose = animateWindowClose.scale(0);	
 					    results.modalWindow.close({transform:animateWindowClose, duration:300});*/
 						indicatorWindow.openIndicator();
-					    AuthManager.userRegister($.firstName.value, $.lastName.value, $.email.value, userName, $.password.value, validatedNumber, function(err, registerResult){
+					    AuthManager.userRegister(validateFirstName[0], validateLastName, validatedEmail.email, userName, validatedPassword, validatedNumber, function(err, registerResult){
 							if(err) {
 								buttonOn();
 								helpers.alertUser('Register','Unable to register, please try again!');
