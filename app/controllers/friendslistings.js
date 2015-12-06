@@ -145,7 +145,7 @@ function findUserListings(){
  * @param {Object} listingId Object containing listingId and userId for the item
  */
 function openListing(listingIDs){
-	console.log("used 6",listingIDs);
+	//console.log("used 6",listingIDs);
 	Alloy.Globals.openPage('mylistings', [
 		listingIDs.userName, listingIDs.userId, listingIDs.friends
 	]);
