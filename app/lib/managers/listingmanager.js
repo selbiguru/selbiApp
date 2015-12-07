@@ -19,7 +19,8 @@ var imageManager = require('managers/imagemanager');
  * @param {Function} cb Callback function
  */
 exports.getListing = function(listingId, cb){
-	httpManager.execute('/listing/'+listingId, 'GET', null, true, function(err, listingResult){
+	httpManager.execute('/userlistings/listing/'+listingId, 'GET', null, true, function(err, listingResult){
+		console.log('@@@@@@@!!!!! ', listingResult);
 		cb(err, listingResult);
 	});
 };
@@ -28,10 +29,13 @@ exports.getListing = function(listingId, cb){
  * @method getUserListings
  * Obtains all the listings for a given user
  * @param {String} userId User Identifier
+ * @param {Object} queryObj Object containing the following information:
+ * 		@param {Boolean} friend Indicates whether you are friends with the person you are getting items for
+ * 		@param {Boolean} myself Indicates whether you are getting items for yourself
  * @param {Function} cb Callback function
  */
-exports.getUserListings = function(userId, cb){
-	httpManager.execute('/userlistings/'+ userId, 'GET', null, true, function(err, listingsResult){
+exports.getUserListings = function(userId, queryObj, cb){
+	httpManager.execute('/userlistings/'+ userId, 'PUT', queryObj, true, function(err, listingsResult){
 		cb(err, listingsResult);
 	});
 };
@@ -78,7 +82,7 @@ exports.createListing = function(listingData, cb){
 		"title": listingData.title,
 		"description": listingData.description,
 		"price": listingData.price,
-		"isPrivate": listingData.privateListing,
+		"isPrivate": listingData.privateSwitch,
 		"isPreview": false,
 		"isPublished": true,
 		"isSold": false,
@@ -142,7 +146,7 @@ exports.uploadImagesForListing = function(listingId, imageCollection, cb){
  */
 exports.updateListing = function(listingRequest, cb){
 	
-	httpManager.execute('/listing/'+ listingRequest.id, 'PUT', listingRequest, true, function(err, updateListingResult){
+	httpManager.execute('/userlistings/update/'+ listingRequest.id, 'PUT', listingRequest, true, function(err, updateListingResult){
 		if(err) {
             cb(err, null);
 		} else {

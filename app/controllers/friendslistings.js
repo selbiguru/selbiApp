@@ -30,6 +30,7 @@ genFriendsItems(function(err, items){
  */
 function genFriendsItems(cb){
 	listingManager.getFriendsListings(argsID, function(err, friendsListings){
+		//console.log('!!!!!!! ', friendsListings);
 		var listItems = [];
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading your friend\'s listings!  We are working on a fix!', function(err, results) {

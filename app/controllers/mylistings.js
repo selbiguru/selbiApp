@@ -9,11 +9,14 @@ var myListingPadding, myListingItemHeight,
 	myListingFontSize, myTopBarFontSize;
 var items = [],
 	obj = [];
+var queryObj = {
+	myself: Ti.App.Properties.getString('userId') === argsID ? true : false,
+	friends: argsFriend.length > 0 && argsFriend[0].status === 'approved' ? true : false
+};
 var tabsObject = Object.freeze({
 	'mylistings': 1,
 });
 var tabView = tabsObject[args];
-
 switch(Alloy.Globals.userDevice) {
     case 0: //iphoneFour
         myListingPadding = 7;
@@ -75,7 +78,7 @@ genMyItems(function(err, items){
  * @param {Function} cb Callback function
  */
 function genMyItems(cb){
-	listingManager.getUserListings(argsID, function(err, userListings){
+	listingManager.getUserListings(argsID, queryObj, function(err, userListings){
 		var listItems = [];
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading listings!', function(err, results) {

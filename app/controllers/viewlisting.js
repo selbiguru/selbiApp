@@ -14,6 +14,7 @@ if(args.itemId){
 	createPurchasingButtons();
 	$.titleViewListingLabel.text = 'View Listing';
 	//$.backListingView.show();
+	console.log('&&&&& ', args);
 	listingManager.getListing(args.itemId, function(err, listing){
 		if(err) {
 			helpers.alertUser('Listing','Unable to get the listing!');
