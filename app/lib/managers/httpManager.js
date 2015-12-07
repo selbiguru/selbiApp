@@ -1,6 +1,6 @@
 /**
- * @class HttpManager
- * HttpManager class to perform http calls against the sails server
+ * @class Httpmanager
+ * Httpmanager class to perform http calls against the sails server
  * Provides helper methods to perform oAuth based http calls
  */
 
