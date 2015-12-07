@@ -176,7 +176,7 @@ function showNotifications(notificationsArray) {
 			data: {
 				isSold: notificationsArray[i].type === 'sold' ? true : false,
 				userFrom: notificationsArray[i].userFrom,
-				userTo: notificationsArray[i].userTo,
+				userTo: notificationsArray[i].user,
 				notificationId: notificationsArray[i].id			
 			},
 			ext: mainView
@@ -197,7 +197,7 @@ function showNotifications(notificationsArray) {
 			data: {
 				isSold: notificationsArray[i].type === 'sold' ? true : false,
 				userFrom: notificationsArray[i].userFrom,
-				userTo: notificationsArray[i].userTo,
+				userTo: notificationsArray[i].user,
 				notificationId: notificationsArray[i].id
 			},
 			ext: mainView
@@ -292,9 +292,9 @@ function showNotifications(notificationsArray) {
 function createText(notification) {
 	var newText = '';
 	if(notification.type === 'friendrequest') {
-		newText = notification.user.firstName +" "+ notification.user.lastName + " added you!";	
+		newText = notification.userFromInfo.firstName +" "+ notification.userFromInfo.lastName + " added you!";	
 	} else {
-		newText = notification.user.firstName +" "+ notification.user.lastName + ' purchased your item!';
+		newText = notification.userFromInfo.firstName +" "+ notification.userFromInfo.lastName + ' purchased your item!';
 	}
 	return newText;
 }
