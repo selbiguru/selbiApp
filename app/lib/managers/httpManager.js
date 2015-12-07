@@ -21,7 +21,7 @@ var keychainItem = keychain.createKeychainItem(Alloy.CFG.keychain.account, Alloy
  * @param {Object} isAuth Indicates if the http call needs oAuth, It grabs the token from keychain
  * @param {Object} callback	Callback function after completing the http request
  */
-exports.execute = function(relativePath, method, objectToSend, isAuth, callback) {
+var execute = exports.execute = function(relativePath, method, objectToSend, isAuth, callback) {
     var xhr = Titanium.Network.createHTTPClient(),
         url = baseUrl + relativePath;
 	console.log("!!!!!!: ", xhr);
