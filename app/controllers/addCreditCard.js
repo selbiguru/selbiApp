@@ -31,7 +31,7 @@ function savingStuff(e){
 	//add check for error from webview
 	Ti.App.removeEventListener("app:fromWebViewPaymentGetNonceFromBraintree", savingStuff);
 	if(e.message) {
-		helpers.alertUser(''+e.message.type+'',''+e.message.message+'');
+		helpers.alertUser(''+e.message.type+'','Unable to validate your Credit Card');
 		return;
 	} else {
 		var createCustomerObj = {

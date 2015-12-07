@@ -32,7 +32,7 @@ function genFriendsItems(cb){
 	listingManager.getFriendsListings(argsID, function(err, friendsListings){
 		var listItems = [];
 		if(err) {
-			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading your friend\'s listings!', function(err, results) {
+			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading your friend\'s listings!  We are working on a fix!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
@@ -92,7 +92,7 @@ function genFriendsItems(cb){
 			$.fg.addGridItems(items);
 			
 		} else {
-			dynamicElement.defaultLabel('Your Friend\'s are not currently listing anything for sale.  We suggest adding more friends under \'Contacts\' in the menu, or check out what the rest of Selbi is selling under \'Selbi USA!\'', function(err, results) {
+			dynamicElement.defaultLabel('It\'s easier to use Selbi with a network of friends. Go to Contacts under the menu to add more friends!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});

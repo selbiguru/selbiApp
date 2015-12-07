@@ -28,7 +28,7 @@ function genUSAItems(cb){
 	listingManager.getUserListings(argsID, function(err, userListings){
 		var listItems = [];	
 		if(err) {
-			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading all the USA listings!', function(err, results) {
+			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading all the USA listings! We are working on a fix!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
