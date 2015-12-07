@@ -75,7 +75,7 @@ var login = exports.login = function (username, password, cb){
  * @param {String} phoneNumber
  * @param {Object} cb
  */
-exports.userRegister = function(firstName, lastName, email, username, password, phoneNumber, cb) {
+var userRegister = exports.userRegister = function(firstName, lastName, email, username, password, phoneNumber, cb) {
 	// Todo: validation
 	
 	
@@ -102,7 +102,7 @@ exports.userRegister = function(firstName, lastName, email, username, password, 
  * @method IsLoggedIn
  * Check whether the user is logged in
  */
-exports.isLoggedIn = function() {
+var isLoggedIn = exports.isLoggedIn = function() {
 	return Ti.App.Properties.getString('isAuth') ? Ti.App.Properties.getString('isAuth') : false;
 };
 
@@ -111,7 +111,7 @@ exports.isLoggedIn = function() {
  * Get the oAuth token for the logged in user
  * NOTE: this is stored in keychain
  */
-exports.getToken = function() {
+var getToken = exports.getToken = function() {
 	return keychainItem.valueData;
 };
 
@@ -120,7 +120,7 @@ exports.getToken = function() {
  * Logs the user out of the app clearing any stored credentials/keys
  * @param {Function} cb
  */
-exports.logout = function(cb){
+var logout = exports.logout = function(cb){
 	httpClient.execute("/logout", "POST", null, true, function(err, logoutResult){
 		Ti.API.info("Logout Result", logoutResult);
 		if(logoutResult) {
