@@ -42,7 +42,7 @@ function genFriendsItems(cb){
 				if(friendsListings[listing].imageUrls){
 					var view = Alloy.createController('userTwoColumnTemplate');
 					var imageUrl = friendsListings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + friendsListings[listing].imageUrls[0] : "";
-					var profileImage = friendsListings[listing].friend.profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + friendsListings[listing].friend.profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
+					var profileImage = friendsListings[listing].user.profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + friendsListings[listing].user.profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
 					var tmp = {
 						image :  imageUrl,
 			            usaListingThumb : {
@@ -52,15 +52,15 @@ function genFriendsItems(cb){
 			                image : profileImage
 			            },
 			            usaListingName: {
-			            	text: friendsListings[listing].friend.firstName +" "+ friendsListings[listing].friend.lastName
+			            	text: friendsListings[listing].user.firstName +" "+ friendsListings[listing].user.lastName
 			            },
 			            usaListingNumber: {
 			            	text: friendsListings[listing].counter.count > 1 ? friendsListings[listing].counter.count + " Listings" : friendsListings[listing].counter.count + " Listing"
 			            },  
 			            template: 'userTwoColumnTemplate',
 			            properties: {
-			            	userId: friendsListings[listing].user,
-			            	userName: friendsListings[listing].friend.firstName +" "+ friendsListings[listing].friend.lastName,
+			            	userId: friendsListings[listing].user.id,
+			            	userName: friendsListings[listing].user.firstName +" "+ friendsListings[listing].user.lastName,
 			            	friends: friendsListings[listing].invitation
 			            }
 			        };
@@ -72,7 +72,7 @@ function genFriendsItems(cb){
 			        		image: profileImage
 			        	},
 			        	'#usaListingName':{ 
-			        		text: helpers.alterTextFormat(friendsListings[listing].friend.firstName +" "+ friendsListings[listing].friend.lastName, 12, false)
+			        		text: helpers.alterTextFormat(friendsListings[listing].user.firstName +" "+ friendsListings[listing].user.lastName, 12, false)
 		        		},
 		        		'#usaListingNumber':{ 
 			        		text: friendsListings[listing].counter.count > 1 ? friendsListings[listing].counter.count + " Listings" : friendsListings[listing].counter.count + " Listing"	
