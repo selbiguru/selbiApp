@@ -25,38 +25,39 @@ genUSAItems(function(err, items){
  * @param {Function} cb Callback function
  */
 function genUSAItems(cb){
-	listingManager.getUserListings(argsID, function(err, userListings){
+	listingManager.getSelbiListings(argsID, function(err, selbiListings){
+		console.log('~~~~~~~~~~ ', selbiListings);
 		var listItems = [];	
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading all the USA listings! We are working on a fix!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
-		} else if(userListings && userListings.listings.length > 0) {
-			for(var listing in userListings.listings) {
-				if(userListings.listings[listing].imageUrls){
+		} else if(selbiListings && selbiListings.length > 0) {
+			for(var listing in selbiListings) {
+				if(selbiListings[listing].listings[0].imageUrls){
 					var view = Alloy.createController('userTwoColumnTemplate');
-					var imageUrl = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + userListings.listings[listing].imageUrls[0] : "";
-					var practiceImage = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg" : "";
+					var imageUrl = selbiListings[listing].listings[0].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + selbiListings[listing].listings[0].imageUrls[0] : "";
+					var profileImage = selbiListings[listing].profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + selbiListings[listing].profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
 					var tmp = {
 						image :  imageUrl,
 			            usaListingThumb : {
 			                image :  imageUrl
 			            },
 			            usaImageThumb : {
-			                image : practiceImage
+			                image : profileImage
 			            },
 			            usaListingName: {
-			            	text: userListings.firstName +" "+ userListings.lastName
+			            	text: selbiListings[listing].firstName +" "+ selbiListings[listing].lastName
 			            },
 			            usaListingNumber: {
-			            	text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Listings" : userListings.listings[listing].imageUrls.length + " Listing"
+			            	text: selbiListings[listing].count > 1 ? "+" + selbiListings[listing].count + " Listings" : selbiListings[listing].count + " Listing"
 			            },  
 			            template: 'userTwoColumnTemplate',
 			            properties: {
-			            	userId: userListings.listings[listing].user,
-			            	userName: userListings.firstName +" "+ userListings.lastName,
-			            	friends: false
+			            	userId: selbiListings[listing].id,
+			            	userName: selbiListings[listing].firstName +" "+ selbiListings[listing].lastName,
+			            	friends: selbiListings[listing].invitation
 			            }
 			        };
 			        view.updateViews({
@@ -64,13 +65,13 @@ function genUSAItems(cb){
 			        		image: imageUrl
 			        	},
 			        	'#usaImageThumb': {
-			        		image: practiceImage
+			        		image: profileImage
 			        	},
 			        	'#usaListingName':{ 
-			        		text: helpers.alterTextFormat(userListings.firstName +" "+ userListings.lastName, 12, false)
+			        		text: helpers.alterTextFormat(selbiListings[listing].firstName +" "+ selbiListings[listing].lastName, 12, false)
 		        		},
 		        		'#usaListingNumber':{ 
-			        		text: userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Listings" : userListings.listings[listing].imageUrls.length + " Listing"	
+			        		text: selbiListings[listing].count > 1 ? "+" + selbiListings[listing].count + " Listings" : selbiListings[listing].count + " Listing"	
 		        		}
 			        });
 			        

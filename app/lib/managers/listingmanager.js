@@ -63,6 +63,25 @@ exports.getFriendsListings = function(userId, cb){
 
 
 
+/**
+ * @method getSelbiListings
+ * Obtains all listings on Selbi for a given user who are not the user's friends
+ * @param {String} userId User Identifier
+ * @param {Function} cb Callback function
+ */
+exports.getSelbiListings = function(userId, cb){
+	httpManager.execute('/userlistings/selbilistings/'+ userId, 'GET', null, true, function(err, selbiListingsResult){
+		if(err) {
+            cb(err, null);
+		} else {
+			cb(null, selbiListingsResult);
+		}
+	});
+};
+
+
+
+
 /***************************************************POST CALLS***************************************************************/
 
 
