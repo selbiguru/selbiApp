@@ -26,7 +26,6 @@ genUSAItems(function(err, items){
  */
 function genUSAItems(cb){
 	listingManager.getSelbiListings(argsID, function(err, selbiListings){
-		console.log('~~~~~~~~~~ ', selbiListings);
 		var listItems = [];	
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading all the USA listings! We are working on a fix!', function(err, results) {
