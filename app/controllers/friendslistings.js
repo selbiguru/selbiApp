@@ -55,7 +55,7 @@ function genFriendsItems(cb){
 			            	text: friendsListings[listing].user.firstName +" "+ friendsListings[listing].user.lastName
 			            },
 			            usaListingNumber: {
-			            	text: friendsListings[listing].counter.count > 1 ? friendsListings[listing].counter.count + " Listings" : friendsListings[listing].counter.count + " Listing"
+			            	text: friendsListings[listing].count > 1 ? friendsListings[listing].count + " Listings" : friendsListings[listing].count + " Listing"
 			            },  
 			            template: 'userTwoColumnTemplate',
 			            properties: {
@@ -75,7 +75,7 @@ function genFriendsItems(cb){
 			        		text: helpers.alterTextFormat(friendsListings[listing].user.firstName +" "+ friendsListings[listing].user.lastName, 12, false)
 		        		},
 		        		'#usaListingNumber':{ 
-			        		text: friendsListings[listing].counter.count > 1 ? friendsListings[listing].counter.count + " Listings" : friendsListings[listing].counter.count + " Listing"	
+			        		text: friendsListings[listing].count > 1 ? friendsListings[listing].count + " Listings" : friendsListings[listing].count + " Listing"	
 		        		}
 			        });
 			        

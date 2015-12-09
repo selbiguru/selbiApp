@@ -88,8 +88,7 @@ exports.createListing = function(listingData, cb){
 		"isSold": false,
 		"userId": Ti.App.Properties.getString('userId')
 	};
-	console.log("this is the object we are sending through..maybe errors here? ", listingRequest);
-	httpManager.execute('/listing', 'POST', listingRequest, true, function(err, createListingResult){
+	httpManager.execute('/userlistings/create', 'POST', listingRequest, true, function(err, createListingResult){
 		if(err) {
             cb(err, null);
 		} else {
