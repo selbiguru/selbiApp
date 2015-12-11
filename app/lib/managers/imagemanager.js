@@ -41,7 +41,6 @@ exports.getMenuProfileImage = function(cb) {
  * @param {Function} cb callback function
  */
 exports.uploadImage = function(uploadRequest, cb) {
-	
 	/**
 	 * @private uploadCallback
 	 * Callback handler for upload complete request. 
@@ -50,6 +49,7 @@ exports.uploadImage = function(uploadRequest, cb) {
 	function uploadCallback(result) {
 		if (result.error) {
 			Ti.API.error("Error: " + result.error);
+			Ti.API.error("Error: " + result.error.message);
 		} else {
 			Ti.API.info("Uploaded file with public_id: " + result.public_id);
 		}
@@ -61,6 +61,46 @@ exports.uploadImage = function(uploadRequest, cb) {
 			getSignedRequest(uploadRequest.referenceId, function(err, signedRequest) {
 				if (signedRequest) {
 					cloudinary.uploader.upload(imageFile, uploadCallback, signedRequest.params);
+				}
+			});
+		}
+	}
+};
+
+
+
+
+/**
+ * @method deleteImage 
+ * Uploads image to cloudinary with in the correct folder path specified by the signature
+ * @param {Object} uploadRequest upload request object
+ * @param {Function} cb callback function
+ */
+exports.deleteImage = function(deleteRequest, cb) {
+	console.log('========== ', deleteRequest);
+	/**
+	 * @private deleteCallback
+	 * Callback handler for delete complete request. 
+	 * @param {Object} result
+	 */
+	function deleteCallback(result) {
+		if (result.error) {
+			Ti.API.error("Error: " + result.error);
+			Ti.API.error("Error: " + result.error.message);
+		} else {
+			Ti.API.info("Deleteed file with public_id: " + result.public_id);
+		}
+		console.log('------ ', result);
+		cb(result.error, result);
+	}
+	if (deleteRequest.image) {
+		var imageFile = Ti.Filesystem.getFile(deleteRequest.image);
+		if (imageFile) {
+			console.log('~~~~~~~~~~ ', imageFile);
+			getSignedRequest(deleteRequest.referenceId, function(err, signedRequest) {
+				console.log('```````` ', signedRequest);
+				if (signedRequest) {
+					cloudinary.uploader.destroy(imageFile, deleteCallback, signedRequest.params);
 				}
 			});
 		}

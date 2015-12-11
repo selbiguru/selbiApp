@@ -184,12 +184,13 @@ exports.updateListing = function(listingRequest, cb){
 /**
  * @method deleteListing
  * Deletes the listing by listing id
- * @param {Object} listingRequest Listing Request object
+ * @param {Object} deleteRequest Delete Request object containg:
+ * 		@param {String} id ID of the listing to be deleted
+ * 		@param {Array} images Array of image strings to be deleted from cloudinary
  * @param {Function} cb Callback function
  */
-exports.deleteListing = function(listingRequest, cb){
-	
-	httpManager.execute('/listing/'+ listingRequest.id, 'DELETE', null, true, function(err, deletedListingResult){
+exports.deleteListing = function(deleteRequest, cb){
+	httpManager.execute('/userlistings/delete/'+ deleteRequest.id, 'DELETE', deleteRequest, true, function(err, deletedListingResult){
 		if(err) {
             cb(err, null);
 		} else {

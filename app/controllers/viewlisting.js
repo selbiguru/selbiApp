@@ -5,7 +5,8 @@ var ImageUtils = require('utilities/imageutils');
 var helpers = require('utilities/helpers');
 var indicator = require('uielements/indicatorwindow');
 var	previewListing,
-	views = [];
+	views = [],
+	itemData;
 
 $.activityIndicator.show();
 if(args.itemId){
@@ -19,6 +20,7 @@ if(args.itemId){
 		if(err) {
 			helpers.alertUser('Listing','Unable to get the listing!');
 		} else {
+			itemData = listing;
 			populateViewListing(listing);
 		}
 		$.activityIndicator.hide();
@@ -160,36 +162,24 @@ function buyItem(e){
  * Deletes the listed item form the users listings.
  */
 function deleteItem(){
-	console.log("HITTING delete item YAYYYY!!!!");
+	var deleteListingObj = {
+		id: args.itemId,
+		images: itemData.imageUrls
+	};
 	var indicatorWindow = indicator.createIndicatorWindow({
-		message : "Saving"
+		message : "Deleting"
 	});
-
+	
 	indicatorWindow.openIndicator();
-	listingManager.deleteListing(args.itemId, function(err, saveResult) {
-		if (saveResult) {
-			listingManager.uploadImagesForListing(saveResult.id, args.images, function(err, imgUrls) {
-				if (imgUrls && imgUrls.length > 0) {
-					delete saveResult.rev;
-					saveResult.imageUrls = imgUrls;
-					listingManager.updateListing(saveResult, function(err, updateResult) {
-						if(err) {
-							//helpers.alertUser('Listing','Failed to update your listing, please try again later!');
-							Ti.API.warn("Failed to update listing, please try again later!" + saveResult.id);
-						}
-						indicatorWindow.closeIndicator();
-						helpers.alertUser('Listing','Listing created successfully');
-						Alloy.Globals.openPage('createlisting');	
-					});
-				} else {
-					indicatorWindow.closeIndicator();
-					helpers.alertUser('Listing','Listing created successfully');
-					Alloy.Globals.openPage('createlisting');
-				}
-			});
+	listingManager.deleteListing(deleteListingObj, function(err, deleteResult) {
+		if (err) {
+			indicatorWindow.closeIndicator();
+			helpers.alertUser('Listing','Failed to delete your listing. Please try again!');
 		} else {
 			indicatorWindow.closeIndicator();
-			helpers.alertUser('Listing','Failed to create your listing. Please try again!');
+			helpers.alertUser('Listing','Listing deleted successfully');
+			Alloy.Globals.openPage('mylistings', ['mylistings', Ti.App.Properties.getString('userId')]);
+			Alloy.Globals.closePage('viewlisting');
 		}
 	});
 }
@@ -267,8 +257,6 @@ function createPreviewButtons() {
 	
 	saveListingButton.addEventListener('click', function(e) {
 		//saveListingButton.touchEnabled = false;
-		//console.log('********',e);
-		//console.log('^^^^^^^',this);
 		saveListing();
 	});
 	return;
@@ -326,8 +314,7 @@ function createPurchasingButtons() {
 	var deleteListing = deleteItem;
 	console.log("argsid ", args.userId, "tiID ",Ti.App.Properties.getString('userId'));
 	if(args.userId === Ti.App.Properties.getString('userId')) {
-		//createSlideButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Slide to Delete', deleteListing);
-		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Slide to Buy', purchaseListing);
+		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Slide to Delete', deleteListing);
 	} else {
 		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Slide to Buy', purchaseListing);
 	}
