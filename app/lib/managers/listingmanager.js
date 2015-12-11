@@ -174,6 +174,24 @@ exports.updateListing = function(listingRequest, cb){
 };
 
 
+/**
+ * @method archiveListing
+ * Archives the listing by listing id and deletes images from cloudinary
+ * @param {String} listingId ID of the listing to be archived
+ * @param {Object} archiveRequest Archive Request object containg:
+ * 		@param {Boolean} isArchived boolean signifying that an item has been archived
+ * 		@param {Array} images Array of image strings to be deleted from cloudinary
+ * @param {Function} cb Callback function
+ */
+exports.archiveListing = function(listingId, archiveRequest, cb){
+	httpManager.execute('/userlistings/archive/'+ listingId, 'PUT', archiveRequest, true, function(err, archivedListingResult){
+		if(err) {
+            cb(err, null);
+		} else {
+			cb(null, archivedListingResult);
+		}
+	});
+};
 
 
 

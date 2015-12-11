@@ -12,7 +12,6 @@ $.activityIndicator.show();
 if(args.itemId){
 	//show correct 'buy' buttons with correct event listeners
 	previewListing = false;
-	createPurchasingButtons();
 	$.titleViewListingLabel.text = 'View Listing';
 	//$.backListingView.show();
 	console.log('&&&&& ', args);
@@ -22,6 +21,7 @@ if(args.itemId){
 		} else {
 			itemData = listing;
 			populateViewListing(listing);
+			createPurchasingButtons();
 		}
 		$.activityIndicator.hide();
 		$.activityIndicator.height = '0dp';
@@ -159,7 +159,7 @@ function buyItem(e){
 
 /**
  * @method deleteItem
- * Deletes the listed item form the users listings.
+ * Deletes the listed item from the users listings.
  */
 function deleteItem(){
 	var deleteListingObj = {
@@ -184,6 +184,33 @@ function deleteItem(){
 	});
 }
 
+
+/**
+ * @method archiveItem
+ * Archives the listed item.
+ */
+function archiveItem(){
+	var archiveListingObj = {
+		isArchived: true,
+		images: itemData.imageUrls
+	};
+	var indicatorWindow = indicator.createIndicatorWindow({
+		message : "Archiving"
+	});
+	
+	indicatorWindow.openIndicator();
+	listingManager.archiveListing(args.itemId, archiveListingObj, function(err, archiveResult) {
+		if (err) {
+			indicatorWindow.closeIndicator();
+			helpers.alertUser('Listing','Failed to archive your listing. Please try again!');
+		} else {
+			indicatorWindow.closeIndicator();
+			helpers.alertUser('Listing','Listing archived successfully');
+			Alloy.Globals.openPage('mylistings', ['mylistings', Ti.App.Properties.getString('userId')]);
+			Alloy.Globals.closePage('viewlisting');
+		}
+	});
+}
 
 
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
@@ -312,8 +339,11 @@ function createPurchasingButtons() {
 	};
 	var purchaseListing = buyItem;
 	var deleteListing = deleteItem;
+	var archiveListing = archiveItem;
 	console.log("argsid ", args.userId, "tiID ",Ti.App.Properties.getString('userId'));
-	if(args.userId === Ti.App.Properties.getString('userId')) {
+	if(args.userId === Ti.App.Properties.getString('userId') && itemData.isSold ) {
+		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, '#127089', 'Slide to Archive', archiveListing);
+	} else if(args.userId === Ti.App.Properties.getString('userId')) {
 		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Slide to Delete', deleteListing);
 	} else {
 		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Slide to Buy', purchaseListing);
