@@ -125,7 +125,9 @@ function uploadUserProfile(imageBlob){
 	
 	// Prepare request
 	var f = Titanium.Filesystem.getFile(Titanium.Filesystem.tempDirectory, 'profile.jpg');
-		f.write(imageBlob); 	
+	var imagePercent = (imageBlob.width/imageBlob.height).toFixed(2);
+	var resizedImage = imageBlob.imageAsResized(imagePercent*200, 200);
+		f.write(resizedImage);
 	var uploadImageRequest = {
 		image: Titanium.Filesystem.tempDirectory + 'profile.jpg',
 		referenceId: 0,

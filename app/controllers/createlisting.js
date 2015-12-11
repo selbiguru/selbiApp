@@ -261,7 +261,9 @@ function createImageView(media) {
 	thumbnailView.add(deleteIcon);
 	thumbnailView.add(imageView);
 	$.imgView.add(thumbnailView);
-	imageCollection.push(media);
+	var imagePercent = (media.width/media.height).toFixed(2);
+	var resizedImage = media.imageAsResized(imagePercent*600, 600);
+	imageCollection.push(resizedImage);
 	
 	deleteIcon.addEventListener('click', function(e) {
 		$.imgView.remove(thumbnailView);
