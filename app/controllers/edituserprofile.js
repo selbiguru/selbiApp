@@ -101,6 +101,7 @@ function uploadUserProfile(imageBlob){
 	indicatorWindow.openIndicator();
 	function uploadCompleteCallback(err, result) {
 		if(currentUser) {
+			var currentProfileImage = currentUser.get('profileImage');
 			currentUser.set({'profileImage': result.public_id});
 			currentUser.save();
 			userManager.userUpdate(currentUser.toJSON(), function(err, results){
@@ -109,6 +110,14 @@ function uploadUserProfile(imageBlob){
 					indicatorWindow.closeIndicator();
 					return;
 				} else {
+					if(currentProfileImage) {
+						var deleteImageObj = {
+							images: [currentProfileImage]
+						};
+						imageManager.deleteImage(deleteImageObj, function(err, deleteImageResult) {
+							console.log('deleting profile image result', err, deleteImageResult);
+						});
+					}
 					imageManager.getMenuProfileImage(function(err, profileImage){
 						$.userProfileImage.image = profileImage;
 						indicatorWindow.closeIndicator();

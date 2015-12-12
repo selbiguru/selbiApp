@@ -72,37 +72,18 @@ exports.uploadImage = function(uploadRequest, cb) {
 
 /**
  * @method deleteImage 
- * Uploads image to cloudinary with in the correct folder path specified by the signature
- * @param {Object} uploadRequest upload request object
+ * Deletes images from cloudinary with in the correct folder path specified by the signature
+ * @param {Object} deleteRequest upload request object containg:
+ * 		@param {Array} images Array of images to delete from cloudinary.
  * @param {Function} cb callback function
  */
 exports.deleteImage = function(deleteRequest, cb) {
-	console.log('========== ', deleteRequest);
-	/**
-	 * @private deleteCallback
-	 * Callback handler for delete complete request. 
-	 * @param {Object} result
-	 */
-	function deleteCallback(result) {
-		if (result.error) {
-			Ti.API.error("Error: " + result.error);
-			Ti.API.error("Error: " + result.error.message);
+	httpClient.execute('/image/deleteimage', 'DELETE', deleteRequest, true, function(err, deletedImageResult){
+		if(err) {
+            cb(err, null);
 		} else {
-			Ti.API.info("Deleteed file with public_id: " + result.public_id);
+			cb(null, deletedImageResult);
 		}
-		console.log('------ ', result);
-		cb(result.error, result);
-	}
-	if (deleteRequest.image) {
-		var imageFile = Ti.Filesystem.getFile(deleteRequest.image);
-		if (imageFile) {
-			console.log('~~~~~~~~~~ ', imageFile);
-			getSignedRequest(deleteRequest.referenceId, function(err, signedRequest) {
-				console.log('```````` ', signedRequest);
-				if (signedRequest) {
-					cloudinary.uploader.destroy(imageFile, deleteCallback, signedRequest.params);
-				}
-			});
-		}
-	}
+	});
+
 }; 
