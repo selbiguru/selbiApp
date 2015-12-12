@@ -3,17 +3,22 @@ var authManager = require('managers/authmanager');
 var imageManager = require('managers/imagemanager');
 var userManager = require('managers/usermanager');
 var helpers = require('utilities/helpers');
+var currentUser;
 
-imageManager.getMenuProfileImage(function(err, profileImage){
-	$.menuUserImage.image = profileImage;
-});
 
-userManager.getCurrentUser(function(err, currentUser){
-	if(err) {
-		helpers.alertUser('Get User','Failed to get the current user!');
-		return;
+//Load the user model
+Alloy.Models.user.fetch({
+	success: function(data){
+		currentUser = data;
+		imageManager.getMenuProfileImage(function(err, profileImage){
+			$.menuUserImage.image = profileImage;
+			currentUser.set({'imageURL': profileImage});
+			currentUser.save();
+		});
+	},
+	error: function(data){
+		helpers.alertUser('Get User','Failed to get the current user!');	
 	}
-	$.userName.setText(currentUser.get('firstName') + " " + currentUser.get('lastName'));
 });
 
 function logout(){

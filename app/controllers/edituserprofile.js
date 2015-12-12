@@ -102,7 +102,9 @@ function uploadUserProfile(imageBlob){
 	function uploadCompleteCallback(err, result) {
 		if(currentUser) {
 			var currentProfileImage = currentUser.get('profileImage');
+			var profileImageUrl = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + result.public_id;
 			currentUser.set({'profileImage': result.public_id});
+			currentUser.set({'imageURL': profileImageUrl});		
 			currentUser.save();
 			userManager.userUpdate(currentUser.toJSON(), function(err, results){
 				if(err) {

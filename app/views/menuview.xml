@@ -1,4 +1,5 @@
 <Alloy>
+	<Model src="user"></Model>
 	<View id="menuView">
 		<View id="menuTopBar"> 
 			<Label id="menuTitle">Selbi</Label>
@@ -6,9 +7,9 @@
 		<View class="menu-underline"/>
 		<TableView class="menuTable" id="menuTable">
 			<TableViewRow class="" id="row0">
-				<ImageView id="menuUserImage" image="http://www.lorempixel.com/600/600/" />
+				<ImageView id="menuUserImage" image="{user.imageURL}" />
        			<View id="menuUserName">
-					<Label id="userName" class="">Danny Boy</Label>
+					<Label id="userName" class="" text="{user.firstName} {user.lastName}"></Label>
 				</View>
 			</TableViewRow>			
 			<TableViewRow>
