@@ -14,7 +14,7 @@
 			</View>
 			<TextField id="email" hintText="Email" maxLength="254"></TextField>
 			<View class="signup-underline"/>
-			<TextField passwordMask="true" hintText="Password" id="password"></TextField>
+			<TextField passwordMask="true" hintText="Password" id="password" maxLength="254"></TextField>
 			<View class="signup-underline"/>
 			<TextField hintText="555-555-5555" id="phoneNumber" maxLength="12"></TextField>
 			<View class="signup-underline"/>		

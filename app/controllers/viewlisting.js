@@ -52,8 +52,6 @@ function populateViewListing(listingData) {
 	previewListing ? firstName = Alloy.Globals.currentUser.attributes.firstName : firstName = listingData.user.firstName;
 	previewListing ? lastName = Alloy.Globals.currentUser.attributes.lastName : lastName = listingData.user.lastName;
 	previewListing ? images = listingData.images : images = listingData.imageUrls;
-	previewListing ? price = listingData.price : price = listingData.price.formatMoney(2);
-	
 	$.viewListingProductTitle.setText(listingData.title);
 	$.viewListingProductPrice.setText(parseFloat(listingData.price).formatMoney(2));
 	$.viewListingProductDescription.setText(listingData.description);

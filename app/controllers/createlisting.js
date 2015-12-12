@@ -90,13 +90,27 @@ function showGallery() {
 
 
 function previewListing(){
-	if($.title.value.length < 1 || $.description.value.length < 1 || $.price.value.length < 1 || imageCollection.length < 1) {
+	if(!$.title.value || !$.description.value || !$.price.value || imageCollection.length < 1) {
     	helpers.alertUser('Empty Fields', 'Please make sure all fields are filled out including adding some images!');
+    	return;
+	} 
+	var validateTitle = (helpers.capFirstLetter(helpers.trim($.title.value, false))).match(/^[a-z\d-\/:;()$&@".,\?!'\[\]{}#^*+=_\\|~<> ]+$/gi);
+	var validateDescription = (helpers.capFirstLetter(helpers.trim($.description.value, false))).match(/^[a-z\d-\/:;()$&@".,\?!'\[\]{}#^*+=_\\|~<>\n \t]+$/gi);
+	var validatedPrice = $.price.value.match(/^[\d,.]+$/g);
+	if(!validateTitle) {
+		helpers.alertUser('Invalid Title','Please enter valid characters only.');
+		return;
+	} else if(!validateDescription) {
+		helpers.alertUser('Invalid Description','Please enter valid characters only.');
+		return;
+	} else if(!validatedPrice) {
+		helpers.alertUser('Invalid Price','Price should be a number.');
+		return;
 	} else {
 		var previewListingObj = {
-			title: $.title.value,
-			description: $.description.value,
-			price: $.price.value,
+			title: validateTitle[0],
+			description: validateDescription[0],
+			price: parseFloat(validatedPrice[0].replace(/,/g, '')).toFixed(2),
 			privateSwitch: $.privateSwitch.value,
 			images: imageCollection,
 			itemId: false
