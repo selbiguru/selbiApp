@@ -107,6 +107,7 @@ function uploadUserProfile(imageBlob){
 			currentUser.set({'imageURL': profileImageUrl});		
 			currentUser.save();
 			userManager.userUpdate(currentUser.toJSON(), function(err, results){
+				addressHack();
 				if(err) {
 					helpers.alertUser('Update User','Failed to update user, please try again later!');
 					indicatorWindow.closeIndicator();
@@ -124,7 +125,6 @@ function uploadUserProfile(imageBlob){
 						$.userProfileImage.image = profileImage;
 						indicatorWindow.closeIndicator();
 						helpers.alertUser('Updated User', 'User profile saved!');
-						addressHack();
 					});
 					return;	
 				}			
