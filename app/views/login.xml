@@ -2,7 +2,7 @@
 	<Window class="wrapper">		
 		<View class="wrapper-container">
 			<Label class="splash-header-text">Sign In</Label>
-			<TextField id="username" hintText="Email" maxLength="254"></TextField>
+			<TextField id="username" hintText="Email/Username" maxLength="254"></TextField>
 			<View class="login-underline"/>
 			<TextField passwordMask="true" hintText="Password" id="password" maxLength="254"></TextField>
 			<View class="login-underline"/>	
