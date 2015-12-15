@@ -6,17 +6,16 @@ var helpers = require('utilities/helpers'),
 var array = [];
 
 
-Ti.App.addEventListener("app:BrainTreeHostLoad", function(e){
+Ti.App.addEventListener("app:BrainTreeHostLoad", addingArray);
+
+
+function addingArray(e) {
+	console.log('+++++++++++++++',e);
+	Ti.App.removeEventListener("app:BrainTreeHostLoad", addingArray);
 	if(e.braintree) {
 		array.push(e.braintree);
 	}
-	Ti.App.removeEventListener("app:BrainTreeHostLoad", function(e){
-		if(e.braintree) {
-			array.push(e.braintree);
-		}
-	});
-});
-
+};
 
 function saveCreditCard() {
 	//get the nonce from the webView and pass it to our server in paymentManager
@@ -77,14 +76,21 @@ function savingStuff(e){
 
 $.activityIndicator.show();
 
-paymentManager.getClientToken(function(err, response){
-	if(err || array.length <= 0){
-    	helpers.alertUser('Oops!','Something went wrong.  Please try again!');
-    	Alloy.Globals.closePage('addCreditCard');
-	} else {
-    	Ti.App.fireEvent('app:fromTitaniumPaymentGetTokenFromServer', { token: response });
-	}
-	$.activityIndicator.hide();
-	$.activityIndicator.height = '0dp';
-	return;
+$.webview.addEventListener('beforeload', function(){
+    Ti.API.info('beforeload');
+});
+
+$.webview.addEventListener('load', function(e) {
+    Ti.API.info('load');
+    paymentManager.getClientToken(function(err, response){
+		if(err || array.length <= 0){
+	    	helpers.alertUser('Oops!','Something went wrong.  Please try again!');
+	    	Alloy.Globals.closePage('addCreditCard');
+		} else {
+	    	Ti.App.fireEvent('app:fromTitaniumPaymentGetTokenFromServer', { token: response });
+		}
+		$.activityIndicator.hide();
+		$.activityIndicator.height = '0dp';
+		return;
+	});	
 });
