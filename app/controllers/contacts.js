@@ -139,7 +139,6 @@ function getFriendsSection() {
 	                	}
 						if(helpers.trim(e.value, true).length > 6){
 							friendsManager.getInvitationByUsername( usernameObject, function(err, results) {
-								//console.log('Results of username Search', results,'errererrrr' ,err);
 								if(results && results.id != Ti.App.Properties.getString('userId')) {
 									if(e.source.children.length > 0 ){
 										e.source.remove(e.source.children[0]);
@@ -344,7 +343,6 @@ function loadContacts() {
 			};
 		};
 		friendsManager.getSelbiUsersByPhones(phoneArray,function(err, results){
-			//console.log('!2121212121212 ', results);
 			if(err) {
 				helpers.alertUser('Oops','Having trouble getting your phone contacts. Please try again later!');
 				addressBookDisallowed();
