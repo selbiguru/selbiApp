@@ -154,8 +154,8 @@ function updateUser(e){
 	var uniqueLastNameRegEx = (helpers.capFirstLetter(helpers.trim($.lastName.value, false))).match(/^[a-z ,.'-]+$/i);
 	
 	if(!userNameUnique) {
-		if(helpers.trim($.username.value, true).length < 6 ) {
-			helpers.alertUser('Sorry','Usernames must be at least 6 characters!');
+		if(helpers.trim($.username.value, true).length < 7 ) {
+			helpers.alertUser('Sorry','Usernames must be at least 7 characters!');
 		} else {
 			helpers.alertUser('Sorry','Usernames can only be letters, numbers or an _.');
 		}
