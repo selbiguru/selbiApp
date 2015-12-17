@@ -323,15 +323,18 @@ function loadContacts() {
 	var people = Ti.Contacts.getAllPeople();
 	if(people) {
 		var practiceToDelete = {
-			newNumber: '5551112222',
-			originalNumber: '5551112222',
-			contactName: 'Steven Collins'
+			newNumber: '5551123243',
+			originalNumber: '5551123243',
+			contactName: 'Tricia Hans'
 		};
 		phoneArray.push(practiceToDelete);
 		for(var person in people) {
 			if((people[person].phone.mobile && people[person].phone.mobile.length > 0) || (people[person].phone.work && people[person].phone.work.length > 0) || (people[person].phone.home && people[person].phone.home.length > 0) || (people[person].phone.other && people[person].phone.other.length > 0)) {
 				var phone = people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : "";
 				var newPhone = phone.replace(/\D+/g, "");
+				if(newPhone.length === 11 && newPhone[0] === '1') {
+					newPhone = newPhone.slice(1);
+				}
 				var userPhoneObject = {
 					newNumber: newPhone,
 					originalNumber: phone,
