@@ -29,6 +29,8 @@
 
 
 
+
+
 //iPhone 4
 "#selbiUSATopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,
@@ -81,7 +83,19 @@
 		fontFamily: 'Nunito-Light'
 	},
 	color: '#9B9B9B'
-}
+},
+"#loadMoreButton[if=Alloy.Globals.iPhoneFour]": {
+	height: '40dp',
+	width: '306dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	bottom: '7dp',
+	textAlign: 'center',
+	backgroundColor: '#E5E5E5',
+	color: '#fff'
+},
 
 
 
@@ -150,7 +164,20 @@
 		fontFamily: 'Nunito-Light'
 	},
 	color: '#9B9B9B'
-}
+},
+"#loadMoreButton[if=Alloy.Globals.iPhoneFive]": {
+	height: '40dp',
+	width: '306dp',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	},
+	bottom: '7dp',
+	textAlign: 'center',
+	backgroundColor: '#E5E5E5',
+	color: '#fff'
+},
+
 
 
 
@@ -217,7 +244,20 @@
 		fontFamily: 'Nunito-Light'
 	},
 	color: '#9B9B9B'
-}
+},
+"#loadMoreButton[if=Alloy.Globals.iPhoneSix]": {
+	height: '50dp',
+	width: '355dp',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+	bottom: '10dp',
+	textAlign: 'center',
+	backgroundColor: '#E5E5E5',
+	color: '#fff'
+},
+
 
 
 
@@ -284,6 +324,18 @@
 	},
 	color: '#9B9B9B'
 },
+"#loadMoreButton[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: '50dp',
+	width: '388dp',
+	font: {
+		fontSize: '20dp',
+		fontFamily: 'Nunito-Light'
+	},
+	bottom: '13dp',
+	textAlign: 'center',
+	backgroundColor: '#E5E5E5',
+	color: '#fff'
+},
 
 
 
@@ -349,4 +401,16 @@
 		fontFamily: 'Nunito-Light'
 	},
 	color: '#9B9B9B'
-}
+},
+"#loadMoreButton[if=Alloy.Globals.android]": {
+	height: '50dp',
+	width: '355dp',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+	bottom: '10dp',
+	textAlign: 'center',
+	backgroundColor: '#E5E5E5',
+	color: '#fff'
+},

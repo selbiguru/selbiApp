@@ -41,7 +41,7 @@ var init = function(opts){
 };
 
 var addGridItems = function(args){
-	clearGrid();
+	//clearGrid();
 	data = args || {};
 	for (var x=0;x < data.length; x++){
 		addGridItem(data[x]);

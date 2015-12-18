@@ -7,7 +7,8 @@ var listingManager = require('managers/listingmanager'),
 	dynamicElement = require('utilities/dynamicElement');
 var	selbiUSAPadding, selbiUSAItemHeight;
 var items = [],
-	obj = [];
+	obj = [],
+	looking = [];
 
 $.activityIndicator.show();
 $.titleSelbiUSALabel.text = "Selbi USA";
@@ -25,6 +26,7 @@ genUSAItems(function(err, items){
  * @param {Function} cb Callback function
  */
 function genUSAItems(cb){
+	items = [];
 	listingManager.getSelbiListings(argsID, function(err, selbiListings){
 		var listItems = [];	
 		if(err) {
@@ -34,6 +36,7 @@ function genUSAItems(cb){
 			});
 		} else if(selbiListings && selbiListings.length > 0) {
 			for(var listing in selbiListings) {
+				looking.push(selbiListings[listing].id);
 				if(selbiListings[listing].listings[0].imageUrls){
 					var view = Alloy.createController('userTwoColumnTemplate');
 					var imageUrl = selbiListings[listing].listings[0].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + selbiListings[listing].listings[0].imageUrls[0] : "";
@@ -191,4 +194,37 @@ $.fg.setOnItemClick(function(e){
     	userName:e.source.data.properties.userName,
     	friends: e.source.data.properties.friends
     });
+});
+
+
+
+/*$.brown.addEventListener('scroll', counting);
+
+function counting(e) {
+	console.log('+++++++++ ', e);
+	var tolerance = 50;
+	var stop = false;
+	if((e.source.children[0].getRect().height + tolerance) <= ($.brown.getRect().height + e.y) && !stop){
+		stop = true;
+		if(stop) {
+		$.brown.removeEventListener('scroll', counting);
+	    Ti.API.info('near bottom', (e.source.children[0].getRect().height + tolerance) <= ($.brown.getRect().height + e.y));
+	    Ti.API.info('y', e.y);
+	    Ti.API.info('children', e.source.children);
+	    Ti.API.info('children height', (e.source.children[0].getRect().height));
+	    Ti.API.info('scrollview',  ($.brown.getRect().height + e.y));
+	   
+		genUSAItems(function(err, peace) {
+			stop = false;
+			console.log('errrrrr ', $.brown);
+			$.brown.addEventListener('scroll', counting);
+		});
+		}
+	}
+}*/
+
+$.loadMoreButton.addEventListener('click', function() {
+	genUSAItems(function(err, peace) {
+		console.log('errrrrr ', $.brown);
+	});
 });
