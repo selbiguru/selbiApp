@@ -7,35 +7,41 @@ var indicator = require('uielements/indicatorwindow');
 var	previewListing,
 	views = [],
 	itemData;
+var ccEligible = false,
+	bankEligible = false;	
 
 $.activityIndicator.show();
-if(args.itemId){
-	//show correct 'buy' buttons with correct event listeners
-	previewListing = false;
-	$.titleViewListingLabel.text = 'View Listing';
-	//$.backListingView.show();
-	console.log('&&&&& ', args);
-	listingManager.getListing(args.itemId, function(err, listing){
-		if(err) {
-			helpers.alertUser('Listing','Unable to get the listing!');
-		} else {
-			itemData = listing;
-			populateViewListing(listing);
-			createPurchasingButtons();
-		}
+function initialize() {
+	if(args.itemId){
+		console.log('+++++++++++',ccEligible, bankEligible);
+		//show correct 'buy' buttons with correct event listeners
+		previewListing = false;
+		$.titleViewListingLabel.text = 'View Listing';
+		//$.backListingView.show();
+		console.log('&&&&& ', args);
+		listingManager.getListing(args.itemId, function(err, listing){
+			if(err) {
+				helpers.alertUser('Listing','Unable to get the listing!');
+			} else {
+				itemData = listing;
+				populateViewListing(listing);
+				createPurchasingButtons();
+			}
+			$.activityIndicator.hide();
+			$.activityIndicator.height = '0dp';
+			return;
+		});
+	} else {
+		//show correct buttons dynamically created with correct event listeners
+		console.log('+++++++++++',ccEligible, bankEligible);
+		previewListing = true;
+		$.titleViewListingLabel.text = 'Preview Listing';
+		//$.backListingView.hide();
+		createPreviewButtons();
+		populateViewListing(args);
 		$.activityIndicator.hide();
 		$.activityIndicator.height = '0dp';
-		return;
-	});
-} else {
-	//show correct buttons dynamically created with correct event listeners
-	previewListing = true;
-	$.titleViewListingLabel.text = 'Preview Listing';
-	//$.backListingView.hide();
-	createPreviewButtons();
-	populateViewListing(args);
-	$.activityIndicator.hide();
-	$.activityIndicator.height = '0dp';
+	}
 }
 
 
@@ -282,7 +288,11 @@ function createPreviewButtons() {
 	
 	saveListingButton.addEventListener('click', function(e) {
 		//saveListingButton.touchEnabled = false;
-		saveListing();
+		if(bankEligible) {
+			saveListing();	
+		} else {
+			helpers.alertUser('No go!','Before you can list items you need to add a bank account in \'Payment\' and address in \'Edit Profile\' under Settings!');
+		}
 	});
 	return;
 }
@@ -340,11 +350,11 @@ function createPurchasingButtons() {
 	var archiveListing = archiveItem;
 	console.log("argsid ", args.userId, "tiID ",Ti.App.Properties.getString('userId'));
 	if(args.userId === Ti.App.Properties.getString('userId') && itemData.isSold ) {
-		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, '#127089', 'Slide to Archive', archiveListing);
+		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, '#127089', 'Slide to Archive', true, archiveListing);
 	} else if(args.userId === Ti.App.Properties.getString('userId')) {
-		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Slide to Delete', deleteListing);
+		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Slide to Delete', true, deleteListing);
 	} else {
-		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Slide to Buy', purchaseListing);
+		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Slide to Buy', ccEligible, purchaseListing);
 	}
 	return;
 }
@@ -360,9 +370,10 @@ function createPurchasingButtons() {
  * @param {String} fontSize FontSize of text
  * @param {String} background BackgroundColor hex you want the button
  * @param {String} text Text string you want on the button
+ * @param {Boolean} ccEligible Boolean to know if the user has a CC saved and can thus purchase items
  * @param {Function} apiSupport APISupport is the function passed in that determines the proper API route to hit
  */
-function createSlideButton(height, width, fontSize, background, text, apiSupport){
+function createSlideButton(height, width, fontSize, background, text, ccEligible, apiSupport){
 	var sliderView = Ti.UI.createView({
 		bottom:'20dp',
 		right: '0dp',
@@ -411,7 +422,11 @@ function createSlideButton(height, width, fontSize, background, text, apiSupport
 		if (endX > parseInt(sliderView.getWidth())+ width) {
 			//button released at right-edge stop
 			//IN HERE ADD PURCHASING CALL
-			apiSupport(e);
+			if(ccEligible) {
+				apiSupport(e);	
+			} else {
+				helpers.alertUser('No go!','Before you can purchase items you need to add a credit card in \'Payment\' and address in \'Edit Profile\' under Settings!');
+			}
 		}
 		//springback
 		sliderButton.setLeft(0);
@@ -474,3 +489,14 @@ function createDeleteButton() {
 	});
 	return;
 }
+
+
+paymentManager.getPaymentMethods(function(err, results){
+	if(results.userPaymentMethod.lastFour && Alloy.Globals.currentUser.attributes.address) {
+		ccEligible = true;
+	}
+	if(results.userMerchant.accountNumberLast4 && Alloy.Globals.currentUser.attributes.address) {
+		bankEligible = true;
+	}
+	initialize();
+});
