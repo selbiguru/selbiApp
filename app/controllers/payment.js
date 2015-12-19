@@ -35,7 +35,7 @@ function addNewBank(){
 	if(Alloy.Globals.currentUser.attributes.address) {
 		Alloy.Globals.openPage('addBankAccount');
 	} else {
-		helpers.alertUser('Add Address', 'You must complete your profile and address in the settings before connecting a bank account!');
+		helpers.alertUser('Add Address', 'You must complete your profile and address in \'Edit Profile\' under settings before connecting a bank account!');
 		return;
 	}
 }
@@ -117,7 +117,7 @@ function sendVenmoBraintree(){
 			}
 		});
 	} else {
-		helpers.alertUser('Add Address','You must complete your profile and address in the settings before connecting an account!');
+		helpers.alertUser('Add Address','You must complete your profile and address in \'Edit Profile\' under settings before connecting an account!');
 		return;
 	}
 }
