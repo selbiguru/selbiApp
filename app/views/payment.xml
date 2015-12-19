@@ -26,6 +26,7 @@
 		<View id="viewAddVenmo" class="rowContainer topPadding">
 			 <ImageView id="imageAddVenmo" class="rowLabel" onClick="addVenmo"/>
 		</View>
+		<View id="paymentUndefined"></View>
 		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 	</View>
 </Alloy>

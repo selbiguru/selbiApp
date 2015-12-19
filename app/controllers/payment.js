@@ -9,7 +9,8 @@ var helpers = require('utilities/helpers'),
 	modalManager = require('managers/modalmanager'),
 	indicator = require('uielements/indicatorwindow'),
 	twilioManager = require('managers/twiliomanager'),
-	userManager = require('managers/usermanager');
+	userManager = require('managers/usermanager'),
+	dynamicElement = require('utilities/dynamicElement');
 
 
 
@@ -415,13 +416,20 @@ $.activityIndicator.show();
 paymentManager.getPaymentMethods(function(err, results){
 	console.log("~~~~~~~~~~~~~~~~~~: ", results);
 	if(err) {
-		helpers.alertUser('Payment Methods','Unable to load your payment methods. If the problem persists please contact us!');
-	}
-	if(results.userPaymentMethod.lastFour) {
-		showUserCard(results.userPaymentMethod);
-	}
-	if(results.userMerchant.accountNumberLast4) {
-		showUserBank(results.userMerchant);
+		$.paymentView.remove($.bankingDetails);
+		$.paymentView.remove($.paymentDetails);
+		$.paymentView.remove($.separatorLabel);
+		$.paymentView.remove($.viewAddVenmo);
+		dynamicElement.defaultLabel('Shoot!, we are unable to load your payment methods right now. If the problem persists please contact us!', function(err, results) {
+			$.paymentUndefined.add(results);
+		});
+	} else {
+		if(results.userPaymentMethod.lastFour) {
+			showUserCard(results.userPaymentMethod);
+		}
+		if(results.userMerchant.accountNumberLast4) {
+			showUserBank(results.userMerchant);
+		}
 	}
 	$.activityIndicator.hide();
 	$.activityIndicator.height = '0dp';

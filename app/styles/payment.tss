@@ -2,6 +2,8 @@
 "#paymentView":{
 	layout: 'vertical',
 	backgroundColor: '#FAFAFA'
+},"#paymentUndefined": {
+	width: "90%"
 },
 "#viewAddVenmo": {
 	backgroundColor: '#3D95CE',
