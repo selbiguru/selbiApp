@@ -22,6 +22,8 @@
 			
 		</View>
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
-		<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
+		<ScrollView id="scrollViewFriends">
+			<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
+		</ScrollView>
     </View>
 </Alloy>

@@ -8,6 +8,9 @@ var listingManager = require('managers/listingmanager'),
 var friendsPadding, friendsItemHeight;
 var items = [],
 	obj = [];
+var paginateLastDate = '';
+var endOfListings = false;
+var stopScroll = true;
 
 
 $.activityIndicator.show();
@@ -29,8 +32,13 @@ genFriendsItems(function(err, items){
  * @param {Function} cb Callback function
  */
 function genFriendsItems(cb){
-	listingManager.getFriendsListings(argsID, function(err, friendsListings){
-		//console.log('!!!!!!! ', friendsListings);
+	items = [];
+	dateObj = {
+		updatedAt: paginateLastDate
+	};
+	listingManager.getFriendsListings(argsID, dateObj, function(err, friendsListings){
+		friendsListings.length > 0 ? paginateLastDate = friendsListings[friendsListings.length - 1].updatedAt : '';
+		friendsListings.length < 30 ? endOfListings = true : '';
 		var listItems = [];
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading your friend\'s listings!  We are working on a fix!', function(err, results) {
@@ -199,3 +207,21 @@ $.fg.setOnItemClick(function(e){
     	friends:e.source.data.properties.friends,	
     });
 });
+
+
+
+$.scrollViewFriends.addEventListener('scroll', counting);
+
+function counting(e) {
+	if(!endOfListings) {
+		var tolerance = 150;
+		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewFriends.getRect().height + e.y) && stopScroll){
+			stopScroll = false;
+		   //$.scrollViewFriends.scrollingEnabled = false;
+			genFriendsItems(function(err, peace) {
+				stopScroll = true;
+				//$.scrollViewFriends.scrollingEnabled = true;
+			});
+		}	
+	}
+}

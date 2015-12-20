@@ -47,10 +47,12 @@ exports.getUserListings = function(userId, queryObj, cb){
  * @method getFriendsListings
  * Obtains all friends listings for a given user
  * @param {String} userId User Identifier
+ * @param {Object} dateObj of the last user for pagination:
+ *  	@param {String} updatedAt Date where paginate should being at
  * @param {Function} cb Callback function
  */
-exports.getFriendsListings = function(userId, cb){
-	httpManager.execute('/userlistings/friendlistings/'+ userId, 'GET', null, true, function(err, friendListingsResult){
+exports.getFriendsListings = function(userId, dateObj, cb){
+	httpManager.execute('/userlistings/friendlistings/'+ userId, 'PUT', dateObj, true, function(err, friendListingsResult){
 		if(err) {
             cb(err, null);
 		} else {

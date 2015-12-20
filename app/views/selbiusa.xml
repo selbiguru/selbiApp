@@ -20,7 +20,7 @@
 		</View>
 
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
-		<ScrollView id="brown" height="Ti.UI.FILL" layout='vertical'>
+		<ScrollView id="scrollViewSelbi">
 			<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
 			<!--<Button id="loadMoreButton">Load More!</Button>-->
 		</ScrollView>

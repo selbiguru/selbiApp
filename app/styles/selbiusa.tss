@@ -17,6 +17,10 @@
 	indicatorColor: '#9B9B9B',
 	height: Ti.UI.FILL
 },
+"#scrollViewSelbi": {
+	height: Ti.UI.FILL,
+	layout: 'vertical'
+},
 
 
 

@@ -107,8 +107,8 @@ function genUSAItems(cb){
 			cb(err, listItems);	
 		}
 		$.activityIndicator.hide();
-			$.activityIndicator.height = '0dp';
-			cb(err, listItems);	
+		$.activityIndicator.height = '0dp';
+		cb(err, listItems);	
 	});
 };
 
@@ -208,17 +208,17 @@ $.fg.setOnItemClick(function(e){
 
 
 
-$.brown.addEventListener('scroll', counting);
+$.scrollViewSelbi.addEventListener('scroll', counting);
 
 function counting(e) {
 	if(!endOfListings) {
 		var tolerance = 150;
-		if((e.source.children[0].getRect().height - tolerance) <= ($.brown.getRect().height + e.y) && stopScroll){
+		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewSelbi.getRect().height + e.y) && stopScroll){
 			stopScroll = false;
-		   //$.brown.scrollingEnabled = false;
+		   //$.scrollViewSelbi.scrollingEnabled = false;
 			genUSAItems(function(err, peace) {
 				stopScroll = true;
-				//$.brown.scrollingEnabled = true;
+				//$.scrollViewSelbi.scrollingEnabled = true;
 			});
 		}	
 	}
