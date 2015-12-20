@@ -15,5 +15,5 @@
 	contentWidth: Ti.UI.FILL,
 	layout:'horizontal',
 	backgroundColor:'transparent',
-	scrollType:'vertical'
+	//scrollType:'vertical'
 }

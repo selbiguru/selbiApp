@@ -7,8 +7,10 @@ var listingManager = require('managers/listingmanager'),
 	dynamicElement = require('utilities/dynamicElement');
 var	selbiUSAPadding, selbiUSAItemHeight;
 var items = [],
-	obj = [],
-	looking = [];
+	obj = [];
+var paginateLastDate = '';
+var endOfListings = false;
+var stopScroll = true;
 
 $.activityIndicator.show();
 $.titleSelbiUSALabel.text = "Selbi USA";
@@ -27,7 +29,12 @@ genUSAItems(function(err, items){
  */
 function genUSAItems(cb){
 	items = [];
-	listingManager.getSelbiListings(argsID, function(err, selbiListings){
+	dateObj = {
+		updatedAt: paginateLastDate
+	};
+	listingManager.getSelbiListings(argsID, dateObj, function(err, selbiListings){
+		selbiListings.length > 0 ? paginateLastDate = selbiListings[selbiListings.length - 1].updatedAt : '';
+		selbiListings.length < 30 ? endOfListings = true : '';
 		var listItems = [];	
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading all the USA listings! We are working on a fix!', function(err, results) {
@@ -36,7 +43,6 @@ function genUSAItems(cb){
 			});
 		} else if(selbiListings && selbiListings.length > 0) {
 			for(var listing in selbiListings) {
-				looking.push(selbiListings[listing].id);
 				if(selbiListings[listing].listings[0].imageUrls){
 					var view = Alloy.createController('userTwoColumnTemplate');
 					var imageUrl = selbiListings[listing].listings[0].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + selbiListings[listing].listings[0].imageUrls[0] : "";
@@ -90,15 +96,19 @@ function genUSAItems(cb){
 			//ADD ALL THE ITEMS TO THE GRID
 			$.fg.addGridItems(items);
 			
-		} else {
+				
+		} else if(obj.length === 0) {
 			dynamicElement.defaultLabel('Looks like no one is selling anything at the moment :( Check back soon!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
+			$.activityIndicator.hide();
+			$.activityIndicator.height = '0dp';
+			cb(err, listItems);	
 		}
 		$.activityIndicator.hide();
-		$.activityIndicator.height = '0dp';
-		cb(err, listItems);	
+			$.activityIndicator.height = '0dp';
+			cb(err, listItems);	
 	});
 };
 
@@ -198,33 +208,24 @@ $.fg.setOnItemClick(function(e){
 
 
 
-/*$.brown.addEventListener('scroll', counting);
+$.brown.addEventListener('scroll', counting);
 
 function counting(e) {
-	console.log('+++++++++ ', e);
-	var tolerance = 50;
-	var stop = false;
-	if((e.source.children[0].getRect().height + tolerance) <= ($.brown.getRect().height + e.y) && !stop){
-		stop = true;
-		if(stop) {
-		$.brown.removeEventListener('scroll', counting);
-	    Ti.API.info('near bottom', (e.source.children[0].getRect().height + tolerance) <= ($.brown.getRect().height + e.y));
-	    Ti.API.info('y', e.y);
-	    Ti.API.info('children', e.source.children);
-	    Ti.API.info('children height', (e.source.children[0].getRect().height));
-	    Ti.API.info('scrollview',  ($.brown.getRect().height + e.y));
-	   
-		genUSAItems(function(err, peace) {
-			stop = false;
-			console.log('errrrrr ', $.brown);
-			$.brown.addEventListener('scroll', counting);
-		});
-		}
+	if(!endOfListings) {
+		var tolerance = 150;
+		if((e.source.children[0].getRect().height - tolerance) <= ($.brown.getRect().height + e.y) && stopScroll){
+			stopScroll = false;
+		   //$.brown.scrollingEnabled = false;
+			genUSAItems(function(err, peace) {
+				stopScroll = true;
+				//$.brown.scrollingEnabled = true;
+			});
+		}	
 	}
-}*/
+}
 
-$.loadMoreButton.addEventListener('click', function() {
+/*$.loadMoreButton.addEventListener('click', function() {
 	genUSAItems(function(err, peace) {
-		console.log('errrrrr ', $.brown);
+		
 	});
-});
+});*/
