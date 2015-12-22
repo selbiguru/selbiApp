@@ -148,7 +148,6 @@ function buyItem(e){
 	indicatorWindow.openIndicator();
 	paymentManager.createOrder(createOrderObj, function(err, results){
 		console.log("======== ", results);
-		console.log("-------- ", err);
 		if(err) {
 			indicatorWindow.closeIndicator();
 			helpers.alertUser('Failed','Failed to purchase item, please try again!');
