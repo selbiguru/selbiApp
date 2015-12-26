@@ -92,3 +92,21 @@ var isUnique = exports.isUnique = function(uniqueObject, cb){
 		}
 	});
 };
+
+
+/**
+ * @method forgotPassword
+ * Email user with a link to change their password
+ * @param {Object} emailObject object containing the user's email:
+ * 		@param {String} email Email of the user
+ * @param {Function} cb Callback function
+ */
+var forgotPassword = exports.forgotPassword = function(emailObject, cb){
+	httpManager.execute('/userData/forgot/password', 'PUT', emailObject, true, function(err, forgotResult){
+		if(err) {
+			cb(err, null);
+		} else {
+			cb(err, forgotResult);
+		}
+	});
+};
