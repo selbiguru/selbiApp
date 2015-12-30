@@ -32,7 +32,7 @@ function initialize() {
 		});
 	} else {
 		//show correct buttons dynamically created with correct event listeners
-		console.log('+++++++++++',ccEligible, bankEligible);
+		console.log('++++++++++',ccEligible, bankEligible);
 		previewListing = true;
 		$.titleViewListingLabel.text = 'Preview Listing';
 		//$.backListingView.hide();
