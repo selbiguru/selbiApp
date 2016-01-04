@@ -125,8 +125,6 @@ var updateFriendInvitationByUserIds = exports.updateFriendInvitationByUserIds = 
  */
 var addFriendsByPhone = exports.addFriendsByPhone = function(phoneArray, cb) {
 	httpManager.execute('/friends/phonenumber/'+ Ti.App.Properties.getString('userId'), 'POST', phoneArray, true, function(err, phoneResponse){
-		console.log('------', err);
-		console.log('++++++', phoneResponse);
 		if(err) {
 			cb(err, null);
 		} else {
