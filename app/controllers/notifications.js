@@ -143,7 +143,7 @@ function showNotifications(notificationsArray) {
 			height: imgViewHeight,
 			width: imgViewWidth,
 			borderRadius: imgViewBorderRadius,
-			image: notificationsArray[i].profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + notificationsArray[i].profileImage: "http://www.lorempixel.com/600/600/"
+			image: notificationsArray[i].profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + notificationsArray[i].profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg"
 		});
 		var subView = Titanium.UI.createView({});
 		var nameLabel = Titanium.UI.createLabel({
@@ -235,7 +235,8 @@ function showNotifications(notificationsArray) {
 								$.defaultView.height= Ti.UI.FILL;
 								$.defaultView.add(results);
 							});
-						}
+						};
+						updateUser();
 					}
 				});
 			} else {
@@ -256,7 +257,8 @@ function showNotifications(notificationsArray) {
 								$.defaultView.height= Ti.UI.FILL;
 								$.defaultView.add(results);
 							});
-						}
+						};
+						updateUser();
 					}
 				});
 			}
@@ -279,7 +281,8 @@ function showNotifications(notificationsArray) {
 							$.defaultView.height= Ti.UI.FILL;
 							$.defaultView.add(results);
 						});
-					}
+					};
+					updateUser();
 				}
 			});
 		});
@@ -299,4 +302,20 @@ function createText(notification) {
 	return newText;
 }
 
+
+function updateUser(){
+	//Load the user model
+	Alloy.Models.user.fetch({
+		success: function(data){
+			var currentUser = data;
+			notificationManager.countNotifications(function(err, notificationCount){
+				currentUser.set({'notificationCount': notificationCount});
+				currentUser.save();
+			});
+		},
+		error: function(data){
+			helpers.alertUser('Get User','Failed to get the current user!');
+		}
+	});
+}
 

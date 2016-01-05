@@ -46,6 +46,24 @@ var getByNotificationId = exports.getByNotificationId = function(notificationObj
 
 
 
+/**
+ * @method countNotifications
+ * @param {Function} cb Callback function
+ */
+var countNotifications = exports.countNotifications = function(cb) {
+	httpManager.execute('/notification/count/'+Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, countResponse){
+		console.log("444444", countResponse, '55555', err);
+		if(err) {
+			cb(err, null);
+		} else {
+			cb(err, countResponse);
+		}
+	});
+};
+
+
+
+
 
 
 /***************************************************POST/UPDATE CALLS*******************************************************/
