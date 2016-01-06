@@ -381,11 +381,11 @@
 	layout: 'vertical',
 	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
-	height: '45%'
+	height: '38%'
 },
 ".fade-text[if=Alloy.Globals.iPhoneSix]": {
 	color: '#aaa',
-	top: '60dp',
+	top: '40dp',
 	width: Ti.UI.FILL,
 	textAlign: 'center',
 	font: {
@@ -394,7 +394,7 @@
 	}
 },
 "#capturePhotoBtn[if=Alloy.Globals.iPhoneSix]": {
-	top: '45dp',
+	top: '25dp',
 },
 ".create-listing-capture-btn[if=Alloy.Globals.iPhoneSix]": {
 	height: '50dp',
@@ -418,8 +418,8 @@
 },
 ".image-gallery-view[if=Alloy.Globals.iPhoneSix]":{
 	layout: 'horizontal',
-	height: '230dp',
-	top: '10dp'	
+	height: '280dp',
+	top: '5dp'	
 },
 "#nextButtonView[if=Alloy.Globals.iPhoneSix]": {
 	height: Ti.UI.FILL,

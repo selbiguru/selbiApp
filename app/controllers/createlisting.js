@@ -54,7 +54,7 @@ function showCamera() {
 		autohide : false, //Important!
 
 		success : function(event) {
-			if(imageCollection.length < 6 ) {
+			if(imageCollection.length < 4 ) {
 				createImageView(event.media);
 			}
 		},
@@ -73,7 +73,7 @@ function showGallery() {
 	Titanium.Media.openPhotoGallery({
 		showControls : true,
 		success : function(event) {
-			if(imageCollection.length < 6 ) {
+			if(imageCollection.length < 4 ) {
 				createImageView(event.media);
 			}
 		},
@@ -207,7 +207,7 @@ function createImageView(media) {
 	var thumbnailWidth, thumbnailLeft, zeroDP, imgViewSize,
 		deleteIconFontSize, imageViewTop;
 	switch(Alloy.Globals.userDevice) {
-	    case 0: //iphoneFour
+	    case 0: //iphoneFour 4 photos, 6 photos
 	        thumbnailWidth = '83dp';
 	        thumbnailLeft = '7dp';
 	        zeroDP = '0dp';
@@ -215,7 +215,7 @@ function createImageView(media) {
 	        deleteIconFontSize = '12dp';
 	        imageViewTop = '11dp';
 	        break;
-	    case 1: //iphoneFive
+	    case 1: //iphoneFive 4 photos, 6 photos
 	        thumbnailWidth = '93dp';
 	        thumbnailLeft = '3dp';
 	        zeroDP = '0dp';
@@ -223,15 +223,15 @@ function createImageView(media) {
 	        deleteIconFontSize = '14dp';
 	        imageViewTop = '12dp';
 	        break;
-	    case 2: //iphoneSix
-	        thumbnailWidth = '113dp';
-	        thumbnailLeft = '5dp';
-	        zeroDP = '0dp';
-	        imgViewSize = '100dp';
-	        deleteIconFontSize = '16dp';
-	        imageViewTop = '15dp';
+	    case 2: //iphoneSix  4 photos, 6 photos
+	        thumbnailWidth = '138dp';//'113dp';
+	        thumbnailLeft = '31dp';//'5dp';
+	        zeroDP = '0dp';//'0dp';
+	        imgViewSize = '120dp';//'100dp';
+	        deleteIconFontSize = '18dp';//'16dp';
+	        imageViewTop = '18dp';//'15dp';
 	        break;
-	    case 3: //iphoneSixPlus
+	    case 3: //iphoneSixPlus 4 photos, 6 photos
 	        thumbnailWidth = '125dp';
 	        thumbnailLeft = '5dp';
 	        zeroDP = '0dp';
@@ -239,19 +239,21 @@ function createImageView(media) {
 	        deleteIconFontSize = '18dp';
 	        imageViewTop = '15dp';
 	        break;
-	    case 4: //android currently same as iphoneSix
-	        thumbnailWidth = '113dp';
-	        thumbnailLeft = '5dp';
-	        zeroDP = '0dp';
-	        imgViewSize = '100dp';
-	        deleteIconFontSize = '16dp';
-	        imageViewTop = '15dp';
+	    case 4: //android currently same as iphoneSix 4 photos, 6 photos
+	        thumbnailWidth = '138dp';//'113dp';
+	        thumbnailLeft = '31dp';//'5dp';
+	        zeroDP = '0dp';//'0dp';
+	        imgViewSize = '120dp';//'100dp';
+	        deleteIconFontSize = '18dp';//'16dp';
+	        imageViewTop = '18dp';//'15dp';
 	        break;
 	};
 	var thumbnailView = Ti.UI.createImageView({
 		width : thumbnailWidth,
 		height : Ti.UI.SIZE,
-		left: thumbnailLeft
+		left: thumbnailLeft,
+		//borderColor: 'red',
+		top: zeroDP
 	});
 	
 	var imageView = Ti.UI.createImageView({
@@ -259,7 +261,8 @@ function createImageView(media) {
 		height : imgViewSize,
 		top: imageViewTop,
 		left: zeroDP,
-		image : media
+		image : media,
+		//borderColor: 'blue'
 	});
 	
 	var deleteIcon = Titanium.UI.createLabel({
@@ -269,7 +272,8 @@ function createImageView(media) {
 		color: "#EAEAEA",
 		font: {
 			fontSize: deleteIconFontSize
-		}
+		},
+		//borderColor: 'yellow'
 	});
 	$.fa.add(deleteIcon, "fa-times");
 	thumbnailView.add(deleteIcon);
