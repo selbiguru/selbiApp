@@ -55,18 +55,18 @@
 "#createListingDetails[if=Alloy.Globals.iPhoneFour]": {
 	width:'85%',
 	height: Titanium.UI.FILL,
-	top: '20dp',
+	top: '12dp',
 	layout: "composite"
 },
 "#selectionView[if=Alloy.Globals.iPhoneFour]":{
 	layout: 'vertical',
 	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
-	height: '38%'
+	height: '37%'
 },
 ".fade-text[if=Alloy.Globals.iPhoneFour]": {
 	color: '#aaa',
-	top: '10dp',
+	top: '12dp',
 	width: Ti.UI.FILL,
 	textAlign: 'center',
 	font: {
@@ -94,13 +94,12 @@
 "ImageView[if=Alloy.Globals.iPhoneFour]": {
 	height: '100dp',
 	width: '100dp',
-	borderColor: 'red',
 	borderWidth: '2dp'
 },
 ".image-gallery-view[if=Alloy.Globals.iPhoneFour]":{
 	layout: 'horizontal',
-	height: '175dp',
-	top: '7dp'	
+	height: '195dp',
+	top: '5dp'
 },
 "#nextButtonView[if=Alloy.Globals.iPhoneFour]": {
 	height: Ti.UI.FILL,
@@ -221,11 +220,11 @@
 	layout: 'vertical',
 	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
-	height: '42%'
+	height: '38%'
 },
 ".fade-text[if=Alloy.Globals.iPhoneFive]": {
 	color: '#aaa',
-	top: '35dp',
+	top: '28dp',
 	width: Ti.UI.FILL,
 	textAlign: 'center',
 	font: {
@@ -234,7 +233,7 @@
 	}
 },
 "#capturePhotoBtn[if=Alloy.Globals.iPhoneFive]": {
-	top: '35dp',
+	top: '25dp',
 },
 ".create-listing-capture-btn[if=Alloy.Globals.iPhoneFive]": {
 	height: '40dp',
@@ -253,12 +252,11 @@
 "ImageView[if=Alloy.Globals.iPhoneFive]": {
 	height: '100dp',
 	width: '100dp',
-	borderColor: 'red',
 	borderWidth: '2dp'
 },
 ".image-gallery-view[if=Alloy.Globals.iPhoneFive]":{
 	layout: 'horizontal',
-	height: '195dp',
+	height: '235dp',
 	top: '7dp'
 },
 "#nextButtonView[if=Alloy.Globals.iPhoneFive]": {
@@ -385,7 +383,7 @@
 },
 ".fade-text[if=Alloy.Globals.iPhoneSix]": {
 	color: '#aaa',
-	top: '40dp',
+	top: '38dp',
 	width: Ti.UI.FILL,
 	textAlign: 'center',
 	font: {
@@ -394,7 +392,7 @@
 	}
 },
 "#capturePhotoBtn[if=Alloy.Globals.iPhoneSix]": {
-	top: '25dp',
+	top: '28dp',
 },
 ".create-listing-capture-btn[if=Alloy.Globals.iPhoneSix]": {
 	height: '50dp',
@@ -413,7 +411,6 @@
 "ImageView[if=Alloy.Globals.iPhoneSix]": {
 	height: '100dp',
 	width: '100dp',
-	borderColor: 'red',
 	borderWidth: '2dp'
 },
 ".image-gallery-view[if=Alloy.Globals.iPhoneSix]":{
@@ -537,11 +534,11 @@
 	layout: 'vertical',
 	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
-	height: '45%'
+	height: '38%'
 },
 ".fade-text[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: '#aaa',
-	top: '70dp',
+	top: '47dp',
 	width: Ti.UI.FILL,
 	textAlign: 'center',
 	font: {
@@ -550,7 +547,7 @@
 	}
 },
 "#capturePhotoBtn[if=Alloy.Globals.iPhoneSixPlus]": {
-	top: '55dp',
+	top: '38dp',
 },
 ".create-listing-capture-btn[if=Alloy.Globals.iPhoneSixPlus]": {
 	height: '50dp',
@@ -569,12 +566,11 @@
 "ImageView[if=Alloy.Globals.iPhoneSixPlus]": {
 	height: '100dp',
 	width: '100dp',
-	borderColor: 'red',
 	borderWidth: '2dp'
 },
 ".image-gallery-view[if=Alloy.Globals.iPhoneSixPlus]":{
 	layout: 'horizontal',
-	height: '260dp',
+	height: '310dp',
 	top: '10dp'
 },
 "#nextButtonView[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -670,31 +666,36 @@
 },
 "#createListingButtonIcon[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "18dp"
+            fontSize: "20dp"
         },
 	color: "#1BA7CD"
 },
 "#titleCreateListingView[if=Alloy.Globals.android]": {
 	right: "60dp"
 },
-
 "#titleCreateListingLabel[if=Alloy.Globals.android]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "18dp",
+		fontSize: "20dp",
 		fontFamily: "Nunito-Bold"
 	}
+},
+"#createListingDetails[if=Alloy.Globals.android]": {
+	width:'95%',
+	height: Titanium.UI.FILL,
+	top: '20dp',
+	layout: "composite"
 },
 "#selectionView[if=Alloy.Globals.android]":{
 	layout: 'vertical',
 	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
-	height: '45%'
+	height: '38%'
 },
 ".fade-text[if=Alloy.Globals.android]": {
 	color: '#aaa',
-	top: '60dp',
+	top: '38dp',
 	width: Ti.UI.FILL,
 	textAlign: 'center',
 	font: {
@@ -703,7 +704,7 @@
 	}
 },
 "#capturePhotoBtn[if=Alloy.Globals.android]": {
-	top: '45dp',
+	top: '28dp',
 },
 ".create-listing-capture-btn[if=Alloy.Globals.android]": {
 	height: '50dp',
@@ -722,13 +723,12 @@
 "ImageView[if=Alloy.Globals.android]": {
 	height: '100dp',
 	width: '100dp',
-	borderColor: 'red',
 	borderWidth: '2dp'
 },
 ".image-gallery-view[if=Alloy.Globals.android]":{
 	layout: 'horizontal',
-	height: '230dp',
-	top: '10dp'	
+	height: '280dp',
+	top: '5dp'	
 },
 "#nextButtonView[if=Alloy.Globals.android]": {
 	height: Ti.UI.FILL,

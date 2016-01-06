@@ -208,20 +208,20 @@ function createImageView(media) {
 		deleteIconFontSize, imageViewTop;
 	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour 4 photos, 6 photos
-	        thumbnailWidth = '83dp';
-	        thumbnailLeft = '7dp';
-	        zeroDP = '0dp';
-	        imgViewSize = '73dp';
-	        deleteIconFontSize = '12dp';
-	        imageViewTop = '11dp';
+	        thumbnailWidth = '95dp';//'83dp';
+	        thumbnailLeft = '31dp';//'7dp';
+	        zeroDP = '0dp';//'0dp';
+	        imgViewSize = '83dp';//'73dp';
+	        deleteIconFontSize = '14dp';//'12dp';
+	        imageViewTop = '13dp';//'11dp';
 	        break;
 	    case 1: //iphoneFive 4 photos, 6 photos
-	        thumbnailWidth = '93dp';
-	        thumbnailLeft = '3dp';
-	        zeroDP = '0dp';
-	        imgViewSize = '83dp';
-	        deleteIconFontSize = '14dp';
-	        imageViewTop = '12dp';
+	        thumbnailWidth = '113dp';//'93dp';
+	        thumbnailLeft = '24dp';//'3dp';
+	        zeroDP = '0dp';//'0dp';
+	        imgViewSize = '100dp';//'83dp';
+	        deleteIconFontSize = '16dp';//'14dp';
+	        imageViewTop = '14dp';//'12dp';
 	        break;
 	    case 2: //iphoneSix  4 photos, 6 photos
 	        thumbnailWidth = '138dp';//'113dp';
@@ -232,12 +232,12 @@ function createImageView(media) {
 	        imageViewTop = '18dp';//'15dp';
 	        break;
 	    case 3: //iphoneSixPlus 4 photos, 6 photos
-	        thumbnailWidth = '125dp';
-	        thumbnailLeft = '5dp';
-	        zeroDP = '0dp';
-	        imgViewSize = '110dp';
-	        deleteIconFontSize = '18dp';
-	        imageViewTop = '15dp';
+	        thumbnailWidth = '145dp';//'125dp';
+	        thumbnailLeft = '38dp';//'5dp';
+	        zeroDP = '0dp';//'0dp';
+	        imgViewSize = '130dp';//'110dp';
+	        deleteIconFontSize = '20dp';//'18dp';
+	        imageViewTop = '20dp';//'15dp';
 	        break;
 	    case 4: //android currently same as iphoneSix 4 photos, 6 photos
 	        thumbnailWidth = '138dp';//'113dp';
@@ -252,7 +252,6 @@ function createImageView(media) {
 		width : thumbnailWidth,
 		height : Ti.UI.SIZE,
 		left: thumbnailLeft,
-		//borderColor: 'red',
 		top: zeroDP
 	});
 	
@@ -261,8 +260,7 @@ function createImageView(media) {
 		height : imgViewSize,
 		top: imageViewTop,
 		left: zeroDP,
-		image : media,
-		//borderColor: 'blue'
+		image : media
 	});
 	
 	var deleteIcon = Titanium.UI.createLabel({
@@ -272,8 +270,7 @@ function createImageView(media) {
 		color: "#EAEAEA",
 		font: {
 			fontSize: deleteIconFontSize
-		},
-		//borderColor: 'yellow'
+		}
 	});
 	$.fa.add(deleteIcon, "fa-times");
 	thumbnailView.add(deleteIcon);
