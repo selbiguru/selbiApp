@@ -176,7 +176,7 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 		modalDisclaimerLabel,
 		modalHeaderLabel;
 	switch(Alloy.Globals.userDevice) {
-	    case 0:
+	    case 0: //iPhoneFour
 	    	textFieldFont = 20;
 	    	modalHeaderFont = 16;
 	    	modalBodyFont = 12;
@@ -185,7 +185,7 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 	    	disclaimerFont = 10;
 	    	textFieldSize = 50;
 	        break;
-	    case 1:
+	    case 1: //iPhoneFive
 	    	textFieldFont = 20;
 	    	modalHeaderFont = 16;
 	    	modalBodyFont = 12;
@@ -194,7 +194,7 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 	    	disclaimerFont = 10;
 	    	textFieldSize = 50;
 	        break;
-	    case 2:
+	    case 2: //iPhoneSix
 	    	textFieldFont = 22;
 	    	modalHeaderFont = 18;
 	    	modalBodyFont = 15;
@@ -203,7 +203,7 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 	    	disclaimerFont = 12;
 	    	textFieldSize = 60;
 	        break;
-	    case 3:
+	    case 3: //iPhoneSixPlus
 	    	textFieldFont = 22;
 	    	modalHeaderFont = 20;
 	    	modalBodyFont = 16;
@@ -363,4 +363,215 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 		modalDisclaimerLabel: modalDisclaimerLabel
 	};
 	cb(null,verifyPhoneModalElements);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Builds a filter modal.  This function takes no arguments and returns access to all elements created.
+//This allows customization of the modalFilterButton to add a custom listener upon clicking the save button.
+
+var getFilterModal = exports.getFilterModal = function(cb) {
+	var modalWindow,
+		backgroundColorView,
+		modalHeaderLabel,
+		infoModalView,
+		filterModalScrollView,
+		filterSwitchView,
+		twoColumnView,
+		modalSwitchField,
+		modalLabelField,
+		modalFilterButton;
+	switch(Alloy.Globals.userDevice) {
+	    case 0: //iphoneFour
+	    	modalHeaderFont = 18;
+	    	filterButtonFont = 14;
+	    	switchFieldSize = 50;
+	    	filterButtonFont = 14;
+	    	switchFieldSize = 50;
+	    	scrollViewHeight = 265;
+	    	scrollViewWidth = 260;
+	    	twoColumnViewHeight = 45;
+	    	modalLabelFont = 13;
+	    	filterButtonHeight = 35;
+	        break;
+	    case 1: //iphoneFive
+	    	modalHeaderFont = 18;
+	    	filterButtonFont = 14;
+	    	switchFieldSize = 50;
+	    	scrollViewHeight = 265;
+	    	scrollViewWidth = 260;
+	    	twoColumnViewHeight = 45;
+	    	modalLabelFont = 13;
+	    	filterButtonHeight = 35;
+	        break;
+	    case 2: //iphoneSix
+	    	modalHeaderFont = 20;
+	    	filterButtonFont = 16;
+	    	switchFieldSize = 60;
+	    	scrollViewHeight = 300;
+	    	scrollViewWidth = 300;
+	    	twoColumnViewHeight = 50;
+	    	modalLabelFont = 16;
+	    	filterButtonHeight = 40;
+	        break;
+	    case 3: //iphoneSixPlus
+	    	modalHeaderFont = 22;
+	    	filterButtonFont = 18;
+	    	switchFieldSize = 65;
+	    	scrollViewHeight = 330;
+	    	scrollViewWidth = 330;
+	    	twoColumnViewHeight = 55;
+	    	modalLabelFont = 18;
+	    	filterButtonHeight = 45;
+	        break;
+	    case 4: //android currently same as iphoneSix
+	    	modalHeaderFont = 20;
+	    	filterButtonFont = 16;
+	    	switchFieldSize = 60;
+	    	scrollViewHeight = 300;
+	    	scrollViewWidth = 300;
+	    	twoColumnViewHeight = 50;
+	    	modalLabelFont = 16;
+	    	filterButtonHeight = 40;
+	        break;
+	};
+	var transformModalOpen = Titanium.UI.create2DMatrix();
+    transformModalOpen = transformModalOpen.scale(0);
+	modalWindow = Titanium.UI.createWindow({
+	    backgroundColor:'transparent',
+	    height:"100%",
+	    width:"100%",
+	    opacity:1,
+	    transform: transformModalOpen,
+	    id: "filterModalWindow"
+	});
+	// create first transform to go beyond normal size
+    var transformModalOpen1 = Titanium.UI.create2DMatrix();
+    transformModalOpen1 = transformModalOpen1.scale(1.1);
+    var animateOpen = Titanium.UI.createAnimation();
+    animateOpen.transform = transformModalOpen1;
+    animateOpen.duration = 300;
+ 
+    // when this animation completes, scale to normal size
+    animateOpen.addEventListener('complete', function() {
+        var transformModalOpen2 = Titanium.UI.create2DMatrix();
+        transformModalOpen2 = transformModalOpen2.scale(1.0);
+        modalWindow.animate({transform:transformModalOpen2, duration:200});
+ 
+    });
+	backgroundColorView = Titanium.UI.createView({
+	    backgroundColor:'black',
+	    height:"100%",
+	    width:"100%",
+	    opacity:0.4,
+	    layout:'vertical'
+	});
+	infoModalView = Titanium.UI.createView({
+	    width:"90%",
+	    borderRadius: 4,
+	    height: Ti.UI.SIZE,
+	    opacity:1,
+	    zIndex: 20,
+	    layout:'vertical',
+	    backgroundColor: '#FAFAFA'
+	});
+	modalHeaderLabel = Titanium.UI.createLabel({
+		height: Ti.UI.SIZE,
+		top: "5dp",
+		font: {
+			fontSize: modalHeaderFont,
+			fontFamily: 'Nunito-Bold'
+		},
+		color: "#1BA7CD",
+		text: "Filter for specific products!"
+	});
+	filterModalScrollView = Titanium.UI.createScrollView({
+	    height: scrollViewHeight,
+		layout: 'vertical',
+		width: scrollViewWidth,
+		showVerticalScrollIndicator: true
+	});
+	filterSwitchView = Titanium.UI.createView({
+	    height: Ti.UI.FILL,
+		layout: 'horizontal',
+		width: scrollViewWidth
+	});
+	var departmentsArray = ['all', 'electronics', 'mens clothing','womens clothing', 'mens shoes','womens shoes', 'music', 'furniture', 'jewelry', 'games', 'toys', 'automotive'];
+	for(i = 0; i < departmentsArray.length; i++) {
+		twoColumnView = Titanium.UI.createView({
+		    height: twoColumnViewHeight,
+			layout: 'horizontal',
+			width: (scrollViewWidth / 2)
+		});
+		modalSwitchField = Titanium.UI.createSwitch({
+			height: switchFieldSize,
+			width: Ti.UI.SIZE,
+			value: true,
+			left: "6dp",
+			id: departmentsArray[i].replace(' ', '')
+		});
+		modalLabelField = Titanium.UI.createLabel({
+			height: switchFieldSize,
+			width: Ti.UI.SIZE,
+			text: departmentsArray[i],
+			left: "7dp",
+			font: {
+				fontSize: modalLabelFont,
+				fontFamily: 'Nunito-Light'
+			},
+			textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
+		});
+		twoColumnView.add(modalSwitchField);
+		twoColumnView.add(modalLabelField);
+		filterSwitchView.add(twoColumnView);
+	};
+	modalFilterButton = Titanium.UI.createButton({
+		height: filterButtonHeight,
+	    top: '7dp',
+	    bottom: '10dp',
+	    width: '90%',
+	    backgroundColor: '#EAEAEA',
+		font: {
+			fontSize: filterButtonFont,
+			fontFamily: 'Nunito-Light'
+		},
+		title: 'Filter',
+		color: "#9B9B9B",
+		borderRadius: 4,
+	});
+	filterModalScrollView.add(filterSwitchView);
+	infoModalView.add(modalHeaderLabel);
+	infoModalView.add(filterModalScrollView);
+	infoModalView.add(modalFilterButton);
+	modalWindow.add(infoModalView);
+	modalWindow.add(backgroundColorView);
+	backgroundColorView.addEventListener('click', function() {
+		var animateWindowClose = Titanium.UI.create2DMatrix();
+	    animateWindowClose = animateWindowClose.scale(0);
+	    modalWindow.close({transform:animateWindowClose, duration:300});
+	});
+	modalWindow.open(animateOpen);
+	var filterModalElements = {
+		modalWindow: modalWindow,
+		backgroundColorView: backgroundColorView,
+		infoModalView: infoModalView,
+		modalHeaderLabel: modalHeaderLabel,
+		filterModalScrollView: filterModalScrollView,
+		filterSwitchView: filterSwitchView,
+		twoColumnView: twoColumnView,
+		modalSwitchField: modalSwitchField,
+		modalLabelField: modalLabelField,
+		modalFilterButton: modalFilterButton
+	};
+	cb(null,filterModalElements);
 };

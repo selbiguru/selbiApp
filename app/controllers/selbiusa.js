@@ -3,6 +3,7 @@ var args = arguments[0][0] || {},
 var listingManager = require('managers/listingmanager'),
 	userManager = require('managers/usermanager'),
 	friendsManager = require('managers/friendsmanager'),
+	modalManager = require('managers/modalmanager'),
 	helpers = require('utilities/helpers'),
 	dynamicElement = require('utilities/dynamicElement');
 var	selbiUSAPadding, selbiUSAItemHeight;
@@ -159,6 +160,13 @@ function openListing(listingIDs){
 	
 };
 
+
+
+$.filterButton.addEventListener('click', function() {
+	modalManager.getFilterModal(function(err, results){
+		return;
+	});
+});
 
 
 

@@ -100,6 +100,24 @@
 	backgroundColor: '#E5E5E5',
 	color: '#fff'
 },
+"#selbiUSAFilterView[if=Alloy.Globals.iPhoneFour]": {
+	height: Ti.UI.SIZE,
+	width: '306dp',
+},
+"#filterButton[if=Alloy.Globals.iPhoneFour]": {
+	width: Ti.UI.FILL,
+	height: '35dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#fff',
+	borderColor: '#E5E5E5',
+	backgroundColor: '#E5E5E5',
+	borderRadius: '4',
+	top: '5dp'
+},
+
 
 
 
@@ -181,6 +199,23 @@
 	backgroundColor: '#E5E5E5',
 	color: '#fff'
 },
+"#selbiUSAFilterView[if=Alloy.Globals.iPhoneFive]": {
+	height: Ti.UI.SIZE,
+	width: '306dp',
+},
+"#filterButton[if=Alloy.Globals.iPhoneFive]": {
+	width: Ti.UI.FILL,
+	height: '40dp',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#fff',
+	borderColor: '#E5E5E5',
+	backgroundColor: '#E5E5E5',
+	borderRadius: '4',
+	top: '5dp'
+},
 
 
 
@@ -261,6 +296,23 @@
 	backgroundColor: '#E5E5E5',
 	color: '#fff'
 },
+"#selbiUSAFilterView[if=Alloy.Globals.iPhoneSix]": {
+	height: Ti.UI.SIZE,
+	width: '355dp',
+},
+"#filterButton[if=Alloy.Globals.iPhoneSix]": {
+	width: Ti.UI.FILL,
+	height: '46dp',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#fff',
+	borderColor: '#E5E5E5',
+	backgroundColor: '#E5E5E5',
+	borderRadius: '4',
+	top: '5dp'
+},
 
 
 
@@ -340,6 +392,25 @@
 	backgroundColor: '#E5E5E5',
 	color: '#fff'
 },
+"#selbiUSAFilterView[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: Ti.UI.SIZE,
+	width: '388dp',
+	top: '5dp'
+},
+"#filterButton[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: Ti.UI.FILL,
+	height: '50dp',
+	font: {
+		fontSize: '20dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#fff',
+	borderColor: '#E5E5E5',
+	backgroundColor: '#E5E5E5',
+	borderRadius: '4',
+	top: '5dp'
+},
+
 
 
 
@@ -417,4 +488,21 @@
 	textAlign: 'center',
 	backgroundColor: '#E5E5E5',
 	color: '#fff'
+},
+"#selbiUSAFilterView[if=Alloy.Globals.android]": {
+	height: Ti.UI.SIZE,
+	width: '355dp',
+},
+"#filterButton[if=Alloy.Globals.android]": {
+	width: Ti.UI.FILL,
+	height: '46dp',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: '#fff',
+	borderColor: '#E5E5E5',
+	backgroundColor: '#E5E5E5',
+	borderRadius: '4',
+	top: '5dp'
 },
