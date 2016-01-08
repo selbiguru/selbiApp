@@ -399,9 +399,9 @@ var getFilterModal = exports.getFilterModal = function(cb) {
 	    	filterButtonFont = 14;
 	    	switchFieldSize = 50;
 	    	scrollViewHeight = 265;
-	    	scrollViewWidth = 260;
+	    	scrollViewWidth = 280;
 	    	twoColumnViewHeight = 45;
-	    	modalLabelFont = 13;
+	    	modalLabelFont = 12;
 	    	filterButtonHeight = 35;
 	        break;
 	    case 1: //iphoneFive
@@ -409,9 +409,9 @@ var getFilterModal = exports.getFilterModal = function(cb) {
 	    	filterButtonFont = 14;
 	    	switchFieldSize = 50;
 	    	scrollViewHeight = 265;
-	    	scrollViewWidth = 260;
+	    	scrollViewWidth = 280;
 	    	twoColumnViewHeight = 45;
-	    	modalLabelFont = 13;
+	    	modalLabelFont = 12;
 	    	filterButtonHeight = 35;
 	        break;
 	    case 2: //iphoneSix
@@ -419,9 +419,9 @@ var getFilterModal = exports.getFilterModal = function(cb) {
 	    	filterButtonFont = 16;
 	    	switchFieldSize = 60;
 	    	scrollViewHeight = 300;
-	    	scrollViewWidth = 300;
+	    	scrollViewWidth = 320;
 	    	twoColumnViewHeight = 50;
-	    	modalLabelFont = 16;
+	    	modalLabelFont = 15;
 	    	filterButtonHeight = 40;
 	        break;
 	    case 3: //iphoneSixPlus
@@ -429,9 +429,9 @@ var getFilterModal = exports.getFilterModal = function(cb) {
 	    	filterButtonFont = 18;
 	    	switchFieldSize = 65;
 	    	scrollViewHeight = 330;
-	    	scrollViewWidth = 330;
+	    	scrollViewWidth = 340;
 	    	twoColumnViewHeight = 55;
-	    	modalLabelFont = 18;
+	    	modalLabelFont = 17;
 	    	filterButtonHeight = 45;
 	        break;
 	    case 4: //android currently same as iphoneSix
@@ -439,9 +439,9 @@ var getFilterModal = exports.getFilterModal = function(cb) {
 	    	filterButtonFont = 16;
 	    	switchFieldSize = 60;
 	    	scrollViewHeight = 300;
-	    	scrollViewWidth = 300;
+	    	scrollViewWidth = 320;
 	    	twoColumnViewHeight = 50;
-	    	modalLabelFont = 16;
+	    	modalLabelFont = 15;
 	    	filterButtonHeight = 40;
 	        break;
 	};
@@ -506,7 +506,7 @@ var getFilterModal = exports.getFilterModal = function(cb) {
 		layout: 'horizontal',
 		width: scrollViewWidth
 	});
-	var departmentsArray = ['all', 'electronics', 'mens clothing','womens clothing', 'mens shoes','womens shoes', 'music', 'furniture', 'jewelry', 'games', 'toys', 'automotive'];
+	var departmentsArray = ['Electronics', 'Menswear', 'Womenswear', 'Sports & Outdoors', 'Music', 'Furniture', 'Jewelry', 'Games & Toys', 'Automotive', 'Baby & Kids', 'Appliances', 'Other'];
 	for(i = 0; i < departmentsArray.length; i++) {
 		twoColumnView = Titanium.UI.createView({
 		    height: twoColumnViewHeight,
@@ -516,7 +516,7 @@ var getFilterModal = exports.getFilterModal = function(cb) {
 		modalSwitchField = Titanium.UI.createSwitch({
 			height: switchFieldSize,
 			width: Ti.UI.SIZE,
-			value: true,
+			value: false,
 			left: "6dp",
 			id: departmentsArray[i].replace(' ', '')
 		});
@@ -524,7 +524,7 @@ var getFilterModal = exports.getFilterModal = function(cb) {
 			height: switchFieldSize,
 			width: Ti.UI.SIZE,
 			text: departmentsArray[i],
-			left: "7dp",
+			left: "5dp",
 			font: {
 				fontSize: modalLabelFont,
 				fontFamily: 'Nunito-Light'
@@ -539,7 +539,7 @@ var getFilterModal = exports.getFilterModal = function(cb) {
 		height: filterButtonHeight,
 	    top: '7dp',
 	    bottom: '10dp',
-	    width: '90%',
+	    width: scrollViewWidth,
 	    backgroundColor: '#EAEAEA',
 		font: {
 			fontSize: filterButtonFont,

@@ -126,7 +126,7 @@
 },
 ".listing-detail-container[if=Alloy.Globals.iPhoneFour]": {
 	layout: 'vertical',
-	height: '288dp',
+	height: '345dp'
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneFour]": {
 	left: '10dp',
@@ -166,7 +166,20 @@
 	width: '49%',
 	bottom: '15dp'
 },
-
+"#pickerView[if=Alloy.Globals.iPhoneFour]": {
+	height: '85dp',
+	layout: 'composite',
+	top: '10dp',
+	borderColor: '#E5E5E5',
+	borderWidth: '2dp'
+},
+"#pickerCategory[if=Alloy.Globals.iPhoneFour]": {
+	type: Titanium.UI.PICKER_TYPE_PLAIN,
+	selectionIndicator: 'true',
+	height: '100dp',
+	width: Ti.UI.FILL,
+	useSpinner: 'true'
+},
 
 
 
@@ -284,7 +297,7 @@
 },
 ".listing-detail-container[if=Alloy.Globals.iPhoneFive]": {
 	layout: 'vertical',
-	height: '340dp',
+	height: '400dp'
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneFive]": {
 	left: '10dp',
@@ -324,7 +337,20 @@
 	width: '49%',
 	bottom: '20dp'
 },
-
+"#pickerView[if=Alloy.Globals.iPhoneFive]": {
+	height: '85dp',
+	layout: 'composite',
+	top: '12dp',
+	borderColor: '#E5E5E5',
+	borderWidth: '2dp'
+},
+"#pickerCategory[if=Alloy.Globals.iPhoneFive]": {
+	type: Titanium.UI.PICKER_TYPE_PLAIN,
+	selectionIndicator: 'true',
+	height: '100dp',
+	width: Ti.UI.FILL,
+	useSpinner: 'true'
+},
 
 
 
@@ -443,7 +469,7 @@
 },
 ".listing-detail-container[if=Alloy.Globals.iPhoneSix]": {
 	layout: 'vertical',
-	height: '400dp',
+	height: '480dp',
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneSix]": {
 	left: '10dp',
@@ -464,7 +490,8 @@
 	}
 },
 "#switchView[if=Alloy.Globals.iPhoneSix]": {
-	layout: 'horizontal'
+	layout: 'horizontal',
+	height: Ti.UI.SIZE
 },
 "#switchLabel[if=Alloy.Globals.iPhoneSix]": {
 	left: '10dp'
@@ -482,6 +509,20 @@
 ".half-btn[if=Alloy.Globals.iPhoneSix]": {
 	width: '49%',
 	bottom: '20dp'
+},
+"#pickerView[if=Alloy.Globals.iPhoneSix]": {
+	height: '95dp',
+	layout: 'composite',
+	top: '15dp',
+	borderColor: '#E5E5E5',
+	borderWidth: '2dp'
+},
+"#pickerCategory[if=Alloy.Globals.iPhoneSix]": {
+	type: Titanium.UI.PICKER_TYPE_PLAIN,
+	selectionIndicator: 'true',
+	height: '110dp',
+	width: Ti.UI.FILL,
+	useSpinner: 'true'
 },
 
 
@@ -598,7 +639,7 @@
 },
 ".listing-detail-container[if=Alloy.Globals.iPhoneSixPlus]": {
 	layout: 'vertical',
-	height: '400dp',
+	height: '510dp',
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	left: '10dp',
@@ -637,6 +678,20 @@
 ".half-btn[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: '49%',
 	bottom: '20dp'
+},
+"#pickerView[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: '105dp',
+	layout: 'composite',
+	top: '15dp',
+	borderColor: '#E5E5E5',
+	borderWidth: '2dp'
+},
+"#pickerCategory[if=Alloy.Globals.iPhoneSixPlus]": {
+	type: Titanium.UI.PICKER_TYPE_PLAIN,
+	selectionIndicator: 'true',
+	height: '120dp',
+	width: Ti.UI.FILL,
+	useSpinner: 'true'
 },
 
 
@@ -755,7 +810,7 @@
 },
 ".listing-detail-container[if=Alloy.Globals.android]": {
 	layout: 'vertical',
-	height: '400dp',
+	height: '480dp',
 },
 "#hintTextLabel[if=Alloy.Globals.android]": {
 	left: '10dp',
@@ -794,4 +849,18 @@
 ".half-btn[if=Alloy.Globals.android]": {
 	width: '49%',
 	bottom: '20dp'
+},
+"#pickerView[if=Alloy.Globals.android]": {
+	height: '95dp',
+	layout: 'composite',
+	top: '15dp',
+	borderColor: '#E5E5E5',
+	borderWidth: '2dp'
+},
+"#pickerCategory[if=Alloy.Globals.android]": {
+	type: Titanium.UI.PICKER_TYPE_PLAIN,
+	selectionIndicator: 'true',
+	height: '110dp',
+	width: Ti.UI.FILL,
+	useSpinner: 'true'
 },

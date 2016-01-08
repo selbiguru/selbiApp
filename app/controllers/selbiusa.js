@@ -30,7 +30,7 @@ genUSAItems(function(err, items){
  */
 function genUSAItems(cb){
 	items = [];
-	dateObj = {
+	var dateObj = {
 		updatedAt: paginateLastDate
 	};
 	listingManager.getSelbiListings(argsID, dateObj, function(err, selbiListings){
@@ -164,6 +164,17 @@ function openListing(listingIDs){
 
 $.filterButton.addEventListener('click', function() {
 	modalManager.getFilterModal(function(err, results){
+		results.modalFilterButton.addEventListener('click', function(e) {
+			//console.log('1111111111111 ', results.modalSwitchField.id);
+			//console.log('222222222222 ', results.filterSwitchView.children[0].children[0].value);
+			var poopArr = [];
+			for(var i = 0; i < results.filterSwitchView.children.length; i++) {
+				if(results.filterSwitchView.children[i].children[0].value) {
+					poopArr.push(results.filterSwitchView.children[i].children[0].id);
+				}
+			}
+			console.log("this is poopArr ", poopArr);
+		});
 		return;
 	});
 });
@@ -224,7 +235,7 @@ function counting(e) {
 		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewSelbi.getRect().height + e.y) && stopScroll){
 			stopScroll = false;
 		   //$.scrollViewSelbi.scrollingEnabled = false;
-			genUSAItems(function(err, peace) {
+			genUSAItems(function(err, itemsResponse) {
 				stopScroll = true;
 				//$.scrollViewSelbi.scrollingEnabled = true;
 			});
@@ -233,7 +244,7 @@ function counting(e) {
 }
 
 /*$.loadMoreButton.addEventListener('click', function() {
-	genUSAItems(function(err, peace) {
+	genUSAItems(function(err, itemsResponse) {
 		
 	});
 });*/

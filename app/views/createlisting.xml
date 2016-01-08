@@ -29,6 +29,11 @@
 						<Label id="hintTextLabel" class="font-style">Describe your item</Label>
 					</View>
 					<TextField hintText="Item Price (include shipping cost)" id="price" class="font-style"></TextField>
+					<View id="pickerView">
+						<Picker id="pickerCategory">
+			                <PickerRow class="font-style"title="Select a Cateogry"/>	            
+				        </Picker>
+					</View>			
 					<View id="switchView" class="top-size">
 						<Switch id="privateSwitch" value="false"/>
 						<Label id="switchLabel" class="font-style">Private (Only my friends)</Label>

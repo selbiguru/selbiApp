@@ -4,8 +4,9 @@ var imageManager = require('managers/imagemanager');
 var listingManager = require('managers/listingmanager');
 var indicator = require('uielements/indicatorwindow');
 var helpers = require('utilities/helpers');
+var pickerRowFont;
 var imageCollection = [];
-
+var categoryArray = ['Electronics', 'Menswear', 'Womenswear', 'Sports & Outdoors', 'Music', 'Furniture', 'Jewelry', 'Games & Toys', 'Automotive', 'Baby & Kids', 'Appliances', 'Other'];
 
 
 function addItemToGrid(title, image) {
@@ -286,4 +287,39 @@ function createImageView(media) {
 		imageCollection.splice(index, 1);
 	});
 	return;
+};
+
+
+
+
+ /**
+ *  Dynamically creates pickerRows for all Selbi categories for user to choose from.
+ */
+switch(Alloy.Globals.userDevice) {
+    case 0: //iphoneFour
+    	pickerRowFont = 14;
+        break;
+    case 1: //iphoneFive
+    	pickerRowFont = 16;
+        break;
+    case 2: //iphoneSix
+    	pickerRowFont = 18;
+        break;
+    case 3: //iphoneSixPlus
+    	pickerRowFont = 20;
+        break;
+    case 4: //android currently same as iphoneSix
+    	pickerRowFont = 18;
+        break;
+};
+for(var i = 0; i < categoryArray.length; i++) {
+	var pickerRow = Titanium.UI.createPickerRow({
+		title: categoryArray[i],
+		font: {
+			fontSize: pickerRowFont,
+			fontFamily: 'Nunito-Light'
+		},
+		id: categoryArray[i].replace(' ', '')
+	});	
+	$.pickerCategory.add(pickerRow);
 }
