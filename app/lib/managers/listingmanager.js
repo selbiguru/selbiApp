@@ -108,6 +108,7 @@ exports.createListing = function(listingData, cb){
 		"isPrivate": listingData.privateSwitch,
 		"isPreview": false,
 		"isPublished": true,
+		"searchCategory": listingData.searchCategory,
 		"isSold": false,
 		"userId": Ti.App.Properties.getString('userId')
 	};

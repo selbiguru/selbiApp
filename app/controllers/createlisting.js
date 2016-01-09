@@ -107,12 +107,16 @@ function previewListing(){
 	} else if(!validatedPrice) {
 		helpers.alertUser('Invalid Price','Price should be a number.');
 		return;
+	} else if($.pickerCategory.getSelectedRow(0).id === 'blank') {
+		helpers.alertUser('Invalid Category','Please selected a category that best matches your item.');
+		return;
 	} else {
 		var previewListingObj = {
 			title: validateTitle[0],
 			description: validateDescription[0],
 			price: parseFloat(validatedPrice[0].replace(/,/g, '')).toFixed(2),
 			privateSwitch: $.privateSwitch.value,
+			searchCategory: $.pickerCategory.getSelectedRow(0).id,
 			images: imageCollection,
 			itemId: false
 		};
@@ -288,7 +292,6 @@ function createImageView(media) {
 	});
 	return;
 };
-
 
 
 
