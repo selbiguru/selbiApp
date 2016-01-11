@@ -19,7 +19,7 @@ var imageManager = require('managers/imagemanager');
  * @param {Function} cb Callback function
  */
 exports.getListing = function(listingId, cb){
-	httpManager.execute('/userlistings/listing/'+listingId, 'GET', null, true, function(err, listingResult){
+	httpManager.execute('/userlistings/listing/'+Ti.App.Properties.getString('userId')+'/'+listingId, 'GET', null, true, function(err, listingResult){
 		console.log('@@@@@@@!!!!! ', listingResult);
 		cb(err, listingResult);
 	});

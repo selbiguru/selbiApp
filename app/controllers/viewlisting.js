@@ -43,6 +43,16 @@ function initialize() {
 }
 
 
+/**
+ * @method openListing 
+ * Opens mylisting view and shows the user that was clicked on and all of their items
+ * @param {Object} listingId Object containing listingId, userId, and friend (invitation) for the item
+ */
+function openListing(listingIDs){
+	Alloy.Globals.openPage('mylistings', [
+		listingIDs.userName, listingIDs.userId, listingIDs.friends
+	]);
+};
 	
 /**
  * @method populateViewListing
@@ -61,7 +71,12 @@ function populateViewListing(listingData) {
 	$.viewListingProductDescription.setText(listingData.description);
 	$.sellerName.setText(firstName +' '+ lastName);
 	if(!previewListing){
-		profileImageUrl = listingData.user.profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + listingData.user.profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg"; 
+		profileImageUrl = listingData.user.profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + listingData.user.profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
+		$.viewListingHeader.data = {
+			userId: listingData.user.id,	
+			userName: listingData.user.firstName + ' ' + listingData.user.lastName,
+			friends: listingData.invitation
+		};
 	} else if(Alloy.Globals.currentUser.attributes.profileImage) {
 		profileImageUrl = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + Alloy.Globals.currentUser.attributes.profileImage;
 	} else {
@@ -85,7 +100,6 @@ function populateViewListing(listingData) {
 	}
 	$.imageGallery.views = views;	
 };
-
 
 
 
@@ -212,6 +226,26 @@ function archiveItem(){
 		}
 	});
 }
+
+
+
+
+/*-----------------------------------------------Event Listeners------------------------------------------------*/
+
+/**
+ * Event listener for click of user of listing to open and show all of the users listed items
+ */
+$.viewListingHeader.addEventListener('click', function(e){
+	if(e.source.data ) {
+		Alloy.Globals.closePage('mylistings');
+		openListing(e.source.data);
+		backButton();
+	} else {
+		return;
+	}
+});
+
+
 
 
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
