@@ -214,7 +214,7 @@ $.scrollViewFriends.addEventListener('scroll', counting);
 
 function counting(e) {
 	if(!endOfListings) {
-		var tolerance = 150;
+		var tolerance = 450;
 		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewFriends.getRect().height + e.y) && stopScroll){
 			stopScroll = false;
 		   //$.scrollViewFriends.scrollingEnabled = false;

@@ -13,6 +13,35 @@ var paginateLastDate = '';
 var endOfListings = false;
 var stopScroll = true;
 
+switch(Alloy.Globals.userDevice) {
+    case 0: //iphoneFour
+        selbiUSAPadding = 7;
+        selbiUSAItemHeight = 45;
+        selbiUSAFontSize = '12dp';
+        break;
+    case 1: //iphoneFive
+        selbiUSAPadding = 7;
+        selbiUSAItemHeight = 45;
+        selbiUSAFontSize = '12dp';
+        break;
+    case 2: //iphoneSix
+        selbiUSAPadding = 10;
+        selbiUSAItemHeight = 49;
+        selbiUSAFontSize = '14dp';
+        break;
+    case 3: //iphoneSixPlus
+        selbiUSAPadding = 13;
+        selbiUSAItemHeight = 49;
+        selbiUSAFontSize = '15dp';
+        break;
+    case 4: //android currently same as iphoneSix
+        selbiUSAPadding = 10;
+        selbiUSAItemHeight = 49;
+        selbiUSAFontSize = '14dp';
+        break;
+};
+
+
 $.activityIndicator.show();
 $.titleSelbiUSALabel.text = "Selbi USA";
 genUSAItems(function(err, items){
@@ -34,53 +63,70 @@ function genUSAItems(cb){
 		updatedAt: paginateLastDate
 	};
 	listingManager.getSelbiListings(argsID, dateObj, function(err, selbiListings){
-		selbiListings.length > 0 ? paginateLastDate = selbiListings[selbiListings.length - 1].updatedAt : '';
-		selbiListings.length < 30 ? endOfListings = true : '';
+		selbiListings.listings.length > 0 ? paginateLastDate = selbiListings.listings[selbiListings.listings.length - 1].createdAt : '';
+		selbiListings.listings.length < 30 ? endOfListings = true : '';
 		var listItems = [];	
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading all the USA listings! We are working on a fix!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
-		} else if(selbiListings && selbiListings.length > 0) {
-			for(var listing in selbiListings) {
-				if(selbiListings[listing].listings[0].imageUrls){
-					var view = Alloy.createController('userTwoColumnTemplate');
-					var imageUrl = selbiListings[listing].listings[0].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + selbiListings[listing].listings[0].imageUrls[0] : "";
-					var profileImage = selbiListings[listing].profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + selbiListings[listing].profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
+		} else if(selbiListings && selbiListings.listings.length > 0) {
+			for(var listing in selbiListings.listings) {
+				if(selbiListings.listings[listing].imageUrls){
+					var view = Alloy.createController('myitemtemplate');
+					var imageUrl = selbiListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.mylistView + Alloy.CFG.cloudinary.bucket + selbiListings.listings[listing].imageUrls[0] : "";
 					var tmp = {
 						image :  imageUrl,
-			            usaListingThumb : {
+						listingItem:{
+			        		borderColor: selbiListings.listings[listing].isSold ? "#1BA7CD" : "#E5E5E5",
+			        		borderWidth: selbiListings.listings[listing].isSold ? '3dp' : '1dp'
+			        	},
+			            listingThumb : {
 			                image :  imageUrl
 			            },
-			            usaImageThumb : {
-			                image : profileImage
+			            listingTitle : {
+			                text : selbiListings.listings[listing].title,
+			                color: selbiListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
 			            },
-			            usaListingName: {
-			            	text: selbiListings[listing].firstName +" "+ selbiListings[listing].lastName
+			            listingPrice: {
+			            	text: selbiListings.listings[listing].price.formatMoney(2),
+			            	color: selbiListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
 			            },
-			            usaListingNumber: {
-			            	text: selbiListings[listing].count > 1 ? "+" + selbiListings[listing].count + " Listings" : selbiListings[listing].count + " Listing"
+			            listingImagesCount: {
+			            	text: selbiListings.listings[listing].isSold ? "SOLD" : selbiListings.listings[listing].imageUrls.length > 1 ? "+" + selbiListings.listings[listing].imageUrls.length + " Images" : selbiListings.listings[listing].imageUrls.length + " Image"	,
+		        			font: selbiListings.listings[listing].isSold ? {fontFamily: 'Nunito-Bold', fontSize: selbiUSAFontSize } : {fontFamily: 'Nunito-Light', fontSize: selbiUSAFontSize } ,
+		        			color: selbiListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
 			            },  
-			            template: 'userTwoColumnTemplate',
+			            template: 'myitemtemplate',
 			            properties: {
-			            	userId: selbiListings[listing].id,
-			            	userName: selbiListings[listing].firstName +" "+ selbiListings[listing].lastName,
-			            	friends: selbiListings[listing].invitation
+			            	itemId: selbiListings.listings[listing].id,
+			            	userName: selbiListings.firstName +" "+ selbiListings.lastName,
+			            	userId: selbiListings.listings[listing].user,
+			            	isSold: selbiListings.listings[listing].isSold
 			            }
 			        };
 			        view.updateViews({
-			        	'#usaListingThumb':{
+			        	'#listingItem':{
+			        		borderColor: selbiListings.listings[listing].isSold ? "#1BA7CD" : "#E5E5E5",
+			        		borderWidth: selbiListings.listings[listing].isSold ? '3dp' : '1dp'
+			        	},
+			        	'#listingThumb':{
 			        		image: imageUrl
 			        	},
-			        	'#usaImageThumb': {
-			        		image: profileImage
+			        	'#listingTitle': {
+			        		text: helpers.alterTextFormat(selbiListings.listings[listing].title, 14, true),
+			        		color: selbiListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
 			        	},
-			        	'#usaListingName':{ 
-			        		text: helpers.alterTextFormat(selbiListings[listing].firstName +" "+ selbiListings[listing].lastName, 12, false)
+			        	'#listingPrice':{ 
+			        		text: selbiListings.listings[listing].price.formatMoney(2),
+			        		color: selbiListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"	
+
 		        		},
-		        		'#usaListingNumber':{ 
-			        		text: selbiListings[listing].count > 1 ? "+" + selbiListings[listing].count + " Listings" : selbiListings[listing].count + " Listing"	
+		        		'#listingImagesCount':{ 
+			        		text: selbiListings.listings[listing].isSold ? "SOLD" : selbiListings.listings[listing].imageUrls.length > 1 ? "+" + selbiListings.listings[listing].imageUrls.length + " Images" : selbiListings.listings[listing].imageUrls.length + " Image"	,
+		        			font: selbiListings.listings[listing].isSold ? {fontFamily: 'Nunito-Bold', fontSize: selbiUSAFontSize } : {fontFamily: 'Nunito-Light', fontSize: selbiUSAFontSize } ,
+		        			color: selbiListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
 		        		}
 			        });
 			        
@@ -97,15 +143,11 @@ function genUSAItems(cb){
 			//ADD ALL THE ITEMS TO THE GRID
 			$.fg.addGridItems(items);
 			
-				
-		} else if(obj.length === 0) {
-			dynamicElement.defaultLabel('Looks like no one is selling anything at the moment :( Check back soon!', function(err, results) {
+		} else if (selbiListings && selbiListings.listings.length === 0) {
+			dynamicElement.defaultLabel('Sorry, It looks like this user doesn\'t have any listings!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
-			$.activityIndicator.hide();
-			$.activityIndicator.height = '0dp';
-			cb(err, listItems);	
 		}
 		$.activityIndicator.hide();
 		$.activityIndicator.height = '0dp';
@@ -154,10 +196,16 @@ function findUserListings(){
  * @param {Object} listingId Object containing listingId and userId for the item
  */
 function openListing(listingIDs){
-	Alloy.Globals.openPage('mylistings', [
-		listingIDs.userName, listingIDs.userId, listingIDs.friends
-	]);
-	
+	if(!listingIDs.friends) {
+		Alloy.Globals.openPage('viewlisting', {
+			itemId: listingIDs.itemId,
+			userId: listingIDs.userId
+		});
+	} else {
+		Alloy.Globals.openPage('mylistings', [
+			listingIDs.userName, listingIDs.userId, listingIDs.friends
+		]);
+	}	
 };
 
 
@@ -185,28 +233,6 @@ $.filterButton.addEventListener('click', function() {
 
 //-------------------------------------------Initializing Views/Styles----------------------------------------------------//
 
-switch(Alloy.Globals.userDevice) {
-    case 0: //iphoneFour
-        selbiUSAPadding = 7;
-        selbiUSAItemHeight = 45;
-        break;
-    case 1: //iphoneFive
-        selbiUSAPadding = 7;
-        selbiUSAItemHeight = 45;
-        break;
-    case 2: //iphoneSix
-        selbiUSAPadding = 10;
-        selbiUSAItemHeight = 49;
-        break;
-    case 3: //iphoneSixPlus
-        selbiUSAPadding = 13;
-        selbiUSAItemHeight = 54;
-        break;
-    case 4: //android currently same as iphoneSix
-        selbiUSAPadding = 10;
-        selbiUSAItemHeight = 47;
-        break;
-};
 $.fg.init({
     columns: 2,
     space: selbiUSAPadding,
@@ -219,9 +245,8 @@ $.fg.init({
 });
 $.fg.setOnItemClick(function(e){
     openListing({
-    	userId:e.source.data.properties.userId,	
-    	userName:e.source.data.properties.userName,
-    	friends: e.source.data.properties.friends
+    	userId:e.source.data.properties.userId,
+    	itemId:e.source.data.properties.itemId,
     });
 });
 
@@ -231,7 +256,7 @@ $.scrollViewSelbi.addEventListener('scroll', counting);
 
 function counting(e) {
 	if(!endOfListings) {
-		var tolerance = 150;
+		var tolerance = 450;
 		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewSelbi.getRect().height + e.y) && stopScroll){
 			stopScroll = false;
 		   //$.scrollViewSelbi.scrollingEnabled = false;
@@ -242,9 +267,3 @@ function counting(e) {
 		}	
 	}
 }
-
-/*$.loadMoreButton.addEventListener('click', function() {
-	genUSAItems(function(err, itemsResponse) {
-		
-	});
-});*/

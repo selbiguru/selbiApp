@@ -8,8 +8,7 @@ var	previewListing,
 	views = [],
 	itemData;
 var ccEligible = false,
-	bankEligible = false;	
-
+	bankEligible = false;
 $.activityIndicator.show();
 function initialize() {
 	if(args.itemId){
