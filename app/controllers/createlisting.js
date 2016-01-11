@@ -322,7 +322,7 @@ for(var i = 0; i < categoryArray.length; i++) {
 			fontSize: pickerRowFont,
 			fontFamily: 'Nunito-Light'
 		},
-		id: categoryArray[i].replace(' ', '')
+		id: categoryArray[i]
 	});	
 	$.pickerCategory.add(pickerRow);
 }

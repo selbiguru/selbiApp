@@ -518,7 +518,7 @@ var getFilterModal = exports.getFilterModal = function(cb) {
 			width: Ti.UI.SIZE,
 			value: false,
 			left: "6dp",
-			id: departmentsArray[i].replace(' ', '')
+			id: departmentsArray[i]
 		});
 		modalLabelField = Titanium.UI.createLabel({
 			height: switchFieldSize,

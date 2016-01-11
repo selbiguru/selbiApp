@@ -60,7 +60,7 @@ genUSAItems(function(err, items){
 function genUSAItems(cb){
 	items = [];
 	var dateObj = {
-		updatedAt: paginateLastDate
+		createdAt: paginateLastDate
 	};
 	listingManager.getSelbiListings(argsID, dateObj, function(err, selbiListings){
 		selbiListings.listings.length > 0 ? paginateLastDate = selbiListings.listings[selbiListings.listings.length - 1].createdAt : '';
@@ -144,7 +144,7 @@ function genUSAItems(cb){
 			$.fg.addGridItems(items);
 			
 		} else if (selbiListings && selbiListings.listings.length === 0) {
-			dynamicElement.defaultLabel('Sorry, It looks like this user doesn\'t have any listings!', function(err, results) {
+			dynamicElement.defaultLabel('Dang! Nothing was found at the moment :( Check back soon!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
@@ -252,9 +252,13 @@ $.fg.setOnItemClick(function(e){
 
 
 
-$.scrollViewSelbi.addEventListener('scroll', counting);
+$.scrollViewSelbi.addEventListener('scroll', infitineScroll);
 
-function counting(e) {
+/**
+ * @method infitineScroll
+ * Determines when to load more items on scrolling for SelbiUSA items
+ */
+function infitineScroll(e) {
 	if(!endOfListings) {
 		var tolerance = 450;
 		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewSelbi.getRect().height + e.y) && stopScroll){

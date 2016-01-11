@@ -9,6 +9,9 @@ var myListingPadding, myListingItemHeight,
 	myListingFontSize, myTopBarFontSize;
 var items = [],
 	obj = [];
+var paginateLastDate = '';
+var endOfListings = false;
+var stopScroll = true;
 var queryObj = {
 	myself: Ti.App.Properties.getString('userId') === argsID ? true : false,
 	friends: argsFriend.length > 0 && argsFriend[0].status === 'approved' ? true : false
@@ -78,8 +81,12 @@ genMyItems(function(err, items){
  * @param {Function} cb Callback function
  */
 function genMyItems(cb){
+	items = [];
+	queryObj.createdAt = paginateLastDate;
 	listingManager.getUserListings(argsID, queryObj, function(err, userListings){
-		var listItems = [];
+		userListings.listings.length > 0 ? paginateLastDate = userListings.listings[userListings.listings.length - 1].createdAt : '';
+		userListings.listings.length < 30 ? endOfListings = true : '';
+		var listItems = [];	
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading listings!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
@@ -336,7 +343,6 @@ function friendRequestDynamic(e, newStatus){
 
 //-------------------------------------------Initializing Views/Styles----------------------------------------------------//
 
-
 $.fg.init({
     columns: 2,
     space: myListingPadding,
@@ -355,3 +361,25 @@ $.fg.setOnItemClick(function(e){
     	isSold: e.source.data.properties.isSold	
     });
 });
+
+
+
+$.scrollViewMyListings.addEventListener('scroll', infitineScroll);
+
+/**
+ * @method infitineScroll
+ * Determines when to load more items on scrolling for User's items
+ */
+function infitineScroll(e) {
+	if(!endOfListings) {
+		var tolerance = 450;
+		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewMyListings.getRect().height + e.y) && stopScroll){
+			stopScroll = false;
+		   //$.scrollViewMyListings.scrollingEnabled = false;
+			genMyItems(function(err, itemsResponse) {
+				stopScroll = true;
+				//$.scrollViewMyListings.scrollingEnabled = true;
+			});
+		}	
+	}
+}

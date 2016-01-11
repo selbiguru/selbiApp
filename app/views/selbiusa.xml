@@ -24,7 +24,6 @@
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<ScrollView id="scrollViewSelbi">
 			<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
-			<!--<Button id="loadMoreButton">Load More!</Button>-->
 		</ScrollView>
 		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
     </View>
