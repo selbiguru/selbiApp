@@ -8,7 +8,8 @@ var listingManager = require('managers/listingmanager'),
 	dynamicElement = require('utilities/dynamicElement');
 var	selbiUSAPadding, selbiUSAItemHeight;
 var items = [],
-	obj = [];
+	obj = [],
+	categoryArray = [];
 var paginateLastDate = '';
 var endOfListings = false;
 var stopScroll = true;
@@ -60,11 +61,12 @@ genUSAItems(function(err, items){
 function genUSAItems(cb){
 	items = [];
 	var dateObj = {
-		createdAt: paginateLastDate
+		createdAt: paginateLastDate,
+		categories: categoryArray.length > 0 ? categoryArray : false
 	};
 	listingManager.getSelbiListings(argsID, dateObj, function(err, selbiListings){
 		selbiListings.listings.length > 0 ? paginateLastDate = selbiListings.listings[selbiListings.listings.length - 1].createdAt : '';
-		selbiListings.listings.length < 30 ? endOfListings = true : '';
+		selbiListings.listings.length < 30 ? endOfListings = true : endOfListings = false;
 		var listItems = [];	
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading all the USA listings! We are working on a fix!', function(err, results) {
@@ -211,17 +213,22 @@ function openListing(listingIDs){
 
 
 $.filterButton.addEventListener('click', function() {
-	modalManager.getFilterModal(function(err, results){
+	modalManager.getFilterModal(categoryArray, function(err, results){
 		results.modalFilterButton.addEventListener('click', function(e) {
-			//console.log('1111111111111 ', results.modalSwitchField.id);
-			//console.log('222222222222 ', results.filterSwitchView.children[0].children[0].value);
-			var poopArr = [];
+			var animateWindowClose = Titanium.UI.create2DMatrix();
+				animateWindowClose = animateWindowClose.scale(0);
+			categoryArray = [];
+			paginateLastDate = '';
 			for(var i = 0; i < results.filterSwitchView.children.length; i++) {
 				if(results.filterSwitchView.children[i].children[0].value) {
-					poopArr.push(results.filterSwitchView.children[i].children[0].id);
+					categoryArray.push(results.filterSwitchView.children[i].children[0].id);
 				}
 			}
-			console.log("this is poopArr ", poopArr);
+			$.fg.clearGrid();
+			genUSAItems(function(err, itemsResponse) {
+				
+			});
+			results.modalWindow.close({transform:animateWindowClose, duration:300});
 		});
 		return;
 	});
@@ -263,10 +270,8 @@ function infitineScroll(e) {
 		var tolerance = 450;
 		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewSelbi.getRect().height + e.y) && stopScroll){
 			stopScroll = false;
-		   //$.scrollViewSelbi.scrollingEnabled = false;
 			genUSAItems(function(err, itemsResponse) {
 				stopScroll = true;
-				//$.scrollViewSelbi.scrollingEnabled = true;
 			});
 		}	
 	}

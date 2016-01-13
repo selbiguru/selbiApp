@@ -38,7 +38,7 @@ function genFriendsItems(cb){
 	};
 	listingManager.getFriendsListings(argsID, dateObj, function(err, friendsListings){
 		friendsListings.length > 0 ? paginateLastDate = friendsListings[friendsListings.length - 1].updatedAt : '';
-		friendsListings.length < 30 ? endOfListings = true : '';
+		friendsListings.length < 30 ? endOfListings = true : endOfListings = false;
 		var listItems = [];
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading your friend\'s listings!  We are working on a fix!', function(err, results) {
@@ -217,10 +217,8 @@ function counting(e) {
 		var tolerance = 450;
 		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewFriends.getRect().height + e.y) && stopScroll){
 			stopScroll = false;
-		   //$.scrollViewFriends.scrollingEnabled = false;
 			genFriendsItems(function(err, peace) {
 				stopScroll = true;
-				//$.scrollViewFriends.scrollingEnabled = true;
 			});
 		}	
 	}

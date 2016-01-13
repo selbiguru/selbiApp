@@ -380,7 +380,7 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 //Builds a filter modal.  This function takes no arguments and returns access to all elements created.
 //This allows customization of the modalFilterButton to add a custom listener upon clicking the save button.
 
-var getFilterModal = exports.getFilterModal = function(cb) {
+var getFilterModal = exports.getFilterModal = function(selectedCatArray, cb) {
 	var modalWindow,
 		backgroundColorView,
 		modalHeaderLabel,
@@ -516,7 +516,7 @@ var getFilterModal = exports.getFilterModal = function(cb) {
 		modalSwitchField = Titanium.UI.createSwitch({
 			height: switchFieldSize,
 			width: Ti.UI.SIZE,
-			value: false,
+			value: selectedCatArray.indexOf(departmentsArray[i]) != -1 ? true : false,
 			left: "6dp",
 			id: departmentsArray[i]
 		});
