@@ -89,7 +89,7 @@ function registerUser(){
 					    AuthManager.userRegister(validateFirstName[0], validateLastName, validatedEmail.email, userName, validatedPassword, validatedNumber, function(err, registerResult){
 							if(err) {
 								buttonOn();
-								helpers.alertUser('Register','Unable to register, please try again!');
+								helpers.alertUser('Register', err);
 								indicatorWindow.closeIndicator();
 								return;
 							} else {

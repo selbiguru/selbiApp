@@ -221,10 +221,14 @@ exports.capFirstLetter = function(word) {
  * @param {String} alertMessage Message you want in the alert shown to the user
  */
 exports.alertUser = function(alertTitle, alertMessage) {
+	var userMessage = alertMessage;
+	if(alertMessage[0] === '"' && alertMessage[alertMessage.length-1] === '"') {
+		userMessage = userMessage.slice(1, -1);
+	}
     var a = Titanium.UI.createAlertDialog({
         	title : alertTitle
     });
-	a.setMessage(alertMessage);
+	a.setMessage(userMessage);
 	a.show();
 	return;
 };
