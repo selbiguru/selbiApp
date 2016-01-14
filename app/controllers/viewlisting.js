@@ -322,7 +322,7 @@ function createPreviewButtons() {
 		if(bankEligible) {
 			saveListing();	
 		} else {
-			helpers.alertUser('No go!','Before you can list items you need to add both a bank account in \'Payment\' and an address in \'Edit Profile\' under Settings if you haven\'t done so already!');
+			helpers.alertUser('No go!','Before you can list items you need to add BOTH a Bank Account in \'Payment\' and an Address in \'Edit Profile\' under Settings if you haven\'t done so already!');
 		}
 	});
 	return;

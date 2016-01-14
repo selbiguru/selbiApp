@@ -69,12 +69,13 @@ exports.getFriendsListings = function(userId, dateObj, cb){
  * @method getSelbiListings
  * Obtains all listings on Selbi for a given user who are not the user's friends
  * @param {String} userId User Identifier
- * @param {Object} dateObj of the last user for pagination:
- * 		@param {String} updatedAt Date where paginate should being at
+ * @param {Object} selbiUSAObj of the last user for pagination:
+ * 		@param {String} createdAt Date where paginate should being at
+ * 		@param {Array} categories Array of categories being filtered for by the user. 
  * @param {Function} cb Callback function
  */
-exports.getSelbiListings = function(userId, dateObj, cb){
-	httpManager.execute('/userlistings/selbilistings/'+ userId, 'PUT', dateObj, true, function(err, selbiListingsResult){
+exports.getSelbiListings = function(userId, selbiUSAObj, cb){
+	httpManager.execute('/userlistings/selbilistings/'+ userId, 'PUT', selbiUSAObj, true, function(err, selbiListingsResult){
 		if(err) {
             cb(err, null);
 		} else {

@@ -1,4 +1,5 @@
 var userManager = require('managers/usermanager');
+var html2as = require('nl.fokkezb.html2as');
 
 
 /*********************************************  DOB MODAL *****************************************************/
@@ -377,8 +378,8 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 
 
 
-//Builds a filter modal.  This function takes no arguments and returns access to all elements created.
-//This allows customization of the modalFilterButton to add a custom listener upon clicking the save button.
+//Builds a filter modal.  This function takes one argument which is an array of search categories (['Other', 'Menswear']) and returns access to all elements created.
+//This allows customization of the modalFilterButton to add a custom listener upon clicking the filter button.
 
 var getFilterModal = exports.getFilterModal = function(selectedCatArray, cb) {
 	var modalWindow,
@@ -572,6 +573,186 @@ var getFilterModal = exports.getFilterModal = function(selectedCatArray, cb) {
 		modalSwitchField: modalSwitchField,
 		modalLabelField: modalLabelField,
 		modalFilterButton: modalFilterButton
+	};
+	cb(null,filterModalElements);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Builds a welcome modal.  This function takes no arguments and returns access to all elements created.
+//This allows customization of the modalWelcomeButton to add a custom listener upon clicking the Get Started button.
+
+var getWelcomeModal = exports.getWelcomeModal = function(cb) {
+	var modalWindow,
+		backgroundColorView,
+		modalHeaderLabel,
+		infoModalView,
+		welcomeModalScrollView,
+		modalLabelField,
+		modalWelcomeButton;
+	switch(Alloy.Globals.userDevice) {
+	    case 0: //iphoneFour
+	    	modalHeaderFont = 18;
+	    	welcomeButtonFont = 14;
+	    	scrollViewHeight = 265;
+	    	scrollViewWidth = 280;
+	    	modalLabelFont = 13;
+	    	modalLabelBoldFont = 14;
+	    	welcomeButtonHeight = 35;
+	        break;
+	    case 1: //iphoneFive
+	    	modalHeaderFont = 18;
+	    	welcomeButtonFont = 14;
+	    	scrollViewHeight = 265;
+	    	scrollViewWidth = 280;
+	    	modalLabelFont = 13;
+	    	modalLabelBoldFont = 14;
+	    	welcomeButtonHeight = 35;
+	        break;
+	    case 2: //iphoneSix
+	    	modalHeaderFont = 20;
+	    	welcomeButtonFont = 16;
+	    	scrollViewHeight = 300;
+	    	scrollViewWidth = 320;
+	    	modalLabelFont = 15;
+	    	modalLabelBoldFont= 16;
+	    	welcomeButtonHeight = 40;
+	        break;
+	    case 3: //iphoneSixPlus
+	    	modalHeaderFont = 22;
+	    	welcomeButtonFont = 18;
+	    	scrollViewHeight = 330;
+	    	scrollViewWidth = 340;
+	    	modalLabelFont = 17;
+	    	modalLabelBoldFont = 18;
+	    	welcomeButtonHeight = 45;
+	        break;
+	    case 4: //android currently same as iphoneSix
+	    	modalHeaderFont = 20;
+	    	welcomeButtonFont = 16;
+	    	scrollViewHeight = 300;
+	    	scrollViewWidth = 320;
+	    	modalLabelFont = 15;
+	    	modalLabelBoldFont = 16;
+	    	welcomeButtonHeight = 40;
+	        break;
+	};
+	var transformModalOpen = Titanium.UI.create2DMatrix();
+    transformModalOpen = transformModalOpen.scale(0);
+	modalWindow = Titanium.UI.createWindow({
+	    backgroundColor:'transparent',
+	    height:"100%",
+	    width:"100%",
+	    opacity:1,
+	    transform: transformModalOpen,
+	    id: "filterModalWindow"
+	});
+	// create first transform to go beyond normal size
+    var transformModalOpen1 = Titanium.UI.create2DMatrix();
+    transformModalOpen1 = transformModalOpen1.scale(1.1);
+    var animateOpen = Titanium.UI.createAnimation();
+    animateOpen.transform = transformModalOpen1;
+    animateOpen.duration = 300;
+ 
+    // when this animation completes, scale to normal size
+    animateOpen.addEventListener('complete', function() {
+        var transformModalOpen2 = Titanium.UI.create2DMatrix();
+        transformModalOpen2 = transformModalOpen2.scale(1.0);
+        modalWindow.animate({transform:transformModalOpen2, duration:200});
+ 
+    });
+	backgroundColorView = Titanium.UI.createView({
+	    backgroundColor:'black',
+	    height:"100%",
+	    width:"100%",
+	    opacity:0.4,
+	    layout:'vertical'
+	});
+	infoModalView = Titanium.UI.createView({
+	    width:"90%",
+	    borderRadius: 4,
+	    height: Ti.UI.SIZE,
+	    opacity:1,
+	    zIndex: 20,
+	    layout:'vertical',
+	    backgroundColor: '#FAFAFA'
+	});
+	modalHeaderLabel = Titanium.UI.createLabel({
+		height: Ti.UI.SIZE,
+		top: "5dp",
+		font: {
+			fontSize: modalHeaderFont,
+			fontFamily: 'Nunito-Bold'
+		},
+		color: "#1BA7CD",
+		text: "Welcome To Selbi!"
+	});
+	welcomeModalScrollView = Titanium.UI.createScrollView({
+	    height: scrollViewHeight,
+		layout: 'vertical',
+		width: scrollViewWidth,
+		showVerticalScrollIndicator: true,
+		top: '5dp'
+	});
+	html2as(
+	    '<font face="Nunito-Light" size="'+modalLabelFont+'">Welcome to the Selbi family! We are the premier friend to friend marketplace, where you can Have fun buying and selling in your own trusted network of friends.You are now seconds away from buying and selling your items. Being able to buy and sell on Selbi is one of the simplest thing you\’ll ever do! Here is a super quick guide to get started.</font><font size="'+modalLabelBoldFont+'" face="Nunito-Bold"><br><br>Username:</font><font face="Nunito-Light" size="'+modalLabelFont+'"> Under Edit Profile in settings you can, and should, update the randomly generated username given to you.  Usernames are how friends will be able to search for you and must be 7 characters long.</font><font size="'+modalLabelBoldFont+'" face="Nunito-Bold"><br><br>Address:</font><font face="Nunito-Light" size="'+modalLabelFont+'">  Sellers need to send you your items!  This is a breeze to fill out and is located in the same place as your username.  Two birds with one stone!</font><font size="'+modalLabelBoldFont+'" face="Nunito-Bold"><br><br>Payment:</font><font face="Nunito-Light" size="'+modalLabelFont+'">  Of course you\'ll want to get paid for items you sell so you\’ll have to add a CC (to Buy things) and Bank info (to Sell things), but don\’t worry, we don\’t store any of your data on our database so it\’s safe and easy to do!<br><br>And that\’s it!  Super simple!  Now you\’re ready to buy and sell to your heart\’s content.</font>',
+	    function(err, strings) {
+	        if (err) {
+	            console.log("html2as error welcomeModal ",err);
+	        } else {
+	            modalLabelField = Titanium.UI.createLabel({
+					width: Ti.UI.SIZE,
+					left: "5dp",
+					attributedString: strings,
+					textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+				});
+	        }
+	    }
+	);
+	modalWelcomeButton = Titanium.UI.createButton({
+		height: welcomeButtonHeight,
+	    top: '8dp',
+	    bottom: '10dp',
+	    width: scrollViewWidth,
+	    backgroundColor: '#EAEAEA',
+		font: {
+			fontSize: welcomeButtonFont,
+			fontFamily: 'Nunito-Light'
+		},
+		title: 'Get Started Now!',
+		color: "#9B9B9B",
+		borderRadius: 4,
+	});
+	welcomeModalScrollView.add(modalLabelField);
+	infoModalView.add(modalHeaderLabel);
+	infoModalView.add(welcomeModalScrollView);
+	infoModalView.add(modalWelcomeButton);
+	modalWindow.add(infoModalView);
+	modalWindow.add(backgroundColorView);
+	backgroundColorView.addEventListener('click', function() {
+		var animateWindowClose = Titanium.UI.create2DMatrix();
+	    animateWindowClose = animateWindowClose.scale(0);
+	    modalWindow.close({transform:animateWindowClose, duration:300});
+	});
+	modalWindow.open(animateOpen);
+	var filterModalElements = {
+		modalWindow: modalWindow,
+		backgroundColorView: backgroundColorView,
+		infoModalView: infoModalView,
+		modalHeaderLabel: modalHeaderLabel,
+		welcomeModalScrollView: welcomeModalScrollView,
+		modalLabelField: modalLabelField,
+		modalWelcomeButton: modalWelcomeButton
 	};
 	cb(null,filterModalElements);
 };

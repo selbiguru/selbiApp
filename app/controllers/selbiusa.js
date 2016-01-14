@@ -60,11 +60,11 @@ genUSAItems(function(err, items){
  */
 function genUSAItems(cb){
 	items = [];
-	var dateObj = {
+	var selbiUSAObj = {
 		createdAt: paginateLastDate,
 		categories: categoryArray.length > 0 ? categoryArray : false
 	};
-	listingManager.getSelbiListings(argsID, dateObj, function(err, selbiListings){
+	listingManager.getSelbiListings(argsID, selbiUSAObj, function(err, selbiListings){
 		selbiListings.listings.length > 0 ? paginateLastDate = selbiListings.listings[selbiListings.listings.length - 1].createdAt : '';
 		selbiListings.listings.length < 30 ? endOfListings = true : endOfListings = false;
 		var listItems = [];	

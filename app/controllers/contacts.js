@@ -409,7 +409,7 @@ function loadContacts() {
  * Delegate callback executed when access to contacts is not allowed
  */
 function addressBookDisallowed() {	
-	dynamicElement.defaultLabel('Go to your phone settings and turn on Contacts.', function(err, results) {
+	dynamicElement.defaultLabel('Go to your phone\'s settings and turn on Contacts for Selbi.', function(err, results) {
 		$.defaultView.height= Ti.UI.FILL;
 		$.defaultView.add(results);
 	});
