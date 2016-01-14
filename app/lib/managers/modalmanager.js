@@ -20,23 +20,43 @@ var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 	switch(Alloy.Globals.userDevice) {
 	    case 0:
 	        modalFont = 18;
-	        pciFont = 10;
+	        pciFont = 12;
+	        datePickerHeight = 145;
+	        welcomeButtonHeight = 35;
+	        welcomeButtonFont = 14;
+	    	datePickerWidth = 280;
 	        break;
 	    case 1:
 	        modalFont = 18;
-	        pciFont = 10;
+	        pciFont = 12;
+	        datePickerHeight = 165;
+	        welcomeButtonHeight = 35;
+	        welcomeButtonFont = 14;
+	    	datePickerWidth = 280;
 	        break;
 	    case 2:
-	        modalFont = 18;
-	        pciFont = 12;
+	        modalFont = 20;
+	        pciFont = 14;
+	        datePickerHeight = 180;
+	        welcomeButtonHeight = 40;
+	        welcomeButtonFont = 16;
+	    	datePickerWidth = 320;
 	        break;
 	    case 3:
-	        modalFont = 20;
-	        pciFont = 12;
+	        modalFont = 22;
+	        pciFont = 14;
+	        datePickerHeight = 220;
+	        welcomeButtonHeight = 45;
+	        welcomeButtonFont = 18;
+	    	datePickerWidth = 340;
 	        break;
 	    case 4: //android currently same as iphoneSix
-	        modalFont = 18;
-	        pciFont = 12;
+	        modalFont = 20;
+	        pciFont = 14;
+	        datePickerHeight = 180;
+	        welcomeButtonHeight = 40;
+	        welcomeButtonFont = 16;
+	    	datePickerWidth = 320;
 	        break;
 	};
 	var transformModalOpen = Titanium.UI.create2DMatrix();
@@ -92,35 +112,37 @@ var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 	});
 	datePicker = Titanium.UI.createPicker({
 		type:Ti.UI.PICKER_TYPE_DATE,
-		top: "20dp",
+		top: "15dp",
 		useSpinner:true,
 		borderRadius: 3,
 		zIndex: 20,
 		visibleItems: 3,
 		selectionIndicator: true,
-		width: "90%",
-		minDate:new Date(1920,15,10),
+		width: datePickerWidth,
+		height: datePickerHeight,
+		minDate:new Date(1920,10,10),
 		maxDate:new Date(),
-		value:new Date(2005,15,10),
+		value:new Date(2000,10,10),
 		id: 'modalDatePicker'
 	});
 	modalSaveButton = Titanium.UI.createButton({
-		height:Ti.UI.SIZE,
-	    width:Ti.UI.SIZE,
-	    top:"8dp",
-	    zIndex: 20,
-	    font: {
-			fontSize: modalFont,
-			fontFamily: "Nunito-Bold"
+		height: welcomeButtonHeight,
+	    top: '15dp',
+	    width: datePickerWidth,
+	    backgroundColor: '#EAEAEA',
+		font: {
+			fontSize: welcomeButtonFont,
+			fontFamily: 'Nunito-Light'
 		},
-	    title: 'Save',
-	    color: '#1BA7CD',
-	    id: 'modalBirthdaySave'
+		title: 'Save',
+		color: "#9B9B9B",
+		borderRadius: 4,
 	});
 	pciExplanationLabel = Titanium.UI.createLabel({
 		height: Ti.UI.SIZE,
-		width: "90%",
-		top: "8dp",
+		width: datePickerWidth,
+		top: "20dp",
+		bottom: '8dp',
 		font: {
 			fontSize: pciFont,
 			fontFamily: "Nunito-light"
