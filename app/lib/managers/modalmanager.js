@@ -22,41 +22,51 @@ var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 	        modalFont = 18;
 	        pciFont = 12;
 	        datePickerHeight = 145;
+	        datePickerTop = 12;
 	        welcomeButtonHeight = 35;
 	        welcomeButtonFont = 14;
 	    	datePickerWidth = 280;
+	    	pciLabelTop = 15;
 	        break;
 	    case 1:
 	        modalFont = 18;
 	        pciFont = 12;
 	        datePickerHeight = 165;
+	        datePickerTop = 13;
 	        welcomeButtonHeight = 35;
 	        welcomeButtonFont = 14;
 	    	datePickerWidth = 280;
+	    	pciLabelTop = 17;
 	        break;
 	    case 2:
 	        modalFont = 20;
 	        pciFont = 14;
 	        datePickerHeight = 180;
+	        datePickerTop = 15;
 	        welcomeButtonHeight = 40;
 	        welcomeButtonFont = 16;
 	    	datePickerWidth = 320;
+	    	pciLabelTop = 20;
 	        break;
 	    case 3:
 	        modalFont = 22;
 	        pciFont = 14;
 	        datePickerHeight = 220;
+	        datePickerTop = 15;
 	        welcomeButtonHeight = 45;
 	        welcomeButtonFont = 18;
 	    	datePickerWidth = 340;
+	    	pciLabelTop = 20;
 	        break;
 	    case 4: //android currently same as iphoneSix
 	        modalFont = 20;
 	        pciFont = 14;
 	        datePickerHeight = 180;
+	        datePickerTop = 15;
 	        welcomeButtonHeight = 40;
 	        welcomeButtonFont = 16;
 	    	datePickerWidth = 320;
+	    	pciLabelTop = 20;
 	        break;
 	};
 	var transformModalOpen = Titanium.UI.create2DMatrix();
@@ -112,7 +122,7 @@ var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 	});
 	datePicker = Titanium.UI.createPicker({
 		type:Ti.UI.PICKER_TYPE_DATE,
-		top: "15dp",
+		top: datePickerTop,
 		useSpinner:true,
 		borderRadius: 3,
 		zIndex: 20,
@@ -127,7 +137,7 @@ var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 	});
 	modalSaveButton = Titanium.UI.createButton({
 		height: welcomeButtonHeight,
-	    top: '15dp',
+	    top: datePickerTop,
 	    width: datePickerWidth,
 	    backgroundColor: '#EAEAEA',
 		font: {
@@ -141,7 +151,7 @@ var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 	pciExplanationLabel = Titanium.UI.createLabel({
 		height: Ti.UI.SIZE,
 		width: datePickerWidth,
-		top: "20dp",
+		top: pciLabelTop,
 		bottom: '8dp',
 		font: {
 			fontSize: pciFont,
