@@ -93,7 +93,7 @@ function registerUser(){
 								indicatorWindow.closeIndicator();
 								return;
 							} else {
-								console.log("Successfully registered");
+								console.log("Successfully registered ");
 								importContacts();
 								//var homeController = Alloy.createController('masterlayout').getView();
 								//homeController.open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});	
