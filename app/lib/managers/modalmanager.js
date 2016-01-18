@@ -23,8 +23,8 @@ var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 	        pciFont = 12;
 	        datePickerHeight = 145;
 	        datePickerTop = 12;
-	        welcomeButtonHeight = 35;
-	        welcomeButtonFont = 14;
+	        saveButtonHeight = 35;
+	        saveButtonFont = 14;
 	    	datePickerWidth = 280;
 	    	pciLabelTop = 15;
 	        break;
@@ -33,8 +33,8 @@ var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 	        pciFont = 12;
 	        datePickerHeight = 165;
 	        datePickerTop = 13;
-	        welcomeButtonHeight = 35;
-	        welcomeButtonFont = 14;
+	        saveButtonHeight = 35;
+	        saveButtonFont = 14;
 	    	datePickerWidth = 280;
 	    	pciLabelTop = 17;
 	        break;
@@ -43,8 +43,8 @@ var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 	        pciFont = 14;
 	        datePickerHeight = 180;
 	        datePickerTop = 15;
-	        welcomeButtonHeight = 40;
-	        welcomeButtonFont = 16;
+	        saveButtonHeight = 40;
+	        saveButtonFont = 16;
 	    	datePickerWidth = 320;
 	    	pciLabelTop = 20;
 	        break;
@@ -53,8 +53,8 @@ var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 	        pciFont = 14;
 	        datePickerHeight = 220;
 	        datePickerTop = 15;
-	        welcomeButtonHeight = 45;
-	        welcomeButtonFont = 18;
+	        saveButtonHeight = 45;
+	        saveButtonFont = 18;
 	    	datePickerWidth = 340;
 	    	pciLabelTop = 20;
 	        break;
@@ -63,8 +63,8 @@ var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 	        pciFont = 14;
 	        datePickerHeight = 180;
 	        datePickerTop = 15;
-	        welcomeButtonHeight = 40;
-	        welcomeButtonFont = 16;
+	        saveButtonHeight = 40;
+	        saveButtonFont = 16;
 	    	datePickerWidth = 320;
 	    	pciLabelTop = 20;
 	        break;
@@ -136,12 +136,12 @@ var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 		id: 'modalDatePicker'
 	});
 	modalSaveButton = Titanium.UI.createButton({
-		height: welcomeButtonHeight,
+		height: saveButtonHeight,
 	    top: datePickerTop,
 	    width: datePickerWidth,
 	    backgroundColor: '#EAEAEA',
 		font: {
-			fontSize: welcomeButtonFont,
+			fontSize: saveButtonFont,
 			fontFamily: 'Nunito-Light'
 		},
 		title: 'Save',
@@ -211,47 +211,82 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 	switch(Alloy.Globals.userDevice) {
 	    case 0: //iPhoneFour
 	    	textFieldFont = 20;
-	    	modalHeaderFont = 16;
-	    	modalBodyFont = 12;
-	    	verifyButtonFont = 12;
-	    	resendButtonFont = 10; 
-	    	disclaimerFont = 10;
+	    	modalHeaderFont = 18;
+	    	modalBodyFont = 14;
+	    	bodyLabelTop = 4;
+	    	textFieldSquare = 8;
+	    	squareViewTop = 6;
+	    	verifyButtonFont = 14;
+	    	verifyButtonHeight = 35;
+	    	verifyButtonWidth = 280;
+	    	verifyButtonTop = 11;
+	    	resendButtonFont = 12; 
+	    	disclaimerFont = 12;
+	    	disclaimerLabelTop = 1;
 	    	textFieldSize = 50;
 	        break;
 	    case 1: //iPhoneFive
 	    	textFieldFont = 20;
-	    	modalHeaderFont = 16;
-	    	modalBodyFont = 12;
-	        verifyButtonFont = 12;
-	    	resendButtonFont = 10; 
-	    	disclaimerFont = 10;
+	    	modalHeaderFont = 18;
+	    	modalBodyFont = 14;
+	    	bodyLabelTop = 6;
+	    	textFieldSquare = 8;
+	    	squareViewTop = 8;
+	        verifyButtonFont = 14;
+	        verifyButtonHeight = 35;
+	        verifyButtonWidth = 280;
+	        verifyButtonTop = 13;
+	    	resendButtonFont = 12; 
+	    	disclaimerFont = 12;
+	    	disclaimerLabelTop = 3;
 	    	textFieldSize = 50;
 	        break;
 	    case 2: //iPhoneSix
 	    	textFieldFont = 22;
-	    	modalHeaderFont = 18;
-	    	modalBodyFont = 15;
-	        verifyButtonFont = 15;
-	    	resendButtonFont = 12; 
-	    	disclaimerFont = 12;
+	    	modalHeaderFont = 20;
+	    	modalBodyFont = 16;
+	    	bodyLabelTop = 10;
+	    	textFieldSquare = 8;
+	    	squareViewTop = 12;
+	        verifyButtonFont = 16;
+	        verifyButtonHeight = 40;
+	        verifyButtonWidth = 320;
+	        verifyButtonTop = 15;
+	    	resendButtonFont = 15; 
+	    	disclaimerFont = 14;
+	    	disclaimerLabelTop = 8;
 	    	textFieldSize = 60;
 	        break;
 	    case 3: //iPhoneSixPlus
 	    	textFieldFont = 22;
-	    	modalHeaderFont = 20;
-	    	modalBodyFont = 16;
-	        verifyButtonFont = 16;
-	    	resendButtonFont = 12; 
-	    	disclaimerFont = 12;
+	    	modalHeaderFont = 22;
+	    	modalBodyFont = 18;
+	    	bodyLabelTop = 10;
+	    	textFieldSquare = 8;
+	    	squareViewTop = 15;
+	        verifyButtonFont = 18;
+	        verifyButtonHeight = 45;
+	        verifyButtonWidth = 340;
+	        verifyButtonTop = 20;
+	    	resendButtonFont = 15; 
+	    	disclaimerFont = 14;
+	    	disclaimerLabelTop = 10;
 	    	textFieldSize = 60;
 	        break;
 	    case 4: //android currently same as iphoneSix
 	    	textFieldFont = 22;
-	    	modalHeaderFont = 18;
-	    	modalBodyFont = 15;
-	        verifyButtonFont = 15;
-	    	resendButtonFont = 12; 
-	    	disclaimerFont = 12;
+	    	modalHeaderFont = 20;
+	    	modalBodyFont = 16;
+	    	bodyLabelTop = 10;
+	    	textFieldSquare = 8;
+	    	squareViewTop = 12;
+	        verifyButtonFont = 16;
+	        verifyButtonHeight = 40;
+	        verifyButtonWidth = 320;
+	        verifyButtonTop = 15;
+	    	resendButtonFont = 15; 
+	    	disclaimerFont = 14;
+	    	disclaimerLabelTop = 8;
 	    	textFieldSize = 60;
 	        break;
 	};
@@ -297,7 +332,6 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 	});
 	modalHeaderLabel = Titanium.UI.createLabel({
 		height: Ti.UI.SIZE,
-		//width: Ti.UI.SIZE,
 		top: "5dp",
 		font: {
 			fontSize: modalHeaderFont,
@@ -308,19 +342,19 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 	});
 	modalBodyLabel = Titanium.UI.createLabel({
 		height: Ti.UI.SIZE,
-		width: "90%",
+		width: verifyButtonWidth,
 		font: {
 			fontSize: modalBodyFont,
 			fontFamily: 'Nunito-Light'
 		},
 		color: "#1BA7CD",
-		top: '10dp',
+		top: bodyLabelTop,
 	    text: "We've sent you a text!  Just enter the 4 digit code below and take full advantage of Selbi!"
 	});
 	verifyModalView = Titanium.UI.createView({
 	    height: Ti.UI.SIZE,
 		layout: 'horizontal',
-		top: '15dp',
+		top: squareViewTop,
 		width: Ti.UI.SIZE
 	});
 	for(i = 0; i < 4; i++) {
@@ -329,8 +363,8 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 			width: textFieldSize,
 			borderColor: "#EAEAEA",
 			maxLength: "1",
-			left: "6dp",
-			right: '6dp',
+			left: textFieldSquare,
+			right: textFieldSquare,
 			font: {
 				fontSize: textFieldFont,
 				fontFamily: 'Nunito-Bold'
@@ -341,33 +375,38 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 		verifyModalView.add(modalTextField);
 	};
 	modalVerifyButton = Titanium.UI.createButton({
-		height:Ti.UI.SIZE,
-	    top: '10dp',
-	    font: {
-				fontSize: verifyButtonFont,
-				fontFamily: 'Nunito-Light'
+		height: verifyButtonHeight,
+	    top: verifyButtonTop,
+	    width: verifyButtonWidth,
+	    backgroundColor: '#EAEAEA',
+		font: {
+			fontSize: verifyButtonFont,
+			fontFamily: 'Nunito-Light'
 		},
-		title: 'Validate'
+		title: 'Validate',
+		color: "#9B9B9B",
+		borderRadius: 4,
 	});
 	modalResendButton = Titanium.UI.createButton({
 		height:Ti.UI.SIZE,
-	    top: '7dp',
+	    top: verifyButtonTop,
 		font: {
 			fontSize: resendButtonFont,
 			fontFamily: 'Nunito-Light'
 		},
-		title: 'Resend Code'
+		title: 'Resend Code',
+		color: "#9B9B9B"
 	});
 	modalDisclaimerLabel = Titanium.UI.createLabel({
 		height: Ti.UI.SIZE,
-		width: "90%",
+		width: verifyButtonWidth,
 		font: {
 			fontSize: disclaimerFont,
 			fontFamily: 'Nunito-Light'
 		},
 		color: "#1BA7CD",
 		bottom: '5dp',
-		top: "5dp",
+		top: disclaimerLabelTop,
 	    text: "*Selbi uses your phone number as an extra security layer for when you cash out your money."
 	});
 	infoModalView.add(modalHeaderLabel);
