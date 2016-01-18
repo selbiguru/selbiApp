@@ -141,7 +141,6 @@ function genUSAItems(cb){
 				    obj.push(lView);
 				}
 			}
-			
 			//ADD ALL THE ITEMS TO THE GRID
 			$.fg.addGridItems(items);
 			
@@ -225,6 +224,10 @@ $.filterButton.addEventListener('click', function() {
 				}
 			}
 			$.fg.clearGrid();
+			$.defaultView.height= '0dp';
+			if($.defaultView.children.length > 0) {
+				$.defaultView.remove($.defaultView.children[0]);	
+			}
 			genUSAItems(function(err, itemsResponse) {
 				
 			});
