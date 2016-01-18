@@ -56,12 +56,12 @@ function registerUser(){
 	};
 	twilioManager.sendValidationMessage(validateObject, function(error, response){
 		if(error) {
-			console.log("ROBIN");
+			console.log("TWILIO ERROR");
 			helpers.alertUser('Phone Number Validation','Failed to send SMS text, please check your phone number and try again!');
 			buttonOn();
 			return;
 		} else {
-			console.log("BATMAN");
+			console.log("TWILIO SUCCESS");
 			modalManager.getVerifyPhoneModal(function(err, results){
 				results.verifyModalView.addEventListener('change', function(e){
 					var children = results.verifyModalView.children;
