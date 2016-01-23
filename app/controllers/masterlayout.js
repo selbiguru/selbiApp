@@ -51,7 +51,7 @@ var listings = ['row3', 'row4', 'row5'];
 
 var secondaryPages = ['aboutUs', 'addBankAccount', 'addCreditCard', 'addressgooglemap',
 					 'faq', 'invitefriends', 'payment', 'phoneVerify', 'verifyaddress',
-					 'viewlisting', 'contactUs', 'settings'
+					 'viewlisting', 'contactUs', 'settings', 'addfriends'
 					];
 
 

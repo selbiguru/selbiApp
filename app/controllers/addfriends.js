@@ -1,5 +1,5 @@
 /**
- * @class Contact Page where users can import their phone contact and Add/invite them to be their friends.
+ * @class Add Friends Page where users can see all their friends and Add/invite others to be their friends.
  */
 
 var args = arguments[0] || {};
@@ -9,6 +9,13 @@ var friendsManager = require('managers/friendsmanager'),
 	notificationManager = require('managers/notificationmanager');
 var helpers = require('utilities/helpers');
 var currentUser = null;
+var contactListView = null;
+var currentFriends = [];
+var searchUsers = [];
+var pendingFriends = [];
+var friendsOnSelbi = null;
+var friendsPending = null;
+var addFriendSection = null;
 var nameFontSize, iconSize, labelTop, labelLeft, 
 	iconRight, headerViewHeight, headerLabelFontSize;
 
@@ -16,10 +23,10 @@ $.activityIndicator.show();
 
 
 /**
- * @method getContactListTemplate
+ * @method getFriendsListTemplate
  * Returns a template used by contact list
  */
-function getContactListTemplate() {
+function getFriendsListTemplate() {
 	return {
 		 childTemplates: [
 		 	{
@@ -82,6 +89,9 @@ function getContactListTemplate() {
 	                // Bind event callbacks only to the subcomponent
 	                click: function(e){
 	                	//console.log('DATA', e.bindId);
+	                	console.log("++++++++ ", e);
+	                	console.log("000000000 ", e.source);
+	                	console.log("111111111 ", e.source.data);
                 		if(e.source.status === 'new') {
 							friendRequestDynamic(e, 'pending');
 						} else if(e.source.status === 'denied') {
@@ -198,12 +208,17 @@ function getFriendsSection() {
  * Returns friend invitation and corresponding icon to be displayed
  */
 function friendRequestDynamic(e, newStatus){
+	console.log("pigs pigs pigs ",e.source.data);
 	var createInvitationObject = {
 			userFrom: Ti.App.Properties.getString('userId'),
 			userTo: e.source.data.id,
 			status: newStatus,
 	};
+	var item = e.section && e.section.getItemAt(e.itemIndex) ? e.section.getItemAt(e.itemIndex) : '';
+	//console.log("corn corn corn ", e);
 	e.source.remove(e.source.children[0]);
+	//console.log("beer beer beer ",e.source);
+	//console.log("pigs pigs pigs ",e.source.data);
 	if(e.source.status === 'new') {
 		friendsManager.createFriendInvitation( createInvitationObject, function(err, createInviteResult) {
 			if(err) {
@@ -221,12 +236,68 @@ function friendRequestDynamic(e, newStatus){
 				e.source.invitation = [createInviteResult.invitation];
 				$.fa.add(checkSquare, 'fa-check-square');
 				e.source.add(checkSquare);
+				var cool = findIndexByKeyValue(pendingFriends, 'match', e.source.data.username);
+				var nerd = findIndexByKeyValue(currentFriends, 'match', e.source.data.username);
+				console.log("lol lol lol lol ",cool, nerd);
+				$.addFriendsView.remove(contactListView);
+				loadFriends();
 			}
 		});
 	} else if(newStatus === 'denied') {
 		friendsManager.updateFriendInvitation( createInvitationObject, e.source.invitation[0].id, function(err, updateInvitationResult) {
 			if(err) {
 				return;
+			}
+			console.log("222222222222222 ", item);
+			if(item) {
+				var cool = findIndexByKeyValue(pendingFriends, 'match', item.match);
+				var nerd = findIndexByKeyValue(currentFriends, 'match', item.match);
+				console.log("33333333333333 ", cool);
+				if(cool != null && item.data.data.invitation[0].userFrom != Ti.App.Properties.getString('userId')) {
+					var save = pendingFriends.splice(cool, 1);
+					save[0].subtitle.text = "Friends";					
+					save[0].data.status = updateInvitationResult.invitation[0].status;
+					save[0].data.invitation = updateInvitationResult.invitation;
+					save[0].checkmark.text = determineStatus(updateInvitationResult.invitation);
+					var ping = findIndexByKeyValue(currentFriends, 'match', 'empty');
+					if(ping != null) {
+						console.log("ping ping ping ", ping);
+						currentFriends = [];
+					}
+					if(pendingFriends.length === 0) {
+						pendingFriends.push({
+							properties: {
+								height: heightDataView
+							},
+							match: 'empty'
+						});
+					}
+					currentFriends.push(save[0]);
+					friendsOnSelbi.setItems(currentFriends);
+					friendsPending.setItems(pendingFriends);
+				} else if(cool != null && item.data.data.invitation[0].userFrom === Ti.App.Properties.getString('userId')) {
+					var save = pendingFriends.splice(cool, 1);
+					if(pendingFriends.length === 0) {
+						pendingFriends.push({
+							properties: {
+								height: heightDataView
+							},
+							match: 'empty'
+						});
+					}
+					friendsPending.setItems(pendingFriends);
+				} else {
+					var save = currentFriends.splice(nerd, 1);
+					if(currentFriends.length === 0) {
+						currentFriends.push({
+							properties: {
+								height: heightDataView
+							},
+							match: 'empty'
+						});
+					}
+					friendsOnSelbi.setItems(currentFriends);
+				}
 			} else {
 				var plusSquare = Ti.UI.createLabel({
 					width: Ti.UI.SIZE,
@@ -240,12 +311,65 @@ function friendRequestDynamic(e, newStatus){
 				e.source.invitation = updateInvitationResult.invitation;
 				$.fa.add(plusSquare, 'fa-plus-square-o');
 				e.source.add(plusSquare);
+				var cool = findIndexByKeyValue(pendingFriends, 'match', e.source.data.username);
+				var nerd = findIndexByKeyValue(currentFriends, 'match', e.source.data.username);
+				console.log("club lcub lcub lcub ",cool, nerd);
+				$.addFriendsView.remove(contactListView);
+				loadFriends();
 			}
 		});
 	} else {
 		friendsManager.updateFriendInvitation( createInvitationObject, e.source.invitation[0].id, function(err, updateInvitationResult) {
 			if(err) {
 				return;
+			}
+			if(newStatus === "approved") {
+				notificationManager.countNotifications(function(err, notificationCount) {
+					if(err) {
+						
+					} else {
+						currentUser.set({'notificationCount': notificationCount});
+					}
+				});	
+			}
+			console.log("4444444444 ", item);
+			if(item) {
+				var cool = findIndexByKeyValue(pendingFriends, 'match', item.match);
+				console.log("5555555555555555 ", cool);
+				if(cool != null && item.data.data.invitation[0].userFrom != Ti.App.Properties.getString('userId')) {
+					var save = pendingFriends.splice(cool, 1);
+					save[0].subtitle.text = "Friends";					
+					save[0].data.status = updateInvitationResult.invitation[0].status;
+					save[0].data.invitation = updateInvitationResult.invitation;
+					save[0].checkmark.text = determineStatus(updateInvitationResult.invitation);
+					var ping = findIndexByKeyValue(currentFriends, 'match', 'empty');
+					if(ping != null) {
+						console.log("ping ping ping ", ping);
+						currentFriends = [];
+					}
+					if(pendingFriends.length === 0) {
+						pendingFriends.push({
+							properties: {
+								height: heightDataView
+							},
+							match: 'empty'
+						});
+					}
+					currentFriends.push(save[0]);
+					friendsOnSelbi.setItems(currentFriends);
+					friendsPending.setItems(pendingFriends);
+				} else if(cool != null && item.data.data.invitation[0].userFrom === Ti.App.Properties.getString('userId')) {
+					var save = pendingFriends.splice(cool, 1);
+					if(pendingFriends.length === 0) {
+						pendingFriends.push({
+							properties: {
+								height: heightDataView
+							},
+							match: 'empty'
+						});
+					}
+					friendsPending.setItems(pendingFriends);
+				}
 			} else {
 				var checkSquare = Ti.UI.createLabel({
 					width: Ti.UI.SIZE,
@@ -259,21 +383,25 @@ function friendRequestDynamic(e, newStatus){
 				e.source.invitation = updateInvitationResult.invitation;
 				$.fa.add(checkSquare, 'fa-check-square');
 				e.source.add(checkSquare);
-			}
-			if(newStatus === "approved") {
-				notificationManager.countNotifications(function(err, notificationCount) {
-					if(err) {
-						
-					} else {
-						currentUser.set({'notificationCount': notificationCount});
-					}
-				});	
+				var cool = findIndexByKeyValue(pendingFriends, 'match', e.source.data.username);
+				var nerd = findIndexByKeyValue(currentFriends, 'match', e.source.data.username);
+				console.log("ok ok ok ok ok ",cool, nerd);
+				$.addFriendsView.remove(contactListView);
+				loadFriends();
 			}
 		});
 	}
 }
 
-
+function findIndexByKeyValue(obj, key, value)
+{
+    for (var i = 0; i < obj.length; i++) {
+        if (obj[i][key] == value) {
+            return i;
+        }
+    }
+    return null;
+}
 
 
 
@@ -301,152 +429,115 @@ var createCustomView = function(title) {
 
 
 /**
- * @method loadContacts
+ * @method loadFriends
  * Fetches the contacts from the users contact list and displays them
  */
-function loadContacts() {
-	var contactListView = Ti.UI.createListView({
+function loadFriends() {
+	contactListView = Ti.UI.createListView({
 		templates: {
-			'template': getContactListTemplate(),
+			'template': getFriendsListTemplate(),
 			'getFriendsSection': getFriendsSection()
 		},
 		defaultItemTemplate: 'template',
 		backgroundColor: '#FAFAFA',
 		allowsSelection: false
 	});
-	var contactsOnSelbi = Ti.UI.createListSection({
-		headerView: createCustomView('Contacts on Selbi'),
+	friendsOnSelbi = Ti.UI.createListSection({
+		headerView: createCustomView('Friends on Selbi'),
 	});
-	var contactsNotUsers = Ti.UI.createListSection({
-		headerView: createCustomView('Not on Selbi'),
+	friendsPending = Ti.UI.createListSection({
+		headerView: createCustomView('Pending Requests'),
 		footerView: Ti.UI.createView({
 		        backgroundColor: '#E5E5E5',
 		        height: '1dp'
 		})	
 	});
-	var addFriendSection = Ti.UI.createListSection({
+	addFriendSection = Ti.UI.createListSection({
 		headerView: createCustomView('Add friends on Selbi'),
 	});
-	var currentUsers = [];
-	var searchUsers = [];
-	var nonUsers = [];
-	var phoneArray = [];
-	var people = Ti.Contacts.getAllPeople();
-	if(people) {
-		var practiceToDelete = {
-			newNumber: '5551123243',
-			originalNumber: '5551123243',
-			contactName: 'Tricia Hans'
-		};
-		phoneArray.push(practiceToDelete);
-		for(var person in people) {
-			if((people[person].phone.mobile && people[person].phone.mobile.length > 0) || (people[person].phone.work && people[person].phone.work.length > 0) || (people[person].phone.home && people[person].phone.home.length > 0) || (people[person].phone.other && people[person].phone.other.length > 0)) {
-				var phone = people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : "";
-				var newPhone = phone.replace(/\D+/g, "");
-				if(newPhone.length === 11 && newPhone[0] === '1') {
-					newPhone = newPhone.slice(1);
-				}
-				var userPhoneObject = {
-					newNumber: newPhone,
-					originalNumber: phone,
-					contactName: people[person] ? people[person].firstName + " " + people[person].lastName: "NA",
-				};
-				if(Alloy.Globals.currentUser && Alloy.Globals.currentUser.attributes.phoneNumber != newPhone) {
-					phoneArray.push(userPhoneObject);
-				}
-			};
-		};
-		friendsManager.getSelbiUsersByPhones(phoneArray,function(err, results){
-			if(err) {
-				helpers.alertUser('Oops','Having trouble getting your phone contacts. Please try again later!');
-				addressBookDisallowed();
-			}
-			if(results) {
-				results.sort(function(a, b) {
-				    var textA = a.contactName.toUpperCase();
-				    var textB = b.contactName.toUpperCase();
-				    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-				});
-				for(var user in results) {
-					if(results[user].isActiveUser){
-						currentUsers.push({
-							title: { text: helpers.alterTextFormat(results[user].contactName, 28, false) },
-						 	subtitle: {text: "Using Selbi", color:'#1BA7CD'},
-						 	data: { data: {invitation: results[user].invitation, id: results[user].id }, id: results[user].username, status: results[user].invitation.length <= 0 ? "new" : results[user].invitation[0].status, invitation: results[user].invitation },
-						 	checkmark : {data: results[user].invitation, text : results[user].invitation.length <= 0 ? '\uf196' : determineStatus(results[user].invitation), visible: true, ext: results[user].username},
-						 	properties: {
-								height: heightDataView
-							}
-						});
-					} else {
-						nonUsers.push({
-							title: { text: helpers.alterTextFormat(results[user].contactName, 28, false) },
-						 	subtitle: {text: results[user].originalNumber },
-							data: { data: {invitation: results[user].invitation, id: results[user].id }, id: results[user].username, invitation: results[user].invitation},
-							checkmark : {data: results[user].invitation, text : '\uf196', visible: false , ext: results[user].username, touchEnabled: false},
-							properties: {
-								height: heightDataView
-							}
-						});
-					}
-				}
-				if(currentUsers.length === 0) {
-					currentUsers.push({
+	currentFriends = [];
+	searchUsers = [];
+	pendingFriends = [];
+	friendsManager.getUserInvitationsByUserId(function(err, results){
+		if(err) {
+			addFriendsLoadError();
+		}
+		if(results) {
+			results.sort(function(a, b) {
+			    var textA = a.firstName.toUpperCase();
+			    var textB = b.firstName.toUpperCase();
+			    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+			});
+			for(var user in results) {
+				if(results[user].invitation[0].status === 'approved'){
+					currentFriends.push({
+						title: { text: helpers.alterTextFormat(results[user].firstName + ' ' + results[user].lastName, 28, false) },
+					 	subtitle: {text: "Friends", color:'#1BA7CD'},
+					 	data: { data: {invitation: results[user].invitation, id: results[user].id }, id: results[user].username, status: "approved", invitation: results[user].invitation },
+					 	checkmark : {data: results[user].invitation, text : results[user].invitation.length <= 0 ? '\uf196' : determineStatus(results[user].invitation), visible: true, ext: results[user].username},
+					 	properties: {
+							height: heightDataView
+						},
+						match: results[user].username
+					});
+				} else {
+					pendingFriends.push({
+						title: { text: helpers.alterTextFormat(results[user].firstName + ' ' + results[user].lastName, 28, false) },
+					 	subtitle: {text: results[user].invitation[0].userFrom === Ti.App.Properties.getString('userId') ? "Pending To..." : "Pending From...", color:'#1BA7CD' },
+						data: { data: {invitation: results[user].invitation, id: results[user].id }, id: results[user].username, status: "pending", invitation: results[user].invitation },
+						checkmark : {data: results[user].invitation, text : results[user].invitation.length <= 0 ? '\uf196' : determineStatus(results[user].invitation), visible: true, ext: results[user].username},
 						properties: {
 							height: heightDataView
-						}
+						},
+						match: results[user].username
 					});
+				}
 			}
-				searchUsers.push({
+			if(currentFriends.length === 0) {
+				currentFriends.push({
 					properties: {
 						height: heightDataView
 					},
-					template: 'getFriendsSection'	
+					match: 'empty'
 				});
-				contactsOnSelbi.setItems(currentUsers);
-				contactsNotUsers.setItems(nonUsers);
-				addFriendSection.setItems(searchUsers);
-				contactListView.sections = [addFriendSection, contactsOnSelbi, contactsNotUsers];
-				$.addFriendsView.add(contactListView);
-				$.activityIndicator.hide();
-				$.activityIndicator.height = '0dp';
-			}	
-		});
-	}
+			}
+			if(pendingFriends.length === 0) {
+				pendingFriends.push({
+					properties: {
+						height: heightDataView
+					},
+					match: 'empty'
+				});
+			}
+			searchUsers.push({
+				properties: {
+					height: heightDataView
+				},
+				template: 'getFriendsSection'	
+			});
+			friendsOnSelbi.setItems(currentFriends);
+			friendsPending.setItems(pendingFriends);
+			addFriendSection.setItems(searchUsers);
+			contactListView.sections = [addFriendSection, friendsPending, friendsOnSelbi];
+			$.addFriendsView.add(contactListView);
+			$.activityIndicator.hide();
+			$.activityIndicator.height = '0dp';
+		}	
+	});
 }
 
 /**
- * @method addressBookDisallowed
- * Delegate callback executed when access to contacts is not allowed
+ * @method addFriendsLoadError
+ * Executed when loading page fails
  */
-function addressBookDisallowed() {	
-	dynamicElement.defaultLabel('Go to your phone\'s settings and turn on Contacts for Selbi.', function(err, results) {
+function addFriendsLoadError() {	
+	dynamicElement.defaultLabel('Dang! We are having trouble getting your friends. Please try again later!', function(err, results) {
 		$.defaultView.height= Ti.UI.FILL;
 		$.defaultView.add(results);
 	});
 	$.activityIndicator.hide();
 	$.activityIndicator.height = '0dp';
 }
-
-/**
- * @method importContacts
- * Get access to contact list
- */
-function importContacts() {
-	if (Ti.Contacts.contactsAuthorization == Ti.Contacts.AUTHORIZATION_AUTHORIZED){
-    	loadContacts();
-	} else if (Ti.Contacts.contactsAuthorization == Ti.Contacts.AUTHORIZATION_UNKNOWN){
-	    Ti.Contacts.requestAuthorization(function(e){
-	        if (e.success) {
-	            loadContacts();
-	        } else {
-	            addressBookDisallowed();
-	        }
-	    });
-	} else {
-	    addressBookDisallowed();
-	}
-};
 
 
 
@@ -544,7 +635,7 @@ switch(Alloy.Globals.userDevice) {
 
 /*----------------------------------------------On page load calls---------------------------------------------*/
 
-importContacts();
+loadFriends();
 
 //Load the user model
 Alloy.Models.user.fetch({

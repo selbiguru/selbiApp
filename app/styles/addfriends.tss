@@ -1,0 +1,273 @@
+//DEFAULT
+"#addFriendsView": {
+	layout: 'vertical',
+	backgroundColor: '#FAFAFA'
+},
+"#messageView": {
+	height: Ti.UI.SIZE,
+},
+"#activityIndicator": {
+	style: 13,
+	indicatorDiameter: 2,
+	indicatorColor: '#9B9B9B',
+	height: Ti.UI.FILL
+},
+"#defaultView": {
+	height: '0dp',
+	width: '85%'
+},
+
+
+
+
+
+
+
+
+
+
+
+//iPhone 4
+"#addFriendsTopBar[if=Alloy.Globals.iPhoneFour]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FFF',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneFour]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FFF'
+},
+"#titleAddFriendsView[if=Alloy.Globals.iPhoneFour]": {
+	width: "200dp",
+},
+"#titleAddFriendsLabel[if=Alloy.Globals.iPhoneFour]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+"#sendEmailView[if=Alloy.Globals.iPhoneFour]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//iPhone 5
+"#addFriendsTopBar[if=Alloy.Globals.iPhoneFive]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FFF',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneFive]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FFF'
+},
+"#titleAddFriendsView[if=Alloy.Globals.iPhoneFive]": {
+	width: "200dp"
+},
+"#titleAddFriendsLabel[if=Alloy.Globals.iPhoneFive]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "18dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+"#sendEmailView[if=Alloy.Globals.iPhoneFive]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD"
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//iPhone 6
+"#addFriendsTopBar[if=Alloy.Globals.iPhoneSix]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FFF',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneSix]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FFF'
+},
+"#titleAddFriendsView[if=Alloy.Globals.iPhoneSix]": {
+	width: "255dp",
+},
+"#titleAddFriendsLabel[if=Alloy.Globals.iPhoneSix]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "20dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+"#sendEmailView[if=Alloy.Globals.iPhoneSix]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+            fontSize: "20dp"
+        },
+	color: "#1BA7CD"
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//iPhone 6 Plus
+"#addFriendsTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FFF',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FFF'
+},
+"#titleAddFriendsView[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: "294dp"
+},
+"#titleAddFriendsLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "22dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+"#sendEmailView[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+            fontSize: "22dp"
+        },
+	color: "#1BA7CD"
+},
+"#addFriendsSearchView[if=Alloy.Globals.iPhoneSixPlus]": {
+	//layout: "horizontal",
+	height: Ti.UI.SIZE,
+	width: '388dp',
+	top: '10dp',
+	bottom: '10dp'
+},
+".dark-underline": {
+	height: "1dp",
+	//bottom: "1dp",
+	top: '51dp',
+	left: '15dp',
+	backgroundColor:"#9B9B9B",
+	width: Ti.UI.FILL
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//android -(currently same as iPhone 6)
+"#addFriendsTopBar[if=Alloy.Globals.android]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FFF',
+	layout: 'horizontal'
+},
+"#menuButton[if=Alloy.Globals.android]":{
+	height: "60dp",
+	width: "60dp",
+	backgroundColor: '#FFF'
+},
+"#titleAddFriendsView[if=Alloy.Globals.android]": {
+	width: "250dp",
+},
+"#titleAddFriendsLabel[if=Alloy.Globals.android]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "20dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+"#sendEmailView[if=Alloy.Globals.android]": {
+	width: '60dp'
+},
+".icon-buttons[if=Alloy.Globals.android]": {
+	font: {
+            fontSize: "20dp"
+        },
+	color: "#1BA7CD"
+},

@@ -1,0 +1,17 @@
+<Alloy>
+	<View id="addFriendsView">
+		<View id="addFriendsTopBar">
+			<View id="menuButton" class="validateButtons">
+				<Label icon="fa-bars" id="addFriendsButtonIcon" class="icon-buttons"></Label>
+			</View>
+			<View id="titleAddFriendsView">
+				<Label id="titleAddFriendsLabel">Add Friends</Label>
+			</View>
+		</View>
+		<View id='defaultView'>
+			
+		</View>
+		<ActivityIndicator id="activityIndicator" message="Loading..."/>
+		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+	</View>
+</Alloy>

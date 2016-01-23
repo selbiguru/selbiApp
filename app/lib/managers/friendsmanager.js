@@ -11,6 +11,21 @@ var httpManager = require('managers/httpmanager');
 /***************************************************GET CALLS***************************************************************/
 
 /**
+ * @method getUserInvitationsByUserId
+ * @param {Function} cb Callback function
+ */
+var getUserInvitationsByUserId = exports.getUserInvitationsByUserId = function(cb) {
+	httpManager.execute('/friends/allinvites/'+Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, allFriendResponse){
+		if(err) {
+			cb(err, null);
+		} else {
+			cb(err, allFriendResponse);
+		}
+	});
+};
+
+
+/**
  * @method getInvitationByUsername
  * @param {Object} usernameObject Object containing the following:
  * 		@param {String} username String of the username you are trying to find
