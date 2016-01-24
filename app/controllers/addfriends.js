@@ -91,7 +91,7 @@ function getFriendsListTemplate() {
 	                	//console.log('DATA', e.bindId);
 	                	console.log("++++++++ ", e);
 	                	console.log("000000000 ", e.source);
-	                	console.log("111111111 ", e.source.data);
+	                	console.log("@@@@@@@@@@@@ ", e.source.data);
                 		if(e.source.status === 'new') {
 							friendRequestDynamic(e, 'pending');
 						} else if(e.source.status === 'denied') {
@@ -208,7 +208,7 @@ function getFriendsSection() {
  * Returns friend invitation and corresponding icon to be displayed
  */
 function friendRequestDynamic(e, newStatus){
-	console.log("pigs pigs pigs ",e.source.data);
+	console.log("pigs pigs pigs ",contactListView.sections[0].getItemAt(0).template);
 	var createInvitationObject = {
 			userFrom: Ti.App.Properties.getString('userId'),
 			userTo: e.source.data.id,
@@ -216,14 +216,16 @@ function friendRequestDynamic(e, newStatus){
 	};
 	var item = e.section && e.section.getItemAt(e.itemIndex) ? e.section.getItemAt(e.itemIndex) : '';
 	//console.log("corn corn corn ", e);
-	e.source.remove(e.source.children[0]);
-	//console.log("beer beer beer ",e.source);
-	//console.log("pigs pigs pigs ",e.source.data);
+	if(!item) {
+		e.source.remove(e.source.children[0]);
+	}	
 	if(e.source.status === 'new') {
 		friendsManager.createFriendInvitation( createInvitationObject, function(err, createInviteResult) {
+			console.log("00000000000000 ",pendingFriends.length);
 			if(err) {
 				return;
 			} else {
+				console.log("111111111111111 ",pendingFriends.length);
 				var checkSquare = Ti.UI.createLabel({
 					width: Ti.UI.SIZE,
             		color: '#1BA7CD',
@@ -236,11 +238,24 @@ function friendRequestDynamic(e, newStatus){
 				e.source.invitation = [createInviteResult.invitation];
 				$.fa.add(checkSquare, 'fa-check-square');
 				e.source.add(checkSquare);
-				var cool = findIndexByKeyValue(pendingFriends, 'match', e.source.data.username);
-				var nerd = findIndexByKeyValue(currentFriends, 'match', e.source.data.username);
-				console.log("lol lol lol lol ",cool, nerd);
-				$.addFriendsView.remove(contactListView);
-				loadFriends();
+				var ping = findIndexByKeyValue(pendingFriends, 'match', 'empty');
+				if(ping != null) {
+					pendingFriends = [];
+				}
+				pendingFriends.push({
+					title: { text: helpers.alterTextFormat(e.source.data.firstName + ' ' + e.source.data.lastName, 28, false) },
+				 	subtitle: {text: "Pending To...", color:'#1BA7CD' },
+					data: { data: {invitation: e.source.data.invitation, id: e.source.data.id }, id: e.source.data.username, status: "pending", invitation: e.source.data.invitation },
+					checkmark : {data: e.source.data.invitation, text: '\uf14a', visible: true, ext: e.source.data.username},
+					properties: {
+						height: heightDataView
+					},
+					match: e.source.data.username
+				});
+				friendsPending.setItems(pendingFriends);
+				contactListView.sections[0].value;
+				//$.addFriendsView.remove(contactListView);
+				//loadFriends();
 			}
 		});
 	} else if(newStatus === 'denied') {
@@ -248,12 +263,13 @@ function friendRequestDynamic(e, newStatus){
 			if(err) {
 				return;
 			}
-			console.log("222222222222222 ", item);
+			console.log("222222222222222 ",pendingFriends.length);
 			if(item) {
 				var cool = findIndexByKeyValue(pendingFriends, 'match', item.match);
 				var nerd = findIndexByKeyValue(currentFriends, 'match', item.match);
-				console.log("33333333333333 ", cool);
+				console.log("33333333333333 ");
 				if(cool != null && item.data.data.invitation[0].userFrom != Ti.App.Properties.getString('userId')) {
+					console.log("444444444444444 ",pendingFriends.length);
 					var save = pendingFriends.splice(cool, 1);
 					save[0].subtitle.text = "Friends";					
 					save[0].data.status = updateInvitationResult.invitation[0].status;
@@ -276,8 +292,11 @@ function friendRequestDynamic(e, newStatus){
 					friendsOnSelbi.setItems(currentFriends);
 					friendsPending.setItems(pendingFriends);
 				} else if(cool != null && item.data.data.invitation[0].userFrom === Ti.App.Properties.getString('userId')) {
-					var save = pendingFriends.splice(cool, 1);
+					console.log("555555555555555551 " ,pendingFriends.length);
+					pendingFriends.splice(cool, 1);
+					//console.log('NOT RIGHT!!!!', save);
 					if(pendingFriends.length === 0) {
+						console.log('NOT RIGHT!!!!',pendingFriends.length);
 						pendingFriends.push({
 							properties: {
 								height: heightDataView
@@ -287,6 +306,7 @@ function friendRequestDynamic(e, newStatus){
 					}
 					friendsPending.setItems(pendingFriends);
 				} else {
+					console.log("66666666666666 ",pendingFriends.length);
 					var save = currentFriends.splice(nerd, 1);
 					if(currentFriends.length === 0) {
 						currentFriends.push({
@@ -299,6 +319,7 @@ function friendRequestDynamic(e, newStatus){
 					friendsOnSelbi.setItems(currentFriends);
 				}
 			} else {
+				console.log("7777777777777 ",pendingFriends.length);
 				var plusSquare = Ti.UI.createLabel({
 					width: Ti.UI.SIZE,
 					color: '#1BA7CD',
@@ -313,9 +334,33 @@ function friendRequestDynamic(e, newStatus){
 				e.source.add(plusSquare);
 				var cool = findIndexByKeyValue(pendingFriends, 'match', e.source.data.username);
 				var nerd = findIndexByKeyValue(currentFriends, 'match', e.source.data.username);
-				console.log("club lcub lcub lcub ",cool, nerd);
-				$.addFriendsView.remove(contactListView);
-				loadFriends();
+				if(nerd != null) {
+					console.log("88888888888 ",pendingFriends.length);
+					var save = currentFriends.splice(nerd, 1);
+					if(currentFriends.length === 0) {
+						currentFriends.push({
+							properties: {
+								height: heightDataView
+							},
+							match: 'empty'
+						});
+					}
+					friendsOnSelbi.setItems(currentFriends);
+				} else if(cool != null) {
+					console.log("9999999999 ",pendingFriends.length);
+					var save = pendingFriends.splice(cool, 1);
+					if(pendingFriends.length === 0) {
+						pendingFriends.push({
+							properties: {
+								height: heightDataView
+							},
+							match: 'empty'
+						});
+					}
+					friendsPending.setItems(pendingFriends);
+				}
+				//$.addFriendsView.remove(contactListView);
+				//loadFriends();
 			}
 		});
 	} else {
@@ -332,11 +377,11 @@ function friendRequestDynamic(e, newStatus){
 					}
 				});	
 			}
-			console.log("4444444444 ", item);
-			if(item) {
-				var cool = findIndexByKeyValue(pendingFriends, 'match', item.match);
-				console.log("5555555555555555 ", cool);
-				if(cool != null && item.data.data.invitation[0].userFrom != Ti.App.Properties.getString('userId')) {
+			console.log("101010101010 ",pendingFriends.length);
+			//if(item) {
+				var cool = item ? findIndexByKeyValue(pendingFriends, 'match', item.match) : findIndexByKeyValue(pendingFriends, 'match', e.source.data.username);
+				if( cool != null && ((item && item.data.data.invitation[0].userFrom != Ti.App.Properties.getString('userId')) || (!item && e.source.data.invitation[0].userFrom != Ti.App.Properties.getString('userId'))) ) {
+					console.log("2020202022020 ");
 					var save = pendingFriends.splice(cool, 1);
 					save[0].subtitle.text = "Friends";					
 					save[0].data.status = updateInvitationResult.invitation[0].status;
@@ -358,7 +403,8 @@ function friendRequestDynamic(e, newStatus){
 					currentFriends.push(save[0]);
 					friendsOnSelbi.setItems(currentFriends);
 					friendsPending.setItems(pendingFriends);
-				} else if(cool != null && item.data.data.invitation[0].userFrom === Ti.App.Properties.getString('userId')) {
+				} else if(cool != null && ((item && item.data.data.invitation[0].userFrom === Ti.App.Properties.getString('userId')) || (!item && e.source.data.invitation[0].userFrom === Ti.App.Properties.getString('userId')))) {
+					console.log("30303030030303 ",pendingFriends.length);
 					var save = pendingFriends.splice(cool, 1);
 					if(pendingFriends.length === 0) {
 						pendingFriends.push({
@@ -369,8 +415,27 @@ function friendRequestDynamic(e, newStatus){
 						});
 					}
 					friendsPending.setItems(pendingFriends);
+				} else {
+					console.log("04040404040404 ",pendingFriends.length);
+					var ping = findIndexByKeyValue(pendingFriends, 'match', 'empty');
+					if(ping != null) {
+						pendingFriends = [];
+					}
+					pendingFriends.push({
+						title: { text: helpers.alterTextFormat(e.source.data.firstName + ' ' + e.source.data.lastName, 28, false) },
+					 	subtitle: {text: "Pending To...", color:'#1BA7CD' },
+						data: { data: {invitation: e.source.data.invitation, id: e.source.data.id }, id: e.source.data.username, status: "pending", invitation: e.source.data.invitation },
+						checkmark : {data: e.source.data.invitation, text: '\uf14a', visible: true, ext: e.source.data.username},
+						properties: {
+							height: heightDataView
+						},
+						match: e.source.data.username
+					});
+					friendsPending.setItems(pendingFriends);
 				}
-			} else {
+			//} else {
+			if(!item) {
+				console.log("050505050505 ",pendingFriends.length);
 				var checkSquare = Ti.UI.createLabel({
 					width: Ti.UI.SIZE,
             		color: '#1BA7CD',
@@ -383,11 +448,8 @@ function friendRequestDynamic(e, newStatus){
 				e.source.invitation = updateInvitationResult.invitation;
 				$.fa.add(checkSquare, 'fa-check-square');
 				e.source.add(checkSquare);
-				var cool = findIndexByKeyValue(pendingFriends, 'match', e.source.data.username);
-				var nerd = findIndexByKeyValue(currentFriends, 'match', e.source.data.username);
-				console.log("ok ok ok ok ok ",cool, nerd);
-				$.addFriendsView.remove(contactListView);
-				loadFriends();
+				//$.addFriendsView.remove(contactListView);
+				//loadFriends();
 			}
 		});
 	}
