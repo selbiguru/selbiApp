@@ -15,9 +15,12 @@
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<ScrollView id="viewListingScrollView">
 			<View id="viewListingHeader">
-				<!-- profile image -->
-				<ImageView id="sellerImage"/>
-				<Label id="sellerName">first and last name</Label>
+				<View id="overlayListingHeader"></View>
+				<View id="dataListingHeader">
+					<!-- profile image -->
+					<ImageView id="sellerImage"/>
+					<Label id="sellerName">first and last name</Label>
+				</View>
 			</View>
 			<ScrollableView id="imageGallery">
 			</ScrollableView>

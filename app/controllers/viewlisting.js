@@ -72,7 +72,7 @@ function populateViewListing(listingData) {
 	$.sellerName.setText(firstName +' '+ lastName);
 	if(!previewListing){
 		profileImageUrl = listingData.user.profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + listingData.user.profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
-		$.viewListingHeader.data = {
+		$.overlayListingHeader.data = {
 			userId: listingData.user.id,	
 			userName: listingData.user.firstName + ' ' + listingData.user.lastName,
 			friends: listingData.invitation
@@ -235,7 +235,7 @@ function archiveItem(){
 /**
  * Event listener for click of user of listing to open and show all of the users listed items
  */
-$.viewListingHeader.addEventListener('click', function(e){
+$.overlayListingHeader.addEventListener('click', function(e){
 	if(e.source.data ) {
 		Alloy.Globals.closePage('mylistings');
 		openListing(e.source.data);
