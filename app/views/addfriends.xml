@@ -5,7 +5,7 @@
 				<Label icon="fa-bars" id="addFriendsButtonIcon" class="icon-buttons"></Label>
 			</View>
 			<View id="titleAddFriendsView">
-				<Label id="titleAddFriendsLabel">Add Friends</Label>
+				<Label id="titleAddFriendsLabel">My Friends</Label>
 			</View>
 		</View>
 		<View id='defaultView'>
