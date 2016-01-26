@@ -9,6 +9,7 @@ var friendsManager = require('managers/friendsmanager'),
 	notificationManager = require('managers/notificationmanager');
 var helpers = require('utilities/helpers');
 var currentUser = null;
+var currentContacts = [];
 var nameFontSize, iconSize, labelTop, labelLeft, 
 	iconRight, headerViewHeight, headerLabelFontSize;
 
@@ -203,6 +204,9 @@ function friendRequestDynamic(e, newStatus){
 			userTo: e.source.data.id,
 			status: newStatus,
 	};
+	var item = e.section && e.section.getItemAt(e.itemIndex) ? e.section.getItemAt(e.itemIndex) : '';
+	console.log('000000000 ', item);
+	console.log('111111111 ', e.source.data);
 	e.source.remove(e.source.children[0]);
 	if(e.source.status === 'new') {
 		friendsManager.createFriendInvitation( createInvitationObject, function(err, createInviteResult) {
@@ -274,7 +278,15 @@ function friendRequestDynamic(e, newStatus){
 }
 
 
-
+function findIndexByKeyValue(obj, key, value)
+{
+    for (var i = 0; i < obj.length; i++) {
+        if (obj[i][key] == value) {
+            return i;
+        }
+    }
+    return null;
+}
 
 
 /**
@@ -327,7 +339,7 @@ function loadContacts() {
 	var addFriendSection = Ti.UI.createListSection({
 		headerView: createCustomView('Add friends on Selbi'),
 	});
-	var currentUsers = [];
+	currentContacts = [];
 	var searchUsers = [];
 	var nonUsers = [];
 	var phoneArray = [];
@@ -369,14 +381,15 @@ function loadContacts() {
 				});
 				for(var user in results) {
 					if(results[user].isActiveUser){
-						currentUsers.push({
+						currentContacts.push({
 							title: { text: helpers.alterTextFormat(results[user].contactName, 28, false) },
 						 	subtitle: {text: "Using Selbi", color:'#1BA7CD'},
 						 	data: { data: {invitation: results[user].invitation, id: results[user].id }, id: results[user].username, status: results[user].invitation.length <= 0 ? "new" : results[user].invitation[0].status, invitation: results[user].invitation },
 						 	checkmark : {data: results[user].invitation, text : results[user].invitation.length <= 0 ? '\uf196' : determineStatus(results[user].invitation), visible: true, ext: results[user].username},
 						 	properties: {
 								height: heightDataView
-							}
+							},
+							match: results[user].username
 						});
 					} else {
 						nonUsers.push({
@@ -390,11 +403,12 @@ function loadContacts() {
 						});
 					}
 				}
-				if(currentUsers.length === 0) {
-					currentUsers.push({
+				if(currentContacts.length === 0) {
+					currentContacts.push({
 						properties: {
 							height: heightDataView
-						}
+						},
+						match: 'empty'
 					});
 			}
 				searchUsers.push({
@@ -403,7 +417,7 @@ function loadContacts() {
 					},
 					template: 'getFriendsSection'	
 				});
-				contactsOnSelbi.setItems(currentUsers);
+				contactsOnSelbi.setItems(currentContacts);
 				contactsNotUsers.setItems(nonUsers);
 				addFriendSection.setItems(searchUsers);
 				contactListView.sections = [addFriendSection, contactsOnSelbi, contactsNotUsers];
