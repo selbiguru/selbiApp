@@ -10,6 +10,7 @@ var friendsManager = require('managers/friendsmanager'),
 var helpers = require('utilities/helpers');
 var currentUser = null;
 var currentContacts = [];
+var contactsOnSelbi = null;
 var nameFontSize, iconSize, labelTop, labelLeft, 
 	iconRight, headerViewHeight, headerLabelFontSize;
 
@@ -204,27 +205,37 @@ function friendRequestDynamic(e, newStatus){
 			userTo: e.source.data.id,
 			status: newStatus,
 	};
-	var item = e.section && e.section.getItemAt(e.itemIndex) ? e.section.getItemAt(e.itemIndex) : '';
-	console.log('000000000 ', item);
-	console.log('111111111 ', e.source.data);
-	e.source.remove(e.source.children[0]);
+	var item = e.section && e.section.getItemAt(e.itemIndex) ? e.section.getItemAt(e.itemIndex).match : e.source.data.username;
+	if(!e.section) {
+		e.source.remove(e.source.children[0]);
+	}
 	if(e.source.status === 'new') {
 		friendsManager.createFriendInvitation( createInvitationObject, function(err, createInviteResult) {
 			if(err) {
 				return;
 			} else {
-				var checkSquare = Ti.UI.createLabel({
-					width: Ti.UI.SIZE,
-            		color: '#1BA7CD',
-            		font: {
-            			fontSize: fontSizeCheckMark,
-            		},
-            		touchEnabled: false
-				});
-				e.source.status = createInviteResult.invitation.status;
-				e.source.invitation = [createInviteResult.invitation];
-				$.fa.add(checkSquare, 'fa-check-square');
-				e.source.add(checkSquare);
+				if(!e.section) {
+					var checkSquare = Ti.UI.createLabel({
+						width: Ti.UI.SIZE,
+	            		color: '#1BA7CD',
+	            		font: {
+	            			fontSize: fontSizeCheckMark,
+	            		},
+	            		touchEnabled: false
+					});
+					e.source.status = createInviteResult.invitation.status;
+					e.source.invitation = [createInviteResult.invitation];
+					$.fa.add(checkSquare, 'fa-check-square');
+					e.source.add(checkSquare);
+				}
+				var cool = findIndexByKeyValue(currentContacts, 'match', item);
+				if(cool != null) {
+					var save = currentContacts[cool];				
+					save.data.status = createInviteResult.invitation.status;
+					save.data.invitation = [createInviteResult.invitation];
+					save.checkmark.text = '\uf14a';
+					contactsOnSelbi.setItems(currentContacts);
+				}
 			}
 		});
 	} else if(newStatus === 'denied') {
@@ -232,18 +243,28 @@ function friendRequestDynamic(e, newStatus){
 			if(err) {
 				return;
 			} else {
-				var plusSquare = Ti.UI.createLabel({
-					width: Ti.UI.SIZE,
-					color: '#1BA7CD',
-					font: {
-						fontSize: fontSizeCheckMark,
-					},
-					touchEnabled: false
-				});
-				e.source.status = updateInvitationResult.invitation[0].status;
-				e.source.invitation = updateInvitationResult.invitation;
-				$.fa.add(plusSquare, 'fa-plus-square-o');
-				e.source.add(plusSquare);
+				if(!e.section) {
+					var plusSquare = Ti.UI.createLabel({
+						width: Ti.UI.SIZE,
+						color: '#1BA7CD',
+						font: {
+							fontSize: fontSizeCheckMark,
+						},
+						touchEnabled: false
+					});
+					e.source.status = updateInvitationResult.invitation[0].status;
+					e.source.invitation = updateInvitationResult.invitation;
+					$.fa.add(plusSquare, 'fa-plus-square-o');
+					e.source.add(plusSquare);
+				}
+				var cool = findIndexByKeyValue(currentContacts, 'match', item);
+				if(cool != null) {
+					var save = currentContacts[cool];			
+					save.data.status = updateInvitationResult.invitation[0].status;
+					save.data.invitation = updateInvitationResult.invitation;
+					save.checkmark.text = determineStatus(updateInvitationResult.invitation);	
+					contactsOnSelbi.setItems(currentContacts);
+				}
 			}
 		});
 	} else {
@@ -251,18 +272,20 @@ function friendRequestDynamic(e, newStatus){
 			if(err) {
 				return;
 			} else {
-				var checkSquare = Ti.UI.createLabel({
-					width: Ti.UI.SIZE,
-            		color: '#1BA7CD',
-            		font: {
-            			fontSize: fontSizeCheckMark,
-            		},
-            		touchEnabled: false
-				});
-				e.source.status = updateInvitationResult.invitation[0].status;
-				e.source.invitation = updateInvitationResult.invitation;
-				$.fa.add(checkSquare, 'fa-check-square');
-				e.source.add(checkSquare);
+				if(!e.section) {
+					var checkSquare = Ti.UI.createLabel({
+						width: Ti.UI.SIZE,
+	            		color: '#1BA7CD',
+	            		font: {
+	            			fontSize: fontSizeCheckMark,
+	            		},
+	            		touchEnabled: false
+					});
+					e.source.status = updateInvitationResult.invitation[0].status;
+					e.source.invitation = updateInvitationResult.invitation;
+					$.fa.add(checkSquare, 'fa-check-square');
+					e.source.add(checkSquare);
+				}
 			}
 			if(newStatus === "approved") {
 				notificationManager.countNotifications(function(err, notificationCount) {
@@ -272,6 +295,14 @@ function friendRequestDynamic(e, newStatus){
 						currentUser.set({'notificationCount': notificationCount});
 					}
 				});	
+			}
+			var cool = findIndexByKeyValue(currentContacts, 'match', item);
+			if(cool != null) {
+				var save = currentContacts[cool];			
+				save.data.status = updateInvitationResult.invitation[0].status;
+				save.data.invitation = updateInvitationResult.invitation;
+				save.checkmark.text = determineStatus(updateInvitationResult.invitation);
+				contactsOnSelbi.setItems(currentContacts);
 			}
 		});
 	}
@@ -326,7 +357,7 @@ function loadContacts() {
 		backgroundColor: '#FAFAFA',
 		allowsSelection: false
 	});
-	var contactsOnSelbi = Ti.UI.createListSection({
+	contactsOnSelbi = Ti.UI.createListSection({
 		headerView: createCustomView('Contacts on Selbi'),
 	});
 	var contactsNotUsers = Ti.UI.createListSection({
@@ -345,12 +376,6 @@ function loadContacts() {
 	var phoneArray = [];
 	var people = Ti.Contacts.getAllPeople();
 	if(people) {
-		var practiceToDelete = {
-			newNumber: '5551123243',
-			originalNumber: '5551123243',
-			contactName: 'Tricia Hans'
-		};
-		phoneArray.push(practiceToDelete);
 		for(var person in people) {
 			if((people[person].phone.mobile && people[person].phone.mobile.length > 0) || (people[person].phone.work && people[person].phone.work.length > 0) || (people[person].phone.home && people[person].phone.home.length > 0) || (people[person].phone.other && people[person].phone.other.length > 0)) {
 				var phone = people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : "";
