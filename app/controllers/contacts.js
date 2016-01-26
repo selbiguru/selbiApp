@@ -228,12 +228,12 @@ function friendRequestDynamic(e, newStatus){
 					$.fa.add(checkSquare, 'fa-check-square');
 					e.source.add(checkSquare);
 				}
-				var cool = findIndexByKeyValue(currentContacts, 'match', item);
-				if(cool != null) {
-					var save = currentContacts[cool];				
-					save.data.status = createInviteResult.invitation.status;
-					save.data.invitation = [createInviteResult.invitation];
-					save.checkmark.text = '\uf14a';
+				var userIndex = findIndexByKeyValue(currentContacts, 'match', item);
+				if(userIndex != null) {
+					var userContactData = currentContacts[userIndex];				
+					userContactData.data.status = createInviteResult.invitation.status;
+					userContactData.data.invitation = [createInviteResult.invitation];
+					userContactData.checkmark.text = '\uf14a';
 					contactsOnSelbi.setItems(currentContacts);
 				}
 			}
@@ -257,12 +257,12 @@ function friendRequestDynamic(e, newStatus){
 					$.fa.add(plusSquare, 'fa-plus-square-o');
 					e.source.add(plusSquare);
 				}
-				var cool = findIndexByKeyValue(currentContacts, 'match', item);
-				if(cool != null) {
-					var save = currentContacts[cool];			
-					save.data.status = updateInvitationResult.invitation[0].status;
-					save.data.invitation = updateInvitationResult.invitation;
-					save.checkmark.text = determineStatus(updateInvitationResult.invitation);	
+				var userIndex = findIndexByKeyValue(currentContacts, 'match', item);
+				if(userIndex != null) {
+					var userContactData = currentContacts[userIndex];			
+					userContactData.data.status = updateInvitationResult.invitation[0].status;
+					userContactData.data.invitation = updateInvitationResult.invitation;
+					userContactData.checkmark.text = determineStatus(updateInvitationResult.invitation);	
 					contactsOnSelbi.setItems(currentContacts);
 				}
 			}
@@ -296,12 +296,12 @@ function friendRequestDynamic(e, newStatus){
 					}
 				});	
 			}
-			var cool = findIndexByKeyValue(currentContacts, 'match', item);
-			if(cool != null) {
-				var save = currentContacts[cool];			
-				save.data.status = updateInvitationResult.invitation[0].status;
-				save.data.invitation = updateInvitationResult.invitation;
-				save.checkmark.text = determineStatus(updateInvitationResult.invitation);
+			var userIndex = findIndexByKeyValue(currentContacts, 'match', item);
+			if(userIndex != null) {
+				var userContactData = currentContacts[userIndex];			
+				userContactData.data.status = updateInvitationResult.invitation[0].status;
+				userContactData.data.invitation = updateInvitationResult.invitation;
+				userContactData.checkmark.text = determineStatus(updateInvitationResult.invitation);
 				contactsOnSelbi.setItems(currentContacts);
 			}
 		});

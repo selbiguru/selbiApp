@@ -231,8 +231,8 @@ function friendRequestDynamic(e, newStatus){
 				e.source.invitation = [createInviteResult.invitation];
 				$.fa.add(checkSquare, 'fa-check-square');
 				e.source.add(checkSquare);
-				var ping = findIndexByKeyValue(pendingFriends, 'match', 'empty');
-				if(ping != null) {
+				var emptySectionIndex = findIndexByKeyValue(pendingFriends, 'match', 'empty');
+				if(emptySectionIndex != null) {
 					pendingFriends = [];
 				}
 				pendingFriends.push({
@@ -257,16 +257,16 @@ function friendRequestDynamic(e, newStatus){
 				return;
 			}
 			if(item) {
-				var cool = findIndexByKeyValue(pendingFriends, 'match', item.match);
-				var nerd = findIndexByKeyValue(currentFriends, 'match', item.match);
-				if(cool != null && item.data.data.invitation[0].userFrom != Ti.App.Properties.getString('userId')) {
-					var save = pendingFriends.splice(cool, 1);
-					save[0].subtitle.text = "Friends";					
-					save[0].data.status = updateInvitationResult.invitation[0].status;
-					save[0].data.invitation = updateInvitationResult.invitation;
-					save[0].checkmark.text = determineStatus(updateInvitationResult.invitation);
-					var ping = findIndexByKeyValue(currentFriends, 'match', 'empty');
-					if(ping != null) {
+				var pendingFriendsIndex = findIndexByKeyValue(pendingFriends, 'match', item.match);
+				var currentFriendsIndex = findIndexByKeyValue(currentFriends, 'match', item.match);
+				if(pendingFriendsIndex != null && item.data.data.invitation[0].userFrom != Ti.App.Properties.getString('userId')) {
+					var friendsUserData = pendingFriends.splice(pendingFriendsIndex, 1);
+					friendsUserData[0].subtitle.text = "Friends";					
+					friendsUserData[0].data.status = updateInvitationResult.invitation[0].status;
+					friendsUserData[0].data.invitation = updateInvitationResult.invitation;
+					friendsUserData[0].checkmark.text = determineStatus(updateInvitationResult.invitation);
+					var emptySectionIndex = findIndexByKeyValue(currentFriends, 'match', 'empty');
+					if(emptySectionIndex != null) {
 						currentFriends = [];
 					}
 					if(pendingFriends.length === 0) {
@@ -277,11 +277,11 @@ function friendRequestDynamic(e, newStatus){
 							match: 'empty'
 						});
 					}
-					currentFriends.push(save[0]);
+					currentFriends.push(friendsUserData[0]);
 					friendsOnSelbi.setItems(currentFriends);
 					friendsPending.setItems(pendingFriends);
-				} else if(cool != null && item.data.data.invitation[0].userFrom === Ti.App.Properties.getString('userId')) {
-					pendingFriends.splice(cool, 1);
+				} else if(pendingFriendsIndex != null && item.data.data.invitation[0].userFrom === Ti.App.Properties.getString('userId')) {
+					pendingFriends.splice(pendingFriendsIndex, 1);
 					if(pendingFriends.length === 0) {
 						pendingFriends.push({
 							properties: {
@@ -292,7 +292,7 @@ function friendRequestDynamic(e, newStatus){
 					}
 					friendsPending.setItems(pendingFriends);
 				} else {
-					var save = currentFriends.splice(nerd, 1);
+					var friendsUserData = currentFriends.splice(currentFriendsIndex, 1);
 					if(currentFriends.length === 0) {
 						currentFriends.push({
 							properties: {
@@ -316,10 +316,10 @@ function friendRequestDynamic(e, newStatus){
 				e.source.invitation = updateInvitationResult.invitation;
 				$.fa.add(plusSquare, 'fa-plus-square-o');
 				e.source.add(plusSquare);
-				var cool = findIndexByKeyValue(pendingFriends, 'match', e.source.data.username);
-				var nerd = findIndexByKeyValue(currentFriends, 'match', e.source.data.username);
-				if(nerd != null) {
-					var save = currentFriends.splice(nerd, 1);
+				var pendingFriendsIndex = findIndexByKeyValue(pendingFriends, 'match', e.source.data.username);
+				var currentFriendsIndex = findIndexByKeyValue(currentFriends, 'match', e.source.data.username);
+				if(currentFriendsIndex != null) {
+					var friendsUserData = currentFriends.splice(currentFriendsIndex, 1);
 					if(currentFriends.length === 0) {
 						currentFriends.push({
 							properties: {
@@ -329,8 +329,8 @@ function friendRequestDynamic(e, newStatus){
 						});
 					}
 					friendsOnSelbi.setItems(currentFriends);
-				} else if(cool != null) {
-					var save = pendingFriends.splice(cool, 1);
+				} else if(pendingFriendsIndex != null) {
+					var friendsUserData = pendingFriends.splice(pendingFriendsIndex, 1);
 					if(pendingFriends.length === 0) {
 						pendingFriends.push({
 							properties: {
@@ -357,15 +357,15 @@ function friendRequestDynamic(e, newStatus){
 					}
 				});	
 			}
-			var cool = item ? findIndexByKeyValue(pendingFriends, 'match', item.match) : findIndexByKeyValue(pendingFriends, 'match', e.source.data.username);
-			if( cool != null && ((item && item.data.data.invitation[0].userFrom != Ti.App.Properties.getString('userId')) || (!item && e.source.data.invitation[0].userFrom != Ti.App.Properties.getString('userId'))) ) {
-				var save = pendingFriends.splice(cool, 1);
-				save[0].subtitle.text = "Friends";					
-				save[0].data.status = updateInvitationResult.invitation[0].status;
-				save[0].data.invitation = updateInvitationResult.invitation;
-				save[0].checkmark.text = determineStatus(updateInvitationResult.invitation);
-				var ping = findIndexByKeyValue(currentFriends, 'match', 'empty');
-				if(ping != null) {
+			var pendingFriendsIndex = item ? findIndexByKeyValue(pendingFriends, 'match', item.match) : findIndexByKeyValue(pendingFriends, 'match', e.source.data.username);
+			if( pendingFriendsIndex != null && ((item && item.data.data.invitation[0].userFrom != Ti.App.Properties.getString('userId')) || (!item && e.source.data.invitation[0].userFrom != Ti.App.Properties.getString('userId'))) ) {
+				var friendsUserData = pendingFriends.splice(pendingFriendsIndex, 1);
+				friendsUserData[0].subtitle.text = "Friends";					
+				friendsUserData[0].data.status = updateInvitationResult.invitation[0].status;
+				friendsUserData[0].data.invitation = updateInvitationResult.invitation;
+				friendsUserData[0].checkmark.text = determineStatus(updateInvitationResult.invitation);
+				var emptySectionIndex = findIndexByKeyValue(currentFriends, 'match', 'empty');
+				if(emptySectionIndex != null) {
 					currentFriends = [];
 				}
 				if(pendingFriends.length === 0) {
@@ -376,11 +376,11 @@ function friendRequestDynamic(e, newStatus){
 						match: 'empty'
 					});
 				}
-				currentFriends.push(save[0]);
+				currentFriends.push(friendsUserData[0]);
 				friendsOnSelbi.setItems(currentFriends);
 				friendsPending.setItems(pendingFriends);
-			} else if(cool != null && ((item && item.data.data.invitation[0].userFrom === Ti.App.Properties.getString('userId')) || (!item && e.source.data.invitation[0].userFrom === Ti.App.Properties.getString('userId')))) {
-				var save = pendingFriends.splice(cool, 1);
+			} else if(pendingFriendsIndex != null && ((item && item.data.data.invitation[0].userFrom === Ti.App.Properties.getString('userId')) || (!item && e.source.data.invitation[0].userFrom === Ti.App.Properties.getString('userId')))) {
+				var friendsUserData = pendingFriends.splice(pendingFriendsIndex, 1);
 				if(pendingFriends.length === 0) {
 					pendingFriends.push({
 						properties: {
@@ -391,8 +391,8 @@ function friendRequestDynamic(e, newStatus){
 				}
 				friendsPending.setItems(pendingFriends);
 			} else {
-				var ping = findIndexByKeyValue(pendingFriends, 'match', 'empty');
-				if(ping != null) {
+				var emptySectionIndex = findIndexByKeyValue(pendingFriends, 'match', 'empty');
+				if(emptySectionIndex != null) {
 					pendingFriends = [];
 				}
 				pendingFriends.push({
