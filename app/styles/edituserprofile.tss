@@ -40,7 +40,7 @@
 },
 ".address-map": {
 	color: "#FFF",
-	backgroundColor: "#53C71A",
+	backgroundColor: "#1bcd41",
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 },
 "#editProfileTwitterConnect": {
@@ -51,7 +51,7 @@
 	backgroundColor: "#354f88"
 },
 "#editProfileGoogleAddress": {
-	backgroundColor: "#48AC16"
+	backgroundColor: "#18b63a"
 },
 ".dark-underline": {
 	height: "1dp",
@@ -156,7 +156,7 @@
 },
 ".edit-profile-social-icon[if=Alloy.Globals.iPhoneFour]": {
 	width: "45dp",
-	borderColor: "#828282",
+	borderColor: "#E5E5E5",
 	borderWidth: "1dp",
 	height: Ti.UI.FILL,
 	font:{
@@ -304,7 +304,7 @@
 },
 ".edit-profile-social-icon[if=Alloy.Globals.iPhoneFive]": {
 	width: "45dp",
-	borderColor: "#828282",
+	borderColor: "#E5E5E5",
 	borderWidth: "1dp",
 	height: Ti.UI.FILL,
 	font:{
@@ -455,7 +455,7 @@
 },
 ".edit-profile-social-icon[if=Alloy.Globals.iPhoneSix]": {
 	width: "50dp",
-	borderColor: "#828282",
+	borderColor: "#E5E5E5",
 	borderWidth: "1dp",
 	height: Ti.UI.FILL,
 	font:{
@@ -605,7 +605,7 @@
 },
 ".edit-profile-social-icon[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: "55dp",
-	borderColor: "#828282",
+	borderColor: "#E5E5E5",
 	borderWidth: "1dp",
 	height: Ti.UI.FILL,
 	font:{
@@ -756,7 +756,7 @@
 },
 ".edit-profile-social-icon[if=Alloy.Globals.android]": {
 	width: "50dp",
-	borderColor: "#828282",
+	borderColor: "#E5E5E5",
 	borderWidth: "1dp",
 	height: Ti.UI.FILL,
 	font:{
