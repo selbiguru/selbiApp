@@ -186,7 +186,7 @@
 	height: Ti.UI.SIZE,
 	layout: "vertical",
 	top: "3dp",
-	borderColor: "#9B9B9B"
+	borderColor: "#E5E5E5"
 },
 "#addressLabel[if=Alloy.Globals.iPhoneFour]": {
 	top: "30dp",
@@ -194,7 +194,7 @@
 "#addressInfo[if=Alloy.Globals.iPhoneFour]":{
 	layout: 'vertical',
 	height: Ti.UI.SIZE,
-	borderColor: "#9b9b9b",
+	borderColor: "#E5E5E5",
 	top: '3dp'
 },
 ".icon-username[if=Alloy.Globals.iPhoneFour]": {
@@ -334,7 +334,7 @@
 	height: Ti.UI.SIZE,
 	layout: "vertical",
 	top: "5dp",
-	borderColor: "#9B9B9B"
+	borderColor: "#E5E5E5"
 },
 "#addressLabel[if=Alloy.Globals.iPhoneFive]": {
 	top: "35dp",
@@ -342,7 +342,7 @@
 "#addressInfo[if=Alloy.Globals.iPhoneFive]":{
 	layout: 'vertical',
 	height: Ti.UI.SIZE,
-	borderColor: "#9b9b9b",
+	borderColor: "#E5E5E5",
 	top: '5dp'
 },
 ".icon-username[if=Alloy.Globals.iPhoneFive]": {
@@ -485,7 +485,7 @@
 	height: Ti.UI.SIZE,
 	layout: "vertical",
 	top: "7dp",
-	borderColor: "#9B9B9B"
+	borderColor: "#E5E5E5"
 },
 "#addressLabel[if=Alloy.Globals.iPhoneSix]": {
 	top: "43dp",
@@ -493,7 +493,7 @@
 "#addressInfo[if=Alloy.Globals.iPhoneSix]":{
 	layout: 'vertical',
 	height: Ti.UI.SIZE,
-	borderColor: "#9b9b9b",
+	borderColor: "#E5E5E5",
 	top: '7dp'
 },
 ".icon-username[if=Alloy.Globals.iPhoneSix]": {
@@ -635,7 +635,7 @@
 	height: Ti.UI.SIZE,
 	layout: "vertical",
 	top: "7dp",
-	borderColor: "#9B9B9B"
+	borderColor: "#E5E5E5"
 },
 "#addressLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	top: "50dp",
@@ -643,7 +643,7 @@
 "#addressInfo[if=Alloy.Globals.iPhoneSixPlus]":{
 	layout: 'vertical',
 	height: Ti.UI.SIZE,
-	borderColor: "#9b9b9b",
+	borderColor: "#E5E5E5",
 	top: '7dp'
 },
 ".icon-username[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -786,7 +786,7 @@
 	height: Ti.UI.SIZE,
 	layout: "vertical",
 	top: "7dp",
-	borderColor: "#9B9B9B"
+	borderColor: "#E5E5E5"
 },
 "#addressLabel[if=Alloy.Globals.android]": {
 	top: "43dp",
@@ -794,7 +794,7 @@
 "#addressInfo[if=Alloy.Globals.android]":{
 	layout: 'vertical',
 	height: Ti.UI.SIZE,
-	borderColor: "#9b9b9b",
+	borderColor: "#E5E5E5",
 	top: '7dp'
 },
 ".icon-username[if=Alloy.Globals.android]": {
