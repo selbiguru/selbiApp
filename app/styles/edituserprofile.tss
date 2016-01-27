@@ -162,6 +162,7 @@
 	font:{
 		fontSize: "14dp",
 	},
+	color: '#FAFAFA'
 }
 ".edit-profile-social-text[if=Alloy.Globals.iPhoneFour]": {
 	width: Ti.UI.FILL,
@@ -170,6 +171,7 @@
 		fontSize: "14dp",
     	fontFamily: 'Nunito-Light'
 	},
+	color: '#FAFAFA'
 },
 ".label-grids[if=Alloy.Globals.iPhoneFour]": {
 	font:{
@@ -310,6 +312,7 @@
 	font:{
 		fontSize: "16dp",
 	},
+	color: '#FAFAFA'
 }
 ".edit-profile-social-text[if=Alloy.Globals.iPhoneFive]": {
 	width: Ti.UI.FILL,
@@ -318,6 +321,7 @@
 		fontSize: "16dp",
     	fontFamily: 'Nunito-Light'
 	},
+	color: '#FAFAFA'
 },
 ".label-grids[if=Alloy.Globals.iPhoneFive]": {
 	font:{
@@ -461,6 +465,7 @@
 	font:{
 		fontSize: "18dp",
 	},
+	color: '#FAFAFA'
 }
 ".edit-profile-social-text[if=Alloy.Globals.iPhoneSix]": {
 	width: Ti.UI.FILL,
@@ -469,6 +474,7 @@
 		fontSize: "18dp",
     	fontFamily: 'Nunito-Light'
 	},
+	color: '#FAFAFA'
 },
 ".label-grids[if=Alloy.Globals.iPhoneSix]": {
 	font:{
@@ -611,6 +617,7 @@
 	font:{
 		fontSize: "20dp",
 	},
+	color: '#FAFAFA'
 }
 ".edit-profile-social-text[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: Ti.UI.FILL,
@@ -619,6 +626,7 @@
 		fontSize: "20dp",
     	fontFamily: 'Nunito-Light'
 	},
+	color: '#FAFAFA'
 },
 ".label-grids[if=Alloy.Globals.iPhoneSixPlus]": {
 	font:{
@@ -762,6 +770,7 @@
 	font:{
 		fontSize: "18dp",
 	},
+	color: '#FAFAFA'
 }
 ".edit-profile-social-text[if=Alloy.Globals.android]": {
 	width: Ti.UI.FILL,
@@ -770,6 +779,7 @@
 		fontSize: "18dp",
     	fontFamily: 'Nunito-Light'
 	},
+	color: '#FAFAFA'
 },
 ".label-grids[if=Alloy.Globals.android]": {
 	font:{
