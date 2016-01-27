@@ -1,6 +1,7 @@
 var args = arguments[0] || {};
 var listingManager = require('managers/listingmanager');
 var paymentManager = require('managers/paymentmanager');
+var notificationManager = require('managers/notificationmanager');
 var ImageUtils = require('utilities/imageutils');
 var helpers = require('utilities/helpers');
 var indicator = require('uielements/indicatorwindow');
@@ -164,6 +165,7 @@ function buyItem(e){
 			indicatorWindow.closeIndicator();
 			helpers.alertUser('Failed','Failed to purchase item, please try again!');
 		} else {
+			updateUser();
 			indicatorWindow.closeIndicator();
 			helpers.alertUser('Purchased!','You purchased an item on Selbi!');
 			backButton();
@@ -246,6 +248,21 @@ $.overlayListingHeader.addEventListener('click', function(e){
 });
 
 
+function updateUser(){
+	//Load the user model
+	Alloy.Models.user.fetch({
+		success: function(data){
+			var currentUser = data;
+			notificationManager.countNotifications(function(err, notificationCount){
+				currentUser.set({'notificationCount': notificationCount});
+				currentUser.save();
+			});
+		},
+		error: function(data){
+			helpers.alertUser('Get User','Failed to get the current user!');
+		}
+	});
+}
 
 
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
@@ -520,6 +537,11 @@ function createDeleteButton() {
 	});
 	return;
 }
+
+
+
+/*----------------------------------------------On page load API calls---------------------------------------------*/
+
 
 
 paymentManager.getPaymentMethods(function(err, results){

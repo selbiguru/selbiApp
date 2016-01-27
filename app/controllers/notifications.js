@@ -11,6 +11,7 @@ $.activityIndicator.show();
 
 
 notificationManager.getNotificationByUserId(function(err, notificationResults) {
+	console.log('========= ', notificationResults);
 	if(err) {
 		dynamicElement.defaultLabel('Dang! We are having trouble getting your notifications. Please try again shortly.', function(err, results) {
 			$.defaultView.height= Ti.UI.FILL;
@@ -143,7 +144,7 @@ function showNotifications(notificationsArray) {
 			height: imgViewHeight,
 			width: imgViewWidth,
 			borderRadius: imgViewBorderRadius,
-			image: notificationsArray[i].profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + notificationsArray[i].profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg"
+			image: notificationsArray[i].userFromInfo.profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + notificationsArray[i].userFromInfo.profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg"
 		});
 		var subView = Titanium.UI.createView({});
 		var nameLabel = Titanium.UI.createLabel({
@@ -174,7 +175,7 @@ function showNotifications(notificationsArray) {
 			right: declineButtonRight,
 			title: 'Decline',
 			data: {
-				isSold: notificationsArray[i].type === 'sold' ? true : false,
+				isSold: notificationsArray[i].type === 'sold' || notificationsArray[i].type === 'purchased' ? true : false,
 				userFrom: notificationsArray[i].userFrom,
 				userTo: notificationsArray[i].user,
 				notificationId: notificationsArray[i].id			
@@ -193,9 +194,9 @@ function showNotifications(notificationsArray) {
 			color: '#fff',
 			bottom: '0dp',
 			right: acceptButtonRight,
-			title: notificationsArray[i].type === 'sold' ? 'Cool!' : 'Add',
+			title: notificationsArray[i].type === 'sold' || notificationsArray[i].type === 'purchased' ? 'Cool!' : 'Add',
 			data: {
-				isSold: notificationsArray[i].type === 'sold' ? true : false,
+				isSold: notificationsArray[i].type === 'sold' || notificationsArray[i].type === 'purchased' ? true : false,
 				userFrom: notificationsArray[i].userFrom,
 				userTo: notificationsArray[i].user,
 				notificationId: notificationsArray[i].id
@@ -296,8 +297,10 @@ function createText(notification) {
 	var newText = '';
 	if(notification.type === 'friendrequest') {
 		newText = notification.userFromInfo.firstName +" "+ notification.userFromInfo.lastName + " added you!";	
-	} else {
+	} else if(notification.type === 'sold') {
 		newText = notification.userFromInfo.firstName +" "+ notification.userFromInfo.lastName + ' purchased your item!';
+	} else {
+		newText = 'You purchased an item from ' + notification.userFromInfo.firstName +" "+ notification.userFromInfo.lastName + '!';
 	}
 	return newText;
 }
