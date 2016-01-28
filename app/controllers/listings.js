@@ -24,7 +24,6 @@ if(tabView === 1) {
 			helpers.alertUser('Listings','Unable to get user listings, please try again later!');
 			return;
 		}
-		console.log("used 3");
 	});
 } else if(tabView === 2) {
 	$.closeUserView.hide();
@@ -34,7 +33,6 @@ if(tabView === 1) {
 			helpers.alertUser('Listings','Unable to get friend\'s listings, please try again later!');
 			return;
 		}
-		console.log("used 7");
 	});
 } else if(tabView === 3) {
 	$.closeUserView.hide();
@@ -43,7 +41,6 @@ if(tabView === 1) {
 		if(err) {
 			helpers.alertUser('Listings','Unable to get USA listings, please try again later!');
 		}
-		console.log("used 8");
 	});
 } else {
 	$.closeUserView.show();
@@ -53,7 +50,6 @@ if(tabView === 1) {
 			helpers.alertUser('Listings','Unable to get user listings, please try again later!');
 			return;
 		}
-		console.log("used 19");
 	});
 }
 
@@ -66,7 +62,6 @@ if(tabView === 1) {
  * @param {Function} cb Callback function
  */
 function genMyItems(cb){
-	console.log("used 5");
 	listingManager.getUserListings(argsID, function(err, userListings){
 		console.log("%%%%%%%%%%%%%%%%%%%%", userListings);
 		var listItems = [];
@@ -137,7 +132,6 @@ function genMyItems(cb){
  * @param {Function} cb Callback function
  */
 function genFriendsItems(cb){
-	console.log("used 9");
 	listingManager.getUserListings(argsID, function(err, userListings){
 		var listItems = [];		
 		if(userListings && userListings.length > 0) {
@@ -208,7 +202,6 @@ function genFriendsItems(cb){
  * @param {Function} cb Callback function
  */
 function genUSAItems(cb){
-	console.log("used 10");
 	listingManager.getUserListings(argsID, function(err, userListings){
 		var listItems = [];		
 		if(userListings && userListings.length > 0) {
