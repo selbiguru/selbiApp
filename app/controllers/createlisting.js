@@ -55,7 +55,7 @@ function showCamera() {
 		autohide : false, //Important!
 
 		success : function(event) {
-			if(imageCollection.length < 4 ) {
+			if(imageCollection.length < 2 ) {
 				createImageView(event.media);
 			}
 		},
@@ -74,7 +74,7 @@ function showGallery() {
 	Titanium.Media.openPhotoGallery({
 		showControls : true,
 		success : function(event) {
-			if(imageCollection.length < 4 ) {
+			if(imageCollection.length < 2 ) {
 				createImageView(event.media);
 			}
 		},
@@ -212,7 +212,7 @@ function createImageView(media) {
 	var thumbnailWidth, thumbnailLeft, zeroDP, imgViewSize,
 		deleteIconFontSize, imageViewTop;
 	switch(Alloy.Globals.userDevice) {
-	    case 0: //iphoneFour 4 photos, 6 photos
+	    case 0: //iphoneFour 2 photos, 4 photos, 6 photos
 	        thumbnailWidth = '95dp';//'83dp';
 	        thumbnailLeft = '31dp';//'7dp';
 	        zeroDP = '0dp';//'0dp';
@@ -220,7 +220,7 @@ function createImageView(media) {
 	        deleteIconFontSize = '14dp';//'12dp';
 	        imageViewTop = '13dp';//'11dp';
 	        break;
-	    case 1: //iphoneFive 4 photos, 6 photos
+	    case 1: //iphoneFive 2 photos, 4 photos, 6 photos
 	        thumbnailWidth = '113dp';//'93dp';
 	        thumbnailLeft = '24dp';//'3dp';
 	        zeroDP = '0dp';//'0dp';
@@ -228,15 +228,15 @@ function createImageView(media) {
 	        deleteIconFontSize = '16dp';//'14dp';
 	        imageViewTop = '14dp';//'12dp';
 	        break;
-	    case 2: //iphoneSix  4 photos, 6 photos
-	        thumbnailWidth = '138dp';//'113dp';
-	        thumbnailLeft = '31dp';//'5dp';
-	        zeroDP = '0dp';//'0dp';
-	        imgViewSize = '120dp';//'100dp';
-	        deleteIconFontSize = '18dp';//'16dp';
-	        imageViewTop = '18dp';//'15dp';
+	    case 2: //iphoneSix 2 photos, 4 photos, 6 photos
+	        thumbnailWidth = '171dp';//'138dp';//'113dp';
+	        thumbnailLeft = '7dp';//'31dp';//'5dp';
+	        zeroDP = '0dp';//'0dp';//'0dp';
+	        imgViewSize = '156dp';//'120dp';//'100dp';
+	        deleteIconFontSize = '20dp';//'18dp';//'16dp';
+	        imageViewTop = '20dp';//'18dp';//'15dp';
 	        break;
-	    case 3: //iphoneSixPlus 4 photos, 6 photos
+	    case 3: //iphoneSixPlus 2 photos, 4 photos, 6 photos
 	        thumbnailWidth = '185dp';//'145dp';//'125dp';
 	        thumbnailLeft = '10dp';//'38dp';//'5dp';
 	        zeroDP = '0dp';//'0dp';//'0dp';
@@ -244,7 +244,7 @@ function createImageView(media) {
 	        deleteIconFontSize = '20dp';//'20dp';//'18dp';
 	        imageViewTop = '20dp';//'20dp';//'15dp';
 	        break;
-	    case 4: //android currently same as iphoneSix 4 photos, 6 photos
+	    case 4: //android currently same as iphoneSix 2 photos, 4 photos, 6 photos
 	        thumbnailWidth = '138dp';//'113dp';
 	        thumbnailLeft = '31dp';//'5dp';
 	        zeroDP = '0dp';//'0dp';
