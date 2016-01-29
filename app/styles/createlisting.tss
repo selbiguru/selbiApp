@@ -233,23 +233,23 @@
 	layout: 'vertical',
 	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
-	height: '38%'//'38%'  '42%'
+	height: '50%'//'38%'  '42%'
 },
 ".fade-text[if=Alloy.Globals.iPhoneFive]": {
 	color: '#aaa',
-	top: '28dp',//'28dp'  '35dp'
+	top: '50dp',//'28dp'  '35dp'
 	width: Ti.UI.FILL,
 	textAlign: 'center',
 	font: {
-		fontSize: '18dp', //'18dp'  '18dp'
+		fontSize: '20dp', //'18dp'  '18dp'
 		fontFamily: 'Nunito-Light'
 	}
 },
 "#capturePhotoBtn[if=Alloy.Globals.iPhoneFive]": {
-	top: '25dp',//'25dp'  '35dp'
+	top: '46dp',//'25dp'  '35dp'
 },
 ".create-listing-capture-btn[if=Alloy.Globals.iPhoneFive]": {
-	height: '40dp',
+	height: '45dp',//'40dp'  '40dp'
 	width: '90%',
 	font: {
 		fontSize: '16dp',
@@ -260,7 +260,7 @@
 	color: '#fff'
 },
 ".top-size[if=Alloy.Globals.iPhoneFive]": {
-	top: '12dp'
+	top: '15dp'//'12dp'  '12dp'
 }
 "ImageView[if=Alloy.Globals.iPhoneFive]": {
 	height: '100dp',
@@ -269,8 +269,8 @@
 },
 ".image-gallery-view[if=Alloy.Globals.iPhoneFive]":{
 	layout: 'horizontal',
-	height: '235dp',//'235dp'  '195dp'
-	top: '7dp'
+	height: '160dp',//'235dp'  '195dp'
+	top: '10dp'//'7dp'  '7dp'
 },
 "#nextButtonView[if=Alloy.Globals.iPhoneFive]": {
 	height: Ti.UI.FILL,
@@ -421,7 +421,7 @@
 	top: '50dp',//'28dp'  '45dp'
 },
 ".create-listing-capture-btn[if=Alloy.Globals.iPhoneSix]": {
-	height: '55dp',
+	height: '55dp',//'50dp'  '50dp'
 	width: '90%',
 	font: {
 		fontSize: '18dp',

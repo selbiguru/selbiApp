@@ -221,12 +221,12 @@ function createImageView(media) {
 	        imageViewTop = '13dp';//'11dp';
 	        break;
 	    case 1: //iphoneFive 2 photos, 4 photos, 6 photos
-	        thumbnailWidth = '113dp';//'93dp';
-	        thumbnailLeft = '24dp';//'3dp';
-	        zeroDP = '0dp';//'0dp';
-	        imgViewSize = '100dp';//'83dp';
-	        deleteIconFontSize = '16dp';//'14dp';
-	        imageViewTop = '14dp';//'12dp';
+	        thumbnailWidth = '141dp';//'113dp';//'93dp';
+	        thumbnailLeft = '3dp';//'24dp';//'3dp';
+	        zeroDP = '0dp';//'0dp';//'0dp';
+	        imgViewSize = '128p';//'100dp';//'83dp';
+	        deleteIconFontSize = '18dp';//'16dp';//'14dp';
+	        imageViewTop = '18dp';//'14dp';//'12dp';
 	        break;
 	    case 2: //iphoneSix 2 photos, 4 photos, 6 photos
 	        thumbnailWidth = '171dp';//'138dp';//'113dp';
@@ -245,12 +245,12 @@ function createImageView(media) {
 	        imageViewTop = '20dp';//'20dp';//'15dp';
 	        break;
 	    case 4: //android currently same as iphoneSix 2 photos, 4 photos, 6 photos
-	        thumbnailWidth = '138dp';//'113dp';
-	        thumbnailLeft = '31dp';//'5dp';
-	        zeroDP = '0dp';//'0dp';
-	        imgViewSize = '120dp';//'100dp';
-	        deleteIconFontSize = '18dp';//'16dp';
-	        imageViewTop = '18dp';//'15dp';
+	        thumbnailWidth = '171dp';//'138dp';//'113dp';
+	        thumbnailLeft = '7dp';//'31dp';//'5dp';
+	        zeroDP = '0dp';//'0dp';//'0dp';
+	        imgViewSize = '156dp';//'120dp';//'100dp';
+	        deleteIconFontSize = '20dp';//'18dp';//'16dp';
+	        imageViewTop = '20dp';//'18dp';//'15dp';
 	        break;
 	};
 	var thumbnailView = Ti.UI.createImageView({
