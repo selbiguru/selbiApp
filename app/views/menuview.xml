@@ -6,14 +6,14 @@
 		</View>
 		<View class="menu-underline"/>
 		<TableView class="menuTable" id="menuTable">
-			<TableViewRow class="" id="row0">
+			<TableViewRow class="" id="row0" borderColor='red'>
 				<ImageView id="menuUserImage" image="{user.imageURL}" />
        			<View id="menuUserName">
 					<Label id="userName" class="" text="{user.firstName} {user.lastName}"></Label>
 				</View>
 			</TableViewRow>			
 			<TableViewRow>
-				<View class="menu-underline"></View>
+				<View class="menu-underline bottomPadding"></View>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="row1">
 				<View class="rowContainer">

@@ -48,6 +48,9 @@
 	borderColor: '#1BA7CD',
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 },
+".bottomPadding[if=Alloy.Globals.iPhoneFour]":{
+	//bottom:'10dp'
+},
 ".menu-underline[if=Alloy.Globals.iPhoneFour]": {
 	height: "1dp",
 	top:"0dp",
@@ -173,6 +176,9 @@
 	borderColor: '#1BA7CD',
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 },
+".bottomPadding[if=Alloy.Globals.iPhoneFive]":{
+	bottom:'10dp'
+},
 ".menu-underline[if=Alloy.Globals.iPhoneFive]": {
 	height: "1dp",
 	top:"0dp",
@@ -182,7 +188,7 @@
 	width:"64%"
 },
 ".rowContainer[if=Alloy.Globals.iPhoneFive]":{
-	height: '35dp',
+	height: '40dp',
 	layout:'horizontal'
 },
 ".rowLabel[if=Alloy.Globals.iPhoneFive]":{
@@ -216,7 +222,7 @@
 	scrollable: false
 },
 "#menuSeparator[if=Alloy.Globals.iPhoneFive]": {
-	top: "100dp",
+	top: "95dp",
 	bottom: "13dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneFive]":{
@@ -297,6 +303,9 @@
 	},
 	borderColor: '#1BA7CD',
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+},
+".bottomPadding[if=Alloy.Globals.iPhoneSix]":{
+	//bottom:'10dp'
 },
 ".menu-underline[if=Alloy.Globals.iPhoneSix]": {
 	height: "1dp",
@@ -422,6 +431,9 @@
 	},
 	borderColor: '#1BA7CD',
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+},
+".bottomPadding[if=Alloy.Globals.iPhoneSixPlus]":{
+	//bottom:'10dp'
 },
 ".menu-underline[if=Alloy.Globals.iPhoneSixPlus]": {
 	height: "1dp",
@@ -557,6 +569,9 @@
 	},
 	borderColor: '#1BA7CD',
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+},
+".bottomPadding[if=Alloy.Globals.android]":{
+	//bottom:'10dp'
 },
 ".menu-underline[if=Alloy.Globals.android]": {
 	height: "1dp",
