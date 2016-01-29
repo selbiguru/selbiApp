@@ -213,12 +213,12 @@ function createImageView(media) {
 		deleteIconFontSize, imageViewTop;
 	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour 2 photos, 4 photos, 6 photos
-	        thumbnailWidth = '95dp';//'83dp';
-	        thumbnailLeft = '31dp';//'7dp';
-	        zeroDP = '0dp';//'0dp';
-	        imgViewSize = '83dp';//'73dp';
-	        deleteIconFontSize = '14dp';//'12dp';
-	        imageViewTop = '13dp';//'11dp';
+	        thumbnailWidth = '132dp';//'95dp';//'83dp';
+	        thumbnailLeft = '3dp';//'31dp';//'7dp';
+	        zeroDP = '0dp';//'0dp';//'0dp';
+	        imgViewSize = '119dp';//'83dp';//'73dp';
+	        deleteIconFontSize = '17dp';//'14dp';//'12dp';
+	        imageViewTop = '15dp';//'13dp';//'11dp';
 	        break;
 	    case 1: //iphoneFive 2 photos, 4 photos, 6 photos
 	        thumbnailWidth = '141dp';//'113dp';//'93dp';
