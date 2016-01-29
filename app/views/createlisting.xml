@@ -11,7 +11,7 @@
 		<View id="createListingDetails">
 			<View id="step1">
 				<View id="selectionView">
-					<Label class="fade-text">Add up to 4 photos</Label>
+					<Label class="fade-text">Add up to 2 photos</Label>
 					<Button id="capturePhotoBtn" onClick="showCamera" class="create-listing-capture-btn">Capture a Photo</Button>
 					<Button onClick="showGallery" class="create-listing-capture-btn top-size">Select from Gallery</Button>
 				</View>	

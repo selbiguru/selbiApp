@@ -237,12 +237,12 @@ function createImageView(media) {
 	        imageViewTop = '18dp';//'15dp';
 	        break;
 	    case 3: //iphoneSixPlus 4 photos, 6 photos
-	        thumbnailWidth = '145dp';//'125dp';
-	        thumbnailLeft = '38dp';//'5dp';
-	        zeroDP = '0dp';//'0dp';
-	        imgViewSize = '130dp';//'110dp';
-	        deleteIconFontSize = '20dp';//'18dp';
-	        imageViewTop = '20dp';//'15dp';
+	        thumbnailWidth = '185dp';//'145dp';//'125dp';
+	        thumbnailLeft = '10dp';//'38dp';//'5dp';
+	        zeroDP = '0dp';//'0dp';//'0dp';
+	        imgViewSize = '170dp';//'130dp';//'110dp';
+	        deleteIconFontSize = '20dp';//'20dp';//'18dp';
+	        imageViewTop = '20dp';//'20dp';//'15dp';
 	        break;
 	    case 4: //android currently same as iphoneSix 4 photos, 6 photos
 	        thumbnailWidth = '138dp';//'113dp';
@@ -282,7 +282,7 @@ function createImageView(media) {
 	thumbnailView.add(imageView);
 	$.imgView.add(thumbnailView);
 	var imagePercent = (media.width/media.height).toFixed(2);
-	var resizedImage = media.imageAsResized(imagePercent*600, 600);
+	var resizedImage = media.imageAsResized(imagePercent*650, 650);
 	imageCollection.push(resizedImage);
 	
 	deleteIcon.addEventListener('click', function(e) {
