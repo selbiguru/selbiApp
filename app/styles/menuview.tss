@@ -49,7 +49,7 @@
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 },
 ".bottomPadding[if=Alloy.Globals.iPhoneFour]":{
-	//bottom:'10dp'
+	bottom:'5dp'
 },
 ".menu-underline[if=Alloy.Globals.iPhoneFour]": {
 	height: "1dp",
@@ -94,7 +94,7 @@
 	scrollable: false
 },
 "#menuSeparator[if=Alloy.Globals.iPhoneFour]": {
-	top: "32dp",
+	top: "30dp",
 	bottom: "7dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneFour]":{
@@ -305,7 +305,7 @@
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 },
 ".bottomPadding[if=Alloy.Globals.iPhoneSix]":{
-	//bottom:'10dp'
+	bottom:'10dp'
 },
 ".menu-underline[if=Alloy.Globals.iPhoneSix]": {
 	height: "1dp",
@@ -350,7 +350,7 @@
 	scrollable: false
 },
 "#menuSeparator[if=Alloy.Globals.iPhoneSix]": {
-	top: "105dp",
+	top: "95dp",
 	bottom: "13dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneSix]":{
@@ -433,7 +433,7 @@
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 },
 ".bottomPadding[if=Alloy.Globals.iPhoneSixPlus]":{
-	//bottom:'10dp'
+	bottom:'10dp'
 },
 ".menu-underline[if=Alloy.Globals.iPhoneSixPlus]": {
 	height: "1dp",
@@ -477,7 +477,7 @@
 	scrollable: false
 },
 "#menuSeparator[if=Alloy.Globals.iPhoneSixPlus]": {
-	top: "105dp",
+	top: "100dp",
 	bottom: "15dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneSixPlus]":{
@@ -571,7 +571,7 @@
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 },
 ".bottomPadding[if=Alloy.Globals.android]":{
-	//bottom:'10dp'
+	bottom:'10dp'
 },
 ".menu-underline[if=Alloy.Globals.android]": {
 	height: "1dp",
@@ -616,7 +616,7 @@
 	scrollable: false
 },
 "#menuSeparator[if=Alloy.Globals.android]": {
-	top: "105dp",
+	top: "95dp",
 	bottom: "13dp"
 },
 ".tableRow[if=Alloy.Globals.android]":{
