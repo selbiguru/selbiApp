@@ -515,7 +515,7 @@ function determineStatus(invitation) {
 switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
 	        heightDataView = '40dp';
-	        fontSizeCheckMark = '14dp';
+	        fontSizeCheckMark = '16dp';
 	        rightCheckMark = '15dp';
 	        fontSizeTitleLabel = '14dp';
 	        topTitleLabel = '3dp';
@@ -527,7 +527,7 @@ switch(Alloy.Globals.userDevice) {
 	        break;
 	    case 1: //iphoneFive
 	    	heightDataView = '45dp';
-	        fontSizeCheckMark = '16dp';
+	        fontSizeCheckMark = '18dp';
 	        rightCheckMark = '15dp';
 	        fontSizeTitleLabel = '16dp';
 	        topTitleLabel = '4dp';
@@ -539,7 +539,7 @@ switch(Alloy.Globals.userDevice) {
 	        break;
 	    case 2: //iphoneSix
 	        heightDataView = '50dp';
-	        fontSizeCheckMark = '18dp';
+	        fontSizeCheckMark = '20dp';
 	        rightCheckMark = '20dp';
 	        fontSizeTitleLabel = '18dp';
 	        topTitleLabel = '4dp';
@@ -551,7 +551,7 @@ switch(Alloy.Globals.userDevice) {
 	        break;
 	    case 3: //iphoneSixPlus
 	    	heightDataView = '55dp';
-	        fontSizeCheckMark = '20dp';
+	        fontSizeCheckMark = '22dp';
 	        rightCheckMark = '20dp';
 	        fontSizeTitleLabel = '20dp';
 	        topTitleLabel = '4dp';
@@ -563,7 +563,7 @@ switch(Alloy.Globals.userDevice) {
 	        break;
 	    case 4: //android currently same as iphoneSix
 	        heightDataView = '50dp';
-	        fontSizeCheckMark = '18dp';
+	        fontSizeCheckMark = '20dp';
 	        rightCheckMark = '20dp';
 	        fontSizeTitleLabel = '18dp';
 	        topTitleLabel = '4dp';
