@@ -5,7 +5,10 @@
 				<Label icon="fa-bars" id="addFriendsButtonIcon" class="icon-buttons"></Label>
 			</View>
 			<View id="titleAddFriendsView">
-				<Label id="titleAddFriendsLabel">My Friends</Label>
+				<Label id="titleAddFriendsLabel">Friends</Label>
+			</View>
+			<View id="searchContactsView">
+				<Button onClick='openContacts' id="searchContactsButton" class="icon-buttons" icon="fa-book"></Button>
 			</View>
 		</View>
 		<View id='defaultView'>

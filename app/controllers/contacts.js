@@ -83,7 +83,7 @@ function getContactListTemplate() {
 		 		events: {
 	                // Bind event callbacks only to the subcomponent
 	                click: function(e){
-	                	//console.log('DATA', e.bindId);
+	                	//console.log('DATA', e.bindId);	                	
                 		if(e.source.status === 'new') {
 							friendRequestDynamic(e, 'pending');
 						} else if(e.source.status === 'denied') {
@@ -94,6 +94,8 @@ function getContactListTemplate() {
 							friendRequestDynamic(e, 'denied');
 						} else if(e.source.status === 'approved') {
 							friendRequestDynamic(e, 'denied');
+						} else if(e.source.status === 'notOnSelbi') {
+							inviteNewContact(e.source.data);
 						}
 	                }
             	},
@@ -109,7 +111,7 @@ function getContactListTemplate() {
  * @method getFriendsSection
  * Returns a template used to search for friends
  */
-function getFriendsSection() {
+/*function getFriendsSection() {
 	return {
 		 childTemplates: [
 	        {                           	// Title
@@ -189,7 +191,7 @@ function getFriendsSection() {
 	        },
 	    ]
 	};
-}
+}*/
 
 
 
@@ -350,8 +352,8 @@ var createCustomView = function(title) {
 function loadContacts() {
 	var contactListView = Ti.UI.createListView({
 		templates: {
-			'template': getContactListTemplate(),
-			'getFriendsSection': getFriendsSection()
+			'template': getContactListTemplate()
+			//'getFriendsSection': getFriendsSection()
 		},
 		defaultItemTemplate: 'template',
 		backgroundColor: '#FAFAFA',
@@ -361,17 +363,17 @@ function loadContacts() {
 		headerView: createCustomView('Contacts on Selbi'),
 	});
 	var contactsNotUsers = Ti.UI.createListSection({
-		headerView: createCustomView('Not on Selbi'),
+		headerView: createCustomView('Invite to Selbi'),
 		footerView: Ti.UI.createView({
 		        backgroundColor: '#E5E5E5',
 		        height: '1dp'
 		})	
 	});
-	var addFriendSection = Ti.UI.createListSection({
+	/*var addFriendSection = Ti.UI.createListSection({
 		headerView: createCustomView('Add friends on Selbi'),
-	});
+	});*/
 	currentContacts = [];
-	var searchUsers = [];
+	//var searchUsers = [];
 	var nonUsers = [];
 	var phoneArray = [];
 	var people = Ti.Contacts.getAllPeople();
@@ -420,8 +422,8 @@ function loadContacts() {
 						nonUsers.push({
 							title: { text: helpers.alterTextFormat(results[user].contactName, 28, false) },
 						 	subtitle: {text: results[user].originalNumber },
-							data: { data: {invitation: results[user].invitation, id: results[user].id }, id: results[user].username, invitation: results[user].invitation},
-							checkmark : {data: results[user].invitation, text : '\uf196', visible: false , ext: results[user].username, touchEnabled: false},
+							data: { data: {invitation: results[user].invitation, id: results[user].id, newNumber: results[user].newNumber, status: 'notOnSelbi' }, id: results[user].username, invitation: results[user].invitation, newNumber: results[user].newNumber, status: 'notOnSelbi'},
+							checkmark : {data: results[user].invitation, text : '\uf196', visible: true , ext: results[user].username, touchEnabled: false},
 							properties: {
 								height: heightDataView
 							}
@@ -436,17 +438,17 @@ function loadContacts() {
 						match: 'empty'
 					});
 			}
-				searchUsers.push({
+				/*searchUsers.push({
 					properties: {
 						height: heightDataView
 					},
 					template: 'getFriendsSection'	
-				});
+				});*/
 				contactsOnSelbi.setItems(currentContacts);
 				contactsNotUsers.setItems(nonUsers);
-				addFriendSection.setItems(searchUsers);
-				contactListView.sections = [addFriendSection, contactsOnSelbi, contactsNotUsers];
-				$.addFriendsView.add(contactListView);
+				//addFriendSection.setItems(searchUsers);
+				contactListView.sections = [contactsOnSelbi, contactsNotUsers];
+				$.addContactsView.add(contactListView);
 				$.activityIndicator.hide();
 				$.activityIndicator.height = '0dp';
 			}	
@@ -510,6 +512,26 @@ function determineStatus(invitation) {
 };
 
 
+/**
+ * @private backButton 
+ *  Closes the current view and opens the previous view by reloading it to update for changes.
+ *  
+ */
+function backButton() {
+	Alloy.Globals.openPage('addfriends');
+	Alloy.Globals.closePage('contacts');
+};
+
+
+/**
+ * @private inviteNewContact 
+ *  Opens SMS text to send a text telling new user to join Selbi
+ *  @param {Object} Data is an object containing the user's number to invite with SMS text
+ */
+function inviteNewContact(data){
+	Ti.Platform.openURL('sms://'+data.newNumber);
+	return;
+}
 /*----------------------------------------------Dynamic Elements---------------------------------------------*/
 
 switch(Alloy.Globals.userDevice) {

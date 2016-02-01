@@ -53,8 +53,8 @@
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="row6">
 				<View class="rowContainer">
-					<Label icon="fa-book" class="rowLabel row-icon" id="menuContactIcon"></Label>
-					<Label id="listingLabel" class="rowLabel">Contacts</Label>
+					<Label icon="fa-user-plus" class="rowLabel row-icon" id="menuContactIcon"></Label>
+					<Label id="listingLabel" class="rowLabel">Friends</Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>

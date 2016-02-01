@@ -25,13 +25,6 @@
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="addfriends">
-				<View class="rowContainer">
-					<Label id="" class="rowLabel font-style">My Friends</Label>
-					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
-				</View>
-				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
-			</TableViewRow>
 			<TableViewRow class="tableRow" id="faq">
 				<View class="rowContainer">
 					<Label id="" class="rowLabel font-style">FAQ</Label>

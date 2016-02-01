@@ -50,7 +50,7 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-"#sendEmailView[if=Alloy.Globals.iPhoneFour]": {
+"#searchContactsView[if=Alloy.Globals.iPhoneFour]": {
 	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneFour]": {
@@ -96,7 +96,7 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-"#sendEmailView[if=Alloy.Globals.iPhoneFive]": {
+"#searchContactsView[if=Alloy.Globals.iPhoneFive]": {
 	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneFive]": {
@@ -148,7 +148,7 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-"#sendEmailView[if=Alloy.Globals.iPhoneSix]": {
+"#searchContactsView[if=Alloy.Globals.iPhoneSix]": {
 	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
@@ -196,7 +196,7 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-"#sendEmailView[if=Alloy.Globals.iPhoneSixPlus]": {
+"#searchContactsView[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -205,22 +205,6 @@
         },
 	color: "#1BA7CD"
 },
-"#addFriendsSearchView[if=Alloy.Globals.iPhoneSixPlus]": {
-	//layout: "horizontal",
-	height: Ti.UI.SIZE,
-	width: '388dp',
-	top: '10dp',
-	bottom: '10dp'
-},
-".dark-underline": {
-	height: "1dp",
-	//bottom: "1dp",
-	top: '51dp',
-	left: '15dp',
-	backgroundColor:"#9B9B9B",
-	width: Ti.UI.FILL
-},
-
 
 
 
@@ -252,7 +236,7 @@
 	backgroundColor: '#FFF'
 },
 "#titleAddFriendsView[if=Alloy.Globals.android]": {
-	width: "250dp",
+	width: "255dp",
 },
 "#titleAddFriendsLabel[if=Alloy.Globals.android]": {
 	color: "#1BA7CD",
@@ -262,7 +246,7 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-"#sendEmailView[if=Alloy.Globals.android]": {
+"#searchContactsView[if=Alloy.Globals.android]": {
 	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.android]": {
@@ -271,3 +255,8 @@
         },
 	color: "#1BA7CD"
 },
+
+
+"#searchUserButton": {
+	color:"yellow"
+}

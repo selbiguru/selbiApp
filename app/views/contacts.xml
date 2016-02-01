@@ -1,11 +1,11 @@
 <Alloy>
-	<View id="addFriendsView">
-		<View id="addFriendsTopBar">
-			<View id="menuButton" class="validateButtons">
-				<Label icon="fa-bars" id="addFriendsButtonIcon" class="icon-buttons"></Label>
+	<View id="addContactsView">
+		<View id="addContactsTopBar">
+			<View id="backViewButton" onClick="backButton">
+				<Label icon="fa-reply" id="addContactsButtonIcon" class="icon-buttons"></Label>
 			</View>
-			<View id="titleAddFriendsView">
-				<Label id="titleAddFriendsLabel">Add Friends</Label>
+			<View id="titleAddContactsView">
+				<Label id="titleAddContactsLabel">Contacts</Label>
 			</View>
 		</View>
 		<View id='defaultView'>
