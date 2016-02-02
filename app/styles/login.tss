@@ -184,7 +184,7 @@
 	height: '55dp',
 	top: '25dp',
 	font: {
-		fontSize: '26dp',
+		fontSize: '22dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
