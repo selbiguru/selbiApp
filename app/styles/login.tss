@@ -25,22 +25,22 @@
 "TextField[if=Alloy.Globals.iPhoneFour]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '14dp'
+		fontSize: '20dp'
 	}
 },
 ".splash-header-text[if=Alloy.Globals.iPhoneFour]": {
-	bottom:"15%",
+	bottom:"14%",
 	font: {
-		fontSize: '24dp',
+		fontSize: '32dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
 ".cancel-txt[if=Alloy.Globals.iPhoneFour]": {
-	top: '110dp',
+	top: '65dp',
 	color: "#FAFAFA",
 	bottom: '10dp',
 	font: {
-		fontSize: '14dp',
+		fontSize: '22dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -48,7 +48,7 @@
 	top: '20dp',
 	color: "#FAFAFA",
 	font: {
-		fontSize: '13dp',
+		fontSize: '20dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -62,7 +62,7 @@
 	height: '40dp',
 	top: '25dp',
 	font: {
-		fontSize: '14dp',
+		fontSize: '22dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
@@ -85,22 +85,22 @@
 "TextField[if=Alloy.Globals.iPhoneFive]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '15dp'
+		fontSize: '20dp'
 	}
 },
 ".splash-header-text[if=Alloy.Globals.iPhoneFive]": {
-	bottom:"20%",
+	bottom:"16%",
 	font: {
-		fontSize: '24dp',
+		fontSize: '34dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
 ".cancel-txt[if=Alloy.Globals.iPhoneFive]": {
-	top: '120dp',
+	top: '76dp',
 	color: "#FAFAFA",
 	bottom: '10dp',
 	font: {
-		fontSize: '16dp',
+		fontSize: '22dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -108,7 +108,7 @@
 	top: '20dp',
 	color: "#FAFAFA",
 	font: {
-		fontSize: '14dp',
+		fontSize: '20dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -119,10 +119,10 @@
 	width:Ti.UI.FILL
 },
 ".primary-btn[if=Alloy.Globals.iPhoneFive]": {
-	height: '40dp',
+	height: '45dp',
 	top: '25dp',
 	font: {
-		fontSize: '16dp',
+		fontSize: '22dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
@@ -146,23 +146,23 @@
 "TextField[if=Alloy.Globals.iPhoneSix]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '18dp',
+		fontSize: '24dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
 ".splash-header-text[if=Alloy.Globals.iPhoneSix]": {
 	bottom:"17%",
 	font: {
-		fontSize: '26dp',
+		fontSize: '38dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
 ".cancel-txt[if=Alloy.Globals.iPhoneSix]": {
-	top: '130dp',
+	top: '112dp',
 	color: "#FAFAFA",
 	bottom: '10dp',
 	font: {
-		fontSize: '18dp',
+		fontSize: '26dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -170,7 +170,7 @@
 	top: '20dp',
 	color: "#FAFAFA",
 	font: {
-		fontSize: '16dp',
+		fontSize: '24dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -181,10 +181,10 @@
 	width:Ti.UI.FILL
 },
 ".primary-btn[if=Alloy.Globals.iPhoneSix]": {
-	height: '50dp',
+	height: '55dp',
 	top: '25dp',
 	font: {
-		fontSize: '18dp',
+		fontSize: '26dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
@@ -208,22 +208,22 @@
 "TextField[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '20dp'
+		fontSize: '26dp'
 	}
 },
 ".splash-header-text[if=Alloy.Globals.iPhoneSixPlus]": {
-	bottom:"20%",
+	bottom:"19%",
 	font: {
-		fontSize: '28dp',
+		fontSize: '42dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
 ".cancel-txt[if=Alloy.Globals.iPhoneSixPlus]": {
-	top: '130dp',
+	top: '112dp',
 	color: "#FAFAFA",
 	bottom: '10dp',
 	font: {
-		fontSize: '20dp',
+		fontSize: '28dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -231,7 +231,7 @@
 	top: '25dp',
 	color: "#FAFAFA",
 	font: {
-		fontSize: '18dp',
+		fontSize: '25dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -242,10 +242,10 @@
 	width:Ti.UI.FILL
 },
 ".primary-btn[if=Alloy.Globals.iPhoneSixPlus]": {
-	height: '50dp',
+	height: '55dp',
 	top: '25dp',
 	font: {
-		fontSize: '20dp',
+		fontSize: '28dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
@@ -267,14 +267,14 @@
 "TextField[if=Alloy.Globals.android]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '18dp',
+		fontSize: '20dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
 ".splash-header-text[if=Alloy.Globals.android]": {
 	bottom:"17%",
 	font: {
-		fontSize: '26dp',
+		fontSize: '30dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -283,7 +283,7 @@
 	color: "#FAFAFA",
 	bottom: '10dp',
 	font: {
-		fontSize: '18dp',
+		fontSize: '22dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -291,7 +291,7 @@
 	top: '20dp',
 	color: "#FAFAFA",
 	font: {
-		fontSize: '16dp',
+		fontSize: '20dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -302,10 +302,10 @@
 	width:Ti.UI.FILL
 },
 ".primary-btn[if=Alloy.Globals.android]": {
-	height: '40dp',
+	height: '55dp',
 	top: '25dp',
 	font: {
-		fontSize: '18dp',
+		fontSize: '22dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
