@@ -279,19 +279,19 @@ function createPreviewButtons() {
 			buttonFontSize = '14dp';
 	        break;
 	    case 1: //iphoneFive
-	        buttonHeight = '40dp';
+	        buttonHeight = '45dp';
 	        buttonFontSize = '16dp';
 	        break;
 	    case 2: //iphoneSix
-	        buttonHeight = '50dp';
+	        buttonHeight = '55dp';
 	        buttonFontSize = '18dp';
 	        break;
 	    case 3: //iphoneSixPlus
-	        buttonHeight = '50dp';
+	        buttonHeight = '55dp';
 	        buttonFontSize = '20dp';
 	        break;
 	    case 4: //android currently same as iphoneSix
-	        buttonHeight = '50dp';
+	        buttonHeight = '55dp';
 	        buttonFontSize = '18dp';
 	        break;
 	};
@@ -369,25 +369,25 @@ function createPurchasingButtons() {
 			backgroundColor = '#1BA7CD';
 	        break;
 	    case 1: //iphoneFive
-	        buttonHeight = '40dp';
+	        buttonHeight = '45dp';
 	        buttonFontSize = '16dp';
 	        buttonWidth = 141;
 	        backgroundColor = '#1BA7CD';
 	        break;
 	    case 2: //iphoneSix
-	        buttonHeight = '50dp';
+	        buttonHeight = '55dp';
 	        buttonFontSize = '18dp';
 	        buttonWidth = 175;
 	        backgroundColor = '#1BA7CD';
 	        break;
 	    case 3: //iphoneSixPlus
-	        buttonHeight = '50dp';
+	        buttonHeight = '55dp';
 	        buttonFontSize = '20dp';
 	        buttonWidth = 193;
 	        backgroundColor = '#1BA7CD';
 	        break;
 	    case 4: //android currently same as iphoneSix
-	        buttonHeight = '50dp';
+	        buttonHeight = '55dp';
 	        buttonFontSize = '18dp';
 	        buttonWidth = 175;
 	        backgroundColor = '#1BA7CD';
@@ -496,19 +496,19 @@ function createDeleteButton() {
 			buttonFontSize = '14dp';
 	        break;
 	    case 1: //iphoneFive
-	        buttonHeight = '40dp';
+	        buttonHeight = '45dp';
 	        buttonFontSize = '16dp';
 	        break;
 	    case 2: //iphoneSix
-	        buttonHeight = '50dp';
+	        buttonHeight = '55dp';
 	        buttonFontSize = '18dp';
 	        break;
 	    case 3: //iphoneSixPlus
-	        buttonHeight = '50dp';
+	        buttonHeight = '55dp';
 	        buttonFontSize = '20dp';
 	        break;
 	    case 4: //android currently same as iphoneSix
-	        buttonHeight = '50dp';
+	        buttonHeight = '55dp';
 	        buttonFontSize = '18dp';
 	        break;
 	};
