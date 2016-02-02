@@ -214,7 +214,7 @@
 	top: "10dp",
 	color: "#FAFAFA",
 	font: {
-		fontSize: "19dp",
+		fontSize: "18dp",
 		fontFamily: "Nunito-Light"
 	}
 },
