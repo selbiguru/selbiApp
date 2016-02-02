@@ -204,7 +204,7 @@
 ".cancel-txt[if=Alloy.Globals.iPhoneSix]": {
 	color: "#FAFAFA",
 	height: Titanium.UI.SIZE,
-	top: "90dp",
+	top: "118dp",
 	font: {
 		fontSize: "22dp",
 		fontFamily: "Nunito-Light"
@@ -214,13 +214,13 @@
 	top: "10dp",
 	color: "#FAFAFA",
 	font: {
-		fontSize: "18dp",
+		fontSize: "16dp",
 		fontFamily: "Nunito-Light"
 	}
 },
 ".primary-btn[if=Alloy.Globals.iPhoneSix]": {
 	height: '55dp',
-	top: "25dp",
+	top: "20dp",
 	font: {
 		fontSize: "22dp"
 	}
@@ -289,7 +289,7 @@
 	top: "10dp",
 	color: "#FAFAFA",
 	font: {
-		fontSize: "19dp",
+		fontSize: "17dp",
 		fontFamily: "Nunito-Light"
 	}
 },
