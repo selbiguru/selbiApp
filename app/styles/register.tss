@@ -204,7 +204,7 @@
 ".cancel-txt[if=Alloy.Globals.iPhoneSix]": {
 	color: "#FAFAFA",
 	height: Titanium.UI.SIZE,
-	top: "85dp",
+	top: "90dp",
 	font: {
 		fontSize: "22dp",
 		fontFamily: "Nunito-Light"
