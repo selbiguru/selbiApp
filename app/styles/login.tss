@@ -25,7 +25,7 @@
 "TextField[if=Alloy.Globals.iPhoneFour]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '20dp'
+		fontSize: '18dp'
 	}
 },
 ".splash-header-text[if=Alloy.Globals.iPhoneFour]": {
@@ -40,7 +40,7 @@
 	color: "#FAFAFA",
 	bottom: '10dp',
 	font: {
-		fontSize: '22dp',
+		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -48,7 +48,7 @@
 	top: '20dp',
 	color: "#FAFAFA",
 	font: {
-		fontSize: '20dp',
+		fontSize: '17dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -62,7 +62,7 @@
 	height: '40dp',
 	top: '25dp',
 	font: {
-		fontSize: '22dp',
+		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
@@ -85,7 +85,7 @@
 "TextField[if=Alloy.Globals.iPhoneFive]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '20dp'
+		fontSize: '19dp'
 	}
 },
 ".splash-header-text[if=Alloy.Globals.iPhoneFive]": {
@@ -100,7 +100,7 @@
 	color: "#FAFAFA",
 	bottom: '10dp',
 	font: {
-		fontSize: '22dp',
+		fontSize: '19dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -108,7 +108,7 @@
 	top: '20dp',
 	color: "#FAFAFA",
 	font: {
-		fontSize: '20dp',
+		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -122,7 +122,7 @@
 	height: '45dp',
 	top: '25dp',
 	font: {
-		fontSize: '22dp',
+		fontSize: '19dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
@@ -146,7 +146,7 @@
 "TextField[if=Alloy.Globals.iPhoneSix]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '24dp',
+		fontSize: '22dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -162,7 +162,7 @@
 	color: "#FAFAFA",
 	bottom: '10dp',
 	font: {
-		fontSize: '26dp',
+		fontSize: '22dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -170,7 +170,7 @@
 	top: '20dp',
 	color: "#FAFAFA",
 	font: {
-		fontSize: '24dp',
+		fontSize: '22dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -208,7 +208,7 @@
 "TextField[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '26dp'
+		fontSize: '23dp'
 	}
 },
 ".splash-header-text[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -219,11 +219,11 @@
 	}
 },
 ".cancel-txt[if=Alloy.Globals.iPhoneSixPlus]": {
-	top: '112dp',
+	top: '108dp',
 	color: "#FAFAFA",
 	bottom: '10dp',
 	font: {
-		fontSize: '28dp',
+		fontSize: '23dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -231,7 +231,7 @@
 	top: '25dp',
 	color: "#FAFAFA",
 	font: {
-		fontSize: '25dp',
+		fontSize: '22dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -245,7 +245,7 @@
 	height: '55dp',
 	top: '25dp',
 	font: {
-		fontSize: '28dp',
+		fontSize: '23dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },

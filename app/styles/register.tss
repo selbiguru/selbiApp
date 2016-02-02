@@ -21,7 +21,7 @@
 "TextField[if=Alloy.Globals.iPhoneFour]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: "20dp"
+		fontSize: "18dp"
 	}
 }
 "#firstNameView[if=Alloy.Globals.iPhoneFour]": {
@@ -52,7 +52,7 @@
 	height: Titanium.UI.SIZE,
 	top: "37dp",
 	font: {
-		fontSize: "22dp",
+		fontSize: "18dp",
 		fontFamily: "Nunito-Light"
 	}
 },
@@ -60,7 +60,7 @@
 	top: "12dp",
 	color: "#FAFAFA",
 	font: {
-		fontSize: "18dp",
+		fontSize: "16dp",
 		fontFamily: "Nunito-Light"
 	}
 },
@@ -68,7 +68,7 @@
 	height: '40dp',
 	top: "15dp",
 	font: {
-		fontSize: "22dp"
+		fontSize: "18dp"
 	}
 },
 ".signup-underline[if=Alloy.Globals.iPhoneFour]": {
@@ -99,7 +99,7 @@
 "TextField[if=Alloy.Globals.iPhoneFive]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: "20dp"
+		fontSize: "19dp"
 	}
 },
 "#firstNameView[if=Alloy.Globals.iPhoneFive]": {
@@ -130,7 +130,7 @@
 	height: Titanium.UI.SIZE,
 	top: "59dp",
 	font: {
-		fontSize: "22dp",
+		fontSize: "19dp",
 		fontFamily: "Nunito-Light"
 	}
 },
@@ -138,7 +138,7 @@
 	top: "12dp",
 	color: "#FAFAFA",
 	font: {
-		fontSize: "18dp",
+		fontSize: "16dp",
 		fontFamily: "Nunito-Light"
 	}
 },
@@ -146,7 +146,7 @@
 	height: '45dp',
 	top: "15dp",
 	font: {
-		fontSize: "22dp"
+		fontSize: "19dp"
 	}
 },
 ".signup-underline[if=Alloy.Globals.iPhoneFive]": {
@@ -175,7 +175,7 @@
 "TextField[if=Alloy.Globals.iPhoneSix]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: "24dp"
+		fontSize: "22dp"
 	}
 },
 "#firstNameView[if=Alloy.Globals.iPhoneSix]": {
@@ -206,7 +206,7 @@
 	height: Titanium.UI.SIZE,
 	top: "85dp",
 	font: {
-		fontSize: "26dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Light"
 	}
 },
@@ -214,7 +214,7 @@
 	top: "10dp",
 	color: "#FAFAFA",
 	font: {
-		fontSize: "21dp",
+		fontSize: "19dp",
 		fontFamily: "Nunito-Light"
 	}
 },
@@ -222,7 +222,7 @@
 	height: '55dp',
 	top: "25dp",
 	font: {
-		fontSize: "26dp"
+		fontSize: "22dp"
 	}
 },
 ".signup-underline[if=Alloy.Globals.iPhoneSix]": {
@@ -250,7 +250,7 @@
 "TextField[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: "26dp"
+		fontSize: "23dp"
 	}
 },
 "#firstNameView[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -281,7 +281,7 @@
 	height: Titanium.UI.SIZE,
 	top: "95dp",
 	font: {
-		fontSize: "28dp",
+		fontSize: "23dp",
 		fontFamily: "Nunito-Light"
 	}
 },
@@ -289,7 +289,7 @@
 	top: "10dp",
 	color: "#FAFAFA",
 	font: {
-		fontSize: "22dp",
+		fontSize: "19dp",
 		fontFamily: "Nunito-Light"
 	}
 },
@@ -297,7 +297,7 @@
 	height: '55dp',
 	top: "20dp",
 	font: {
-		fontSize: "28dp"
+		fontSize: "23dp"
 	}
 },
 ".signup-underline[if=Alloy.Globals.iPhoneSixPlus]": {
