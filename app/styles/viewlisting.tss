@@ -334,8 +334,8 @@
 },
 "#sellerImage[if=Alloy.Globals.iPhoneSix]": {
 	top: '5dp',
-	height: "45dp",
-	borderRadius: '23dp'
+	height: "50dp",
+	borderRadius: '25dp'
 },
 "#sellerName[if=Alloy.Globals.iPhoneSix]": {
 	height: Ti.UI.FILL,

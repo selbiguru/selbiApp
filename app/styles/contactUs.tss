@@ -217,7 +217,7 @@
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '17dp'
+	top: '18dp'
 },
 ".menu-icon-button[if=Alloy.Globals.iPhoneSix]": {
 	font: {
