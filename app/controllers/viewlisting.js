@@ -95,7 +95,7 @@ function populateViewListing(listingData) {
 		var carouselImage = ImageUtils.Utils.RemoteImage({
 			height: Ti.UI.FILL,
 			width: Ti.UI.FILL,
-			image: previewListing ? images[img].resizedImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.listingView + Alloy.CFG.cloudinary.bucket + images[img].resizedImage
+			image: previewListing ? images[img].resizedImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.listingView + Alloy.CFG.cloudinary.bucket + images[img]
 		});
 		
 		views.push(carouselImage);
