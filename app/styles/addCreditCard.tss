@@ -94,6 +94,12 @@
 "#saveCreditCardView[if=Alloy.Globals.iPhoneFour]": {
 	width: '60dp'
 },
+"#saveCreditCardButton[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "14dp",
+            fontFamily: "Nunito-Bold"
+        },
+},
 ".icon-buttons[if=Alloy.Globals.iPhoneFour]": {
 	font: {
             fontSize: "14dp",
@@ -154,6 +160,12 @@
 "#saveCreditCardView[if=Alloy.Globals.iPhoneFive]": {
 	width: '60dp'
 },
+"#saveCreditCardButton[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+            fontSize: "14dp",
+            fontFamily: "Nunito-Bold"
+        },
+},
 ".icon-buttons[if=Alloy.Globals.iPhoneFive]": {
 	font: {
             fontSize: "14dp",
@@ -196,9 +208,10 @@
 },
 "#addCreditCardButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "20dp"
+            fontSize: "24dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '25dp'
 },
 "#titleAddCreditCardView[if=Alloy.Globals.iPhoneSix]": {
 	width: "255dp"
@@ -208,16 +221,24 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "20dp",
+		fontSize: "24dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 "#saveCreditCardView[if=Alloy.Globals.iPhoneSix]": {
 	width: '60dp'
 },
+"#saveCreditCardButton[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+            fontSize: "18dp",
+            fontFamily: "Nunito-Bold"
+        },
+   top: '20dp'
+},
 ".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "17dp",
+            fontSize: "24dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD"
@@ -274,6 +295,12 @@
 },
 "#saveCreditCardView[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: '60dp'
+},
+"#saveCreditCardButton[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+            fontSize: "18dp",
+            fontFamily: "Nunito-Bold"
+        },
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
@@ -337,6 +364,12 @@
 },
 "#saveCreditCardView[if=Alloy.Globals.android]": {
 	width: '60dp'
+},
+"#saveCreditCardButton[if=Alloy.Globals.android]": {
+	font: {
+            fontSize: "18dp",
+            fontFamily: "Nunito-Bold"
+        },
 },
 ".icon-buttons[if=Alloy.Globals.android]": {
 	font: {

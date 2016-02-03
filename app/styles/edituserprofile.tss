@@ -395,9 +395,11 @@
 },
 "#editUserProfileButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "20dp"
+            fontSize: "24dp",
+            fontFamily: "Nunito-Bold"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '25dp'
 },
 "#titleEditUserProfileView[if=Alloy.Globals.iPhoneSix]": {
 	width: "255dp",
@@ -407,19 +409,21 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "20dp",
+		fontSize: "24dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 "#saveInfo[if=Alloy.Globals.iPhoneSix]": {
 	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "17dp",
+            fontSize: "18dp",
             fontFamily: "Nunito-Bold"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '20dp'
 },
 "#userProfileImage[if=Alloy.Globals.iPhoneSix]": {
 	height: "85dp",

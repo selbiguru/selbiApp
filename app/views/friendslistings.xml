@@ -2,7 +2,7 @@
 	<View id="friendsListingsView">
 		<View id="friendsListingsTopBar">
 			<View id="menuButton">
-				<Label icon="fa-bars" id="friendsListingsButtonIcon" class="icon-buttons"></Label>			
+				<Label icon="fa-bars" id="friendsListingsButtonIcon" class="menu-icon-button"></Label>			
 			</View>
 			<View id="titleFriendsListingsView">
 				<Label id="titleFriendsListingsLabel">friendsListings</Label>

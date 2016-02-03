@@ -143,9 +143,11 @@
 },
 "#listingsButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "20dp"
+            fontSize: "24dp",
+            fontFamily: "Nunito-Bold"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '25dp'
 },
 "#titleListingsView[if=Alloy.Globals.iPhoneSix]": {
 	width: "255dp"
@@ -154,19 +156,21 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "20dp",
+		fontSize: "24dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 "#closeUserView[if=Alloy.Globals.iPhoneSix]": {
 	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "17dp",
+            fontSize: "18dp",
             fontFamily: "Nunito-Bold"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '20dp'
 },
 
 

@@ -49,6 +49,14 @@
         },
 	color: "#1BA7CD"
 },
+".menu-icon-button[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "18dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	//top: '25dp'
+},
 "#contactUsInfoView[if=Alloy.Globals.iPhoneFour]": {
 	layout: 'vertical',
 	width: '85%',
@@ -125,6 +133,14 @@
         },
 	color: "#1BA7CD"
 },
+".menu-icon-button[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+            fontSize: "18dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	//top: '25dp'
+},
 "#contactUsInfoView[if=Alloy.Globals.iPhoneFive]": {
 	layout: 'vertical',
 	width: '90%',
@@ -187,18 +203,29 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "20dp",
+		fontSize: "24dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 "#sendEmailView[if=Alloy.Globals.iPhoneSix]": {
 	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "20dp"
+            fontSize: "24dp",
+            fontFamily: "Nunito-Bold"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '17dp'
+},
+".menu-icon-button[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+            fontSize: "24dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	top: '25dp'
 },
 "#contactUsInfoView[if=Alloy.Globals.iPhoneSix]": {
 	layout: 'vertical',
@@ -277,6 +304,14 @@
         },
 	color: "#1BA7CD"
 },
+".menu-icon-button[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+            fontSize: "22dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	//top: '25dp'
+},
 "#contactUsInfoView[if=Alloy.Globals.iPhoneSixPlus]": {
 	layout: 'vertical',
 	width: '92%',
@@ -354,6 +389,14 @@
             fontSize: "20dp"
         },
 	color: "#1BA7CD"
+},
+".menu-icon-button[if=Alloy.Globals.android]": {
+	font: {
+            fontSize: "24dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	//top: '25dp'
 },
 "#contactUsInfoView[if=Alloy.Globals.android]": {
 	layout: 'vertical',

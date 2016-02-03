@@ -59,6 +59,13 @@
         },
 	color: "#1BA7CD"
 },
+".menu-icon-button[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD",
+	//top: '25dp'
+},
 
 
 
@@ -105,6 +112,13 @@
         },
 	color: "#1BA7CD"
 },
+".menu-icon-button[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+            fontSize: "18dp"
+        },
+	color: "#1BA7CD",
+	//top: '25dp'
+},
 
 
 
@@ -144,18 +158,27 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "20dp",
+		fontSize: "24dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 "#searchContactsView[if=Alloy.Globals.iPhoneSix]": {
 	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "20dp"
+            fontSize: "24dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '20dp'
+},
+".menu-icon-button[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+            fontSize: "24dp"
+        },
+	color: "#1BA7CD",
+	top: '25dp'
 },
 
 
@@ -204,6 +227,13 @@
             fontSize: "22dp"
         },
 	color: "#1BA7CD"
+},
+".menu-icon-button[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+            fontSize: "22dp"
+        },
+	color: "#1BA7CD",
+	//top: '25dp'
 },
 
 
@@ -255,8 +285,10 @@
         },
 	color: "#1BA7CD"
 },
-
-
-"#searchUserButton": {
-	color:"yellow"
-}
+".menu-icon-button[if=Alloy.Globals.android]": {
+	font: {
+            fontSize: "20dp"
+        },
+	color: "#1BA7CD",
+	//top: '25dp'
+},

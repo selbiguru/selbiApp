@@ -201,9 +201,11 @@
 }
 ".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "15dp"
+            fontSize: "18dp",
+            fontFamily: "Nunito-Bold"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '20dp'
 },
 "#titleVerifyAddressView[if=Alloy.Globals.iPhoneSix]": {
 	width: "215dp",
@@ -212,9 +214,10 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "20dp",
+		fontSize: "24dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 "#cancelAddress[if=Alloy.Globals.iPhoneSix]": {
 	left: "10dp",
