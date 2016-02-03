@@ -8,10 +8,14 @@ var indicator = require('uielements/indicatorwindow');
 var	previewListing,
 	views = [],
 	itemData,
-	images;
+	images,
+	previewImageCollection = [];
 var ccEligible = false,
 	bankEligible = false;
 $.activityIndicator.show();
+
+
+
 function initialize() {
 	if(args.itemId){
 		console.log('+++++++++++',ccEligible, bankEligible);
@@ -98,6 +102,10 @@ function populateViewListing(listingData) {
 			image: previewListing ? images[img].resizedImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.listingView + Alloy.CFG.cloudinary.bucket + images[img]
 		});
 		
+		if(previewListing) {
+			previewImageCollection.push(images[img].resizedImage);
+		};
+		
 		views.push(carouselImage);
 	}
 	$.imageGallery.views = views;	
@@ -118,7 +126,7 @@ function saveListing() {
 	indicatorWindow.openIndicator();
 	listingManager.createListing(args, function(err, saveResult) {
 		if (saveResult) {
-			listingManager.uploadImagesForListing(saveResult.id, args.images, function(err, imgUrls) {
+			listingManager.uploadImagesForListing(saveResult.id, previewImageCollection, function(err, imgUrls) {
 				if (imgUrls && imgUrls.length > 0) {
 					delete saveResult.rev;
 					saveResult.imageUrls = imgUrls;
