@@ -97,10 +97,11 @@ function previewListing(){
 	if(!$.title.value || !$.description.value || !$.price.value || imageCollection.length < 1) {
     	helpers.alertUser('Empty Fields', 'Please make sure all fields are filled out including adding some images!');
     	return;
-	} 
+	}
 	var validateTitle = (helpers.capFirstLetter(helpers.trim($.title.value, false))).match(/^[a-z\d-\/:;()$&@".,\?!'\[\]{}#^*+=_\\|~<> ]+$/gi);
 	var validateDescription = (helpers.capFirstLetter(helpers.trim($.description.value, false))).match(/^[a-z\d-\/:;()$&@".,\?!'\[\]{}#^*+=_\\|~<>\n \t]+$/gi);
-	var validatedPrice = $.price.value.match(/^[\d,.]+$/g);
+	var validatedPrice = $.price.value.replace(/[^\d,.]+/g,"");
+		validatedPrice = validatedPrice.match(/^[\d,.]+$/g);
 	if(!validateTitle) {
 		helpers.alertUser('Invalid Title','Please enter valid characters only.');
 		return;
