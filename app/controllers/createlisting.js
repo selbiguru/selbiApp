@@ -6,6 +6,7 @@ var indicator = require('uielements/indicatorwindow');
 var helpers = require('utilities/helpers');
 var pickerRowFont;
 var imageCollection = [];
+var count = 1;
 var categoryArray = ['Electronics', 'Menswear', 'Womenswear', 'Sports & Outdoors', 'Music', 'Furniture', 'Jewelry', 'Games & Toys', 'Automotive', 'Baby & Kids', 'Appliances', 'Other'];
 
 
@@ -51,10 +52,12 @@ function showCamera() {
 	Titanium.Media.showCamera({
 
 		saveToPhotoGallery : true,
-		allowEditing : false,
-		autohide : false, //Important!
+		allowEditing : true,
+		mediaTypes:[Ti.Media.MEDIA_TYPE_PHOTO],
+		autohide : true, //Important!
 
 		success : function(event) {
+			//Titanium.Media.hideCamera();
 			if(imageCollection.length < 2 ) {
 				createImageView(event.media);
 			}
@@ -171,6 +174,17 @@ function previewListing(){
 
 
 
+function findIndexByKeyValue(obj, key, value)
+{
+    for (var i = 0; i < obj.length; i++) {
+        if (obj[i][key] == value) {
+            return i;
+        }
+    }
+    return null;
+}
+
+
 /*----------------------------------------------------Event Listeners--------------------------------------------------------*/
 
 
@@ -275,7 +289,8 @@ function createImageView(media) {
 		color: "#EAEAEA",
 		font: {
 			fontSize: deleteIconFontSize
-		}
+		},
+		data: count
 	});
 	$.fa.add(deleteIcon, "fa-times");
 	thumbnailView.add(deleteIcon);
@@ -283,13 +298,19 @@ function createImageView(media) {
 	$.imgView.add(thumbnailView);
 	var imagePercent = (media.width/media.height).toFixed(2);
 	var resizedImage = media.imageAsResized(imagePercent*650, 650);
-	imageCollection.push(resizedImage);
+	var imageData = {
+		resizedImage: resizedImage,
+		idx: count
+	};
+	imageCollection.push(imageData);
 	
 	deleteIcon.addEventListener('click', function(e) {
+		var idxValue = findIndexByKeyValue(imageCollection, 'idx', e.source.data);
 		$.imgView.remove(thumbnailView);
 		var index = imageCollection.indexOf(media);
-		imageCollection.splice(index, 1);
+		imageCollection.splice(idxValue, 1);
 	});
+	count++;
 	return;
 };
 

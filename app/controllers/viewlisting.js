@@ -7,7 +7,8 @@ var helpers = require('utilities/helpers');
 var indicator = require('uielements/indicatorwindow');
 var	previewListing,
 	views = [],
-	itemData;
+	itemData,
+	images;
 var ccEligible = false,
 	bankEligible = false;
 $.activityIndicator.show();
@@ -63,7 +64,7 @@ function openListing(listingIDs){
  */	
 function populateViewListing(listingData) {
 	var profileImageUrl = '',
-		price, firstName, lastName, images;	
+		price, firstName, lastName;	
 	previewListing ? firstName = Alloy.Globals.currentUser.attributes.firstName : firstName = listingData.user.firstName;
 	previewListing ? lastName = Alloy.Globals.currentUser.attributes.lastName : lastName = listingData.user.lastName;
 	previewListing ? images = listingData.images : images = listingData.imageUrls;
@@ -94,7 +95,7 @@ function populateViewListing(listingData) {
 		var carouselImage = ImageUtils.Utils.RemoteImage({
 			height: Ti.UI.FILL,
 			width: Ti.UI.FILL,
-			image: previewListing ? images[img] : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.listingView + Alloy.CFG.cloudinary.bucket + images[img]
+			image: previewListing ? images[img].resizedImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.listingView + Alloy.CFG.cloudinary.bucket + images[img].resizedImage
 		});
 		
 		views.push(carouselImage);
