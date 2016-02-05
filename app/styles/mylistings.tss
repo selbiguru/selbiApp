@@ -57,6 +57,15 @@
         },
 	color: "#1BA7CD"
 },
+/*"#myListingsButtonBackIcon[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "24dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	top: '20dp',
+	left: '15dp'
+},*/
 "#titleMyListingsView[if=Alloy.Globals.iPhoneFour]": {
 	width: "180dp"
 },
@@ -116,6 +125,15 @@
         },
 	color: "#1BA7CD"
 },
+/*"#myListingsButtonBackIcon[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+            fontSize: "24dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	top: '20dp',
+	left: '15dp'
+},*/
 "#titleMyListingsView[if=Alloy.Globals.iPhoneFive]": {
 	width: "180dp"
 },
@@ -174,7 +192,8 @@
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '25dp'
+	top: '25dp',
+	left: '17dp'
 },
 "#myListingsButtonBackIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
@@ -182,7 +201,8 @@
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '20dp'
+	top: '20dp',
+	left: '15dp'
 },
 "#titleMyListingsView[if=Alloy.Globals.iPhoneSix]": {
 	width: "205dp"
@@ -242,6 +262,15 @@
         },
 	color: "#1BA7CD"
 },
+/*"#myListingsButtonBackIcon[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+            fontSize: "24dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	top: '20dp',
+	left: '15dp'
+},*/
 "#titleMyListingsView[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: "244dp"
 },
@@ -299,6 +328,15 @@
         },
 	color: "#1BA7CD"
 },
+/*"#myListingsButtonBackIcon[if=Alloy.Globals.android]": {
+	font: {
+            fontSize: "24dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	top: '20dp',
+	left: '15dp'
+},*/
 "#titleMyListingsView[if=Alloy.Globals.android]": {
 	width: "221dp"
 },
