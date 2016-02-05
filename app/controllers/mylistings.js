@@ -26,30 +26,35 @@ switch(Alloy.Globals.userDevice) {
         myListingItemHeight = 45;
         myListingFontSize = '12dp';
         myTopBarFontSize = '13dp';
+        friendIconTop = '15dp';
         break;
     case 1: //iphoneFive
         myListingPadding = 7;
         myListingItemHeight = 45;
         myListingFontSize = '12dp';
         myTopBarFontSize = '13dp';
+        friendIconTop = '15dp';
         break;
     case 2: //iphoneSix
         myListingPadding = 10;
         myListingItemHeight = 49;
         myListingFontSize = '14dp';
-        myTopBarFontSize = '15dp';
+        myTopBarFontSize = '16dp';
+        friendIconTop = '15dp';
         break;
     case 3: //iphoneSixPlus
         myListingPadding = 13;
         myListingItemHeight = 49;
         myListingFontSize = '15dp';
         myTopBarFontSize = '16dp';
+        friendIconTop = '15dp';
         break;
     case 4: //android currently same as iphoneSix
         myListingPadding = 10;
         myListingItemHeight = 47;
         myListingFontSize = '14dp';
         myTopBarFontSize = '15dp';
+        friendIconTop = '15dp';
         break;
 };
 
@@ -224,6 +229,7 @@ function friendRequest() {
 	$.friendRequestView.add(hiddenView);
 	if(argsFriend.length > 0 && (argsFriend[0].status === 'approved' || (argsFriend[0].status === 'pending' && argsFriend[0].userFrom === Ti.App.Properties.getString('userId')) ) ) {
 		var checkSquare = Titanium.UI.createLabel({
+			top: friendIconTop,
 			font: {
             	fontSize: myTopBarFontSize
         	},
@@ -236,6 +242,7 @@ function friendRequest() {
 		hiddenView.add(checkSquare);
 	} else {
 		var plusSquare = Titanium.UI.createLabel({
+			top: friendIconTop,
 			font: {
 	            fontSize: myTopBarFontSize
 	        },
@@ -284,6 +291,7 @@ function friendRequestDynamic(e, newStatus){
 				return;
 			} else {
 				var checkSquare = Ti.UI.createLabel({
+					top: friendIconTop,
 					font: {
 		            	fontSize: myTopBarFontSize
 		        	},
@@ -303,6 +311,7 @@ function friendRequestDynamic(e, newStatus){
 				return;
 			} else {
 				var plusSquare = Ti.UI.createLabel({
+					top: friendIconTop,
 					font: {
 			            fontSize: myTopBarFontSize
 			        },
@@ -322,6 +331,7 @@ function friendRequestDynamic(e, newStatus){
 				return;
 			} else {
 				var checkSquare = Ti.UI.createLabel({
+					top: friendIconTop,
 					font: {
 		            	fontSize: myTopBarFontSize
 		        	},
