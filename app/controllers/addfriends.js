@@ -593,15 +593,17 @@ function determineStatus(invitation) {
 	}
 };
 
-
 /**
- * @method openContacts 
- * Opens contacts page so user can add contacts and send their friends sms requests to join Selbi if not already on Selbi
+ * @private backButton 
+ *  Closes the current view and opens the previous view by reloading it to update for changes.
+ *  
  */
-function openContacts(){
+function backButton() {
 	Alloy.Globals.openPage('contacts');
 	Alloy.Globals.closePage('addfriends');
-}
+};
+
+
 /*----------------------------------------------Dynamic Elements---------------------------------------------*/
 
 switch(Alloy.Globals.userDevice) {

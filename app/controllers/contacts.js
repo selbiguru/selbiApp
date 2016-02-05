@@ -512,15 +512,6 @@ function determineStatus(invitation) {
 };
 
 
-/**
- * @private backButton 
- *  Closes the current view and opens the previous view by reloading it to update for changes.
- *  
- */
-function backButton() {
-	Alloy.Globals.openPage('addfriends');
-	Alloy.Globals.closePage('contacts');
-};
 
 
 /**
@@ -531,6 +522,17 @@ function backButton() {
 function inviteNewContact(data){
 	Ti.Platform.openURL('sms://'+data.newNumber);
 	return;
+}
+
+
+
+/**
+ * @method openFriends 
+ * Opens addFriends page so user can add friends and accept pending friends on Selbi
+ */
+function openFriends(){
+	Alloy.Globals.openPage('addfriends');
+	Alloy.Globals.closePage('contacts');
 }
 /*----------------------------------------------Dynamic Elements---------------------------------------------*/
 

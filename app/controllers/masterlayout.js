@@ -43,7 +43,7 @@ var viewList = {
 	"row3": 'friendslistings',
 	"row4": 'selbiusa',
 	"row5": 'mylistings',
-	"row6": 'addfriends',
+	"row6": 'contacts',
 	"row7": 'settings'
 };
 
@@ -51,7 +51,7 @@ var listings = ['row3', 'row4', 'row5'];
 
 var secondaryPages = ['aboutUs', 'addBankAccount', 'addCreditCard', 'addressgooglemap',
 					 'faq', 'invitefriends', 'payment', 'phoneVerify', 'verifyaddress',
-					 'viewlisting', 'contactUs', 'settings', 'contacts'
+					 'viewlisting', 'contactUs', 'settings', 'addfriends'
 					];
 
 

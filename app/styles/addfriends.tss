@@ -34,7 +34,7 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.iPhoneFour]":{
+"#backViewButton[if=Alloy.Globals.iPhoneFour]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
@@ -50,21 +50,11 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-"#searchContactsView[if=Alloy.Globals.iPhoneFour]": {
-	width: '60dp'
-},
 ".icon-buttons[if=Alloy.Globals.iPhoneFour]": {
 	font: {
             fontSize: "18dp"
         },
 	color: "#1BA7CD"
-},
-".menu-icon-button[if=Alloy.Globals.iPhoneFour]": {
-	font: {
-            fontSize: "18dp"
-        },
-	color: "#1BA7CD",
-	//top: '25dp'
 },
 
 
@@ -87,7 +77,7 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.iPhoneFive]":{
+"#backViewButton[if=Alloy.Globals.iPhoneFive]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
@@ -103,21 +93,11 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-"#searchContactsView[if=Alloy.Globals.iPhoneFive]": {
-	width: '60dp'
-},
 ".icon-buttons[if=Alloy.Globals.iPhoneFive]": {
 	font: {
             fontSize: "18dp"
         },
 	color: "#1BA7CD"
-},
-".menu-icon-button[if=Alloy.Globals.iPhoneFive]": {
-	font: {
-            fontSize: "18dp"
-        },
-	color: "#1BA7CD",
-	//top: '25dp'
 },
 
 
@@ -146,7 +126,7 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.iPhoneSix]":{
+"#backViewButton[if=Alloy.Globals.iPhoneSix]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
@@ -163,17 +143,7 @@
 	},
 	top: '20dp'
 },
-"#searchContactsView[if=Alloy.Globals.iPhoneSix]": {
-	width: '60dp'
-},
 ".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
-	font: {
-            fontSize: "24dp"
-        },
-	color: "#1BA7CD",
-	top: '20dp'
-},
-".menu-icon-button[if=Alloy.Globals.iPhoneSix]": {
 	font: {
             fontSize: "24dp"
         },
@@ -203,7 +173,7 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
+"#backViewButton[if=Alloy.Globals.iPhoneSixPlus]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
@@ -219,21 +189,11 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-"#searchContactsView[if=Alloy.Globals.iPhoneSixPlus]": {
-	width: '60dp'
-},
 ".icon-buttons[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
             fontSize: "22dp"
         },
 	color: "#1BA7CD"
-},
-".menu-icon-button[if=Alloy.Globals.iPhoneSixPlus]": {
-	font: {
-            fontSize: "22dp"
-        },
-	color: "#1BA7CD",
-	//top: '25dp'
 },
 
 
@@ -260,7 +220,7 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.android]":{
+"#backViewButton[if=Alloy.Globals.android]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
@@ -276,19 +236,9 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-"#searchContactsView[if=Alloy.Globals.android]": {
-	width: '60dp'
-},
 ".icon-buttons[if=Alloy.Globals.android]": {
 	font: {
             fontSize: "20dp"
         },
 	color: "#1BA7CD"
-},
-".menu-icon-button[if=Alloy.Globals.android]": {
-	font: {
-            fontSize: "20dp"
-        },
-	color: "#1BA7CD",
-	//top: '25dp'
-},
+}

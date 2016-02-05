@@ -34,7 +34,7 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#backViewButton[if=Alloy.Globals.iPhoneFour]":{
+"#menuButton[if=Alloy.Globals.iPhoneFour]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
@@ -52,6 +52,17 @@
 },
 "#sendEmailView[if=Alloy.Globals.iPhoneFour]": {
 	width: '60dp'
+},
+"#addFriendsView[if=Alloy.Globals.iPhoneFour]": {
+	width: '60dp'
+},
+".menu-icon-button[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "24dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	//top: '25dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneFour]": {
 	font: {
@@ -80,7 +91,7 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#backViewButton[if=Alloy.Globals.iPhoneFive]":{
+"#menuButton[if=Alloy.Globals.iPhoneFive]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
@@ -98,6 +109,17 @@
 },
 "#sendEmailView[if=Alloy.Globals.iPhoneFive]": {
 	width: '60dp'
+},
+"#addFriendsView[if=Alloy.Globals.iPhoneFive]": {
+	width: '60dp'
+},
+".menu-icon-button[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+            fontSize: "24dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	//top: '25dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneFive]": {
 	font: {
@@ -132,7 +154,7 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#backViewButton[if=Alloy.Globals.iPhoneSix]":{
+"#menuButton[if=Alloy.Globals.iPhoneSix]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
@@ -152,13 +174,24 @@
 "#sendEmailView[if=Alloy.Globals.iPhoneSix]": {
 	width: '60dp'
 },
-".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
+"#addFriendsView[if=Alloy.Globals.iPhoneSix]": {
+	width: '60dp'
+},
+".menu-icon-button[if=Alloy.Globals.iPhoneSix]": {
 	font: {
             fontSize: "24dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
 	top: '25dp'
+},
+".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+            fontSize: "24dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	top: '19dp'
 },
 
 
@@ -183,7 +216,7 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#backViewButton[if=Alloy.Globals.iPhoneSixPlus]":{
+"#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
@@ -202,26 +235,22 @@
 "#sendEmailView[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: '60dp'
 },
+"#addFriendsView[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: '60dp'
+},
+".menu-icon-button[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+            fontSize: "24dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	//top: '25dp'
+},
 ".icon-buttons[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
             fontSize: "22dp"
         },
 	color: "#1BA7CD"
-},
-"#addFriendsSearchView[if=Alloy.Globals.iPhoneSixPlus]": {
-	//layout: "horizontal",
-	height: Ti.UI.SIZE,
-	width: '388dp',
-	top: '10dp',
-	bottom: '10dp'
-},
-".dark-underline": {
-	height: "1dp",
-	//bottom: "1dp",
-	top: '51dp',
-	left: '15dp',
-	backgroundColor:"#9B9B9B",
-	width: Ti.UI.FILL
 },
 
 
@@ -249,7 +278,7 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#backViewButton[if=Alloy.Globals.android]":{
+"#menuButton[if=Alloy.Globals.android]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
@@ -267,6 +296,17 @@
 },
 "#sendEmailView[if=Alloy.Globals.android]": {
 	width: '60dp'
+},
+"#addFriendsView[if=Alloy.Globals.android]": {
+	width: '60dp'
+},
+".menu-icon-button[if=Alloy.Globals.android]": {
+	font: {
+            fontSize: "24dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	//top: '25dp'
 },
 ".icon-buttons[if=Alloy.Globals.android]": {
 	font: {
