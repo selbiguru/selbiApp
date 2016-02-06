@@ -327,7 +327,7 @@ function createPreviewButtons() {
 		right: '0dp',
 		textAlign: 'center',
 		backgroundColor: '#1BA7CD',
-		color: '#fff',
+		color: '#FFF',
 		font: {
 			fontSize: buttonFontSize,
 			fontFamily: "Nunito-Light"
@@ -407,11 +407,11 @@ function createPurchasingButtons() {
 	var archiveListing = archiveItem;
 	console.log("argsid ", args.userId, "tiID ",Ti.App.Properties.getString('userId'));
 	if(args.userId === Ti.App.Properties.getString('userId') && itemData.isSold ) {
-		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, '#127089', 'Slide to Archive', true, archiveListing);
+		createActionButton(buttonHeight, buttonWidth, buttonFontSize, '#127089', 'Archive Listing', true, 'Are you sure you want to Archive this listing!', archiveListing);
 	} else if(args.userId === Ti.App.Properties.getString('userId')) {
-		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Slide to Delete', true, deleteListing);
+		createActionButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Delete Listing', true, 'Are you sure you want to Delete this listing!', deleteListing);
 	} else {
-		createSlideButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Slide to Buy', ccEligible, purchaseListing);
+		createActionButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Buy Item', ccEligible, 'Are you sure you want to Purchase this item!', purchaseListing);
 	}
 	return;
 }
@@ -420,6 +420,133 @@ function createPurchasingButtons() {
 
 
 /**
+ * @private createActionButton
+ * Create an action button that on 'click' calls an API route to either purchase, archive, or delete and item
+ * @param {String} height Height of button
+ * @param {Number} width Width of button 
+ * @param {String} fontSize FontSize of text
+ * @param {String} background BackgroundColor hex you want the button
+ * @param {String} text Text string you want on the button
+ * @param {Boolean} ccEligible Boolean to know if the user has a CC saved and can thus purchase items
+ * @param {String} alert Text string for the confirmation alert box
+ * @param {Function} apiSupport APISupport is the function passed in that determines the proper API route to hit
+ */
+function createActionButton(height, width, fontSize, background, text, ccEligible, alert, apiSupport){
+	var actionButton = Ti.UI.createButton({
+		bottom:'20dp',
+		right: '0dp',
+		height: height,
+		width: width,
+		title: text,
+		backgroundColor: background,
+		color: '#FFF',
+		font: {
+			fontSize: fontSize,
+			fontFamily: "Nunito-Light"
+		},
+		layout: 'composite'
+	});
+
+	$.viewListingButtonView.add(actionButton);
+
+	actionButton.addEventListener('click', function(e){
+		if(ccEligible) {
+			helpers.confirmAction('Confirm!', alert, function(err, response){
+				response.show();
+				response.addEventListener('click', function(e){
+					if (e.index === 0){
+						return;
+					} else {
+						apiSupport(e);
+					}
+				});
+			});	
+		} else {
+			helpers.alertUser('No go!','Before you can purchase items you need to add a credit card in \'Payment\' and address in \'Edit Profile\' under Settings!');
+		}
+	});
+	return actionButton;
+}
+
+
+/**
+ * @private createDeleteButton
+ * Dynamically creates a delete listing button to delete a user listing from the Database
+ */
+function createDeleteButton() {
+	var buttonHeight, buttonFontSize;
+	switch(Alloy.Globals.userDevice) {
+	    case 0: //iphoneFour
+			buttonHeight = '40dp';
+			buttonFontSize = '14dp';
+	        break;
+	    case 1: //iphoneFive
+	        buttonHeight = '45dp';
+	        buttonFontSize = '16dp';
+	        break;
+	    case 2: //iphoneSix
+	        buttonHeight = '55dp';
+	        buttonFontSize = '18dp';
+	        break;
+	    case 3: //iphoneSixPlus
+	        buttonHeight = '55dp';
+	        buttonFontSize = '20dp';
+	        break;
+	    case 4: //android currently same as iphoneSix
+	        buttonHeight = '55dp';
+	        buttonFontSize = '18dp';
+	        break;
+	};
+
+	var deleteListingButton = Ti.UI.createButton({
+		width: '49%',
+		height: buttonHeight,
+		bottom: '20dp',
+		left: '0dp',
+		textAlign: 'center',
+		backgroundColor: '#c10404',
+		color: '#FFF',
+		borderColor: "#9B9B9B",
+		font: {
+			fontSize: buttonFontSize,
+			fontFamily: "Nunito-Light"
+		},
+		title: 'Delete Listing'
+	});
+
+	$.viewListingButtonView.add(deleteListingButton);
+	
+	deleteListingButton.addEventListener('click', function(e) {
+		//deleteListingButton();
+		console.log("INSIDE DELETE!!!!!!!!");
+	});
+	return;
+}
+
+
+
+/*----------------------------------------------On page load API calls---------------------------------------------*/
+
+
+
+paymentManager.getPaymentMethods(function(err, results){
+	if(results.userPaymentMethod.lastFour && Alloy.Globals.currentUser.attributes.address) {
+		ccEligible = true;
+	}
+	if(results.userMerchant.accountNumberLast4 && Alloy.Globals.currentUser.attributes.address) {
+		bankEligible = true;
+	}
+	initialize();
+});
+
+
+
+
+
+
+
+/*
+ * /**
  * @private createSlideButton
  * Create a sliding button that on 'touchend' calls an API route
  * @param {String} height Height of button
@@ -430,7 +557,7 @@ function createPurchasingButtons() {
  * @param {Boolean} ccEligible Boolean to know if the user has a CC saved and can thus purchase items
  * @param {Function} apiSupport APISupport is the function passed in that determines the proper API route to hit
  */
-function createSlideButton(height, width, fontSize, background, text, ccEligible, apiSupport){
+/*function createSlideButton(height, width, fontSize, background, text, ccEligible, apiSupport){
 	var sliderView = Ti.UI.createView({
 		bottom:'20dp',
 		right: '0dp',
@@ -490,75 +617,4 @@ function createSlideButton(height, width, fontSize, background, text, ccEligible
 		sliderButton.animate({center:{x:(sliderView.getLeft()+sliderButton.getWidth()/2),y:0}, duration: 500});
 	});
 	return sliderButton;
-}
-
-
-/**
- * @private createDeleteButton
- * Dynamically creates a delete listing button to delete a user listing from the Database
- */
-function createDeleteButton() {
-	var buttonHeight, buttonFontSize;
-	switch(Alloy.Globals.userDevice) {
-	    case 0: //iphoneFour
-			buttonHeight = '40dp';
-			buttonFontSize = '14dp';
-	        break;
-	    case 1: //iphoneFive
-	        buttonHeight = '45dp';
-	        buttonFontSize = '16dp';
-	        break;
-	    case 2: //iphoneSix
-	        buttonHeight = '55dp';
-	        buttonFontSize = '18dp';
-	        break;
-	    case 3: //iphoneSixPlus
-	        buttonHeight = '55dp';
-	        buttonFontSize = '20dp';
-	        break;
-	    case 4: //android currently same as iphoneSix
-	        buttonHeight = '55dp';
-	        buttonFontSize = '18dp';
-	        break;
-	};
-
-	var deleteListingButton = Ti.UI.createButton({
-		width: '49%',
-		height: buttonHeight,
-		bottom: '20dp',
-		left: '0dp',
-		textAlign: 'center',
-		backgroundColor: '#c10404',
-		color: '#fff',
-		borderColor: "#9B9B9B",
-		font: {
-			fontSize: buttonFontSize,
-			fontFamily: "Nunito-Light"
-		},
-		title: 'Delete Listing'
-	});
-
-	$.viewListingButtonView.add(deleteListingButton);
-	
-	deleteListingButton.addEventListener('click', function(e) {
-		//deleteListingButton();
-		console.log("INSIDE DELETE!!!!!!!!");
-	});
-	return;
-}
-
-
-
-/*----------------------------------------------On page load API calls---------------------------------------------*/
-
-
-
-paymentManager.getPaymentMethods(function(err, results){
-	if(results.userPaymentMethod.lastFour && Alloy.Globals.currentUser.attributes.address) {
-		ccEligible = true;
-	}
-	if(results.userMerchant.accountNumberLast4 && Alloy.Globals.currentUser.attributes.address) {
-		bankEligible = true;
-	}
-	initialize();
-});
+}*/

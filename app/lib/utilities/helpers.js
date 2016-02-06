@@ -235,3 +235,28 @@ exports.alertUser = function(alertTitle, alertMessage) {
 
 
 
+
+/**
+ * @method confirmAction
+ * Sends an alert to the user's phone
+ * @param {String} alertTitle Title you want in the alert shown to the user
+ * @param {String} alertMessage Message you want in the alert shown to the user
+ * @param {Function} callback
+ */
+exports.confirmAction = function(alertTitle, alertMessage, callback) {
+	var userMessage = alertMessage;
+	if(alertMessage[0] === '"' && alertMessage[alertMessage.length-1] === '"') {
+		userMessage = userMessage.slice(1, -1);
+	}
+    var a = Titanium.UI.createAlertDialog({
+        	title : alertTitle,
+        	cancel: 1,
+    		buttonNames: ['Cancel', 'Confirm'],
+    });
+	a.setMessage(userMessage);
+	callback(null, a);
+	return;
+};
+
+
+
