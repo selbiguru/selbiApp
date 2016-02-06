@@ -46,7 +46,7 @@ switch(Alloy.Globals.userDevice) {
         myListingPadding = 13;
         myListingItemHeight = 49;
         myListingFontSize = '15dp';
-        myTopBarFontSize = '16dp';
+        myTopBarFontSize = '18dp';
         friendIconTop = '15dp';
         break;
     case 4: //android currently same as iphoneSix

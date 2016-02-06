@@ -88,9 +88,9 @@
 	height: Ti.UI.FILL
 },
 "#sellerImage[if=Alloy.Globals.iPhoneFour]": {
-	top: '5dp',
-	height: "40dp",
-	borderRadius: '20dp'
+	top: '2dp',
+	height: "45dp",
+	borderRadius: '23dp'
 },
 "#sellerName[if=Alloy.Globals.iPhoneFour]": {
 	height: Ti.UI.FILL,
@@ -209,9 +209,9 @@
 	height: Ti.UI.FILL
 },
 "#sellerImage[if=Alloy.Globals.iPhoneFive]": {
-	top: '5dp',
-	height: "40dp",
-	borderRadius: '20dp'
+	top: '2dp',
+	height: "45dp",
+	borderRadius: '23dp'
 },
 "#sellerName[if=Alloy.Globals.iPhoneFive]": {
 	height: Ti.UI.FILL,
@@ -456,9 +456,9 @@
 	height: Ti.UI.FILL
 },
 "#sellerImage[if=Alloy.Globals.iPhoneSixPlus]": {
-	top: '5dp',
-	height: "50dp",
-	borderRadius: '25dp'
+	top: '2dp',
+	height: "55dp",
+	borderRadius: '28dp'
 },
 "#sellerName[if=Alloy.Globals.iPhoneSixPlus]": {
 	height: Ti.UI.FILL,
