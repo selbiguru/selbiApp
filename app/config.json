@@ -8,10 +8,30 @@
             "bucket": "v1433472934/"
         },
         "imageSize": {
-            "menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
-            "listingView": "h_450,w_450,fl_progressive/",
-            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
-            "friendlistView": "w_450,c_fill,fl_progressive/",
+        	"iPhoneFour": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+        	"iPhoneFive": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+        	"iPhoneSix": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+        	"iPhoneSixPlus": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
             "intro": [
                 "w_380/v1433472934/intro_1",
                 "w_380/v1433472934/intro_2",
@@ -31,12 +51,216 @@
             "consumerKey": "ezdL8s4bigBRCk5sHpXBINP9R"
         }
     },
-    "env:test": {},
-    "env:production": {},
-    "os:android": {},
-    "os:blackberry": {},
-    "os:ios": {},
-    "os:mobileweb": {},
+    "env:test": {
+    	"cloudinary": {
+            "baseurl": "https://api.cloudinary.com/v1_1/selbi",
+            "apikey": "379521277533334",
+            "baseImagePath": "http://res.cloudinary.com/selbi/image/upload/",
+            "bucket": "v1433472934/"
+        },
+        "imageSize": {
+        	"iPhoneFour": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+        	"iPhoneFive": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+        	"iPhoneSix": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+        	"iPhoneSixPlus": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+            "intro": [
+                "w_380/v1433472934/intro_1",
+                "w_380/v1433472934/intro_2",
+                "w_380/v1433472934/intro_3"
+		      ],
+		      "venmoBlue": "v1440562773/assets/venmo_logo_blue.png",
+		      "venmoWhite": "v1440562889/assets/venmo_logo_white.png",
+		      "venmoBlack": "v1440562889/assets/venmo_logo_monotone.png",
+		      "exampleCheck": "v1441916794/assets/blank_check.png"
+        },
+        "keychain": {
+            "account": "serveraccount",
+            "password": "D1QTSJ65T86w"
+        },
+        "twitter": {
+            "consumerSecret": "RY7mguhRKkl74HyrIlk5CGfWiUz7VXtftoM6jFGdJLm69BlZbC",
+            "consumerKey": "ezdL8s4bigBRCk5sHpXBINP9R"
+        }
+    },
+    "env:production": {
+    	"cloudinary": {
+            "baseurl": "https://api.cloudinary.com/v1_1/selbi",
+            "apikey": "379521277533334",
+            "baseImagePath": "http://res.cloudinary.com/selbi/image/upload/",
+            "bucket": "v1433472934/"
+        },
+        "imageSize": {
+        	"iPhoneFour": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+        	"iPhoneFive": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+        	"iPhoneSix": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+        	"iPhoneSixPlus": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+            "intro": [
+                "w_380/v1433472934/intro_1",
+                "w_380/v1433472934/intro_2",
+                "w_380/v1433472934/intro_3"
+		      ],
+		      "venmoBlue": "v1440562773/assets/venmo_logo_blue.png",
+		      "venmoWhite": "v1440562889/assets/venmo_logo_white.png",
+		      "venmoBlack": "v1440562889/assets/venmo_logo_monotone.png",
+		      "exampleCheck": "v1441916794/assets/blank_check.png"
+        },
+        "keychain": {
+            "account": "serveraccount",
+            "password": "D1QTSJ65T86w"
+        },
+        "twitter": {
+            "consumerSecret": "RY7mguhRKkl74HyrIlk5CGfWiUz7VXtftoM6jFGdJLm69BlZbC",
+            "consumerKey": "ezdL8s4bigBRCk5sHpXBINP9R"
+        }
+    },
+    "os:android": {
+    	
+    },
+    "os:blackberry": {
+    
+    },
+    "os:ios": {
+    	"cloudinary": {
+            "baseurl": "https://api.cloudinary.com/v1_1/selbi",
+            "apikey": "379521277533334",
+            "baseImagePath": "http://res.cloudinary.com/selbi/image/upload/",
+            "bucket": "v1433472934/"
+        },
+        "imageSize": {
+        	"iPhoneFour": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+        	"iPhoneFive": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+        	"iPhoneSix": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+        	"iPhoneSixPlus": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+            "intro": [
+                "w_380/v1433472934/intro_1",
+                "w_380/v1433472934/intro_2",
+                "w_380/v1433472934/intro_3"
+		      ],
+		      "venmoBlue": "v1440562773/assets/venmo_logo_blue.png",
+		      "venmoWhite": "v1440562889/assets/venmo_logo_white.png",
+		      "venmoBlack": "v1440562889/assets/venmo_logo_monotone.png",
+		      "exampleCheck": "v1441916794/assets/blank_check.png"
+        },
+        "keychain": {
+            "account": "serveraccount",
+            "password": "D1QTSJ65T86w"
+        },
+        "twitter": {
+            "consumerSecret": "RY7mguhRKkl74HyrIlk5CGfWiUz7VXtftoM6jFGdJLm69BlZbC",
+            "consumerKey": "ezdL8s4bigBRCk5sHpXBINP9R"
+        }
+    },
+    "os:mobileweb": {
+    	"cloudinary": {
+            "baseurl": "https://api.cloudinary.com/v1_1/selbi",
+            "apikey": "379521277533334",
+            "baseImagePath": "http://res.cloudinary.com/selbi/image/upload/",
+            "bucket": "v1433472934/"
+        },
+        "imageSize": {
+        	"iPhoneFour": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+        	"iPhoneFive": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+        	"iPhoneSix": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+        	"iPhoneSixPlus": {
+        		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
+	            "listingView": "h_300,w_356,c_fill,fl_progressive/",
+	            "mylistView": "h_200,w_200,c_fill,fl_progressive/",
+	            "friendlistView": "w_450,c_fill,fl_progressive/"
+        	},
+            "intro": [
+                "w_380/v1433472934/intro_1",
+                "w_380/v1433472934/intro_2",
+                "w_380/v1433472934/intro_3"
+		      ],
+		      "venmoBlue": "v1440562773/assets/venmo_logo_blue.png",
+		      "venmoWhite": "v1440562889/assets/venmo_logo_white.png",
+		      "venmoBlack": "v1440562889/assets/venmo_logo_monotone.png",
+		      "exampleCheck": "v1441916794/assets/blank_check.png"
+        },
+        "keychain": {
+            "account": "serveraccount",
+            "password": "D1QTSJ65T86w"
+        },
+        "twitter": {
+            "consumerSecret": "RY7mguhRKkl74HyrIlk5CGfWiUz7VXtftoM6jFGdJLm69BlZbC",
+            "consumerKey": "ezdL8s4bigBRCk5sHpXBINP9R"
+        }
+    },
     "dependencies": {
         "com.alcoapps.drawermenu": "1.0",
         "com.mattmcfarland.fontawesome": "1.4.1",
