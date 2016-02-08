@@ -10,6 +10,7 @@
         "imageSize": {
         	"iPhoneFour": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:30/",
 	            "listingView": "h_215,w_272,c_fill,fl_progressive,e_contrast:30/",
@@ -18,6 +19,7 @@
         	},
         	"iPhoneFive": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:30/",
 	            "listingView": "h_265,w_288,c_fill,fl_progressive,e_contrast:30/",
@@ -26,6 +28,7 @@
         	},
         	"iPhoneSix": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_46,h_46,e_contrast:30/",
 	            "listingView": "h_320,w_356,c_fill,fl_progressive,e_contrast:30/",
@@ -34,6 +37,7 @@
         	},
         	"iPhoneSixPlus": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_60,h_60,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
 	            "listingView": "h_360,w_393,c_fill,fl_progressive,e_contrast:30/",
@@ -69,6 +73,7 @@
         "imageSize": {
         	"iPhoneFour": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:30/",
 	            "listingView": "h_215,w_272,c_fill,fl_progressive,e_contrast:30/",
@@ -77,6 +82,7 @@
         	},
         	"iPhoneFive": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:30/",
 	            "listingView": "h_265,w_288,c_fill,fl_progressive,e_contrast:30/",
@@ -85,6 +91,7 @@
         	},
         	"iPhoneSix": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_46,h_46,e_contrast:30/",
 	            "listingView": "h_320,w_356,c_fill,fl_progressive,e_contrast:30/",
@@ -93,6 +100,7 @@
         	},
         	"iPhoneSixPlus": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_60,h_60,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
 	            "listingView": "h_360,w_393,c_fill,fl_progressive,e_contrast:30/",
@@ -128,6 +136,7 @@
         "imageSize": {
         	"iPhoneFour": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:30/",
 	            "listingView": "h_215,w_272,c_fill,fl_progressive,e_contrast:30/",
@@ -136,6 +145,7 @@
         	},
         	"iPhoneFive": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:30/",
 	            "listingView": "h_265,w_288,c_fill,fl_progressive,e_contrast:30/",
@@ -144,6 +154,7 @@
         	},
         	"iPhoneSix": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_46,h_46,e_contrast:30/",
 	            "listingView": "h_320,w_356,c_fill,fl_progressive,e_contrast:30/",
@@ -152,6 +163,7 @@
         	},
         	"iPhoneSixPlus": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_60,h_60,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
 	            "listingView": "h_360,w_393,c_fill,fl_progressive,e_contrast:30/",
@@ -193,6 +205,7 @@
         "imageSize": {
         	"iPhoneFour": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:30/",
 	            "listingView": "h_215,w_272,c_fill,fl_progressive,e_contrast:30/",
@@ -201,6 +214,7 @@
         	},
         	"iPhoneFive": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:30/",
 	            "listingView": "h_265,w_288,c_fill,fl_progressive,e_contrast:30/",
@@ -209,6 +223,7 @@
         	},
         	"iPhoneSix": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_46,h_46,e_contrast:30/",
 	            "listingView": "h_320,w_356,c_fill,fl_progressive,e_contrast:30/",
@@ -217,6 +232,7 @@
         	},
         	"iPhoneSixPlus": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_60,h_60,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
 	            "listingView": "h_360,w_393,c_fill,fl_progressive,e_contrast:30/",
@@ -252,6 +268,7 @@
         "imageSize": {
         	"iPhoneFour": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:30/",
 	            "listingView": "h_215,w_272,c_fill,fl_progressive,e_contrast:30/",
@@ -260,6 +277,7 @@
         	},
         	"iPhoneFive": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:30/",
 	            "listingView": "h_265,w_288,c_fill,fl_progressive,e_contrast:30/",
@@ -268,6 +286,7 @@
         	},
         	"iPhoneSix": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_46,h_46,e_contrast:30/",
 	            "listingView": "h_320,w_356,c_fill,fl_progressive,e_contrast:30/",
@@ -276,6 +295,7 @@
         	},
         	"iPhoneSixPlus": {
         		"menu": "c_thumb,g_faces,q_80,r_max,w_200,h_200,e_contrast:30/",
+        		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_contrast:30/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_60,h_60,e_contrast:30/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:30/",
 	            "listingView": "h_360,w_393,c_fill,fl_progressive,e_contrast:30/",
