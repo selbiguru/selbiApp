@@ -77,7 +77,7 @@
 },
 "#viewListingHeader[if=Alloy.Globals.iPhoneFour]": {
 	//layout: "horizontal",
-	height: '50dp',
+	height: '45dp',
 	width: '85%',
 	backgroundColor: '#FAFAFA',
 	zIndex: '20'
@@ -89,8 +89,8 @@
 },
 "#sellerImage[if=Alloy.Globals.iPhoneFour]": {
 	top: '2dp',
-	height: "45dp",
-	borderRadius: '23dp'
+	height: "40dp",
+	borderRadius: '20dp'
 },
 "#sellerName[if=Alloy.Globals.iPhoneFour]": {
 	height: Ti.UI.FILL,
@@ -103,7 +103,7 @@
 	color: "#9B9B9B"
 },
 "#imageGallery[if=Alloy.Globals.iPhoneFour]": {
-	height: '200dp',
+	height: '215dp',
 	width: '85%',
 	showPagingControl: "true",
 	overlayEnabled: true,
@@ -224,7 +224,7 @@
 	color: "#9B9B9B"
 },
 "#imageGallery[if=Alloy.Globals.iPhoneFive]": {
-	height: '250dp',
+	height: '265dp',
 	width: '90%',
 	showPagingControl: "true",
 	overlayEnabled: true,
@@ -348,7 +348,7 @@
 	color: "#9B9B9B"
 },
 "#imageGallery[if=Alloy.Globals.iPhoneSix]": {
-	height: '280dp',
+	height: '320dp',
 	width: '95%',
 	showPagingControl: "true",
 	overlayEnabled: true,
@@ -594,7 +594,7 @@
 	color: "#9B9B9B"
 },
 "#imageGallery[if=Alloy.Globals.android]": {
-	height: '280dp',
+	height: '320dp',
 	width: '95%',
 	showPagingControl: "true",
 	overlayEnabled: true,
