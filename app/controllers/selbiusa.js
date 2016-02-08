@@ -77,7 +77,7 @@ function genUSAItems(cb){
 			for(var listing in selbiListings.listings) {
 				if(selbiListings.listings[listing].imageUrls){
 					var view = Alloy.createController('myitemtemplate');
-					var imageUrl = selbiListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.mylistView + Alloy.CFG.cloudinary.bucket + selbiListings.listings[listing].imageUrls[0] : "";
+					var imageUrl = selbiListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].mylistView + Alloy.CFG.cloudinary.bucket + selbiListings.listings[listing].imageUrls[0] : "";
 					var tmp = {
 						image :  imageUrl,
 						listingItem:{

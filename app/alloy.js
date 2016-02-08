@@ -10,6 +10,16 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 
+//Help to determine which iPhone is being used
+var iPhoneFreeze = Object.freeze({
+	0: 'iPhoneFour',
+	1: 'iPhoneFive',
+	2: 'iPhoneSix',
+	3: 'iPhoneSixPlus',
+	4: 'android'
+});
+
+
 
 //Determine which device is being used to display Selbi App
 Alloy.Globals.iPhoneFour = (Ti.Platform.displayCaps.platformHeight === 480);
@@ -21,8 +31,9 @@ Alloy.Globals.social = require('alloy/social');
 
 //Assign a digit to the device being used for creating xml elements dynamically to the userDevice global variable
 //Aids in tss markup.
-Alloy.Globals.userDevice = Alloy.Globals.iPhoneFour ? 0 : Alloy.Globals.iPhoneFive ? 1 : Alloy.Globals.iPhoneSix ? 2 : Alloy.Globals.iPhoneSixPlus ? 3 : Alloy.Globals.android ? 4 : false;
-	
 
+Alloy.Globals.userDevice = Alloy.Globals.iPhoneFour ? 0 : Alloy.Globals.iPhoneFive ? 1 : Alloy.Globals.iPhoneSix ? 2 : Alloy.Globals.iPhoneSixPlus ? 3 : Alloy.Globals.android ? 4 : false;
+Alloy.Globals.iPhone = iPhoneFreeze[Alloy.Globals.userDevice];
+console.log('+++++++++++ ', Alloy.CFG.keychain.account,'=====', Alloy.CFG.keychain.password);
 console.log("width :", Ti.Platform.displayCaps.platformWidth);
 console.log("height :", Ti.Platform.displayCaps.platformHeight);

@@ -58,7 +58,11 @@ function showCamera(){
 			// Do nothing
 		},
 		error: function(){
-			helpers.alertUser('Image','Unable to load the image!');
+			if (error.code == Titanium.Media.NO_CAMERA || error.code == Titanium.Media.NO_VIDEO) {
+				helpers.alertUser('Camera', L('no_camera'));
+			} else {
+				helpers.alertUser('Camera', ('Unexpected error: ' + error.code));
+			}
 		},
 		saveToPhotoGallery:true,
 	    // allowEditing and mediaTypes are iOS-only settings
@@ -102,7 +106,7 @@ function uploadUserProfile(imageBlob){
 	function uploadCompleteCallback(err, result) {
 		if(currentUser) {
 			var currentProfileImage = currentUser.get('profileImage');
-			var profileImageUrl = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + result.public_id;
+			var profileImageUrl = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].menu + Alloy.CFG.cloudinary.bucket + result.public_id;
 			currentUser.set({'profileImage': result.public_id});
 			currentUser.set({'imageURL': profileImageUrl});		
 			currentUser.save();

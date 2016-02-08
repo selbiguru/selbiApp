@@ -101,7 +101,7 @@ function genMyItems(cb){
 			for(var listing in userListings.listings) {
 				if(userListings.listings[listing].imageUrls){
 					var view = Alloy.createController('myitemtemplate');
-					var imageUrl = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.mylistView + Alloy.CFG.cloudinary.bucket + userListings.listings[listing].imageUrls[0] : "";
+					var imageUrl = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].mylistView + Alloy.CFG.cloudinary.bucket + userListings.listings[listing].imageUrls[0] : "";
 					var tmp = {
 						image :  imageUrl,
 						listingItem:{
