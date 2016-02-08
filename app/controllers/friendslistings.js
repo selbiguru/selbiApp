@@ -14,7 +14,7 @@ var stopScroll = true;
 
 
 $.activityIndicator.show();
-$.titleFriendsListingsLabel.text = "Friends";
+$.titleFriendsListingsLabel.text = "Friends Listings";
 genFriendsItems(function(err, items){
 
 });
@@ -101,7 +101,7 @@ function genFriendsItems(cb){
 			$.fg.addGridItems(items);
 			
 		} else {
-			dynamicElement.defaultLabel('It\'s easier to use Selbi with a network of friends. Go to Contacts under the menu to add more friends!', function(err, results) {
+			dynamicElement.defaultLabel('It\'s easier to use Selbi with a network of friends. Go to Friends under the menu to add more friends!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
