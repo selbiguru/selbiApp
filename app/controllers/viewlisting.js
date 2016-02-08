@@ -98,8 +98,9 @@ function populateViewListing(listingData) {
 		});
 		console.log('BEATEN BEATEN BEATEN',Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].listingView + Alloy.CFG.cloudinary.bucket + images[img]);
 		var carouselImage = ImageUtils.Utils.RemoteImage({
-			height: Ti.UI.FILL,
-			width: Ti.UI.FILL,
+			height: Ti.UI.SIZE,
+			width: Ti.UI.SIZE,
+			preventDefaultImage: true,
 			image: previewListing ? images[img].resizedImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].listingView + Alloy.CFG.cloudinary.bucket + images[img]
 		});
 		

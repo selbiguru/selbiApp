@@ -122,7 +122,8 @@
 	height: "65dp",
 	width: "65dp",
 	top: "7dp",
-	borderRadius: '33dp'
+	borderRadius: '33dp',
+	preventDefaultImage: true
 },
 "#cameraOverlay[if=Alloy.Globals.iPhoneFour]": {
 	font: {
@@ -272,7 +273,8 @@
 	height: "75dp",
 	width: "75dp",
 	top: "7dp",
-	borderRadius: '37dp'
+	borderRadius: '37dp',
+	preventDefaultImage: true
 },
 "#cameraOverlay[if=Alloy.Globals.iPhoneFive]": {
 	font: {
@@ -429,7 +431,8 @@
 	height: "85dp",
 	width: "85dp",
 	top: "10dp",
-	borderRadius: '43dp'
+	borderRadius: '43dp',
+	preventDefaultImage: true
 },
 "#cameraOverlay[if=Alloy.Globals.iPhoneSix]": {
 	font: {
@@ -581,7 +584,8 @@
 	height: "95dp",
 	width: "95dp",
 	top: "15dp",
-	borderRadius: '47dp'
+	borderRadius: '47dp',
+	preventDefaultImage: true
 },
 "#cameraOverlay[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
@@ -734,7 +738,8 @@
 	height: "85dp",
 	width: "85dp",
 	top: "10dp",
-	borderRadius: '43dp'
+	borderRadius: '43dp',
+	preventDefaultImage: true
 },
 "#cameraOverlay[if=Alloy.Globals.android]": {
 	font: {

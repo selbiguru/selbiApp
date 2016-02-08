@@ -471,7 +471,7 @@
 	color: "#9B9B9B"
 },
 "#imageGallery[if=Alloy.Globals.iPhoneSixPlus]": {
-	height: '300dp',
+	height: '360dp',
 	width: '95%',
 	showPagingControl: "true",
 	overlayEnabled: true,
