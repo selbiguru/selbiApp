@@ -127,10 +127,12 @@ function uploadUserProfile(imageBlob){
 					}
 					imageManager.getMenuProfileImage(function(err, profileImage){
 						$.userProfileImage.image = profileImage;
-						$.userProfileImage.addEventListener('load', function() {
+						function loadImage(e){
+							$.userProfileImage.removeEventListener('load',loadImage);
 							indicatorWindow.closeIndicator();
 							helpers.alertUser('Updated User', 'User profile saved!');
-						});
+						}
+						$.userProfileImage.addEventListener('load',loadImage);
 					});
 					return;	
 				}			
