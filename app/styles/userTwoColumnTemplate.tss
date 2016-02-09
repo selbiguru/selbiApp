@@ -36,6 +36,7 @@
 	left: '4dp',
 	top: '2dp',
 	height: "41dp",
+	width: '41dp',
 	borderRadius: '21dp'
 },
 ".usa-listing-name[if=Alloy.Globals.iPhoneFour]": {
@@ -92,6 +93,7 @@
 	left: '4dp',
 	top: '2dp',
 	height: "41dp",
+	width: '41dp',
 	borderRadius: '21dp'
 },
 ".usa-listing-name[if=Alloy.Globals.iPhoneFive]": {
@@ -147,6 +149,7 @@
 	left: '5dp',
 	top: '2dp',
 	height: "46dp",
+	width: '46dp',
 	borderRadius: '23dp'
 },
 ".usa-listing-name[if=Alloy.Globals.iPhoneSix]": {
@@ -201,6 +204,7 @@
 	left: '4dp',
 	top: '2dp',
 	height: "50dp",
+	width: '50dp',
 	borderRadius: '25dp'
 },
 ".usa-listing-name[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -258,6 +262,7 @@
 	left: '5dp',
 	top: '2dp',
 	height: "46dp",
+	width: '46dp',
 	borderRadius: '23dp'
 },
 ".usa-listing-name[if=Alloy.Globals.android]": {

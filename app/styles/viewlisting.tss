@@ -90,6 +90,7 @@
 "#sellerImage[if=Alloy.Globals.iPhoneFour]": {
 	top: '2dp',
 	height: "40dp",
+	width: '40dp',
 	borderRadius: '20dp'
 },
 "#sellerName[if=Alloy.Globals.iPhoneFour]": {
@@ -211,7 +212,8 @@
 "#sellerImage[if=Alloy.Globals.iPhoneFive]": {
 	top: '2dp',
 	height: "45dp",
-	borderRadius: '23dp'
+	width: '45dp',
+	borderRadius: '23dp',
 },
 "#sellerName[if=Alloy.Globals.iPhoneFive]": {
 	height: Ti.UI.FILL,
@@ -224,7 +226,7 @@
 	color: "#9B9B9B"
 },
 "#imageGallery[if=Alloy.Globals.iPhoneFive]": {
-	height: '265dp',
+	height: '263dp',
 	width: '90%',
 	showPagingControl: "true",
 	overlayEnabled: true,
@@ -335,6 +337,7 @@
 "#sellerImage[if=Alloy.Globals.iPhoneSix]": {
 	top: '5dp',
 	height: "50dp",
+	width: '50dp',
 	borderRadius: '25dp'
 },
 "#sellerName[if=Alloy.Globals.iPhoneSix]": {
@@ -348,7 +351,7 @@
 	color: "#9B9B9B"
 },
 "#imageGallery[if=Alloy.Globals.iPhoneSix]": {
-	height: '320dp',
+	height: '326dp',
 	width: '95%',
 	showPagingControl: "true",
 	overlayEnabled: true,
@@ -458,6 +461,7 @@
 "#sellerImage[if=Alloy.Globals.iPhoneSixPlus]": {
 	top: '2dp',
 	height: "55dp",
+	width: '55dp',
 	borderRadius: '28dp'
 },
 "#sellerName[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -581,6 +585,7 @@
 "#sellerImage[if=Alloy.Globals.android]": {
 	top: '5dp',
 	height: "45dp",
+	width: '45dp',
 	borderRadius: '23dp'
 },
 "#sellerName[if=Alloy.Globals.android]": {
