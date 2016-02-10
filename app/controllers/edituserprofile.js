@@ -7,6 +7,7 @@ args = arguments[0] || {};
 var helpers = require('utilities/helpers'),
 	userManager = require('managers/usermanager'),
 	imageManager = require('managers/imagemanager'),
+	ImageFactory = require('ti.imagefactory'),
 	currentUser = null,
 	userNameUnique = true,
 	indicator = require('uielements/indicatorwindow'),
@@ -128,9 +129,9 @@ function uploadUserProfile(imageBlob){
 					imageManager.getMenuProfileImage(function(err, profileImage){
 						$.userProfileImage.image = profileImage;
 						function loadImage(e){
-							$.userProfileImage.removeEventListener('load',loadImage);
 							indicatorWindow.closeIndicator();
 							helpers.alertUser('Updated User', 'User profile saved!');
+							$.userProfileImage.removeEventListener('load',loadImage);
 						}
 						$.userProfileImage.addEventListener('load',loadImage);
 					});
@@ -144,8 +145,15 @@ function uploadUserProfile(imageBlob){
 	
 	// Prepare request
 	var f = Titanium.Filesystem.getFile(Titanium.Filesystem.tempDirectory, 'profile.jpg');
-	var imagePercent = (imageBlob.width/imageBlob.height).toFixed(2);
-	var resizedImage = imageBlob.imageAsResized(imagePercent*200, 200);
+	var resizedImage;
+	if(imageBlob.height > 700 && imageBlob.width >= imageBlob.height) {
+		resizedImage = ImageFactory.compress(resizeKeepAspectRatioNewHeight(imageBlob, imageBlob.width, imageBlob.height, 120), .6);
+	} else if(imageBlob.height > 700 && imageBlob.width < imageBlob.height) {
+		resizedImage = ImageFactory.compress(resizeKeepAspectRatioNewWidth(imageBlob, imageBlob.width, imageBlob.height, 120), .6);
+	} else {
+		resizedImage = ImageFactory.compress(imageBlob, .3);
+	};
+	
 		f.write(resizedImage);
 	var uploadImageRequest = {
 		image: Titanium.Filesystem.tempDirectory + 'profile.jpg',
@@ -156,6 +164,50 @@ function uploadUserProfile(imageBlob){
 	// Image upload
 	imageManager.uploadImage(uploadImageRequest, uploadCompleteCallback);	
 }
+
+/**
+ * @method resizeKeepAspectRatioNewWidth
+ * This method used with ImageFactory to resize the image with same ratio but new width
+ */
+function resizeKeepAspectRatioNewWidth(blob, imageWidth, imageHeight, newWidth) {
+    // only run this function if suitable values have been entered
+    if (imageWidth <= 0 || imageHeight <= 0 || newWidth <= 0)
+        return blob;
+
+    var ratio = imageWidth / imageHeight;
+
+    var w = newWidth;
+    var h = newWidth / ratio;
+
+    Ti.API.info('ratio: ' + ratio);
+    Ti.API.info('w: ' + w);
+    Ti.API.info('h: ' + h);
+
+    return ImageFactory.imageAsResized(blob, { width:w, height:h });
+}
+
+
+/**
+ * @method resizeKeepAspectRatioNewHeight
+ * This method used with ImageFactory to resize the image with same ratio but new height
+ */
+function resizeKeepAspectRatioNewHeight(blob, imageWidth, imageHeight, newHeight) {
+    // only run this function if suitable values have been entered
+    if (imageWidth <= 0 || imageHeight <= 0 || newHeight <= 0)
+        return blob;
+
+    var ratio = imageWidth / imageHeight;
+
+    var w = newHeight * ratio;
+    var h = newHeight;
+
+    Ti.API.info('ratio: ' + ratio);
+    Ti.API.info('w: ' + w);
+    Ti.API.info('h: ' + h);
+
+    return ImageFactory.imageAsResized(blob, { width:w, height:h });
+}
+
 
 function updateUser(e){
 	var uniqueFirstNameRegEx = (helpers.capFirstLetter(helpers.trim($.firstName.value, false))).match(/^[a-z ,.'-]+$/i);

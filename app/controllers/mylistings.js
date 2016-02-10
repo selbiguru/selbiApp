@@ -169,12 +169,12 @@ function genMyItems(cb){
 			//ADD ALL THE ITEMS TO THE GRID
 			$.fg.addGridItems(items);
 			
-		} else if (userListings && userListings.listings.length === 0 && Ti.App.Properties.getString('userId') === argsID) {
+		} else if (userListings && userListings.listings.length === 0 && Ti.App.Properties.getString('userId') === argsID && obj.length === 0 ) {
 			dynamicElement.defaultLabel('Wait what! You don\'t have any listings!  Add some now so you can start making money!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
-		} else if (userListings && userListings.listings.length === 0) {
+		} else if (userListings && userListings.listings.length === 0 && obj.length === 0) {
 			dynamicElement.defaultLabel('Sorry, It looks like this user doesn\'t have any listings!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);

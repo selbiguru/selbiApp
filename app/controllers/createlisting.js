@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
 var animation = require('alloy/animation');
+var ImageFactory = require('ti.imagefactory');
 var imageManager = require('managers/imagemanager');
 var listingManager = require('managers/listingmanager');
 var indicator = require('uielements/indicatorwindow');
@@ -76,6 +77,8 @@ function showCamera() {
 function showGallery() {
 	Titanium.Media.openPhotoGallery({
 		showControls : true,
+		allowEditing : true,
+		mediaTypes:[Ti.Media.MEDIA_TYPE_PHOTO],
 		success : function(event) {
 			if(imageCollection.length < 2 ) {
 				createImageView(event.media);
@@ -135,46 +138,10 @@ function previewListing(){
 
 
 
-//To delete below saveFunction
-/*function saveListing() {
-	var a = Titanium.UI.createAlertDialog({
-		title : 'Listing'
-	});
-
-	var indicatorWindow = indicator.createIndicatorWindow({
-		message : "Saving"
-	});
-
-	indicatorWindow.openIndicator();
-	listingManager.createListing($.title.value, $.description.value, $.price.value, $.privateSwitch.value, function(err, saveResult) {
-		if (saveResult) {
-			listingManager.uploadImagesForListing(saveResult.id, imageCollection, function(err, imgUrls) {
-				if (imgUrls && imgUrls.length > 0) {
-					delete saveResult.rev;
-					saveResult.imageUrls = imgUrls;
-					listingManager.updateListing(saveResult, function(err, updateResult) {
-						indicatorWindow.closeIndicator();
-						a.setMessage("Listing created successfully");
-						a.show();
-						Alloy.Globals.openPage('viewlisting', saveResult.id);
-					});
-				} else {
-					indicatorWindow.closeIndicator();
-					a.setMessage("Listing created successfully");
-					a.show();
-					Alloy.Globals.openPage('viewlisting', saveResult.id);
-				}
-			});
-		} else {
-			indicatorWindow.closeIndicator();
-			a.setMessage("Failed to create listing");
-			a.show();
-		}
-	});
-}*/
-
-
-
+/**
+ * @method findIndexByKeyValue
+ * This method will find the index of array by key value
+ */
 function findIndexByKeyValue(obj, key, value)
 {
     for (var i = 0; i < obj.length; i++) {
@@ -185,6 +152,50 @@ function findIndexByKeyValue(obj, key, value)
     return null;
 }
 
+
+
+/**
+ * @method resizeKeepAspectRatioNewWidth
+ * This method used with ImageFactory to resize the image with same ratio but new width
+ */
+function resizeKeepAspectRatioNewWidth(blob, imageWidth, imageHeight, newWidth) {
+    // only run this function if suitable values have been entered
+    if (imageWidth <= 0 || imageHeight <= 0 || newWidth <= 0)
+        return blob;
+
+    var ratio = imageWidth / imageHeight;
+
+    var w = newWidth;
+    var h = newWidth / ratio;
+
+    Ti.API.info('ratio: ' + ratio);
+    Ti.API.info('w: ' + w);
+    Ti.API.info('h: ' + h);
+
+    return ImageFactory.imageAsResized(blob, { width:w, height:h });
+}
+
+
+/**
+ * @method resizeKeepAspectRatioNewHeight
+ * This method used with ImageFactory to resize the image with same ratio but new height
+ */
+function resizeKeepAspectRatioNewHeight(blob, imageWidth, imageHeight, newHeight) {
+    // only run this function if suitable values have been entered
+    if (imageWidth <= 0 || imageHeight <= 0 || newHeight <= 0)
+        return blob;
+
+    var ratio = imageWidth / imageHeight;
+
+    var w = newHeight * ratio;
+    var h = newHeight;
+
+    Ti.API.info('ratio: ' + ratio);
+    Ti.API.info('w: ' + w);
+    Ti.API.info('h: ' + h);
+
+    return ImageFactory.imageAsResized(blob, { width:w, height:h });
+}
 
 /*----------------------------------------------------Event Listeners--------------------------------------------------------*/
 
@@ -219,13 +230,16 @@ $.description.addEventListener('change',function(e){
 
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
 
+
  /**
  * @private createImageView 
  *  Dynamically creates XML elements to show the images the user has selected for their item.
  */
 function createImageView(media) {
 	var thumbnailWidth, thumbnailLeft, zeroDP, imgViewSize,
-		deleteIconFontSize, imageViewTop;
+		deleteIconFontSize, imageViewTop, mediaThumbnail;
+	
+	
 	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour 2 photos, 4 photos, 6 photos
 	        thumbnailWidth = '132dp';//'95dp';//'83dp';
@@ -268,6 +282,25 @@ function createImageView(media) {
 	        imageViewTop = '20dp';//'18dp';//'15dp';
 	        break;
 	};
+	
+	if(media.height > 700 && media.width >= media.height) {
+		media = ImageFactory.compress(resizeKeepAspectRatioNewHeight(media, media.width, media.height, 700), .35);
+		mediaThumbnail = ImageFactory.imageAsThumbnail(resizeKeepAspectRatioNewHeight(media, media.width, media.height, 800),{size: imgViewSize});
+	} else if(media.height > 700 && media.width < media.height) {
+		media = ImageFactory.compress(resizeKeepAspectRatioNewWidth(media, media.width, media.height, 700), .35);
+		mediaThumbnail = ImageFactory.imageAsThumbnail(resizeKeepAspectRatioNewWidth(media, media.width, media.height, 800),{size: imgViewSize});
+	} else {
+		media = ImageFactory.compress(media, .35);
+		mediaThumbnail = ImageFactory.imageAsThumbnail(resizeKeepAspectRatioNewHeight(media, media.width, media.height, 500),{size: imgViewSize});
+	};
+	var imageData = {
+		resizedImage: media,
+		idx: count
+	};
+	imageCollection.push(imageData);
+	
+	
+	
 	var thumbnailView = Ti.UI.createImageView({
 		width : thumbnailWidth,
 		height : Ti.UI.SIZE,
@@ -280,7 +313,7 @@ function createImageView(media) {
 		height : imgViewSize,
 		top: imageViewTop,
 		left: zeroDP,
-		image : media
+		image : ImageFactory.imageAsThumbnail(resizeKeepAspectRatioNewHeight(media, media.width, media.height, 800),{size: imgViewSize})
 	});
 	
 	var deleteIcon = Titanium.UI.createLabel({
@@ -297,13 +330,13 @@ function createImageView(media) {
 	thumbnailView.add(deleteIcon);
 	thumbnailView.add(imageView);
 	$.imgView.add(thumbnailView);
-	var imagePercent = (media.width/media.height).toFixed(2);
-	var resizedImage = media.imageAsResized(imagePercent*650, 650);
+	/*var imagePercent = (media.width/media.height).toFixed(2);
+	var resizedImage = media.imageAsResized(imagePercent*850, 850);
 	var imageData = {
-		resizedImage: resizedImage,
+		resizedImage: media,
 		idx: count
 	};
-	imageCollection.push(imageData);
+	imageCollection.push(imageData);*/
 	
 	deleteIcon.addEventListener('click', function(e) {
 		var idxValue = findIndexByKeyValue(imageCollection, 'idx', e.source.data);

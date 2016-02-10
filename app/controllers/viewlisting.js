@@ -1,6 +1,7 @@
 var args = arguments[0] || {};
 var listingManager = require('managers/listingmanager');
 var paymentManager = require('managers/paymentmanager');
+var ImageFactory = require('ti.imagefactory');
 var notificationManager = require('managers/notificationmanager');
 var ImageUtils = require('utilities/imageutils');
 var helpers = require('utilities/helpers');
@@ -77,16 +78,16 @@ function populateViewListing(listingData) {
 	$.viewListingProductDescription.setText(listingData.description);
 	$.sellerName.setText(firstName +' '+ lastName);
 	if(!previewListing){
-		profileImageUrl = listingData.user.profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].notificationThumb + Alloy.CFG.cloudinary.bucket + listingData.user.profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].notificationThumb + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
+		profileImageUrl = listingData.user.profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + listingData.user.profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
 		$.overlayListingHeader.data = {
 			userId: listingData.user.id,	
 			userName: listingData.user.firstName + ' ' + listingData.user.lastName,
 			friends: listingData.invitation
 		};
 	} else if(Alloy.Globals.currentUser.attributes.profileImage) {
-		profileImageUrl = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].notificationThumb + Alloy.CFG.cloudinary.bucket + Alloy.Globals.currentUser.attributes.profileImage;
+		profileImageUrl = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + Alloy.Globals.currentUser.attributes.profileImage;
 	} else {
-		profileImageUrl = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].notificationThumb + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
+		profileImageUrl = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
 	}
 	$.sellerImage.image = profileImageUrl;
 	for(var img in images) {
@@ -98,10 +99,10 @@ function populateViewListing(listingData) {
 		});
 		console.log('BEATEN BEATEN BEATEN',Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].listingView + Alloy.CFG.cloudinary.bucket + images[img]);
 		var carouselImage = ImageUtils.Utils.RemoteImage({
-			height: Ti.UI.SIZE,
-			width: Ti.UI.SIZE,
+			height: Ti.UI.FILL,
+			width: Ti.UI.FILL,
 			preventDefaultImage: true,
-			image: previewListing ? images[img].resizedImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].listingView + Alloy.CFG.cloudinary.bucket + images[img]
+			image: previewListing ? previewImageResize(images[img].resizedImage) : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].listingView + Alloy.CFG.cloudinary.bucket + images[img]
 		});
 		
 		if(previewListing) {
@@ -240,6 +241,95 @@ function archiveItem(){
 	});
 }
 
+
+/**
+ * @method previewImageResize
+ * Resizes image based on iPhone for preview listing's images.
+ */
+function previewImageResize(image) {
+	switch(Alloy.Globals.userDevice) {
+	    case 0: //iphoneFour
+		    heightPreview = 215;
+		    heightRatio = 263;
+		    widthRatio = 288;
+		    widthPreview = 272;
+	        break;
+	    case 1: //iphoneFive
+	    	heightPreview = 263;
+	    	heightRatio = 263;
+	    	widthRatio = 288;
+	    	widthPreview = 288;
+	        break;
+	    case 2: //iphoneSix
+	    	heightPreview = 326;
+	    	heightRatio = 595;
+	    	widthRatio = 650;
+	    	widthPreview = 356;
+	        break;
+	    case 3: //iphoneSixPlus
+	    	heightPreview = 360;
+	    	heightRatio = 732;
+	    	widthRatio = 595;
+	    	widthPreview = 393;
+	        break;
+	    case 4: //android currently same as iphoneSix
+	    	heightPreview = 326;
+	    	heightRatio = 595;
+	    	widthRatio = 650;
+	    	widthPreview = 356;
+	        break;
+	};
+	return ImageFactory.imageAsCropped(resizeKeepAspectRatioNewWidth(image, image.width, image.height, widthRatio), {width: widthRatio, height: heightRatio});
+}
+
+
+
+
+
+
+/**
+ * @method resizeKeepAspectRatioNewWidth
+ * This method used with ImageFactory to resize the image with same ratio but new width
+ */
+function resizeKeepAspectRatioNewWidth(blob, imageWidth, imageHeight, newWidth) {
+    // only run this function if suitable values have been entered
+    if (imageWidth <= 0 || imageHeight <= 0 || newWidth <= 0)
+        return blob;
+
+    var ratio = imageWidth / imageHeight;
+
+    var w = newWidth;
+    var h = newWidth / ratio;
+
+    Ti.API.info('ratio: ' + ratio);
+    Ti.API.info('w: ' + w);
+    Ti.API.info('h: ' + h);
+
+    return ImageFactory.imageAsResized(blob, { width:w, height:h });
+}
+
+
+
+/**
+ * @method resizeKeepAspectRatioNewHeight
+ * This method used with ImageFactory to resize the image with same ratio but new height
+ */
+function resizeKeepAspectRatioNewHeight(blob, imageWidth, imageHeight, newHeight) {
+    // only run this function if suitable values have been entered
+    if (imageWidth <= 0 || imageHeight <= 0 || newHeight <= 0)
+        return blob;
+
+    var ratio = imageWidth / imageHeight;
+
+    var w = newHeight * ratio;
+    var h = newHeight;
+
+    Ti.API.info('ratio: ' + ratio);
+    Ti.API.info('w: ' + w);
+    Ti.API.info('h: ' + h);
+
+    return ImageFactory.imageAsResized(blob, { width:w, height:h });
+}
 
 
 
