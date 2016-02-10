@@ -6,7 +6,8 @@ var listingManager = require('managers/listingmanager'),
 	friendsManager = require('managers/friendsmanager'),
 	dynamicElement = require('utilities/dynamicElement');
 var myListingPadding, myListingItemHeight,
-	myListingFontSize, myTopBarFontSize;
+	myListingFontSize, myTopBarFontSize,
+	friendIconTop;
 var items = [],
 	obj = [];
 var paginateLastDate = '';
