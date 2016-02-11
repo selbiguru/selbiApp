@@ -163,7 +163,7 @@ function genUSAItems(cb){
  * When button is clicked, finds user listings of entered username
  */
 function findUserListings(){
-	var uniqueUserRegEx = ($.usernameSearch.value.toLowerCase()).match(/^[a-zA-Z\d\_]+$/);
+	var uniqueUserRegEx = ($.usernameSearch.value.toLowerCase()).match(/^[a-z\d]+$/gi);
 	if(uniqueUserRegEx === null) {
 		helpers.alertUser('Oops','Usernames are only letters and numbers!');
 		return;
@@ -206,12 +206,55 @@ function openListing(listingIDs){
 		Alloy.Globals.openPage('mylistings', [
 			listingIDs.userName, listingIDs.userId, listingIDs.friends
 		]);
+		$.scrollViewSelbi.removeEventListener('scroll', infitineScroll);
+		$.selbiUSAView.removeEventListener('click', blurTextField);
+		$.filterButton.removeEventListener('click', filterListings);
+		$.usernameSearch.removeEventListener('return', keyboardSearch);
+		Alloy.Globals.closePage('selbiusa');
 	}	
 };
 
 
 
-$.filterButton.addEventListener('click', function() {
+
+/**
+ * @method infitineScroll
+ * Determines when to load more items on scrolling for SelbiUSA items
+ */
+function infitineScroll(e) {
+	if(!endOfListings) {
+		var tolerance = 450;
+		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewSelbi.getRect().height + e.y) && stopScroll){
+			stopScroll = false;
+			genUSAItems(function(err, itemsResponse) {
+				stopScroll = true;
+			});
+		}	
+	}
+}
+
+
+
+
+/**
+ * @private blurTextField 
+ * Blurs accountNumber and routingNumber text fields in accordance with expected UI
+ */
+function blurTextField(e) {
+	if(e.source.id === 'usernameSearch' || e.source.id === 'selbiUSASearchView') {
+		$.usernameSearch.focus();
+	} else {
+		$.usernameSearch.blur();
+	}
+};
+
+
+
+/**
+ * @method filterListings 
+ * Opens filter modal for user to filter through listings
+ */
+function filterListings() {
 	modalManager.getFilterModal(categoryArray, function(err, results){
 		results.modalFilterButton.addEventListener('click', function(e) {
 			var animateWindowClose = Titanium.UI.create2DMatrix();
@@ -235,8 +278,17 @@ $.filterButton.addEventListener('click', function() {
 		});
 		return;
 	});
-});
+}
 
+
+/**
+ * @method keyboardSearch 
+ * On keyboard 'Go' button pressed usernameSearch is blurred and findUserListing function is called
+ */
+function keyboardSearch(){
+	$.usernameSearch.blur();
+	findUserListings();
+}
 
 
 
@@ -262,20 +314,14 @@ $.fg.setOnItemClick(function(e){
 
 
 
+
+/*-------------------------------------------------Event Listeners---------------------------------------------------*/
+
+
 $.scrollViewSelbi.addEventListener('scroll', infitineScroll);
 
-/**
- * @method infitineScroll
- * Determines when to load more items on scrolling for SelbiUSA items
- */
-function infitineScroll(e) {
-	if(!endOfListings) {
-		var tolerance = 450;
-		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewSelbi.getRect().height + e.y) && stopScroll){
-			stopScroll = false;
-			genUSAItems(function(err, itemsResponse) {
-				stopScroll = true;
-			});
-		}	
-	}
-}
+$.filterButton.addEventListener('click', filterListings);
+
+$.selbiUSAView.addEventListener('click', blurTextField);
+
+$.usernameSearch.addEventListener('return', keyboardSearch);

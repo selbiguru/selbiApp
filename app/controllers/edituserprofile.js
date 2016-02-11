@@ -461,7 +461,7 @@ $.usernameView.addEventListener('click', function(e){
 
 
 $.username.addEventListener('change',function(e){
-	var uniqueUserRegEx = ($.username.value).match(/^[a-z\d\_]+$/gi);
+	var uniqueUserRegEx = ($.username.value).match(/^[a-z\d]+$/gi);
 	if(uniqueUserRegEx === null) {
 		userNameUnique = false;
 		$.usernameCheckIcon.hide();

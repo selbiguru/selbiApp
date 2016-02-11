@@ -128,7 +128,6 @@ function backButton() {
  * Focuses accountNumber and routingNumber text fields in accordance with expected UI
  */
 function focusTextField(e) {
-	console.log('I hppe this is right?', e);
 	if(e.source.id === 'accountNumber' || e.source.id === 'accountLabel') {
 		$.accountNumber.focus();
 	} else if(e.source.id === 'routingNumber' || e.source.id === 'routingLabel') {
