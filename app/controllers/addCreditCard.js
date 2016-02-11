@@ -58,10 +58,11 @@ function savingStuff(e){
 		 		helpers.alertUser('Declined','Your Credit Card was declined, please try another card!');
 		 		return;
 		 	} else {
-		 		indicatorWindow.closeIndicator();
 		 		helpers.alertUser('Saved!','Your credit card has been saved!');
-		 		Alloy.Globals.closePage('addCreditCard');
+		 		Alloy.Globals.closePage('payment');
 		 		Alloy.Globals.openPage('payment');
+		 		backButton();
+		 		indicatorWindow.closeIndicator();
 		 		return;	
 		 	}
 		 });	
@@ -69,28 +70,42 @@ function savingStuff(e){
 };
 
 
+/**
+ * @private backButton 
+ *  Closes the current view to reveal the previous still opened view.
+ */
+function backButton() {
+	$.webview.removeEventListener('load', loadCreditCard);
+	Alloy.Globals.closePage('addCreditCard');
+}
 
 
-
-/*-----------------------------------------------On page load API calls----------------------------------------------*/
-
-$.activityIndicator.show();
-
-$.webview.addEventListener('beforeload', function(){
-    Ti.API.info('beforeload');
-});
-
-$.webview.addEventListener('load', function(e) {
-    Ti.API.info('load');
+/**
+ * @private loadCreditCard 
+ *  Closes the current view to reveal the previous still opened view.
+ */
+function loadCreditCard(e) {
+	Ti.API.info('load');
     paymentManager.getClientToken(function(err, response){
 		if(err || array.length <= 0){
 	    	helpers.alertUser('Oops!','Something went wrong.  Please try again!');
-	    	Alloy.Globals.closePage('addCreditCard');
+	    	backButton();
 		} else {
 	    	Ti.App.fireEvent('app:fromTitaniumPaymentGetTokenFromServer', { token: response });
 		}
 		$.activityIndicator.hide();
 		$.activityIndicator.height = '0dp';
 		return;
-	});	
-});
+	});
+}
+
+
+/*-----------------------------------------------On page load API calls----------------------------------------------*/
+
+$.activityIndicator.show();
+
+/*$.webview.addEventListener('beforeload', function(){
+    Ti.API.info('beforeload');
+});*/
+
+$.webview.addEventListener('load', loadCreditCard);
