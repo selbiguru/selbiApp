@@ -63,7 +63,7 @@
 	backgroundColor: '#fff',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.iPhoneFour]":{
+"#backViewButton[if=Alloy.Globals.iPhoneFour]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#fff'
@@ -171,7 +171,7 @@
 	backgroundColor: '#fff',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.iPhoneFive]":{
+"#backViewButton[if=Alloy.Globals.iPhoneFive]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#fff'
@@ -282,7 +282,7 @@
 	backgroundColor: '#fff',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.iPhoneSix]":{
+"#backViewButton[if=Alloy.Globals.iPhoneSix]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#fff'
@@ -392,7 +392,7 @@
 	backgroundColor: '#fff',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
+"#backViewButton[if=Alloy.Globals.iPhoneSixPlus]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#fff'
@@ -496,7 +496,7 @@
 	backgroundColor: '#fff',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.android]":{
+"#backViewButton[if=Alloy.Globals.android]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#fff'

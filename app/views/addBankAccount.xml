@@ -1,9 +1,9 @@
 <Alloy>
 	<View id="addBankAccountView">
 		<View id="addBankAccountTopBar">
-			<View id="menuButton">
-				<Label icon="fa-bars" id="addBankAccountButtonIcon" class="icon-buttons"></Label>
-			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>			
+			<View id="backViewButton" onClick="backButton">
+				<Label icon="fa-reply" id="addBankAccountButtonIcon" class="icon-buttons"></Label>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>			
 			</View>
 			<View id="titleAddBankAccountView">
 				<Label id="titleAddBankAccountLabel">Add Bank Account</Label>

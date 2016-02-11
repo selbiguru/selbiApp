@@ -102,11 +102,54 @@ function sendBankBraintree(){
 			return;
 		} else {
 			helpers.alertUser('Saved','Your bank information has been saved!');
-			Alloy.Globals.closePage('addBankAccount');
+			Alloy.Globals.closePage('payment');
 			Alloy.Globals.openPage('payment');
+			backButton();
 			indicatorWindow.closeIndicator();
 		}
 	}); 	
+}
+
+
+/**
+ * @private backButton 
+ *  Closes the current view to reveal the previous still opened view.
+ */
+function backButton() {
+	$.addBankAccountView.removeEventListener('click', blurTextField);
+	$.accountNumberView.removeEventListener('click', focusTextField);
+	$.routingNumberView.removeEventListener('click', focusTextField);
+	Alloy.Globals.closePage('addBankAccount');
+}
+
+
+/**
+ * @private focusTextField 
+ * Focuses accountNumber and routingNumber text fields in accordance with expected UI
+ */
+function focusTextField(e) {
+	console.log('I hppe this is right?', e);
+	if(e.source.id === 'accountNumber' || e.source.id === 'accountLabel') {
+		$.accountNumber.focus();
+	} else if(e.source.id === 'routingNumber' || e.source.id === 'routingLabel') {
+		$.routingNumber.focus();
+	}
+}
+
+
+/**
+ * @private blurTextField 
+ * Blurs accountNumber and routingNumber text fields in accordance with expected UI
+ */
+function blurTextField(e) {
+	if(e.source.id === 'accountNumber' || e.source.id === 'accountLabel') {
+		$.routingNumber.blur();
+	} else if(e.source.id === 'routingNumber' || e.source.id === 'routingLabel') {
+		$.accountNumber.blur();
+	} else {
+		$.accountNumber.blur();
+		$.routingNumber.blur();	
+	}
 }
 
 // Set the Example Check image
@@ -116,13 +159,8 @@ $.imageExCheck.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.
 
 
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
+ 
 
-
-
-$.accountNumberView.addEventListener('click', function(e){
-	this.children[1].focus();
-});
-
-$.routingNumberView.addEventListener('click', function(e){
-	this.children[1].focus();
-});
+$.addBankAccountView.addEventListener('click', blurTextField);
+$.accountNumberView.addEventListener('click', focusTextField);
+$.routingNumberView.addEventListener('click', focusTextField);
