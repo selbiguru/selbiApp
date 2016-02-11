@@ -87,6 +87,8 @@
 "#usernameSearch[if=Alloy.Globals.iPhoneFour]": {
 	width: Ti.UI.FILL,
 	height: '35dp',
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_GO,
 	font: {
 		fontSize: '14dp',
 		fontFamily: 'Nunito-Light'
@@ -162,6 +164,8 @@
 "#usernameSearch[if=Alloy.Globals.iPhoneFive]": {
 	width: Ti.UI.FILL,
 	height: '40dp',
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_GO,
 	font: {
 		fontSize: '16dp',
 		fontFamily: 'Nunito-Light'
@@ -238,6 +242,8 @@
 "#usernameSearch[if=Alloy.Globals.iPhoneSix]": {
 	width: Ti.UI.FILL,
 	height: '46dp',
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_GO,
 	font: {
 		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
@@ -312,6 +318,8 @@
 "#usernameSearch[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: Ti.UI.FILL,
 	height: '50dp',
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_GO,
 	font: {
 		fontSize: '20dp',
 		fontFamily: 'Nunito-Light'
@@ -385,6 +393,8 @@
 "#usernameSearch[if=Alloy.Globals.android]": {
 	width: Ti.UI.FILL,
 	height: '46dp',
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_GO,
 	font: {
 		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'

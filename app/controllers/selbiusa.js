@@ -206,11 +206,13 @@ function openListing(listingIDs){
 		Alloy.Globals.openPage('mylistings', [
 			listingIDs.userName, listingIDs.userId, listingIDs.friends
 		]);
-		$.scrollViewSelbi.removeEventListener('scroll', infitineScroll);
-		$.selbiUSAView.removeEventListener('click', blurTextField);
-		$.filterButton.removeEventListener('click', filterListings);
-		$.usernameSearch.removeEventListener('return', keyboardSearch);
-		Alloy.Globals.closePage('selbiusa');
+		if(Ti.App.Properties.getString('userId') === listingIDs.userId) {
+			$.scrollViewSelbi.removeEventListener('scroll', infitineScroll);
+			$.selbiUSAView.removeEventListener('click', blurTextField);
+			$.filterButton.removeEventListener('click', filterListings);
+			$.usernameSearch.removeEventListener('return', keyboardSearch);
+			Alloy.Globals.closePage('selbiusa');
+		}
 	}	
 };
 
@@ -238,7 +240,7 @@ function infitineScroll(e) {
 
 /**
  * @private blurTextField 
- * Blurs accountNumber and routingNumber text fields in accordance with expected UI
+ * Blurs usernameSearch text field in accordance with expected UI
  */
 function blurTextField(e) {
 	if(e.source.id === 'usernameSearch' || e.source.id === 'selbiUSASearchView') {
