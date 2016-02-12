@@ -45,13 +45,14 @@
 	}
 },
 ".cancel-txt[if=Alloy.Globals.iPhoneFour]": {
-	top: '65dp',
+	top: '92dp',
 	color: "#FAFAFA",
 	bottom: '10dp',
 	font: {
 		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
-	}
+	},
+	height: Ti.UI.SIZE
 },
 ".forgot-password[if=Alloy.Globals.iPhoneFour]": {
 	top: '20dp',
@@ -105,13 +106,14 @@
 	}
 },
 ".cancel-txt[if=Alloy.Globals.iPhoneFive]": {
-	top: '76dp',
+	top: '118dp',
 	color: "#FAFAFA",
 	bottom: '10dp',
 	font: {
 		fontSize: '19dp',
 		fontFamily: 'Nunito-Light'
-	}
+	},
+	height: Ti.UI.SIZE
 },
 ".forgot-password[if=Alloy.Globals.iPhoneFive]": {
 	top: '20dp',
@@ -167,9 +169,10 @@
 	}
 },
 ".cancel-txt[if=Alloy.Globals.iPhoneSix]": {
-	top: '112dp',
+	top: '158dp',
 	color: "#FAFAFA",
 	bottom: '10dp',
+	height: Ti.UI.SIZE,
 	font: {
 		fontSize: '22dp',
 		fontFamily: 'Nunito-Light'
@@ -228,13 +231,14 @@
 	}
 },
 ".cancel-txt[if=Alloy.Globals.iPhoneSixPlus]": {
-	top: '108dp',
+	top: '166dp',
 	color: "#FAFAFA",
 	bottom: '10dp',
 	font: {
 		fontSize: '23dp',
 		fontFamily: 'Nunito-Light'
-	}
+	},
+	height: Ti.UI.SIZE
 },
 ".forgot-password[if=Alloy.Globals.iPhoneSixPlus]": {
 	top: '25dp',
@@ -288,13 +292,14 @@
 	}
 },
 ".cancel-txt[if=Alloy.Globals.android]": {
-	top: '130dp',
+	top: '158dp',
 	color: "#FAFAFA",
 	bottom: '10dp',
 	font: {
 		fontSize: '22dp',
 		fontFamily: 'Nunito-Light'
-	}
+	},
+	height: Ti.UI.SIZE
 },
 ".forgot-password[if=Alloy.Globals.android]": {
 	top: '20dp',

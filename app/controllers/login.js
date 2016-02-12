@@ -95,7 +95,7 @@ function keyboardNext() {
 function keyboardLogIn() {
 	$.password.blur();
 	loginUser();
-}
+};
 
 
 
