@@ -27,9 +27,7 @@ function loginUser(){
 			helpers.alertUser('Login','Please check your Username and Password and try again!');
 			return;
 		} else {
-			$.loginView.removeEventListener('click', blurTextField);
-			$.username.removeEventListener('return', keyboardNext);
-			$.password.removeEventListener('return', keyboardLogIn);
+			removeEventListeners();
 			indicatorWindow.closeIndicator();
 			buttonOn();
 			var homeController = Alloy.createController('masterlayout').getView();
@@ -39,8 +37,21 @@ function loginUser(){
 }
 
 function closeWindow(){
+	removeEventListeners();
 	$.login.close({ transition: Ti.UI.iPhone.AnimationStyle.CURL_DOWN});
 }
+
+
+/**
+ * @method removeEventListeners
+ * Removes event listeners
+ */
+function removeEventListeners() {
+	$.loginView.removeEventListener('click', blurTextField);
+	$.username.removeEventListener('return', keyboardNext);
+	$.password.removeEventListener('return', keyboardLogIn);
+};
+
 
 function forgotPassword(){
 	var controller = Alloy.createController('forgotPassword').getView();

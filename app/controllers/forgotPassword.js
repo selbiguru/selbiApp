@@ -9,6 +9,9 @@ var userManager = require('managers/usermanager'),
  * Closes the View and controller for forgotPassword and shows the previous view
  */
 function closeForgotPassword(){
+	$.resetPassword.removeEventListener('click', resetPassword);
+	$.forgotPasswordView.removeEventListener('click', blurTextField);
+	$.email.removeEventListener('return', keyboardResetPassword);
 	$.forgotPassword.close({ transition: Ti.UI.iPhone.AnimationStyle.CURL_DOWN});
 }
 
@@ -43,9 +46,6 @@ function resetPassword() {
 		if(err) {
 			helpers.alertUser('Oops!','Something went wrong. Make sure the email you entered is correct!');
 		} else {
-			$.resetPassword.removeEventListener('click', resetPassword);
-			$.forgotPasswordView.removeEventListener('click', blurTextField);
-			$.email.removeEventListener('return', keyboardResetPassword);
 			helpers.alertUser('Success!','An email has been sent to the address you entered!');
 			$.email.value = '';
 		}
