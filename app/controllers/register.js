@@ -270,7 +270,7 @@ function phoneNumberChange() {
 
 /**
  * @private blurTextField 
- * Blurs usernameSearch text field in accordance with expected UI
+ * Blurs textfields in accordance with expected UI on register.js View
  */
 function blurTextField(e) {
 	if(e.source.id === 'firstName') {
@@ -293,7 +293,10 @@ function blurTextField(e) {
 };
 
 
-
+/**
+ * @method keyboardNext 
+ * On keyboard 'Next' button pressed moves user to next the text field for to fill out
+ */
 function keyboardNext(e) {
 	if(e.source.id === 'firstName') {
 		e.source.blur();
@@ -311,12 +314,20 @@ function keyboardNext(e) {
 };
 
 
+/**
+ * @method keyboardRegister 
+ * On keyboard 'Go' button pressed phoneNumber is blurred and registerUser function is called
+ */
 function keyboardRegister() {
 	$.phoneNumber.blur();
 	registerUser();
 };
 
 
+/**
+ * @private removeEventListeners 
+ * Removes event listeners from the controller
+ */
 function removeEventListeners() {
 	$.phoneNumber.removeEventListener('change', phoneNumberChange);
 	$.registerView.removeEventListener('click', blurTextField);
