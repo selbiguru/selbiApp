@@ -88,7 +88,7 @@
 	width: Ti.UI.FILL,
 	height: '35dp',
 	suppressReturn: false,
-	returnKeyType: Ti.UI.RETURNKEY_GO,
+	returnKeyType: Ti.UI.RETURNKEY_SEARCH,
 	font: {
 		fontSize: '14dp',
 		fontFamily: 'Nunito-Light'
@@ -165,7 +165,7 @@
 	width: Ti.UI.FILL,
 	height: '40dp',
 	suppressReturn: false,
-	returnKeyType: Ti.UI.RETURNKEY_GO,
+	returnKeyType: Ti.UI.RETURNKEY_SEARCH,
 	font: {
 		fontSize: '16dp',
 		fontFamily: 'Nunito-Light'
@@ -243,7 +243,7 @@
 	width: Ti.UI.FILL,
 	height: '46dp',
 	suppressReturn: false,
-	returnKeyType: Ti.UI.RETURNKEY_GO,
+	returnKeyType: Ti.UI.RETURNKEY_SEARCH,
 	font: {
 		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'
@@ -319,7 +319,7 @@
 	width: Ti.UI.FILL,
 	height: '50dp',
 	suppressReturn: false,
-	returnKeyType: Ti.UI.RETURNKEY_GO,
+	returnKeyType: Ti.UI.RETURNKEY_SEARCH,
 	font: {
 		fontSize: '20dp',
 		fontFamily: 'Nunito-Light'
@@ -394,7 +394,7 @@
 	width: Ti.UI.FILL,
 	height: '46dp',
 	suppressReturn: false,
-	returnKeyType: Ti.UI.RETURNKEY_GO,
+	returnKeyType: Ti.UI.RETURNKEY_SEARCH,
 	font: {
 		fontSize: '18dp',
 		fontFamily: 'Nunito-Light'

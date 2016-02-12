@@ -68,14 +68,17 @@
 	backgroundColor: "#FFF",
 	width: Titanium.UI.FILL,
 	height: '30dp',
-	hintText: "Email Subject"
+	hintText: "Email Subject",
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_NEXT
 },
 "#emailBody[if=Alloy.Globals.iPhoneFour]": {
 	borderWidth: '2dp', 
 	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
 	top: '17dp',
-	height: '245dp'
+	height: '245dp',
+	suppressReturn: false
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneFour]": {
 	left: '10dp',
@@ -152,14 +155,17 @@
 	backgroundColor: "#FFF",
 	width: Titanium.UI.FILL,
 	height: '35dp',
-	hintText: "Email Subject"
+	hintText: "Email Subject",
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_NEXT
 },
 "#emailBody[if=Alloy.Globals.iPhoneFive]": {
 	borderWidth: '2dp', 
 	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
 	top: '17dp',
-	height: '290dp'
+	height: '290dp',
+	suppressReturn: false
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneFive]": {
 	left: '10dp',
@@ -238,14 +244,17 @@
 	backgroundColor: "#FFF",
 	width: Titanium.UI.FILL,
 	height: '40dp',
-	hintText: "Email Subject"
+	hintText: "Email Subject",
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_NEXT
 },
 "#emailBody[if=Alloy.Globals.iPhoneSix]": {
 	borderWidth: '2dp', 
 	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
 	top: '20dp',
-	height: '345dp'
+	height: '345dp',
+	suppressReturn: false
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneSix]": {
 	left: '10dp',
@@ -323,14 +332,17 @@
 	backgroundColor: "#FFF",
 	width: Titanium.UI.FILL,
 	height: '45dp',
-	hintText: "Email Subject"
+	hintText: "Email Subject",
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_NEXT
 },
 "#emailBody[if=Alloy.Globals.iPhoneSixPlus]": {
 	borderWidth: '2dp', 
 	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
 	top: '25dp',
-	height: '375dp'
+	height: '375dp',
+	suppressReturn: false
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	left: '10dp',
@@ -409,14 +421,17 @@
 	backgroundColor: "#FFF",
 	width: Titanium.UI.FILL,
 	height: '40dp',
-	hintText: "Email Subject"
+	hintText: "Email Subject",
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_NEXT
 },
 "#emailBody[if=Alloy.Globals.android]": {
 	borderWidth: '2dp', 
 	borderColor: '#E5E5E5',
 	width: Titanium.UI.FILL,
 	top: '20dp',
-	height: '345dp'
+	height: '345dp',
+	suppressReturn: false
 },
 "#hintTextLabel[if=Alloy.Globals.android]": {
 	left: '10dp',

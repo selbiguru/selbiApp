@@ -90,7 +90,7 @@
 "#usernameSearch[if=Alloy.Globals.iPhoneFour]": {
 	width: Ti.UI.FILL,
 	suppressReturn: false,
-	returnKeyType: Ti.UI.RETURNKEY_GO,
+	returnKeyType: Ti.UI.RETURNKEY_SEARCH,
 	height: '35dp',
 	font: {
 		fontSize: '14dp',
@@ -199,7 +199,7 @@
 "#usernameSearch[if=Alloy.Globals.iPhoneFive]": {
 	width: Ti.UI.FILL,
 	suppressReturn: false,
-	returnKeyType: Ti.UI.RETURNKEY_GO,
+	returnKeyType: Ti.UI.RETURNKEY_SEARCH,
 	height: '40dp',
 	font: {
 		fontSize: '16dp',
@@ -309,7 +309,7 @@
 "#usernameSearch[if=Alloy.Globals.iPhoneSix]": {
 	width: Ti.UI.FILL,
 	suppressReturn: false,
-	returnKeyType: Ti.UI.RETURNKEY_GO,
+	returnKeyType: Ti.UI.RETURNKEY_SEARCH,
 	height: '46dp',
 	font: {
 		fontSize: '18dp',
@@ -415,7 +415,7 @@
 "#usernameSearch[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: Ti.UI.FILL,
 	suppressReturn: false,
-	returnKeyType: Ti.UI.RETURNKEY_GO,
+	returnKeyType: Ti.UI.RETURNKEY_SEARCH,
 	height: '50dp',
 	font: {
 		fontSize: '20dp',
@@ -522,7 +522,7 @@
 "#usernameSearch[if=Alloy.Globals.android]": {
 	width: Ti.UI.FILL,
 	suppressReturn: false,
-	returnKeyType: Ti.UI.RETURNKEY_GO,
+	returnKeyType: Ti.UI.RETURNKEY_SEARCH,
 	height: '46dp',
 	font: {
 		fontSize: '18dp',

@@ -8,13 +8,13 @@ var helpers = require('utilities/helpers');
  * Send an email from a given user to Selbi via 'Contact Us' view
  */
 function sendEmailToSelbi() {
-	if($.emailTitle.value.length < 1 || $.emailBody.value.length < 1) {
+	if(helpers.trim($.emailTitle.value, false).length < 1 || helpers.trim($.emailBody.value, false).length < 1) {
 		helpers.alertUser('Empty Fields','Please make sure both the subject and message are filled out!');
     	return;
 	} else {
 		var emailObj = {
-			subject: $.emailTitle.value,
-			body: $.emailBody.value+" User Id: "+ Alloy.Globals.currentUser.attributes.id ,
+			subject: helpers.trim($.emailTitle.value, false),
+			body: helpers.trim($.emailBody.value, false) +" User Id: "+ Alloy.Globals.currentUser.attributes.id ,
 			email: Alloy.Globals.currentUser.attributes.email,
 			name: Alloy.Globals.currentUser.attributes.firstName +" "+Alloy.Globals.currentUser.attributes.lastName
 		};
@@ -35,6 +35,33 @@ function sendEmailToSelbi() {
 
 
 
+/**
+ * @private blurTextField 
+ * Blurs usernameSearch text field in accordance with expected UI
+ */
+function blurTextField(e) {
+	console.log('LOOPlooploop ', e.source.id);
+	if(e.source.id === 'emailTitle'){
+		$.emailTitle.focus();
+		$.emailBody.blur();
+	} else if(e.source.id === 'emailBody' || e.source.id === 'hintTextLabel') {
+		$.emailTitle.blur();
+		$.emailBody.focus();
+	} else {
+		$.emailTitle.blur();
+		$.emailBody.blur();
+	}
+};
+
+
+/**
+ * @method keyboardNext 
+ * On keyboard 'NEXT' button pressed emailTitle is blurred and emailBody is set to focus
+ */
+function keyboardNext(){
+	$.emailTitle.blur();
+	$.emailBody.focus();
+};
 
 
 
@@ -45,24 +72,31 @@ function sendEmailToSelbi() {
 // Appcelerator does not support hint text TextArea
 $.hintTextLabel.addEventListener('click', function(e){
 	$.emailBody.focus();
-	if($.emailBody.value.length > 0) {
+	if(helpers.trim($.emailBody.value, false).length > 0) {
 		$.hintTextLabel.hide();
 	}
 });
 $.emailBody.addEventListener('focus',function(e){
-    if(e.source.value.length > 0){
+    if(helpers.trim(e.source.value, false).length > 0){
         $.hintTextLabel.hide();
     }
 });
 $.emailBody.addEventListener('blur',function(e){
-    if(e.source.value.length <= 0){
+    if(helpers.trim(e.source.value, false).length <= 0){
+    	$.emailBody.value = '';
         $.hintTextLabel.show();
     }
 });
 $.emailBody.addEventListener('change',function(e){
-    if(e.source.value.length > 0){
+    if(helpers.trim(e.source.value, false).length > 0){
         $.hintTextLabel.hide();
     } else {
+    	$.emailBody.value = '';
     	$.hintTextLabel.show();
     }
 });
+
+$.contactUsView.addEventListener('click', blurTextField);
+
+$.emailTitle.addEventListener('return', keyboardNext);
+
