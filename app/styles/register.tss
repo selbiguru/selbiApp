@@ -10,9 +10,32 @@
 ".privacy-policy-web": {
 	color: "blue"
 },
+"#firstName": {
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_NEXT
+},
+"#lastName": {
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_NEXT,
+},
+"#email": {
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_NEXT,
+	keyboardType:  Titanium.UI.KEYBOARD_EMAIL
+},
+"#password": {
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_NEXT
+},
 "#phoneNumber": {
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_GO,
 	keyboardType:  Titanium.UI.KEYBOARD_NUMBER_PAD
 },
+
+
+
+
 
 
 

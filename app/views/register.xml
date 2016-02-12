@@ -1,6 +1,6 @@
 <Alloy>
 	<Window backgroundColor="#62D7F5" class="wrapper">		
-		<View class="wrapper-container">
+		<View id="registerView" class="wrapper-container">
 			<Label class="splash-header-text">Sign Up</Label>
 			<View id="nameView">
 				<View id="firstNameView">

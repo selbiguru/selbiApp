@@ -95,6 +95,7 @@ function registerUser(){
 							} else {
 								console.log("Successfully registered");
 								importContacts();
+								removeEventListeners();
 								//var homeController = Alloy.createController('masterlayout').getView();
 								//homeController.open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});	
 							}
@@ -125,6 +126,7 @@ function registerUser(){
 }
 
 function closeRegisterWindow(){
+	removeEventListeners();
 	$.register.close({ transition: Ti.UI.iPhone.AnimationStyle.CURL_DOWN});
 }
 
@@ -247,12 +249,14 @@ function loadContacts() {
 function buttonOn() {
 	$.registerButton.touchEnabled = true;
 	$.closeRegister.touchEnabled = true;
-}
+};
 
 
-/*************************************************Event Listeners***********************************************************/
-
-$.phoneNumber.addEventListener('change', function(e){
+/**
+ * @method phoneNumberChange
+ * On change event, phone number layout updates
+ */
+function phoneNumberChange() {
 	if(prevNumber.length <= this.value.length) {
 		if((validatePhoneNumber(this.value).length === 4 || validatePhoneNumber(this.value).length === 7) && prevNumber.slice(-1) !== '-') {
 			this.value = (this.value).substring(0,this.value.length - 1) +'-'+(this.value).substring(this.value.length - 1);
@@ -261,4 +265,74 @@ $.phoneNumber.addEventListener('change', function(e){
 		} 	
 	}
 	prevNumber = this.value;
-});
+}
+
+
+/**
+ * @private blurTextField 
+ * Blurs usernameSearch text field in accordance with expected UI
+ */
+function blurTextField(e) {
+	if(e.source.id === 'firstName') {
+		$.firstName.focus();
+	} else if(e.source.id === 'lastName') {
+		$.lastName.focus();
+	} else if(e.source.id === 'email') {
+		$.email.focus();
+	} else if(e.source.id === 'password') {
+		$.password.focus();
+	} else if(e.source.id === 'phoneNumber') {
+		$.phoneNumber.focus();
+	} else {
+		$.firstName.blur();
+		$.lastName.blur();
+		$.email.blur();
+		$.password.blur();
+		$.phoneNumber.blur();
+	}
+};
+
+
+
+function keyboardNext(e) {
+	if(e.source.id === 'firstName') {
+		e.source.blur();
+		$.lastName.focus();
+	} else if(e.source.id === 'lastName') {
+		e.source.blur();
+		$.email.focus();
+	} else if(e.source.id === 'email') {
+		e.source.blur();
+		$.password.focus();
+	} else {
+		e.source.blur();
+		$.phoneNumber.focus();
+	}
+};
+
+
+function keyboardRegister() {
+	$.phoneNumber.blur();
+	registerUser();
+};
+
+
+function removeEventListeners() {
+	$.phoneNumber.removeEventListener('change', phoneNumberChange);
+	$.registerView.removeEventListener('click', blurTextField);
+	$.firstName.removeEventListener('return', keyboardNext);
+	$.lastName.removeEventListener('return', keyboardNext);
+	$.email.removeEventListener('return', keyboardNext);
+	$.password.removeEventListener('return', keyboardNext);
+	$.phoneNumber.removeEventListener('return', keyboardRegister);
+};
+
+/*************************************************Event Listeners***********************************************************/
+
+$.phoneNumber.addEventListener('change', phoneNumberChange);
+$.registerView.addEventListener('click', blurTextField);
+$.firstName.addEventListener('return', keyboardNext);
+$.lastName.addEventListener('return', keyboardNext);
+$.email.addEventListener('return', keyboardNext);
+$.password.addEventListener('return', keyboardNext);
+$.phoneNumber.addEventListener('return', keyboardRegister);
