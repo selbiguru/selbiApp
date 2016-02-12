@@ -40,7 +40,6 @@ function sendEmailToSelbi() {
  * Blurs usernameSearch text field in accordance with expected UI
  */
 function blurTextField(e) {
-	console.log('LOOPlooploop ', e.source.id);
 	if(e.source.id === 'emailTitle'){
 		$.emailTitle.focus();
 		$.emailBody.blur();
