@@ -1,6 +1,6 @@
 <Alloy>
 	<Window class="wrapper">		
-		<View class="wrapper-container">
+		<View id="loginView" class="wrapper-container">
 			<Label class="splash-header-text">Sign In</Label>
 			<TextField id="username" hintText="Email/Username" maxLength="254"></TextField>
 			<View class="login-underline"/>

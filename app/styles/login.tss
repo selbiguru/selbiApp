@@ -2,15 +2,24 @@
 "Window": {
 	//backgroundImage: 'images/home-bg.png',
 	backgroundColor: "#62D7F5"
-}
+},
 
 ".wrapper-container": {
 	backgroundColor: "#62D7F5",
 	width: '80%',
 	layout: "vertical",
 	top: "7%"
-}
+},
 
+"#username": {
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_NEXT,
+},
+
+"#password": {
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_GO,
+},
 
 
 
