@@ -12,6 +12,18 @@
 	visible: false,
 	height : Titanium.UI.FILL
 },
+"#title": {
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_NEXT,
+},
+"#description": {
+	suppressReturn: false,
+},
+"#price": {
+	suppressReturn: false,
+	returnKeyType: Ti.UI.RETURNKEY_DONE,
+	keyboardType:  Titanium.UI.KEYBOARD_NUMBERS_PUNCTUATION
+},
 
 
 

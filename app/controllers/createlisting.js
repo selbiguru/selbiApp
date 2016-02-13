@@ -195,36 +195,41 @@ function resizeKeepAspectRatioNewHeight(blob, imageWidth, imageHeight, newHeight
     Ti.API.info('h: ' + h);
 
     return ImageFactory.imageAsResized(blob, { width:w, height:h });
-}
-
-/*----------------------------------------------------Event Listeners--------------------------------------------------------*/
+};
 
 
-// The below three event listeners are a hack to add "Hint Text" to a TextArea 
-// Appcelerator does not support hint text TextArea
-$.hintTextLabel.addEventListener('click', function(e){
-	$.description.focus();
-	if($.description.value.length > 0) {
-		$.hintTextLabel.hide();
+
+/**
+ * @private blurTextField 
+ * Blurs textfields in accordance with expected UI on register.js View
+ */
+function blurTextField(e) {
+	if(e.source.id === 'title') {
+		$.title.focus();
+	} else if(e.source.id === 'description' || e.source.id === 'hintTextLabel') {
+		$.description.focus();
+	} else if(e.source.id === 'price') {
+		$.price.focus();
+	} else {
+		$.title.blur();
+		$.description.blur();
+		$.price.blur();
 	}
-});
-$.description.addEventListener('focus',function(e){
-    if(e.source.value.length > 0){
-        $.hintTextLabel.hide();
-    }
-});
-$.description.addEventListener('blur',function(e){
-    if(e.source.value.length <= 0){
-        $.hintTextLabel.show();
-    }
-});
-$.description.addEventListener('change',function(e){
-    if(e.source.value.length > 0){
-        $.hintTextLabel.hide();
-    } else {
-    	$.hintTextLabel.show();
-    }
-});
+};
+
+
+/**
+ * @method keyboardNext 
+ * On keyboard 'Next' button pressed moves user to the next text field to fill out
+ */
+function keyboardNext(e) {
+	if(e.source.id === 'title') {
+		e.source.blur();
+		$.description.focus();
+	} else {
+		e.source.blur();
+	}
+};
 
 
 
@@ -380,4 +385,41 @@ for(var i = 0; i < categoryArray.length; i++) {
 		id: categoryArray[i]
 	});	
 	$.pickerCategory.add(pickerRow);
-}
+};
+
+
+
+
+/*----------------------------------------------------Event Listeners--------------------------------------------------------*/
+
+
+// The below three event listeners are a hack to add "Hint Text" to a TextArea 
+// Appcelerator does not support hint text TextArea
+$.hintTextLabel.addEventListener('click', function(e){
+	$.description.focus();
+	if($.description.value.length > 0) {
+		$.hintTextLabel.hide();
+	}
+});
+$.description.addEventListener('focus',function(e){
+    if(e.source.value.length > 0){
+        $.hintTextLabel.hide();
+    }
+});
+$.description.addEventListener('blur',function(e){
+    if(e.source.value.length <= 0){
+        $.hintTextLabel.show();
+    }
+});
+$.description.addEventListener('change',function(e){
+    if(e.source.value.length > 0){
+        $.hintTextLabel.hide();
+    } else {
+    	$.hintTextLabel.show();
+    }
+});
+
+
+$.createListingView.addEventListener('click', blurTextField);
+$.title.addEventListener('return', keyboardNext);
+$.price.addEventListener('return', keyboardNext);

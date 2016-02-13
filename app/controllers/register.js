@@ -295,7 +295,7 @@ function blurTextField(e) {
 
 /**
  * @method keyboardNext 
- * On keyboard 'Next' button pressed moves user to next the text field for to fill out
+ * On keyboard 'Next' button pressed moves user to the next text field to fill out
  */
 function keyboardNext(e) {
 	if(e.source.id === 'firstName') {
