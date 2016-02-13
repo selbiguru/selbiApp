@@ -120,8 +120,14 @@ function populateViewListing(listingData) {
  * @method saveListing
  * Saves the listing, images, and makes the listing published.
  * Also saves the users chose of public or private listing for the item.
+ * Turns off buttons until function is complete
+ * @param {Object} editListingButton
+ * @param {Object} saveListingButton
  */
-function saveListing() {
+function saveListing(editListingButton, saveListingButton) {
+	editListingButton.touchEnabled = false;
+	saveListingButton.touchEnabled = false;
+	$.backViewButton.toucheEnabled = false;
 	var indicatorWindow = indicator.createIndicatorWindow({
 		message : "Saving"
 	});
@@ -138,17 +144,26 @@ function saveListing() {
 							//helpers.alertUser('Listing','Failed to update your listing, please try again later!');
 							Ti.API.warn("Failed to update listing, please try again later!" + saveResult.id);
 						}
+						editListingButton.touchEnabled = true;
+						saveListingButton.touchEnabled = true;
+						$.backViewButton.toucheEnabled = true;
 						indicatorWindow.closeIndicator();
 						helpers.alertUser('Listing','Listing created successfully');
 						Alloy.Globals.openPage('createlisting');	
 					});
 				} else {
+					editListingButton.touchEnabled = true;
+					saveListingButton.touchEnabled = true;
+					$.backViewButton.toucheEnabled = true;
 					indicatorWindow.closeIndicator();
 					helpers.alertUser('Listing','Listing created successfully');
 					Alloy.Globals.openPage('createlisting');
 				}
 			});
 		} else {
+			editListingButton.touchEnabled = true;
+			saveListingButton.touchEnabled = true;
+			$.backViewButton.toucheEnabled = true;
 			indicatorWindow.closeIndicator();
 			helpers.alertUser('Listing','Failed to create your listing. Please try again!');
 		}
@@ -159,8 +174,11 @@ function saveListing() {
 /**
  * @method buyItem
  * Buys the listed item.
+ * @param {Object} actionButton Button clicked on
  */
-function buyItem(e){
+function buyItem(actionButton){
+	actionButton.touchEnabled = false;
+	$.backViewButton.toucheEnabled = false;
 	var createOrderObj = {
 		sellerId: args.userId,
 		buyerId: Ti.App.Properties.getString('userId'),
@@ -174,10 +192,14 @@ function buyItem(e){
 	paymentManager.createOrder(createOrderObj, function(err, results){
 		console.log("======== ", results);
 		if(err) {
+			actionButton.touchEnabled = true;
+			$.backViewButton.toucheEnabled = true;
 			indicatorWindow.closeIndicator();
 			helpers.alertUser('Failed','Failed to purchase item, please try again!');
 		} else {
 			updateUser();
+			actionButton.touchEnabled = true;
+			$.backViewButton.toucheEnabled = true;
 			indicatorWindow.closeIndicator();
 			helpers.alertUser('Purchased!','You purchased an item on Selbi!');
 			backButton();
@@ -189,8 +211,11 @@ function buyItem(e){
 /**
  * @method deleteItem
  * Deletes the listed item from the users listings.
+ * @param {Object} actionButton Button clicked on
  */
-function deleteItem(){
+function deleteItem(actionButton){
+	actionButton.touchEnabled = false;
+	$.backViewButton.toucheEnabled = false;
 	var deleteListingObj = {
 		id: args.itemId,
 		images: itemData.imageUrls
@@ -202,9 +227,13 @@ function deleteItem(){
 	indicatorWindow.openIndicator();
 	listingManager.deleteListing(deleteListingObj, function(err, deleteResult) {
 		if (err) {
+			actionButton.touchEnabled = true;
+			$.backViewButton.toucheEnabled = true;
 			indicatorWindow.closeIndicator();
 			helpers.alertUser('Listing','Failed to delete your listing. Please try again!');
 		} else {
+			actionButton.touchEnabled = true;
+			$.backViewButton.toucheEnabled = true;
 			indicatorWindow.closeIndicator();
 			helpers.alertUser('Listing','Listing deleted successfully');
 			Alloy.Globals.openPage('mylistings', ['mylistings', Ti.App.Properties.getString('userId')]);
@@ -217,8 +246,11 @@ function deleteItem(){
 /**
  * @method archiveItem
  * Archives the listed item.
+ * @param {Object} actionButton Button clicked on
  */
-function archiveItem(){
+function archiveItem(actionButton){
+	actionButton.touchEnabled = false;
+	$.backViewButton.toucheEnabled = false;
 	var archiveListingObj = {
 		isArchived: true,
 		images: itemData.imageUrls
@@ -230,9 +262,13 @@ function archiveItem(){
 	indicatorWindow.openIndicator();
 	listingManager.archiveListing(args.itemId, archiveListingObj, function(err, archiveResult) {
 		if (err) {
+			actionButton.touchEnabled = true;
+			$.backViewButton.toucheEnabled = true;
 			indicatorWindow.closeIndicator();
 			helpers.alertUser('Listing','Failed to archive your listing. Please try again!');
 		} else {
+			actionButton.touchEnabled = true;
+			$.backViewButton.toucheEnabled = true;
 			indicatorWindow.closeIndicator();
 			helpers.alertUser('Listing','Listing archived successfully');
 			Alloy.Globals.openPage('mylistings', ['mylistings', Ti.App.Properties.getString('userId')]);
@@ -338,7 +374,14 @@ function resizeKeepAspectRatioNewHeight(blob, imageWidth, imageHeight, newHeight
 /**
  * Event listener for click of user of listing to open and show all of the users listed items
  */
-$.overlayListingHeader.addEventListener('click', function(e){
+$.overlayListingHeader.addEventListener('click', openUserListing);
+
+
+ /**
+ * @private openUserListing 
+ *  Shows all listings for user clicked on while viewing specific listing of said user.
+ */
+function openUserListing(e) {
 	if(e.source.data ) {
 		Alloy.Globals.closePage('mylistings');
 		openListing(e.source.data);
@@ -346,9 +389,13 @@ $.overlayListingHeader.addEventListener('click', function(e){
 	} else {
 		return;
 	}
-});
+};
 
 
+ /**
+ * @private updateUser 
+ *  Updates user notification count to show accurate number of notifcations on the menu
+ */
 function updateUser(){
 	//Load the user model
 	Alloy.Models.user.fetch({
@@ -363,7 +410,10 @@ function updateUser(){
 			helpers.alertUser('Get User','Failed to get the current user!');
 		}
 	});
-}
+};
+
+
+
 
 
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
@@ -431,14 +481,11 @@ function createPreviewButtons() {
 	$.viewListingButtonView.add(editListingButton);
 	$.viewListingButtonView.add(saveListingButton);
 	
-	editListingButton.addEventListener('click', function(e) {
-		backButton();
-	});
+	editListingButton.addEventListener('click', backButton);
 	
 	saveListingButton.addEventListener('click', function(e) {
-		//saveListingButton.touchEnabled = false;
 		if(bankEligible) {
-			saveListing();	
+			saveListing(editListingButton, saveListingButton);	
 		} else {
 			helpers.alertUser('No go!','Before you can list items you need to add BOTH a Bank Account in \'Payment\' and an Address in \'Edit Profile\' under Settings if you haven\'t done so already!');
 		}
