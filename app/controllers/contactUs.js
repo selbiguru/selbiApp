@@ -1,6 +1,10 @@
 var args = arguments[0] || {};
 var emailManager = require('managers/emailmanager');
 var helpers = require('utilities/helpers');
+var indicator = require('uielements/indicatorwindow');
+var indicatorWindow = indicator.createIndicatorWindow({
+	message : "Sending Email"
+});
 
 
 /**
@@ -8,17 +12,20 @@ var helpers = require('utilities/helpers');
  * Send an email from a given user to Selbi via 'Contact Us' view
  */
 function sendEmailToSelbi() {
+	$.sendEmailButton.touchEnabled = false;
+	$.menuButton.touchEnabled = false;
 	if(helpers.trim($.emailTitle.value, false).length < 1 || helpers.trim($.emailBody.value, false).length < 1) {
 		helpers.alertUser('Empty Fields','Please make sure both the subject and message are filled out!');
+    	buttonOn();
     	return;
 	} else {
+		indicatorWindow.openIndicator();
 		var emailObj = {
 			subject: helpers.trim($.emailTitle.value, false),
 			body: helpers.trim($.emailBody.value, false) +" User Id: "+ Alloy.Globals.currentUser.attributes.id ,
 			email: Alloy.Globals.currentUser.attributes.email,
 			name: Alloy.Globals.currentUser.attributes.firstName +" "+Alloy.Globals.currentUser.attributes.lastName
 		};
-		
 		emailManager.sendContactSelbiEmail(emailObj, function(err, emailResult){
 			if(err) {
 				helpers.alertUser('Email Failed','Failed to send email.  Please try again later!');
@@ -28,6 +35,8 @@ function sendEmailToSelbi() {
 		    	$.emailBody.value = '';
 		    	$.emailTitle.value = '';
 			}
+			buttonOn();
+			indicatorWindow.closeIndicator();
 			return;
 		});
 	}
@@ -36,6 +45,7 @@ function sendEmailToSelbi() {
 
 
 /**
+ * 
  * @private blurTextField 
  * Blurs usernameSearch text field in accordance with expected UI
  */
@@ -62,6 +72,15 @@ function keyboardNext(){
 	$.emailBody.focus();
 };
 
+
+/**
+ * @method buttonOn
+ * Makes buttons on view clickable
+ */
+function buttonOn() {
+	$.sendEmailButton.touchEnabled = true;
+	$.menuButton.touchEnabled = true;
+}
 
 
 /*----------------------------------------------------Event Listeners--------------------------------------------------------*/
