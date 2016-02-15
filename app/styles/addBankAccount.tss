@@ -214,7 +214,7 @@
 },
 "#iconBankDescription[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "44dp"
+            fontSize: "48dp"
     },
     color: "#1BA7CD"
 },
@@ -233,7 +233,7 @@
 },
 "#labelBankDescription[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "12dp",
+            fontSize: "13dp",
             fontFamily: "Nunito-Bold"
           },
     color: "#1BA7CD",
@@ -246,15 +246,15 @@
 	top: "15dp"
 },
 ".account-number-labels[if=Alloy.Globals.iPhoneFive]":{
-	left: '5dp',
+	left: '4dp',
 	font: {
-		fontSize: '14dp',
+		fontSize: '15dp',
 		fontFamily: 'Nunito-Light'
 	},
 	color: '#545555'
 },
 ".left-padding[if=Alloy.Globals.iPhoneFive]": {
-	left: '110dp'
+	left: '116dp'
 },
 
 

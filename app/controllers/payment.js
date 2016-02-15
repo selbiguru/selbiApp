@@ -148,21 +148,25 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
 	        labelFont = 14;
 	        iconFont = 14;
 	        labelHeight = '35dp';
+	        rowLeft = '10dp';
 	        break;
 	    case 1: //iphoneFive
-	        labelFont = 14;
-	        iconFont = 14;
-	        labelHeight = '40dp';
+	        labelFont = 16;
+	        iconFont = 16;
+	        labelHeight = '45dp';
+	        rowLeft = '7dp';
 	        break;
 	    case 2: //iphoneSix
 	        labelFont = 17;
 	        iconFont = 17;
 	        labelHeight = '45dp';
+	        rowLeft = '10dp';
 	        break;
 	    case 3: //iphoneSixPlus
 	        labelFont = 19;
 	        iconFont = 19;
 	        labelHeight = '50dp';
+	        rowLeft = '10dp';
 	        break;
 	    case 4: //android currently same as iphoneSix
 	        labelFont = 17;
@@ -189,18 +193,18 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  	});
  	var userCardNumber = Titanium.UI.createLabel({
  		//borderColor: "red",
- 		left: "10dp",
+ 		left: rowLeft,
 		height: labelHeight,
 		font:{
 			fontSize: labelFont,
 	    	fontFamily: 'Nunito-Light'
 		},
 		color: "#545555",
-		text: 'XX '+ cardInfo.lastFour
+		text: 'X '+ cardInfo.lastFour
  	});
  	var userCardExp = Titanium.UI.createLabel({
  		//borderColor: "red",
- 		left: "10dp",
+ 		left: rowLeft,
 		height: labelHeight,
 		font:{
 			fontSize: labelFont,
@@ -289,9 +293,9 @@ function showUserBank(bankInfo) {
 	        labelHeight = '35dp';
 	        break;
 	    case 1: //iphoneFive
-	        labelFont = 14;
-	        iconFont = 14;
-	        labelHeight = '40dp';
+	        labelFont = 16;
+	        iconFont = 16;
+	        labelHeight = '45dp';
 	        break;
 	    case 2: //iphoneSix
 	        labelFont = 17;
