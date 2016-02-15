@@ -6,7 +6,7 @@
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>			
 			</View>
 			<View id="titleAddBankAccountView">
-				<Label id="titleAddBankAccountLabel">Add Bank Account</Label>
+				<Label id="titleAddBankAccountLabel">Add Bank</Label>
 			</View>
 			<View id="saveSubMerchantBankView">
 				<Button onClick="addBankInfo" id="saveSubMerchantBankButton" class="icon-buttons">Save</Button>

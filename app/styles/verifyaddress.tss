@@ -69,9 +69,10 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "18dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 "#cancelAddress[if=Alloy.Globals.iPhoneFour]": {
 	left: "7dp",
@@ -127,9 +128,10 @@
 }
 ".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "13dp"
+            fontSize: "14dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '23dp'
 },
 "#titleVerifyAddressView[if=Alloy.Globals.iPhoneFive]": {
 	width: "186dp",

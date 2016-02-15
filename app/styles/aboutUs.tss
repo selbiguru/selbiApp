@@ -80,9 +80,10 @@
 },
 "#aboutUsButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "18dp"
+            fontSize: "22dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '24dp'
 },
 "#titleAboutUsView[if=Alloy.Globals.iPhoneFive]": {
 	right: "60dp"
@@ -92,9 +93,10 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "18dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 "#aboutUsInfoView[if=Alloy.Globals.iPhoneFive]": {
 	layout: 'vertical',

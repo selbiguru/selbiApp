@@ -34,7 +34,7 @@ switch(Alloy.Globals.userDevice) {
         myListingItemHeight = 45;
         myListingFontSize = '12dp';
         myTopBarFontSize = '13dp';
-        friendIconTop = '15dp';
+        friendIconTop = '11dp';
         break;
     case 2: //iphoneSix
         myListingPadding = 10;

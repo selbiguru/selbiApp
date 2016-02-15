@@ -178,7 +178,7 @@
 },
 "#addBankAccountButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "18dp"
+            fontSize: "22dp"
         },
 	color: "#1BA7CD"
 },
@@ -190,24 +190,27 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "18dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 "#saveSubMerchantBankView[if=Alloy.Globals.iPhoneFive]": {
 	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "14dp",
+            fontSize: "22dp",
             fontFamily: "Nunito-Bold"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '24dp'
 },
 "#saveSubMerchantBankButton[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "14dp"
-        },
+    	fontSize: "16dp"
+    },
+	top: '18dp'
 },
 "#iconBankDescription[if=Alloy.Globals.iPhoneFive]": {
 	font: {

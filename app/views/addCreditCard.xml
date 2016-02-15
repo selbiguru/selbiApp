@@ -5,7 +5,7 @@
 				<Label icon="fa-reply" id="addCreditCardButtonIcon" class="icon-buttons"></Label>		
 			</View>
 			<View id="titleAddCreditCardView">
-				<Label id="titleAddCreditCardLabel">Add Credit Card</Label>
+				<Label id="titleAddCreditCardLabel">Add Card</Label>
 			</View>
 			<View id="saveCreditCardView">
 				<Button onClick="saveCreditCard" id="saveCreditCardButton" class="icon-buttons">Save</Button>

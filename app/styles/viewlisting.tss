@@ -167,9 +167,10 @@
 },
 "#viewListingButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "18dp"
+            fontSize: "22dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '18dp'
 },
 "#titleViewListingView[if=Alloy.Globals.iPhoneFive]": {
 	width: "200dp"
@@ -179,9 +180,10 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "18dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 "#backListingView[if=Alloy.Globals.iPhoneFive]": {
 	width: '60dp'

@@ -157,7 +157,7 @@
 	left: "35dp",
 	color: "#1BA7CD",
 	font: {
-		fontSize: "22dp",
+		fontSize: "24dp",
 		fontFamily: "Nunito-Bold"
 	}
 },
