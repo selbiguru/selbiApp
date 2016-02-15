@@ -15,9 +15,9 @@
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40,e_contrast:20/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:20/",
-	            "listingView": "h_263,w_288,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
         	"iPhoneFive": {
         		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_contrast:20/",
@@ -26,9 +26,9 @@
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45,e_contrast:20/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:20/",
-	            "listingView": "h_263,w_288,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
         	"iPhoneSix": {
         		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_contrast:20/",
@@ -38,8 +38,8 @@
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_46,h_46,e_contrast:20/",
 	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
         	"iPhoneSixPlus": {
         		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_contrast:20/",
@@ -49,8 +49,8 @@
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_60,h_60,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:20/",
 	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
             "intro": [
                 "w_380/v1433472934/intro_1",
@@ -86,9 +86,9 @@
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40,e_contrast:20/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:20/",
-	            "listingView": "h_263,w_288,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
         	"iPhoneFive": {
         		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_contrast:20/",
@@ -97,9 +97,9 @@
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45,e_contrast:20/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:20/",
-	            "listingView": "h_263,w_288,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
         	"iPhoneSix": {
         		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_contrast:20/",
@@ -109,8 +109,8 @@
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_46,h_46,e_contrast:20/",
 	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
         	"iPhoneSixPlus": {
         		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_contrast:20/",
@@ -120,8 +120,8 @@
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_60,h_60,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:20/",
 	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
             "intro": [
                 "w_380/v1433472934/intro_1",
@@ -157,9 +157,9 @@
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40,e_contrast:20/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:20/",
-	            "listingView": "h_263,w_288,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
         	"iPhoneFive": {
         		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_contrast:20/",
@@ -168,9 +168,9 @@
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45,e_contrast:20/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:20/",
-	            "listingView": "h_263,w_288,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
         	"iPhoneSix": {
         		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_contrast:20/",
@@ -180,8 +180,8 @@
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_46,h_46,e_contrast:20/",
 	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
         	"iPhoneSixPlus": {
         		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_contrast:20/",
@@ -191,8 +191,8 @@
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_60,h_60,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:20/",
 	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
             "intro": [
                 "w_380/v1433472934/intro_1",
@@ -234,9 +234,9 @@
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40,e_contrast:20/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:20/",
-	            "listingView": "h_263,w_288,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
         	"iPhoneFive": {
         		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_contrast:20/",
@@ -245,9 +245,9 @@
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45,e_contrast:20/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:20/",
-	            "listingView": "h_263,w_288,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
         	"iPhoneSix": {
         		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_contrast:20/",
@@ -257,8 +257,8 @@
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_46,h_46,e_contrast:20/",
 	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
         	"iPhoneSixPlus": {
         		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_contrast:20/",
@@ -268,8 +268,8 @@
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_60,h_60,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:20/",
 	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
             "intro": [
                 "w_380/v1433472934/intro_1",
@@ -305,9 +305,9 @@
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40,e_contrast:20/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:20/",
-	            "listingView": "h_263,w_288,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
         	"iPhoneFive": {
         		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_contrast:20/",
@@ -316,9 +316,9 @@
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45,e_contrast:20/",
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_41,h_41,e_contrast:20/",
-	            "listingView": "h_263,w_288,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
         	"iPhoneSix": {
         		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_contrast:20/",
@@ -328,8 +328,8 @@
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_46,h_46,e_contrast:20/",
 	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
         	"iPhoneSixPlus": {
         		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_contrast:20/",
@@ -339,8 +339,8 @@
         		"notificationThumb": "c_thumb,g_faces,q_80,r_max,w_60,h_60,e_contrast:20/",
         		"friendThumbImg": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_contrast:20/",
 	            "listingView": "h_595,w_650,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "mylistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/",
-	            "friendlistView": "h_200,w_200,c_fill,fl_progressive,e_contrast:20,q_90/"
+	            "mylistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/",
+	            "friendlistView": "h_225,w_225,c_fill,fl_progressive,e_contrast:20,q_90/"
         	},
             "intro": [
                 "w_380/v1433472934/intro_1",
