@@ -214,7 +214,7 @@
 },
 "#iconBankDescription[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "48dp"
+            fontSize: "50dp"
     },
     color: "#1BA7CD"
 },
@@ -243,7 +243,7 @@
 	layout: 'vertical',
 	width: '90%',
 	height: Titanium.UI.SIZE,
-	top: "15dp"
+	top: "20dp"
 },
 ".account-number-labels[if=Alloy.Globals.iPhoneFive]":{
 	left: '4dp',
