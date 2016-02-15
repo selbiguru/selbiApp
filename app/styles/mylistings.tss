@@ -141,12 +141,13 @@
 },
 "#titleMyListingsLabel[if=Alloy.Globals.iPhoneFive]": {
 	color: "#1BA7CD",
-	width: Titanium.UI.SIZE,
+	width: Ti.UI.SIZE,
+	height: '40dp',
 	font: {
 		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
 	},
-	top: '20dp'
+	top: '14dp'
 },
 "#friendRequestView[if=Alloy.Globals.iPhoneFive]": {
 	width: '70dp'
@@ -213,11 +214,12 @@
 "#titleMyListingsLabel[if=Alloy.Globals.iPhoneSix]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
+	height: '40dp',
 	font: {
 		fontSize: "24dp",
 		fontFamily: "Nunito-Bold"
 	},
-	top: '20dp'
+	top: '16dp'
 },
 "#friendRequestView[if=Alloy.Globals.iPhoneSix]": {
 	width: '85dp'

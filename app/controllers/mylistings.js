@@ -34,7 +34,7 @@ switch(Alloy.Globals.userDevice) {
         myListingItemHeight = 45;
         myListingFontSize = '12dp';
         myTopBarFontSize = '13dp';
-        friendIconTop = '11dp';
+        friendIconTop = '12dp';
         break;
     case 2: //iphoneSix
         myListingPadding = 10;
@@ -72,6 +72,20 @@ if(tabView === 1 || Ti.App.Properties.getString('userId') === argsID) {
 } else {
 	$.myListingsTopBar.remove($.menuButton);
 	friendRequest();
+	var candy = $.titleMyListingsLabel.font.fontSize.substr(0, $.titleMyListingsLabel.font.fontSize.length-2);
+	if(args.length >= 11 && args.length <= 13) {
+		candy = candy - 1;
+	} else if(args.length >= 14 && args.length <= 15) {
+		candy = candy - 2;
+	} else if(args.length > 15 && args.length <= 16) {
+		candy = candy - 3;
+	} else if(args.length > 16) {
+		var argsRegex = args.match(/([^\s]+)([\s])([^\s])/);
+		args = argsRegex[0] + '.';
+	}
+	console.log("232342342342423423433333 ", args.length);
+	console.log("80808080888000808008 ", candy);
+	$.titleMyListingsLabel.font = {fontSize: candy, fontFamily: "Nunito-Bold"};
 	$.titleMyListingsLabel.text = args;
 }
 genMyItems(function(err, items){

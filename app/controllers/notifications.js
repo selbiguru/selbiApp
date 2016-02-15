@@ -64,10 +64,10 @@ function showNotifications(notificationsArray) {
 		        imgViewTop = '4dp';
 		        imgViewLeft = '5dp';
 		        imgViewBorderRadius = '25dp';
-		        notificationFontSize = '12dp';
+		        notificationFontSize = '13dp';
 		        nameLabelViewTop = '2dp';
 		        nameLabelViewLeft = '7dp';
-		        friendButtonHeight = '20dp';
+		        friendButtonHeight = '22dp';
 		        friendButtonWidth = '75dp';
 		        declineButtonRight = '105dp';
 		        acceptButtonRight = '15dp';

@@ -90,28 +90,28 @@
 	width: Ti.UI.FILL
 },
 ".usa-image-thumb[if=Alloy.Globals.iPhoneFive]": {
-	left: '4dp',
+	left: '3dp',
 	top: '2dp',
 	height: "41dp",
 	width: '41dp',
 	borderRadius: '21dp'
 },
 ".usa-listing-name[if=Alloy.Globals.iPhoneFive]": {
-	right: '4dp',
-	top: '5dp',
+	right: '2dp',
+	top: '4dp',
 	color: '#9B9B9B',
 	font: {
-		fontSize: '12dp',
+		fontSize: '13dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
 ".usa-listing-number[if=Alloy.Globals.iPhoneFive]": {
-	right: '4dp',
+	right: '2dp',
 	color: '#9B9B9B',
 	width: Titanium.UI.FILL,
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
 	font: {
-		fontSize: '12dp',
+		fontSize: '13dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
