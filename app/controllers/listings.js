@@ -13,8 +13,6 @@ var tabsObject = Object.freeze({
 	'selbiusa': 3
 });
 var tabView = tabsObject[args];
-console.log("#################", args);
-console.log("*******************", argsID);
 
 if(tabView === 1) {
 	$.closeUserView.hide();
