@@ -9,6 +9,8 @@ var userManager = require('managers/usermanager'),
  * Closes the View and controller for forgotPassword and shows the previous view
  */
 function closeForgotPassword(){
+	$.destroy();
+	$.off();
 	$.resetPassword.removeEventListener('click', resetPassword);
 	$.forgotPasswordView.removeEventListener('click', blurTextField);
 	$.email.removeEventListener('return', keyboardResetPassword);
@@ -90,7 +92,5 @@ function blurTextField(e) {
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
 
 $.resetPassword.addEventListener('click', resetPassword);
-
 $.forgotPasswordView.addEventListener('click', blurTextField);
-
 $.email.addEventListener('return', keyboardResetPassword);

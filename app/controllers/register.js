@@ -95,9 +95,7 @@ function registerUser(){
 							} else {
 								console.log("Successfully registered");
 								importContacts();
-								removeEventListeners();
-								//var homeController = Alloy.createController('masterlayout').getView();
-								//homeController.open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});	
+								removeEventListeners();	
 							}
 						});
 					  /*} else {
@@ -126,6 +124,8 @@ function registerUser(){
 }
 
 function closeRegisterWindow(){
+	$.destroy();
+	$.off();
 	removeEventListeners();
 	$.register.close({ transition: Ti.UI.iPhone.AnimationStyle.CURL_DOWN});
 }
@@ -163,8 +163,7 @@ function importContacts() {
 	        	console.log('010101010101');
 	        	indicatorWindow.closeIndicator();
 	        	buttonOn();
-	        	var homeController = Alloy.createController('masterlayout').getView();
-				homeController.open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
+				Alloy.createController('masterlayout').getView().open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
 				modalManager.getWelcomeModal(function(err, results){
 					var animateWindowClose = Titanium.UI.create2DMatrix();
 						animateWindowClose = animateWindowClose.scale(0);
@@ -172,6 +171,7 @@ function importContacts() {
 					results.modalWelcomeButton.addEventListener('click', function(e) {
 						results.modalWindow.close({transform:animateWindowClose, duration:300});
 					});
+					animateWindowClose = null;
 				});
 	        }
 	    });
@@ -179,8 +179,7 @@ function importContacts() {
 		console.log('02020202020202');
 		indicatorWindow.closeIndicator();
 		buttonOn();
-		var homeController = Alloy.createController('masterlayout').getView();
-		homeController.open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
+		Alloy.createController('masterlayout').getView().open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
 		modalManager.getWelcomeModal(function(err, results){
 			var animateWindowClose = Titanium.UI.create2DMatrix();
 				animateWindowClose = animateWindowClose.scale(0);
@@ -188,6 +187,7 @@ function importContacts() {
 			results.modalWelcomeButton.addEventListener('click', function(e) {
 				results.modalWindow.close({transform:animateWindowClose, duration:300});
 			});
+			animateWindowClose = null;
 		});
 	}
 };
@@ -212,8 +212,7 @@ function loadContacts() {
 			console.log('0505050505');
 			buttonOn();
 			indicatorWindow.closeIndicator();
-			var homeController = Alloy.createController('masterlayout').getView();
-			homeController.open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
+			Alloy.createController('masterlayout').getView().open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
 			modalManager.getWelcomeModal(function(err, results){
 				var animateWindowClose = Titanium.UI.create2DMatrix();
 					animateWindowClose = animateWindowClose.scale(0);
@@ -221,14 +220,14 @@ function loadContacts() {
 				results.modalWelcomeButton.addEventListener('click', function(e) {
 					results.modalWindow.close({transform:animateWindowClose, duration:300});
 				});
+				animateWindowClose = null;
 			});
 		});	
 	} else {
 		console.log('0404040404');
 		indicatorWindow.closeIndicator();
 		buttonOn();
-		var homeController = Alloy.createController('masterlayout').getView();
-		homeController.open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
+		Alloy.createController('masterlayout').getView().open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
 		modalManager.getWelcomeModal(function(err, results){
 			var animateWindowClose = Titanium.UI.create2DMatrix();
 				animateWindowClose = animateWindowClose.scale(0);
@@ -236,6 +235,7 @@ function loadContacts() {
 			results.modalWelcomeButton.addEventListener('click', function(e) {
 				results.modalWindow.close({transform:animateWindowClose, duration:300});
 			});
+			animateWindowClose = null;
 		});
 	}
 }

@@ -37,6 +37,8 @@ function loginUser(){
 }
 
 function closeWindow(){
+	$.destroy();
+	$.off();
 	removeEventListeners();
 	$.login.close({ transition: Ti.UI.iPhone.AnimationStyle.CURL_DOWN});
 }
@@ -50,12 +52,13 @@ function removeEventListeners() {
 	$.loginView.removeEventListener('click', blurTextField);
 	$.username.removeEventListener('return', keyboardNext);
 	$.password.removeEventListener('return', keyboardLogIn);
+	$.forgotPassword.removeEventListener('click', forgotPassword);
+	$.closeWindow.removeEventListener('click', closeWindow);
 };
 
 
 function forgotPassword(){
-	var controller = Alloy.createController('forgotPassword').getView();
-	controller.open({ transition: Ti.UI.iPhone.AnimationStyle.CURL_UP});
+	Alloy.createController('forgotPassword').getView().open({ transition: Ti.UI.iPhone.AnimationStyle.CURL_UP});
 }
 
 
@@ -119,3 +122,7 @@ $.loginView.addEventListener('click', blurTextField);
 $.username.addEventListener('return', keyboardNext);
 
 $.password.addEventListener('return', keyboardLogIn);
+
+$.forgotPassword.addEventListener('click', forgotPassword);
+
+$.closeWindow.addEventListener('click', closeWindow);

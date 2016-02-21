@@ -1,14 +1,14 @@
 <Alloy>
 	<Window class="wrapper">		
 		<View id="loginView" class="wrapper-container">
-			<Label class="splash-header-text">Sign In</Label>
+			<Label id="signInLabel" class="splash-header-text">Sign In</Label>
 			<TextField id="username" hintText="Email/Username" maxLength="254"></TextField>
 			<View class="login-underline"/>
 			<TextField passwordMask="true" hintText="Password" id="password" maxLength="254"></TextField>
 			<View class="login-underline"/>	
 			<Button id="loginUser" onClick="loginUser" class="primary-btn">Let's Selbi</Button>
-			<Label id="forgotPassword" onClick="forgotPassword" class="forgot-password">Forgot your password?</Label>
-			<Label id="closeWindow" class="cancel-txt" onClick="closeWindow">Cancel</Label>
+			<Label id="forgotPassword" class="forgot-password">Forgot your password?</Label>
+			<Label id="closeWindow" class="cancel-txt">Cancel</Label>
 		</View>
 	</Window>
 </Alloy>
