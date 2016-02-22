@@ -2,9 +2,8 @@ var args = arguments[0] || {};
 var emailManager = require('managers/emailmanager');
 var helpers = require('utilities/helpers');
 var indicator = require('uielements/indicatorwindow');
-var indicatorWindow = indicator.createIndicatorWindow({
-	message : "Sending Email"
-});
+
+
 
 
 /**
@@ -12,6 +11,9 @@ var indicatorWindow = indicator.createIndicatorWindow({
  * Send an email from a given user to Selbi via 'Contact Us' view
  */
 function sendEmailToSelbi() {
+	var indicatorWindow = indicator.createIndicatorWindow({
+		message : "Sending Email"
+	});
 	$.sendEmailButton.touchEnabled = false;
 	$.menuButton.touchEnabled = false;
 	if(helpers.trim($.emailTitle.value, false).length < 1 || helpers.trim($.emailBody.value, false).length < 1) {
@@ -37,6 +39,7 @@ function sendEmailToSelbi() {
 			}
 			buttonOn();
 			indicatorWindow.closeIndicator();
+			indicatorWindow = null;
 			return;
 		});
 	}
