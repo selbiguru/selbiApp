@@ -66,10 +66,10 @@ function addVenmo(){
 				    }
 			    });
 			    results.modalWindow.close({transform:animateWindowClose, duration:300});
+			    animateWindowClose = null;
 			});
 		});
 	} else {
-		console.log("POOOOOOOOOOOP");
 		//sendVenmoBraintree();
 		return;
 	}
@@ -141,8 +141,7 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  *  Dynamically creates XML elements to show the card that a user has entered on Selbi.
  */
  function showUserCard(cardInfo) {
- 	//$.viewAddCard.hide();
- 	//$.viewAddCard.height = '0dp';
+ 	var labelFont, iconFont, labelHeight, rowLeft;
  	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
 	        labelFont = 14;
@@ -284,8 +283,7 @@ $.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize
  *  Dynamically creates XML elements to show the bank that a user has entered on Selbi.
  */
 function showUserBank(bankInfo) {
-	//$.viewAddBank.hide();
-	//$.viewAddBank.height = '0dp';
+	var labelFont, iconFont, labelHeight;
  	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
 	        labelFont = 14;
@@ -383,8 +381,6 @@ function showUserBank(bankInfo) {
 				});
 				indicatorWindow.openIndicator();
 				Ti.API.info('The confirm button was clicked');
-				//$.viewAddCard.show();
- 				//$.viewAddCard.height = '40dp';
  				paymentManager.deleteMerchant(function(err, response){
 					if(err){
 						indicatorWindow.closeIndicator();

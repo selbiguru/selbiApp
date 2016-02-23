@@ -68,7 +68,7 @@ switch(Alloy.Globals.userDevice) {
  * Dynamically creates AboutUs text on app.
  */
 function aboutUsBody(aboutUsText) {
-	var aboutUsStatement = Titanium.UI.createLabel({
+	$.aboutUsInfoView.add(Titanium.UI.createLabel({
 		color: "#1BA7CD",
 		bottom: '30dp',
 		font: {
@@ -76,6 +76,5 @@ function aboutUsBody(aboutUsText) {
 			fontFamily: "Nunito-light"
 		},
 		text: aboutUsText
-	});
-	$.aboutUsInfoView.add(aboutUsStatement);
+	}));
 };

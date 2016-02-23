@@ -8,7 +8,6 @@ var helpers = require('utilities/helpers'),
 	dynamicElement = require('utilities/dynamicElement'),
 	faqManager = require('managers/faqmanager');
 
-var dataArray = [];
 
 $.activityIndicator.show();
 
@@ -28,6 +27,9 @@ faqManager.getFAQ(function(err, faqResults) {
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
 
 function showFAQ(faqObject) {
+	var dataArray = [];
+	var faqFontSizeAnswer, faqFontSizeQuestion,
+		faqTop, faqQLeft;
 	for (var i in faqObject) {
 		switch(Alloy.Globals.userDevice) {
 		    case 0: //iphoneFour

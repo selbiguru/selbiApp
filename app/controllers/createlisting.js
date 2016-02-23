@@ -376,15 +376,14 @@ switch(Alloy.Globals.userDevice) {
         break;
 };
 for(var i = 0; i < categoryArray.length; i++) {
-	var pickerRow = Titanium.UI.createPickerRow({
+	$.pickerCategory.add(Titanium.UI.createPickerRow({
 		title: categoryArray[i],
 		font: {
 			fontSize: pickerRowFont,
 			fontFamily: 'Nunito-Light'
 		},
 		id: categoryArray[i]
-	});	
-	$.pickerCategory.add(pickerRow);
+	}));
 };
 
 

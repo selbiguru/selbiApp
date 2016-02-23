@@ -10,7 +10,6 @@ Ti.App.addEventListener("app:BrainTreeHostLoad", addingArray);
 
 
 function addingArray(e) {
-	console.log('+++++++++++++++',e);
 	Ti.App.removeEventListener("app:BrainTreeHostLoad", addingArray);
 	if(e.braintree) {
 		array.push(e.braintree);

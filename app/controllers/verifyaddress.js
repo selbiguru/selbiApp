@@ -77,10 +77,6 @@ function validateAddressView(){
 	
 }
 
-/*$.userAptNumber.addEventListener('click', function(){
-	$.removeClass($.userAptNumber, "error");
-});*/
-//save to model..grab user object, update/ add address to user model. couchdb
 
 
 

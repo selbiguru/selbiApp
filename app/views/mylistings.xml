@@ -17,9 +17,7 @@
 		<View id='defaultView'>
 			
 		</View>
-		<View id="gridView">
-			
-		</View>
+		
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<ScrollView id="scrollViewMyListings">
 			<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>

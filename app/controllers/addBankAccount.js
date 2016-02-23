@@ -53,8 +53,8 @@ function addBankInfo() {
 					    	return;
 				    	}
 				    });
-		    	
 				    results.modalWindow.close({transform:animateWindowClose, duration:300});
+				    animateWindowClose = null;
 				});
 			});
 		} else {

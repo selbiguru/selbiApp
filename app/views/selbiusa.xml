@@ -8,7 +8,7 @@
 				<Label id="titleSelbiUSALabel">SelbiUSA</Label>
 			</View>
 			<View id="searchUserView">
-				<Button onClick='findUserListings' id="searchUserButton" class="icon-buttons" icon="fa-search"></Button>
+				<Button id="searchUserButton" class="icon-buttons" icon="fa-search"></Button>
 			</View>
 		</View>
 		<View id="selbiUSAFilterView">

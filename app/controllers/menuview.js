@@ -34,8 +34,7 @@ function logout(){
 			helpers.alertUser('Logout','Selbi is experiencing technical difficulties and unable to log you out at this time.  Please try again later!');
 			return;
 		} else {
-			var indexController = Alloy.createController('index').getView();
-			indexController.open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});	
+			Alloy.createController('index').getView().open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});	
 		}
 	});	
 }
