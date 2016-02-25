@@ -67,25 +67,29 @@ switch(Alloy.Globals.userDevice) {
 $.activityIndicator.show();
 if(tabView === 1 || Ti.App.Properties.getString('userId') === argsID) {
 	$.myListingsTopBar.remove($.backViewButton);
+	$.backViewButton = null;
 	$.friendRequestView.hide();
 	$.titleMyListingsLabel.text = "My Listings";
 } else {
+	//args = 'John Jenkins';
+	//args = 'Jordan Burrows';
+	//args = 'Appp Ppppppppppp';
+	//args = 'Barry Silverstone';
 	$.myListingsTopBar.remove($.menuButton);
+	$.menuButton = null;
 	friendRequest();
-	var candy = $.titleMyListingsLabel.font.fontSize.substr(0, $.titleMyListingsLabel.font.fontSize.length-2);
+	var adjFontSize = $.titleMyListingsLabel.font.fontSize.substr(0, $.titleMyListingsLabel.font.fontSize.length-2);
 	if(args.length >= 11 && args.length <= 13) {
-		candy = candy - 1;
+		adjFontSize = adjFontSize - 1;
 	} else if(args.length >= 14 && args.length <= 15) {
-		candy = candy - 2;
+		adjFontSize = adjFontSize - 2;
 	} else if(args.length > 15 && args.length <= 16) {
-		candy = candy - 3;
+		adjFontSize = adjFontSize - 3;
 	} else if(args.length > 16) {
 		var argsRegex = args.match(/([^\s]+)([\s])([^\s])/);
 		args = argsRegex[0] + '.';
 	}
-	console.log("232342342342423423433333 ", args.length);
-	console.log("80808080888000808008 ", candy);
-	$.titleMyListingsLabel.font = {fontSize: candy, fontFamily: "Nunito-Bold"};
+	$.titleMyListingsLabel.font = {fontSize: adjFontSize, fontFamily: "Nunito-Bold"};
 	$.titleMyListingsLabel.text = args;
 }
 genMyItems(function(err, items){
@@ -106,7 +110,7 @@ function genMyItems(cb){
 	listingManager.getUserListings(argsID, queryObj, function(err, userListings){
 		userListings.listings.length > 0 ? paginateLastDate = userListings.listings[userListings.listings.length - 1].createdAt : '';
 		userListings.listings.length < 30 ? endOfListings = true : '';
-		var listItems = [];	
+		//var listItems = [];	
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading listings!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
@@ -135,7 +139,7 @@ function genMyItems(cb){
 			            	color: userListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
 			            },
 			            listingImagesCount: {
-			            	text: userListings.listings[listing].isSold ? "SOLD" : userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"	,
+			            	text: userListings.listings[listing].isSold ? "SOLD" : userListings.listings[listing].imageUrls.length > 1 ? userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"	,
 		        			font: userListings.listings[listing].isSold ? {fontFamily: 'Nunito-Bold', fontSize: myListingFontSize } : {fontFamily: 'Nunito-Light', fontSize: myListingFontSize } ,
 		        			color: userListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
 			            },  
@@ -165,19 +169,22 @@ function genMyItems(cb){
 
 		        		},
 		        		'#listingImagesCount':{ 
-			        		text: userListings.listings[listing].isSold ? "SOLD" : userListings.listings[listing].imageUrls.length > 1 ? "+" + userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"	,
+			        		text: userListings.listings[listing].isSold ? "SOLD" : userListings.listings[listing].imageUrls.length > 1 ? userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"	,
 		        			font: userListings.listings[listing].isSold ? {fontFamily: 'Nunito-Bold', fontSize: myListingFontSize } : {fontFamily: 'Nunito-Light', fontSize: myListingFontSize } ,
 		        			color: userListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
 		        		}
 			        });
 			        
-			        lView = view.getView();
-					listItems.push(tmp);
+			        
+					//listItems.push(tmp);
 					items.push({
-				        view: lView,
+				        view: view.getView(),
 				        data: tmp
 				    });
-				    obj.push(lView);
+				    obj.push('NotEmpty');
+				   // lView.getView().close();
+				    //lView = null;
+				    view = null;
 				}
 			}
 			
@@ -197,7 +204,7 @@ function genMyItems(cb){
 		}
 		$.activityIndicator.hide();
 		$.activityIndicator.height = '0dp';
-		cb(err, listItems);	
+		cb(err, []);	
 	});
 };
 
@@ -368,6 +375,8 @@ function friendRequestDynamic(e, newStatus){
 
 //-------------------------------------------Initializing Views/Styles----------------------------------------------------//
 
+
+//Initializes tiFlexGgrid
 $.fg.init({
     columns: 2,
     space: myListingPadding,
@@ -378,6 +387,7 @@ $.fg.init({
     itemBorderWidth:0,
     itemBorderRadius:0
 });
+//Sets click event on tiFlexGgrid item
 $.fg.setOnItemClick(function(e){
     openListing({
     	itemId:e.source.data.properties.itemId,
@@ -389,8 +399,6 @@ $.fg.setOnItemClick(function(e){
 
 
 
-$.scrollViewMyListings.addEventListener('scroll', infitineScroll);
-
 /**
  * @method infitineScroll
  * Determines when to load more items on scrolling for User's items
@@ -400,11 +408,45 @@ function infitineScroll(e) {
 		var tolerance = 450;
 		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewMyListings.getRect().height + e.y) && stopScroll){
 			stopScroll = false;
-		   //$.scrollViewMyListings.scrollingEnabled = false;
 			genMyItems(function(err, itemsResponse) {
 				stopScroll = true;
-				//$.scrollViewMyListings.scrollingEnabled = true;
 			});
 		}	
 	}
 }
+
+
+/**
+ * @method clearProxy
+ * Clears up memory leaks from dynamic elements created when page closes
+ */
+function clearProxy(e) {
+	if($.menuButton) {
+		this.removeEventListener('click', clearProxy);
+	}
+	$.scrollViewMyListings.removeEventListener('scroll', infitineScroll);
+	$.fg.clearGrid();
+	for(var i in items) {
+		items[i].view = null;
+		items[i].data = null;
+	};
+	$.myListingsView.remove($.scrollViewMyListings);
+	
+	console.log('solve anything yet?^ ', e);
+}
+
+
+
+/*-------------------------------------------------Event Listeners---------------------------------------------------*/
+
+
+$.myListingsView.addEventListener('click', function(e) {	
+	if($.menuButton) {
+		$.myListingsView.parent.parent.children[0].addEventListener('click', clearProxy);
+	} else {
+		clearProxy();
+	};
+});
+
+$.scrollViewMyListings.addEventListener('scroll', infitineScroll);
+
