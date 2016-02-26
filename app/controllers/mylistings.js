@@ -421,6 +421,8 @@ function infitineScroll(e) {
  * Clears up memory leaks from dynamic elements created when page closes
  */
 function clearProxy(e) {
+	$.off;
+	$.destroy;
 	if($.menuButton) {
 		this.removeEventListener('click', clearProxy);
 	}

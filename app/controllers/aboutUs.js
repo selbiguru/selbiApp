@@ -18,6 +18,7 @@ $.activityIndicator.show();
  * If error occurs fetching clientToken, alert modal shows and addCreditCard view is closed automatically.
  */
 AboutUsManager.getAboutUs(function(err, aboutUsResults) {
+	console.log('aboutUsResultsaboutUsResultsaboutUsResults', aboutUsResults);
 	if(err) {
 		dynamicElement.defaultLabel('Guess there isn\'t much to learn about Selbi!  Check back later!', function(err, results) {
 			$.aboutUsInfoView.add(results);
@@ -31,7 +32,39 @@ AboutUsManager.getAboutUs(function(err, aboutUsResults) {
 });
 
 
+/**
+ * @method aboutUsBody
+ * @param {String} aboutUsText Text string from server with About Us paragraph
+ * Dynamically creates AboutUs text on app.
+ */
+function aboutUsBody(aboutUsText) {
+	$.aboutUsInfoView.add(Titanium.UI.createLabel({
+		color: "#1BA7CD",
+		bottom: '30dp',
+		font: {
+			fontSize: aboutUsFontSize,
+			fontFamily: "Nunito-light"
+		},
+		text: aboutUsText
+	}));
+};
 
+
+
+/**
+ * @method clearProxy
+ * Clears up memory leaks from dynamic elements created when page closes
+ */
+function clearProxy(e) {
+	$.off;
+	$.destroy;
+	$.aboutUsInfoView.remove($.aboutUsInfoView.children[0]);
+	$.aboutUsInfoView.children[0] = null;
+	
+	this.removeEventListener('click', clearProxy);
+	
+	console.log('solve anything yet?^ ', e);
+}
 
 
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
@@ -62,19 +95,9 @@ switch(Alloy.Globals.userDevice) {
 
 
 
-/**
- * @method aboutUsBody
- * @param {String} aboutUsText Text string from server with About Us paragraph
- * Dynamically creates AboutUs text on app.
- */
-function aboutUsBody(aboutUsText) {
-	$.aboutUsInfoView.add(Titanium.UI.createLabel({
-		color: "#1BA7CD",
-		bottom: '30dp',
-		font: {
-			fontSize: aboutUsFontSize,
-			fontFamily: "Nunito-light"
-		},
-		text: aboutUsText
-	}));
-};
+
+/*-------------------------------------------------Event Listeners---------------------------------------------------*/
+
+$.aboutUsView.addEventListener('click', function(e) {
+	$.aboutUsView.parent.parent.children[0].addEventListener('click', clearProxy);
+});
