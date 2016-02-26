@@ -56,8 +56,8 @@ function aboutUsBody(aboutUsText) {
  * Clears up memory leaks from dynamic elements created when page closes
  */
 function clearProxy(e) {
-	$.off;
-	$.destroy;
+	$.off();
+	$.destroy();
 	$.aboutUsInfoView.remove($.aboutUsInfoView.children[0]);
 	$.aboutUsInfoView.children[0] = null;
 	

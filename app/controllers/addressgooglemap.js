@@ -2,6 +2,9 @@ var args = arguments[0] || {};
 var address = [];
 
 function cancelAddressWebView(){
+	$.off();
+	$.destroy();
+	Ti.App.removeEventListener('app:getAddressWebView', getAddressWebView);
 	Alloy.Globals.closePage('addressgooglemap');
 	address = [];
 	return;
@@ -16,13 +19,15 @@ function verifyAddressWebView(){
 			address = [];
 			return;
 		}
+		Ti.App.removeEventListener('app:getAddressWebView', getAddressWebView);
 		Alloy.Globals.openPage('verifyaddress', address);
 		address = [];
 	}	
 	return;
 }
 
-Ti.App.addEventListener('app:getAddressWebView', function(e) {
+Ti.App.addEventListener('app:getAddressWebView', getAddressWebView);
+
+function getAddressWebView(e){
 	address.push(e.address);
-	return;
-});
+}
