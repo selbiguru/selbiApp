@@ -49,8 +49,8 @@ function genFriendsItems(cb){
 			for(var listing in friendsListings) {
 				if(friendsListings[listing].listings[0].imageUrls){
 					var view = Alloy.createController('userTwoColumnTemplate');
-					var imageUrl = friendsListings[listing].listings[0].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.friendlistView + Alloy.CFG.cloudinary.bucket + friendsListings[listing].listings[0].imageUrls[0] : "";
-					var profileImage = friendsListings[listing].profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + friendsListings[listing].profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.menu + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
+					var imageUrl = friendsListings[listing].listings[0].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].friendlistView + Alloy.CFG.cloudinary.bucket + friendsListings[listing].listings[0].imageUrls[0] : "";
+					var profileImage = friendsListings[listing].profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + friendsListings[listing].profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
 					var tmp = {
 						image :  imageUrl,
 			            usaListingThumb : {
@@ -60,7 +60,7 @@ function genFriendsItems(cb){
 			                image : profileImage
 			            },
 			            usaListingName: {
-			            	text: friendsListings[listing].firstName +" "+ friendsListings[listing].lastName
+			            	text: (friendsListings[listing].firstName +" "+ friendsListings[listing].lastName).match(/([^\s]+)([\s])([^\s])/)[0]
 			            },
 			            usaListingNumber: {
 			            	text: friendsListings[listing].count > 1 ? friendsListings[listing].count + " Listings" : friendsListings[listing].count + " Listing"
@@ -80,20 +80,23 @@ function genFriendsItems(cb){
 			        		image: profileImage
 			        	},
 			        	'#usaListingName':{ 
-			        		text: helpers.alterTextFormat(friendsListings[listing].firstName +" "+ friendsListings[listing].lastName, 12, false)
+			        		text: (friendsListings[listing].firstName +" "+ friendsListings[listing].lastName).length > 14 ? helpers.alterTextFormat((friendsListings[listing].firstName +" "+ friendsListings[listing].lastName).match(/([^\s]+)([\s])([^\s])/)[0], 13, false) : friendsListings[listing].firstName +" "+ friendsListings[listing].lastName
 		        		},
 		        		'#usaListingNumber':{ 
 			        		text: friendsListings[listing].count > 1 ? friendsListings[listing].count + " Listings" : friendsListings[listing].count + " Listing"	
 		        		}
 			        });
 			        
-			        lView = view.getView();
-					listItems.push(tmp);
+			        
+					//listItems.push(tmp);
 					items.push({
-				        view: lView,
+				        view: view.getView(),
 				        data: tmp
 				    });
-				    obj.push(lView);
+				    obj.push('not');
+				   // lView.getView().close();
+				    //lView = null;
+				    view = null;
 				}
 			}
 			
@@ -119,17 +122,17 @@ function genFriendsItems(cb){
  * When button is clicked, finds user listings of entered username
  */
 function findUserListings(){
-	var uniqueUserRegEx = ($.usernameSearch.value.toLowerCase()).match(/^[a-zA-Z\d\_]+$/);
+	var uniqueUserRegEx = (helpers.trim($.usernameSearch.value, true).toLowerCase()).match(/^[a-z\d]+$/gi);
 	if(uniqueUserRegEx === null) {
 		helpers.alertUser('Oops','Usernames are only letters and numbers!');
 		return;
 	}
-	if(helpers.trim($.usernameSearch.value, true).length < 6) {
-		helpers.alertUser('Oops','Usernames are at least 6 letters long!');
+	if(uniqueUserRegEx[0].length < 7) {
+		helpers.alertUser('Oops','Usernames are at least 7 letters long!');
 		return;
 	}
 	var userNameSearchObj = {
-		username: helpers.trim($.usernameSearch.value, true).toLowerCase()
+		username: uniqueUserRegEx[0]
 	};
 	friendsManager.getInvitationByUsername(userNameSearchObj, function (err, usernameResults) {
 		if(err){
@@ -154,16 +157,86 @@ function findUserListings(){
  * @param {Object} listingId Object containing listingId and userId for the item
  */
 function openListing(listingIDs){
-	//console.log("used 6",listingIDs);
 	Alloy.Globals.openPage('mylistings', [
 		listingIDs.userName, listingIDs.userId, listingIDs.friends
 	]);
-	
+	if(Ti.App.Properties.getString('userId') === listingIDs.userId) {
+		removeEventListeners();
+		Alloy.Globals.closePage('friendslistings');
+	}
 };
 
 
 
+/**
+ * @method infitineScroll
+ * Determines when to load more items on scrolling for SelbiUSA items
+ */
+function infitineScroll(e) {
+	if(!endOfListings) {
+		var tolerance = 450;
+		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewFriends.getRect().height + e.y) && stopScroll){
+			stopScroll = false;
+			genFriendsItems(function(err, peace) {
+				stopScroll = true;
+			});
+		}	
+	}
+}
 
+
+/**
+ * @private blurTextField 
+ * Blurs usernameSearch text field in accordance with expected UI
+ */
+function blurTextField(e) {
+	if(e.source.id === 'usernameSearch' || e.source.id === 'friendsListingsSearchView') {
+		$.usernameSearch.focus();
+	} else {
+		$.usernameSearch.blur();
+	}
+};
+
+
+
+/**
+ * @method keyboardSearch 
+ * On keyboard 'Go' button pressed usernameSearch is blurred and findUserListing function is called
+ */
+function keyboardSearch(){
+	$.usernameSearch.blur();
+	findUserListings();
+}
+
+
+/**
+ * @method removeEventListeners
+ * Removes event listeners
+ */
+function removeEventListeners() {
+	$.scrollViewFriends.removeEventListener('scroll', infitineScroll);
+	$.friendsListingsView.removeEventListener('click', blurTextField);
+	$.usernameSearch.removeEventListener('return', keyboardSearch);
+};
+
+
+/**
+ * @method clearProxy
+ * Clears up memory leaks from dynamic elements created when page closes
+ */
+function clearProxy(e) {
+	$.off();
+	$.destroy();
+	removeEventListeners();
+	this.removeEventListener('click', clearProxy);
+	$.fg.clearGrid();
+	for(var i in items) {
+		items[i].view = null;
+		items[i].data = null;
+	};
+	
+	console.log('solve anything yet?^ ', e);
+}
 
 
 //-------------------------------------------Initializing Views/Styles----------------------------------------------------//
@@ -210,16 +283,15 @@ $.fg.setOnItemClick(function(e){
 
 
 
-$.scrollViewFriends.addEventListener('scroll', counting);
 
-function counting(e) {
-	if(!endOfListings) {
-		var tolerance = 450;
-		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewFriends.getRect().height + e.y) && stopScroll){
-			stopScroll = false;
-			genFriendsItems(function(err, peace) {
-				stopScroll = true;
-			});
-		}	
-	}
-}
+/*-------------------------------------------------Event Listeners---------------------------------------------------*/
+
+
+$.scrollViewFriends.addEventListener('scroll', infitineScroll);
+$.friendsListingsView.addEventListener('click', blurTextField);
+$.usernameSearch.addEventListener('return', keyboardSearch);
+
+$.friendsListingsView.addEventListener('click', function(e) {
+	$.friendsListingsView.parent.parent.children[0].addEventListener('click', clearProxy);
+});
+

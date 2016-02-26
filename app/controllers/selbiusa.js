@@ -6,7 +6,7 @@ var listingManager = require('managers/listingmanager'),
 	modalManager = require('managers/modalmanager'),
 	helpers = require('utilities/helpers'),
 	dynamicElement = require('utilities/dynamicElement');
-var	selbiUSAPadding, selbiUSAItemHeight;
+var	selbiUSAPadding, selbiUSAItemHeight, selbiUSAFontSize;
 var items = [],
 	obj = [],
 	categoryArray = [];
@@ -132,13 +132,15 @@ function genUSAItems(cb){
 		        		}
 			        });
 			        
-			        lView = view.getView();
-					listItems.push(tmp);
+			        //listItems.push(tmp);
 					items.push({
-				        view: lView,
+				        view: view.getView(),
 				        data: tmp
 				    });
-				    obj.push(lView);
+				    obj.push('not');
+				   // lView.getView().close();
+				    //lView = null;
+				    view = null;
 				}
 			}
 			//ADD ALL THE ITEMS TO THE GRID
@@ -152,7 +154,7 @@ function genUSAItems(cb){
 		}
 		$.activityIndicator.hide();
 		$.activityIndicator.height = '0dp';
-		cb(err, listItems);	
+		cb(err, []);	
 	});
 };
 
@@ -207,10 +209,7 @@ function openListing(listingIDs){
 			listingIDs.userName, listingIDs.userId, listingIDs.friends
 		]);
 		if(Ti.App.Properties.getString('userId') === listingIDs.userId) {
-			$.scrollViewSelbi.removeEventListener('scroll', infitineScroll);
-			$.selbiUSAView.removeEventListener('click', blurTextField);
-			$.filterButton.removeEventListener('click', filterListings);
-			$.usernameSearch.removeEventListener('return', keyboardSearch);
+			removeEventListeners();
 			Alloy.Globals.closePage('selbiusa');
 		}
 	}	
@@ -269,6 +268,10 @@ function filterListings() {
 				}
 			}
 			$.fg.clearGrid();
+			for(var i in items) {
+				items[i].view = null;
+				items[i].data = null;
+			}
 			$.defaultView.height= '0dp';
 			if($.defaultView.children.length > 0) {
 				$.defaultView.remove($.defaultView.children[0]);	
@@ -277,6 +280,7 @@ function filterListings() {
 				
 			});
 			results.modalWindow.close({transform:animateWindowClose, duration:300});
+			animateWindowClose = null;
 		});
 		return;
 	});
@@ -292,6 +296,42 @@ function keyboardSearch(){
 	findUserListings();
 }
 
+
+
+/**
+ * @method removeEventListeners
+ * Removes event listeners
+ */
+function removeEventListeners() {
+	$.scrollViewSelbi.removeEventListener('scroll', infitineScroll);
+	$.filterButton.removeEventListener('click', filterListings);
+	$.selbiUSAView.removeEventListener('click', blurTextField);
+	$.usernameSearch.removeEventListener('return', keyboardSearch);
+	$.searchUserButton.removeEventListener('click', findUserListings);
+};
+
+
+
+/**
+ * @method clearProxy
+ * Clears up memory leaks from dynamic elements created when page closes
+ */
+function clearProxy(e) {
+	$.off();
+	$.destroy();
+	removeEventListeners();
+	$.selbiUSAView.remove($.activityIndicator);
+	$.activityIndicator = null;
+	this.removeEventListener('click', clearProxy);
+	$.fg.clearGrid();
+	for(var i in items) {
+		items[i].view = null;
+		items[i].data = null;
+	}
+	$.selbiUSAView = null;
+	
+	console.log('solve anything yet?^ ', e);
+}
 
 
 
@@ -317,13 +357,17 @@ $.fg.setOnItemClick(function(e){
 
 
 
+
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
 
 
 $.scrollViewSelbi.addEventListener('scroll', infitineScroll);
-
 $.filterButton.addEventListener('click', filterListings);
-
 $.selbiUSAView.addEventListener('click', blurTextField);
+$.usernameSearch.addEventListener('return', keyboardSearch); 
+$.searchUserButton.addEventListener('click', findUserListings);
 
-$.usernameSearch.addEventListener('return', keyboardSearch);
+$.selbiUSAView.addEventListener('click', function(e) {
+	$.selbiUSAView.parent.parent.children[0].addEventListener('click', clearProxy);
+});
+
