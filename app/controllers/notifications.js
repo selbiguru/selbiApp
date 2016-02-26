@@ -3,7 +3,6 @@ var helpers = require('utilities/helpers'),
 	dynamicElement = require('utilities/dynamicElement'),
 	friendsManager = require('managers/friendsmanager'),
 	notificationManager = require('managers/notificationmanager');
-var dataArray = [];
 
 $.activityIndicator.show();
 
@@ -11,7 +10,6 @@ $.activityIndicator.show();
 
 
 notificationManager.getNotificationByUserId(function(err, notificationResults) {
-	console.log('========= ', notificationResults);
 	if(err) {
 		dynamicElement.defaultLabel('Dang! We are having trouble getting your notifications. Please try again shortly.', function(err, results) {
 			$.defaultView.height= Ti.UI.FILL;
@@ -30,11 +28,15 @@ notificationManager.getNotificationByUserId(function(err, notificationResults) {
 	return;
 });
 
+
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
 
 
 
 function showNotifications(notificationsArray) {
+	var mainViewHeight, mainViewTop, horizontalViewHeight, imgViewHeight, imgViewWidth, imgViewTop,
+	imgViewLeft, imgViewBorderRadius, notificationFontSize, nameLabelViewTop, nameLabelViewLeft,
+	friendButtonHeight, friendButtonWidth, declineButtonRight, acceptButtonRight, underlineViewTop;
 	for (var i in notificationsArray) {
 		switch(Alloy.Globals.userDevice) {
 		    case 0: //iphoneFour
@@ -147,16 +149,7 @@ function showNotifications(notificationsArray) {
 			image: notificationsArray[i].userFromInfo.profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + notificationsArray[i].userFromInfo.profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg"
 		});
 		var subView = Titanium.UI.createView({});
-		var nameLabel = Titanium.UI.createLabel({
-	        font: {
-				fontSize: notificationFontSize,
-				fontFamily: 'Nunito-Light'
-			},
-			color: "#9B9B9B",
-			top: nameLabelViewTop,
-			left: nameLabelViewLeft,
-	        text: createText(notificationsArray[i])
-		});
+		
 		var buttonsView = Titanium.UI.createView({
 			height: Ti.UI.SIZE,
 			bottom: '0dp'
@@ -179,8 +172,7 @@ function showNotifications(notificationsArray) {
 				userFrom: notificationsArray[i].userFrom,
 				userTo: notificationsArray[i].user,
 				notificationId: notificationsArray[i].id			
-			},
-			ext: mainView
+			}
 		});
 		var acceptFriendButton = Titanium.UI.createButton({
 			height: friendButtonHeight,
@@ -200,8 +192,7 @@ function showNotifications(notificationsArray) {
 				userFrom: notificationsArray[i].userFrom,
 				userTo: notificationsArray[i].user,
 				notificationId: notificationsArray[i].id
-			},
-			ext: mainView
+			}
 		});
 		var underline = Titanium.UI.createView({
 			height: "1dp",
@@ -213,13 +204,21 @@ function showNotifications(notificationsArray) {
 			buttonsView.add(declineFriendButton);
 		}
 		buttonsView.add(acceptFriendButton);
-		subView.add(nameLabel);
+		subView.add(Titanium.UI.createLabel({
+	        font: {
+				fontSize: notificationFontSize,
+				fontFamily: 'Nunito-Light'
+			},
+			color: "#9B9B9B",
+			top: nameLabelViewTop,
+			left: nameLabelViewLeft,
+	        text: createText(notificationsArray[i])
+		}));
 		subView.add(buttonsView);
 		horizontalView.add(imgView);
 		horizontalView.add(subView);
 		mainView.add(horizontalView);
 		mainView.add(underline);
-		dataArray.push(mainView);
 		acceptFriendButton.addEventListener('click', function(e) {
 			if(e.source.data.isSold) {
 				var deleteObj = {
@@ -230,7 +229,7 @@ function showNotifications(notificationsArray) {
 						helpers.alertUser('Oops','We are having trouble processing your request!');
 						return;
 					} else {
-						$.viewNotifications.remove(e.source.ext);
+						$.viewNotifications.remove(e.source.parent.parent.parent.parent);
 						if($.viewNotifications.children.length <= 0) {
 							dynamicElement.defaultLabel('No new notifications!', function(err, results) {
 								$.defaultView.height= Ti.UI.FILL;
@@ -252,7 +251,7 @@ function showNotifications(notificationsArray) {
 						helpers.alertUser('Oops','We are having trouble processing your request!');
 						return;
 					} else {
-						$.viewNotifications.remove(e.source.ext);
+						$.viewNotifications.remove(e.source.parent.parent.parent.parent);
 						if($.viewNotifications.children.length <= 0) {
 							dynamicElement.defaultLabel('No new notifications!', function(err, results) {
 								$.defaultView.height= Ti.UI.FILL;
@@ -287,8 +286,8 @@ function showNotifications(notificationsArray) {
 				}
 			});
 		});
+		$.viewNotifications.add(mainView);
 	}
-	$.viewNotifications.add(dataArray);
 };
 
 
@@ -306,6 +305,31 @@ function createText(notification) {
 }
 
 
+/**
+ * @method clearProxy
+ * Clears up memory leaks from dynamic elements created when page closes
+ */
+function clearProxy(e) {
+	$.off;
+	$.destroy;
+	for(var i in $.viewNotifications.children[0].children[0].children) {
+		$.viewNotifications.children[0].children[0].remove($.viewNotifications.children[0].children[0].children[0]);
+		$.viewNotifications.children[0].children[0].children[0] = null;
+	}
+	for(var i in $.viewNotifications.children[0].children) {
+		$.viewNotifications.children[0].remove($.viewNotifications.children[0].children[0]);
+		$.viewNotifications.children[0].children[0] = null;
+	}
+	for(var i in $.viewNotifications.children) {
+		$.viewNotifications.remove($.viewNotifications.children[0]);
+		$.viewNotifications.children[0] = null;
+	}
+	this.removeEventListener('click', clearProxy);
+	
+	console.log('solve anything yet?^ ', e);
+}
+
+
 function updateUser(){
 	//Load the user model
 	Alloy.Models.user.fetch({
@@ -320,5 +344,14 @@ function updateUser(){
 			helpers.alertUser('Get User','Failed to get the current user!');
 		}
 	});
-}
+};
+
+
+//-------------------------------------------Initializing Views/Styles----------------------------------------------------//
+
+
+$.notificationsView.addEventListener('click', function(e) {
+	$.notificationsView.parent.parent.children[0].addEventListener('click', clearProxy);
+	
+});
 
