@@ -213,8 +213,8 @@
 },
 "#sellerImage[if=Alloy.Globals.iPhoneFive]": {
 	top: '2dp',
-	height: "45dp",
-	width: '45dp',
+	height: "46dp",
+	width: '46dp',
 	borderRadius: '23dp',
 },
 "#sellerName[if=Alloy.Globals.iPhoneFive]": {
@@ -337,10 +337,10 @@
 	height: Ti.UI.FILL
 },
 "#sellerImage[if=Alloy.Globals.iPhoneSix]": {
-	top: '5dp',
-	height: "50dp",
-	width: '50dp',
-	borderRadius: '25dp'
+	top: '1dp',
+	height: "58dp",
+	width: '58dp',
+	borderRadius: '29dp'
 },
 "#sellerName[if=Alloy.Globals.iPhoneSix]": {
 	height: Ti.UI.FILL,
@@ -450,7 +450,7 @@
 },
 "#viewListingHeader[if=Alloy.Globals.iPhoneSixPlus]": {
 	//layout: "horizontal",
-	height: '60dp',
+	height: '64dp',
 	width: '95%',
 	backgroundColor: '#FAFAFA',
 	zIndex: '20'
@@ -461,10 +461,10 @@
 	height: Ti.UI.FILL
 },
 "#sellerImage[if=Alloy.Globals.iPhoneSixPlus]": {
-	top: '2dp',
-	height: "55dp",
-	width: '55dp',
-	borderRadius: '28dp'
+	top: '1dp',
+	height: "62dp",
+	width: '62dp',
+	borderRadius: '31dp'
 },
 "#sellerName[if=Alloy.Globals.iPhoneSixPlus]": {
 	height: Ti.UI.FILL,
