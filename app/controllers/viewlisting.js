@@ -13,13 +13,14 @@ var	previewListing,
 	previewImageCollection = [];
 var ccEligible = false,
 	bankEligible = false;
+var saveListingButton = null;
+var editListingButton = null; 
 $.activityIndicator.show();
 
 
 
 function initialize() {
 	if(args.itemId){
-		console.log('+++++++++++',ccEligible, bankEligible);
 		//show correct 'buy' buttons with correct event listeners
 		previewListing = false;
 		$.titleViewListingLabel.text = 'View Listing';
@@ -38,10 +39,8 @@ function initialize() {
 		});
 	} else {
 		//show correct buttons dynamically created with correct event listeners
-		console.log('++++++++++',ccEligible, bankEligible);
 		previewListing = true;
 		$.titleViewListingLabel.text = 'Preview Listing';
-		//$.backListingView.hide();
 		createPreviewButtons();
 		populateViewListing(args);
 		$.activityIndicator.hide();
@@ -91,13 +90,6 @@ function populateViewListing(listingData) {
 	}
 	$.sellerImage.image = profileImageUrl;
 	for(var img in images) {
-		var container =  Titanium.UI.createView({
-			top: '0dp',
-			left: '0dp',
-		  	borderRadius: '0dp',
-		  	backgroundColor: "#E5E5E5"	  
-		});
-		console.log('BEATEN BEATEN BEATEN',Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].listingView + Alloy.CFG.cloudinary.bucket + images[img]);
 		var carouselImage = ImageUtils.Utils.RemoteImage({
 			height: Ti.UI.FILL,
 			width: Ti.UI.FILL,
@@ -110,6 +102,7 @@ function populateViewListing(listingData) {
 		};
 		
 		views.push(carouselImage);
+		carouselImage = null;
 	}
 	$.imageGallery.views = views;	
 };
@@ -190,7 +183,6 @@ function buyItem(actionButton){
 
 	indicatorWindow.openIndicator();
 	paymentManager.createOrder(createOrderObj, function(err, results){
-		console.log("======== ", results);
 		if(err) {
 			actionButton.touchEnabled = true;
 			$.backViewButton.toucheEnabled = true;
@@ -283,6 +275,7 @@ function archiveItem(actionButton){
  * Resizes image based on iPhone for preview listing's images.
  */
 function previewImageResize(image) {
+	var heightPreview, heightRatio, widthRatio, widthPreview;
 	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
 		    heightPreview = 215;
@@ -369,13 +362,6 @@ function resizeKeepAspectRatioNewHeight(blob, imageWidth, imageHeight, newHeight
 
 
 
-/*-----------------------------------------------Event Listeners------------------------------------------------*/
-
-/**
- * Event listener for click of user of listing to open and show all of the users listed items
- */
-$.overlayListingHeader.addEventListener('click', openUserListing);
-
 
  /**
  * @private openUserListing 
@@ -416,6 +402,9 @@ function updateUser(){
 
 
 
+
+
+
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
 
  /**
@@ -447,7 +436,7 @@ function createPreviewButtons() {
 	        break;
 	};
 
-	var editListingButton = Ti.UI.createButton({
+	editListingButton = Ti.UI.createButton({
 		width: '49%',
 		height: buttonHeight,
 		bottom: '20dp',
@@ -462,7 +451,7 @@ function createPreviewButtons() {
 		title: 'Edit Listing'
 	});
 	
-	var saveListingButton = Ti.UI.createButton({
+	saveListingButton = Ti.UI.createButton({
 		width: '49%',
 		height: buttonHeight,
 		bottom: '20dp',
@@ -499,6 +488,26 @@ function createPreviewButtons() {
  *  Closes the current view to reveal the previous still opened view.
  */
 function backButton() {
+	$.off();
+	$.destroy();
+	if(args.itemId) {
+		$.viewListingButtonView.remove($.viewListingButtonView.children[0]);
+		$.viewListingButtonView.children[0] = null;	
+	} else {
+		$.viewListingButtonView.remove(editListingButton);
+		$.viewListingButtonView.remove(saveListingButton);
+		editListingButton = null;
+		saveListingButton = null;
+	}
+	
+	for(i in views) {
+		$.imageGallery.remove(views[i]);
+	}
+	views = [];
+	itemData = null;
+	images = null;
+	previewImageCollection = [];
+	$.sellerImage.image = null;
 	Alloy.Globals.closePage('viewlisting');
 }
 
@@ -544,7 +553,6 @@ function createPurchasingButtons() {
 	var purchaseListing = buyItem;
 	var deleteListing = deleteItem;
 	var archiveListing = archiveItem;
-	console.log("argsid ", args.userId, "tiID ",Ti.App.Properties.getString('userId'));
 	if(args.userId === Ti.App.Properties.getString('userId') && itemData.isSold ) {
 		createActionButton(buttonHeight, buttonWidth, buttonFontSize, '#127089', 'Archive Listing', true, 'Are you sure you want to Archive this listing!', archiveListing);
 	} else if(args.userId === Ti.App.Properties.getString('userId')) {
@@ -608,59 +616,7 @@ function createActionButton(height, width, fontSize, background, text, ccEligibl
 }
 
 
-/**
- * @private createDeleteButton
- * Dynamically creates a delete listing button to delete a user listing from the Database
- */
-function createDeleteButton() {
-	var buttonHeight, buttonFontSize;
-	switch(Alloy.Globals.userDevice) {
-	    case 0: //iphoneFour
-			buttonHeight = '40dp';
-			buttonFontSize = '14dp';
-	        break;
-	    case 1: //iphoneFive
-	        buttonHeight = '45dp';
-	        buttonFontSize = '16dp';
-	        break;
-	    case 2: //iphoneSix
-	        buttonHeight = '55dp';
-	        buttonFontSize = '18dp';
-	        break;
-	    case 3: //iphoneSixPlus
-	        buttonHeight = '55dp';
-	        buttonFontSize = '20dp';
-	        break;
-	    case 4: //android currently same as iphoneSix
-	        buttonHeight = '55dp';
-	        buttonFontSize = '18dp';
-	        break;
-	};
 
-	var deleteListingButton = Ti.UI.createButton({
-		width: '49%',
-		height: buttonHeight,
-		bottom: '20dp',
-		left: '0dp',
-		textAlign: 'center',
-		backgroundColor: '#c10404',
-		color: '#FFF',
-		borderColor: "#9B9B9B",
-		font: {
-			fontSize: buttonFontSize,
-			fontFamily: "Nunito-Light"
-		},
-		title: 'Delete Listing'
-	});
-
-	$.viewListingButtonView.add(deleteListingButton);
-	
-	deleteListingButton.addEventListener('click', function(e) {
-		//deleteListingButton();
-		console.log("INSIDE DELETE!!!!!!!!");
-	});
-	return;
-}
 
 
 
@@ -682,8 +638,31 @@ paymentManager.getPaymentMethods(function(err, results){
 
 
 
+/*-----------------------------------------------Event Listeners------------------------------------------------*/
+
+/**
+ * Event listener for click of user of listing to open and show all of the users listed items
+ */
+$.overlayListingHeader.addEventListener('click', openUserListing);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//SAVE FOR LATER USE
 /*
  * /**
  * @private createSlideButton

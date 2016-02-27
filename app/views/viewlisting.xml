@@ -8,9 +8,6 @@
 			<View id="titleViewListingView">
 				<Label id="titleViewListingLabel"></Label>
 			</View>
-			<!--<View id="backListingView">
-				<Button id="backListingButton" class="icon-buttons" onClick="backButton">Back</Button>
-			</View>-->
 		</View>
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<ScrollView id="viewListingScrollView">
@@ -25,7 +22,7 @@
 			<ScrollableView id="imageGallery">
 			</ScrollableView>
 				
-			<View layout="vertical" class="product-info">
+			<View id="productLabels" layout="vertical" class="product-info">
 				<Label id="viewListingProductTitle" class="product-title">Product Title</Label>
 				<Label id="viewListingProductPrice" class="product-price">0.00</Label>
 				<View class="line-separator"></View>				

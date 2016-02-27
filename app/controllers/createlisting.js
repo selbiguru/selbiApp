@@ -232,6 +232,22 @@ function keyboardNext(e) {
 };
 
 
+/**
+ * @method clearProxy
+ * Clears up memory leaks from dynamic elements created when page closes
+ */
+function clearProxy(e) {
+	$.off();
+	$.destroy();
+	imageCollection = [];
+	$.createListingView.removeEventListener('click', blurTextField);
+	$.title.removeEventListener('return', keyboardNext);
+	$.price.removeEventListener('return', keyboardNext);
+	this.removeEventListener('click', clearProxy);
+	
+	console.log('solve anything yet?^ ', e);
+}
+
 
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
 
@@ -335,18 +351,10 @@ function createImageView(media) {
 	thumbnailView.add(deleteIcon);
 	thumbnailView.add(imageView);
 	$.imgView.add(thumbnailView);
-	/*var imagePercent = (media.width/media.height).toFixed(2);
-	var resizedImage = media.imageAsResized(imagePercent*850, 850);
-	var imageData = {
-		resizedImage: media,
-		idx: count
-	};
-	imageCollection.push(imageData);*/
 	
 	deleteIcon.addEventListener('click', function(e) {
 		var idxValue = findIndexByKeyValue(imageCollection, 'idx', e.source.data);
 		$.imgView.remove(thumbnailView);
-		var index = imageCollection.indexOf(media);
 		imageCollection.splice(idxValue, 1);
 	});
 	count++;
@@ -422,3 +430,7 @@ $.description.addEventListener('change',function(e){
 $.createListingView.addEventListener('click', blurTextField);
 $.title.addEventListener('return', keyboardNext);
 $.price.addEventListener('return', keyboardNext);
+
+$.createListingView.addEventListener('click', function(e) {	
+	$.createListingView.parent.parent.children[0].addEventListener('click', clearProxy);
+});
