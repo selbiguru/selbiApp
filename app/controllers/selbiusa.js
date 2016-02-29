@@ -209,7 +209,7 @@ function openListing(listingIDs){
 			listingIDs.userName, listingIDs.userId, listingIDs.friends
 		]);
 		if(Ti.App.Properties.getString('userId') === listingIDs.userId) {
-			removeEventListeners();
+			clearProxy('mylistings');
 			Alloy.Globals.closePage('selbiusa');
 		}
 	}	
@@ -322,7 +322,9 @@ function clearProxy(e) {
 	removeEventListeners();
 	$.selbiUSAView.remove($.activityIndicator);
 	$.activityIndicator = null;
-	this.removeEventListener('click', clearProxy);
+	if(e !== 'mylistings') {
+		this.removeEventListener('click', clearProxy);	
+	}
 	$.fg.clearGrid();
 	for(var i in items) {
 		items[i].view = null;

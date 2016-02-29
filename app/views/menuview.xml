@@ -54,7 +54,7 @@
 			<TableViewRow class="tableRow" id="row6">
 				<View class="rowContainer">
 					<Label icon="fa-book" class="rowLabel row-icon" id="menuContactIcon"></Label>
-					<Label id="listingLabel" class="rowLabel">Contacts</Label>
+					<Label id="contactsLabel" class="rowLabel">Contacts</Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>

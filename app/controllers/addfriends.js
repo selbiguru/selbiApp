@@ -14,6 +14,7 @@ var currentFriends = [];
 var searchUsers = [];
 var pendingFriends = [];
 var friendsOnSelbi = null;
+var textFieldObj = null;
 var friendsPending = null;
 var addFriendSection = null;
 var nameFontSize, iconSize, labelTop, labelLeft, 
@@ -36,6 +37,13 @@ function getFriendsListTemplate() {
 		 			height: heightDataView,
 		 			backgroundColor: '#FAFAFA'
 		 		},
+		 		events: {
+		 			click: function(e) {
+		 				if(textFieldObj) {
+		 					textFieldObj.source.blur();
+		 				}		 				
+		 			}
+		 		}
 		 	},
 	        {                            // Title
 	            type: 'Ti.UI.Label',     // Use a label for the title
@@ -134,6 +142,9 @@ function getFriendsSection() {
 	            },
 	            events: {
 	                // Bind event callbacks only to the subcomponent
+	                focus: function(e) {
+	                	textFieldObj = e;
+	                },
 	                change: function(e){
 	                	var uniqueUserRegEx = e.value.length > 0 ? (e.value).match(/^[a-zA-Z\d\_]+$/) : '';
                 		var usernameObject = {
@@ -155,7 +166,6 @@ function getFriendsSection() {
 									var hiddenView = Ti.UI.createView({
 										width: Ti.UI.SIZE,
 										height: Ti.UI.SIZE,
-										ext: e.source,
 										right: rightCheckMark,
 										data: results,
 										invitation: results.invitation,
@@ -472,10 +482,20 @@ function loadFriends() {
 		},
 		defaultItemTemplate: 'template',
 		backgroundColor: '#FAFAFA',
-		allowsSelection: false
+		allowsSelection: false,
+		events: {
+			click: function(e) {
+				
+			}
+		}
 	});
 	friendsOnSelbi = Ti.UI.createListSection({
 		headerView: createCustomView('Friends on Selbi'),
+		events: {
+			click: function(e) {
+				
+			}
+		}
 	});
 	friendsPending = Ti.UI.createListSection({
 		headerView: createCustomView('Pending Requests'),
@@ -596,11 +616,26 @@ function determineStatus(invitation) {
 /**
  * @private backButton 
  *  Closes the current view and opens the previous view by reloading it to update for changes.
- *  
  */
 function backButton() {
+	$.off();
+	$.destroy();
+	textFieldObj = null;
+	$.addFriendsTopBar.removeEventListener('click', blurTextField);
 	Alloy.Globals.openPage('contacts');
 	Alloy.Globals.closePage('addfriends');
+};
+
+
+
+/**
+ * @method blurTextField
+ * Blurs text field to clear keyboard if topbar is clicked
+ */
+function blurTextField(e) {
+	if(textFieldObj) {
+		textFieldObj.source.blur();
+	}
 };
 
 
@@ -620,25 +655,25 @@ switch(Alloy.Globals.userDevice) {
 			leftLabel = '15dp';
 	        break;
 	    case 1: //iphoneFive
-	    	heightDataView = '45dp';
-	        fontSizeCheckMark = '20dp';
+	    	heightDataView = '50dp';
+	        fontSizeCheckMark = '22dp';
 	        rightCheckMark = '15dp';
 	        fontSizeTitleLabel = '16dp';
 	        topTitleLabel = '4dp';
 			fontSizeSubtitleLabel = '13dp';
-			topSubtitleLabel = '24dp';
-			fontSizeHeader = '14dp';
+			topSubtitleLabel = '26dp';
+			fontSizeHeader = '15dp';
 			heightHeader = '28dp';
 			leftLabel = '15dp';
 	        break;
 	    case 2: //iphoneSix
-	        heightDataView = '50dp';
+	        heightDataView = '55dp';
 	        fontSizeCheckMark = '24dp';
 	        rightCheckMark = '20dp';
 	        fontSizeTitleLabel = '18dp';
-	        topTitleLabel = '4dp';
+	        topTitleLabel = '6dp';
 			fontSizeSubtitleLabel = '15dp';
-			topSubtitleLabel = '27dp';
+			topSubtitleLabel = '30dp';
 			fontSizeHeader = '16dp';
 			heightHeader = '28dp';
 			leftLabel = '20dp';
@@ -656,13 +691,13 @@ switch(Alloy.Globals.userDevice) {
 			leftLabel = '20dp';
 	        break;
 	    case 4: //android currently same as iphoneSix
-	        heightDataView = '50dp';
+	        heightDataView = '55dp';
 	        fontSizeCheckMark = '24dp';
 	        rightCheckMark = '20dp';
 	        fontSizeTitleLabel = '18dp';
-	        topTitleLabel = '4dp';
+	        topTitleLabel = '6dp';
 			fontSizeSubtitleLabel = '16dp';
-			topSubtitleLabel = '27dp';
+			topSubtitleLabel = '30dp';
 			fontSizeHeader = '16dp';
 			heightHeader = '28dp';
 			leftLabel = '20dp';
@@ -688,5 +723,10 @@ Alloy.Models.user.fetch({
 	}
 });
 
-//Close contacts page on addfriends.js load to avoid memory leaks
-Alloy.Globals.closePage('contacts');
+
+
+
+/*-------------------------------------------------Event Listeners---------------------------------------------------*/
+
+
+$.addFriendsTopBar.addEventListener('click', blurTextField);

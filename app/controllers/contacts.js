@@ -11,8 +11,9 @@ var helpers = require('utilities/helpers');
 var currentUser = null;
 var currentContacts = [];
 var contactsOnSelbi = null;
-var nameFontSize, iconSize, labelTop, labelLeft, 
-	iconRight, headerViewHeight, headerLabelFontSize;
+var heightDataView, fontSizeCheckMark, rightCheckMark, fontSizeTitleLabel,
+	topTitleLabel, fontSizeSubtitleLabel, topSubtitleLabel,	fontSizeHeader,
+	heightHeader, leftLabel;
 
 $.activityIndicator.show();
 
@@ -99,7 +100,17 @@ function getContactListTemplate() {
 						}
 	                }
             	},
-		 	},
+		 	}
+		 	/*{
+		 		type: 'Ti.UI.View',
+		 		properties: {
+		 			width: Ti.UI.FILL,
+		 			height: '1dp',
+		 			backgroundColor: '#e5e5e5',
+		 			bottom: '0dp',
+		 			left: '15dp'
+		 		},
+		 	},*/
 		 	
 	    ]
 	};
@@ -210,6 +221,7 @@ function friendRequestDynamic(e, newStatus){
 	var item = e.section && e.section.getItemAt(e.itemIndex) ? e.section.getItemAt(e.itemIndex).match : e.source.data.username;
 	if(!e.section) {
 		e.source.remove(e.source.children[0]);
+		e.source.children[0] = null;
 	}
 	if(e.source.status === 'new') {
 		friendsManager.createFriendInvitation( createInvitationObject, function(err, createInviteResult) {
@@ -229,6 +241,7 @@ function friendRequestDynamic(e, newStatus){
 					e.source.invitation = [createInviteResult.invitation];
 					$.fa.add(checkSquare, 'fa-check-square');
 					e.source.add(checkSquare);
+					checkSquare = null;
 				}
 				var userIndex = findIndexByKeyValue(currentContacts, 'match', item);
 				if(userIndex != null) {
@@ -258,6 +271,7 @@ function friendRequestDynamic(e, newStatus){
 					e.source.invitation = updateInvitationResult.invitation;
 					$.fa.add(plusSquare, 'fa-plus-square-o');
 					e.source.add(plusSquare);
+					plusSquare = null;
 				}
 				var userIndex = findIndexByKeyValue(currentContacts, 'match', item);
 				if(userIndex != null) {
@@ -287,6 +301,7 @@ function friendRequestDynamic(e, newStatus){
 					e.source.invitation = updateInvitationResult.invitation;
 					$.fa.add(checkSquare, 'fa-check-square');
 					e.source.add(checkSquare);
+					checkSquare = null;
 				}
 			}
 			if(newStatus === "approved") {
@@ -331,7 +346,7 @@ var createCustomView = function(title) {
         backgroundColor: '#E5E5E5',
         height: heightHeader
     });
-    var text = Ti.UI.createLabel({
+    view.add(Ti.UI.createLabel({
         text: title,
         font: {
 			fontSize: fontSizeHeader,
@@ -339,8 +354,7 @@ var createCustomView = function(title) {
 		},
         left: leftLabel,
         color: '#9B9B9B',
-    });
-    view.add(text);
+    }));
     return view;
 };
 
@@ -355,6 +369,7 @@ function loadContacts() {
 			'template': getContactListTemplate()
 			//'getFriendsSection': getFriendsSection()
 		},
+		//separatorStyle: Titanium.UI.iPhone.ListViewSeparatorStyle.NONE,
 		defaultItemTemplate: 'template',
 		backgroundColor: '#FAFAFA',
 		allowsSelection: false
@@ -520,9 +535,51 @@ function determineStatus(invitation) {
  *  @param {Object} Data is an object containing the user's number to invite with SMS text
  */
 function inviteNewContact(data){
-	Ti.Platform.openURL('sms://'+data.newNumber);
+	var module = require('com.omorandi');
+    
+    //create the smsDialog object
+    var smsDialog = module.createSMSDialog();
+    //check if the feature is available on the device at hand
+    if (!smsDialog.isSupported())
+    {
+        //falls here when executed on iOS versions < 4.0 and in the emulator
+        var a = Ti.UI.createAlertDialog({title: 'Oops!', message: 'This feature is not available on your device!'});
+        a.show();
+    } else {
+    	//pre-populate the dialog with the info provided in the following properties
+        smsDialog.recipients = [data.newNumber];
+        smsDialog.messageBody = 'Join me on Selbi.  The premier friend to friend marketplace! ';
+
+        //set the color of the title-bar
+        smsDialog.barColor = '#1BA7CD';
+
+        
+
+        //add an event listener for the 'complete' event, in order to be notified about the result of the operation
+        smsDialog.addEventListener('complete', function(e){
+            if (e.result == smsDialog.SENT)
+            {
+                //do something
+            }
+            else if (e.result == smsDialog.FAILED)
+            {
+               //do something else
+               var a = Ti.UI.createAlertDialog({title: 'Oops', message: 'Your message failed to send!'});
+       			 a.show();
+            }
+            else if (e.result == smsDialog.CANCELLED)
+            {
+               //don't bother
+            }
+        });
+
+        //open the SMS dialog window with slide-up animation
+        smsDialog.open({animated: true});
+    
+    }
+	//Ti.Platform.openURL('sms://'+data.newNumber);
 	return;
-}
+};
 
 
 
@@ -531,75 +588,94 @@ function inviteNewContact(data){
  * Opens addFriends page so user can add friends and accept pending friends on Selbi
  */
 function openFriends(){
+	clearProxy();
 	Alloy.Globals.openPage('addfriends');
 	Alloy.Globals.closePage('contacts');
+};
+
+
+/**
+ * @method clearProxy
+ * Clears up memory leaks from dynamic elements created when page closes
+ */
+function clearProxy(e) {
+	$.off();
+	$.destroy();
+	this.removeEventListener('click', clearProxy);
+	//$.addContactsView.children[$.addContactsView.children.length -1].removeAllChildren();
+	//$.addContactsView.remove($.addContactsView.children[$.addContactsView.children.length -1]);
+	//currentContacts = [];
+	//contactsOnSelbi = null;
+	//$.addContactsView.children[$.addContactsView.children.length -1] = null;
+	//$.addContactsView.remove($.scrollViewMyListings);
+	
+	console.log('solve anything yet?^ ', e);
 }
+
 /*----------------------------------------------Dynamic Elements---------------------------------------------*/
 
 switch(Alloy.Globals.userDevice) {
-	    case 0: //iphoneFour
-	        heightDataView = '40dp';
-	        fontSizeCheckMark = '20dp';
-	        rightCheckMark = '15dp';
-	        fontSizeTitleLabel = '14dp';
-	        topTitleLabel = '3dp';
-			fontSizeSubtitleLabel = '11dp';
-			topSubtitleLabel = '22dp';
-			fontSizeHeader = '13dp';
-			heightHeader = '25dp';
-			leftLabel = '15dp';
-	        break;
-	    case 1: //iphoneFive
-	    	heightDataView = '45dp';
-	        fontSizeCheckMark = '20dp';
-	        rightCheckMark = '15dp';
-	        fontSizeTitleLabel = '16dp';
-	        topTitleLabel = '4dp';
-			fontSizeSubtitleLabel = '13dp';
-			topSubtitleLabel = '24dp';
-			fontSizeHeader = '14dp';
-			heightHeader = '28dp';
-			leftLabel = '15dp';
-	        break;
-	    case 2: //iphoneSix
-	        heightDataView = '50dp';
-	        fontSizeCheckMark = '24dp';
-	        rightCheckMark = '20dp';
-	        fontSizeTitleLabel = '18dp';
-	        topTitleLabel = '4dp';
-			fontSizeSubtitleLabel = '15dp';
-			topSubtitleLabel = '27dp';
-			fontSizeHeader = '16dp';
-			heightHeader = '28dp';
-			leftLabel = '20dp';
-	        break;
-	    case 3: //iphoneSixPlus
-	    	heightDataView = '55dp';
-	        fontSizeCheckMark = '26dp';
-	        rightCheckMark = '20dp';
-	        fontSizeTitleLabel = '20dp';
-	        topTitleLabel = '4dp';
-			fontSizeSubtitleLabel = '16dp';
-			topSubtitleLabel = '29dp';
-			fontSizeHeader = '17dp';
-			heightHeader = '30dp';
-			leftLabel = '20dp';
-	        break;
-	    case 4: //android currently same as iphoneSix
-	        heightDataView = '50dp';
-	        fontSizeCheckMark = '24dp';
-	        rightCheckMark = '20dp';
-	        fontSizeTitleLabel = '18dp';
-	        topTitleLabel = '4dp';
-			fontSizeSubtitleLabel = '16dp';
-			topSubtitleLabel = '27dp';
-			fontSizeHeader = '16dp';
-			heightHeader = '28dp';
-			leftLabel = '20dp';
-	        break;
-	};
-
-
+    case 0: //iphoneFour
+        heightDataView = '40dp';
+        fontSizeCheckMark = '20dp';
+        rightCheckMark = '15dp';
+        fontSizeTitleLabel = '14dp';
+        topTitleLabel = '3dp';
+		fontSizeSubtitleLabel = '11dp';
+		topSubtitleLabel = '22dp';
+		fontSizeHeader = '13dp';
+		heightHeader = '25dp';
+		leftLabel = '15dp';
+        break;
+    case 1: //iphoneFive
+    	heightDataView = '50dp';
+        fontSizeCheckMark = '22dp';
+        rightCheckMark = '15dp';
+        fontSizeTitleLabel = '16dp';
+        topTitleLabel = '4dp';
+		fontSizeSubtitleLabel = '13dp';
+		topSubtitleLabel = '26dp';
+		fontSizeHeader = '15dp';
+		heightHeader = '28dp';
+		leftLabel = '15dp';
+        break;
+    case 2: //iphoneSix
+        heightDataView = '55dp';
+        fontSizeCheckMark = '24dp';
+        rightCheckMark = '20dp';
+        fontSizeTitleLabel = '18dp';
+        topTitleLabel = '6dp';
+		fontSizeSubtitleLabel = '15dp';
+		topSubtitleLabel = '30dp';
+		fontSizeHeader = '16dp';
+		heightHeader = '28dp';
+		leftLabel = '20dp';
+        break;
+    case 3: //iphoneSixPlus
+    	heightDataView = '55dp';
+        fontSizeCheckMark = '26dp';
+        rightCheckMark = '20dp';
+        fontSizeTitleLabel = '20dp';
+        topTitleLabel = '4dp';
+		fontSizeSubtitleLabel = '16dp';
+		topSubtitleLabel = '29dp';
+		fontSizeHeader = '17dp';
+		heightHeader = '30dp';
+		leftLabel = '20dp';
+        break;
+    case 4: //android currently same as iphoneSix
+        heightDataView = '55dp';
+        fontSizeCheckMark = '24dp';
+        rightCheckMark = '20dp';
+        fontSizeTitleLabel = '18dp';
+        topTitleLabel = '6dp';
+		fontSizeSubtitleLabel = '16dp';
+		topSubtitleLabel = '30dp';
+		fontSizeHeader = '16dp';
+		heightHeader = '28dp';
+		leftLabel = '20dp';
+        break;
+};
 
 
 
@@ -616,4 +692,14 @@ Alloy.Models.user.fetch({
 	},
 	error: function(data){		
 	}
+});
+
+
+
+/*-------------------------------------------------Event Listeners---------------------------------------------------*/
+
+
+
+$.addContactsView.addEventListener('click', function(e) {	
+	$.addContactsView.parent.parent.children[0].addEventListener('click', clearProxy);
 });

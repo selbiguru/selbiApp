@@ -312,17 +312,19 @@ function createText(notification) {
 function clearProxy(e) {
 	$.off;
 	$.destroy;
-	for(var i in $.viewNotifications.children[0].children[0].children) {
-		$.viewNotifications.children[0].children[0].remove($.viewNotifications.children[0].children[0].children[0]);
-		$.viewNotifications.children[0].children[0].children[0] = null;
-	}
-	for(var i in $.viewNotifications.children[0].children) {
-		$.viewNotifications.children[0].remove($.viewNotifications.children[0].children[0]);
-		$.viewNotifications.children[0].children[0] = null;
-	}
-	for(var i in $.viewNotifications.children) {
-		$.viewNotifications.remove($.viewNotifications.children[0]);
-		$.viewNotifications.children[0] = null;
+	if($.viewNotifications.children.length > 0) {
+		for(var i in $.viewNotifications.children[0].children[0].children) {
+			$.viewNotifications.children[0].children[0].remove($.viewNotifications.children[0].children[0].children[0]);
+			$.viewNotifications.children[0].children[0].children[0] = null;
+		}
+		for(var i in $.viewNotifications.children[0].children) {
+			$.viewNotifications.children[0].remove($.viewNotifications.children[0].children[0]);
+			$.viewNotifications.children[0].children[0] = null;
+		}
+		for(var i in $.viewNotifications.children) {
+			$.viewNotifications.remove($.viewNotifications.children[0]);
+			$.viewNotifications.children[0] = null;
+		}	
 	}
 	this.removeEventListener('click', clearProxy);
 	

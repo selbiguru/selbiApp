@@ -229,6 +229,7 @@ function openListing(listingIDs){
  *  Closes the current view to reveal the previous still opened view.
  */
 function backButton() {
+	clearProxy();
 	Alloy.Globals.closePage('mylistings');
 };
 
@@ -445,9 +446,7 @@ function clearProxy(e) {
 $.myListingsView.addEventListener('click', function(e) {	
 	if($.menuButton) {
 		$.myListingsView.parent.parent.children[0].addEventListener('click', clearProxy);
-	} else {
-		clearProxy();
-	};
+	}
 });
 
 $.scrollViewMyListings.addEventListener('scroll', infitineScroll);

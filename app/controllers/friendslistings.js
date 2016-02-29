@@ -161,7 +161,7 @@ function openListing(listingIDs){
 		listingIDs.userName, listingIDs.userId, listingIDs.friends
 	]);
 	if(Ti.App.Properties.getString('userId') === listingIDs.userId) {
-		removeEventListeners();
+		clearProxy('mylistings');
 		Alloy.Globals.closePage('friendslistings');
 	}
 };
@@ -225,10 +225,13 @@ function removeEventListeners() {
  * Clears up memory leaks from dynamic elements created when page closes
  */
 function clearProxy(e) {
+	console.log('boog boog boog boog ', e);
 	$.off();
 	$.destroy();
 	removeEventListeners();
-	this.removeEventListener('click', clearProxy);
+	if(e !== 'mylistings') {
+		this.removeEventListener('click', clearProxy);	
+	}
 	$.fg.clearGrid();
 	for(var i in items) {
 		items[i].view = null;
