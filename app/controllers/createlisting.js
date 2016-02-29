@@ -341,7 +341,7 @@ function createImageView(media) {
 		top: zeroDP,
 		right: zeroDP,
 		width: Titanium.UI.SIZE,
-		color: "#EAEAEA",
+		color: "#CCCCCC",
 		font: {
 			fontSize: deleteIconFontSize
 		},
