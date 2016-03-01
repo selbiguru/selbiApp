@@ -10,6 +10,7 @@
 var args = arguments[0] || {};
 var controls=require('controls');
 
+
 // get all the view as objects
 var menuView = controls.getMenuView();
 var mainView = controls.getMainView();
@@ -36,7 +37,6 @@ function initialize() {
 
 // setup the list of views
 var viewList = {
-	"row": 'mainView',
 	"row0": 'edituserprofile',
 	"row1": 'createlisting',
 	"row2": 'notifications',
@@ -51,7 +51,7 @@ var listings = ['row3', 'row4', 'row5'];
 
 var secondaryPages = ['aboutUs', 'addBankAccount', 'addCreditCard', 'addressgooglemap',
 					 'faq', 'invitefriends', 'payment', 'phoneVerify', 'verifyaddress',
-					 'viewlisting', 'contactUs', 'settings', 'addfriends'
+					 'viewlisting', 'contactUs', 'addfriends', 'edituserprofile'
 					];
 
 
@@ -67,6 +67,9 @@ menuView.menuTable.addEventListener('click',onMenuClickListener);
 // add event listener in this context menuView Table 2
 menuView.menuTable2.addEventListener('click',onMenuClickListener);
 
+//var previousController = controls.getMainView();
+var previousListView = null; 
+
 function onMenuClickListener(e){
 	function drawView(row){
 		for (var property in viewList) {
@@ -76,6 +79,7 @@ function onMenuClickListener(e){
 		    	} else {
 		    		var viewController = controls.getCustomView(viewList[row]);	
 		    	}
+		    	
 		    	controllerList[row]= viewController;
 				if(viewController.menuButton) {
 		    		viewController.menuButton.addEventListener('click', function(){
@@ -83,10 +87,23 @@ function onMenuClickListener(e){
 						$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
 					});
 				}
-	      		$.drawermenu.drawermainview.add(viewController.getView());
+				
+				
+				$.drawermenu.drawermainview.add(viewController.getView());
+				var drawerMainChildren = $.drawermenu.drawermainview.children;
+		    	while( drawerMainChildren.length > 1) {
+		    		$.drawermenu.drawermainview.remove(drawerMainChildren[0]);
+		    		drawerMainChildren = $.drawermenu.drawermainview.children;
+		    	}
+				//$.drawermenu.drawermainview.remove(previousController.getView());
+				
+				
+				//previousController = viewController;
+				viewController = null;
 		    } else {
 		    	if(controllerList[property]) {
 		    		$.drawermenu.drawermainview.remove(controllerList[property].getView());
+		    		controllerList[property] = null;
 		    	} else if(secondaryPages.indexOf(property) >= 0){
 		    		Alloy.Globals.closePage(''+property+'');
 		    	}
@@ -112,18 +129,27 @@ Alloy.Globals.openPage = function openPage(viewName, model){
 	if(viewList[viewName]){
 		for (var property in viewList) {
 		    if (property === viewName) {
-		    	var newView = viewList[viewName].getView();
-			    $.drawermenu.drawermainview.add(newView);
+		    	var drawerMainChildren = $.drawermenu.drawermainview.children;
+	    		for( var i in drawerMainChildren) {
+	    			if(previousListView && previousListView.getView() === viewList[viewName].getView()) {
+		    			$.drawermenu.drawermainview.remove(previousListView.getView());
+		    		}
+		    	}		    	
+		    	
+			    $.drawermenu.drawermainview.add(viewList[viewName].getView());
+			    //$.drawermenu.drawermainview.remove(previousController.getView());
 				if(viewList[viewName].menuButton) {
 			      viewList[viewName].menuButton.addEventListener('click',function(){
 						$.drawermenu.showhidemenu();
 						$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
 					});
 				}
+				//previousController = viewList[viewName];
 		    } else {
 		    	//$.drawermenu.drawermainview.remove(viewList[viewName]);
 		    }
 		}
+		previousListView = viewList[viewName];
 	} else {
 		console.error("No view found");
 	}
