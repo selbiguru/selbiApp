@@ -31,7 +31,7 @@
 					<TextField hintText="Item Price (include shipping cost)" id="price" class="font-style"></TextField>
 					<View id="pickerView">
 						<Picker id="pickerCategory">
-			                <PickerRow class="font-style" id="blank" title="Select a Category"/>	            
+			                <PickerRow class="font-style" id="blank" title="Scroll to Change Categories"/>	            
 				        </Picker>
 					</View>			
 					<View id="switchView" class="top-size">

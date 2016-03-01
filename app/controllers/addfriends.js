@@ -622,7 +622,6 @@ function backButton() {
 	$.destroy();
 	textFieldObj = null;
 	$.addFriendsTopBar.removeEventListener('click', blurTextField);
-	Alloy.Globals.openPage('contacts');
 	Alloy.Globals.closePage('addfriends');
 };
 

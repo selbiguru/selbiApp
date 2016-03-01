@@ -120,7 +120,7 @@ function populateViewListing(listingData) {
 function saveListing(editListingButton, saveListingButton) {
 	editListingButton.touchEnabled = false;
 	saveListingButton.touchEnabled = false;
-	$.backViewButton.toucheEnabled = false;
+	$.backViewButton.touchEnabled = false;
 	var indicatorWindow = indicator.createIndicatorWindow({
 		message : "Saving"
 	});
@@ -137,27 +137,29 @@ function saveListing(editListingButton, saveListingButton) {
 							//helpers.alertUser('Listing','Failed to update your listing, please try again later!');
 							Ti.API.warn("Failed to update listing, please try again later!" + saveResult.id);
 						}
+						indicatorWindow.closeIndicator();
 						editListingButton.touchEnabled = true;
 						saveListingButton.touchEnabled = true;
-						$.backViewButton.toucheEnabled = true;
-						indicatorWindow.closeIndicator();
+						$.backViewButton.touchEnabled = true;
 						helpers.alertUser('Listing','Listing created successfully');
+						backButton();
 						Alloy.Globals.openPage('createlisting');	
 					});
 				} else {
+					indicatorWindow.closeIndicator();
 					editListingButton.touchEnabled = true;
 					saveListingButton.touchEnabled = true;
-					$.backViewButton.toucheEnabled = true;
-					indicatorWindow.closeIndicator();
+					$.backViewButton.touchEnabled = true;
 					helpers.alertUser('Listing','Listing created successfully');
+					backButton();
 					Alloy.Globals.openPage('createlisting');
 				}
 			});
 		} else {
+			indicatorWindow.closeIndicator();
 			editListingButton.touchEnabled = true;
 			saveListingButton.touchEnabled = true;
-			$.backViewButton.toucheEnabled = true;
-			indicatorWindow.closeIndicator();
+			$.backViewButton.touchEnabled = true;
 			helpers.alertUser('Listing','Failed to create your listing. Please try again!');
 		}
 	});
@@ -171,7 +173,7 @@ function saveListing(editListingButton, saveListingButton) {
  */
 function buyItem(actionButton){
 	actionButton.touchEnabled = false;
-	$.backViewButton.toucheEnabled = false;
+	$.backViewButton.touchEnabled = false;
 	var createOrderObj = {
 		sellerId: args.userId,
 		buyerId: Ti.App.Properties.getString('userId'),
@@ -184,15 +186,15 @@ function buyItem(actionButton){
 	indicatorWindow.openIndicator();
 	paymentManager.createOrder(createOrderObj, function(err, results){
 		if(err) {
-			actionButton.touchEnabled = true;
-			$.backViewButton.toucheEnabled = true;
 			indicatorWindow.closeIndicator();
+			actionButton.touchEnabled = true;
+			$.backViewButton.touchEnabled = true;
 			helpers.alertUser('Failed','Failed to purchase item, please try again!');
 		} else {
 			updateUser();
-			actionButton.touchEnabled = true;
-			$.backViewButton.toucheEnabled = true;
 			indicatorWindow.closeIndicator();
+			actionButton.touchEnabled = true;
+			$.backViewButton.touchEnabled = true;
 			helpers.alertUser('Purchased!','You purchased an item on Selbi!');
 			backButton();
 			Alloy.Globals.openPage('friendslistings', ['friendslistings', Ti.App.Properties.getString('userId')]);
@@ -207,7 +209,7 @@ function buyItem(actionButton){
  */
 function deleteItem(actionButton){
 	actionButton.touchEnabled = false;
-	$.backViewButton.toucheEnabled = false;
+	$.backViewButton.touchEnabled = false;
 	var deleteListingObj = {
 		id: args.itemId,
 		images: itemData.imageUrls
@@ -219,17 +221,17 @@ function deleteItem(actionButton){
 	indicatorWindow.openIndicator();
 	listingManager.deleteListing(deleteListingObj, function(err, deleteResult) {
 		if (err) {
-			actionButton.touchEnabled = true;
-			$.backViewButton.toucheEnabled = true;
 			indicatorWindow.closeIndicator();
+			actionButton.touchEnabled = true;
+			$.backViewButton.touchEnabled = true;
 			helpers.alertUser('Listing','Failed to delete your listing. Please try again!');
 		} else {
-			actionButton.touchEnabled = true;
-			$.backViewButton.toucheEnabled = true;
 			indicatorWindow.closeIndicator();
+			actionButton.touchEnabled = true;
+			$.backViewButton.touchEnabled = true;
 			helpers.alertUser('Listing','Listing deleted successfully');
+			backButton();
 			Alloy.Globals.openPage('mylistings', ['mylistings', Ti.App.Properties.getString('userId')]);
-			Alloy.Globals.closePage('viewlisting');
 		}
 	});
 }
@@ -242,7 +244,7 @@ function deleteItem(actionButton){
  */
 function archiveItem(actionButton){
 	actionButton.touchEnabled = false;
-	$.backViewButton.toucheEnabled = false;
+	$.backViewButton.touchEnabled = false;
 	var archiveListingObj = {
 		isArchived: true,
 		images: itemData.imageUrls
@@ -254,17 +256,17 @@ function archiveItem(actionButton){
 	indicatorWindow.openIndicator();
 	listingManager.archiveListing(args.itemId, archiveListingObj, function(err, archiveResult) {
 		if (err) {
-			actionButton.touchEnabled = true;
-			$.backViewButton.toucheEnabled = true;
 			indicatorWindow.closeIndicator();
+			actionButton.touchEnabled = true;
+			$.backViewButton.touchEnabled = true;
 			helpers.alertUser('Listing','Failed to archive your listing. Please try again!');
 		} else {
-			actionButton.touchEnabled = true;
-			$.backViewButton.toucheEnabled = true;
 			indicatorWindow.closeIndicator();
+			actionButton.touchEnabled = true;
+			$.backViewButton.touchEnabled = true;
 			helpers.alertUser('Listing','Listing archived successfully');
+			backButton();
 			Alloy.Globals.openPage('mylistings', ['mylistings', Ti.App.Properties.getString('userId')]);
-			Alloy.Globals.closePage('viewlisting');
 		}
 	});
 }
@@ -471,7 +473,7 @@ function createPreviewButtons() {
 	$.viewListingButtonView.add(saveListingButton);
 	
 	editListingButton.addEventListener('click', backButton);
-	
+	editListingButton.touchEnabled = false;
 	saveListingButton.addEventListener('click', function(e) {
 		if(bankEligible) {
 			saveListing(editListingButton, saveListingButton);	
@@ -643,10 +645,7 @@ paymentManager.getPaymentMethods(function(err, results){
 /**
  * Event listener for click of user of listing to open and show all of the users listed items
  */
-$.overlayListingHeader.addEventListener('click', openUserListing);
-
-
-
+//$.overlayListingHeader.addEventListener('click', openUserListing);
 
 
 

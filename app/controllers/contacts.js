@@ -587,10 +587,8 @@ function inviteNewContact(data){
  * @method openFriends 
  * Opens addFriends page so user can add friends and accept pending friends on Selbi
  */
-function openFriends(){
-	clearProxy();
+function openFriends(e){
 	Alloy.Globals.openPage('addfriends');
-	Alloy.Globals.closePage('contacts');
 };
 
 
@@ -601,13 +599,12 @@ function openFriends(){
 function clearProxy(e) {
 	$.off();
 	$.destroy();
-	this.removeEventListener('click', clearProxy);
-	//$.addContactsView.children[$.addContactsView.children.length -1].removeAllChildren();
-	//$.addContactsView.remove($.addContactsView.children[$.addContactsView.children.length -1]);
-	//currentContacts = [];
-	//contactsOnSelbi = null;
-	//$.addContactsView.children[$.addContactsView.children.length -1] = null;
-	//$.addContactsView.remove($.scrollViewMyListings);
+	if(e.source.id !== 'searchContactsButton') {
+		this.removeEventListener('click', clearProxy);
+	};
+	$.addContactsView.children[$.addContactsView.children.length -1].removeAllChildren();
+	currentContacts = [];
+	contactsOnSelbi = null;
 	
 	console.log('solve anything yet?^ ', e);
 }
@@ -700,6 +697,6 @@ Alloy.Models.user.fetch({
 
 
 
-$.addContactsView.addEventListener('click', function(e) {	
+$.addContactsView.addEventListener('click', function(e) {
 	$.addContactsView.parent.parent.children[0].addEventListener('click', clearProxy);
 });
