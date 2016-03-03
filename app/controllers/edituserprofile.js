@@ -102,7 +102,7 @@ function uploadUserProfile(imageBlob){
 	var indicatorWindow = indicator.createIndicatorWindow({
 		message : "Saving .."
 	});
-
+	buttonsOff();
 	indicatorWindow.openIndicator();
 	function uploadCompleteCallback(err, result) {
 		if(currentUser) {
@@ -116,6 +116,7 @@ function uploadUserProfile(imageBlob){
 				if(err) {
 					helpers.alertUser('Update User','Failed to update user, please try again later!');
 					indicatorWindow.closeIndicator();
+					buttonsOn();
 					return;
 				} else {
 					if(currentProfileImage) {
@@ -130,6 +131,7 @@ function uploadUserProfile(imageBlob){
 						$.userProfileImage.image = profileImage;
 						function loadImage(e){
 							indicatorWindow.closeIndicator();
+							buttonsOn();
 							helpers.alertUser('Updated User', 'User profile saved!');
 							$.userProfileImage.removeEventListener('load',loadImage);
 						}
@@ -140,6 +142,7 @@ function uploadUserProfile(imageBlob){
 			});
 		} else {
 			indicatorWindow.closeIndicator();
+			buttonsOn();
 		}
 	}
 	
@@ -210,6 +213,9 @@ function resizeKeepAspectRatioNewHeight(blob, imageWidth, imageHeight, newHeight
 
 
 function updateUser(e){
+	var indicatorWindow = indicator.createIndicatorWindow({
+		message : "Saving .."
+	});
 	var uniqueFirstNameRegEx = (helpers.capFirstLetter(helpers.trim($.firstName.value, false))).match(/^[a-z ,.'-]+$/i);
 	var uniqueLastNameRegEx = (helpers.capFirstLetter(helpers.trim($.lastName.value, false))).match(/^[a-z ,.'-]+$/i);
 	
@@ -231,12 +237,17 @@ function updateUser(e){
 		"lastName": uniqueLastNameRegEx[0],
 		"username": helpers.trim($.username.value, true).toLowerCase()
 	};
-	
+	buttonsOff();
+	indicatorWindow.openIndicator();
 	userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
 		if(err) {
+			indicatorWindow.closeIndicator();
+			buttonsOn();
 			helpers.alertUser('Update User','Failed to update user, please try again later!');
 			return;
 		} else {
+			indicatorWindow.closeIndicator();
+			buttonsOn();
 			helpers.alertUser('Updated User', 'User profile saved!');
 			$.firstName.value = $.firstName.value;
 			$.lastName.value = $.lastName.value;
@@ -387,10 +398,30 @@ function connectToTwitter() {
 
 function getGoogleMaps(e){
 	Alloy.Globals.openPage('addressgooglemap');
-}
+};
 
 
 
+/**
+ * @method buttonsOn
+ * Turns touchEnabled on buttons on when the page is done saving
+ */
+function buttonsOn() {
+	$.saveInfoButtonIcon.touchEnabled = true;
+	$.menuButton.touchEnabled = true;
+	$.googleAddress.touchEnabled = true;
+};
+
+
+/**
+ * @method buttonsOff
+ * Turns touchEnabled on buttons off while the page is saving
+ */
+function buttonsOff() {
+	$.saveInfoButtonIcon.touchEnabled = false;
+	$.menuButton.touchEnabled = false;
+	$.googleAddress.touchEnabled = false;
+};
 
 
 
