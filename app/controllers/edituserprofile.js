@@ -114,9 +114,9 @@ function uploadUserProfile(imageBlob){
 			userManager.userUpdate(currentUser.toJSON(), function(err, results){
 				addressHack();
 				if(err) {
-					helpers.alertUser('Update User','Failed to update user, please try again later!');
 					indicatorWindow.closeIndicator();
 					buttonsOn();
+					helpers.alertUser('Update User','Failed to update user, please try again later!');
 					return;
 				} else {
 					if(currentProfileImage) {
@@ -128,6 +128,7 @@ function uploadUserProfile(imageBlob){
 						});
 					}
 					imageManager.getMenuProfileImage(function(err, profileImage){
+						$.userProfileImage.addEventListener('load',loadImage);
 						$.userProfileImage.image = profileImage;
 						function loadImage(e){
 							indicatorWindow.closeIndicator();
@@ -135,7 +136,6 @@ function uploadUserProfile(imageBlob){
 							helpers.alertUser('Updated User', 'User profile saved!');
 							$.userProfileImage.removeEventListener('load',loadImage);
 						}
-						$.userProfileImage.addEventListener('load',loadImage);
 					});
 					return;	
 				}			
