@@ -41,6 +41,7 @@ function savingStuff(e){
 		 var indicatorWindow = indicator.createIndicatorWindow({
 			message : "Saving Card"
 		 });
+		 buttonsOff();
 		 indicatorWindow.openIndicator();
 		 paymentManager.createCustomerAndPaymentMethod(createCustomerObj, function(err, response) {
 		 	//add return response here and close view.  Add card to payment method choice
@@ -51,9 +52,11 @@ function savingStuff(e){
 			 		helpers.alertUser('Save Payment Failed','Unable to save your credit card, please try again!');
 		 		}
 		 		indicatorWindow.closeIndicator();
+		 		buttonsOn();
 		 		return;
 		 	} else if(!response.cardStatus) {
 		 		indicatorWindow.closeIndicator();
+		 		buttonsOn();
 		 		helpers.alertUser('Declined','Your Credit Card was declined, please try another card!');
 		 		return;
 		 	} else {
@@ -62,6 +65,7 @@ function savingStuff(e){
 		 		Alloy.Globals.openPage('payment');
 		 		backButton();
 		 		indicatorWindow.closeIndicator();
+		 		buttonsOn();
 		 		return;	
 		 	}
 		 });	
@@ -97,6 +101,27 @@ function loadCreditCard(e) {
 		return;
 	});
 }
+
+
+/**
+ * @method buttonsOn
+ * Turns touchEnabled on buttons on when the page is done saving
+ */
+function buttonsOn() {
+	$.backViewButton.touchEnabled = true;
+	$.saveCreditCardButton.touchEnabled = true;
+};
+
+
+/**
+ * @method buttonsOff
+ * Turns touchEnabled on buttons off while the page is saving
+ */
+function buttonsOff() {
+	$.backViewButton.touchEnabled = false;
+	$.saveCreditCardButton.touchEnabled = false;
+};
+
 
 
 /*-----------------------------------------------On page load API calls----------------------------------------------*/

@@ -94,11 +94,13 @@ function sendBankBraintree(){
 	var indicatorWindow = indicator.createIndicatorWindow({
 			message : "Saving Banking Info"
 	});
+	buttonsOff();
 	indicatorWindow.openIndicator();
 	paymentManager.createSubMerchantAccount(merchantSubAccountParams, function(err, responseObj) {
 		if(err) {
 			helpers.alertUser('Failed to Save','Please make sure your bank information is correct and try again!');
 			indicatorWindow.closeIndicator();
+			buttonsOn();
 			return;
 		} else {
 			helpers.alertUser('Saved','Your bank information has been saved!');
@@ -106,6 +108,7 @@ function sendBankBraintree(){
 			Alloy.Globals.openPage('payment');
 			backButton();
 			indicatorWindow.closeIndicator();
+			buttonsOn();
 		}
 	}); 	
 }
@@ -150,6 +153,28 @@ function blurTextField(e) {
 		$.routingNumber.blur();	
 	}
 }
+
+
+/**
+ * @method buttonsOn
+ * Turns touchEnabled on buttons on when the page is done saving
+ */
+function buttonsOn() {
+	$.saveSubMerchantBankButton.touchEnabled = true;
+	$.backViewButton.touchEnabled = true;
+};
+
+
+/**
+ * @method buttonsOff
+ * Turns touchEnabled on buttons off while the page is saving
+ */
+function buttonsOff() {
+	$.saveSubMerchantBankButton.touchEnabled = false;
+	$.backViewButton.touchEnabled = false;
+};
+
+
 
 // Set the Example Check image
 $.imageExCheck.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.exampleCheck;

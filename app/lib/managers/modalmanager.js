@@ -19,52 +19,52 @@ var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 		pciFont;	
 	switch(Alloy.Globals.userDevice) {
 	    case 0:
-	        modalFont = 18;
+	        modalFont = 22;
 	        pciFont = 12;
 	        datePickerHeight = 145;
 	        datePickerTop = 12;
-	        saveButtonHeight = 35;
-	        saveButtonFont = 14;
+	        saveButtonHeight = 40;
+	        saveButtonFont = 16;
 	    	datePickerWidth = 280;
 	    	pciLabelTop = 15;
 	        break;
 	    case 1:
-	        modalFont = 18;
+	        modalFont = 22;
 	        pciFont = 12;
 	        datePickerHeight = 165;
 	        datePickerTop = 13;
-	        saveButtonHeight = 35;
-	        saveButtonFont = 14;
+	        saveButtonHeight = 40;
+	        saveButtonFont = 16;
 	    	datePickerWidth = 280;
 	    	pciLabelTop = 17;
 	        break;
 	    case 2:
-	        modalFont = 20;
+	        modalFont = 24;
 	        pciFont = 14;
 	        datePickerHeight = 180;
 	        datePickerTop = 15;
-	        saveButtonHeight = 40;
-	        saveButtonFont = 16;
+	        saveButtonHeight = 45;
+	        saveButtonFont = 18;
 	    	datePickerWidth = 320;
 	    	pciLabelTop = 20;
 	        break;
 	    case 3:
-	        modalFont = 22;
+	        modalFont = 26;
 	        pciFont = 14;
 	        datePickerHeight = 220;
 	        datePickerTop = 15;
-	        saveButtonHeight = 45;
-	        saveButtonFont = 18;
+	        saveButtonHeight = 50;
+	        saveButtonFont = 20;
 	    	datePickerWidth = 340;
 	    	pciLabelTop = 20;
 	        break;
 	    case 4: //android currently same as iphoneSix
-	        modalFont = 20;
+	        modalFont = 24;
 	        pciFont = 14;
 	        datePickerHeight = 180;
 	        datePickerTop = 15;
-	        saveButtonHeight = 40;
-	        saveButtonFont = 16;
+	        saveButtonHeight = 45;
+	        saveButtonFont = 18;
 	    	datePickerWidth = 320;
 	    	pciLabelTop = 20;
 	        break;
@@ -673,49 +673,49 @@ var getWelcomeModal = exports.getWelcomeModal = function(cb) {
 		modalWelcomeButton;
 	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
-	    	modalHeaderFont = 18;
-	    	welcomeButtonFont = 14;
+	    	modalHeaderFont = 22;
+	    	welcomeButtonFont = 16;
 	    	scrollViewHeight = 265;
 	    	scrollViewWidth = 280;
 	    	modalLabelFont = 13;
 	    	modalLabelBoldFont = 14;
-	    	welcomeButtonHeight = 35;
+	    	welcomeButtonHeight = 40;
 	        break;
 	    case 1: //iphoneFive
-	    	modalHeaderFont = 18;
-	    	welcomeButtonFont = 14;
+	    	modalHeaderFont = 22;
+	    	welcomeButtonFont = 16;
 	    	scrollViewHeight = 265;
 	    	scrollViewWidth = 280;
 	    	modalLabelFont = 13;
 	    	modalLabelBoldFont = 14;
-	    	welcomeButtonHeight = 35;
+	    	welcomeButtonHeight = 40;
 	        break;
 	    case 2: //iphoneSix
-	    	modalHeaderFont = 20;
-	    	welcomeButtonFont = 16;
+	    	modalHeaderFont = 24;
+	    	welcomeButtonFont = 18;
 	    	scrollViewHeight = 300;
 	    	scrollViewWidth = 320;
 	    	modalLabelFont = 15;
 	    	modalLabelBoldFont= 16;
-	    	welcomeButtonHeight = 40;
+	    	welcomeButtonHeight = 45;
 	        break;
 	    case 3: //iphoneSixPlus
-	    	modalHeaderFont = 22;
-	    	welcomeButtonFont = 18;
+	    	modalHeaderFont = 26;
+	    	welcomeButtonFont = 20;
 	    	scrollViewHeight = 330;
 	    	scrollViewWidth = 340;
 	    	modalLabelFont = 17;
 	    	modalLabelBoldFont = 18;
-	    	welcomeButtonHeight = 45;
+	    	welcomeButtonHeight = 50;
 	        break;
 	    case 4: //android currently same as iphoneSix
-	    	modalHeaderFont = 20;
-	    	welcomeButtonFont = 16;
+	    	modalHeaderFont = 24;
+	    	welcomeButtonFont = 18;
 	    	scrollViewHeight = 300;
 	    	scrollViewWidth = 320;
 	    	modalLabelFont = 15;
 	    	modalLabelBoldFont = 16;
-	    	welcomeButtonHeight = 40;
+	    	welcomeButtonHeight = 45;
 	        break;
 	};
 	var transformModalOpen = Titanium.UI.create2DMatrix();

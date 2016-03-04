@@ -146,7 +146,7 @@ function getFriendsSection() {
 	                	textFieldObj = e;
 	                },
 	                change: function(e){
-	                	var uniqueUserRegEx = e.value.length > 0 ? (e.value).match(/^[a-zA-Z\d\_]+$/) : '';
+	                	var uniqueUserRegEx = e.value.length > 0 ? (e.value).match(/^[a-zA-Z\s\d\_]+$/) : '';
                 		var usernameObject = {
 							username: helpers.trim(e.value, true).toLowerCase()
 						};
