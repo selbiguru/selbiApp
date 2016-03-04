@@ -1,6 +1,6 @@
 <Alloy>
 	<View id="aboutUsView">
-        <View id="aboutUsTopBar">
+        <View id="aboutUsTopBa">
 			<View id="menuButton" class="validateButtons">
 				<Label icon="fa-bars" id="aboutUsButtonIcon"></Label>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
