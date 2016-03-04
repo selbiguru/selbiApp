@@ -25,6 +25,7 @@ $.verifyAddressCancelButton.addEventListener('click', function(){
 
 
 function validateAddressView(){
+	buttonsOff();
 	var leadingWords = ['building','bldg', 'apartment', 'apt', 'suite', 'ste'];
 	var value = {
 		value: $.apartmenNumber.value,
@@ -37,6 +38,7 @@ function validateAddressView(){
 	};
 	var aptNumber = utils.validate(value, options);
 	if (aptNumber.message) {
+		buttonsOn();
 		helpers.alertUser('Oops', 'Apt/Bldg can only contain letters/numbers/-');
 		return;	
 	} else {
@@ -65,9 +67,11 @@ function validateAddressView(){
 		};
 		userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
 			if(err) {
+				buttonsOn();
 				helpers.alertUser('Update Address','Failed to update address, please try again!');
 				return;
 			} else {
+				buttonsOn();
 				helpers.alertUser('Updated Address', 'User address saved!');
 				$.verifyAddressCancelButton.fireEvent('click');
 				return;
@@ -79,7 +83,24 @@ function validateAddressView(){
 
 
 
+/**
+ * @method buttonsOn
+ * Turns touchEnabled on buttons on when the page is done saving
+ */
+function buttonsOn() {
+	$.verifyAddressCancelButton.touchEnabled = true;
+	$.verifyAddressVerifyButton.touchEnabled = true;
+};
 
+
+/**
+ * @method buttonsOff
+ * Turns touchEnabled on buttons off while the page is saving
+ */
+function buttonsOff() {
+	$.verifyAddressCancelButton.touchEnabled = false;
+	$.verifyAddressVerifyButton.touchEnabled = false;
+};
 
 
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
