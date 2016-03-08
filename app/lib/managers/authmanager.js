@@ -4,7 +4,7 @@
  */
 var httpClient = require('managers/httpmanager');
 var keychain = require('com.obscure.keychain');
-var keychainItem = keychain.createKeychainItem(Alloy.CFG.keychain.account, Alloy.CFG.keychain.password);
+var keychainItem = keychain.createKeychainItem('serveraccount');
 
 /**
  * @method Login
