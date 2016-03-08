@@ -145,7 +145,7 @@ var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 			fontFamily: 'Nunito-Light'
 		},
 		title: 'Save',
-		color: "#9B9B9B",
+		color: "#8e8e8e",
 		borderRadius: 4,
 	});
 	pciExplanationLabel = Titanium.UI.createLabel({
@@ -384,7 +384,7 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 			fontFamily: 'Nunito-Light'
 		},
 		title: 'Validate',
-		color: "#9B9B9B",
+		color: "#8e8e8e",
 		borderRadius: 4,
 	});
 	modalResendButton = Titanium.UI.createButton({
@@ -395,7 +395,7 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 			fontFamily: 'Nunito-Light'
 		},
 		title: 'Resend Code',
-		color: "#9B9B9B"
+		color: "#8e8e8e"
 	});
 	modalDisclaimerLabel = Titanium.UI.createLabel({
 		height: Ti.UI.SIZE,
@@ -618,7 +618,7 @@ var getFilterModal = exports.getFilterModal = function(selectedCatArray, cb) {
 			fontFamily: 'Nunito-Light'
 		},
 		title: 'Filter',
-		color: "#9B9B9B",
+		color: "#8e8e8e",
 		borderRadius: 4,
 	});
 	filterModalScrollView.add(filterSwitchView);
@@ -801,7 +801,7 @@ var getWelcomeModal = exports.getWelcomeModal = function(cb) {
 			fontFamily: 'Nunito-Light'
 		},
 		title: 'Get Started Now!',
-		color: "#9B9B9B",
+		color: "#8e8e8e",
 		borderRadius: 4,
 	});
 	welcomeModalScrollView.add(modalLabelField);
