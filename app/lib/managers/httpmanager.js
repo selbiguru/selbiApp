@@ -38,7 +38,7 @@ var execute = exports.execute = function(relativePath, method, objectToSend, isA
     xhr.setRequestHeader("content-type", "application/json");
 
     if(isAuth) {
-    	var authHeader = "Bearer " + keychainItem.valueData;
+    	var authHeader = "Bearer " + 'eyJhbGciOiJIUzI1NiJ9.NTY2NGUwMDU0NjhjYzI1ZWZjOTMxMWU4.O-iDaDO4pBb34lQeKUkyKT1mLKdJfZHIYf57ez_hc7M';
       Ti.API.info('AUTHHEADER' + authHeader);
     	xhr.setRequestHeader("Authorization", authHeader);
     }
