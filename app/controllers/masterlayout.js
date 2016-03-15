@@ -15,15 +15,18 @@ var controls=require('controls');
 var menuView = controls.getMenuView();
 var mainView = controls.getMainView();
 
+var hideMenu = function(){
+		$.drawermenu.showhidemenu();
+		$.drawermenu.menuOpen=!$.drawermenu.menuOpen;	
+};
+
+
 /**
  * Initializes all the menu items, views and events associated to each menu item
  */
 function initialize() {
 	if(mainView.menuButton){
-		mainView.menuButton.addEventListener('click',function(){
-			$.drawermenu.showhidemenu();
-			$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
-		});
+		mainView.menuButton.addEventListener('click',hideMenu);
 	}
 
 	// initialize the menu
@@ -33,6 +36,8 @@ function initialize() {
 	    duration:200,
 	    parent: $.master
 	});
+	
+	//drawView('row3');
 }
 
 // setup the list of views
@@ -55,7 +60,7 @@ var secondaryPages = ['aboutUs', 'addBankAccount', 'addCreditCard', 'addressgoog
 					];
 
 
-var controllerList = {};
+var controllerList = {'row3' : mainView};
 
 initialize();
 
@@ -70,53 +75,50 @@ menuView.menuTable2.addEventListener('click',onMenuClickListener);
 //var previousController = controls.getMainView();
 var previousListView = null; 
 
-function onMenuClickListener(e){
-	function drawView(row){
+function drawView(row){
 		for (var property in viewList) {
 		    if (property === row) {
+		    	var viewController;
 		    	if(listings.indexOf(property) >= 0) {
-		    		var viewController = controls.getCustomView(viewList[row], [viewList[row], Ti.App.Properties.getString('userId')]);
+		    		viewController = controls.getCustomView(viewList[row], [viewList[row], Ti.App.Properties.getString('userId')]);
 		    	} else {
-		    		var viewController = controls.getCustomView(viewList[row]);	
+		    	    viewController = controls.getCustomView(viewList[row]);	
 		    	}
 		    	
 		    	controllerList[row]= viewController;
 				if(viewController.menuButton) {
-		    		viewController.menuButton.addEventListener('click', function(){
-						$.drawermenu.showhidemenu();
-						$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
-					});
+		    		viewController.menuButton.addEventListener('click', hideMenu);
 				}
-				
-				
-				$.drawermenu.drawermainview.add(viewController.getView());
-				var drawerMainChildren = $.drawermenu.drawermainview.children;
-		    	while( drawerMainChildren.length > 1) {
-		    		$.drawermenu.drawermainview.remove(drawerMainChildren[0]);
-		    		drawerMainChildren = $.drawermenu.drawermainview.children;
-		    	}
-				//$.drawermenu.drawermainview.remove(previousController.getView());
-				
-				
-				//previousController = viewController;
+		    	$.drawermenu.drawermainview.add(viewController.getView());
 				viewController = null;
 		    } else {
 		    	if(controllerList[property]) {
-		    		$.drawermenu.drawermainview.remove(controllerList[property].getView());
+		    		var viewController = controllerList[property];
+		    		if(viewController.menuButton) {
+		    			viewController.menuButton.removeEventListener('click', hideMenu);
+					}
+					if(viewController.cleanup){
+						Ti.API.info('Releasing controller '+ property + viewController);
+						viewController.cleanup();
+					}
+		    		Alloy.Globals.removeChildren(viewController.getView());
+		    		viewController = null;
 		    		controllerList[property] = null;
 		    	} else if(secondaryPages.indexOf(property) >= 0){
 		    		Alloy.Globals.closePage(''+property+'');
 		    	}
 		    }
 		}
-	};
+};
 	
+	
+function onMenuClickListener(e){
     $.drawermenu.showhidemenu();
     $.drawermenu.menuOpen = false; //update menuOpen status to prevent inconsistency.
     drawView(e.rowData.id);
 
     // on Android the event is received by the label, so watch out!
-    Ti.API.info(e.rowData.id);
+    Ti.API.info('Clicked '+e.rowData.id);
 }
 
 /**

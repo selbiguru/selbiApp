@@ -239,6 +239,7 @@ function clearProxy(e) {
 	};
 	
 	console.log('solve anything yet?^ ', e);
+	$.friendsListingsView.parent.parent.children[0].removeEventListener('click', clearProxy);
 }
 
 
@@ -294,7 +295,16 @@ $.scrollViewFriends.addEventListener('scroll', infitineScroll);
 $.friendsListingsView.addEventListener('click', blurTextField);
 $.usernameSearch.addEventListener('return', keyboardSearch);
 
-$.friendsListingsView.addEventListener('click', function(e) {
-	$.friendsListingsView.parent.parent.children[0].addEventListener('click', clearProxy);
-});
+//$.friendsListingsView.addEventListener('click', function(e) {
+	//$.friendsListingsView.parent.parent.children[0].addEventListener('click', clearProxy);
+//});
+
+exports.cleanup = function () {
+	Ti.API.info('Cleaning friendlisting');
+	clearProxy('mylistings');
+	$.friendsListingsView.removeAllChildren();
+	$.friendsListingsView = null;
+	Alloy.Globals.deallocate($);
+    $ = null;
+};
 

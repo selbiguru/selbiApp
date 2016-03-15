@@ -243,7 +243,7 @@ function clearProxy(e) {
 	$.createListingView.removeEventListener('click', blurTextField);
 	$.title.removeEventListener('return', keyboardNext);
 	$.price.removeEventListener('return', keyboardNext);
-	this.removeEventListener('click', clearProxy);
+	//this.removeEventListener('click', clearProxy);
 	
 	console.log('solve anything yet?^ ', e);
 }
@@ -384,14 +384,14 @@ switch(Alloy.Globals.userDevice) {
         break;
 };
 for(var i = 0; i < categoryArray.length; i++) {
-	$.pickerCategory.add(Titanium.UI.createPickerRow({
+	/*$.pickerCategory.add(Titanium.UI.createPickerRow({
 		title: categoryArray[i],
 		font: {
 			fontSize: pickerRowFont,
 			fontFamily: 'Nunito-Light'
 		},
 		id: categoryArray[i]
-	}));
+	}));*/
 };
 
 
@@ -431,6 +431,16 @@ $.createListingView.addEventListener('click', blurTextField);
 $.title.addEventListener('return', keyboardNext);
 $.price.addEventListener('return', keyboardNext);
 
-$.createListingView.addEventListener('click', function(e) {	
+/*$.createListingView.addEventListener('click', function(e) {	
 	$.createListingView.parent.parent.children[0].addEventListener('click', clearProxy);
-});
+});*/
+
+
+exports.cleanup = function () {
+	Ti.API.info('Cleaning createlisting');
+    clearProxy();
+    $.createListingView.removeAllChildren();
+    $.createListingView = null;
+    Alloy.Globals.deallocate($);
+    $ = null;
+};

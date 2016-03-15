@@ -505,3 +505,15 @@ $.username.addEventListener('change',function(e){
 		$.usernameXIcon.show();
 	}
 });
+
+
+exports.cleanup = function () {
+	Ti.API.info('Cleaning edituserprofile');
+	$.destroy();
+    $.off();
+    $.editUserProfileView.removeAllChildren();
+    $.editUserProfileView = null;
+    Alloy.Globals.deallocate($);
+    $ = null;
+};
+
