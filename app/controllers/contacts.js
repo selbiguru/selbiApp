@@ -599,11 +599,11 @@ function openFriends(e){
 function clearProxy(e) {
 	$.off();
 	$.destroy();
-	if(e.source.id !== 'searchContactsButton') {
+	/*if(e.source.id !== 'searchContactsButton') {
 		this.removeEventListener('click', clearProxy);
 	};
-	$.addContactsView.children[$.addContactsView.children.length -1].removeAllChildren();
-	currentContacts = [];
+	$.addContactsView.children[$.addContactsView.children.length -1].removeAllChildren();*/
+	currentContacts = null;
 	contactsOnSelbi = null;
 	
 	console.log('solve anything yet?^ ', e);
@@ -697,6 +697,15 @@ Alloy.Models.user.fetch({
 
 
 
-$.addContactsView.addEventListener('click', function(e) {
+/*$.addContactsView.addEventListener('click', function(e) {
 	$.addContactsView.parent.parent.children[0].addEventListener('click', clearProxy);
-});
+});*/
+
+exports.cleanup = function () {
+	Ti.API.info('Cleaning addContactsView');
+	clearProxy();
+	$.addContactsView.removeAllChildren();
+	$.addContactsView = null;
+	Alloy.Globals.deallocate($);
+    $ = null;
+};

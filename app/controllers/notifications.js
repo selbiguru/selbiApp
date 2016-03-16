@@ -326,7 +326,7 @@ function clearProxy(e) {
 			$.viewNotifications.children[0] = null;
 		}	
 	}
-	this.removeEventListener('click', clearProxy);
+	//this.removeEventListener('click', clearProxy);
 	
 	console.log('solve anything yet?^ ', e);
 }
@@ -352,8 +352,17 @@ function updateUser(){
 //-------------------------------------------Initializing Views/Styles----------------------------------------------------//
 
 
-$.notificationsView.addEventListener('click', function(e) {
+/*$.notificationsView.addEventListener('click', function(e) {
 	$.notificationsView.parent.parent.children[0].addEventListener('click', clearProxy);
 	
-});
+});*/
+
+exports.cleanup = function () {
+	Ti.API.info('Cleaning notificationsView');
+	clearProxy();
+	$.notificationsView.removeAllChildren();
+	$.notificationsView = null;
+	Alloy.Globals.deallocate($);
+    $ = null;
+};
 

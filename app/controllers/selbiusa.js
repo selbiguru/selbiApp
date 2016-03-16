@@ -322,15 +322,15 @@ function clearProxy(e) {
 	removeEventListeners();
 	$.selbiUSAView.remove($.activityIndicator);
 	$.activityIndicator = null;
-	if(e !== 'mylistings') {
+	/*if(e !== 'mylistings') {
 		this.removeEventListener('click', clearProxy);	
-	}
+	}*/
 	$.fg.clearGrid();
 	for(var i in items) {
 		items[i].view = null;
 		items[i].data = null;
 	}
-	$.selbiUSAView = null;
+	//$.selbiUSAView = null;
 	
 	console.log('solve anything yet?^ ', e);
 }
@@ -369,7 +369,17 @@ $.selbiUSAView.addEventListener('click', blurTextField);
 $.usernameSearch.addEventListener('return', keyboardSearch); 
 $.searchUserButton.addEventListener('click', findUserListings);
 
-$.selbiUSAView.addEventListener('click', function(e) {
+/*$.selbiUSAView.addEventListener('click', function(e) {
 	$.selbiUSAView.parent.parent.children[0].addEventListener('click', clearProxy);
-});
+});*/
+
+exports.cleanup = function () {
+	Ti.API.info('Cleaning selbiUSAView');
+	clearProxy();
+	$.selbiUSAView.removeAllChildren();
+	$.selbiUSAView = null;
+	Alloy.Globals.deallocate($);
+    $ = null;
+};
+
 

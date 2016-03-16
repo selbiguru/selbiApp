@@ -424,9 +424,6 @@ function infitineScroll(e) {
 function clearProxy(e) {
 	$.off();
 	$.destroy();
-	if($.menuButton) {
-		this.removeEventListener('click', clearProxy);
-	}
 	$.scrollViewMyListings.removeEventListener('scroll', infitineScroll);
 	$.fg.clearGrid();
 	for(var i in items) {
@@ -443,11 +440,20 @@ function clearProxy(e) {
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
 
 
-$.myListingsView.addEventListener('click', function(e) {	
+/*$.myListingsView.addEventListener('click', function(e) {	
 	if($.menuButton) {
 		$.myListingsView.parent.parent.children[0].addEventListener('click', clearProxy);
 	}
-});
+});*/
 
 $.scrollViewMyListings.addEventListener('scroll', infitineScroll);
+
+exports.cleanup = function () {
+	Ti.API.info('Cleaning mylisting');
+	clearProxy();
+	$.myListingsView.removeAllChildren();
+	$.myListingsView = null;
+	Alloy.Globals.deallocate($);
+    $ = null;
+};
 

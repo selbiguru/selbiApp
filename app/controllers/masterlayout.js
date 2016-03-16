@@ -77,38 +77,36 @@ var previousListView = null;
 
 function drawView(row){
 		for (var property in viewList) {
-		    if (property === row) {
-		    	var viewController;
-		    	if(listings.indexOf(property) >= 0) {
-		    		viewController = controls.getCustomView(viewList[row], [viewList[row], Ti.App.Properties.getString('userId')]);
-		    	} else {
-		    	    viewController = controls.getCustomView(viewList[row]);	
-		    	}
-		    	
-		    	controllerList[row]= viewController;
-				if(viewController.menuButton) {
-		    		viewController.menuButton.addEventListener('click', hideMenu);
+	    	if(controllerList[property]) {
+	    		var viewController = controllerList[property];
+	    		if(viewController.menuButton) {
+	    			viewController.menuButton.removeEventListener('click', hideMenu);
 				}
-		    	$.drawermenu.drawermainview.add(viewController.getView());
-				viewController = null;
-		    } else {
-		    	if(controllerList[property]) {
-		    		var viewController = controllerList[property];
-		    		if(viewController.menuButton) {
-		    			viewController.menuButton.removeEventListener('click', hideMenu);
-					}
-					if(viewController.cleanup){
-						Ti.API.info('Releasing controller '+ property + viewController);
-						viewController.cleanup();
-					}
-		    		Alloy.Globals.removeChildren(viewController.getView());
-		    		viewController = null;
-		    		controllerList[property] = null;
-		    	} else if(secondaryPages.indexOf(property) >= 0){
-		    		Alloy.Globals.closePage(''+property+'');
-		    	}
-		    }
+				Alloy.Globals.removeChildren(viewController.getView());
+				if(viewController.cleanup){
+					Ti.API.info('Releasing controller '+ property + viewController);
+					viewController.cleanup();
+				}
+	    		viewController = null;
+	    		controllerList[property] = null;
+	    	} else if(secondaryPages.indexOf(property) >= 0){
+	    		Alloy.Globals.closePage(''+property+'');
+	    	}
 		}
+		
+		var viewController;
+    	if(listings.indexOf(row) >= 0) {
+    		viewController = controls.getCustomView(viewList[row], [viewList[row], Ti.App.Properties.getString('userId')]);
+    	} else {
+    	    viewController = controls.getCustomView(viewList[row]);	
+    	}
+    	
+    	controllerList[row]= viewController;
+		if(viewController.menuButton) {
+    		viewController.menuButton.addEventListener('click', hideMenu);
+		}
+    	$.drawermenu.drawermainview.add(viewController.getView());
+		viewController = null;
 };
 	
 	
