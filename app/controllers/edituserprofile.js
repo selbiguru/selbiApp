@@ -511,6 +511,7 @@ exports.cleanup = function () {
 	Ti.API.info('Cleaning edituserprofile');
 	$.destroy();
     $.off();
+    $.removeListener();
     $.editUserProfileView.removeAllChildren();
     $.editUserProfileView = null;
     Alloy.Globals.deallocate($);

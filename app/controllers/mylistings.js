@@ -229,7 +229,6 @@ function openListing(listingIDs){
  *  Closes the current view to reveal the previous still opened view.
  */
 function backButton() {
-	clearProxy();
 	Alloy.Globals.closePage('mylistings');
 };
 
@@ -425,12 +424,13 @@ function clearProxy(e) {
 	$.off();
 	$.destroy();
 	$.scrollViewMyListings.removeEventListener('scroll', infitineScroll);
-	$.fg.clearGrid();
+	$.fg.cleanup();
+	$.fg = null;
 	for(var i in items) {
 		items[i].view = null;
 		items[i].data = null;
 	};
-	$.myListingsView.remove($.scrollViewMyListings);
+	//$.myListingsView.remove($.scrollViewMyListings);
 	
 	console.log('solve anything yet?^ ', e);
 }
@@ -439,19 +439,12 @@ function clearProxy(e) {
 
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
 
-
-/*$.myListingsView.addEventListener('click', function(e) {	
-	if($.menuButton) {
-		$.myListingsView.parent.parent.children[0].addEventListener('click', clearProxy);
-	}
-});*/
-
 $.scrollViewMyListings.addEventListener('scroll', infitineScroll);
 
 exports.cleanup = function () {
 	Ti.API.info('Cleaning mylisting');
 	clearProxy();
-	$.myListingsView.removeAllChildren();
+	Alloy.Globals.removeChildren($.myListingsView);
 	$.myListingsView = null;
 	Alloy.Globals.deallocate($);
     $ = null;

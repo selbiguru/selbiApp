@@ -376,6 +376,7 @@ $.searchUserButton.addEventListener('click', findUserListings);
 exports.cleanup = function () {
 	Ti.API.info('Cleaning selbiUSAView');
 	clearProxy();
+	$.removeListener();
 	$.selbiUSAView.removeAllChildren();
 	$.selbiUSAView = null;
 	Alloy.Globals.deallocate($);

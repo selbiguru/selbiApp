@@ -439,6 +439,7 @@ $.price.addEventListener('return', keyboardNext);
 exports.cleanup = function () {
 	Ti.API.info('Cleaning createlisting');
     clearProxy();
+    $.removeListener();
     $.createListingView.removeAllChildren();
     $.createListingView = null;
     Alloy.Globals.deallocate($);

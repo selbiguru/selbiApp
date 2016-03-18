@@ -704,6 +704,7 @@ Alloy.Models.user.fetch({
 exports.cleanup = function () {
 	Ti.API.info('Cleaning addContactsView');
 	clearProxy();
+	$.removeListener();
 	$.addContactsView.removeAllChildren();
 	$.addContactsView = null;
 	Alloy.Globals.deallocate($);

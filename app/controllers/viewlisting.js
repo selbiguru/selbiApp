@@ -638,6 +638,16 @@ paymentManager.getPaymentMethods(function(err, results){
 
 
 
+exports.cleanup = function () {
+	Ti.API.info('Cleaning viewlisting');
+	$.removeListener();
+    $.backViewButton.removeEventListener('click',backButton);
+	Alloy.Globals.removeChildren($.viewListingView);
+	$.viewListingView = null;
+	Alloy.Globals.deallocate($);
+    $ = null;
+};
+
 
 
 /*-----------------------------------------------Event Listeners------------------------------------------------*/

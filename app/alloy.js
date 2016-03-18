@@ -78,7 +78,7 @@ Alloy.Globals.deallocate = function(_obj) {
 		// we know that waht we pass inside this function is going to be an object
 		// but let's check first
 		if (_.isObject(_obj)) {
-			console.log('cleaning object! '+_obj);
+			//console.log('cleaning object! '+_obj +' type '+typeof _obj);
 			// iterate through the object and deallocate memory from all the children
 			_.each(_obj, function(child) {
 
@@ -87,10 +87,12 @@ Alloy.Globals.deallocate = function(_obj) {
 					Alloy.Globals.deallocate(child);
 				}
 			});
-
+            if(_obj.onclick){
+            	Ti.API.info('---------------');
+            } 
 			_obj = null;
 		} else {
-			console.log('passed in _obj to be cleaned is not an object!');
+			Ti.API.info('passed in _obj to be cleaned is not an object!');
 		}
 	} catch(error) {
 		console.log('Error: ' + error);

@@ -189,6 +189,16 @@ var setOnItemClick = function(fnt){
 	onItemClick = fnt || function(){Ti.API.info('TiFlexiGrid -> onItemClick is not defined.');};
 };
 
+var cleanup = function(){
+	$.off();
+	$.destroy();
+	$.removeListener();
+	Alloy.Globals.removeChildren($.fgMain);
+	$.fgMain = null;
+	Alloy.Globals.deallocate($);
+    $ = null;
+};
+
 exports.init=init;
 exports.addGridItems = addGridItems;
 exports.clearGrid = clearGrid;
@@ -197,3 +207,4 @@ exports.addGridItem = addGridItem;
 exports.getItemWidth = getItemWidth;
 exports.getItemHeight = getItemHeight;
 exports.setOnItemClick = setOnItemClick;
+exports.cleanup = cleanup;

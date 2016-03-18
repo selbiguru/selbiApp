@@ -360,6 +360,7 @@ function updateUser(){
 exports.cleanup = function () {
 	Ti.API.info('Cleaning notificationsView');
 	clearProxy();
+	$.removeListener();
 	$.notificationsView.removeAllChildren();
 	$.notificationsView = null;
 	Alloy.Globals.deallocate($);

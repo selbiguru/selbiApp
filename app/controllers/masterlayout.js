@@ -8,115 +8,109 @@
  */
 
 var args = arguments[0] || {};
-var controls=require('controls');
-
+var controls = require('controls');
 
 // get all the view as objects
 var menuView = controls.getMenuView();
 var mainView = controls.getMainView();
 
-var hideMenu = function(){
-		$.drawermenu.showhidemenu();
-		$.drawermenu.menuOpen=!$.drawermenu.menuOpen;	
+var hideMenu = function() {
+	$.drawermenu.showhidemenu();
+	$.drawermenu.menuOpen = !$.drawermenu.menuOpen;
 };
-
 
 /**
  * Initializes all the menu items, views and events associated to each menu item
  */
 function initialize() {
-	if(mainView.menuButton){
-		mainView.menuButton.addEventListener('click',hideMenu);
+	if (mainView.menuButton) {
+		mainView.menuButton.addEventListener('click', hideMenu);
 	}
 
 	// initialize the menu
 	$.drawermenu.init({
-	    menuview:menuView.getView(),
-	    mainview:mainView.getView(),
-	    duration:200,
-	    parent: $.master
+		menuview : menuView.getView(),
+		mainview : mainView.getView(),
+		duration : 200,
+		parent : $.master
 	});
-	
+
 	//drawView('row3');
 }
 
 // setup the list of views
 var viewList = {
-	"row0": 'edituserprofile',
-	"row1": 'createlisting',
-	"row2": 'notifications',
-	"row3": 'friendslistings',
-	"row4": 'selbiusa',
-	"row5": 'mylistings',
-	"row6": 'contacts',
-	"row7": 'settings'
+	"row0" : 'edituserprofile',
+	"row1" : 'createlisting',
+	"row2" : 'notifications',
+	"row3" : 'friendslistings',
+	"row4" : 'selbiusa',
+	"row5" : 'mylistings',
+	"row6" : 'contacts',
+	"row7" : 'settings'
 };
 
 var listings = ['row3', 'row4', 'row5'];
 
-var secondaryPages = ['aboutUs', 'addBankAccount', 'addCreditCard', 'addressgooglemap',
-					 'faq', 'invitefriends', 'payment', 'phoneVerify', 'verifyaddress',
-					 'viewlisting', 'contactUs', 'addfriends', 'edituserprofile'
-					];
+var secondaryPages = ['aboutUs', 'addBankAccount', 'addCreditCard', 'addressgooglemap', 'faq', 'invitefriends', 'payment', 'phoneVerify', 'verifyaddress', 'viewlisting', 'contactUs', 'addfriends', 'edituserprofile'];
 
-
-var controllerList = {'row3' : mainView};
+var controllerList = {
+	'row3' : mainView
+};
 
 initialize();
 
-
-
 // add event listener in this context menuView Table 1
-menuView.menuTable.addEventListener('click',onMenuClickListener);
+menuView.menuTable.addEventListener('click', onMenuClickListener);
 
 // add event listener in this context menuView Table 2
-menuView.menuTable2.addEventListener('click',onMenuClickListener);
+menuView.menuTable2.addEventListener('click', onMenuClickListener);
 
 //var previousController = controls.getMainView();
-var previousListView = null; 
+var previousListView = null;
 
-function drawView(row){
-		for (var property in viewList) {
-	    	if(controllerList[property]) {
-	    		var viewController = controllerList[property];
-	    		if(viewController.menuButton) {
-	    			viewController.menuButton.removeEventListener('click', hideMenu);
-				}
-				Alloy.Globals.removeChildren(viewController.getView());
-				if(viewController.cleanup){
-					Ti.API.info('Releasing controller '+ property + viewController);
-					viewController.cleanup();
-				}
-	    		viewController = null;
-	    		controllerList[property] = null;
-	    	} else if(secondaryPages.indexOf(property) >= 0){
-	    		Alloy.Globals.closePage(''+property+'');
-	    	}
+function drawView(row) {
+	for (var property in viewList) {
+		if (controllerList[property]) {
+			var viewController = controllerList[property];
+			if (viewController.menuButton) {
+				viewController.menuButton.removeEventListener('click', hideMenu);
+			}
+			Alloy.Globals.removeChildren(viewController.getView());
+			if (viewController.cleanup) {
+				Ti.API.info('Releasing controller ' + property + viewController);
+				viewController.cleanup();
+			}
+			viewController = null;
+			controllerList[property] = null;
+		} else if (secondaryPages.indexOf(property) >= 0) {
+			Alloy.Globals.closePage('' + property + '');
 		}
-		
-		var viewController;
-    	if(listings.indexOf(row) >= 0) {
-    		viewController = controls.getCustomView(viewList[row], [viewList[row], Ti.App.Properties.getString('userId')]);
-    	} else {
-    	    viewController = controls.getCustomView(viewList[row]);	
-    	}
-    	
-    	controllerList[row]= viewController;
-		if(viewController.menuButton) {
-    		viewController.menuButton.addEventListener('click', hideMenu);
-		}
-    	$.drawermenu.drawermainview.add(viewController.getView());
-		viewController = null;
+	}
+
+	var viewController;
+	if (listings.indexOf(row) >= 0) {
+		viewController = controls.getCustomView(viewList[row], [viewList[row], Ti.App.Properties.getString('userId')]);
+	} else {
+		viewController = controls.getCustomView(viewList[row]);
+	}
+
+	controllerList[row] = viewController;
+	if (viewController.menuButton) {
+		viewController.menuButton.addEventListener('click', hideMenu);
+	}
+	$.drawermenu.drawermainview.add(viewController.getView());
+	viewController = null;
 };
-	
-	
-function onMenuClickListener(e){
-    $.drawermenu.showhidemenu();
-    $.drawermenu.menuOpen = false; //update menuOpen status to prevent inconsistency.
-    drawView(e.rowData.id);
 
-    // on Android the event is received by the label, so watch out!
-    Ti.API.info('Clicked '+e.rowData.id);
+function onMenuClickListener(e) {
+	$.drawermenu.showhidemenu();
+	$.drawermenu.menuOpen = false;
+	//update menuOpen status to prevent inconsistency.
+	drawView(e.rowData.id);
+
+	// on Android the event is received by the label, so watch out!
+	Ti.API.info('Clicked ' + e.rowData.id);
 }
 
 /**
@@ -124,30 +118,30 @@ function onMenuClickListener(e){
  * @param {Object} viewName view to open
  * @param {Object} model	model to be passed to the view
  */
-Alloy.Globals.openPage = function openPage(viewName, model){
+Alloy.Globals.openPage = function openPage(viewName, model) {
 	viewList[viewName] = controls.getCustomView(viewName, model);
-	if(viewList[viewName]){
+	if (viewList[viewName]) {
 		for (var property in viewList) {
-		    if (property === viewName) {
-		    	var drawerMainChildren = $.drawermenu.drawermainview.children;
-	    		for( var i in drawerMainChildren) {
-	    			if(previousListView && previousListView.getView() === viewList[viewName].getView()) {
-		    			$.drawermenu.drawermainview.remove(previousListView.getView());
-		    		}
-		    	}		    	
-		    	
-			    $.drawermenu.drawermainview.add(viewList[viewName].getView());
-			    //$.drawermenu.drawermainview.remove(previousController.getView());
-				if(viewList[viewName].menuButton) {
-			      viewList[viewName].menuButton.addEventListener('click',function(){
+			if (property === viewName) {
+				var drawerMainChildren = $.drawermenu.drawermainview.children;
+				for (var i in drawerMainChildren) {
+					if (previousListView && previousListView.getView() === viewList[viewName].getView()) {
+						$.drawermenu.drawermainview.remove(previousListView.getView());
+					}
+				}
+
+				$.drawermenu.drawermainview.add(viewList[viewName].getView());
+				//$.drawermenu.drawermainview.remove(previousController.getView());
+				if (viewList[viewName].menuButton) {
+					viewList[viewName].menuButton.addEventListener('click', function() {
 						$.drawermenu.showhidemenu();
-						$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
+						$.drawermenu.menuOpen = !$.drawermenu.menuOpen;
 					});
 				}
 				//previousController = viewList[viewName];
-		    } else {
-		    	//$.drawermenu.drawermainview.remove(viewList[viewName]);
-		    }
+			} else {
+				//$.drawermenu.drawermainview.remove(viewList[viewName]);
+			}
 		}
 		previousListView = viewList[viewName];
 	} else {
@@ -158,12 +152,19 @@ Alloy.Globals.openPage = function openPage(viewName, model){
 /**
  * Close a page that is open. Silently returns if the page is not open
  */
-Alloy.Globals.closePage = function(pageName){
-	if(viewList[pageName]) {
+Alloy.Globals.closePage = function(pageName) {
+	var viewController = viewList[pageName];
+	if (viewController) {
+		Alloy.Globals.removeChildren(viewController.getView());
+		if (viewController.cleanup) {
+			Ti.API.info('Releasing controller ' + pageName);
+			viewController.cleanup();
+		}
 		$.drawermenu.drawermainview.remove(viewList[pageName].getView());
+		viewController = null;
+		viewList[pageName] = null;	
 	}
 };
-
 
 /**
  * Format a string in the following format
@@ -171,12 +172,12 @@ Alloy.Globals.closePage = function(pageName){
  * @return {string}
  */
 String.prototype.format = function() {
-    var formatted = this;
-    for (var i = 0; i < arguments.length; i++) {
-        var regexp = new RegExp('\\{'+i+'\\}', 'gi');
-        formatted = formatted.replace(regexp, arguments[i]);
-    }
-    return formatted;
+	var formatted = this;
+	for (var i = 0; i < arguments.length; i++) {
+		var regexp = new RegExp('\\{' + i + '\\}', 'gi');
+		formatted = formatted.replace(regexp, arguments[i]);
+	}
+	return formatted;
 };
 
 /**
@@ -185,13 +186,13 @@ String.prototype.format = function() {
  * @param {Object} d 	decimal separator
  * @param {Object} t	format separator
  */
-Number.prototype.formatMoney = function(c, d, t){
-var n = this,
-    c = isNaN(c = Math.abs(c)) ? 2 : c,
-    d = d == undefined ? "." : d,
-    t = t == undefined ? "," : t,
-    s = n < 0 ? "-" : "",
-    i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "",
-    j = (j = i.length) > 3 ? j % 3 : 0;
-   return "$" + s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
- };
+Number.prototype.formatMoney = function(c, d, t) {
+	var n = this,
+	    c = isNaN( c = Math.abs(c)) ? 2 : c,
+	    d = d == undefined ? "." : d,
+	    t = t == undefined ? "," : t,
+	    s = n < 0 ? "-" : "",
+	    i = parseInt( n = Math.abs(+n || 0).toFixed(c)) + "",
+	    j = ( j = i.length) > 3 ? j % 3 : 0;
+	return "$" + s + ( j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + ( c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+};
