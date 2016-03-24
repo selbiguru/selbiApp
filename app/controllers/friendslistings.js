@@ -163,6 +163,7 @@ function openListing(listingIDs){
 	if(Ti.App.Properties.getString('userId') === listingIDs.userId) {
 		clearProxy('mylistings');
 		Alloy.Globals.closePage('friendslistings');
+		Ti.API.info('Closing friendslistings');
 	}
 };
 

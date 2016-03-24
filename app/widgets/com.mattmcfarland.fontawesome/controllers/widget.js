@@ -419,3 +419,14 @@ if (typeof instaParse 	=== 'undefined') { instaParse = true; }
 // Start
 if (debugMode) Ti.API.debug('Font Awesome widget.js is active');
 if (instaParse) { applyIcons(); }
+
+exports.cleanup = function(){
+	Ti.API.info('Cleanining widget fontawesome');
+	$.off();
+	$.destroy();
+	$.removeListener();
+	Alloy.Globals.deallocate($);
+    $ = null;
+    icons = null;
+    Ti.API.info('Finished cleanining widget fontawesome');
+};

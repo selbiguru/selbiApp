@@ -32,6 +32,7 @@ var execute = exports.execute = function(relativePath, method, objectToSend, isA
         Ti.API.error('EXTENDED ERROR =>' + extendedError);
         Ti.API.error('XHR Error: ' + xhr.status + ' - ' + typeof xhr.responseText);
         callback(extendedError, null);
+        xhr = null;
     };
 
     xhr.open(method, url);
@@ -63,6 +64,6 @@ var execute = exports.execute = function(relativePath, method, objectToSend, isA
             Ti.API.error("Error =>" + this.response);
             callback(this.response, null);
         }
-
+       xhr = null;
     };
 };

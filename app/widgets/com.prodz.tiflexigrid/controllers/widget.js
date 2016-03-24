@@ -174,7 +174,7 @@ var openModal = function(url){
 };
 
 var clearGrid = function(){
-	$.fgScrollView.removeAllChildren();
+  $.fgScrollView.removeAllChildren();
 };
 
 var getItemWidth = function(){
@@ -190,6 +190,7 @@ var setOnItemClick = function(fnt){
 };
 
 var cleanup = function(){
+	Ti.API.info('Cleanining widget tiflexgrid');
 	$.off();
 	$.destroy();
 	$.removeListener();
@@ -197,6 +198,8 @@ var cleanup = function(){
 	$.fgMain = null;
 	Alloy.Globals.deallocate($);
     $ = null;
+    data = null;
+    Ti.API.info('Finished cleanining widget tiflexgrid');
 };
 
 exports.init=init;

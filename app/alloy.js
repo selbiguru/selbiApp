@@ -87,15 +87,12 @@ Alloy.Globals.deallocate = function(_obj) {
 					Alloy.Globals.deallocate(child);
 				}
 			});
-            if(_obj.onclick){
-            	Ti.API.info('---------------');
-            } 
 			_obj = null;
 		} else {
 			Ti.API.info('passed in _obj to be cleaned is not an object!');
 		}
 	} catch(error) {
-		console.log('Error: ' + error);
+		Ti.API.error('Error: ' + error);
 	}
 };
 

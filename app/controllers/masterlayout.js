@@ -26,7 +26,7 @@ function initialize() {
 	if (mainView.menuButton) {
 		mainView.menuButton.addEventListener('click', hideMenu);
 	}
-
+	
 	// initialize the menu
 	$.drawermenu.init({
 		menuview : menuView.getView(),
@@ -35,7 +35,6 @@ function initialize() {
 		parent : $.master
 	});
 
-	//drawView('row3');
 }
 
 // setup the list of views
@@ -54,9 +53,7 @@ var listings = ['row3', 'row4', 'row5'];
 
 var secondaryPages = ['aboutUs', 'addBankAccount', 'addCreditCard', 'addressgooglemap', 'faq', 'invitefriends', 'payment', 'phoneVerify', 'verifyaddress', 'viewlisting', 'contactUs', 'addfriends', 'edituserprofile'];
 
-var controllerList = {
-	'row3' : mainView
-};
+var controllerList = {'row3' : mainView};
 
 initialize();
 
@@ -66,26 +63,35 @@ menuView.menuTable.addEventListener('click', onMenuClickListener);
 // add event listener in this context menuView Table 2
 menuView.menuTable2.addEventListener('click', onMenuClickListener);
 
-//var previousController = controls.getMainView();
-var previousListView = null;
 
 function drawView(row) {
-	for (var property in viewList) {
-		if (controllerList[property]) {
-			var viewController = controllerList[property];
+	for (var property in controllerList) {
+		var viewController = controllerList[property];
+		if (viewController) {
 			if (viewController.menuButton) {
 				viewController.menuButton.removeEventListener('click', hideMenu);
+				Ti.API.info('removeEventListener'); 
 			}
-			Alloy.Globals.removeChildren(viewController.getView());
+			/*if (viewController.fa) {
+				viewController.fa.cleanup();
+			}
+			if (viewController.fg) {
+				viewController.fg.cleanup();
+			}*/
+
 			if (viewController.cleanup) {
-				Ti.API.info('Releasing controller ' + property + viewController);
+				Ti.API.info('Releasing controller ' + property);
 				viewController.cleanup();
 			}
-			viewController = null;
-			controllerList[property] = null;
-		} else if (secondaryPages.indexOf(property) >= 0) {
-			Alloy.Globals.closePage('' + property + '');
-		}
+			var view = viewController.getView();
+			Alloy.Globals.removeChildren(view);
+			$.drawermenu.drawermainview.remove(view);
+			view = null;
+		} 
+		
+		viewController = null;
+		controllerList[property] = null;
+		delete controllerList[property];
 	}
 
 	var viewController;
@@ -101,6 +107,8 @@ function drawView(row) {
 	}
 	$.drawermenu.drawermainview.add(viewController.getView());
 	viewController = null;
+	
+	Ti.API.info('List After open ' + JSON.stringify(controllerList));
 };
 
 function onMenuClickListener(e) {
@@ -119,51 +127,65 @@ function onMenuClickListener(e) {
  * @param {Object} model	model to be passed to the view
  */
 Alloy.Globals.openPage = function openPage(viewName, model) {
-	viewList[viewName] = controls.getCustomView(viewName, model);
-	if (viewList[viewName]) {
-		for (var property in viewList) {
-			if (property === viewName) {
-				var drawerMainChildren = $.drawermenu.drawermainview.children;
-				for (var i in drawerMainChildren) {
-					if (previousListView && previousListView.getView() === viewList[viewName].getView()) {
-						$.drawermenu.drawermainview.remove(previousListView.getView());
-					}
-				}
 
-				$.drawermenu.drawermainview.add(viewList[viewName].getView());
-				//$.drawermenu.drawermainview.remove(previousController.getView());
-				if (viewList[viewName].menuButton) {
-					viewList[viewName].menuButton.addEventListener('click', function() {
-						$.drawermenu.showhidemenu();
-						$.drawermenu.menuOpen = !$.drawermenu.menuOpen;
-					});
-				}
-				//previousController = viewList[viewName];
-			} else {
-				//$.drawermenu.drawermainview.remove(viewList[viewName]);
+	/*for (var property in controllerList) {
+		var viewController = controllerList[property];
+		if (viewController) {
+			if (viewController.menuButton) {
+				viewController.menuButton.removeEventListener('click', hideMenu);
 			}
-		}
-		previousListView = viewList[viewName];
-	} else {
-		console.error("No view found");
+			if (viewController.cleanup) {
+				Ti.API.info('Releasing controller ' + property );
+				viewController.cleanup();
+			}
+			Alloy.Globals.removeChildren(viewController.getView());
+		} 
+		
+		viewController = null;
+		controllerList[property] = null;
+		delete controllerList[property];
+	}*/
+	
+	var viewController = controls.getCustomView(viewName, model);
+	controllerList[viewName] = viewController;
+	$.drawermenu.drawermainview.add(viewController.getView());
+	if (viewController.menuButton) {
+		viewController.menuButton.addEventListener('click', hideMenu);
 	}
+	viewController = null;
+	Ti.API.info('List After open ' + JSON.stringify(controllerList));
 };
 
 /**
  * Close a page that is open. Silently returns if the page is not open
  */
 Alloy.Globals.closePage = function(pageName) {
-	var viewController = viewList[pageName];
+	var viewController = controllerList[pageName];
 	if (viewController) {
-		Alloy.Globals.removeChildren(viewController.getView());
+		if (viewController.menuButton) {
+			viewController.menuButton.removeEventListener('click', hideMenu);
+			Ti.API.info('removeEventListener');   
+		}
+		/*if (viewController.fa) {
+			viewController.fa.cleanup();
+		}
+		if (viewController.fg) {
+			viewController.fg.cleanup();
+		}*/
 		if (viewController.cleanup) {
 			Ti.API.info('Releasing controller ' + pageName);
 			viewController.cleanup();
 		}
-		$.drawermenu.drawermainview.remove(viewList[pageName].getView());
+		var view = viewController.getView();
+		Alloy.Globals.removeChildren(view);
+		$.drawermenu.drawermainview.remove(view);
+		view = null;
 		viewController = null;
-		viewList[pageName] = null;	
+		controllerList[pageName] = null;	
+		delete controllerList[pageName];
 	}
+	
+	Ti.API.info('List After close ' + JSON.stringify(controllerList));
 };
 
 /**

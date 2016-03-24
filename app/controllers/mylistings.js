@@ -424,6 +424,8 @@ function clearProxy(e) {
 	$.off();
 	$.destroy();
 	$.scrollViewMyListings.removeEventListener('scroll', infitineScroll);
+	$.fa.cleanup();
+	$.fa = null;
 	$.fg.cleanup();
 	$.fg = null;
 	for(var i in items) {
