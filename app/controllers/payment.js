@@ -45,7 +45,7 @@ function addNewBank(){
  * Opens Birthday modal if user has not yet entered their birthday
  * Braintree requires birthday when creating a subMerchant Account
  */
-function addVenmo(){
+/*function addVenmo(){
 	if(!Alloy.Globals.currentUser.attributes.dateOfBirth || Alloy.Globals.currentUser.attributes.dateOfBirth === null) {
 		modalManager.getBirthdayModal(function(err,results){
 			results.modalSaveButton.addEventListener('click', function() {
@@ -73,13 +73,13 @@ function addVenmo(){
 		//sendVenmoBraintree();
 		return;
 	}
-}
+}*/
 
 /**
  * @private sendVenmoBraintree 
  * Determines if your address is complete on your profile page and if so, creates a subMerchant account with Venmo so you can cash out.
  */
-function sendVenmoBraintree(){
+/*function sendVenmoBraintree(){
 	//Selecting Venmo will not leave this page but instead send info to braintree
 	//via this js file.  Then a checkmark will appear to show they selected this option.
 	//Need to connect to Braintree if this option is selected.
@@ -120,10 +120,10 @@ function sendVenmoBraintree(){
 		helpers.alertUser('Add Address','You must complete your profile and address in \'Edit Profile\' under settings before connecting an account!');
 		return;
 	}
-}
+}*/
 
 // Set the Venmo button image
-$.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.venmoWhite;
+//$.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.venmoWhite;
 
 
 

@@ -22,10 +22,10 @@
 			 	<Label icon="fa-plus-square-o" id="labelAddBank" class="rowLabel" onClick="addNewBank">Add Bank Account</Label>
 			</View>
 		</View>
-		<Label id="separatorLabel" class="topPadding">OR</Label>
+		<!--<Label id="separatorLabel" class="topPadding">OR</Label>
 		<View id="viewAddVenmo" class="rowContainer topPadding">
 			 <ImageView id="imageAddVenmo" class="rowLabel" onClick="addVenmo"/>
-		</View>
+	</View>-->
 		<View id="paymentUndefined"></View>
 		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 	</View>
