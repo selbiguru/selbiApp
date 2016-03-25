@@ -31,3 +31,8 @@ Ti.App.addEventListener('app:getAddressWebView', getAddressWebView);
 function getAddressWebView(e){
 	address.push(e.address);
 }
+
+$.webview.addEventListener('load',function(){
+	var currentLocation = args[0];
+	$.webview.evalJS('initialize('+currentLocation.lat+',' + currentLocation.lng+')');
+});
