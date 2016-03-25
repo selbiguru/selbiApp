@@ -2,10 +2,9 @@
  * @author Jordan Burrows
  */
 
-function initialize() {
-	
+function initialize(lat, lon) {
   var mapOptions = {
-    center: new google.maps.LatLng(41.5750, -93.7092),
+    center: new google.maps.LatLng(lat, lon),
     zoom: 13,
     maxZoom: 15,
     draggable: false,
@@ -105,4 +104,4 @@ function initialize() {
   });
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+//google.maps.event.addDomListener(window, 'load', initialize);

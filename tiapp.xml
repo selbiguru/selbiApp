@@ -80,6 +80,10 @@
                 <string>1574963029435557</string>
                 <key>FacebookDisplayName</key>
                 <string>selbi-ios</string>
+                <key>NSLocationAlwaysUsageDescription</key>
+                <string>Update user profile</string>
+                <key>NSLocationUsageDescription</key>
+                <string>Update user profile</string>
             </dict>
         </plist>
     </ios>

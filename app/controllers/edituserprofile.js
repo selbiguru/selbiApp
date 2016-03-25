@@ -11,7 +11,8 @@ var helpers = require('utilities/helpers'),
 	currentUser = null,
 	userNameUnique = true,
 	indicator = require('uielements/indicatorwindow'),
-	fb = require('facebook'); 
+	fb = require('facebook'),
+	geoLocation = require('utilities/geoLocation'); 
 //logout from facebook everytime for testing
 //fb.logout();
 
@@ -397,7 +398,9 @@ function connectToTwitter() {
 }*/
 
 function getGoogleMaps(e){
-	Alloy.Globals.openPage('addressgooglemap');
+	geoLocation.getCurrentPosition(function(e){
+		Alloy.Globals.openPage('addressgooglemap',[e]);
+	});
 };
 
 
