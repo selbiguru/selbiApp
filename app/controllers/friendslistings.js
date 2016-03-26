@@ -303,7 +303,7 @@ $.usernameSearch.addEventListener('return', keyboardSearch);
 exports.cleanup = function () {
 	Ti.API.info('Cleaning friendlisting');
 	clearProxy('mylistings');
-	$.friendsListingsView.removeAllChildren();
+	Alloy.Globals.removeChildren($.friendsListingsView);
 	$.friendsListingsView = null;
 	Alloy.Globals.deallocate($);
     $ = null;

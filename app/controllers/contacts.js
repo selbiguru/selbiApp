@@ -377,7 +377,7 @@ function loadContacts() {
 	contactsOnSelbi = Ti.UI.createListSection({
 		headerView: createCustomView('Contacts on Selbi'),
 	});
-	var contactsNotUsers = Ti.UI.createListSection({
+	contactsNotUsers = Ti.UI.createListSection({
 		headerView: createCustomView('Invite to Selbi'),
 		footerView: Ti.UI.createView({
 		        backgroundColor: '#E5E5E5',
@@ -462,7 +462,7 @@ function loadContacts() {
 				contactsOnSelbi.setItems(currentContacts);
 				contactsNotUsers.setItems(nonUsers);
 				//addFriendSection.setItems(searchUsers);
-				contactListView.sections = [contactsOnSelbi, contactsNotUsers];
+				contactListView.setSections([contactsOnSelbi, contactsNotUsers]);
 				$.addContactsView.add(contactListView);
 				$.activityIndicator.hide();
 				$.activityIndicator.height = '0dp';
@@ -601,8 +601,13 @@ function clearProxy(e) {
 	$.destroy();
 	/*if(e.source.id !== 'searchContactsButton') {
 		this.removeEventListener('click', clearProxy);
-	};
-	$.addContactsView.children[$.addContactsView.children.length -1].removeAllChildren();*/
+	};*/
+	if(contactsOnSelbi){
+		contactsOnSelbi.items = [];
+		contactsNotUsers.items = [];
+		$.addContactsView.children[$.addContactsView.children.length -1].sections = [];
+	}
+	
 	currentContacts = null;
 	contactsOnSelbi = null;
 	
@@ -704,8 +709,8 @@ Alloy.Models.user.fetch({
 exports.cleanup = function () {
 	Ti.API.info('Cleaning addContactsView');
 	clearProxy();
-	$.removeListener();
-	$.addContactsView.removeAllChildren();
+	$.fa.cleanup();
+	Alloy.Globals.removeChildren($.addContactsView);
 	$.addContactsView = null;
 	Alloy.Globals.deallocate($);
     $ = null;

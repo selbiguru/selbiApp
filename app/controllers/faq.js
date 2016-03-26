@@ -125,3 +125,13 @@ $.viewFAQ.addEventListener('click', function(e){
 	
 	return;
 });
+
+exports.cleanup = function () {
+	Ti.API.info('Cleaning FAQ');
+	$.off();
+	$.destroy();
+	Alloy.Globals.removeChildren($.faqView);
+	$.faqView = null;
+	Alloy.Globals.deallocate($);
+    $ = null;
+};
