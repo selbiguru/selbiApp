@@ -620,7 +620,6 @@ function determineStatus(invitation) {
 function backButton() {
 	$.off();
 	$.destroy();
-	textFieldObj = null;
 	$.addFriendsTopBar.removeEventListener('click', blurTextField);
 	Alloy.Globals.closePage('addfriends');
 };
@@ -729,3 +728,22 @@ Alloy.Models.user.fetch({
 
 
 $.addFriendsTopBar.addEventListener('click', blurTextField);
+
+exports.cleanup = function () {
+	Ti.API.info('Cleaning addfriends');
+	$.fa.cleanup();
+	if(contactListView){
+		friendsOnSelbi.items=[];
+		friendsPending.items=[];
+		addFriendSection.items=[];
+		contactListView.sections = [];
+		friendsOnSelbi = null;
+		friendsPending = null;
+		addFriendSection = null;
+		contactListView = null;
+	}
+	Alloy.Globals.removeChildren($.addFriendsView);
+	$.addFriendsView = null;
+	Alloy.Globals.deallocate($);
+    $ = null;
+};

@@ -59,14 +59,14 @@ Alloy.Globals.removeChildren = function(view) {
 
 			// handle special cases
 			switch(view.apiName) {
-			case 'Ti.UI.ScrollableView':
-				// useless because the views are automatically removed (?) from the scrollableView if the parent window is being closed
-				// views is always an empty array
-				var views = view.views;
-				for (var i = 0; i < views.length; i++) {
-					Alloy.Globals.removeChildren(views[i]);
-				}
-				break;
+					case 'Ti.UI.ScrollableView':
+						// useless because the views are automatically removed (?) from the scrollableView if the parent window is being closed
+						// views is always an empty array
+						var views = view.views;
+						for (var i = 0; i < views.length; i++) {
+							Alloy.Globals.removeChildren(views[i]);
+						}
+						break;		
 			}
 		}
 		view = null;

@@ -606,6 +606,8 @@ function clearProxy(e) {
 		contactsOnSelbi.items = [];
 		contactsNotUsers.items = [];
 		$.addContactsView.children[$.addContactsView.children.length -1].sections = [];
+		contactsOnSelbi = null;
+		contactsNotUsers = null;
 	}
 	
 	currentContacts = null;
