@@ -2,7 +2,7 @@
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <url>http://</url>
     <id>io.selbi</id>
-    <name>selbiApp</name>
+    <name>Selbi</name>
     <version>1.0</version>
     <publisher>selbi</publisher>
     <description>eCommerce Friends first selling app.</description>
