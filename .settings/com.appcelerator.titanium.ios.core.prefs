@@ -1,9 +1,9 @@
 eclipse.preferences.version=1
 iosLaunchConfigurationAttributes/ATTR_MINIFY=true
-iosLaunchConfigurationAttributes/ATTR_PROJECT_NAME=selbiApp
+iosLaunchConfigurationAttributes/ATTR_PROJECT_NAME=Selbi
 iosLaunchConfigurationAttributes/ATTR_UPLOAD_DEBUG_SYMBOLS=false
 iosLaunchConfigurationAttributes/appid=io.selbi
-iosLaunchConfigurationAttributes/certificate=jordanburrows@gmail.com (84HSX6P2NF)
+iosLaunchConfigurationAttributes/certificate=Jordan Burrows (4JSV48EE4D)
 iosLaunchConfigurationAttributes/keychain=
-iosLaunchConfigurationAttributes/sdk_version=9.2
-iosLaunchConfigurationAttributes/uuid=27eee8dc-05f0-4671-82f0-a1250a92bacb
+iosLaunchConfigurationAttributes/sdk_version=9.3
+iosLaunchConfigurationAttributes/uuid=f22f6ec3-957b-4b5c-bced-fad134b5b4f1
