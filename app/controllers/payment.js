@@ -438,3 +438,14 @@ paymentManager.getPaymentMethods(function(err, results){
 //Close addCreditCard page on payment.js load otherwise webview braintree doesn't properly read the save cc view
 Alloy.Globals.closePage('addCreditCard');
 Alloy.Globals.closePage('addBankAccount');
+
+
+exports.cleanup = function () {
+	Ti.API.info('Cleaning Payments');
+	$.off();
+	$.destroy();
+	Alloy.Globals.removeChildren($.paymentView);
+	$.paymentView = null;
+	Alloy.Globals.deallocate($);
+    $ = null;
+};

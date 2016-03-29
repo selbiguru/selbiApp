@@ -133,3 +133,13 @@ $.activityIndicator.show();
 });*/
 
 $.webview.addEventListener('load', loadCreditCard);
+
+exports.cleanup = function () {
+	Ti.API.info('Cleaning CreditCardView');
+	$.off();
+	$.destroy();
+	Alloy.Globals.removeChildren($.addCreditCardView);
+	$.addCreditCardView = null;
+	Alloy.Globals.deallocate($);
+    $ = null;
+};
