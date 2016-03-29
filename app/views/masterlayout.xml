@@ -1,5 +1,5 @@
 <Alloy>
-	<Window class="mainWindow">
+	<Window class="mainWindow" id="mainWindow">
 		<View class="master-container" id="master">
 			<Require type="widget" src="com.alcoapps.drawermenu" id="drawermenu"/>
 		</View>		

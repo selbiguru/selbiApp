@@ -27,20 +27,17 @@ function loginUser(){
 			helpers.alertUser('Login','Please check your Username and Password and try again!');
 			return;
 		} else {
-			removeEventListeners();
 			indicatorWindow.closeIndicator();
 			buttonOn();
 			var homeController = Alloy.createController('masterlayout').getView();
-			homeController.open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});	
+			homeController.open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
+			$.window.close();	
 		}
 	});
 }
 
 function closeWindow(){
-	$.destroy();
-	$.off();
-	removeEventListeners();
-	$.login.close({ transition: Ti.UI.iPhone.AnimationStyle.CURL_DOWN});
+	$.window.close({ transition: Ti.UI.iPhone.AnimationStyle.CURL_DOWN});
 }
 
 
@@ -126,3 +123,14 @@ $.password.addEventListener('return', keyboardLogIn);
 $.forgotPassword.addEventListener('click', forgotPassword);
 
 $.closeWindow.addEventListener('click', closeWindow);
+
+$.window.addEventListener('close', function(){
+	$.destroy();
+	$.off();
+	removeEventListeners();
+	Alloy.Globals.removeChildren($.window);
+	$.window = null;
+	Alloy.Globals.deallocate($);
+	$ = null;
+	 Ti.API.info('Closing login window.');
+});

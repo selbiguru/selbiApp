@@ -72,12 +72,6 @@ function drawView(row) {
 				viewController.menuButton.removeEventListener('click', hideMenu);
 				Ti.API.info('removeEventListener'); 
 			}
-			/*if (viewController.fa) {
-				viewController.fa.cleanup();
-			}
-			if (viewController.fg) {
-				viewController.fg.cleanup();
-			}*/
 
 			if (viewController.cleanup) {
 				Ti.API.info('Releasing controller ' + property);
@@ -94,6 +88,11 @@ function drawView(row) {
 		delete controllerList[property];
 	}
 
+	if(row==='row8'){
+		$.mainWindow.close();
+	    return;
+	}
+	
 	var viewController;
 	if (listings.indexOf(row) >= 0) {
 		viewController = controls.getCustomView(viewList[row], [viewList[row], Ti.App.Properties.getString('userId')]);
@@ -116,7 +115,6 @@ function onMenuClickListener(e) {
 	$.drawermenu.menuOpen = false;
 	//update menuOpen status to prevent inconsistency.
 	drawView(e.rowData.id);
-
 	// on Android the event is received by the label, so watch out!
 	Ti.API.info('Clicked ' + e.rowData.id);
 }
@@ -166,12 +164,6 @@ Alloy.Globals.closePage = function(pageName) {
 			viewController.menuButton.removeEventListener('click', hideMenu);
 			Ti.API.info('removeEventListener');   
 		}
-		/*if (viewController.fa) {
-			viewController.fa.cleanup();
-		}
-		if (viewController.fg) {
-			viewController.fg.cleanup();
-		}*/
 		if (viewController.cleanup) {
 			Ti.API.info('Releasing controller ' + pageName);
 			viewController.cleanup();
@@ -188,6 +180,17 @@ Alloy.Globals.closePage = function(pageName) {
 	Ti.API.info('List After close ' + JSON.stringify(controllerList));
 };
 
+$.mainWindow.addEventListener('close',function(){
+	menuView.menuTable.removeEventListener('click', onMenuClickListener);
+	menuView.menuTable2.removeEventListener('click', onMenuClickListener);
+	$.off();
+	$.destroy();
+	Alloy.Globals.removeChildren($.mainWindow);
+	$.mainWindow = null;
+	Alloy.Globals.deallocate($);
+    $ = null;
+    Ti.API.info('Closing master layout window.');
+});
 /**
  * Format a string in the following format
  * 'The {0} is dead. Don\'t code {0}. Code {1} that is open source!'.format('ASP', 'PHP');
