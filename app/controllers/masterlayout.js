@@ -114,7 +114,9 @@ function onMenuClickListener(e) {
 	$.drawermenu.showhidemenu();
 	$.drawermenu.menuOpen = false;
 	//update menuOpen status to prevent inconsistency.
-	drawView(e.rowData.id);
+	setTimeout(function(){
+		drawView(e.rowData.id);
+	},500);
 	// on Android the event is received by the label, so watch out!
 	Ti.API.info('Clicked ' + e.rowData.id);
 }

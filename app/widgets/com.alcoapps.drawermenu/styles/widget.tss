@@ -22,3 +22,7 @@
 	height: "40dp",
 	visible:true
 }
+
+"#drawermainview":{
+  backgroundColor:"#FFFFFF"
+}
