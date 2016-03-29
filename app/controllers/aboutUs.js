@@ -51,20 +51,7 @@ function aboutUsBody(aboutUsText) {
 
 
 
-/**
- * @method clearProxy
- * Clears up memory leaks from dynamic elements created when page closes
- */
-function clearProxy(e) {
-	$.off();
-	$.destroy();
-	$.aboutUsInfoView.remove($.aboutUsInfoView.children[0]);
-	$.aboutUsInfoView.children[0] = null;
-	
-	this.removeEventListener('click', clearProxy);
-	
-	console.log('solve anything yet?^ ', e);
-}
+
 
 
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
@@ -98,6 +85,17 @@ switch(Alloy.Globals.userDevice) {
 
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
 
-$.aboutUsView.addEventListener('click', function(e) {
-	$.aboutUsView.parent.parent.children[0].addEventListener('click', clearProxy);
-});
+
+
+
+
+
+exports.cleanup = function () {
+	Ti.API.info('Cleaning About Us');
+	$.off();
+	$.destroy();
+	Alloy.Globals.removeChildren($.aboutUsView);
+	$.aboutUsView = null;
+	Alloy.Globals.deallocate($);
+    $ = null;
+};
