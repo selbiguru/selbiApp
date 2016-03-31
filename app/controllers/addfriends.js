@@ -129,6 +129,7 @@ function getFriendsSection() {
 	            type: 'Ti.UI.TextField',    // Use a label for the title
 	            bindId: 'userNameSearch',   // Maps to a custom title property of the item data
 	            properties: { 	         	// Sets the label properties
+	            	id: 'userNameSearch',
 	            	width: Ti.UI.FILL,
 					height: heightDataView,
 					maxLength: "20",	            		            	
@@ -151,7 +152,9 @@ function getFriendsSection() {
 							username: helpers.trim(e.value, true).toLowerCase()
 						};
 						if(e.source.children.length > 0 && (!uniqueUserRegEx || uniqueUserRegEx)){
-								e.source.remove(e.source.children[0]);
+							 e.source.children[0].removeEventListener('click', e.source.listener);
+							 e.source.listener=null;
+						     Alloy.Globals.removeChildren(e.source);
 						};
 						if(uniqueUserRegEx === null) {
 							helpers.alertUser('Oops','Usernames are only letters and numbers!');
@@ -161,9 +164,11 @@ function getFriendsSection() {
 							friendsManager.getInvitationByUsername( usernameObject, function(err, results) {
 								if(results && results.id != Ti.App.Properties.getString('userId')) {
 									if(e.source.children.length > 0 ){
-										e.source.remove(e.source.children[0]);
+										e.source.children[0].removeEventListener('click', e.source.listener);
+										e.source.listener=null;
+										Alloy.Globals.removeChildren(e.source);
 									};
-									var hiddenView = Ti.UI.createView({
+								    var hiddenView = Ti.UI.createView({
 										width: Ti.UI.SIZE,
 										height: Ti.UI.SIZE,
 										right: rightCheckMark,
@@ -183,7 +188,7 @@ function getFriendsSection() {
 									$.fa.add(labelStuff, labelIcon);
 									hiddenView.add(labelStuff);
 									e.source.add(hiddenView);
-									hiddenView.addEventListener('click', function(e) {										
+									e.source.listener = function(e) {										
 										if(e.source.status === 'new') {
 											friendRequestDynamic(e, 'pending');
 										} else if(e.source.status === 'denied') {
@@ -195,7 +200,8 @@ function getFriendsSection() {
 										} else if(e.source.status === 'approved') {
 											friendRequestDynamic(e, 'denied');
 										}
-									});
+									};
+									hiddenView.addEventListener('click', e.source.listener);
 								}
 							});
 						}
@@ -731,6 +737,15 @@ $.addFriendsTopBar.addEventListener('click', blurTextField);
 
 exports.cleanup = function () {
 	Ti.API.info('Cleaning addfriends');
+	if(textFieldObj){
+		if(textFieldObj.source.children.length>0){
+	 		textFieldObj.source.children[0].removeEventListener('click', textFieldObj.source.listener);
+     		Alloy.Globals.removeChildren(textFieldObj.source);
+        }
+        textFieldObj.source.listener = null;
+        Alloy.Globals.deallocate(textFieldObj);
+        textFieldObj = null;	
+	};
 	$.fa.cleanup();
 	if(contactListView){
 		friendsOnSelbi.items=[];
