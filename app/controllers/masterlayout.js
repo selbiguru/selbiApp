@@ -116,7 +116,7 @@ function onMenuClickListener(e) {
 	//update menuOpen status to prevent inconsistency.
 	setTimeout(function(){
 		drawView(e.rowData.id);
-	},500);
+	},200);
 	// on Android the event is received by the label, so watch out!
 	Ti.API.info('Clicked ' + e.rowData.id);
 }
