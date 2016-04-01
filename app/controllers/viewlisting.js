@@ -473,7 +473,6 @@ function createPreviewButtons() {
 	$.viewListingButtonView.add(saveListingButton);
 	
 	editListingButton.addEventListener('click', backButton);
-	editListingButton.touchEnabled = false;
 	saveListingButton.addEventListener('click', function(e) {
 		if(bankEligible) {
 			saveListing(editListingButton, saveListingButton);	
