@@ -202,6 +202,7 @@ function getFriendsSection() {
 										}
 									};
 									hiddenView.addEventListener('click', e.source.listener);
+									textFieldObj = e;
 								}
 							});
 						}
@@ -738,11 +739,14 @@ $.addFriendsTopBar.addEventListener('click', blurTextField);
 exports.cleanup = function () {
 	Ti.API.info('Cleaning addfriends');
 	if(textFieldObj){
+		textFieldObj.source.value = '';
 		if(textFieldObj.source.children.length>0){
 	 		textFieldObj.source.children[0].removeEventListener('click', textFieldObj.source.listener);
      		Alloy.Globals.removeChildren(textFieldObj.source);
+     		Ti.API.info('Cleaning textFieldObj');
         }
         textFieldObj.source.listener = null;
+        textFieldObj.source = null;
         Alloy.Globals.deallocate(textFieldObj);
         textFieldObj = null;	
 	};
