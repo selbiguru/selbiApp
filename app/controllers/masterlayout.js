@@ -128,23 +128,25 @@ function onMenuClickListener(e) {
  */
 Alloy.Globals.openPage = function openPage(viewName, model) {
 
-	/*for (var property in controllerList) {
-		var viewController = controllerList[property];
-		if (viewController) {
-			if (viewController.menuButton) {
-				viewController.menuButton.removeEventListener('click', hideMenu);
-			}
-			if (viewController.cleanup) {
-				Ti.API.info('Releasing controller ' + property );
-				viewController.cleanup();
-			}
-			Alloy.Globals.removeChildren(viewController.getView());
-		} 
-		
-		viewController = null;
-		controllerList[property] = null;
-		delete controllerList[property];
-	}*/
+	for (var property in controllerList) {
+		if(property===viewName){
+			var viewController = controllerList[property];
+			if (viewController) {
+				if (viewController.menuButton) {
+					viewController.menuButton.removeEventListener('click', hideMenu);
+				}
+				if (viewController.cleanup) {
+					Ti.API.info('Releasing controller ' + property );
+					viewController.cleanup();
+				}
+				Alloy.Globals.removeChildren(viewController.getView());
+			} 
+			
+			viewController = null;
+			controllerList[property] = null;
+			delete controllerList[property];
+		}
+	}
 	
 	var viewController = controls.getCustomView(viewName, model);
 	controllerList[viewName] = viewController;

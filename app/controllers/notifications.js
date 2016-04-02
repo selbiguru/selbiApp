@@ -312,6 +312,7 @@ function createText(notification) {
 function clearProxy(e) {
 	$.off;
 	$.destroy;
+	$.viewNotifications.hide();
 	if($.viewNotifications.children.length > 0) {
 		for(var i in $.viewNotifications.children[0].children[0].children) {
 			$.viewNotifications.children[0].children[0].remove($.viewNotifications.children[0].children[0].children[0]);
