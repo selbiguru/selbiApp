@@ -609,7 +609,7 @@ function clearProxy(e) {
 		contactsOnSelbi = null;
 		contactsNotUsers = null;
 	}
-	
+	$.addContactsView.children[$.addContactsView.children.length - 1].hide();
 	currentContacts = null;
 	contactsOnSelbi = null;
 	
