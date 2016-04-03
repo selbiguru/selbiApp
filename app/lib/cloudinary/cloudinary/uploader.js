@@ -336,8 +336,10 @@
           if (result["error"]) {
             result["error"]["http_code"] = this.status;
           }
+          xhr.abort();
           return callback(result);
         } else {
+          xhr.abort();  	
           return callback({
             error: {
               message: "Server returned unexpected status code - " + this.status
@@ -346,6 +348,7 @@
         }
       },
       onerror: function(e) {
+      	xhr.abort();
         return callback({
           error: e
         });

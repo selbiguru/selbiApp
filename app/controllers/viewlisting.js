@@ -472,8 +472,8 @@ function createPreviewButtons() {
 	$.viewListingButtonView.add(editListingButton);
 	$.viewListingButtonView.add(saveListingButton);
 	
-	editListingButton.addEventListener('click', backButton);
-	saveListingButton.addEventListener('click', function(e) {
+	$.addListener(editListingButton,'click', backButton);
+	$.addListener(saveListingButton,'click', function(e) {
 		if(bankEligible) {
 			saveListing(editListingButton, saveListingButton);	
 		} else {
@@ -489,9 +489,7 @@ function createPreviewButtons() {
  *  Closes the current view to reveal the previous still opened view.
  */
 function backButton() {
-	$.off();
-	$.destroy();
-	if(args.itemId) {
+	/*if(args.itemId) {
 		$.viewListingButtonView.remove($.viewListingButtonView.children[0]);
 		$.viewListingButtonView.children[0] = null;	
 	} else {
@@ -508,7 +506,7 @@ function backButton() {
 	itemData = null;
 	images = null;
 	previewImageCollection = [];
-	$.sellerImage.image = null;
+	$.sellerImage.image = null;*/
 	Alloy.Globals.closePage('viewlisting');
 }
 
@@ -597,11 +595,11 @@ function createActionButton(height, width, fontSize, background, text, ccEligibl
 
 	$.viewListingButtonView.add(actionButton);
 
-	actionButton.addEventListener('click', function(e){
+	$.addListener(actionButton, 'click', function(e){
 		if(ccEligible) {
 			helpers.confirmAction('Confirm!', alert, function(err, response){
 				response.show();
-				response.addEventListener('click', function(e){
+				$.addListener(response,'click', function(e){
 					if (e.index === 0){
 						return;
 					} else {

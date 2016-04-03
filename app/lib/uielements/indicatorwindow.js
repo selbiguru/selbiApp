@@ -71,6 +71,10 @@ function createIndicatorWindow(args) {
     
     win.closeIndicator = closeIndicator;
     
+    win.addEventListener('close',function(){
+		Alloy.Globals.removeChildren(win);
+		win = null;
+    });
     return win;
 }
 
