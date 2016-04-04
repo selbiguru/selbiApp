@@ -365,7 +365,7 @@
 	width: "76dp",
 	borderRadius: '38dp',
 	left: "107dp",
-	top: "6p"
+	top: "6dp"
 },
 "#menuUserName[if=Alloy.Globals.iPhoneSix]":{
 	right: "85dp"
