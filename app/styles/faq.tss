@@ -196,9 +196,10 @@
 },
 "#faqButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "22dp"
+            fontSize: "28dp"
         },
 	color: "#1BA7CD",
+	top: "25dp"
 	
 },
 "#titleFAQView[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -209,9 +210,10 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "22dp",
+		fontSize: "28dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: "20dp"
 },
 
 

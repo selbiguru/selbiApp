@@ -18,7 +18,7 @@
 			<TableViewRow class="tableRow" id="row1">
 				<View class="rowContainer">
 					<Label icon="fa-camera" class="rowLabel row-icon" id="menuCameraIcon"></Label>
-					<Label id="rowLabel" class="rowLabel">Post a Listing</Label>
+					<Label id="rowLabel" class="rowLabel">Create a Listing</Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>

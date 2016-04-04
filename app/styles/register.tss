@@ -227,7 +227,7 @@
 ".cancel-txt[if=Alloy.Globals.iPhoneSix]": {
 	color: "#FAFAFA",
 	height: Titanium.UI.SIZE,
-	top: "118dp",
+	top: "121dp",
 	font: {
 		fontSize: "22dp",
 		fontFamily: "Nunito-Light"
@@ -273,7 +273,7 @@
 "TextField[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: "23dp"
+		fontSize: "24dp"
 	}
 },
 "#firstNameView[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -295,16 +295,16 @@
 ".splash-header-text[if=Alloy.Globals.iPhoneSixPlus]": {
 	bottom:"80dp",
 	font: {
-		fontSize: "42dp",
+		fontSize: "44dp",
 		fontFamily: "Nunito-Light"
 	}
 },
 ".cancel-txt[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: "#FAFAFA",
 	height: Titanium.UI.SIZE,
-	top: "95dp",
+	top: "104dp",
 	font: {
-		fontSize: "23dp",
+		fontSize: "24dp",
 		fontFamily: "Nunito-Light"
 	}
 },
@@ -312,15 +312,15 @@
 	top: "10dp",
 	color: "#FAFAFA",
 	font: {
-		fontSize: "17dp",
+		fontSize: "19dp",
 		fontFamily: "Nunito-Light"
 	}
 },
 ".primary-btn[if=Alloy.Globals.iPhoneSixPlus]": {
-	height: '55dp',
+	height: '60dp',
 	top: "20dp",
 	font: {
-		fontSize: "23dp"
+		fontSize: "24dp"
 	}
 },
 ".signup-underline[if=Alloy.Globals.iPhoneSixPlus]": {

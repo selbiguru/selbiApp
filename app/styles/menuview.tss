@@ -157,14 +157,14 @@
 	left: "35dp",
 	color: "#1BA7CD",
 	font: {
-		fontSize: "24dp",
+		fontSize: "26dp",
 		fontFamily: "Nunito-Bold"
 	}
 },
 "#notificationsCounter[if=Alloy.Globals.iPhoneFive]": {
-	borderRadius: '9dp',
-	height: '18dp',
-	width: '18dp',
+	borderRadius: '10dp',
+	height: '20dp',
+	width: '20dp',
 	left: '10dp',
 	backgroundColor: '#9B9B9B',
 	color: '#fff',
@@ -233,11 +233,11 @@
 	height:"95dp"
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneFive]":{
-	height:"60dp",
-	width: "60dp",
-	borderRadius: '30dp',
-	left: "92dp",
-	top: "7dp"
+	height:"68dp",
+	width: "68dp",
+	borderRadius: '34dp',
+	left: "87dp",
+	top: "4dp"
 },
 "#menuUserName[if=Alloy.Globals.iPhoneFive]":{
 	right: "75dp"
@@ -285,14 +285,14 @@
 	left: "35dp",
 	color: "#1BA7CD",
 	font: {
-		fontSize: "26dp",
+		fontSize: "30dp",
 		fontFamily: "Nunito-Bold"
 	}
 },
 "#notificationsCounter[if=Alloy.Globals.iPhoneSix]": {
-	borderRadius: '10dp',
-	height: '20dp',
-	width: '20dp',
+	borderRadius: '11dp',
+	height: '23dp',
+	width: '23dp',
 	left: '13dp',
 	backgroundColor: '#9B9B9B',
 	color: '#fff',
@@ -361,11 +361,11 @@
 	height:"110dp"
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneSix]":{
-	height:"65dp",
-	width: "65dp",
-	borderRadius: '32dp',
-	left: "112dp",
-	top: "10dp"
+	height:"76dp",
+	width: "76dp",
+	borderRadius: '38dp',
+	left: "107dp",
+	top: "6p"
 },
 "#menuUserName[if=Alloy.Globals.iPhoneSix]":{
 	right: "85dp"
@@ -413,14 +413,14 @@
 	left: "35dp",
 	color: "#1BA7CD",
 	font: {
-		fontSize: "26dp",
+		fontSize: "34dp",
 		fontFamily: "Nunito-Bold"
 	}
 },
 "#notificationsCounter[if=Alloy.Globals.iPhoneSixPlus]": {
-	borderRadius: '12dp',
-	height: '24dp',
-	width: '24dp',
+	borderRadius: '14dp',
+	height: '28dp',
+	width: '28dp',
 	left: '15dp',
 	backgroundColor: '#9B9B9B',
 	color: '#fff',
@@ -488,11 +488,11 @@
 	height:"125dp"
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneSixPlus]":{
-	height:"75dp",
-	width: "75dp",
-	borderRadius: '37dp',
-	left: "124dp",
-	top: "11dp"
+	height:"84dp",
+	width: "84dp",
+	borderRadius: '42dp',
+	left: "120dp",
+	top: "7dp"
 },
 "#menuUserName[if=Alloy.Globals.iPhoneSixPlus]":{
 	right: "90dp"

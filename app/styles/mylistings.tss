@@ -253,17 +253,18 @@
 },
 "#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
 	height: "60dp",
-	width: "92dp",
+	width: "95dp",
 	backgroundColor: '#fff'
 },
 ".top-bar-icon-view[if=Alloy.Globals.iPhoneSixPlus]":{
 	height: "60dp",
-	width: "92dp",
+	width: "95dp",
 	backgroundColor: '#fff'
 },
 "#myListingsButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "26dp"
+            fontSize: "28dp",
+            fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
 	top: '25dp',
@@ -271,7 +272,7 @@
 },
 "#myListingsButtonBackIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "26dp",
+            fontSize: "28dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
@@ -279,19 +280,19 @@
 	left: '15dp'
 },
 "#titleMyListingsView[if=Alloy.Globals.iPhoneSixPlus]": {
-	width: "230dp"
+	width: "224dp"
 },
 "#titleMyListingsLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "26dp",
+		fontSize: "28dp",
 		fontFamily: "Nunito-Bold"
 	},
 	top: '20dp'
 },
 "#friendRequestView[if=Alloy.Globals.iPhoneSixPlus]": {
-	width: '92dp'
+	width: '95dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {

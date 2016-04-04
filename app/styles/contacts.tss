@@ -230,9 +230,10 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "22dp",
+		fontSize: "28dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: "20dp"
 },
 "#sendEmailView[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: '60dp'
@@ -242,17 +243,19 @@
 },
 ".menu-icon-button[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "24dp",
+            fontSize: "28dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	//top: '25dp'
+	top: '25dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "22dp"
+            fontSize: "28dp",
+            fontFamily: "Nunito-Bold"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: "19dp"
 },
 
 
