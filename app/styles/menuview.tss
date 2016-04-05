@@ -168,7 +168,7 @@
 	left: '10dp',
 	backgroundColor: '#9B9B9B',
 	color: '#fff',
-	top: '9dp',
+	top: '8dp',
 	font: {
 		fontSize: '12dp',
 		fontFamily: 'Nunito-Light'
@@ -290,15 +290,15 @@
 	}
 },
 "#notificationsCounter[if=Alloy.Globals.iPhoneSix]": {
-	borderRadius: '11dp',
-	height: '23dp',
-	width: '23dp',
-	left: '13dp',
+	borderRadius: '12dp',
+	height: '24dp',
+	width: '24dp',
+	left: '12dp',
 	backgroundColor: '#9B9B9B',
 	color: '#fff',
-	top: '13dp',
+	top: '11dp',
 	font: {
-		fontSize: '14dp',
+		fontSize: '13dp',
 		fontFamily: 'Nunito-Light'
 	},
 	borderColor: '#1BA7CD',
@@ -421,12 +421,12 @@
 	borderRadius: '14dp',
 	height: '28dp',
 	width: '28dp',
-	left: '15dp',
+	left: '13dp',
 	backgroundColor: '#9B9B9B',
 	color: '#fff',
-	top: '13dp',
+	top: '11dp',
 	font: {
-		fontSize: '16dp',
+		fontSize: '15dp',
 		fontFamily: 'Nunito-Light'
 	},
 	borderColor: '#1BA7CD',
@@ -503,21 +503,6 @@
 		fontSize: "21dp",
 		fontFamily: 'Nunito-Light'
 	}
-},
-"#notificationsCounter[if=Alloy.Globals.iPhoneSix]": {
-	borderRadius: '10dp',
-	height: '20dp',
-	width: '20dp',
-	left: '13dp',
-	backgroundColor: '#9B9B9B',
-	color: '#fff',
-	top: '13dp',
-	font: {
-		fontSize: '14dp',
-		fontFamily: 'Nunito-Light'
-	},
-	borderColor: '#1BA7CD',
-	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 },
 
 

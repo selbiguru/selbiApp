@@ -22,7 +22,7 @@
 "#price": {
 	suppressReturn: false,
 	returnKeyType: Ti.UI.RETURNKEY_DONE,
-	keyboardType:  Titanium.UI.KEYBOARD_NUMBERS_PUNCTUATION
+	keyboardType:  Ti.UI.KEYBOARD_TYPE_NUMBERS_PUNCTUATION
 },
 
 
@@ -149,7 +149,7 @@
 	top: '10dp'
 },
 "#price[if=Alloy.Globals.iPhoneFour]": {
-	keyboardType: Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION,
+	keyboardType: Ti.UI.KEYBOARD_TYPE_NUMBERS_PUNCTUATION,
 	top: '10dp'
 },
 ".font-style[if=Alloy.Globals.iPhoneFour]": {
@@ -183,12 +183,13 @@
 	layout: 'composite',
 	top: '10dp',
 	borderColor: '#E5E5E5',
-	borderWidth: '2dp'
+	borderWidth: '2dp',
+	backgroundColor: '#FFF'
 },
 "#pickerCategory[if=Alloy.Globals.iPhoneFour]": {
 	type: Titanium.UI.PICKER_TYPE_PLAIN,
 	selectionIndicator: 'true',
-	height: '100dp',
+	height: Titanium.UI.SIZE,
 	width: Ti.UI.FILL,
 	useSpinner: 'true'
 },
@@ -322,7 +323,7 @@
 	top: '12dp'
 },
 "#price[if=Alloy.Globals.iPhoneFive]": {
-	keyboardType: Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION,
+	keyboardType: Ti.UI.KEYBOARD_TYPE_NUMBERS_PUNCTUATION,
 	top: '12dp'
 },
 ".font-style[if=Alloy.Globals.iPhoneFive]": {
@@ -356,12 +357,13 @@
 	layout: 'composite',
 	top: '12dp',
 	borderColor: '#E5E5E5',
-	borderWidth: '2dp'
+	borderWidth: '2dp',
+	backgroundColor: '#FFF'
 },
 "#pickerCategory[if=Alloy.Globals.iPhoneFive]": {
 	type: Titanium.UI.PICKER_TYPE_PLAIN,
 	selectionIndicator: 'true',
-	height: '100dp',
+	height: Titanium.UI.SIZE,
 	width: Ti.UI.FILL,
 	useSpinner: 'true'
 },
@@ -496,7 +498,7 @@
 	top: '15dp'
 },
 "#price[if=Alloy.Globals.iPhoneSix]": {
-	keyboardType: Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION,
+	keyboardType: Ti.UI.KEYBOARD_TYPE_NUMBERS_PUNCTUATION,
 	top: '15dp'
 },
 ".font-style[if=Alloy.Globals.iPhoneSix]": {
@@ -531,12 +533,13 @@
 	layout: 'composite',
 	top: '15dp',
 	borderColor: '#E5E5E5',
-	borderWidth: '2dp'
+	borderWidth: '2dp',
+	backgroundColor: '#FFF'
 },
 "#pickerCategory[if=Alloy.Globals.iPhoneSix]": {
 	type: Titanium.UI.PICKER_TYPE_PLAIN,
 	selectionIndicator: 'true',
-	height: '110dp',
+	height: Titanium.UI.SIZE,
 	width: Ti.UI.FILL,
 	useSpinner: 'true'
 },
@@ -668,7 +671,7 @@
 	top: '15dp'
 },
 "#price[if=Alloy.Globals.iPhoneSixPlus]": {
-	keyboardType: Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION,
+	keyboardType: Ti.UI.KEYBOARD_TYPE_NUMBERS_PUNCTUATION,
 	top: '15dp'
 },
 ".font-style[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -702,12 +705,13 @@
 	layout: 'composite',
 	top: '15dp',
 	borderColor: '#E5E5E5',
-	borderWidth: '2dp'
+	borderWidth: '2dp',
+	backgroundColor: '#FFF'
 },
 "#pickerCategory[if=Alloy.Globals.iPhoneSixPlus]": {
 	type: Titanium.UI.PICKER_TYPE_PLAIN,
 	selectionIndicator: 'true',
-	height: '120dp',
+	height: Titanium.UI.SIZE,
 	width: Ti.UI.FILL,
 	useSpinner: 'true'
 },
@@ -839,7 +843,7 @@
 	top: '15dp'
 },
 "#price[if=Alloy.Globals.android]": {
-	keyboardType: Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION,
+	keyboardType: Ti.UI.KEYBOARD_TYPE_NUMBERS_PUNCTUATION,
 	top: '15dp'
 },
 ".font-style[if=Alloy.Globals.android]": {
@@ -874,12 +878,13 @@
 	layout: 'composite',
 	top: '15dp',
 	borderColor: '#E5E5E5',
-	borderWidth: '2dp'
+	borderWidth: '2dp',
+	backgroundColor: '#FFF'
 },
 "#pickerCategory[if=Alloy.Globals.android]": {
 	type: Titanium.UI.PICKER_TYPE_PLAIN,
 	selectionIndicator: 'true',
-	height: '110dp',
+	height: Titanium.UI.SIZE,
 	width: Ti.UI.FILL,
 	useSpinner: 'true'
 },
