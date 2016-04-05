@@ -220,22 +220,23 @@
 "TextField[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: '#FAFAFA',
 	font: {
-		fontSize: '23dp'
+		fontSize: '24dp',
+		fontFamily: 'Nunito-Light'
 	}
 },
 ".splash-header-text[if=Alloy.Globals.iPhoneSixPlus]": {
 	bottom:"19%",
 	font: {
-		fontSize: '42dp',
+		fontSize: '44dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
 ".cancel-txt[if=Alloy.Globals.iPhoneSixPlus]": {
-	top: '166dp',
+	top: '168dp',
 	color: "#FAFAFA",
 	bottom: '10dp',
 	font: {
-		fontSize: '23dp',
+		fontSize: '24dp',
 		fontFamily: 'Nunito-Light'
 	},
 	height: Ti.UI.SIZE
@@ -244,7 +245,7 @@
 	top: '25dp',
 	color: "#FAFAFA",
 	font: {
-		fontSize: '22dp',
+		fontSize: '23dp',
 		fontFamily: 'Nunito-Light'
 	}
 },
@@ -255,10 +256,10 @@
 	width:Ti.UI.FILL
 },
 ".primary-btn[if=Alloy.Globals.iPhoneSixPlus]": {
-	height: '55dp',
+	height: '60dp',
 	top: '25dp',
 	font: {
-		fontSize: '23dp',
+		fontSize: '24dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
