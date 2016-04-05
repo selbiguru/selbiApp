@@ -138,8 +138,9 @@ function saveListing(editListingButton, saveListingButton) {
 							Ti.API.warn("Failed to update listing, please try again later!" + saveResult.id);
 						}
 						indicatorWindow.closeIndicator();
-						editListingButton.touchEnabled = true;
-						saveListingButton.touchEnabled = true;
+						indicatorWindow = null;
+						editListingButton = null;
+						saveListingButton = null;
 						$.backViewButton.touchEnabled = true;
 						helpers.alertUser('Listing','Listing created successfully');
 						backButton();
@@ -147,8 +148,9 @@ function saveListing(editListingButton, saveListingButton) {
 					});
 				} else {
 					indicatorWindow.closeIndicator();
-					editListingButton.touchEnabled = true;
-					saveListingButton.touchEnabled = true;
+					indicatorWindow = null;
+					editListingButton = null;
+					saveListingButton = null;
 					$.backViewButton.touchEnabled = true;
 					helpers.alertUser('Listing','Listing created successfully');
 					backButton();
@@ -157,6 +159,7 @@ function saveListing(editListingButton, saveListingButton) {
 			});
 		} else {
 			indicatorWindow.closeIndicator();
+			indicatorWindow = null;
 			editListingButton.touchEnabled = true;
 			saveListingButton.touchEnabled = true;
 			$.backViewButton.touchEnabled = true;

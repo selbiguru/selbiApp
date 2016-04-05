@@ -60,6 +60,7 @@ function createIndicatorWindow(args) {
     function openIndicator() {
         win.open();
         activityIndicator.show();
+        Ti.API.info('openIndicator');
     }
     
     win.openIndicator = openIndicator;
@@ -71,9 +72,13 @@ function createIndicatorWindow(args) {
     
     win.closeIndicator = closeIndicator;
     
-    win.addEventListener('close',function(){
-		Alloy.Globals.removeChildren(win);
-		win = null;
+    win.addEventListener('close',function(e){
+    	e.source.openIndicator = null;
+    	e.source.closeIndicator = null;
+		Alloy.Globals.removeChildren(e.source);
+		Alloy.Globals.deallocate(e.source);
+		e.source = null;
+		Ti.API.info('closeIndicator');
     });
     return win;
 }

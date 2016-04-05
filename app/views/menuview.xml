@@ -15,14 +15,14 @@
 			<TableViewRow>
 				<View class="menu-underline bottomPadding"></View>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="row1">
+			<TableViewRow class="tableRow" id="createlisting">
 				<View class="rowContainer">
 					<Label icon="fa-camera" class="rowLabel row-icon" id="menuCameraIcon"></Label>
 					<Label id="rowLabel" class="rowLabel">Post a Listing</Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="row2">
+			<TableViewRow class="tableRow" id="notifications">
 				<View class="rowContainer">
 					<Label icon="fa-bell" class="rowLabel row-icon" id="menuNotificationIcon"></Label>
 					<Label id="notificationsLabel" class="rowLabel">Notifications</Label>
@@ -30,28 +30,28 @@
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="row3">
+			<TableViewRow class="tableRow" id="friendslistings">
 				<View class="rowContainer">
 					<Label icon="fa-users" class="rowLabel row-icon" id="menuFriendsListingIcon"></Label>
 					<Label id="friendsListingLabel" class="rowLabel">Friends Listings</Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="row4">
+			<TableViewRow class="tableRow" id="selbiusa">
 				<View class="rowContainer">
 					<Label icon="fa-globe" class="rowLabel row-icon" id="menuSelbiListingIcon"></Label>
 					<Label id="selbiListingLabel" class="rowLabel">Selbi USA</Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="row5">
+			<TableViewRow class="tableRow" id="mylistings">
 				<View class="rowContainer">
 					<Label icon="fa-user" class="rowLabel row-icon" id="menuMyListingIcon"></Label>
 					<Label id="myListingLabel" class="rowLabel">My Listings</Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="row6">
+			<TableViewRow class="tableRow" id="contacts">
 				<View class="rowContainer">
 					<Label icon="fa-book" class="rowLabel row-icon" id="menuContactIcon"></Label>
 					<Label id="contactsLabel" class="rowLabel">Add Contacts</Label>
@@ -61,7 +61,7 @@
 		</TableView>
 		<View id="menuSeparator" class="menu-underline"></View>
 		<TableView class="menuTable2" id="menuTable2">
-			<TableViewRow class="tableRow" id="row7">
+			<TableViewRow class="tableRow" id="settings">
 				<View class="rowContainer">
 					<Label icon="fa-gears" class="rowLabel row-icon" id="menuSettingsIcon"></Label>
 					<Label id="settingsLabel" class="rowLabel">Settings</Label>

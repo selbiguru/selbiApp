@@ -40,20 +40,20 @@ function initialize() {
 // setup the list of views
 var viewList = {
 	"row0" : 'edituserprofile',
-	"row1" : 'createlisting',
-	"row2" : 'notifications',
-	"row3" : 'friendslistings',
-	"row4" : 'selbiusa',
-	"row5" : 'mylistings',
-	"row6" : 'contacts',
-	"row7" : 'settings'
+	"createlisting" : 'createlisting',
+	"notifications" : 'notifications',
+	"friendslistings" : 'friendslistings',
+	"selbiusa" : 'selbiusa',
+	"mylistings" : 'mylistings',
+	"contacts" : 'contacts',
+	"settings" : 'settings'
 };
 
-var listings = ['row3', 'row4', 'row5'];
+var listings = ['friendslistings', 'selbiusa', 'mylistings'];
 
 var secondaryPages = ['aboutUs', 'addBankAccount', 'addCreditCard', 'addressgooglemap', 'faq', 'invitefriends', 'payment', 'phoneVerify', 'verifyaddress', 'viewlisting', 'contactUs', 'addfriends', 'edituserprofile'];
 
-var controllerList = {'row3' : mainView};
+var controllerList = {'friendslistings' : mainView};
 
 initialize();
 
