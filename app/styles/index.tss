@@ -72,7 +72,7 @@
 },
 ".splash-logo-text[if=Alloy.Globals.iPhoneFive]":{
 	font: {
-		fontSize: '44dp',
+		fontSize: '48dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
@@ -90,7 +90,7 @@
 },
 ".splash-signup-btn[if=Alloy.Globals.iPhoneFive]": {
 	height: '45dp',
-	top: '250dp',
+	top: '243dp',
 	font: {
 		fontSize:'18dp',
 		fontFamily: 'Nunito-Light'
@@ -114,7 +114,7 @@
 },
 ".splash-logo-text[if=Alloy.Globals.iPhoneSix]":{
 	font: {
-		fontSize: '50dp',
+		fontSize: '54dp',
 		fontFamily: 'Nunito-Light'
 	}	
 },
@@ -132,7 +132,7 @@
 },
 ".splash-signup-btn[if=Alloy.Globals.iPhoneSix]": {
 	height: '55dp',
-	top: '302dp',
+	top: '299dp',
 	font: {
 		fontSize:'22dp',
 		fontFamily: 'Nunito-Light'

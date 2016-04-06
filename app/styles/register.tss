@@ -21,7 +21,7 @@
 "#email": {
 	suppressReturn: false,
 	returnKeyType: Ti.UI.RETURNKEY_NEXT,
-	keyboardType:  Titanium.UI.KEYBOARD_EMAIL
+	keyboardType:  Titanium.UI.KEYBOARD_TYPE_EMAIL
 },
 "#password": {
 	suppressReturn: false,
@@ -30,7 +30,7 @@
 "#phoneNumber": {
 	suppressReturn: false,
 	returnKeyType: Ti.UI.RETURNKEY_GO,
-	keyboardType:  Titanium.UI.KEYBOARD_NUMBER_PAD
+	keyboardType:  Titanium.UI.KEYBOARD_TYPE_NUMBER_PAD
 },
 
 
