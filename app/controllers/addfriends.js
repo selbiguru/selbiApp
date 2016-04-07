@@ -518,6 +518,9 @@ function loadFriends() {
 	searchUsers = [];
 	pendingFriends = [];
 	friendsManager.getUserInvitationsByUserId(function(err, results){
+		if(friendsOnSelbi==null){
+			return;
+		}
 		if(err) {
 			addFriendsLoadError();
 		}
