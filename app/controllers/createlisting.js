@@ -7,6 +7,7 @@ var indicator = require('uielements/indicatorwindow');
 var helpers = require('utilities/helpers');
 var pickerRowFont;
 var imageCollection = [];
+var previousState = 0;
 var count = 1;
 var categoryArray = ['Electronics', 'Menswear', 'Womenswear', 'Sports & Outdoors', 'Music', 'Furniture', 'Jewelry', 'Games & Toys', 'Automotive', 'Baby & Kids', 'Appliances', 'Other'];
 
@@ -233,6 +234,20 @@ function keyboardNext(e) {
 
 
 /**
+ * @method dollarSign 
+ * Auto fills in dollar sign when user enters in a price
+ */
+function dollarSign(e) {
+	if($.price.value.length > 0 && $.price.value.indexOf('$') === -1) {
+		$.price.value = '$'+$.price.value;
+		previousState = $.price.value.length;
+	} else if($.price.value.indexOf('$') === 0 && $.price.value.length === 1 && previousState > $.price.value.length) {
+		$.price.value = '';
+		previousState = $.price.value.length;
+	}
+}
+
+/**
  * @method clearProxy
  * Clears up memory leaks from dynamic elements created when page closes
  */
@@ -240,9 +255,13 @@ function clearProxy(e) {
 	$.off();
 	$.destroy();
 	imageCollection = [];
+	previousState = null;
+	$.privateSwitch.removeEventListener('change', blurTextField);
+	$.pickerCategory.removeEventListener('change', blurTextField);
 	$.createListingView.removeEventListener('click', blurTextField);
 	$.title.removeEventListener('return', keyboardNext);
 	$.price.removeEventListener('return', keyboardNext);
+	$.price.removeEventListener('change', dollarSign);
 	//this.removeEventListener('click', clearProxy);
 	
 	console.log('solve anything yet?^ ', e);
@@ -426,10 +445,12 @@ $.description.addEventListener('change',function(e){
     }
 });
 
-
+$.privateSwitch.addEventListener('change', blurTextField);
+$.pickerCategory.addEventListener('change', blurTextField);
 $.createListingView.addEventListener('click', blurTextField);
 $.title.addEventListener('return', keyboardNext);
 $.price.addEventListener('return', keyboardNext);
+$.price.addEventListener('change', dollarSign);
 
 /*$.createListingView.addEventListener('click', function(e) {	
 	$.createListingView.parent.parent.children[0].addEventListener('click', clearProxy);
