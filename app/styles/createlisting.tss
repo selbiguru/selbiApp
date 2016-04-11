@@ -159,7 +159,8 @@
 	}
 },
 "#switchView[if=Alloy.Globals.iPhoneFour]": {
-	layout: 'horizontal'
+	layout: 'horizontal',
+	height: Ti.UI.SIZE
 },
 "#switchLabel[if=Alloy.Globals.iPhoneFour]": {
 	left: '10dp',
@@ -181,7 +182,7 @@
 "#pickerView[if=Alloy.Globals.iPhoneFour]": {
 	height: '85dp',
 	layout: 'composite',
-	top: '10dp',
+	top: '13dp',
 	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
 	backgroundColor: '#FFF'
@@ -333,7 +334,8 @@
 	}
 },
 "#switchView[if=Alloy.Globals.iPhoneFive]": {
-	layout: 'horizontal'
+	layout: 'horizontal',
+	height: Ti.UI.SIZE
 },
 "#switchLabel[if=Alloy.Globals.iPhoneFive]": {
 	left: '10dp'
@@ -355,7 +357,7 @@
 "#pickerView[if=Alloy.Globals.iPhoneFive]": {
 	height: '85dp',
 	layout: 'composite',
-	top: '12dp',
+	top: '15dp',
 	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
 	backgroundColor: '#FFF'
@@ -531,7 +533,7 @@
 "#pickerView[if=Alloy.Globals.iPhoneSix]": {
 	height: '95dp',
 	layout: 'composite',
-	top: '15dp',
+	top: '20dp',
 	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
 	backgroundColor: '#FFF'
@@ -681,7 +683,8 @@
 	}
 },
 "#switchView[if=Alloy.Globals.iPhoneSixPlus]": {
-	layout: 'horizontal'
+	layout: 'horizontal',
+	height: Ti.UI.SIZE
 },
 "#switchLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	left: '10dp'
@@ -703,7 +706,7 @@
 "#pickerView[if=Alloy.Globals.iPhoneSixPlus]": {
 	height: '105dp',
 	layout: 'composite',
-	top: '15dp',
+	top: '21dp',
 	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
 	backgroundColor: '#FFF'
@@ -876,7 +879,7 @@
 "#pickerView[if=Alloy.Globals.android]": {
 	height: '95dp',
 	layout: 'composite',
-	top: '15dp',
+	top: '20dp',
 	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
 	backgroundColor: '#FFF'

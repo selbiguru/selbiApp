@@ -47,7 +47,7 @@
 },
 ".splash-signup-btn[if=Alloy.Globals.iPhoneFour]": {
 	height: '40dp',
-	top: '20dp',
+	top: '200dp',
 	font: {
 		fontSize:'18dp',
 		fontFamily: 'Nunito-Light'

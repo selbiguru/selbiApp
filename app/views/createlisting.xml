@@ -22,23 +22,23 @@
 				</View>
 			</View>			
 			<View id="step2">
-				<View class="listing-detail-container">
+				<ScrollView class="listing-detail-container">
 					<TextField hintText="Title" id="title" class="font-style" maxLength="120"></TextField>
 					<View height='Ti.UI.SIZE' width='Ti.UI.SIZE'>
 						<TextArea id="description" class="font-style" maxLength="600"></TextArea>
 						<Label id="hintTextLabel" class="font-style">Describe your item</Label>
 					</View>
 					<TextField hintText="Item Price (include shipping cost)" id="price" class="font-style"></TextField>
-					<View id="pickerView">
-						<Picker id="pickerCategory">
-			                <PickerRow class="font-style" id="blank" title="Scroll to Change Categories"/>	            
-				        </Picker>
-					</View>			
 					<View id="switchView" class="top-size">
 						<Switch id="privateSwitch" value="false"/>
 						<Label id="switchLabel" class="font-style">Private (Only my friends)</Label>
 					</View>
-				</View>
+					<View id="pickerView">
+						<Picker id="pickerCategory">
+			                <PickerRow class="font-style" id="blank" title="Scroll to Select a Category"/>	            
+				        </Picker>
+					</View>	
+				</ScrollView>
 				<View id="listingButtonView">
 					<Button id="backListing" onClick="gotoStep1" class="create-listing-capture-btn half-btn">Back</Button>
 					<Button id="saveListing" onClick="previewListing" class="create-listing-capture-btn half-btn">Preview Listing</Button>
