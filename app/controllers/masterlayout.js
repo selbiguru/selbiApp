@@ -139,7 +139,10 @@ Alloy.Globals.openPage = function openPage(viewName, model) {
 					Ti.API.info('Releasing controller ' + property );
 					viewController.cleanup();
 				}
-				Alloy.Globals.removeChildren(viewController.getView());
+				var view = viewController.getView();
+				Alloy.Globals.removeChildren(view);
+				$.drawermenu.drawermainview.remove(view);
+				view = null;
 			} 
 			
 			viewController = null;

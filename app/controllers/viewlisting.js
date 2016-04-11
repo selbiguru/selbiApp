@@ -139,8 +139,6 @@ function saveListing(editListingButton, saveListingButton) {
 						}
 						indicatorWindow.closeIndicator();
 						indicatorWindow = null;
-						editListingButton = null;
-						saveListingButton = null;
 						$.backViewButton.touchEnabled = true;
 						helpers.alertUser('Listing','Listing created successfully');
 						backButton();
@@ -149,11 +147,9 @@ function saveListing(editListingButton, saveListingButton) {
 				} else {
 					indicatorWindow.closeIndicator();
 					indicatorWindow = null;
-					editListingButton = null;
-					saveListingButton = null;
 					$.backViewButton.touchEnabled = true;
 					helpers.alertUser('Listing','Listing created successfully');
-					backButton();
+					backButton();	
 					Alloy.Globals.openPage('createlisting');
 				}
 			});
@@ -225,11 +221,13 @@ function deleteItem(actionButton){
 	listingManager.deleteListing(deleteListingObj, function(err, deleteResult) {
 		if (err) {
 			indicatorWindow.closeIndicator();
+			indicatorWindow = null;
 			actionButton.touchEnabled = true;
 			$.backViewButton.touchEnabled = true;
 			helpers.alertUser('Listing','Failed to delete your listing. Please try again!');
 		} else {
 			indicatorWindow.closeIndicator();
+			indicatorWindow = null;
 			actionButton.touchEnabled = true;
 			$.backViewButton.touchEnabled = true;
 			helpers.alertUser('Listing','Listing deleted successfully');
@@ -604,9 +602,11 @@ function createActionButton(height, width, fontSize, background, text, ccEligibl
 				response.show();
 				$.addListener(response,'click', function(e){
 					if (e.index === 0){
+						response=null;
 						return;
 					} else {
-						apiSupport(e);
+						response=null;
+						apiSupport(actionButton);
 					}
 				});
 			});	

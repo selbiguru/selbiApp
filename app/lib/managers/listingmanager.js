@@ -134,8 +134,9 @@ exports.uploadImagesForListing = function(listingId, imageCollection, cb){
 	
 	function uploadCompleteCallback(err, result){
 		initialCount++;
-		if(!err && result.public_id)
-		uploadedUrls.push(result.public_id);
+		if(!err && result.public_id){
+			uploadedUrls.push(result.public_id);
+		}
 		if(initialCount === imageCollection.length) {
 			return cb(null, uploadedUrls);
 		}
@@ -143,7 +144,8 @@ exports.uploadImagesForListing = function(listingId, imageCollection, cb){
 	for (var i=0; i < imageCollection.length; i++) {
 		var randomNumer = Math.floor(Math.random()*11);
 		var f = Titanium.Filesystem.getFile(Titanium.Filesystem.tempDirectory, randomNumer +'-upload.jpg');
-		f.write(imageCollection[i]); 		
+		f.write(imageCollection[i]);
+		f=null; 		
 		var uploadImageRequest = {
 			image: Titanium.Filesystem.tempDirectory + randomNumer + '-upload.jpg',
 			referenceId: listingId,

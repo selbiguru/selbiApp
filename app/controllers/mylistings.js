@@ -66,6 +66,8 @@ switch(Alloy.Globals.userDevice) {
 
 $.activityIndicator.show();
 if(tabView === 1 || Ti.App.Properties.getString('userId') === argsID) {
+	$.backViewButton.children[0].removeEventListener('click',backButton);
+	$.backViewButton.removeAllChildren();
 	$.myListingsTopBar.remove($.backViewButton);
 	$.backViewButton = null;
 	$.friendRequestView.hide();
@@ -75,6 +77,7 @@ if(tabView === 1 || Ti.App.Properties.getString('userId') === argsID) {
 	//args = 'Jordan Burrows';
 	//args = 'Appp Ppppppppppp';
 	//args = 'Barry Silverstone';
+	$.menuButton.removeAllChildren();
 	$.myListingsTopBar.remove($.menuButton);
 	$.menuButton = null;
 	friendRequest();
