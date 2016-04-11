@@ -78,6 +78,10 @@ function createIndicatorWindow(args) {
 		Alloy.Globals.removeChildren(e.source);
 		Alloy.Globals.deallocate(e.source);
 		e.source = null;
+		view = null;
+		activityIndicator = null;
+		label = null;
+		win = null;
 		Ti.API.info('closeIndicator');
     });
     return win;

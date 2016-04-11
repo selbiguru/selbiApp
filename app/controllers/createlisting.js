@@ -352,7 +352,7 @@ function createImageView(media) {
 	thumbnailView.add(imageView);
 	$.imgView.add(thumbnailView);
 	
-	deleteIcon.addEventListener('click', function(e) {
+	$.addListener(deleteIcon,'click', function(e) {
 		var idxValue = findIndexByKeyValue(imageCollection, 'idx', e.source.data);
 		$.imgView.remove(thumbnailView);
 		imageCollection.splice(idxValue, 1);
@@ -402,23 +402,23 @@ for(var i = 0; i < categoryArray.length; i++) {
 
 // The below three event listeners are a hack to add "Hint Text" to a TextArea 
 // Appcelerator does not support hint text TextArea
-$.hintTextLabel.addEventListener('click', function(e){
+$.addListener($.hintTextLabel,'click', function(e){
 	$.description.focus();
 	if($.description.value.length > 0) {
 		$.hintTextLabel.hide();
 	}
 });
-$.description.addEventListener('focus',function(e){
+$.addListener($.description,'focus',function(e){
     if(e.source.value.length > 0){
         $.hintTextLabel.hide();
     }
 });
-$.description.addEventListener('blur',function(e){
+$.addListener($.description,'blur',function(e){
     if(e.source.value.length <= 0){
         $.hintTextLabel.show();
     }
 });
-$.description.addEventListener('change',function(e){
+$.addListener($.description,'change',function(e){
     if(e.source.value.length > 0){
         $.hintTextLabel.hide();
     } else {
@@ -427,9 +427,9 @@ $.description.addEventListener('change',function(e){
 });
 
 
-$.createListingView.addEventListener('click', blurTextField);
-$.title.addEventListener('return', keyboardNext);
-$.price.addEventListener('return', keyboardNext);
+$.addListener($.createListingView,'click', blurTextField);
+$.addListener($.title,'return', keyboardNext);
+$.addListener($.price,'return', keyboardNext);
 
 /*$.createListingView.addEventListener('click', function(e) {	
 	$.createListingView.parent.parent.children[0].addEventListener('click', clearProxy);
@@ -440,7 +440,7 @@ exports.cleanup = function () {
 	Ti.API.info('Cleaning createlisting');
     clearProxy();
     $.removeListener();
-    $.createListingView.removeAllChildren();
+    Alloy.Globals.removeChildren($.createListingView);
     $.createListingView = null;
     Alloy.Globals.deallocate($);
     $ = null;

@@ -358,7 +358,7 @@
     xhr.open('POST', api_url);
     boundary = "boundary-" + (Math.random());
     xhr.setRequestHeader("Content-Type", "multipart/form-data; boundary=" + boundary);
-    post_data = Ti.createBuffer();
+    var post_data = Ti.createBuffer();
     for (key in params) {
       value = params[key];
       if (_.isArray(value)) {
@@ -373,12 +373,15 @@
     if (file != null) {
       filename = file.name;
       post_data.append(EncodeFilePart(boundary, 'application/octet-stream', 'file', filename));
-      raw = Ti.Stream.createStream({
+      var raw = Ti.Stream.createStream({
         source: file.read(),
         mode: Ti.Stream.MODE_READ
       });
-      content = Ti.Stream.readAll(raw);
+      var content = Ti.Stream.readAll(raw);
+      raw.close();
+      raw = null;
       post_data.append(content);
+      content = null;
       post_data.append(Ti.createBuffer({
         value: "\r\n"
       }));
@@ -386,7 +389,9 @@
     post_data.append(Ti.createBuffer({
       value: "--" + boundary + "--"
     }));
-    return xhr.send(post_data.toBlob());
+    var blob = post_data.toBlob();
+    post_data.release();
+    return xhr.send(blob);
   };
 
   EncodeFieldPart = function(boundary, name, value) {

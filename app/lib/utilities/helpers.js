@@ -229,6 +229,7 @@ exports.alertUser = function(alertTitle, alertMessage) {
         	title : alertTitle
     });
 	a.setMessage(userMessage);
+	a.addEventListener('click',function(){a.hide();a=null;});
 	a.show();
 	return;
 };
