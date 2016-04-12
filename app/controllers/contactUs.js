@@ -31,7 +31,6 @@ function sendEmailToSelbi() {
 		emailManager.sendContactSelbiEmail(emailObj, function(err, emailResult){
 			if(err) {
 				helpers.alertUser('Email Failed','Failed to send email.  Please try again later!');
-				return;
 			} else {
 				helpers.alertUser('Email Sent!','Selbi has received your message!  We will get back to you asap!');
 		    	$.emailBody.value = '';
