@@ -24,7 +24,7 @@ function sendEmailToSelbi() {
 		indicatorWindow.openIndicator();
 		var emailObj = {
 			subject: helpers.trim($.emailTitle.value, false),
-			body: helpers.trim($.emailBody.value, false) +" User Id: "+ Alloy.Globals.currentUser.attributes.id ,
+			body: helpers.trim($.emailBody.value, false) +"<br><br><br>User Id: &nbsp;&nbsp;&nbsp;"+ Alloy.Globals.currentUser.attributes.id ,
 			email: Alloy.Globals.currentUser.attributes.email,
 			name: Alloy.Globals.currentUser.attributes.firstName +" "+Alloy.Globals.currentUser.attributes.lastName
 		};
