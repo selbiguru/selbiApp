@@ -89,6 +89,19 @@ function populateViewListing(listingData) {
 		profileImageUrl = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
 	}
 	$.sellerImage.image = profileImageUrl;
+	
+	var spinnerImages = [];
+	for(var i=0;i<19;i++){
+		spinnerImages.push('spinner/frame_'+i+'.gif');
+	}
+	var loadingView = Ti.UI.createWebView({
+	     html : '<html><head></head><body><center><img src="loading_spinner.gif"/></center></body></html>',
+		 width : Ti.UI.FILL,
+		 height : Ti.UI.FILL
+	});
+	views.push(loadingView);
+	
+	var loadedImg = 0;
 	for(var img in images) {
 		var carouselImage = ImageUtils.Utils.RemoteImage({
 			height: Ti.UI.FILL,
@@ -100,6 +113,15 @@ function populateViewListing(listingData) {
 		if(previewListing) {
 			previewImageCollection.push(images[img].resizedImage);
 		};
+		
+		$.addListener(carouselImage,'load', function(){
+			  loadedImg++;
+			  if(loadedImg==images.length){
+			  	loadingView = null;
+			    views.splice(0, 1);
+			  	$.imageGallery.views = views;
+			  }
+		});
 		
 		views.push(carouselImage);
 		carouselImage = null;
