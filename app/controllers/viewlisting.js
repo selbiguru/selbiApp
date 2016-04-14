@@ -96,8 +96,9 @@ function populateViewListing(listingData) {
 	}
 	var loadingView = Ti.UI.createWebView({
 	     html : '<html><head></head><body><center><img src="loading_spinner.gif"/></center></body></html>',
-		 width : Ti.UI.FILL,
-		 height : Ti.UI.FILL
+		 width : Ti.UI.SIZE,
+		 height : Ti.UI.SIZE,
+		 backgroundColor: '#FAFAFA'
 	});
 	views.push(loadingView);
 	
