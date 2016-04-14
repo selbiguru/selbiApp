@@ -47,7 +47,7 @@ function registerUser(){
     	buttonOn();
 		return;
 	}
-	var userName = (helpers.trim(validateFirstName[0].concat(validateLastName[0]), true).replace(/\W+/g, '').toLowerCase()+(Math.floor(Math.random() * 9000000)+1000000)).slice(0,20);
+	var userName = (helpers.trim(validateFirstName[0].concat(validateLastName[0]), true).replace(/\W+/g, '').toLowerCase()).slice(0,20);
 	/*var codeNumbers =[];
 	var randomNumber = Math.floor(Math.random() * 8999 + 1000);
 	var validateObject = {
