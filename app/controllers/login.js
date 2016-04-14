@@ -2,13 +2,14 @@ var AuthManager = require('managers/authmanager'),
 	helpers = require('utilities/helpers'),
 	indicator = require('uielements/indicatorwindow'),
 	args = arguments[0] || {};
-var indicatorWindow = indicator.createIndicatorWindow({
-	message : "Signing in"
-});
+
 
 
 
 function loginUser(){
+	var indicatorWindow = indicator.createIndicatorWindow({
+		message : "Signing in"
+	});
 	// Todo: validation
 	$.loginUser.touchEnabled = false;
 	$.forgotPassword.touchEnabled = false;
