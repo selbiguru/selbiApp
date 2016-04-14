@@ -61,11 +61,10 @@ function savingStuff(e){
 		 		return;
 		 	} else {
 		 		helpers.alertUser('Saved!','Your credit card has been saved!');
-		 		Alloy.Globals.closePage('payment');
-		 		Alloy.Globals.openPage('payment');
-		 		backButton();
-		 		indicatorWindow.closeIndicator();
 		 		buttonsOn();
+		 		indicatorWindow.closeIndicator();
+		 		backButton();
+		 		Alloy.Globals.openPage('payment');
 		 		return;	
 		 	}
 		 });	
@@ -132,7 +131,7 @@ $.activityIndicator.show();
     Ti.API.info('beforeload');
 });*/
 
-$.webview.addEventListener('load', loadCreditCard);
+$.addListener($.webview,'load', loadCreditCard);
 
 exports.cleanup = function () {
 	Ti.API.info('Cleaning CreditCardView');

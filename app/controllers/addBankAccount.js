@@ -104,11 +104,10 @@ function sendBankBraintree(){
 			return;
 		} else {
 			helpers.alertUser('Saved','Your bank information has been saved!');
-			Alloy.Globals.closePage('payment');
-			Alloy.Globals.openPage('payment');
-			backButton();
-			indicatorWindow.closeIndicator();
 			buttonsOn();
+			indicatorWindow.closeIndicator();
+			backButton();
+			Alloy.Globals.openPage('payment');
 		}
 	}); 	
 }
@@ -185,6 +184,17 @@ $.imageExCheck.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
  
 
-$.addBankAccountView.addEventListener('click', blurTextField);
-$.accountNumberView.addEventListener('click', focusTextField);
-$.routingNumberView.addEventListener('click', focusTextField);
+$.addListener($.addBankAccountView,'click', blurTextField);
+$.addListener($.accountNumberView,'click', focusTextField);
+$.addListener($.routingNumberView,'click', focusTextField);
+
+exports.cleanup = function () {
+	Ti.API.info('Cleaning addBankAccountView');
+	$.off();
+	$.destroy();
+	Alloy.Globals.removeChildren($.addBankAccountView);
+	$.addBankAccountView = null;
+	Alloy.Globals.deallocate($);
+    $ = null;
+};
+

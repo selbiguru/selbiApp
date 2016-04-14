@@ -436,8 +436,8 @@ paymentManager.getPaymentMethods(function(err, results){
 });
 
 //Close addCreditCard page on payment.js load otherwise webview braintree doesn't properly read the save cc view
-Alloy.Globals.closePage('addCreditCard');
-Alloy.Globals.closePage('addBankAccount');
+//Alloy.Globals.closePage('addCreditCard');
+//Alloy.Globals.closePage('addBankAccount');
 
 
 exports.cleanup = function () {
