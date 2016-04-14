@@ -7,12 +7,13 @@ var AuthManager = require('managers/authmanager'),
 	indicator = require('uielements/indicatorwindow'),
 	args = arguments[0] || {};
 var prevNumber = '';
-var indicatorWindow = indicator.createIndicatorWindow({
-	message : "Registering"
-});
+var indicatorWindow;
 
 
 function registerUser(){
+	indicatorWindow = indicator.createIndicatorWindow({
+		message : "Registering"
+	});
 	$.registerButton.touchEnabled = false;
 	$.closeRegister.touchEnabled = false;
 	// Todo: validation when we have a template
