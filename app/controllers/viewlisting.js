@@ -151,31 +151,7 @@ function saveListing(editListingButton, saveListingButton) {
 	indicatorWindow.openIndicator();
 	listingManager.createListing(args, function(err, saveResult) {
 		if (saveResult) {
-			listingManager.uploadImagesForListing(saveResult.id, previewImageCollection, function(err, imgUrls) {
-				if (imgUrls && imgUrls.length > 0) {
-					delete saveResult.rev;
-					saveResult.imageUrls = imgUrls;
-					listingManager.updateListing(saveResult, function(err, updateResult) {
-						if(err) {
-							//helpers.alertUser('Listing','Failed to update your listing, please try again later!');
-							Ti.API.warn("Failed to update listing, please try again later!" + saveResult.id);
-						}
-						indicatorWindow.closeIndicator();
-						indicatorWindow = null;
-						$.backViewButton.touchEnabled = true;
-						helpers.alertUser('Listing','Listing created successfully');
-						backButton();
-						Alloy.Globals.openPage('createlisting');	
-					});
-				} else {
-					indicatorWindow.closeIndicator();
-					indicatorWindow = null;
-					$.backViewButton.touchEnabled = true;
-					helpers.alertUser('Listing','Listing created successfully');
-					backButton();	
-					Alloy.Globals.openPage('createlisting');
-				}
-			});
+			indicatorWindow.uploadImage(saveResult, previewImageCollection);	
 		} else {
 			indicatorWindow.closeIndicator();
 			indicatorWindow = null;
@@ -671,6 +647,7 @@ exports.cleanup = function () {
 	$.viewListingView = null;
 	Alloy.Globals.deallocate($);
     $ = null;
+    Ti.API.info('Cleaning viewlisting finished');
 };
 
 

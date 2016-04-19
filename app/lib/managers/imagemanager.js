@@ -53,7 +53,7 @@ exports.uploadImage = function(uploadRequest, cb) {
 		} else {
 			Ti.API.info("Uploaded file with public_id: " + result.public_id);
 		}
-		cb(result.error, result);
+		return cb(result.error, result);
 	}
 	if (uploadRequest.image) {
 		var imageFile = Ti.Filesystem.getFile(uploadRequest.image);

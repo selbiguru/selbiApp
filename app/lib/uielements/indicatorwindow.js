@@ -84,6 +84,33 @@ function createIndicatorWindow(args) {
 		win = null;
 		Ti.API.info('closeIndicator');
     });
+    
+    win.uploadImage = function(saveResult, previewImageCollection){
+    	
+    	var listingManager = require('managers/listingmanager');
+    	var helpers = require('utilities/helpers');
+    	
+    	listingManager.uploadImagesForListing(saveResult.id, previewImageCollection, function(err, imgUrls) {
+				 if (imgUrls && imgUrls.length > 0) {
+					delete saveResult.rev;
+					saveResult.imageUrls = imgUrls;
+					listingManager.updateListing(saveResult, function(err, updateResult) {
+						win.closeIndicator();
+						win = null;
+						helpers.alertUser('Listing','Listing created successfully');
+						Alloy.Globals.closePage('viewlisting');
+						Alloy.Globals.openPage('createlisting');	
+					});
+				} else {
+					win.closeIndicator();
+					win = null;	
+					helpers.alertUser('Listing','Listing created successfully');
+					Alloy.Globals.closePage('viewlisting');
+					Alloy.Globals.openPage('createlisting');
+				}
+			});
+		
+    };
     return win;
 }
 
