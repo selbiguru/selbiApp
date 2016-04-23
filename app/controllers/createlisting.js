@@ -256,6 +256,9 @@ function clearProxy(e) {
 	$.destroy();
 	imageCollection = [];
 	previousState = null;
+	$.titleButton.removeEventListener('click', blurTextField);
+	$.descriptionButton.removeEventListener('click', blurTextField);
+	$.priceButton.removeEventListener('click', blurTextField);
 	$.privateSwitch.removeEventListener('change', blurTextField);
 	$.pickerCategory.removeEventListener('change', blurTextField);
 	$.createListingView.removeEventListener('click', blurTextField);
@@ -445,6 +448,9 @@ $.addListener($.description,'change',function(e){
     }
 });
 
+$.addListener($.titleButton,'click', blurTextField);
+$.addListener($.descriptionButton,'click', blurTextField);
+$.addListener($.priceButton,'click', blurTextField);
 $.addListener($.privateSwitch,'change', blurTextField);
 $.addListener($.pickerCategory,'change', blurTextField);
 $.addListener($.createListingView,'click', blurTextField);
@@ -466,3 +472,12 @@ exports.cleanup = function () {
     Alloy.Globals.deallocate($);
     $ = null;
 };
+
+
+/*var send = Ti.UI.createButton({
+    style : Ti.UI.iPhone.SystemButtonStyle.DONE,
+    title : 'done'
+});
+
+$.title.keyboardToolbar = [send];
+$.title.keyboardToolbarHeight = 40;*/

@@ -163,7 +163,7 @@
 	height: Ti.UI.SIZE
 },
 "#switchLabel[if=Alloy.Globals.iPhoneFour]": {
-	left: '10dp',
+	left: '10dp'
 },
 "#listingButtonView[if=Alloy.Globals.iPhoneFour]": {
 	width: Ti.UI.FILL,
@@ -182,7 +182,7 @@
 "#pickerView[if=Alloy.Globals.iPhoneFour]": {
 	height: '85dp',
 	layout: 'composite',
-	top: '13dp',
+	top: '10dp',
 	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
 	backgroundColor: '#FFF'
@@ -357,7 +357,7 @@
 "#pickerView[if=Alloy.Globals.iPhoneFive]": {
 	height: '85dp',
 	layout: 'composite',
-	top: '15dp',
+	top: '12dp',
 	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
 	backgroundColor: '#FFF'
@@ -533,7 +533,7 @@
 "#pickerView[if=Alloy.Globals.iPhoneSix]": {
 	height: '95dp',
 	layout: 'composite',
-	top: '20dp',
+	top: '15dp',
 	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
 	backgroundColor: '#FFF'
@@ -706,7 +706,7 @@
 "#pickerView[if=Alloy.Globals.iPhoneSixPlus]": {
 	height: '105dp',
 	layout: 'composite',
-	top: '21dp',
+	top: '15dp',
 	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
 	backgroundColor: '#FFF'
@@ -879,7 +879,7 @@
 "#pickerView[if=Alloy.Globals.android]": {
 	height: '95dp',
 	layout: 'composite',
-	top: '20dp',
+	top: '15dp',
 	borderColor: '#E5E5E5',
 	borderWidth: '2dp',
 	backgroundColor: '#FFF'

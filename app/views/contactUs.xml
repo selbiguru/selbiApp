@@ -12,9 +12,25 @@
 			</View>
 		</View>
 		<View id="contactUsInfoView">
-			<TextField id="emailTitle" class="font-style"></TextField>
+			<TextField id="emailTitle" class="font-style">
+				<KeyboardToolbar>
+	                <Toolbar id="emailTitleToolbar">
+	                    <Items>
+	                        <Button id="emailTitleButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
+	                    </Items>
+	                </Toolbar>
+	            </KeyboardToolbar>
+			</TextField>
 			<View id="messageView">
-				<TextArea id="emailBody" class="font-style"></TextArea>
+				<TextArea id="emailBody" class="font-style">
+					<KeyboardToolbar>
+	                <Toolbar id="emailBodyToolbar">
+	                    <Items>
+	                        <Button id="emailBodyButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
+	                    </Items>
+	                </Toolbar>
+	            </KeyboardToolbar>
+				</TextArea>
 				<Label id="hintTextLabel" class="font-style">Let us know how we can help you today</Label>
 			</View>
 			<!--<Label id="emailSelbiEmail">Or email us at Selbiguru@gmail.com</Label> -->

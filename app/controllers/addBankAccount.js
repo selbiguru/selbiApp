@@ -118,6 +118,8 @@ function sendBankBraintree(){
  *  Closes the current view to reveal the previous still opened view.
  */
 function backButton() {
+	$.accountNumberButton.removeEventListener('click', blurTextField);
+	$.routingNumberButton.removeEventListener('click', blurTextField);
 	$.addBankAccountView.removeEventListener('click', blurTextField);
 	$.accountNumberView.removeEventListener('click', focusTextField);
 	$.routingNumberView.removeEventListener('click', focusTextField);
@@ -183,7 +185,8 @@ $.imageExCheck.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.
 
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
  
-
+$.addListener($.accountNumberButton,'click', blurTextField);
+$.addListener($.routingNumberButton,'click', blurTextField);
 $.addListener($.addBankAccountView,'click', blurTextField);
 $.addListener($.accountNumberView,'click', focusTextField);
 $.addListener($.routingNumberView,'click', focusTextField);

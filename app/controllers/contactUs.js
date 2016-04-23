@@ -116,6 +116,10 @@ $.emailBody.addEventListener('change',function(e){
     }
 });
 
+
+$.addListener($.emailTitleButton,'click', blurTextField);
+$.addListener($.emailBodyButton,'click', blurTextField);
+
 $.contactUsView.addEventListener('click', blurTextField);
 
 $.emailTitle.addEventListener('return', keyboardNext);
