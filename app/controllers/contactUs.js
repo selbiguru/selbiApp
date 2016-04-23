@@ -124,3 +124,13 @@ $.contactUsView.addEventListener('click', blurTextField);
 
 $.emailTitle.addEventListener('return', keyboardNext);
 
+exports.cleanup = function () {
+	Ti.API.info('Cleaning conactUsView');
+	$.off();
+	$.destroy();
+	$.removeListener();
+	Alloy.Globals.removeChildren($.contactUsView);
+	$.contactUsView = null;
+	Alloy.Globals.deallocate($);
+    $ = null;
+};

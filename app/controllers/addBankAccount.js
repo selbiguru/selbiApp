@@ -195,6 +195,7 @@ exports.cleanup = function () {
 	Ti.API.info('Cleaning addBankAccountView');
 	$.off();
 	$.destroy();
+	$.removeListener();
 	Alloy.Globals.removeChildren($.addBankAccountView);
 	$.addBankAccountView = null;
 	Alloy.Globals.deallocate($);
