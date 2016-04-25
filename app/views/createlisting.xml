@@ -27,6 +27,7 @@
 						<KeyboardToolbar>
 			                <Toolbar id="titleToolbar">
 			                    <Items>
+			                    	<Button id="titleFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
 			                        <Button id="titleButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
 			                    </Items>
 			                </Toolbar>
@@ -37,6 +38,7 @@
 							<KeyboardToolbar>
 				                <Toolbar id="descriptionToolbar">
 				                    <Items>
+				                    	<Button id="descriptionFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
 				                        <Button id="descriptionButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
 				                    </Items>
 				                </Toolbar>
@@ -48,6 +50,7 @@
 						<KeyboardToolbar>
 			                <Toolbar id="priceToolbar">
 			                    <Items>
+			                    	<Button id="priceFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
 			                        <Button id="priceButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
 			                    </Items>
 			                </Toolbar>

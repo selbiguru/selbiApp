@@ -16,6 +16,7 @@
 				<KeyboardToolbar>
 	                <Toolbar id="emailTitleToolbar">
 	                    <Items>
+	                    	<Button id="emailTitleFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
 	                        <Button id="emailTitleButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
 	                    </Items>
 	                </Toolbar>
@@ -26,6 +27,7 @@
 					<KeyboardToolbar>
 	                <Toolbar id="emailBodyToolbar">
 	                    <Items>
+	                    	<Button id="emailBodyFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
 	                        <Button id="emailBodyButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
 	                    </Items>
 	                </Toolbar>

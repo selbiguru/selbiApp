@@ -24,6 +24,7 @@
 					<KeyboardToolbar>
 		                <Toolbar id="accountNumberToolbar">
 		                    <Items>
+		                    	<Button id="accountNumberFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
 		                        <Button id="accountNumberButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
 		                    </Items>
 		                </Toolbar>
@@ -37,6 +38,7 @@
 					<KeyboardToolbar>
 		                <Toolbar id="routingNumberToolbar">
 		                    <Items>
+		                    	<Button id="routingNumberFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
 		                        <Button id="routingNumberButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
 		                    </Items>
 		                </Toolbar>
