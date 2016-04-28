@@ -1,0 +1,14 @@
+<Alloy>
+	<View id="termsConditionsView">
+        <View id="termsConditionsTopBar">
+			<View id="menuButton" class="validateButtons">
+				<Label icon="fa-bars" id="termsConditionsButtonIcon" class="menu-icon-button"></Label>
+			</View>
+			<View id="titleTermsConditionsView">
+				<Label id="titleTermsConditionsLabel">Terms</Label>
+			</View>
+		</View>
+		<WebView id="webview" url="http://www.selbi.io/terms-and-conditions"> </WebView>
+		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+    </View>
+</Alloy>

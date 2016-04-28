@@ -46,16 +46,16 @@
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="privacyPolicy">
+			<TableViewRow class="tableRow" id="privacy">
 				<View class="rowContainer">
 					<Label id="" class="rowLabel font-style">Privacy Policy</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="userAgreement">
+			<TableViewRow class="tableRow" id="termsConditions">
 				<View class="rowContainer">
-					<Label id="" class="rowLabel font-style">User Agreement</Label>
+					<Label id="" class="rowLabel font-style">Terms & Conditions</Label>
 					<Label icon="fa-chevron-right" class="rowLabel row-icon" id=""></Label>
 				</View>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>

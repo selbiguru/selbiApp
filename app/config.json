@@ -366,7 +366,8 @@
         "com.mattmcfarland.fontawesome": "1.4.1",
         "com.prodz.tiflexigrid": "1.2",
         "com.bduyng.intropages": "*",
-        "nl.fokkezb.infiniteScroll": "1.4.4"
+        "nl.fokkezb.infiniteScroll": "1.4.4",
+        "nl.fokkezb.html2as.widget": "*"
     },
     "autoStyle": true
 }

@@ -1,0 +1,14 @@
+<Alloy>
+	<View id="privacyView">
+        <View id="privacyTopBar">
+			<View id="menuButton" class="validateButtons">
+				<Label icon="fa-bars" id="privacyButtonIcon" class="menu-icon-button"></Label>
+			</View>
+			<View id="titlePrivacyView">
+				<Label id="titlePrivacyLabel">Privacy</Label>
+			</View>
+		</View>
+		<WebView id="webview" url="http://www.selbi.io/privacy"> </WebView>
+		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+    </View>
+</Alloy>
