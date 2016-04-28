@@ -19,7 +19,7 @@
 			<TextField hintText="555-555-5555" id="phoneNumber" maxLength="12"></TextField>
 			<View class="signup-underline"/>		
 			<Button id='registerButton' onClick="registerUser" class="primary-btn">Let's Selbi</Button>
-			<Label class="terms-conditions">By signing up, you are agreeing to Selbi's User Agreement and Privacy Policy</Label>
+			<Label id="terms" class='terms-conditions'></Label>
 			<Label id='closeRegister' onClick="closeRegisterWindow" class="cancel-txt">Already Selbi?</Label>
 		</View>
 	</Window>

@@ -6,6 +6,7 @@ var AuthManager = require('managers/authmanager'),
 	utils = require('utilities/validate'),
 	indicator = require('uielements/indicatorwindow'),
 	args = arguments[0] || {};
+var html2as = require('nl.fokkezb.html2as');
 var prevNumber = '';
 var indicatorWindow;
 
@@ -337,7 +338,40 @@ function removeEventListeners() {
 	$.email.removeEventListener('return', keyboardNext);
 	$.password.removeEventListener('return', keyboardNext);
 	$.phoneNumber.removeEventListener('return', keyboardRegister);
+	$.terms.removeEventListener('link', privacyTerms);
 };
+
+
+/**
+ * @private privacyTerms 
+ * opens safari with correct url (terms/privacy)
+ */
+function privacyTerms(e) {
+	if (e.url === 'privacy') {
+    	//open link in safari - application will close
+		Titanium.Platform.openURL('http://www.selbi.io/privacy');
+   	} else if(e.url === 'terms') {
+   		//open link in safari - application will close
+		Titanium.Platform.openURL('http://www.selbi.io/terms-and-conditions');
+   	}
+}
+
+
+
+/*************************************************Dynamic Elements***********************************************************/
+
+html2as(
+    "By signing up, you are agreeing to Selbi's <a style='text-decoration:none;' href='privacy'>Privacy Policy</a> and <a style='color:#9B9B9B;'href='terms'>Terms & Conditions</a>",
+    function(err, as) {
+        if (err) {
+            console.error(err);
+        } else {
+           $.terms.attributedString = as;
+           $.terms.addEventListener('link', privacyTerms);
+        }
+    }
+);
+
 
 /*************************************************Event Listeners***********************************************************/
 

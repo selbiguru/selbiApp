@@ -33,6 +33,8 @@
 	keyboardType:  Titanium.UI.KEYBOARD_TYPE_NUMBER_PAD
 },
 
+'#plop':{
+}
 
 
 
