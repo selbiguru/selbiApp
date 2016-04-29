@@ -2,9 +2,27 @@
 	<Window class="wrapper" id="window">		
 		<View id="loginView" class="wrapper-container">
 			<Label id="signInLabel" class="splash-header-text">Sign In</Label>
-			<TextField id="username" hintText="Email/Username" maxLength="254"></TextField>
+			<TextField id="username" hintText="Email/Username" maxLength="254">
+				<KeyboardToolbar>
+	                <Toolbar id="usernameToolbar">
+	                    <Items>
+	                    	<Button id="usernameFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
+	                        <Button onClick='blurTextField' id="usernameButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
+	                    </Items>
+	                </Toolbar>
+	            </KeyboardToolbar>
+			</TextField>
 			<View class="login-underline"/>
-			<TextField passwordMask="true" hintText="Password" id="password" maxLength="254"></TextField>
+			<TextField passwordMask="true" hintText="Password" id="password" maxLength="254">
+				<KeyboardToolbar>
+	                <Toolbar id="passwordSignInToolbar">
+	                    <Items>
+	                    	<Button id="passwordSignInFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
+	                        <Button onClick='blurTextField' id="passwordSignInButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
+	                    </Items>
+	                </Toolbar>
+	            </KeyboardToolbar>
+			</TextField>
 			<View class="login-underline"/>	
 			<Button id="loginUser" onClick="loginUser" class="primary-btn">Let's Selbi</Button>
 			<Label id="forgotPassword" class="forgot-password">Forgot your password?</Label>
