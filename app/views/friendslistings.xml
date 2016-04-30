@@ -13,7 +13,16 @@
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>	
 		</View>
 		<View id="friendsListingsSearchView">
-			<TextField id='usernameSearch' hintText="Enter Username" maxLength="20"></TextField>
+			<TextField id='usernameSearch' hintText="Enter Username" maxLength="20">
+				<KeyboardToolbar>
+	                <Toolbar id="usernameSearchToolbar">
+	                    <Items>
+	                    	<Button id="friendsUsernameSearchFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
+	                        <Button id="friendsUsernameSearchButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
+	                    </Items>
+	                </Toolbar>
+	            </KeyboardToolbar>
+			</TextField>
 		</View>
 		<View id='defaultView'>
 			
