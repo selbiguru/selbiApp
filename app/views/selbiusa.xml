@@ -20,7 +20,7 @@
 	                <Toolbar id="usernameSearchToolbar">
 	                    <Items>
 	                    	<Button id="usernameSearchFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
-	                        <Button id="usernameSearchButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
+	                        <Button onClick='blurTextField' id="usernameSearchButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
 	                    </Items>
 	                </Toolbar>
 	            </KeyboardToolbar>
