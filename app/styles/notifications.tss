@@ -17,6 +17,24 @@
 	height: '0dp',
 	width: '85%'
 },
+".notifcations-footer": {
+	backgroundColor: '#EAEAEA',
+	height: '1dp'
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -52,6 +70,67 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+".notifications-template[if=Alloy.Globals.iPhoneFour]": {
+	height: "70dp",
+	backgroundColor : '#FAFAFA'
+},
+".user-image[if=Alloy.Globals.iPhoneFour]": {
+	height : '55dp',
+	width : '55dp',
+    top : '7dp',
+    left: '11dp',
+    borderRadius: '27dp'
+},
+".label-text[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+		fontSize: '13dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: "#9B9B9B",
+	top: '4dp',
+	left: '70dp'
+},
+".cancel-button[if=Alloy.Globals.iPhoneFour]": {
+	height : '22dp',
+	width: '75dp',
+	right: '105dp',
+		font: {
+		fontSize: '13dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	borderColor: '#9B9B9B',
+	color: '#9B9B9B',
+	bottom: '4dp'
+},
+".accept-button[if=Alloy.Globals.iPhoneFour]": {
+	height : '22dp',
+	width: '75dp',
+	right: '15dp',
+	font: {
+		fontSize: '13dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	backgroundColor: '#1BA7CD',
+	color: '#fff',
+	bottom: '4dp',
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -91,6 +170,67 @@
 	},
 	top: '20dp'
 },
+".notifications-template[if=Alloy.Globals.iPhoneFive]": {
+	height: "70dp",
+	backgroundColor : '#FAFAFA'
+},
+".user-image[if=Alloy.Globals.iPhoneFive]": {
+	height : '55dp',
+	width : '55dp',
+    top : '7dp',
+    left: '11dp',
+    borderRadius: '27dp'
+},
+".label-text[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+		fontSize: '13dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: "#9B9B9B",
+	top: '4dp',
+	left: '70dp'
+},
+".cancel-button[if=Alloy.Globals.iPhoneFive]": {
+	height : '22dp',
+	width: '75dp',
+	right: '105dp',
+		font: {
+		fontSize: '13dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	borderColor: '#9B9B9B',
+	color: '#9B9B9B',
+	bottom: '4dp'
+},
+".accept-button[if=Alloy.Globals.iPhoneFive]": {
+	height : '22dp',
+	width: '75dp',
+	right: '15dp',
+	font: {
+		fontSize: '13dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	backgroundColor: '#1BA7CD',
+	color: '#fff',
+	bottom: '4dp',
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -130,6 +270,65 @@
 	},
 	top: '20dp'
 },
+".notifications-template[if=Alloy.Globals.iPhoneSix]": {
+	height: "75dp",
+	backgroundColor : '#FAFAFA'
+},
+".user-image[if=Alloy.Globals.iPhoneSix]": {
+	height : '61dp',
+	width : '61dp',
+    top : '6dp',
+    left: '11dp',
+    borderRadius: '31dp'
+},
+".label-text[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: "#9B9B9B",
+	top: '4dp',
+	left: '78dp'
+},
+".cancel-button[if=Alloy.Globals.iPhoneSix]": {
+	height : '25dp',
+	width: '85dp',
+	right: '115dp',
+		font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	borderColor: '#9B9B9B',
+	color: '#9B9B9B',
+	bottom: '6dp'
+},
+".accept-button[if=Alloy.Globals.iPhoneSix]": {
+	height : '25dp',
+	width: '85dp',
+	right: '15dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	backgroundColor: '#1BA7CD',
+	color: '#fff',
+	bottom: '6dp',
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -169,6 +368,67 @@
 	},
 	top: "20dp"
 },
+".notifications-template[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: "82dp",
+	backgroundColor : '#FAFAFA'
+},
+".user-image[if=Alloy.Globals.iPhoneSixPlus]": {
+	height : '68dp',
+	width : '68dp',
+    top : '7dp',
+    left: '16dp',
+    borderRadius: '34dp'
+},
+".label-text[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+		fontSize: '15dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: "#9B9B9B",
+	top: '4dp',
+	left: '90dp'
+},
+".cancel-button[if=Alloy.Globals.iPhoneSixPlus]": {
+	height : '28dp',
+	width: '90dp',
+	right: '120dp',
+		font: {
+		fontSize: '15dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	borderColor: '#9B9B9B',
+	color: '#9B9B9B',
+	bottom: '6dp'
+},
+".accept-button[if=Alloy.Globals.iPhoneSixPlus]": {
+	height : '28dp',
+	width: '90dp',
+	right: '15dp',
+	font: {
+		fontSize: '15dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	backgroundColor: '#1BA7CD',
+	color: '#fff',
+	bottom: '6dp',
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -205,3 +465,67 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
+".notifications-template[if=Alloy.Globals.android]": {
+	height: "75dp",
+	backgroundColor : '#FAFAFA'
+},
+".user-image[if=Alloy.Globals.android]": {
+	height : '61dp',
+	width : '61dp',
+    top : '6dp',
+    left: '10dp',
+    borderRadius: '31dp'
+},
+".label-text[if=Alloy.Globals.android]": {
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	color: "#9B9B9B",
+	top: '4dp',
+	left: '78dp'
+},
+".cancel-button[if=Alloy.Globals.android]": {
+	height : '25dp',
+	width: '85dp',
+	right: '115dp',
+		font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	borderColor: '#9B9B9B',
+	color: '#9B9B9B',
+	bottom: '6dp'
+},
+".accept-button[if=Alloy.Globals.android]": {
+	height : '25dp',
+	width: '85dp',
+	right: '15dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: 'center',
+	backgroundColor: '#1BA7CD',
+	color: '#fff',
+	bottom: '6dp',
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

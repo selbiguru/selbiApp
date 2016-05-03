@@ -12,8 +12,29 @@
 			
 		</View>
         <ActivityIndicator id="activityIndicator" message="Loading..."/>
-        <ScrollView id="viewNotifications">		
-		</ScrollView>
+		<ListView defaultItemTemplate="defaultTemplate" id='poop' allowsSelection=false>
+            <Templates>
+                <ItemTemplate id='defaultTemplate' class='notifications-template' name="defaultTemplate">
+                    <ImageView class='user-image' bindId="userImage" />
+                    <Label class='label-text' bindId="labelText" />
+                    <Button class='cancel-button' bindId="cancelButton" onClick='cancelNotification' />
+                    <Button class='accept-button' bindId="acceptButton" onClick='acceptNotification' />
+                </ItemTemplate>
+                <ItemTemplate id='purchaseTemplate' class='notifications-template' name="purchaseTemplate">
+                    <ImageView class='user-image' bindId="userImage" />
+                    <Label class='label-text' bindId="labelText" />
+                    <Button class='accept-button' bindId="acceptButton" onClick='acceptNotification' />
+                </ItemTemplate>
+            </Templates>
+
+            <ListSection id="notificationSection">
+                
+            </ListSection>
+            <FooterView>
+                <View class="notifcations-footer">
+                </View>
+            </FooterView>
+        </ListView>
         <Widget id="fa" src="com.mattmcfarland.fontawesome"/>
     </View>
 </Alloy>

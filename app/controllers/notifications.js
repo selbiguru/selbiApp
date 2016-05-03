@@ -31,263 +31,44 @@ notificationManager.getNotificationByUserId(function(err, notificationResults) {
 
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
 
-
-
 function showNotifications(notificationsArray) {
-	var mainViewHeight, mainViewTop, horizontalViewHeight, imgViewHeight, imgViewWidth, imgViewTop,
-	imgViewLeft, imgViewBorderRadius, notificationFontSize, nameLabelViewTop, nameLabelViewLeft,
-	friendButtonHeight, friendButtonWidth, declineButtonRight, acceptButtonRight, underlineViewTop;
+	var items = [];
 	for (var i in notificationsArray) {
-		switch(Alloy.Globals.userDevice) {
-		    case 0: //iphoneFour
-		        mainViewHeight = '65dp';
-		        mainViewTop = '2dp';
-		        horizontalViewHeight = '59dp';
-		        imgViewHeight = '50dp';
-		        imgViewWidth = '50dp';
-		        imgViewTop = '4dp';
-		        imgViewLeft = '5dp';
-		        imgViewBorderRadius = '25dp';
-		        notificationFontSize = '12dp';
-		        nameLabelViewTop = '2dp';
-		        nameLabelViewLeft = '7dp';
-		        friendButtonHeight = '20dp';
-		        friendButtonWidth = '75dp';
-		        declineButtonRight = '105dp';
-		        acceptButtonRight = '15dp';
-		        underlineViewTop = '5dp';
-		        break;
-		    case 1: //iphoneFive
-		        mainViewHeight = '65dp';
-		        mainViewTop = '2dp';
-		        horizontalViewHeight = '59dp';
-		        imgViewHeight = '55dp';
-		        imgViewWidth = '55dp';
-		        imgViewTop = '3dp';
-		        imgViewLeft = '5dp';
-		        imgViewBorderRadius = '27dp';
-		        notificationFontSize = '13dp';
-		        nameLabelViewTop = '2dp';
-		        nameLabelViewLeft = '7dp';
-		        friendButtonHeight = '22dp';
-		        friendButtonWidth = '75dp';
-		        declineButtonRight = '105dp';
-		        acceptButtonRight = '15dp';
-		        underlineViewTop = '5dp';
-		        break;
-		    case 2: //iphoneSix
-		        mainViewHeight = '70dp';
-		        mainViewTop = '2dp';
-		        horizontalViewHeight = '64dp';
-		        imgViewHeight = '61dp';
-		        imgViewWidth = '61dp';
-		        imgViewTop = '3dp';
-		        imgViewLeft = '2dp';
-		        imgViewBorderRadius = '31dp';
-		        notificationFontSize = '14dp';
-		        nameLabelViewTop = '2dp';
-		        nameLabelViewLeft = '7dp';
-		        friendButtonHeight = '25dp';
-		        friendButtonWidth = '85dp';
-		        declineButtonRight = '115dp';
-		        acceptButtonRight = '15dp';
-		        underlineViewTop = '5dp';
-		        break;
-		    case 3: //iphoneSixPlus
-		        mainViewHeight = '77dp';
-		        mainViewTop = '2dp';
-		        horizontalViewHeight = '69dp';
-		        imgViewHeight = '68dp';
-		        imgViewWidth = '68dp';
-		        imgViewTop = '1dp';
-		        imgViewLeft = '2dp';
-		        imgViewBorderRadius = '34dp';
-		        notificationFontSize = '15dp';
-		        nameLabelViewTop = '2dp';
-		        nameLabelViewLeft = '7dp';
-		        friendButtonHeight = '28dp';
-		        friendButtonWidth = '90dp';
-		        declineButtonRight = '120dp';
-		        acceptButtonRight = '15dp';
-		        underlineViewTop = '5dp';
-		        break;
-		    case 4: //android currently same as iphoneSix
-		        mainViewHeight = '70dp';
-		        mainViewTop = '2dp';
-		        horizontalViewHeight = '64dp';
-		        imgViewHeight = '55dp';
-		        imgViewWidth = '55dp';
-		        imgViewTop = '4dp';
-		        imgViewLeft = '5dp';
-		        imgViewBorderRadius = '27dp';
-		        notificationFontSize = '14dp';
-		        nameLabelViewTop = '2dp';
-		        nameLabelViewLeft = '7dp';
-		        friendButtonHeight = '25dp';
-		        friendButtonWidth = '85dp';
-		        declineButtonRight = '115dp';
-		        acceptButtonRight = '15dp';
-		        underlineViewTop = '5dp';
-		        break;
-		};
-		var mainView = Titanium.UI.createView({
-			layout: 'vertical',
-			height: mainViewHeight,
-			top: mainViewTop,
-			id: notificationsArray[i].id
-		});
-		var horizontalView = Titanium.UI.createView({
-			layout: 'horizontal',
-			height: horizontalViewHeight,
-		});
-		var imgView = Titanium.UI.createImageView({
-			top: imgViewTop,
-			left: imgViewLeft,
-			height: imgViewHeight,
-			width: imgViewWidth,
-			borderRadius: imgViewBorderRadius,
-			image: notificationsArray[i].userFromInfo.profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + notificationsArray[i].userFromInfo.profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg"
-		});
-		var subView = Titanium.UI.createView({});
-		
-		var buttonsView = Titanium.UI.createView({
-			height: Ti.UI.SIZE,
-			bottom: '0dp'
-		});
-		var declineFriendButton = Titanium.UI.createButton({
-			height: friendButtonHeight,
-			width: friendButtonWidth,
-			font: {
-				fontSize: notificationFontSize,
-				fontFamily: 'Nunito-Light'
-			},
-			textAlign: 'center',
-			borderColor: '#9B9B9B',
-			color: '#9B9B9B',
-			bottom: '0dp',
-			right: declineButtonRight,
-			title: 'Decline',
-			data: {
-				isSold: notificationsArray[i].type === 'sold' || notificationsArray[i].type === 'purchased' ? true : false,
-				userFrom: notificationsArray[i].userFrom,
-				userTo: notificationsArray[i].user,
-				notificationId: notificationsArray[i].id			
-			}
-		});
-		var acceptFriendButton = Titanium.UI.createButton({
-			height: friendButtonHeight,
-			width: friendButtonWidth,
-			font: {
-				fontSize: notificationFontSize,
-				fontFamily: 'Nunito-Light'
-			},
-			textAlign: 'center',
-			backgroundColor: '#1BA7CD',
-			color: '#fff',
-			bottom: '0dp',
-			right: acceptButtonRight,
-			title: notificationsArray[i].type === 'sold' || notificationsArray[i].type === 'purchased' ? 'Cool!' : 'Add',
-			data: {
-				isSold: notificationsArray[i].type === 'sold' || notificationsArray[i].type === 'purchased' ? true : false,
-				userFrom: notificationsArray[i].userFrom,
-				userTo: notificationsArray[i].user,
-				notificationId: notificationsArray[i].id
-			}
-		});
-		var underline = Titanium.UI.createView({
-			height: "1dp",
-			backgroundColor:"#E5E5E5",
-			top: underlineViewTop,
-			width:Titanium.UI.FILL
-		});
-		if(notificationsArray[i].type === 'friendrequest') {
-			buttonsView.add(declineFriendButton);
-		}
-		buttonsView.add(acceptFriendButton);
-		subView.add(Titanium.UI.createLabel({
-	        font: {
-				fontSize: notificationFontSize,
-				fontFamily: 'Nunito-Light'
-			},
-			color: "#9B9B9B",
-			top: nameLabelViewTop,
-			left: nameLabelViewLeft,
-	        text: createText(notificationsArray[i])
-		}));
-		subView.add(buttonsView);
-		horizontalView.add(imgView);
-		horizontalView.add(subView);
-		mainView.add(horizontalView);
-		mainView.add(underline);
-		acceptFriendButton.addEventListener('click', function(e) {
-			if(e.source.data.isSold) {
-				var deleteObj = {
-					notificationId: e.source.data.notificationId
-				};
-				notificationManager.deleteNotification(deleteObj, function(err, deleteResults) {
-					if(err) {
-						helpers.alertUser('Oops','We are having trouble processing your request!');
-						return;
-					} else {
-						$.viewNotifications.remove(e.source.parent.parent.parent.parent);
-						if($.viewNotifications.children.length <= 0) {
-							dynamicElement.defaultLabel('No new notifications!', function(err, results) {
-								$.defaultView.height= Ti.UI.FILL;
-								$.defaultView.add(results);
-							});
-						};
-						updateUser();
-					}
-				});
-			} else {
-				var invitationObject = {
-					userFrom: e.source.data.userTo,
-					userTo: e.source.data.userFrom,
-					status: 'approved',
-					notificationId: e.source.data.notificationId
-				};
-				friendsManager.updateFriendInvitationByUserIds( invitationObject, function(err, updateResult) {
-					if(err) {
-						helpers.alertUser('Oops','We are having trouble processing your request!');
-						return;
-					} else {
-						$.viewNotifications.remove(e.source.parent.parent.parent.parent);
-						if($.viewNotifications.children.length <= 0) {
-							dynamicElement.defaultLabel('No new notifications!', function(err, results) {
-								$.defaultView.height= Ti.UI.FILL;
-								$.defaultView.add(results);
-							});
-						};
-						updateUser();
-					}
-				});
-			}
-		});
-		declineFriendButton.addEventListener('click', function(e) {
-			var invitationObject = {
-				userFrom: e.source.data.userTo,
-				userTo: e.source.data.userFrom,
-				status: 'denied',
-				notificationId: e.source.data.notificationId
-			};
-			friendsManager.updateFriendInvitationByUserIds( invitationObject, function(err, updateResult) {
-				if(err) {
-					helpers.alertUser('Oops','We are having trouble processing your request!');
-					return;
-				} else {
-					$.viewNotifications.remove(e.source.ext);
-					if($.viewNotifications.children.length <= 0) {
-						dynamicElement.defaultLabel('No new notifications!', function(err, results) {
-							$.defaultView.height= Ti.UI.FILL;
-							$.defaultView.add(results);
-						});
-					};
-					updateUser();
+		var notificationItem = {
+			userImage: {
+	            image: notificationsArray[i].userFromInfo.profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + notificationsArray[i].userFromInfo.profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg"
+	        },
+	        labelText: {
+	        	text: createText(notificationsArray[i])
+	        },
+	        cancelButton: {
+	            title: 'Decline',
+				data: {
+					isSold: notificationsArray[i].type === 'sold' || notificationsArray[i].type === 'purchased' ? true : false,
+					userFrom: notificationsArray[i].userFrom,
+					userTo: notificationsArray[i].user,
+					notificationId: notificationsArray[i].id			
 				}
-			});
-		});
-		$.viewNotifications.add(mainView);
+	        },
+	        acceptButton: {
+	            title: notificationsArray[i].type === 'sold' || notificationsArray[i].type === 'purchased' ? 'Cool!' : 'Add',
+				data: {
+					isSold: notificationsArray[i].type === 'sold' || notificationsArray[i].type === 'purchased' ? true : false,
+					userFrom: notificationsArray[i].userFrom,
+					userTo: notificationsArray[i].user,
+					notificationId: notificationsArray[i].id
+				}
+	        }
+		};
+		if(notificationsArray[i].type !== 'friendrequest') {
+	    	notificationItem.template = 'purchaseTemplate';
+		};
+		items.push(notificationItem);
+
 	}
+	
+	// add the new items to the end of the existing list
+	$.notificationSection.items = $.notificationSection.items.concat(items);
 };
 
 
@@ -311,23 +92,7 @@ function createText(notification) {
  */
 function clearProxy(e) {
 	$.off;
-	$.destroy;
-	$.viewNotifications.hide();
-	if($.viewNotifications.children.length > 0) {
-		for(var i in $.viewNotifications.children[0].children[0].children) {
-			$.viewNotifications.children[0].children[0].remove($.viewNotifications.children[0].children[0].children[0]);
-			$.viewNotifications.children[0].children[0].children[0] = null;
-		}
-		for(var i in $.viewNotifications.children[0].children) {
-			$.viewNotifications.children[0].remove($.viewNotifications.children[0].children[0]);
-			$.viewNotifications.children[0].children[0] = null;
-		}
-		for(var i in $.viewNotifications.children) {
-			$.viewNotifications.remove($.viewNotifications.children[0]);
-			$.viewNotifications.children[0] = null;
-		}	
-	}
-	//this.removeEventListener('click', clearProxy);
+	$.destroy;		
 	
 	console.log('solve anything yet?^ ', e);
 }
@@ -349,14 +114,77 @@ function updateUser(){
 	});
 };
 
+function cancelNotification(e) {
+	var invitationObject = {
+		userFrom: e.source.data.userTo,
+		userTo: e.source.data.userFrom,
+		status: 'denied',
+		notificationId: e.source.data.notificationId
+	};
+	friendsManager.updateFriendInvitationByUserIds( invitationObject, function(err, updateResult) {
+		if(err) {
+			helpers.alertUser('Oops','We are having trouble processing your request!');
+			return;
+		} else {
+			e.section.deleteItemsAt(e.itemIndex,1);
+			if(!$.notificationSection.getItemAt(0)) {
+				dynamicElement.defaultLabel('No new notifications!', function(err, results) {
+					$.defaultView.height= Ti.UI.FILL;
+					$.defaultView.add(results);
+				});
+			};
+			updateUser();
+		}
+	});
+}
 
+function acceptNotification(e) {
+	if(e.source.data.isSold) {
+		var deleteObj = {
+			notificationId: e.source.data.notificationId
+		};
+		notificationManager.deleteNotification(deleteObj, function(err, deleteResults) {
+			if(err) {
+				helpers.alertUser('Oops','We are having trouble processing your request!');
+				return;
+			} else {
+				e.section.deleteItemsAt(e.itemIndex,1);
+				if(!$.notificationSection.getItemAt(0)) {
+					dynamicElement.defaultLabel('No new notifications!', function(err, results) {
+						$.defaultView.height= Ti.UI.FILL;
+						$.defaultView.add(results);
+					});
+				};
+				updateUser();
+			}
+		});
+	} else {
+		var invitationObject = {
+			userFrom: e.source.data.userTo,
+			userTo: e.source.data.userFrom,
+			status: 'approved',
+			notificationId: e.source.data.notificationId
+		};
+		friendsManager.updateFriendInvitationByUserIds( invitationObject, function(err, updateResult) {
+			if(err) {
+				helpers.alertUser('Oops','We are having trouble processing your request!');
+				return;
+			} else {
+				e.section.deleteItemsAt(e.itemIndex,1);
+				if(!$.notificationSection.getItemAt(0)) {
+					dynamicElement.defaultLabel('No new notifications!', function(err, results) {
+						$.defaultView.height= Ti.UI.FILL;
+						$.defaultView.add(results);
+					});
+				};
+				updateUser();
+			}
+		});
+	}
+}
 //-------------------------------------------Initializing Views/Styles----------------------------------------------------//
 
 
-/*$.notificationsView.addEventListener('click', function(e) {
-	$.notificationsView.parent.parent.children[0].addEventListener('click', clearProxy);
-	
-});*/
 
 exports.cleanup = function () {
 	Ti.API.info('Cleaning notificationsView');
