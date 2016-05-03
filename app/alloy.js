@@ -106,4 +106,5 @@ Alloy.Globals.addKeyboardToolbar = function(textField, callback) {
 	});
 	done.addEventListener('click',callback);
 	textField.keyboardToolbar = [flexSpace, done];
+	textField.keyboardToolbarColor = '#E5E5E5';
 };
