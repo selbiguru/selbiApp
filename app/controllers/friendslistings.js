@@ -296,9 +296,7 @@ $.scrollViewFriends.addEventListener('scroll', infitineScroll);
 $.friendsListingsView.addEventListener('click', blurTextField);
 $.usernameSearch.addEventListener('return', keyboardSearch);
 
-//$.friendsListingsView.addEventListener('click', function(e) {
-	//$.friendsListingsView.parent.parent.children[0].addEventListener('click', clearProxy);
-//});
+Alloy.Globals.addKeyboardToolbar($.usernameSearch, blurTextField);
 
 exports.cleanup = function () {
 	Ti.API.info('Cleaning friendlisting');

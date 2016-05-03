@@ -125,6 +125,9 @@ $.forgotPassword.addEventListener('click', forgotPassword);
 
 $.closeWindow.addEventListener('click', closeWindow);
 
+Alloy.Globals.addKeyboardToolbar($.username, blurTextField);
+Alloy.Globals.addKeyboardToolbar($.password, blurTextField);
+
 $.window.addEventListener('close', function(){
 	$.destroy();
 	$.off();

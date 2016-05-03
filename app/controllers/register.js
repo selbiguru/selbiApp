@@ -382,3 +382,9 @@ $.lastName.addEventListener('return', keyboardNext);
 $.email.addEventListener('return', keyboardNext);
 $.password.addEventListener('return', keyboardNext);
 $.phoneNumber.addEventListener('return', keyboardRegister);
+
+Alloy.Globals.addKeyboardToolbar($.firstName, blurTextField);
+Alloy.Globals.addKeyboardToolbar($.lastName, blurTextField);
+Alloy.Globals.addKeyboardToolbar($.email, blurTextField);
+Alloy.Globals.addKeyboardToolbar($.password, blurTextField);
+Alloy.Globals.addKeyboardToolbar($.phoneNumber, blurTextField);

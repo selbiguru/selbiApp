@@ -13,25 +13,9 @@
 		</View>
 		<View id="contactUsInfoView">
 			<TextField id="emailTitle" class="font-style">
-				<KeyboardToolbar>
-	                <Toolbar id="emailTitleToolbar">
-	                    <Items>
-	                    	<Button id="emailTitleFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
-	                        <Button id="emailTitleButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
-	                    </Items>
-	                </Toolbar>
-	            </KeyboardToolbar>
 			</TextField>
 			<View id="messageView">
 				<TextArea id="emailBody" class="font-style">
-					<KeyboardToolbar>
-		                <Toolbar id="emailBodyToolbar">
-		                    <Items>
-		                    	<Button id="emailBodyFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
-		                        <Button id="emailBodyButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
-		                    </Items>
-		                </Toolbar>
-		            </KeyboardToolbar>
 				</TextArea>
 				<Label id="hintTextLabel" class="font-style">Let us know how we can help you today</Label>
 			</View>

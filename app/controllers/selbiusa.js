@@ -369,9 +369,7 @@ $.selbiUSAView.addEventListener('click', blurTextField);
 $.usernameSearch.addEventListener('return', keyboardSearch); 
 $.searchUserButton.addEventListener('click', findUserListings);
 
-/*$.selbiUSAView.addEventListener('click', function(e) {
-	$.selbiUSAView.parent.parent.children[0].addEventListener('click', clearProxy);
-});*/
+Alloy.Globals.addKeyboardToolbar($.usernameSearch, blurTextField);
 
 exports.cleanup = function () {
 	Ti.API.info('Cleaning selbiUSAView');

@@ -96,3 +96,14 @@ Alloy.Globals.deallocate = function(_obj) {
 	}
 };
 
+
+Alloy.Globals.addKeyboardToolbar = function(textField, callback) {
+	var flexSpace = Titanium.UI.createButton({
+		systemButton:Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+	});
+	var done = Titanium.UI.createButton({
+		systemButton:Ti.UI.iPhone.SystemButton.DONE
+	});
+	done.addEventListener('click',callback);
+	textField.keyboardToolbar = [flexSpace, done];
+};

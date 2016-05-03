@@ -24,37 +24,13 @@
 			<View id="step2">
 				<ScrollView class="listing-detail-container">
 					<TextField hintText="Title" id="title" class="font-style" maxLength="120">
-						<KeyboardToolbar>
-			                <Toolbar id="titleToolbar">
-			                    <Items>
-			                    	<Button id="titleFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
-			                        <Button id="titleButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
-			                    </Items>
-			                </Toolbar>
-			            </KeyboardToolbar>
 					</TextField>
 					<View height='Ti.UI.SIZE' width='Ti.UI.SIZE'>
 						<TextArea id="description" class="font-style" maxLength="600">
-							<KeyboardToolbar>
-				                <Toolbar id="descriptionToolbar">
-				                    <Items>
-				                    	<Button id="descriptionFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
-				                        <Button id="descriptionButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
-				                    </Items>
-				                </Toolbar>
-				            </KeyboardToolbar>
 						</TextArea>
 						<Label id="hintTextLabel" class="font-style">Describe your item</Label>
 					</View>
 					<TextField hintText="Item Price (include shipping cost)" id="price" class="font-style">
-						<KeyboardToolbar>
-			                <Toolbar id="priceToolbar">
-			                    <Items>
-			                    	<Button id="priceFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
-			                        <Button id="priceButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
-			                    </Items>
-			                </Toolbar>
-			            </KeyboardToolbar>
 					</TextField>
 					<View id="pickerView">
 						<Picker id="pickerCategory">

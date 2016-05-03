@@ -117,12 +117,12 @@ $.emailBody.addEventListener('change',function(e){
 });
 
 
-$.addListener($.emailTitleButton,'click', blurTextField);
-$.addListener($.emailBodyButton,'click', blurTextField);
-
 $.contactUsView.addEventListener('click', blurTextField);
 
 $.emailTitle.addEventListener('return', keyboardNext);
+
+Alloy.Globals.addKeyboardToolbar($.emailTitle, blurTextField);
+Alloy.Globals.addKeyboardToolbar($.emailBody, blurTextField);
 
 exports.cleanup = function () {
 	Ti.API.info('Cleaning conactUsView');

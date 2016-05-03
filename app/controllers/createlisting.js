@@ -256,9 +256,6 @@ function clearProxy(e) {
 	$.destroy();
 	imageCollection = [];
 	previousState = null;
-	$.titleButton.removeEventListener('click', blurTextField);
-	$.descriptionButton.removeEventListener('click', blurTextField);
-	$.priceButton.removeEventListener('click', blurTextField);
 	$.privateSwitch.removeEventListener('change', blurTextField);
 	$.pickerCategory.removeEventListener('change', blurTextField);
 	$.createListingView.removeEventListener('click', blurTextField);
@@ -448,9 +445,6 @@ $.addListener($.description,'change',function(e){
     }
 });
 
-$.addListener($.titleButton,'click', blurTextField);
-$.addListener($.descriptionButton,'click', blurTextField);
-$.addListener($.priceButton,'click', blurTextField);
 $.addListener($.privateSwitch,'change', blurTextField);
 $.addListener($.pickerCategory,'change', blurTextField);
 $.addListener($.createListingView,'click', blurTextField);
@@ -458,10 +452,9 @@ $.addListener($.title,'return', keyboardNext);
 $.addListener($.price,'return', keyboardNext);
 $.addListener($.price,'change', dollarSign);
 
-/*$.createListingView.addEventListener('click', function(e) {	
-	$.createListingView.parent.parent.children[0].addEventListener('click', clearProxy);
-});*/
-
+Alloy.Globals.addKeyboardToolbar($.title, blurTextField);
+Alloy.Globals.addKeyboardToolbar($.description, blurTextField);
+Alloy.Globals.addKeyboardToolbar($.price, blurTextField);
 
 exports.cleanup = function () {
 	Ti.API.info('Cleaning createlisting');

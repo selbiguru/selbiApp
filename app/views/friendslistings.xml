@@ -14,14 +14,6 @@
 		</View>
 		<View id="friendsListingsSearchView">
 			<TextField id='usernameSearch' hintText="Enter Username" maxLength="20">
-				<KeyboardToolbar>
-	                <Toolbar id="usernameSearchToolbar">
-	                    <Items>
-	                    	<Button id="friendsUsernameSearchFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
-	                        <Button onClick='blurTextField' id="friendsUsernameSearchButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
-	                    </Items>
-	                </Toolbar>
-	            </KeyboardToolbar>
 			</TextField>
 		</View>
 		<View id='defaultView'>

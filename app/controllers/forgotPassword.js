@@ -94,3 +94,5 @@ function blurTextField(e) {
 $.resetPassword.addEventListener('click', resetPassword);
 $.forgotPasswordView.addEventListener('click', blurTextField);
 $.email.addEventListener('return', keyboardResetPassword);
+
+Alloy.Globals.addKeyboardToolbar($.email, blurTextField);

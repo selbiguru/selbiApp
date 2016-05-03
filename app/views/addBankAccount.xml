@@ -21,28 +21,12 @@
 			<View id='accountNumberView' class='number-views'>
 				<Label id='accountLabel' class='account-number-labels'>Account Number:</Label>
 				<TextField id="accountNumber" class="banking-number left-padding" maxLength="17" required="true">
-					<KeyboardToolbar>
-		                <Toolbar id="accountNumberToolbar">
-		                    <Items>
-		                    	<Button id="accountNumberFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
-		                        <Button id="accountNumberButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
-		                    </Items>
-		                </Toolbar>
-		            </KeyboardToolbar>
 				</TextField>
 			</View>
 			<View class="banking-underline"/>
 			<View id='routingNumberView' class='number-views'>
 				<Label id='routingLabel' class='account-number-labels'>Routing Number:</Label>
 				<TextField id="routingNumber" class="banking-number left-padding" maxLength="9">
-					<KeyboardToolbar>
-		                <Toolbar id="routingNumberToolbar">
-		                    <Items>
-		                    	<Button id="routingNumberFlexSpace" systemButton="Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE" />
-		                        <Button id="routingNumberButton" title='Done' systemButton="Ti.UI.iPhone.SystemButton.DONE" />
-		                    </Items>
-		                </Toolbar>
-		            </KeyboardToolbar>
 				</TextField>
 			</View>
 			<View class="banking-underline"/>
