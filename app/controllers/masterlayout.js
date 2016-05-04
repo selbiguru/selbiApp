@@ -51,7 +51,7 @@ var viewList = {
 
 var listings = ['friendslistings', 'selbiusa', 'mylistings'];
 
-var secondaryPages = ['aboutUs', 'addBankAccount', 'addCreditCard', 'addressgooglemap', 'faq', 'invitefriends', 'payment', 'phoneVerify', 'verifyaddress', 'viewlisting', 'contactUs', 'addfriends', 'edituserprofile', 'privacy', 'termsConditions'];
+var secondaryPages = ['aboutUs', 'addBankAccount', 'addCreditCard', 'addressgooglemap', 'faq', 'invitefriends', 'payment', 'phoneVerify', 'verifyaddress', 'viewlisting', 'contactUs', 'addfriends', 'edituserprofile', 'privacy', 'termsconditions'];
 
 var controllerList = {'friendslistings' : mainView};
 
