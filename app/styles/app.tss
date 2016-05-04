@@ -142,3 +142,7 @@
 
 /********************************* Misc Styling ************************************/
 
+"ImageView": {
+	defaultImage: 'default-load-image.png',
+	preventDefaultImage: true,
+}
