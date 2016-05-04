@@ -5,7 +5,6 @@
 },
 
 ".settingsTable":{
-	selectedBackgroundColor: "EAEAEA",
 	backgroundColor:'#FAFAFA',
 	scrollable: false,
 	height: Ti.UI.SIZE,
@@ -14,7 +13,7 @@
 
 ".tableRow":{
 	height: Ti.UI.SIZE,
-	selectedBackgroundColor: "#e5e5e5"
+	selectedBackgroundColor: "#E5E5E5"
 },
 ".rowContainer":{
 	height: Ti.UI.SIZE,

@@ -37,7 +37,7 @@
 	borderRadius: '8dp',
 	height: '15dp',
 	width: '15dp',
-	left: '10dp',
+	left: '170dp',
 	backgroundColor: '#9B9B9B',
 	color: '#fff',
 	top: '7dp',
@@ -65,7 +65,7 @@
 },
 ".rowLabel[if=Alloy.Globals.iPhoneFour]":{
 	top: "5dp",
-	left: "13dp",
+	left: "78dp",
 	height: "20dp",
 	font:{
 		fontSize: "14dp",
@@ -81,7 +81,6 @@
 ".menuTable[if=Alloy.Globals.iPhoneFour]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
-	selectionStyle:"#EAEAEA",
 	backgroundColor:'#FAFAFA',
 	height: Ti.UI.SIZE,
 	scrollable: false
@@ -89,7 +88,6 @@
 ".menuTable2[if=Alloy.Globals.iPhoneFour]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
-	selectionStyle:"#EAEAEA",
 	backgroundColor:'#FAFAFA',
 	scrollable: false
 },
@@ -98,7 +96,8 @@
 	bottom: "7dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneFour]":{
-	height: '35dp'
+	height: '35dp',
+	selectedBackgroundColor: "#E5E5E5"
 },
 "#row0[if=Alloy.Globals.iPhoneFour]":{
 	layout: 'vertical',
@@ -165,7 +164,7 @@
 	borderRadius: '10dp',
 	height: '20dp',
 	width: '20dp',
-	left: '10dp',
+	left: '175dp',
 	backgroundColor: '#9B9B9B',
 	color: '#fff',
 	top: '8dp',
@@ -193,7 +192,7 @@
 },
 ".rowLabel[if=Alloy.Globals.iPhoneFive]":{
 	top: "4dp",
-	left: "7dp",
+	left: "72dp",
 	height: "25dp",
 	font:{
 		fontSize: "16dp",
@@ -209,7 +208,6 @@
 ".menuTable[if=Alloy.Globals.iPhoneFive]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
-	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	height: Ti.UI.SIZE,
 	scrollable: false
@@ -217,7 +215,6 @@
 ".menuTable2[if=Alloy.Globals.iPhoneFive]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
-	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	scrollable: false
 },
@@ -226,7 +223,8 @@
 	bottom: "13dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneFive]":{
-	height: '35dp'
+	height: '35dp',
+	selectedBackgroundColor: "#E5E5E5"
 },
 "#row0[if=Alloy.Globals.iPhoneFive]":{
 	layout: 'vertical',
@@ -293,7 +291,7 @@
 	borderRadius: '12dp',
 	height: '24dp',
 	width: '24dp',
-	left: '12dp',
+	left: '200dp',
 	backgroundColor: '#9B9B9B',
 	color: '#fff',
 	top: '11dp',
@@ -321,7 +319,7 @@
 },
 ".rowLabel[if=Alloy.Globals.iPhoneSix]":{
 	top: '3dp',
-	left: "15dp",
+	left: "85dp",
 	height: "40dp",
 	font:{
 		fontSize: "18dp",
@@ -337,15 +335,14 @@
 ".menuTable[if=Alloy.Globals.iPhoneSix]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
-	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	height: Ti.UI.SIZE,
-	scrollable: false
+	scrollable: false,
+	
 },
 ".menuTable2[if=Alloy.Globals.iPhoneSix]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
-	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	scrollable: false
 },
@@ -354,7 +351,8 @@
 	bottom: "13dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneSix]":{
-	height: '45dp'
+	height: '45dp',
+	selectedBackgroundColor: "#E5E5E5"
 },
 "#row0[if=Alloy.Globals.iPhoneSix]":{
 	layout: 'vertical',
@@ -421,7 +419,7 @@
 	borderRadius: '14dp',
 	height: '28dp',
 	width: '28dp',
-	left: '13dp',
+	left: '225',
 	backgroundColor: '#9B9B9B',
 	color: '#fff',
 	top: '11dp',
@@ -448,7 +446,7 @@
 	layout:'horizontal'
 },
 ".rowLabel[if=Alloy.Globals.iPhoneSixPlus]":{
-	left: "20dp",
+	left: "95dp",
 	height: "50dp",
 	font:{
 		fontSize: "20dp",
@@ -464,7 +462,6 @@
 ".menuTable[if=Alloy.Globals.iPhoneSixPlus]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
-	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	height: Ti.UI.SIZE,
 	scrollable: false
@@ -472,7 +469,6 @@
 ".menuTable2[if=Alloy.Globals.iPhoneSixPlus]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
-	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	scrollable: false
 },
@@ -481,7 +477,8 @@
 	bottom: "15dp"
 },
 ".tableRow[if=Alloy.Globals.iPhoneSixPlus]":{
-	height: '50dp'
+	height: '50dp',
+	selectedBackgroundColor: "#E5E5E5"
 },
 "#row0[if=Alloy.Globals.iPhoneSixPlus]":{
 	layout: 'vertical',
@@ -544,7 +541,7 @@
 	borderRadius: '10dp',
 	height: '20dp',
 	width: '20dp',
-	left: '13dp',
+	left: '200dp',
 	backgroundColor: '#9B9B9B',
 	color: '#fff',
 	top: '13dp',
@@ -572,7 +569,7 @@
 },
 ".rowLabel[if=Alloy.Globals.android]":{
 	top: '3dp',
-	left: "15dp",
+	left: "85dp",
 	height: "40dp",
 	font:{
 		fontSize: "18dp",
@@ -588,7 +585,6 @@
 ".menuTable[if=Alloy.Globals.android]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
-	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	height: Ti.UI.SIZE,
 	scrollable: false
@@ -596,7 +592,6 @@
 ".menuTable2[if=Alloy.Globals.android]":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
-	selectionStyle:"EAEAEA",
 	backgroundColor:'#FAFAFA',
 	scrollable: false
 },
@@ -605,7 +600,8 @@
 	bottom: "13dp"
 },
 ".tableRow[if=Alloy.Globals.android]":{
-	height: '45dp'
+	height: '45dp',
+	selectedBackgroundColor: "#E5E5E5"
 },
 "#row0[if=Alloy.Globals.android]":{
 	layout: 'vertical',
