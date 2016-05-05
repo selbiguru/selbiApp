@@ -320,8 +320,6 @@ function clearProxy(e) {
 	$.off();
 	$.destroy();
 	removeEventListeners();
-	$.selbiUSAView.remove($.activityIndicator);
-	$.activityIndicator = null;
 	/*if(e !== 'mylistings') {
 		this.removeEventListener('click', clearProxy);	
 	}*/
