@@ -105,16 +105,17 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
-        <module version="2.1">com.obscure.keychain</module>
-        <module platform="android">facebook</module>
-        <module platform="iphone">facebook</module>
-        <module platform="android">com.animecyc.animator</module>
-        <module platform="iphone">com.animecyc.animator</module>
-        <module platform="commonjs">ti.cloud</module>
-        <module platform="commonjs">nl.fokkezb.html2as</module>
-        <module platform="iphone">ti.imagefactory</module>
-        <module platform="iphone">com.omorandi</module>
-    </modules>
+    <module version="2.1">com.obscure.keychain</module>
+    <module platform="android">facebook</module>
+    <module platform="iphone">facebook</module>
+    <module platform="android">com.animecyc.animator</module>
+    <module platform="iphone">com.animecyc.animator</module>
+    <module platform="commonjs">ti.cloud</module>
+    <module platform="commonjs">nl.fokkezb.html2as</module>
+    <module platform="iphone">ti.imagefactory</module>
+    <module platform="iphone">com.omorandi</module>
+    <module platform="commonjs">com.falkolab.lvmc</module>
+  </modules>
     <deployment-targets>
         <target device="android">true</target>
         <target device="ipad">true</target>

@@ -188,7 +188,7 @@ exports.alterTextFormat = function(text, length, toUpperCase){
 	if(trimmedTitle.length > length) {
 		trimmedTitle = trimmedTitle.slice(0, length) + '..';	
 	}
-	return toUpperCase ? trimmedTitle.toUpperCase() : trimmedTitle;
+	return toUpperCase ? this.capFirstLetter(trimmedTitle) : trimmedTitle;
 };
 
 //trims string by removing spaces

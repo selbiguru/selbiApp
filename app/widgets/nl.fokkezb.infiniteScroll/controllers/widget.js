@@ -68,17 +68,18 @@ function init(parent) {
 }
 
 function mark() {
-  
   if (list) {
+    if(!_.isUndefined(parentSymbol.sectionCount) && parentSymbol.sectionCount > 0) {
+      var sectionIndex = parentSymbol.sectionCount - 1;
+      var itemIndex = Math.max(parentSymbol.sections[sectionIndex].items.length - 1);
 
-    // sectionCount can be 0 on Android?!
-    var sectionIndex = Math.max(0, parentSymbol.sectionCount - 1);
-  
-    parentSymbol.setMarker({
-      sectionIndex: sectionIndex,
-      itemIndex: parentSymbol.sections[sectionIndex].items.length - 1
-    });
-  
+      if (sectionIndex + itemIndex > 0) {
+        parentSymbol.setMarker({
+          sectionIndex: sectionIndex,
+          itemIndex: itemIndex
+        });
+      }
+    }
   } else {
     position = null;
   }
@@ -181,7 +182,7 @@ function onScroll(e) {
   return;
 }
 
-function dettach() {
+function detach() {
 
   // set as done
   state(exports.DONE);
@@ -195,8 +196,16 @@ function dettach() {
 
   // remove click event listener
   $.is.removeEventListener('click', load);
-
   return;
+}
+
+function cleanup() {
+	detach();
+	if (parentSymbol.footerView === $.is) {
+		parentSymbol.footerView = undefined;
+	}
+
+	parentSymbol = undefined;
 }
 
 function setOptions(_options) {
@@ -222,6 +231,13 @@ function _updateMessage(_message) {
   }
 }
 
+function hide(){
+    $.is.hide();
+}
+function show(){
+    $.is.show();
+}
+
 exports.SUCCESS = 1;
 exports.ERROR = 0;
 exports.DONE = -1;
@@ -229,6 +245,10 @@ exports.DONE = -1;
 exports.setOptions = setOptions;
 exports.load = load;
 exports.state = state;
-exports.dettach = dettach;
+exports.dettach = detach;
+exports.detach = detach;
+exports.cleanup = cleanup;
 exports.init = init;
 exports.mark = mark;
+exports.hide = hide;
+exports.show = show;

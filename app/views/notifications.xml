@@ -12,7 +12,7 @@
 			
 		</View>
         <ActivityIndicator id="activityIndicator" message="Loading..."/>
-		<ListView defaultItemTemplate="defaultTemplate" allowsSelection=false>
+		<ListView defaultItemTemplate="defaultTemplate" allowsSelection="false">
             <Templates>
                 <ItemTemplate id='defaultTemplate' class='notifications-template' name="defaultTemplate">
                     <ImageView class='user-image' bindId="userImage" />

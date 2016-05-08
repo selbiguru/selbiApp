@@ -6,38 +6,37 @@ var listingManager = require('managers/listingmanager'),
 	modalManager = require('managers/modalmanager'),
 	helpers = require('utilities/helpers'),
 	dynamicElement = require('utilities/dynamicElement');
-var	selbiUSAPadding, selbiUSAItemHeight, selbiUSAFontSize;
-var items = [],
-	obj = [],
-	categoryArray = [];
+var	selbiUSAItemWidth, selbiUSAItemHeight, selbiUSAFontSize;
+var	categoryArray = [];
 var paginateLastDate = '';
 var endOfListings = false;
-var stopScroll = true;
+var loadMoreItems = false;
+var loading = false;
 
 switch(Alloy.Globals.userDevice) {
     case 0: //iphoneFour
-        selbiUSAPadding = 7;
-        selbiUSAItemHeight = 45;
+        selbiUSAItemWidth = 310;
+        selbiUSAItemHeight = 200;
         selbiUSAFontSize = '12dp';
         break;
     case 1: //iphoneFive
-        selbiUSAPadding = 7;
-        selbiUSAItemHeight = 45;
+        selbiUSAItemWidth = 310;
+        selbiUSAItemHeight = 200;
         selbiUSAFontSize = '12dp';
         break;
     case 2: //iphoneSix
-        selbiUSAPadding = 10;
-        selbiUSAItemHeight = 49;
+        selbiUSAItemWidth = 364;
+        selbiUSAItemHeight = 235;
         selbiUSAFontSize = '14dp';
         break;
     case 3: //iphoneSixPlus
-        selbiUSAPadding = 13;
-        selbiUSAItemHeight = 49;
+        selbiUSAItemWidth = 398;
+        selbiUSAItemHeight = 255;
         selbiUSAFontSize = '15dp';
         break;
     case 4: //android currently same as iphoneSix
-        selbiUSAPadding = 10;
-        selbiUSAItemHeight = 49;
+        selbiUSAItemWidth = 364;
+        selbiUSAItemHeight = 235;
         selbiUSAFontSize = '14dp';
         break;
 };
@@ -45,11 +44,11 @@ switch(Alloy.Globals.userDevice) {
 
 $.activityIndicator.show();
 $.titleSelbiUSALabel.text = "Selbi USA";
-genUSAItems(function(err, items){
 
-});
 
 //------------------------------------------------FUNCTION-------------------------------------------------------------//
+
+
 
 
 
@@ -59,7 +58,10 @@ genUSAItems(function(err, items){
  * @param {Function} cb Callback function
  */
 function genUSAItems(cb){
-	items = [];
+	if(loading) {
+		return;
+	}
+	loading = true;
 	var selbiUSAObj = {
 		createdAt: paginateLastDate,
 		categories: categoryArray.length > 0 ? categoryArray : false
@@ -67,96 +69,189 @@ function genUSAItems(cb){
 	listingManager.getSelbiListings(argsID, selbiUSAObj, function(err, selbiListings){
 		selbiListings.listings.length > 0 ? paginateLastDate = selbiListings.listings[selbiListings.listings.length - 1].createdAt : '';
 		selbiListings.listings.length < 30 ? endOfListings = true : endOfListings = false;
-		var listItems = [];	
+		
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading all the USA listings! We are working on a fix!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
+			return cb(err, null);
 		} else if(selbiListings && selbiListings.listings.length > 0) {
-			for(var listing in selbiListings.listings) {
-				if(selbiListings.listings[listing].imageUrls){
-					var view = Alloy.createController('myitemtemplate');
-					var imageUrl = selbiListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].mylistView + Alloy.CFG.cloudinary.bucket + selbiListings.listings[listing].imageUrls[0] : "";
-					var tmp = {
-						image :  imageUrl,
-						listingItem:{
-			        		borderColor: selbiListings.listings[listing].isSold ? "#1BA7CD" : "#E5E5E5",
-			        		borderWidth: selbiListings.listings[listing].isSold ? '3dp' : '1dp'
-			        	},
-			            listingThumb : {
-			                image :  imageUrl
-			            },
-			            listingTitle : {
-			                text : selbiListings.listings[listing].title,
-			                color: selbiListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
-			            },
-			            listingPrice: {
-			            	text: selbiListings.listings[listing].price.formatMoney(2),
-			            	color: selbiListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
-			            },
-			            listingImagesCount: {
-			            	text: selbiListings.listings[listing].isSold ? "SOLD" : selbiListings.listings[listing].imageUrls.length > 1 ? "+" + selbiListings.listings[listing].imageUrls.length + " Images" : selbiListings.listings[listing].imageUrls.length + " Image"	,
-		        			font: selbiListings.listings[listing].isSold ? {fontFamily: 'Nunito-Bold', fontSize: selbiUSAFontSize } : {fontFamily: 'Nunito-Light', fontSize: selbiUSAFontSize } ,
-		        			color: selbiListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
-			            },  
-			            template: 'myitemtemplate',
-			            properties: {
-			            	itemId: selbiListings.listings[listing].id,
-			            	userName: selbiListings.firstName +" "+ selbiListings.lastName,
-			            	userId: selbiListings.listings[listing].user,
-			            	isSold: selbiListings.listings[listing].isSold
-			            }
-			        };
-			        view.updateViews({
-			        	'#listingItem':{
-			        		borderColor: selbiListings.listings[listing].isSold ? "#1BA7CD" : "#E5E5E5",
-			        		borderWidth: selbiListings.listings[listing].isSold ? '3dp' : '1dp'
-			        	},
-			        	'#listingThumb':{
-			        		image: imageUrl
-			        	},
-			        	'#listingTitle': {
-			        		text: helpers.alterTextFormat(selbiListings.listings[listing].title, 14, true),
-			        		color: selbiListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
-			        	},
-			        	'#listingPrice':{ 
-			        		text: selbiListings.listings[listing].price.formatMoney(2),
-			        		color: selbiListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"	
-
-		        		},
-		        		'#listingImagesCount':{ 
-			        		text: selbiListings.listings[listing].isSold ? "SOLD" : selbiListings.listings[listing].imageUrls.length > 1 ? "+" + selbiListings.listings[listing].imageUrls.length + " Images" : selbiListings.listings[listing].imageUrls.length + " Image"	,
-		        			font: selbiListings.listings[listing].isSold ? {fontFamily: 'Nunito-Bold', fontSize: selbiUSAFontSize } : {fontFamily: 'Nunito-Light', fontSize: selbiUSAFontSize } ,
-		        			color: selbiListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
-		        		}
-			        });
-			        
-			        //listItems.push(tmp);
-					items.push({
-				        view: view.getView(),
-				        data: tmp
-				    });
-				    obj.push('not');
-				   // lView.getView().close();
-				    //lView = null;
-				    view = null;
-				}
-			}
-			//ADD ALL THE ITEMS TO THE GRID
-			$.fg.addGridItems(items);
+			return cb(err, selbiListings.listings);
 			
-		} else if (selbiListings && selbiListings.listings.length === 0) {
-			dynamicElement.defaultLabel('Dang! Nothing was found at the moment :( Check back soon!', function(err, results) {
+		} else if (selbiListings && selbiListings.listings.length === 0 && !loadMoreItems) {
+			dynamicElement.defaultLabel('Dang! Nothing was found! :( Check back soon!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
+			return cb(err, selbiListings.listings);
 		}
-		$.activityIndicator.hide();
-		$.activityIndicator.height = '0dp';
-		cb(err, []);	
+		return cb(err, selbiListings.listings);	
 	});
 };
+
+
+
+
+/**
+ * @method transform 
+ * Generates the view for selbi USA using 'selbiUsaTemplate' as the defacto template.
+ * @param {Array} items Listings returned from DB
+ * @param {Number} columns Number of columns for grid
+ * @param {Number} startIndex Index number of where to start to load more listings (if applicable)
+ */
+function transform(items, columns, startIndex) {
+	var items = _.map(items, function(item, index) {
+		if(item.imageUrls) {
+			var imageUrl = item.imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].mylistView + Alloy.CFG.cloudinary.bucket + item.imageUrls[0] : "";
+			return {
+				listingItem:{
+	        		borderColor: item.isSold ? "#1BA7CD" : "#E5E5E5",
+	        		borderWidth: item.isSold ? '3dp' : '1dp',
+	        		data: {
+		            	itemId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	userId: item.user,
+		            	isSold: item.isSold
+		            }
+	        	},
+	            listingThumb : {
+	                image :  imageUrl,
+	                data: {
+		            	itemId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	userId: item.user,
+		            	isSold: item.isSold
+		            }
+	            },
+	            listingDetails: {
+	            	data: {
+		            	itemId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	userId: item.user,
+		            	isSold: item.isSold
+		            }
+	            },
+	            listingTitle : {
+	                text : helpers.alterTextFormat(item.title, 18, true),
+	                color: item.isSold ? "#1BA7CD" : "#9B9B9B",
+	                data: {
+		            	itemId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	userId: item.user,
+		            	isSold: item.isSold
+		            }
+	            },
+	            listingPrice: {
+	            	text: item.price.formatMoney(2),
+	            	color: item.isSold ? "#1BA7CD" : "#9B9B9B",
+	            	data: {
+		            	itemId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	userId: item.user,
+		            	isSold: item.isSold
+		            }
+	            },
+	            listingImagesCount: {
+	            	text: item.isSold ? "SOLD" : item.imageUrls.length > 1 ? "+" + item.imageUrls.length + " Images" : item.imageUrls.length + " Image"	,
+        			font: item.isSold ? {fontFamily: 'Nunito-Bold', fontSize: selbiUSAFontSize } : {fontFamily: 'Nunito-Light', fontSize: selbiUSAFontSize } ,
+        			color: item.isSold ? "#1BA7CD" : "#9B9B9B",
+        			data: {
+		            	itemId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	userId: item.user,
+		            	isSold: item.isSold
+		           }
+	            },
+	            properties: {
+	            	backgroundColor: '#FAFAFA'
+	            },	        
+			};
+		}
+	});
+	if(items.length % 2 != 0) {
+		items.push({
+			emptyListingItem:{
+				
+			},
+			properties: {
+				backgroundColor: '#FAFAFA',
+			},
+			template: 'selbiUsaTemplate2'
+		});
+	}
+	
+	return adjustItemsSize(items, columns);
+}
+
+
+
+
+/**
+ * @method onLoadMore 
+ * Generates more listings loaded for infitine scroll.
+ * @param {Object} e Event object
+ */
+function onLoadMore(e) {
+	loadMoreItems = true;
+	if(!endOfListings) {
+		genUSAItems(function(err, items){
+			var lvmc = require('com.falkolab.lvmc');
+			var section = lvmc.wrap($.getView('selbiUSAListView').sections[0]);
+	
+			section.appendItems(transform(items, 2, section.getItems().length));
+			loading = false;
+			if(err) {
+				e.error();	
+			} else if(endOfListings) {
+				$.is.cleanup();
+			} else {
+				e.success();
+			}
+		});
+	} else {
+		return;
+	}
+}
+
+
+
+/**
+ * @method getScreenSize 
+ * Determines phone screen size and adjusts items of listing accordingly for grid layout.
+ */
+function getScreenSize() {
+	var height = Ti.Platform.displayCaps.platformHeight;
+    var width = Ti.Platform.displayCaps.platformWidth;
+    var dpi = Ti.Platform.displayCaps.dpi;
+                
+    if(Ti.Platform.osname =='android') {
+        selbiUSAItemHeight = height/dpi*160;
+        selbiUSAItemWidth = width/dpi*160;
+    }
+    
+    return {
+    	width: selbiUSAItemWidth,
+    	height: selbiUSAItemHeight
+    };
+}
+
+
+
+/**
+ * @method adjustItemsSize 
+ * Determines phone screen size and adjusts items of listing accordingly for grid layout.
+ * @param {Array} items Array of transformed items to add size to properties
+ * @param {Number} columns Number of columns of grid
+ */
+function adjustItemsSize(items, columns) {
+	var size = getScreenSize();
+	return _.map(items, function(item) {
+		item.properties.width = size.width/columns;
+		item.properties.height = size.height;	
+		return item;		
+	});
+}
 
 
 
@@ -194,6 +289,15 @@ function findUserListings(){
 
 
 /**
+ * @method listingItemClick 
+ * Targets SelbiUSA item that was clicked on from ListView and passes data to openListing function
+ * @param {Object} e Event object containing listingId and userId for the item clicked
+ */
+function listingItemClick(e) {
+	openListing(e.source.data);
+}
+
+/**
  * @method openListing 
  * Opens viewlisting view and shows the targeted item that was clicked on
  * @param {Object} listingId Object containing listingId and userId for the item
@@ -214,25 +318,6 @@ function openListing(listingIDs){
 		}
 	}	
 };
-
-
-
-
-/**
- * @method infitineScroll
- * Determines when to load more items on scrolling for SelbiUSA items
- */
-function infitineScroll(e) {
-	if(!endOfListings) {
-		var tolerance = 450;
-		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewSelbi.getRect().height + e.y) && stopScroll){
-			stopScroll = false;
-			genUSAItems(function(err, itemsResponse) {
-				stopScroll = true;
-			});
-		}	
-	}
-}
 
 
 
@@ -262,23 +347,17 @@ function filterListings() {
 				animateWindowClose = animateWindowClose.scale(0);
 			categoryArray = [];
 			paginateLastDate = '';
+			loadMoreItems = false;
 			for(var i = 0; i < results.filterSwitchView.children.length; i++) {
 				if(results.filterSwitchView.children[i].children[0].value) {
 					categoryArray.push(results.filterSwitchView.children[i].children[0].id);
 				}
 			}
-			$.fg.clearGrid();
-			for(var i in items) {
-				items[i].view = null;
-				items[i].data = null;
-			}
 			$.defaultView.height= '0dp';
 			if($.defaultView.children.length > 0) {
 				$.defaultView.remove($.defaultView.children[0]);	
 			}
-			genUSAItems(function(err, itemsResponse) {
-				
-			});
+			init();
 			results.modalWindow.close({transform:animateWindowClose, duration:300});
 			animateWindowClose = null;
 		});
@@ -303,7 +382,6 @@ function keyboardSearch(){
  * Removes event listeners
  */
 function removeEventListeners() {
-	$.scrollViewSelbi.removeEventListener('scroll', infitineScroll);
 	$.filterButton.removeEventListener('click', filterListings);
 	$.selbiUSAView.removeEventListener('click', blurTextField);
 	$.usernameSearch.removeEventListener('return', keyboardSearch);
@@ -323,12 +401,7 @@ function clearProxy(e) {
 	/*if(e !== 'mylistings') {
 		this.removeEventListener('click', clearProxy);	
 	}*/
-	$.fg.clearGrid();
-	for(var i in items) {
-		items[i].view = null;
-		items[i].data = null;
-	}
-	//$.selbiUSAView = null;
+	//$.selbiUSAView = null;*/
 	
 	console.log('solve anything yet?^ ', e);
 }
@@ -337,23 +410,27 @@ function clearProxy(e) {
 
 //-------------------------------------------Initializing Views/Styles----------------------------------------------------//
 
-$.fg.init({
-    columns: 2,
-    space: selbiUSAPadding,
-    gridBackgroundColor:'#FAFAFA',
-    itemHeightDelta: selbiUSAItemHeight,
-    itemBackgroundColor:'#FAFAFA',
-    itemBorderColor:'transparent',
-    itemBorderWidth:0,
-    itemBorderRadius:0
-});
-$.fg.setOnItemClick(function(e){
-    openListing({
-    	userId:e.source.data.properties.userId,
-    	itemId:e.source.data.properties.itemId,
-    });
-});
+/**
+ * @method init 
+ * Initiates the grid on page load for selbiUSA listings.
+ */
+function init() {
+	genUSAItems(function(err, items){
+		var lvmc = require('com.falkolab.lvmc');
+		var section = lvmc.wrap($.getView('selbiUSAListView').sections[0]);
+		var transformed = transform(items, 2, section.getItems().length);
+		section.setItems(transformed);
+		loading = false;
+		if ($.is && !endOfListings) {
+			$.is.init($.getView('selbiUSAListView'));
+			$.is.mark();
+		}
+		$.activityIndicator.hide();
+		$.activityIndicator.height = '0dp';
+	});
+};
 
+init();
 
 
 
@@ -361,13 +438,15 @@ $.fg.setOnItemClick(function(e){
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
 
 
-$.scrollViewSelbi.addEventListener('scroll', infitineScroll);
+
 $.filterButton.addEventListener('click', filterListings);
 $.selbiUSAView.addEventListener('click', blurTextField);
 $.usernameSearch.addEventListener('return', keyboardSearch); 
 $.searchUserButton.addEventListener('click', findUserListings);
 
 Alloy.Globals.addKeyboardToolbar($.usernameSearch, blurTextField);
+
+
 
 exports.cleanup = function () {
 	Ti.API.info('Cleaning selbiUSAView');
@@ -378,5 +457,3 @@ exports.cleanup = function () {
 	Alloy.Globals.deallocate($);
     $ = null;
 };
-
-

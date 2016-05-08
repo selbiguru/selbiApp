@@ -47,6 +47,7 @@ Download this repository and consult the [Alloy Documentation](http://docs.appce
 * In the callback set via `myLoader` you call either `e.success()`, `e.error()` or `e.done()` optionally passing a custom message.
 
 	```javascript
+	// NOTE: do not use: var myLoader = function(e) {
 	function myLoader(e) {
 
 		var ln = myCollection.models.length;
@@ -108,7 +109,8 @@ You can also manually trigger the loading state of the widget. You could use thi
 | setOptions | `object`   | Set any of the options
 | load       |            | Manually trigger the `end` event and loading state
 | state      | `state`, `string`    | Manually set the state. The first argument should be one of the exported `SUCCESS`, `DONE` and `ERROR` constants. The second optional argument is a custom message to display instead of the message belonging to the state.
-| dettach    |            | Manually set the `DONE` state and remove the scroll listener
+| detach    |            | Manually set the `DONE` state and remove the scroll listener
+| cleanup   |            | Detach and then unset the `footerView`
 | init       | `Ti.UI.TableView`, `Ti.UI.ListView` | Manually init the widget if it's the child element of the *TableView* or *ListView*, or to work around [TC-3417](https://jira.appcelerator.org/browse/TC-3417) in Alloy 1.3.0 and later.
 | mark       |            | If add/remove items from the *ListView* via other ways then the widget call `mark()` so the widget is triggered on the last item.
 
@@ -116,7 +118,11 @@ You can also manually trigger the loading state of the widget. You could use thi
 There is a test app and instructions in the [test](https://github.com/FokkeZB/nl.fokkezb.infiniteScroll/tree/test) branch.
 
 ## Changelog
-* 1.4.2:
+* 1.4.5:
+  * Fixes error on empty lists, renames `dettach()` to `detach()` and adds `cleanup()`.
+* 1.4.4:
+  * Added support for [TiCollectionView](https://github.com/mpociot/TiCollectionView).
+* 1.4.3:
   * Closes #30 so you can call `.mark()` to re-init the position tracking.
 * 1.4.2:
   * Fixes #29 for Alloy 1.5.0 
