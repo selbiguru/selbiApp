@@ -5,14 +5,13 @@ var listingManager = require('managers/listingmanager'),
 	helpers = require('utilities/helpers'),
 	friendsManager = require('managers/friendsmanager'),
 	dynamicElement = require('utilities/dynamicElement');
-var myListingPadding, myListingItemHeight,
-	myListingFontSize, myTopBarFontSize,
+var myListingFontSize, myTopBarFontSize,
+	myListingsItemWidth, myListingsItemHeight,
 	friendIconTop;
-var items = [],
-	obj = [];
 var paginateLastDate = '';
 var endOfListings = false;
-var stopScroll = true;
+var loadMoreItems = false;
+var loading = false;
 var queryObj = {
 	myself: Ti.App.Properties.getString('userId') === argsID ? true : false,
 	friends: argsFriend.length > 0 && argsFriend[0].status === 'approved' ? true : false
@@ -23,39 +22,39 @@ var tabsObject = Object.freeze({
 var tabView = tabsObject[args];
 switch(Alloy.Globals.userDevice) {
     case 0: //iphoneFour
-        myListingPadding = 7;
-        myListingItemHeight = 45;
         myListingFontSize = '12dp';
         myTopBarFontSize = '13dp';
         friendIconTop = '15dp';
+        myListingsItemWidth = 310;
+        myListingsItemHeight = 200;
         break;
     case 1: //iphoneFive
-        myListingPadding = 7;
-        myListingItemHeight = 45;
         myListingFontSize = '12dp';
         myTopBarFontSize = '13dp';
         friendIconTop = '12dp';
+        myListingsItemWidth = 310;
+        myListingsItemHeight = 200;
         break;
     case 2: //iphoneSix
-        myListingPadding = 10;
-        myListingItemHeight = 49;
         myListingFontSize = '14dp';
         myTopBarFontSize = '16dp';
         friendIconTop = '15dp';
+        myListingsItemWidth = 364;
+        myListingsItemHeight = 235;
         break;
     case 3: //iphoneSixPlus
-        myListingPadding = 13;
-        myListingItemHeight = 49;
         myListingFontSize = '15dp';
         myTopBarFontSize = '18dp';
         friendIconTop = '15dp';
+        myListingsItemWidth = 398;
+        myListingsItemHeight = 255;
         break;
     case 4: //android currently same as iphoneSix
-        myListingPadding = 10;
-        myListingItemHeight = 47;
         myListingFontSize = '14dp';
         myTopBarFontSize = '15dp';
         friendIconTop = '15dp';
+        myListingsItemWidth = 364;
+        myListingsItemHeight = 235;
         break;
 };
 
@@ -95,9 +94,7 @@ if(tabView === 1 || Ti.App.Properties.getString('userId') === argsID) {
 	$.titleMyListingsLabel.font = {fontSize: adjFontSize, fontFamily: "Nunito-Bold"};
 	$.titleMyListingsLabel.text = args;
 }
-genMyItems(function(err, items){
 
-});
 
 //------------------------------------------------FUNCTION-------------------------------------------------------------//
 
@@ -108,110 +105,212 @@ genMyItems(function(err, items){
  * @param {Function} cb Callback function
  */
 function genMyItems(cb){
-	items = [];
+	if(loading) {
+		return;
+	}
+	loading = true;
 	queryObj.createdAt = paginateLastDate;
 	listingManager.getUserListings(argsID, queryObj, function(err, userListings){
 		userListings.listings.length > 0 ? paginateLastDate = userListings.listings[userListings.listings.length - 1].createdAt : '';
-		userListings.listings.length < 30 ? endOfListings = true : '';
-		//var listItems = [];	
+		userListings.listings.length < 30 ? endOfListings = true : endOfListings = false;
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading listings!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
+			return cb(err, null);
 		} else if(userListings && userListings.listings.length > 0) {
-			for(var listing in userListings.listings) {
-				if(userListings.listings[listing].imageUrls){
-					var view = Alloy.createController('myitemtemplate');
-					var imageUrl = userListings.listings[listing].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].mylistView + Alloy.CFG.cloudinary.bucket + userListings.listings[listing].imageUrls[0] : "";
-					var tmp = {
-						image :  imageUrl,
-						listingItem:{
-			        		borderColor: userListings.listings[listing].isSold ? "#1BA7CD" : "#E5E5E5",
-			        		borderWidth: userListings.listings[listing].isSold ? '3dp' : '1dp'
-			        	},
-			            listingThumb : {
-			                image :  imageUrl
-			            },
-			            listingTitle : {
-			                text : userListings.listings[listing].title,
-			                color: userListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
-			            },
-			            listingPrice: {
-			            	text: userListings.listings[listing].price.formatMoney(2),
-			            	color: userListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
-			            },
-			            listingImagesCount: {
-			            	text: userListings.listings[listing].isSold ? "SOLD" : userListings.listings[listing].imageUrls.length > 1 ? userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"	,
-		        			font: userListings.listings[listing].isSold ? {fontFamily: 'Nunito-Bold', fontSize: myListingFontSize } : {fontFamily: 'Nunito-Light', fontSize: myListingFontSize } ,
-		        			color: userListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
-			            },  
-			            template: 'myitemtemplate',
-			            properties: {
-			            	itemId: userListings.listings[listing].id,
-			            	userName: userListings.firstName +" "+ userListings.lastName,
-			            	userId: userListings.listings[listing].user,
-			            	isSold: userListings.listings[listing].isSold
-			            }
-			        };
-			        view.updateViews({
-			        	'#listingItem':{
-			        		borderColor: userListings.listings[listing].isSold ? "#1BA7CD" : "#E5E5E5",
-			        		borderWidth: userListings.listings[listing].isSold ? '3dp' : '1dp'
-			        	},
-			        	'#listingThumb':{
-			        		image: imageUrl
-			        	},
-			        	'#listingTitle': {
-			        		text: helpers.alterTextFormat(userListings.listings[listing].title, 14, true),
-			        		color: userListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
-			        	},
-			        	'#listingPrice':{ 
-			        		text: userListings.listings[listing].price.formatMoney(2),
-			        		color: userListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"	
-
-		        		},
-		        		'#listingImagesCount':{ 
-			        		text: userListings.listings[listing].isSold ? "SOLD" : userListings.listings[listing].imageUrls.length > 1 ? userListings.listings[listing].imageUrls.length + " Images" : userListings.listings[listing].imageUrls.length + " Image"	,
-		        			font: userListings.listings[listing].isSold ? {fontFamily: 'Nunito-Bold', fontSize: myListingFontSize } : {fontFamily: 'Nunito-Light', fontSize: myListingFontSize } ,
-		        			color: userListings.listings[listing].isSold ? "#1BA7CD" : "#9B9B9B"
-		        		}
-			        });
-			        
-			        
-					//listItems.push(tmp);
-					items.push({
-				        view: view.getView(),
-				        data: tmp
-				    });
-				    obj.push('NotEmpty');
-				   // lView.getView().close();
-				    //lView = null;
-				    view = null;
-				}
-			}
-			
-			//ADD ALL THE ITEMS TO THE GRID
-			$.fg.addGridItems(items);
-			
-		} else if (userListings && userListings.listings.length === 0 && Ti.App.Properties.getString('userId') === argsID && obj.length === 0 ) {
+			return cb(err, userListings.listings);		
+		} else if (userListings && userListings.listings.length === 0 && Ti.App.Properties.getString('userId') === argsID && !loadMoreItems ) {
 			dynamicElement.defaultLabel('Wait what! You don\'t have any listings!  Add some now so you can start making money!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
-		} else if (userListings && userListings.listings.length === 0 && obj.length === 0) {
+			return cb(err, userListings.listings);
+		} else if (userListings && userListings.listings.length === 0 && !loadMoreItems) {
 			dynamicElement.defaultLabel('Sorry, It looks like this user doesn\'t have any listings!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
+			return cb(err, userListings.listings);
 		}
-		$.activityIndicator.hide();
-		$.activityIndicator.height = '0dp';
-		cb(err, []);	
+		return cb(err, userListings.listings);		
 	});
 };
 
 
+
+
+
+/**
+ * @method transform 
+ * Generates the view for myListings using 'myListingsListView' as the defacto template.
+ * @param {Array} items Listings returned from DB
+ * @param {Number} columns Number of columns for grid
+ * @param {Number} startIndex Index number of where to start to load more listings (if applicable)
+ */
+function transform(items, columns, startIndex) {
+	var items = _.map(items, function(item, index) {
+		if(item.imageUrls) {
+			var imageUrl = item.imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].mylistView + Alloy.CFG.cloudinary.bucket + item.imageUrls[0] : "";
+			return {
+				listingItem:{
+	        		borderColor: item.isSold ? "#1BA7CD" : "#E5E5E5",
+	        		borderWidth: item.isSold ? '3dp' : '1dp',
+	        		data: {
+		            	itemId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	userId: item.user,
+		            	isSold: item.isSold
+		            }
+	        	},
+	            listingThumb : {
+	                image :  imageUrl,
+	                data: {
+		            	itemId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	userId: item.user,
+		            	isSold: item.isSold
+		            }
+	            },
+	             listingDetails: {
+	            	data: {
+		            	itemId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	userId: item.user,
+		            	isSold: item.isSold
+		            }
+	            },
+	            listingTitle : {
+	                text : helpers.alterTextFormat(item.title, 18, true),
+	                color: item.isSold ? "#1BA7CD" : "#9B9B9B",
+	                data: {
+		            	itemId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	userId: item.user,
+		            	isSold: item.isSold
+		            }
+	            },
+	           	listingPrice: {
+	            	text: item.price.formatMoney(2),
+	            	color: item.isSold ? "#1BA7CD" : "#9B9B9B",
+	            	data: {
+		            	itemId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	userId: item.user,
+		            	isSold: item.isSold
+		            }
+	            },
+	            listingImagesCount: {
+	            	text: item.isSold ? "SOLD" : item.imageUrls.length > 1 ? item.imageUrls.length + " Images" : item.imageUrls.length + " Image"	,
+        			font: item.isSold ? {fontFamily: 'Nunito-Bold', fontSize: myListingFontSize } : {fontFamily: 'Nunito-Light', fontSize: myListingFontSize } ,
+        			color: item.isSold ? "#1BA7CD" : "#9B9B9B",
+        			data: {
+		            	itemId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	userId: item.user,
+		            	isSold: item.isSold
+		           }
+	            },
+	            properties: {
+	            	backgroundColor: '#FAFAFA'
+	            }
+			};
+		}
+	});
+	if(items.length % 2 != 0) {
+		items.push({
+			emptyListingItem:{
+				
+			},
+			properties: {
+				backgroundColor: '#FAFAFA',
+			},
+			template: 'myListingsTemplate2'
+		});
+	}
+	
+	return adjustItemsSize(items, columns);
+}
+
+
+
+
+/**
+ * @method onLoadMore 
+ * Generates more listings loaded for infitine scroll.
+ * @param {Object} e Event object
+ */
+function onLoadMore(e) {
+	loadMoreItems = true;
+	if(!endOfListings) {
+		genMyItems(function(err, items){
+			var lvmc = require('com.falkolab.lvmc');
+			var section = lvmc.wrap($.getView('myListingsListView').sections[0]);
+	
+			section.appendItems(transform(items, 2, section.getItems().length));
+			loading = false;
+			if(err) {
+				e.error();	
+			} else if(endOfListings) {
+				$.is.cleanup();
+			} else {
+				e.success();
+			}
+		});
+	} else {
+		return;
+	}
+}
+
+
+
+/**
+ * @method getScreenSize 
+ * Determines phone screen size and adjusts items of listing accordingly for grid layout.
+ */
+function getScreenSize() {
+	var height = Ti.Platform.displayCaps.platformHeight;
+    var width = Ti.Platform.displayCaps.platformWidth;
+    var dpi = Ti.Platform.displayCaps.dpi;
+                
+    if(Ti.Platform.osname =='android') {
+        myListingsItemHeight = height/dpi*160;
+        myListingsItemWidth = width/dpi*160;
+    }
+    
+    return {
+    	width: myListingsItemWidth,
+    	height: myListingsItemHeight
+    };
+}
+
+
+
+/**
+ * @method adjustItemsSize 
+ * Determines phone screen size and adjusts items of listing accordingly for grid layout.
+ * @param {Array} items Array of transformed items to add size to properties
+ * @param {Number} columns Number of columns of grid
+ */
+function adjustItemsSize(items, columns) {
+	var size = getScreenSize();
+	return _.map(items, function(item) {
+		item.properties.width = size.width/columns;
+		item.properties.height = size.height;	
+		return item;		
+	});
+}
+
+
+/**
+ * @method listingItemClick 
+ * Targets myListing item that was clicked on from ListView and passes data to openListing function
+ * @param {Object} e Event object containing listingId and userId for the item clicked
+ */
+function listingItemClick(e) {
+	openListing(e.source.data);
+}
 
 
 /**
@@ -379,44 +478,29 @@ function friendRequestDynamic(e, newStatus){
 //-------------------------------------------Initializing Views/Styles----------------------------------------------------//
 
 
-//Initializes tiFlexGgrid
-$.fg.init({
-    columns: 2,
-    space: myListingPadding,
-    gridBackgroundColor:'#FAFAFA',
-    itemHeightDelta: myListingItemHeight,
-    itemBackgroundColor:'#FAFAFA',
-    itemBorderColor:'transparent',
-    itemBorderWidth:0,
-    itemBorderRadius:0
-});
-//Sets click event on tiFlexGgrid item
-$.fg.setOnItemClick(function(e){
-    openListing({
-    	itemId:e.source.data.properties.itemId,
-    	userId:e.source.data.properties.userId,	
-    	userName:e.source.data.properties.userName,
-    	isSold: e.source.data.properties.isSold	
-    });
-});
-
-
-
 /**
- * @method infitineScroll
- * Determines when to load more items on scrolling for User's items
+ * @method init 
+ * Initiates the grid on page load for myListings listings.
  */
-function infitineScroll(e) {
-	if(!endOfListings) {
-		var tolerance = 450;
-		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewMyListings.getRect().height + e.y) && stopScroll){
-			stopScroll = false;
-			genMyItems(function(err, itemsResponse) {
-				stopScroll = true;
-			});
-		}	
-	}
-}
+function init() {
+	genMyItems(function(err, items){
+		var lvmc = require('com.falkolab.lvmc');
+		var section = lvmc.wrap($.getView('myListingsListView').sections[0]);
+		var transformed = transform(items, 2, section.getItems().length);
+		section.setItems(transformed);
+		loading = false;
+		if ($.is && !endOfListings) {
+			$.is.init($.getView('myListingsListView'));
+			$.is.mark();
+		}
+		$.activityIndicator.hide();
+		$.activityIndicator.height = '0dp';
+	});
+};
+
+init();
+
+
 
 
 /**
@@ -426,16 +510,8 @@ function infitineScroll(e) {
 function clearProxy(e) {
 	$.off();
 	$.destroy();
-	$.scrollViewMyListings.removeEventListener('scroll', infitineScroll);
 	$.fa.cleanup();
 	$.fa = null;
-	$.fg.cleanup();
-	$.fg = null;
-	for(var i in items) {
-		items[i].view = null;
-		items[i].data = null;
-	};
-	//$.myListingsView.remove($.scrollViewMyListings);
 	
 	console.log('solve anything yet?^ ', e);
 }
@@ -444,7 +520,7 @@ function clearProxy(e) {
 
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
 
-$.scrollViewMyListings.addEventListener('scroll', infitineScroll);
+
 
 exports.cleanup = function () {
 	Ti.API.info('Cleaning mylisting');

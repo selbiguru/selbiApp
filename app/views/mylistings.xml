@@ -19,8 +19,30 @@
 		</View>
 		
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
-		<ScrollView id="scrollViewMyListings">
-			<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
-		</ScrollView>
+		<ListView id="myListingsListView"
+			module="com.falkolab.lvmc" 
+			columns="2"
+			defaultItemTemplate="myListingsTemplate">
+			<Templates>				
+				<ItemTemplate name="myListingsTemplate">
+					<View onClick='listingItemClick' bindId="listingItem" id="listingItem">
+				        <ImageView bindId="listingThumb" id="listingThumb" image="http://www.lorempixel.com/700/600/" class="listing-thumb" />
+				        <View  bindId="listingDetails" id="listingDetailsView">
+					    	<Label bindId="listingTitle" id="listingTitle" class="listing-title">Product Title</Label>
+					        <Label bindId="listingPrice" id="listingPrice" class="listing-price" >$XX.XX</Label>
+						    <Label bindId="listingImagesCount" id="listingImagesCount" class="listing-images-count">1 Image</Label>
+					    </View> 
+				    </View>
+				</ItemTemplate>	
+				<ItemTemplate name="myListingsTemplate2">
+					<View bindId="emptyListingItem" id="emptyItem" backgroundColor="#fafafa" />
+				</ItemTemplate>
+			</Templates>
+			<ListSection 
+				module="com.falkolab.lvmc"
+				columns="2"
+				defaultItemTemplate="myListingsTemplate" />
+			<Widget id="is" src="nl.fokkezb.infiniteScroll" onEnd="onLoadMore" />
+		</ListView>
     </View>
 </Alloy>
