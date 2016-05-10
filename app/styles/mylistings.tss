@@ -96,6 +96,13 @@
 	right: '3dp',
 	backgroundColor: '#FAFAFA'
 },
+"#emptyItem[if=Alloy.Globals.iPhoneFour]": {
+	layout: "vertical",
+	left: '3dp',
+	top: '6dp',
+	right: '3dp',
+	backgroundColor: '#FAFAFA'
+},
 "#listingThumb[if=Alloy.Globals.iPhoneFour]": {
 	top: "0",
 	width: Ti.UI.FILL,
@@ -214,6 +221,13 @@
 	allowsSelection: 'false'
 },
 "#listingItem[if=Alloy.Globals.iPhoneFive]": {
+	layout: "vertical",
+	left: '3dp',
+	top: '6dp',
+	right: '3dp',
+	backgroundColor: '#FAFAFA'
+},
+"#emptyItem[if=Alloy.Globals.iPhoneFive]": {
 	layout: "vertical",
 	left: '3dp',
 	top: '6dp',
@@ -471,7 +485,13 @@
 	top: '10dp',
 	right: '5dp',
 	backgroundColor: '#FAFAFA'
-	
+},
+"#emptyItem[if=Alloy.Globals.iPhoneSixPlus]": {
+	layout: "vertical",
+	left: '5dp',
+	top: '10dp',
+	right: '5dp',
+	backgroundColor: '#FAFAFA'
 },
 "#listingThumb[if=Alloy.Globals.iPhoneSixPlus]": {
 	top: "0",
@@ -584,6 +604,13 @@
 	allowsSelection: 'false'
 },
 "#listingItem[if=Alloy.Globals.android]": {
+	layout: "vertical",
+	left: '5dp',
+	top: '10dp',
+	right: '5dp',
+	backgroundColor: '#FAFAFA'
+},
+"#emptyItem[if=Alloy.Globals.android]": {
 	layout: "vertical",
 	left: '5dp',
 	top: '10dp',

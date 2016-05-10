@@ -156,7 +156,7 @@ function transform(items, columns, startIndex) {
 			return {
 				listingItem:{
 	        		borderColor: item.isSold ? "#1BA7CD" : "#E5E5E5",
-	        		borderWidth: item.isSold ? '3dp' : '1dp',
+	        		borderWidth: item.isSold ? '5dp' : '1dp',
 	        		data: {
 		            	itemId: item.id,
 		            	userName: item.firstName +" "+ item.lastName,

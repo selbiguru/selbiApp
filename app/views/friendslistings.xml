@@ -23,8 +23,29 @@
 			
 		</View>
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
-		<ScrollView id="scrollViewFriends">
-			<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
-		</ScrollView>
+		<ListView id="friendsListingListView"
+			module="com.falkolab.lvmc" 
+			columns="2"
+			defaultItemTemplate="friendsListingsTemplate">
+			<Templates>
+				<ItemTemplate name="friendsListingsTemplate">
+				    <View onClick='listingItemClick' bindId="usaListingItem" id="usaListingItem">
+					    <ImageView bindId="usaImageThumb" id="usaImageThumb" image="http://www.lorempixel.com/700/600/" class="usa-image-thumb" />
+					    <Label bindId="usaListingName" id="usaListingName" class="usa-listing-name">$XX.XX</Label>
+					    <Label bindId="usaListingNumber" id="usaListingNumber" class="usa-listing-number">1 Image</Label>
+				        <ImageView bindId="usaListingThumb" id="usaListingThumb" image="http://www.lorempixel.com/700/600/" class="listing-thumb" />
+				    </View>
+				</ItemTemplate>	
+				<ItemTemplate name="friendsListingsTemplate2">
+					<View bindId="emptyListingItem" id="emptyItem">
+				    </View>
+				</ItemTemplate>
+			</Templates>
+			<ListSection 
+				module="com.falkolab.lvmc"
+				columns="2"
+				defaultItemTemplate="friendsListingsTemplate" />
+			<Widget id="is" src="nl.fokkezb.infiniteScroll" onEnd="onLoadMore" />
+		</ListView>
     </View>
 </Alloy>

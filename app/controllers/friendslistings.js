@@ -5,115 +5,230 @@ var listingManager = require('managers/listingmanager'),
 	friendsManager = require('managers/friendsmanager'),
 	helpers = require('utilities/helpers'),
 	dynamicElement = require('utilities/dynamicElement');
-var friendsPadding, friendsItemHeight;
-var items = [],
-	obj = [];
+var friendsListingsItemWidth, friendsListingsItemHeight;
 var paginateLastDate = '';
 var endOfListings = false;
-var stopScroll = true;
+var loadMoreItems = false;
+var loading = false;
 
 
 $.activityIndicator.show();
 $.titleFriendsListingsLabel.text = "Friends Listings";
-genFriendsItems(function(err, items){
 
-});
+
+switch(Alloy.Globals.userDevice) {
+    case 0: //iphoneFour
+        friendsListingsItemWidth = 310;
+        friendsListingsItemHeight = 200;
+        break;
+    case 1: //iphoneFive
+        friendsListingsItemWidth = 310;
+        friendsListingsItemHeight = 200;
+        break;
+    case 2: //iphoneSix
+        friendsListingsItemWidth = 364;
+        friendsListingsItemHeight = 235;
+        break;
+    case 3: //iphoneSixPlus
+        friendsListingsItemWidth = 398;
+        friendsListingsItemHeight = 255;
+        break;
+    case 4: //android currently same as iphoneSix
+        friendsListingsItemWidth = 364;
+        friendsListingsItemHeight = 235;
+        break;
+};
 
 //------------------------------------------------FUNCTION-------------------------------------------------------------//
 
 
 
-
-
-
 /**
  * @method genFriendsItems 
- * Generates the view for friends using 'friendsitemtemplates' as the defacto template.
+ * Generates the view for friends using 'friendsListingsTemplate' as the defacto template.
  * @param {Function} cb Callback function
  */
 function genFriendsItems(cb){
-	items = [];
+	if(loading) {
+		return;
+	}
+	loading = true;
 	dateObj = {
 		updatedAt: paginateLastDate
 	};
 	listingManager.getFriendsListings(argsID, dateObj, function(err, friendsListings){
 		friendsListings.length > 0 ? paginateLastDate = friendsListings[friendsListings.length - 1].updatedAt : '';
 		friendsListings.length < 30 ? endOfListings = true : endOfListings = false;
-		var listItems = [];
 		if(err) {
 			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading your friend\'s listings!  We are working on a fix!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
-		} else if(friendsListings && friendsListings.length > 0) {
-			for(var listing in friendsListings) {
-				if(friendsListings[listing].listings[0].imageUrls){
-					var view = Alloy.createController('userTwoColumnTemplate');
-					var imageUrl = friendsListings[listing].listings[0].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].friendlistView + Alloy.CFG.cloudinary.bucket + friendsListings[listing].listings[0].imageUrls[0] : "";
-					var profileImage = friendsListings[listing].profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + friendsListings[listing].profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
-					var tmp = {
-						image :  imageUrl,
-			            usaListingThumb : {
-			                image :  imageUrl
-			            },
-			            usaImageThumb : {
-			                image : profileImage
-			            },
-			            usaListingName: {
-			            	text: (friendsListings[listing].firstName +" "+ friendsListings[listing].lastName).match(/([^\s]+)([\s])([^\s])/)[0]
-			            },
-			            usaListingNumber: {
-			            	text: friendsListings[listing].count > 1 ? friendsListings[listing].count + " Listings" : friendsListings[listing].count + " Listing"
-			            },  
-			            template: 'userTwoColumnTemplate',
-			            properties: {
-			            	userId: friendsListings[listing].id,
-			            	userName: friendsListings[listing].firstName +" "+ friendsListings[listing].lastName,
-			            	friends: friendsListings[listing].invitation
-			            }
-			        };
-			        view.updateViews({
-			        	'#usaListingThumb':{
-			        		image: imageUrl
-			        	},
-			        	'#usaImageThumb': {
-			        		image: profileImage
-			        	},
-			        	'#usaListingName':{ 
-			        		text: (friendsListings[listing].firstName +" "+ friendsListings[listing].lastName).length > 14 ? helpers.alterTextFormat((friendsListings[listing].firstName +" "+ friendsListings[listing].lastName).match(/([^\s]+)([\s])([^\s])/)[0], 13, false) : friendsListings[listing].firstName +" "+ friendsListings[listing].lastName
-		        		},
-		        		'#usaListingNumber':{ 
-			        		text: friendsListings[listing].count > 1 ? friendsListings[listing].count + " Listings" : friendsListings[listing].count + " Listing"	
-		        		}
-			        });
-			        
-			        
-					//listItems.push(tmp);
-					items.push({
-				        view: view.getView(),
-				        data: tmp
-				    });
-				    obj.push('not');
-				   // lView.getView().close();
-				    //lView = null;
-				    view = null;
-				}
-			}
-			
-			//ADD ALL THE ITEMS TO THE GRID
-			$.fg.addGridItems(items);
-			
-		} else {
-			dynamicElement.defaultLabel('It\'s easier to use Selbi with a network of friends. Go to Friends under the menu to add more friends!', function(err, results) {
+			return cb(err, null);
+		} else if(friendsListings && friendsListings.length > 0) {			
+			return cb(err, friendsListings);
+		} else if (friendsListings && friendsListings.length === 0 && !loadMoreItems) {
+			dynamicElement.defaultLabel('It\'s easier to use Selbi with a network of friends. Go to "Add Contacts" under the menu to add more friends!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
+			return cb(err, friendsListings);
 		}
-		$.activityIndicator.hide();
-		$.activityIndicator.height = '0dp';
-		cb(err, listItems);		
+		return cb(err, friendsListings);		
 	});
 };
+
+
+
+
+/**
+ * @method transform 
+ * Generates the view for friendsListings using 'friendsListingsTemplate' as the defacto template.
+ * @param {Array} items Listings returned from DB
+ * @param {Number} columns Number of columns for grid
+ * @param {Number} startIndex Index number of where to start to load more listings (if applicable)
+ */
+function transform(items, columns, startIndex) {
+	var items = _.map(items, function(item, index) {
+		if(item.listings[0].imageUrls) {
+			var imageUrl = item.listings[0].imageUrls ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].friendlistView + Alloy.CFG.cloudinary.bucket + item.listings[0].imageUrls[0] : "";
+			var profileImage = item.profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + item.profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
+			return {
+				usaListingItem : {
+					data: {
+		            	userId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	friends: item.invitation
+		            }
+				},
+				listingDetails : {
+					data: {
+		            	userId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	friends: item.invitation
+		            }
+				},
+	            usaListingThumb : {
+	                image :  imageUrl,
+	                data: {
+		            	userId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	friends: item.invitation
+		            }
+	            },
+	            usaImageThumb : {
+	                image : profileImage,
+	                data: {
+		            	userId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	friends: item.invitation
+		            }
+	            },
+	            usaListingName: {
+	            	text: (item.firstName +" "+ item.lastName).length > 14 ? helpers.alterTextFormat((item.firstName +" "+ item.lastName).match(/([^\s]+)([\s])([^\s])/)[0], 13, false) : item.firstName +" "+ item.lastName,
+	            	data: {
+		            	userId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	friends: item.invitation
+		            }
+	            },
+	            usaListingNumber: {
+	            	text: item.count > 1 ? item.count + " Listings" : item.count + " Listing",
+	            	data: {
+		            	userId: item.id,
+		            	userName: item.firstName +" "+ item.lastName,
+		            	friends: item.invitation
+		            }
+	            },
+	            properties: {
+	            	backgroundColor: '#FAFAFA'
+	            }	        
+			};
+		}
+	});
+	if(items.length % 2 != 0) {
+		items.push({
+			emptyListingItem:{
+				
+			},
+			properties: {
+				backgroundColor: '#FAFAFA',
+			},
+			template: 'friendsListingsTemplate2'
+		});
+	}
+	
+	return adjustItemsSize(items, columns);
+}
+
+
+
+
+/**
+ * @method onLoadMore 
+ * Generates more listings loaded for infitine scroll.
+ * @param {Object} e Event object
+ */
+function onLoadMore(e) {
+	loadMoreItems = true;
+	if(!endOfListings) {
+		genFriendsItems(function(err, items){
+			var lvmc = require('com.falkolab.lvmc');
+			var section = lvmc.wrap($.getView('friendsListingListView').sections[0]);
+	
+			section.appendItems(transform(items, 2, section.getItems().length));
+			loading = false;
+			if(err) {
+				e.error();	
+			} else if(endOfListings) {
+				$.is.cleanup();
+			} else {
+				e.success();
+			}
+		});
+	} else {
+		return;
+	}
+}
+
+
+
+/**
+ * @method getScreenSize 
+ * Determines phone screen size and adjusts items of listing accordingly for grid layout.
+ */
+function getScreenSize() {
+	var height = Ti.Platform.displayCaps.platformHeight;
+    var width = Ti.Platform.displayCaps.platformWidth;
+    var dpi = Ti.Platform.displayCaps.dpi;
+                
+    if(Ti.Platform.osname =='android') {
+        friendsListingsItemHeight = height/dpi*160;
+        friendsListingsItemWidth = width/dpi*160;
+    }
+    
+    return {
+    	width: friendsListingsItemWidth,
+    	height: friendsListingsItemHeight
+    };
+}
+
+
+
+/**
+ * @method adjustItemsSize 
+ * Determines phone screen size and adjusts items of listing accordingly for grid layout.
+ * @param {Array} items Array of transformed items to add size to properties
+ * @param {Number} columns Number of columns of grid
+ */
+function adjustItemsSize(items, columns) {
+	var size = getScreenSize();
+	return _.map(items, function(item) {
+		item.properties.width = size.width/columns;
+		item.properties.height = size.height;	
+		return item;		
+	});
+}
 
 
 
@@ -150,6 +265,16 @@ function findUserListings(){
 }
 
 
+/**
+ * @method listingItemClick 
+ * Targets FriendsListings item that was clicked on from ListView and passes data to openListing function
+ * @param {Object} e Event object containing listingId and userId for the item clicked
+ */
+function listingItemClick(e) {
+	openListing(e.source.data);
+}
+
+
 
 /**
  * @method openListing 
@@ -169,21 +294,7 @@ function openListing(listingIDs){
 
 
 
-/**
- * @method infitineScroll
- * Determines when to load more items on scrolling for SelbiUSA items
- */
-function infitineScroll(e) {
-	if(!endOfListings) {
-		var tolerance = 450;
-		if((e.source.children[0].getRect().height - tolerance) <= ($.scrollViewFriends.getRect().height + e.y) && stopScroll){
-			stopScroll = false;
-			genFriendsItems(function(err, peace) {
-				stopScroll = true;
-			});
-		}	
-	}
-}
+
 
 
 /**
@@ -215,7 +326,6 @@ function keyboardSearch(){
  * Removes event listeners
  */
 function removeEventListeners() {
-	$.scrollViewFriends.removeEventListener('scroll', infitineScroll);
 	$.friendsListingsView.removeEventListener('click', blurTextField);
 	$.usernameSearch.removeEventListener('return', keyboardSearch);
 };
@@ -226,73 +336,49 @@ function removeEventListeners() {
  * Clears up memory leaks from dynamic elements created when page closes
  */
 function clearProxy(e) {
-	console.log('boog boog boog boog ', e);
 	$.off();
 	$.destroy();
 	removeEventListeners();
 	if(e !== 'mylistings') {
 		this.removeEventListener('click', clearProxy);	
 	}
-	$.fg.clearGrid();
-	for(var i in items) {
-		items[i].view = null;
-		items[i].data = null;
-	};
 	
 	console.log('solve anything yet?^ ', e);
-	$.friendsListingsView.parent.parent.children[0].removeEventListener('click', clearProxy);
 }
 
 
 //-------------------------------------------Initializing Views/Styles----------------------------------------------------//
 
-switch(Alloy.Globals.userDevice) {
-    case 0: //iphoneFour
-        friendsPadding = 7;//10; For 1 column layout
-        friendsItemHeight = 45;//-45; For 1 column layout
-        break;
-    case 1: //iphoneFive
-        friendsPadding = 7;//10; For 1 column layout
-        friendsItemHeight = 45;//-45; For 1 column layout
-        break;
-    case 2: //iphoneSix
-        friendsPadding = 10;//10; For 1 column layout
-        friendsItemHeight = 49;//-50; For 1 column layout
-        break;
-    case 3: //iphoneSixPlus
-        friendsPadding = 13;//13; For 1 column layout
-        friendsItemHeight = 54;//-49; For 1 column layout
-        break;
-    case 4: //android currently same as iphoneSix
-        friendsPadding = 10;//10; For 1 column layout
-        friendsItemHeight = 49;//-50; For 1 column layout
-        break;
-};
-$.fg.init({
-    columns: 2,
-    space: friendsPadding,
-    gridBackgroundColor:'#FAFAFA',
-    itemHeightDelta: friendsItemHeight,
-    itemBackgroundColor:'#FAFAFA',
-    itemBorderColor:'transparent',
-    itemBorderWidth:0,
-    itemBorderRadius:0
-});
-$.fg.setOnItemClick(function(e){
-    openListing({
-    	userId:e.source.data.properties.userId,	
-    	userName:e.source.data.properties.userName,
-    	friends:e.source.data.properties.friends,	
-    });
-});
 
+
+/**
+ * @method init 
+ * Initiates the grid on page load for friendsListings.
+ */
+function init() {
+	genFriendsItems(function(err, items){
+		var lvmc = require('com.falkolab.lvmc');
+		var section = lvmc.wrap($.getView('friendsListingListView').sections[0]);
+		var transformed = transform(items, 2, section.getItems().length);
+		section.setItems(transformed);
+		loading = false;
+		if ($.is && !endOfListings) {
+			$.is.init($.getView('friendsListingListView'));
+			$.is.mark();
+		}
+		$.activityIndicator.hide();
+		$.activityIndicator.height = '0dp';
+	});
+};
+
+init();
 
 
 
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
 
 
-$.scrollViewFriends.addEventListener('scroll', infitineScroll);
+
 $.friendsListingsView.addEventListener('click', blurTextField);
 $.usernameSearch.addEventListener('return', keyboardSearch);
 

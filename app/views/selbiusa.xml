@@ -39,7 +39,7 @@
 				    </View>
 				</ItemTemplate>	
 				<ItemTemplate name="selbiUsaTemplate2">
-					<View bindId="emptyListingItem" id="emptyItem" backgroundColor="#fafafa">
+					<View bindId="emptyListingItem" id="emptyItem">
 				    </View>
 				</ItemTemplate>
 			</Templates>
