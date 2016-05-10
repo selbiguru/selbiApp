@@ -31,11 +31,11 @@
 				<ItemTemplate name="selbiUsaTemplate">
 					<View onClick='listingItemClick' bindId="listingItem" id="listingItem">
 				        <ImageView bindId="listingThumb" id="listingThumb" image="http://www.lorempixel.com/700/600/" class="listing-thumb" />
-				        <View  bindId="listingDetails" id="listingDetailsView">
+				        
 					    	<Label bindId="listingTitle" id="listingTitle" class="listing-title">Product Title</Label>
 					        <Label bindId="listingPrice" id="listingPrice" class="listing-price" >$XX.XX</Label>
 						    <Label bindId="listingImagesCount" id="listingImagesCount" class="listing-images-count">1 Image</Label>
-					    </View> 
+					 
 				    </View>
 				</ItemTemplate>	
 				<ItemTemplate name="selbiUsaTemplate2">

@@ -132,14 +132,12 @@
 	allowsSelection: 'false'
 },
 "#listingItem[if=Alloy.Globals.iPhoneFour]": {
-	layout: "vertical",
 	left: '3dp',
 	top: '6dp',
 	right: '3dp',
 	backgroundColor: '#FAFAFA'
 },
 "#emptyItem[if=Alloy.Globals.iPhoneFour]": {
-	layout: "vertical",
 	left: '3dp',
 	top: '6dp',
 	right: '3dp',
@@ -150,12 +148,9 @@
 	width: Ti.UI.FILL,
 	height: '155dp'
 },
-"#listingDetailsView[if=Alloy.Globals.iPhoneFour]": {
-	height: Ti.UI.SIZE
-},
 ".listing-title[if=Alloy.Globals.iPhoneFour]": {
 	left: '6dp',
-	top: '3dp',
+	top: '158dp',
 	color: '#9B9B9B',
 	font: {
 		fontSize: '12dp',
@@ -164,7 +159,7 @@
 },
 ".listing-price[if=Alloy.Globals.iPhoneFour]": {
 	left: '6dp',
-	top: '20dp',
+	top: '175dp',
 	color: '#9B9B9B',
 	font: {
 		fontSize: '12dp',
@@ -173,7 +168,7 @@
 },
 ".listing-images-count[if=Alloy.Globals.iPhoneFour]": {
 	right: '6dp',
-	top: '20dp',
+	top: '175dp',
 	color: '#9B9B9B',
 	width: Titanium.UI.FILL,
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
@@ -301,14 +296,12 @@
 	allowsSelection: 'false'
 },
 "#listingItem[if=Alloy.Globals.iPhoneFive]": {
-	layout: "vertical",
 	left: '3dp',
 	top: '6dp',
 	right: '3dp',
 	backgroundColor: '#FAFAFA'
 },
 "#emptyItem[if=Alloy.Globals.iPhoneFive]": {
-	layout: "vertical",
 	left: '3dp',
 	top: '6dp',
 	right: '3dp',
@@ -319,12 +312,9 @@
 	width: Ti.UI.FILL,
 	height: '155dp'
 },
-"#listingDetailsView[if=Alloy.Globals.iPhoneFive]": {
-	height: Ti.UI.SIZE
-},
 ".listing-title[if=Alloy.Globals.iPhoneFive]": {
 	left: '6dp',
-	top: '3dp',
+	top: '158dp',
 	color: '#9B9B9B',
 	font: {
 		fontSize: '12dp',
@@ -333,7 +323,7 @@
 },
 ".listing-price[if=Alloy.Globals.iPhoneFive]": {
 	left: '6dp',
-	top: '20dp',
+	top: '175dp',
 	color: '#9B9B9B',
 	font: {
 		fontSize: '12dp',
@@ -342,7 +332,7 @@
 },
 ".listing-images-count[if=Alloy.Globals.iPhoneFive]": {
 	right: '6dp',
-	top: '20dp',
+	top: '175dp',
 	color: '#9B9B9B',
 	width: Titanium.UI.FILL,
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
@@ -470,14 +460,12 @@
 	allowsSelection: 'false'
 },
 "#listingItem[if=Alloy.Globals.iPhoneSix]": {
-	layout: "vertical",
 	left: '5dp',
 	top: '10dp',
 	right: '5dp',
 	backgroundColor: '#FAFAFA'
 },
 "#emptyItem[if=Alloy.Globals.iPhoneSix]": {
-	layout: "vertical",
 	left: '5dp',
 	top: '10dp',
 	right: '5dp',
@@ -488,12 +476,9 @@
 	width: Ti.UI.FILL,
 	height: '182dp'
 },
-"#listingDetailsView[if=Alloy.Globals.iPhoneSix]": {
-	height: Ti.UI.SIZE
-},
 ".listing-title[if=Alloy.Globals.iPhoneSix]": {
 	left: '7dp',
-	top: '3dp',
+	top: '185dp',
 	color: '#9B9B9B',
 	font: {
 		fontSize: '14dp',
@@ -502,7 +487,7 @@
 },
 ".listing-price[if=Alloy.Globals.iPhoneSix]": {
 	left: '7dp',
-	top: '22dp',
+	top: '204dp',
 	color: '#9B9B9B',
 	font: {
 		fontSize: '14dp',
@@ -511,7 +496,7 @@
 },
 ".listing-images-count[if=Alloy.Globals.iPhoneSix]": {
 	right: '7dp',
-	top: '22dp',
+	top: '204dp',
 	color: '#9B9B9B',
 	width: Titanium.UI.FILL,
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
@@ -638,14 +623,12 @@
 	allowsSelection: 'false'
 },
 "#listingItem[if=Alloy.Globals.iPhoneSixPlus]": {
-	layout: "vertical",
 	left: '5dp',
 	top: '10dp',
 	right: '5dp',
 	backgroundColor: '#FAFAFA'
 },
 "#emptyItem[if=Alloy.Globals.iPhoneSixPlus]": {
-	layout: "vertical",
 	left: '5dp',
 	top: '10dp',
 	right: '5dp',
@@ -656,12 +639,9 @@
 	width: Ti.UI.FILL,
 	height: '199dp'
 },
-"#listingDetailsView[if=Alloy.Globals.iPhoneSixPlus]": {
-	height: Ti.UI.SIZE
-},
 ".listing-title[if=Alloy.Globals.iPhoneSixPlus]": {
 	left: '7dp',
-	top: '3dp',
+	top: '202dp',
 	color: '#9B9B9B',
 	font: {
 		fontSize: '15dp',
@@ -670,7 +650,7 @@
 },
 ".listing-price[if=Alloy.Globals.iPhoneSixPlus]": {
 	left: '7dp',
-	top: '23dp',
+	top: '222dp',
 	color: '#9B9B9B',
 	font: {
 		fontSize: '15dp',
@@ -679,7 +659,7 @@
 },
 ".listing-images-count[if=Alloy.Globals.iPhoneSixPlus]": {
 	right: '7dp',
-	top: '23dp',
+	top: '222dp',
 	color: '#9B9B9B',
 	width: Titanium.UI.FILL,
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
@@ -803,14 +783,12 @@
 	allowsSelection: 'false'
 },
 "#listingItem[if=Alloy.Globals.android]": {
-	layout: "vertical",
 	left: '5dp',
 	top: '10dp',
 	right: '5dp',
 	backgroundColor: '#FAFAFA'
 },
 "#emptyItem[if=Alloy.Globals.android]": {
-	layout: "vertical",
 	left: '5dp',
 	top: '10dp',
 	right: '5dp',
@@ -821,12 +799,9 @@
 	width: Ti.UI.FILL,
 	height: '182dp'
 },
-"#listingDetailsView[if=Alloy.Globals.android]": {
-	height: Ti.UI.SIZE
-},
 ".listing-title[if=Alloy.Globals.android]": {
 	left: '7dp',
-	top: '3dp',
+	top: '185dp',
 	color: '#9B9B9B',
 	font: {
 		fontSize: '14dp',
@@ -835,7 +810,7 @@
 },
 ".listing-price[if=Alloy.Globals.android]": {
 	left: '7dp',
-	top: '22dp',
+	top: '204dp',
 	color: '#9B9B9B',
 	font: {
 		fontSize: '14dp',
@@ -844,7 +819,7 @@
 },
 ".listing-images-count[if=Alloy.Globals.android]": {
 	right: '7dp',
-	top: '22dp',
+	top: '204dp',
 	color: '#9B9B9B',
 	width: Titanium.UI.FILL,
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
