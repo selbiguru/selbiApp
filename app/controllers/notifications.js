@@ -2,7 +2,8 @@ var args = arguments[0] || {};
 var helpers = require('utilities/helpers'),
 	dynamicElement = require('utilities/dynamicElement'),
 	friendsManager = require('managers/friendsmanager'),
-	notificationManager = require('managers/notificationmanager');
+	notificationManager = require('managers/notificationmanager'),
+	indicator = require('uielements/indicatorwindow');
 
 $.activityIndicator.show();
 
@@ -115,6 +116,11 @@ function updateUser(){
 };
 
 function cancelNotification(e) {
+	var indicatorWindow = indicator.createIndicatorWindow({
+		message : "Updating"
+	});
+
+	indicatorWindow.openIndicator();
 	var invitationObject = {
 		userFrom: e.source.data.userTo,
 		userTo: e.source.data.userFrom,
@@ -124,7 +130,6 @@ function cancelNotification(e) {
 	friendsManager.updateFriendInvitationByUserIds( invitationObject, function(err, updateResult) {
 		if(err) {
 			helpers.alertUser('Oops','We are having trouble processing your request!');
-			return;
 		} else {
 			e.section.deleteItemsAt(e.itemIndex,1);
 			if(!$.notificationSection.getItemAt(0)) {
@@ -135,10 +140,17 @@ function cancelNotification(e) {
 			};
 			updateUser();
 		}
+		indicatorWindow.closeIndicator();
+		indicatorWindow = null;
 	});
 }
 
 function acceptNotification(e) {
+	var indicatorWindow = indicator.createIndicatorWindow({
+		message : "Updating"
+	});
+
+	indicatorWindow.openIndicator();
 	if(e.source.data.isSold) {
 		var deleteObj = {
 			notificationId: e.source.data.notificationId
@@ -146,7 +158,6 @@ function acceptNotification(e) {
 		notificationManager.deleteNotification(deleteObj, function(err, deleteResults) {
 			if(err) {
 				helpers.alertUser('Oops','We are having trouble processing your request!');
-				return;
 			} else {
 				e.section.deleteItemsAt(e.itemIndex,1);
 				if(!$.notificationSection.getItemAt(0)) {
@@ -157,6 +168,8 @@ function acceptNotification(e) {
 				};
 				updateUser();
 			}
+			indicatorWindow.closeIndicator();
+			indicatorWindow = null;
 		});
 	} else {
 		var invitationObject = {
@@ -168,7 +181,6 @@ function acceptNotification(e) {
 		friendsManager.updateFriendInvitationByUserIds( invitationObject, function(err, updateResult) {
 			if(err) {
 				helpers.alertUser('Oops','We are having trouble processing your request!');
-				return;
 			} else {
 				e.section.deleteItemsAt(e.itemIndex,1);
 				if(!$.notificationSection.getItemAt(0)) {
@@ -179,6 +191,8 @@ function acceptNotification(e) {
 				};
 				updateUser();
 			}
+			indicatorWindow.closeIndicator();
+			indicatorWindow = null;
 		});
 	}
 }
