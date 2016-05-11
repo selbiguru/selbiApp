@@ -126,6 +126,11 @@
 		fontSize: '16dp'
 	}
 },
+"#viewListingReferenceNumber[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+		fontSize: '16dp'
+	}
+},
 ".line-separator[if=Alloy.Globals.iPhoneFour]": {
 	top: '5dp'
 },
@@ -246,6 +251,11 @@
 	}
 },
 "#viewListingProductPrice[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+		fontSize: '18dp'
+	}
+},
+"#viewListingReferenceNumber[if=Alloy.Globals.iPhoneFive]": {
 	font: {
 		fontSize: '18dp'
 	}
@@ -371,6 +381,11 @@
 	}
 },
 "#viewListingProductPrice[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+		fontSize: '20dp'
+	}
+},
+"#viewListingReferenceNumber[if=Alloy.Globals.iPhoneSix]": {
 	font: {
 		fontSize: '20dp'
 	}
@@ -503,6 +518,12 @@
 		fontSize: '22dp'
 	}
 },
+"#viewListingReferenceNumber[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: '5dp',
+	font: {
+		fontSize: '22dp'
+	}
+},
 ".line-separator[if=Alloy.Globals.iPhoneSixPlus]": {
 	top: '5dp'
 },
@@ -622,6 +643,11 @@
 	}
 },
 "#viewListingProductPrice[if=Alloy.Globals.android]": {
+	font: {
+		fontSize: '20dp'
+	}
+},
+"#viewListingReferenceNumber[if=Alloy.Globals.android]": {
 	font: {
 		fontSize: '20dp'
 	}

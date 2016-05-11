@@ -129,10 +129,19 @@
 	},
 	width: Ti.UI.FILL,
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
-}
+},
 
 ".product-description": {
 	color: '#9B9B9B',
+	width: Ti.UI.FILL,
+	font:{
+		fontFamily: 'Nunito-Light'
+	},
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
+},
+
+".product-ref-num": {
+	color: '#1BA7CD',
 	width: Ti.UI.FILL,
 	font:{
 		fontFamily: 'Nunito-Light'
