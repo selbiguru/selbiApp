@@ -45,7 +45,7 @@
 	}
 },
 ".cancel-txt[if=Alloy.Globals.iPhoneFour]": {
-	top: '92dp',
+	top: '88dp',
 	color: "#FAFAFA",
 	bottom: '10dp',
 	font: {

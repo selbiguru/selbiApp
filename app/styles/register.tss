@@ -74,7 +74,7 @@
 ".cancel-txt[if=Alloy.Globals.iPhoneFour]": {
 	color: "#FAFAFA",
 	height: Titanium.UI.SIZE,
-	top: "37dp",
+	top: "40dp",
 	font: {
 		fontSize: "18dp",
 		fontFamily: "Nunito-Light"
@@ -84,7 +84,7 @@
 	top: "12dp",
 	color: "#FAFAFA",
 	font: {
-		fontSize: "16dp",
+		fontSize: "15dp",
 		fontFamily: "Nunito-Light"
 	}
 },
@@ -152,7 +152,7 @@
 ".cancel-txt[if=Alloy.Globals.iPhoneFive]": {
 	color: "#FAFAFA",
 	height: Titanium.UI.SIZE,
-	top: "59dp",
+	top: "64dp",
 	font: {
 		fontSize: "19dp",
 		fontFamily: "Nunito-Light"
@@ -162,7 +162,7 @@
 	top: "12dp",
 	color: "#FAFAFA",
 	font: {
-		fontSize: "16dp",
+		fontSize: "15dp",
 		fontFamily: "Nunito-Light"
 	}
 },
@@ -388,7 +388,7 @@
 	top: "10dp",
 	color: "#FAFAFA",
 	font: {
-		fontSize: "17dp",
+		fontSize: "16dp",
 		fontFamily: "Nunito-Light"
 	}
 },
