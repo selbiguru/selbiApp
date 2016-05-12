@@ -49,19 +49,21 @@
 },
 "#myListingsButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "18dp"
-        },
-	color: "#1BA7CD"
-},
-/*"#myListingsButtonBackIcon[if=Alloy.Globals.iPhoneFour]": {
-	font: {
-            fontSize: "24dp",
-            fontFamily: "Nunito-Bold"
+            fontSize: "22dp"
         },
 	color: "#1BA7CD",
 	top: '20dp',
+	left: '17dp'
+},
+"#myListingsButtonBackIcon[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "22dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	top: '18dp',
 	left: '15dp'
-},*/
+},
 "#titleMyListingsView[if=Alloy.Globals.iPhoneFour]": {
 	width: "180dp"
 },
@@ -69,9 +71,10 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "18dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '14dp',
 },
 "#friendRequestView[if=Alloy.Globals.iPhoneFour]": {
 	width: '70dp'

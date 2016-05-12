@@ -10,6 +10,10 @@
 	width: Ti.UI.FILL
 }
 
+
+
+
+
 //iPhone 4
 "#inviteFriendsTopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,
@@ -24,9 +28,10 @@
 },
 "#inviteFriendsButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "18dp"
+            fontSize: "22dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '24dp'
 },
 "#titleInviteFriendsView[if=Alloy.Globals.iPhoneFour]": {
 	right: "60dp"
@@ -36,9 +41,10 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "18dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 
 

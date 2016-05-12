@@ -32,17 +32,18 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "18dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 ".menu-icon-button[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "18dp",
+            fontSize: "22dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	//top: '25dp'
+	top: '24dp'
 },
 
 

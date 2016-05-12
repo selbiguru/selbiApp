@@ -92,9 +92,10 @@
 },
 "#editUserProfileButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "18dp"
+            fontSize: "22dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '24dp'
 },
 "#titleEditUserProfileView[if=Alloy.Globals.iPhoneFour]": {
 	width: "200dp",
@@ -104,25 +105,27 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "18dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 "#saveInfo[if=Alloy.Globals.iPhoneFour]": {
 	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "14dp",
+            fontSize: "16dp",
             fontFamily: "Nunito-Bold"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '18dp'
 },
 "#userProfileImage[if=Alloy.Globals.iPhoneFour]": {
-	height: "65dp",
-	width: "65dp",
+	height: "72dp",
+	width: "72dp",
 	top: "7dp",
-	borderRadius: '33dp',
+	borderRadius: '36dp',
 	preventDefaultImage: true
 },
 "#cameraOverlay[if=Alloy.Globals.iPhoneFour]": {

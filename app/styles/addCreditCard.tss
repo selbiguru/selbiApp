@@ -75,7 +75,7 @@
 },
 "#addCreditCardButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "18dp"
+            fontSize: "22dp"
         },
 	color: "#1BA7CD"
 },
@@ -87,25 +87,28 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "18dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 "#saveCreditCardView[if=Alloy.Globals.iPhoneFour]": {
 	width: '60dp'
 },
 "#saveCreditCardButton[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "14dp",
-            fontFamily: "Nunito-Bold"
-        },
+        fontSize: "16dp",
+        fontFamily: "Nunito-Bold"
+    },
+    top: '18dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "14dp",
+            fontSize: "22dp",
             fontFamily: "Nunito-Bold"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '24dp'
 },
 
 

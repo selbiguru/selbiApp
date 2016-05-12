@@ -29,7 +29,7 @@
 	left: "35dp",
 	color: "#1BA7CD",
 	font: {
-		fontSize: "20dp",
+		fontSize: "26dp",
 		fontFamily: "Nunito-Bold"
 	}
 },
@@ -104,11 +104,11 @@
 	height:"85dp"
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneFour]":{
-	height: "55dp",
-	width: "55dp",
-	borderRadius: '27dp',
-	left: "95dp",
-	top: "7dp"
+	height: "65dp",
+	width: "65dp",
+	borderRadius: '32dp',
+	left: "90dp",
+	top: "2dp"
 },
 "#menuUserName[if=Alloy.Globals.iPhoneFour]":{
 	right: "75dp"

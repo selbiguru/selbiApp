@@ -113,9 +113,11 @@
 },
 "#paymentButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "18dp"
+            fontSize: "22dp",
+            fontFamily: "Nunito-Bold"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '24dp',
 },
 "#titlePaymentView[if=Alloy.Globals.iPhoneFour]": {
 	right: "60dp"
@@ -125,9 +127,10 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "18dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp',
 },
 "#imageAddVenmo[if=Alloy.Globals.iPhoneFour]": {
 	height: '15dp',
@@ -208,7 +211,8 @@
 },
 "#paymentButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "22dp"
+            fontSize: "22dp",
+            fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
 	top: '24dp'

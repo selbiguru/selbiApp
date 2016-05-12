@@ -57,12 +57,14 @@
 }
 ".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "13dp"
+            fontSize: "12dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '23dp'
 },
 "#titleVerifyAddressView[if=Alloy.Globals.iPhoneFour]": {
 	width: "186dp",
+	left: '4dp'
 },
 
 "#titleVerifyAddressLabel[if=Alloy.Globals.iPhoneFour]": {
@@ -128,22 +130,24 @@
 }
 ".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "14dp"
+            fontSize: "12dp"
         },
 	color: "#1BA7CD",
 	top: '23dp'
 },
 "#titleVerifyAddressView[if=Alloy.Globals.iPhoneFive]": {
 	width: "186dp",
+	left: '4dp'
 },
 
 "#titleVerifyAddressLabel[if=Alloy.Globals.iPhoneFive]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "18dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 "#cancelAddress[if=Alloy.Globals.iPhoneFive]": {
 	left: "7dp",
@@ -203,14 +207,15 @@
 }
 ".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "16dp",
+            fontSize: "14dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '23dp'
+	top: '25dp'
 },
 "#titleVerifyAddressView[if=Alloy.Globals.iPhoneSix]": {
 	width: "215dp",
+	left: '4dp'
 },
 "#titleVerifyAddressLabel[if=Alloy.Globals.iPhoneSix]": {
 	color: "#1BA7CD",
@@ -273,19 +278,20 @@
 },
 ".validateButtons[if=Alloy.Globals.iPhoneSixPlus]": {
 	height: "70dp",
-	width: "75dp",
+	width: "70dp",
 	backgroundColor: '#FAFAFA'
 }
 ".verifyAddressButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "18dp",
+            fontSize: "15dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '23dp'
+	top: '26dp'
 },
 "#titleVerifyAddressView[if=Alloy.Globals.iPhoneSixPlus]": {
-	width: "234dp"
+	width: "244dp",
+	left: '8dp'
 },
 
 "#titleVerifyAddressLabel[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -298,7 +304,7 @@
 	top: "20dp"
 },
 "#cancelAddress[if=Alloy.Globals.iPhoneSixPlus]": {
-	left: "15dp",
+	left: "10dp",
 },
 "TextField[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: '#545555',
