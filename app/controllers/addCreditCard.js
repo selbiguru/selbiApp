@@ -95,8 +95,11 @@ function loadCreditCard(e) {
 		} else {
 	    	Ti.App.fireEvent('app:fromTitaniumPaymentGetTokenFromServer', { token: response });
 		}
-		$.activityIndicator.hide();
-		$.activityIndicator.height = '0dp';
+		//Check if cleanup is called before loading client token
+		if($ && $.activityIndicator){
+			$.activityIndicator.hide();
+			$.activityIndicator.height = '0dp';
+		}
 		return;
 	});
 }
