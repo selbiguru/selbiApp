@@ -29,22 +29,28 @@ function initialize() {
 			if(err) {
 				helpers.alertUser('Listing','Unable to get the listing!');
 			} else {
-				itemData = listing;
-				populateViewListing(listing);
-				createPurchasingButtons();
+				//Check if cleanup is called before loading viewListing
+				if($ && $.activityIndicator){
+					itemData = listing;
+					populateViewListing(listing);
+					createPurchasingButtons();
+					$.activityIndicator.hide();
+					$.activityIndicator.height = '0dp';
+				}
 			}
-			$.activityIndicator.hide();
-			$.activityIndicator.height = '0dp';
 			return;
 		});
 	} else {
 		//show correct buttons dynamically created with correct event listeners
 		previewListing = true;
-		$.titleViewListingLabel.text = 'Preview Listing';
-		createPreviewButtons();
-		populateViewListing(args);
-		$.activityIndicator.hide();
-		$.activityIndicator.height = '0dp';
+		//Check if cleanup is called before loading viewListing
+		if($ && $.activityIndicator){
+			$.titleViewListingLabel.text = 'Preview Listing';
+			createPreviewButtons();
+			populateViewListing(args);
+			$.activityIndicator.hide();
+			$.activityIndicator.height = '0dp';
+		}
 	}
 }
 
@@ -74,6 +80,7 @@ function populateViewListing(listingData) {
 	previewListing ? images = listingData.images : images = listingData.imageUrls;
 	$.viewListingProductTitle.setText(listingData.title);
 	$.viewListingProductPrice.setText(parseFloat(listingData.price).formatMoney(2));
+	$.viewListingReferenceNumber.setText('Ref# '+listingData.id);
 	$.viewListingProductDescription.setText(listingData.description);
 	$.sellerName.setText(firstName +' '+ lastName);
 	if(!previewListing){
@@ -127,7 +134,15 @@ function populateViewListing(listingData) {
 		views.push(carouselImage);
 		carouselImage = null;
 	}
-	$.imageGallery.views = views;	
+	$.imageGallery.views = views;
+	if(listingData.isSold) {
+		$.imageGallery.borderColor = '#1BA7CD';
+		$.imageGallery.borderWidth = '5dp';	
+		$.viewListingProductTitle.color = '#1BA7CD';
+	} else {
+		$.viewListingReferenceNumber.hide();
+		$.viewListingReferenceNumber.height = '0dp';
+	}
 };
 
 
@@ -293,20 +308,20 @@ function previewImageResize(image) {
 	        break;
 	    case 2: //iphoneSix
 	    	heightPreview = 326;
-	    	heightRatio = 595;
-	    	widthRatio = 650;
+	    	heightRatio = 640;
+	    	widthRatio = 700;
 	    	widthPreview = 356;
 	        break;
 	    case 3: //iphoneSixPlus
 	    	heightPreview = 360;
-	    	heightRatio = 732;
-	    	widthRatio = 595;
+	    	heightRatio = 640;
+	    	widthRatio = 700;
 	    	widthPreview = 393;
 	        break;
 	    case 4: //android currently same as iphoneSix
 	    	heightPreview = 326;
-	    	heightRatio = 595;
-	    	widthRatio = 650;
+	    	heightRatio = 640;
+	    	widthRatio = 700;
 	    	widthPreview = 356;
 	        break;
 	};
