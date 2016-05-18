@@ -323,14 +323,14 @@ function createImageView(media) {
 	        break;
 	};
 	
-	if(media.height > 700 && media.width >= media.height) {
-		media = ImageFactory.compress(resizeKeepAspectRatioNewHeight(media, media.width, media.height, 700), .35);
-		mediaThumbnail = ImageFactory.imageAsThumbnail(resizeKeepAspectRatioNewHeight(media, media.width, media.height, 800),{size: imgViewSize});
-	} else if(media.height > 700 && media.width < media.height) {
-		media = ImageFactory.compress(resizeKeepAspectRatioNewWidth(media, media.width, media.height, 700), .35);
-		mediaThumbnail = ImageFactory.imageAsThumbnail(resizeKeepAspectRatioNewWidth(media, media.width, media.height, 800),{size: imgViewSize});
+	if(media.height > 750 && media.width >= media.height) {
+		media = ImageFactory.compress(resizeKeepAspectRatioNewHeight(media, media.width, media.height, 750), .5);
+		mediaThumbnail = ImageFactory.imageAsThumbnail(resizeKeepAspectRatioNewHeight(media, media.width, media.height, 750),{size: imgViewSize});
+	} else if(media.height > 750 && media.width < media.height) {
+		media = ImageFactory.compress(resizeKeepAspectRatioNewWidth(media, media.width, media.height, 750), .5);
+		mediaThumbnail = ImageFactory.imageAsThumbnail(resizeKeepAspectRatioNewWidth(media, media.width, media.height, 750),{size: imgViewSize});
 	} else {
-		media = ImageFactory.compress(media, .35);
+		media = ImageFactory.compress(media, .5);
 		mediaThumbnail = ImageFactory.imageAsThumbnail(resizeKeepAspectRatioNewHeight(media, media.width, media.height, 500),{size: imgViewSize});
 	};
 	var imageData = {
