@@ -84,7 +84,7 @@ function populateViewListing(listingData) {
 	$.viewListingProductDescription.setText(listingData.description);
 	$.sellerName.setText(firstName +' '+ lastName);
 	if(!previewListing){
-		profileImageUrl = listingData.user.profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + listingData.user.profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
+		profileImageUrl = listingData.user.profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + listingData.user.profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + Alloy.CFG.imageSize.facesDefault;
 		$.overlayListingHeader.data = {
 			userId: listingData.user.id,	
 			userName: listingData.user.firstName + ' ' + listingData.user.lastName,
@@ -93,7 +93,7 @@ function populateViewListing(listingData) {
 	} else if(Alloy.Globals.currentUser.attributes.profileImage) {
 		profileImageUrl = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + Alloy.Globals.currentUser.attributes.profileImage;
 	} else {
-		profileImageUrl = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg";
+		profileImageUrl = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + Alloy.CFG.imageSize.facesDefault;
 	}
 	$.sellerImage.image = profileImageUrl;
 	

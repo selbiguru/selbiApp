@@ -12,7 +12,7 @@
         },
         "imageSize": {
         	"iPhoneFour": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_65,h_65,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40,e_brightness:15/",
@@ -23,7 +23,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,e_brightness:15,q_85/"
         	},
         	"iPhoneFive": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_75,h_75,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_60,h_60,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45,e_brightness:15/",
@@ -34,7 +34,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,e_brightness:15,q_85/"
         	},
         	"iPhoneSix": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_85,h_85,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_65,h_65,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_brightness:15/",
@@ -45,7 +45,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,e_brightness:15,q_85/"
         	},
         	"iPhoneSixPlus": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_95,h_95,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_75,h_75,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_brightness:15/",
@@ -63,7 +63,8 @@
 		      "venmoBlue": "v1440562773/assets/venmo_logo_blue.png",
 		      "venmoWhite": "v1440562889/assets/venmo_logo_white.png",
 		      "venmoBlack": "v1440562889/assets/venmo_logo_monotone.png",
-		      "exampleCheck": "q_70/v1455098546/blank_check_hx7toy.jpg"
+		      "exampleCheck": "q_70/v1455098546/blank_check_hx7toy.jpg",
+		      "facesDefault": "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg"
         },
         "keychain": {
             "account": "serveraccount",
@@ -86,7 +87,7 @@
         },
         "imageSize": {
         	"iPhoneFour": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_65,h_65,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40,e_brightness:15/",
@@ -97,7 +98,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,e_brightness:15,q_85/"
         	},
         	"iPhoneFive": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_75,h_75,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_60,h_60,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45,e_brightness:15/",
@@ -108,7 +109,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,e_brightness:15,q_85/"
         	},
         	"iPhoneSix": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_85,h_85,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_65,h_65,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_brightness:15/",
@@ -119,7 +120,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,e_brightness:15,q_85/"
         	},
         	"iPhoneSixPlus": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_95,h_95,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_75,h_75,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_brightness:15/",
@@ -137,7 +138,8 @@
 		      "venmoBlue": "v1440562773/assets/venmo_logo_blue.png",
 		      "venmoWhite": "v1440562889/assets/venmo_logo_white.png",
 		      "venmoBlack": "v1440562889/assets/venmo_logo_monotone.png",
-		      "exampleCheck": "q_70/v1455098546/blank_check_hx7toy.jpg"
+		      "exampleCheck": "q_70/v1455098546/blank_check_hx7toy.jpg",
+		      "facesDefault": "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg
         },
         "keychain": {
             "account": "serveraccount",
@@ -153,14 +155,14 @@
     		"baseurl": "http://selbi-server.herokuapp.com"
     	},
     	"cloudinary": {
-            "baseurl": "https://api.cloudinary.com/v1_1/selbi",
-            "apikey": "379521277533334",
-            "baseImagePath": "http://res.cloudinary.com/selbi/image/upload/",
-            "bucket": "v1433472934/"
+            "baseurl": "https://api.cloudinary.com/v1_1/selbi-io",
+            "apikey": "823837749384676",
+            "baseImagePath": "http://res.cloudinary.com/selbi-io/image/upload/",
+            "bucket": "v1461114174/"
         },
         "imageSize": {
         	"iPhoneFour": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_65,h_65,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40,e_brightness:15/",
@@ -171,7 +173,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,e_brightness:15,q_85/"
         	},
         	"iPhoneFive": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_75,h_75,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_60,h_60,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45,e_brightness:15/",
@@ -182,7 +184,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,e_brightness:15,q_85/"
         	},
         	"iPhoneSix": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_85,h_85,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_65,h_65,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_brightness:15/",
@@ -193,7 +195,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,e_brightness:15,q_85/"
         	},
         	"iPhoneSixPlus": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_95,h_95,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_75,h_75,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_brightness:15/",
@@ -208,10 +210,11 @@
                 "w_380/v1433472934/intro_2",
                 "w_380/v1433472934/intro_3"
 		      ],
-		      "venmoBlue": "v1440562773/assets/venmo_logo_blue.png",
-		      "venmoWhite": "v1440562889/assets/venmo_logo_white.png",
-		      "venmoBlack": "v1440562889/assets/venmo_logo_monotone.png",
-		      "exampleCheck": "q_70/v1455098546/blank_check_hx7toy.jpg"
+		      "venmoBlue": "v1463531740/venmo_logo_blue_xpwpqn.png",
+		      "venmoWhite": "v1463531740/venmo_logo_white_gezxwg.png",
+		      "venmoBlack": "v1463531740/venmo_logo_monotone_k9i6ny.png",
+		      "exampleCheck": "q_70/v1463531740/blank_check_hx7toy_yjkml0.jpg",
+		      "facesDefault": "listing_5d84c5a0-1962-11e5-8b0b-c3487359f467_emndm4.jpg"
         },
         "keychain": {
             "account": "serveraccount",
@@ -240,7 +243,7 @@
         },
         "imageSize": {
         	"iPhoneFour": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_65,h_65,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40,e_brightness:15/",
@@ -251,7 +254,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,e_brightness:15,q_85/"
         	},
         	"iPhoneFive": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_75,h_75,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_60,h_60,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45,e_brightness:15/",
@@ -262,7 +265,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,e_brightness:15,q_85/"
         	},
         	"iPhoneSix": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_85,h_85,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_65,h_65,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_brightness:15/",
@@ -273,7 +276,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,e_brightness:15,q_85/"
         	},
         	"iPhoneSixPlus": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_95,h_95,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_75,h_75,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_brightness:15/",
@@ -291,7 +294,8 @@
 		      "venmoBlue": "v1440562773/assets/venmo_logo_blue.png",
 		      "venmoWhite": "v1440562889/assets/venmo_logo_white.png",
 		      "venmoBlack": "v1440562889/assets/venmo_logo_monotone.png",
-		      "exampleCheck": "q_70/v1455098546/blank_check_hx7toy.jpg"
+		      "exampleCheck": "q_70/v1455098546/blank_check_hx7toy.jpg",
+		      "facesDefault": "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg
         },
         "keychain": {
             "account": "serveraccount",
@@ -314,7 +318,7 @@
         },
         "imageSize": {
         	"iPhoneFour": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_65,h_65,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40,e_brightness:15/",
@@ -325,7 +329,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,e_brightness:15,q_85/"
         	},
         	"iPhoneFive": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_75,h_75,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_60,h_60,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45,e_brightness:15/",
@@ -336,7 +340,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,e_brightness:15,q_85/"
         	},
         	"iPhoneSix": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_85,h_85,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_65,h_65,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50,e_brightness:15/",
@@ -347,7 +351,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,e_brightness:15,q_85/"
         	},
         	"iPhoneSixPlus": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:15/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100,e_brightness:10/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_95,h_95,e_brightness:15/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_75,h_75,e_brightness:15/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55,e_brightness:15/",
@@ -365,7 +369,8 @@
 		      "venmoBlue": "v1440562773/assets/venmo_logo_blue.png",
 		      "venmoWhite": "v1440562889/assets/venmo_logo_white.png",
 		      "venmoBlack": "v1440562889/assets/venmo_logo_monotone.png",
-		      "exampleCheck": "q_70/v1455098546/blank_check_hx7toy.jpg"
+		      "exampleCheck": "q_70/v1455098546/blank_check_hx7toy.jpg",
+		      "facesDefault": "2bbaa0c7c67912a6e740446eaa01954c/2bbaa0c7c67912a6e740446eaa1215cc/listing_5d84c5a0-1962-11e5-8b0b-c3487359f467.jpg
         },
         "keychain": {
             "account": "serveraccount",
