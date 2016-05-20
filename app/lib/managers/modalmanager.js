@@ -49,8 +49,8 @@ var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 	    	pciLabelTop = 20;
 	        break;
 	    case 3:
-	        modalFont = 26;
-	        pciFont = 14;
+	        modalFont = 28;
+	        pciFont = 15;
 	        datePickerHeight = 220;
 	        datePickerTop = 15;
 	        saveButtonHeight = 50;
@@ -142,7 +142,7 @@ var getBirthdayModal = exports.getBirthdayModal = function(cb) {
 	    backgroundColor: '#EAEAEA',
 		font: {
 			fontSize: saveButtonFont,
-			fontFamily: 'Nunito-Light'
+			fontFamily: 'Nunito-Bold'
 		},
 		title: 'Save',
 		color: "#8e8e8e",
@@ -211,80 +211,80 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 	switch(Alloy.Globals.userDevice) {
 	    case 0: //iPhoneFour
 	    	textFieldFont = 20;
-	    	modalHeaderFont = 18;
-	    	modalBodyFont = 14;
-	    	bodyLabelTop = 4;
+	    	modalHeaderFont = 22;
+	    	modalBodyFont = 15;
+	    	bodyLabelTop = 0;
 	    	textFieldSquare = 8;
 	    	squareViewTop = 6;
-	    	verifyButtonFont = 14;
-	    	verifyButtonHeight = 35;
+	    	verifyButtonFont = 16;
+	    	verifyButtonHeight = 40;
 	    	verifyButtonWidth = 280;
 	    	verifyButtonTop = 11;
-	    	resendButtonFont = 12; 
+	    	resendButtonFont = 15; 
 	    	disclaimerFont = 12;
 	    	disclaimerLabelTop = 1;
 	    	textFieldSize = 50;
 	        break;
 	    case 1: //iPhoneFive
 	    	textFieldFont = 20;
-	    	modalHeaderFont = 18;
-	    	modalBodyFont = 14;
-	    	bodyLabelTop = 6;
+	    	modalHeaderFont = 22;
+	    	modalBodyFont = 15;
+	    	bodyLabelTop = 0;
 	    	textFieldSquare = 8;
 	    	squareViewTop = 8;
-	        verifyButtonFont = 14;
-	        verifyButtonHeight = 35;
+	        verifyButtonFont = 16;
+	        verifyButtonHeight = 40;
 	        verifyButtonWidth = 280;
 	        verifyButtonTop = 13;
-	    	resendButtonFont = 12; 
+	    	resendButtonFont = 15; 
 	    	disclaimerFont = 12;
 	    	disclaimerLabelTop = 3;
 	    	textFieldSize = 50;
 	        break;
 	    case 2: //iPhoneSix
 	    	textFieldFont = 22;
-	    	modalHeaderFont = 20;
-	    	modalBodyFont = 16;
-	    	bodyLabelTop = 10;
+	    	modalHeaderFont = 24;
+	    	modalBodyFont = 17;
+	    	bodyLabelTop = 0;
 	    	textFieldSquare = 8;
 	    	squareViewTop = 12;
-	        verifyButtonFont = 16;
-	        verifyButtonHeight = 40;
+	        verifyButtonFont = 18;
+	        verifyButtonHeight = 45;
 	        verifyButtonWidth = 320;
 	        verifyButtonTop = 15;
-	    	resendButtonFont = 15; 
+	    	resendButtonFont = 17; 
 	    	disclaimerFont = 14;
 	    	disclaimerLabelTop = 8;
 	    	textFieldSize = 60;
 	        break;
 	    case 3: //iPhoneSixPlus
 	    	textFieldFont = 22;
-	    	modalHeaderFont = 22;
+	    	modalHeaderFont = 28;
 	    	modalBodyFont = 18;
-	    	bodyLabelTop = 10;
+	    	bodyLabelTop = 0;
 	    	textFieldSquare = 8;
 	    	squareViewTop = 15;
-	        verifyButtonFont = 18;
-	        verifyButtonHeight = 45;
+	        verifyButtonFont = 20;
+	        verifyButtonHeight = 50;
 	        verifyButtonWidth = 340;
 	        verifyButtonTop = 20;
-	    	resendButtonFont = 15; 
-	    	disclaimerFont = 14;
+	    	resendButtonFont = 19; 
+	    	disclaimerFont = 15;
 	    	disclaimerLabelTop = 10;
 	    	textFieldSize = 60;
 	        break;
 	    case 4: //android currently same as iphoneSix
 	    	textFieldFont = 22;
-	    	modalHeaderFont = 20;
-	    	modalBodyFont = 16;
-	    	bodyLabelTop = 10;
+	    	modalHeaderFont = 24;
+	    	modalBodyFont = 17;
+	    	bodyLabelTop = 0;
 	    	textFieldSquare = 8;
 	    	squareViewTop = 12;
-	        verifyButtonFont = 16;
-	        verifyButtonHeight = 40;
+	        verifyButtonFont = 18;
+	        verifyButtonHeight = 45;
 	        verifyButtonWidth = 320;
 	        verifyButtonTop = 15;
-	    	resendButtonFont = 15; 
+	    	resendButtonFont = 17; 
 	    	disclaimerFont = 14;
 	    	disclaimerLabelTop = 8;
 	    	textFieldSize = 60;
@@ -381,7 +381,7 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 	    backgroundColor: '#EAEAEA',
 		font: {
 			fontSize: verifyButtonFont,
-			fontFamily: 'Nunito-Light'
+			fontFamily: 'Nunito-Bold'
 		},
 		title: 'Validate',
 		color: "#8e8e8e",
@@ -465,56 +465,59 @@ var getFilterModal = exports.getFilterModal = function(selectedCatArray, cb) {
 		modalFilterButton;
 	switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
-	    	modalHeaderFont = 18;
-	    	filterButtonFont = 14;
-	    	switchFieldSize = 50;
-	    	filterButtonFont = 14;
+	    	modalHeaderFont = 22;
+	    	filterButtonFont = 16;
 	    	switchFieldSize = 50;
 	    	scrollViewHeight = 265;
-	    	scrollViewWidth = 280;
+	    	scrollViewWidth = 300;
+	    	infoModalWidth = "95%",
 	    	twoColumnViewHeight = 45;
-	    	modalLabelFont = 12;
-	    	filterButtonHeight = 35;
+	    	modalLabelFont = 13;
+	    	filterButtonHeight = 40;
 	        break;
 	    case 1: //iphoneFive
-	    	modalHeaderFont = 18;
-	    	filterButtonFont = 14;
+	    	modalHeaderFont = 22;
+	    	filterButtonFont = 16;
 	    	switchFieldSize = 50;
 	    	scrollViewHeight = 265;
-	    	scrollViewWidth = 280;
+	    	scrollViewWidth = 300;
+	    	infoModalWidth = "95%",
 	    	twoColumnViewHeight = 45;
-	    	modalLabelFont = 12;
-	    	filterButtonHeight = 35;
+	    	modalLabelFont = 13;
+	    	filterButtonHeight = 40;
 	        break;
 	    case 2: //iphoneSix
-	    	modalHeaderFont = 20;
-	    	filterButtonFont = 16;
+	    	modalHeaderFont = 24;
+	    	filterButtonFont = 18;
 	    	switchFieldSize = 60;
 	    	scrollViewHeight = 300;
 	    	scrollViewWidth = 320;
+	    	infoModalWidth = "90%",
 	    	twoColumnViewHeight = 50;
 	    	modalLabelFont = 15;
-	    	filterButtonHeight = 40;
+	    	filterButtonHeight = 45;
 	        break;
 	    case 3: //iphoneSixPlus
-	    	modalHeaderFont = 22;
-	    	filterButtonFont = 18;
+	    	modalHeaderFont = 28;
+	    	filterButtonFont = 20;
 	    	switchFieldSize = 65;
 	    	scrollViewHeight = 330;
 	    	scrollViewWidth = 340;
+	    	infoModalWidth = "90%",
 	    	twoColumnViewHeight = 55;
 	    	modalLabelFont = 17;
-	    	filterButtonHeight = 45;
+	    	filterButtonHeight = 50;
 	        break;
 	    case 4: //android currently same as iphoneSix
-	    	modalHeaderFont = 20;
-	    	filterButtonFont = 16;
+	    	modalHeaderFont = 24;
+	    	filterButtonFont = 18;
 	    	switchFieldSize = 60;
 	    	scrollViewHeight = 300;
 	    	scrollViewWidth = 320;
+	    	infoModalWidth = "90%",
 	    	twoColumnViewHeight = 50;
 	    	modalLabelFont = 15;
-	    	filterButtonHeight = 40;
+	    	filterButtonHeight = 45;
 	        break;
 	};
 	var transformModalOpen = Titanium.UI.create2DMatrix();
@@ -549,7 +552,7 @@ var getFilterModal = exports.getFilterModal = function(selectedCatArray, cb) {
 	    layout:'vertical'
 	});
 	infoModalView = Titanium.UI.createView({
-	    width:"90%",
+	    width: infoModalWidth,
 	    borderRadius: 4,
 	    height: Ti.UI.SIZE,
 	    opacity:1,
@@ -615,7 +618,7 @@ var getFilterModal = exports.getFilterModal = function(selectedCatArray, cb) {
 	    backgroundColor: '#EAEAEA',
 		font: {
 			fontSize: filterButtonFont,
-			fontFamily: 'Nunito-Light'
+			fontFamily: 'Nunito-Bold'
 		},
 		title: 'Filter',
 		color: "#8e8e8e",
@@ -686,8 +689,8 @@ var getWelcomeModal = exports.getWelcomeModal = function(cb) {
 	    	welcomeButtonFont = 16;
 	    	scrollViewHeight = 265;
 	    	scrollViewWidth = 280;
-	    	modalLabelFont = 13;
-	    	modalLabelBoldFont = 14;
+	    	modalLabelFont = 14;
+	    	modalLabelBoldFont = 15;
 	    	welcomeButtonHeight = 40;
 	        break;
 	    case 2: //iphoneSix
@@ -700,7 +703,7 @@ var getWelcomeModal = exports.getWelcomeModal = function(cb) {
 	    	welcomeButtonHeight = 45;
 	        break;
 	    case 3: //iphoneSixPlus
-	    	modalHeaderFont = 26;
+	    	modalHeaderFont = 28;
 	    	welcomeButtonFont = 20;
 	    	scrollViewHeight = 330;
 	    	scrollViewWidth = 340;
@@ -798,7 +801,7 @@ var getWelcomeModal = exports.getWelcomeModal = function(cb) {
 	    backgroundColor: '#EAEAEA',
 		font: {
 			fontSize: welcomeButtonFont,
-			fontFamily: 'Nunito-Light'
+			fontFamily: 'Nunito-Bold'
 		},
 		title: 'Get Started Now!',
 		color: "#8e8e8e",
