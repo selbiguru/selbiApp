@@ -210,7 +210,7 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 		modalHeaderLabel;
 	switch(Alloy.Globals.userDevice) {
 	    case 0: //iPhoneFour
-	    	textFieldFont = 20;
+	    	textFieldFont = 22;
 	    	modalHeaderFont = 22;
 	    	modalBodyFont = 15;
 	    	bodyLabelTop = 0;
@@ -226,7 +226,7 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 	    	textFieldSize = 50;
 	        break;
 	    case 1: //iPhoneFive
-	    	textFieldFont = 20;
+	    	textFieldFont = 22;
 	    	modalHeaderFont = 22;
 	    	modalBodyFont = 15;
 	    	bodyLabelTop = 0;
@@ -242,7 +242,7 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 	    	textFieldSize = 50;
 	        break;
 	    case 2: //iPhoneSix
-	    	textFieldFont = 22;
+	    	textFieldFont = 24;
 	    	modalHeaderFont = 24;
 	    	modalBodyFont = 17;
 	    	bodyLabelTop = 0;
@@ -258,7 +258,7 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 	    	textFieldSize = 60;
 	        break;
 	    case 3: //iPhoneSixPlus
-	    	textFieldFont = 22;
+	    	textFieldFont = 28;
 	    	modalHeaderFont = 28;
 	    	modalBodyFont = 18;
 	    	bodyLabelTop = 0;
@@ -274,7 +274,7 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 	    	textFieldSize = 60;
 	        break;
 	    case 4: //android currently same as iphoneSix
-	    	textFieldFont = 22;
+	    	textFieldFont = 24;
 	    	modalHeaderFont = 24;
 	    	modalBodyFont = 17;
 	    	bodyLabelTop = 0;
@@ -369,9 +369,11 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 				fontSize: textFieldFont,
 				fontFamily: 'Nunito-Bold'
 			},
+			keyboardType:  Titanium.UI.KEYBOARD_TYPE_NUMBER_PAD,
 			textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
 			id: "codeField"+[i]
 		});
+		Alloy.Globals.addKeyboardToolbar(modalTextField, blurTextField);
 		verifyModalView.add(modalTextField);
 	};
 	modalVerifyButton = Titanium.UI.createButton({
@@ -433,6 +435,16 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 		verifyModalView: verifyModalView,
 		modalHeaderLabel: modalHeaderLabel,
 		modalDisclaimerLabel: modalDisclaimerLabel
+	};
+	/**
+	 * @private blurTextField 
+	 * Blurs usernameSearch text field in accordance with expected UI
+	 */
+	function blurTextField(e) {
+		for(var i = 0; i < verifyModalView.children.length; i++) {
+			verifyModalView.children[i].blur();
+		}
+		return;
 	};
 	cb(null,verifyPhoneModalElements);
 };
