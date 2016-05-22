@@ -162,7 +162,6 @@ function importContacts() {
 	        if (e.success) {
 	            loadContacts();
 	        } else {
-	        	console.log('010101010101');
 	        	indicatorWindow.closeIndicator();
 	        	buttonOn();
 				Alloy.createController('masterlayout').getView().open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
@@ -178,7 +177,6 @@ function importContacts() {
 	        }
 	    });
 	} else {
-		console.log('02020202020202');
 		indicatorWindow.closeIndicator();
 		buttonOn();
 		Alloy.createController('masterlayout').getView().open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
@@ -211,7 +209,6 @@ function loadContacts() {
 			//}
 		}
 		friendsManager.addFriendsByPhone(phoneArray,function(err, results){
-			console.log('0505050505');
 			buttonOn();
 			indicatorWindow.closeIndicator();
 			Alloy.createController('masterlayout').getView().open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
@@ -226,7 +223,6 @@ function loadContacts() {
 			});
 		});	
 	} else {
-		console.log('0404040404');
 		indicatorWindow.closeIndicator();
 		buttonOn();
 		Alloy.createController('masterlayout').getView().open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});

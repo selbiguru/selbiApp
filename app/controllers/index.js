@@ -43,7 +43,6 @@ function register(){
 
 
 function openURL(e) {
-	console.log("URL", Ti.App.getArguments().url);
     if (OS_IOS) {
         
         // Handle the URL in case it opened the app

@@ -3,7 +3,6 @@ var args = arguments[0] || {};
 var introImages = Alloy.CFG.imageSize.intro;
 var data = [];
 for(var i = 0; i < introImages.length; i++){
-	console.log(Alloy.CFG.cloudinary.baseImagePath  + introImages[i]);
 	data.push({
 		image: Alloy.CFG.cloudinary.baseImagePath  + introImages[i],
 		text : 'Ut enim ad minim veniam, quis nostrud exercitation ullamco.'

@@ -93,9 +93,7 @@ function createText(notification) {
  */
 function clearProxy(e) {
 	$.off;
-	$.destroy;		
-	
-	console.log('solve anything yet?^ ', e);
+	$.destroy;
 }
 
 

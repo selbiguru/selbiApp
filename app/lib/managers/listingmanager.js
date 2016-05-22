@@ -20,7 +20,6 @@ var imageManager = require('managers/imagemanager');
  */
 exports.getListing = function(listingId, cb){
 	httpManager.execute('/userlistings/listing/'+Ti.App.Properties.getString('userId')+'/'+listingId, 'GET', null, true, function(err, listingResult){
-		console.log('@@@@@@@!!!!! ', listingResult);
 		cb(err, listingResult);
 	});
 };

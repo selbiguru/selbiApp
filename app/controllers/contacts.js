@@ -86,7 +86,6 @@ function getContactListTemplate() {
 			events : {
 				// Bind event callbacks only to the subcomponent
 				click : function(e) {
-					//console.log('DATA', e.bindId);
 					if (e.source.status === 'new') {
 						friendRequestDynamic(e, 'pending');
 					} else if (e.source.status === 'denied') {
@@ -641,8 +640,6 @@ function clearProxy(e) {
 	$.addContactsView.children[$.addContactsView.children.length - 1].hide();
 	currentContacts = null;
 	contactsOnSelbi = null;
-
-	console.log('solve anything yet?^ ', e);
 }
 
 /*----------------------------------------------Dynamic Elements---------------------------------------------*/

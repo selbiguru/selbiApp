@@ -512,8 +512,6 @@ function clearProxy(e) {
 	$.destroy();
 	$.fa.cleanup();
 	$.fa = null;
-	
-	console.log('solve anything yet?^ ', e);
 }
 
 

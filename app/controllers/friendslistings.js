@@ -342,8 +342,6 @@ function clearProxy(e) {
 	if(e !== 'mylistings') {
 		this.removeEventListener('click', clearProxy);	
 	}
-	
-	console.log('solve anything yet?^ ', e);
 }
 
 

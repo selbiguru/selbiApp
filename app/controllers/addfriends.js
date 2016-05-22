@@ -96,7 +96,6 @@ function getFriendsListTemplate() {
 		 		events: {
 	                // Bind event callbacks only to the subcomponent
 	                click: function(e){
-	                	//console.log('DATA', e.bindId);
                 		if(e.source.status === 'new') {
 							friendRequestDynamic(e, 'pending');
 						} else if(e.source.status === 'denied') {

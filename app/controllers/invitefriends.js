@@ -29,7 +29,6 @@ function getContactListTemplate() {
 		 		events: {
 	                // Bind event callbacks only to the subcomponent
 	                click: function(e){
-	                	//console.log('DATA', e.bindId);
 	                	if(e.source.children && e.source.children.length > 0 && e.bindId === 'data' ) {
 	                		e.source.remove(e.source.children[0]);
 	                	} else {
@@ -118,7 +117,6 @@ function getFriendsSection() {
 	                	}
 						if(helpers.trim(e.value, true).length > 6){
 							friendsManager.getInvitationByUsername( usernameObject, function(err, results) {
-								console.log('Results of username Search', results,'errererrrr' ,err);
 								if(results && results.id != Ti.App.Properties.getString('userId')) {
 									if(e.source.children.length > 0 ){
 										e.source.remove(e.source.children[0]);
@@ -314,7 +312,6 @@ function loadContacts() {
 			};
 		};
 		friendsManager.getSelbiUsersByPhones(phoneArray,function(err, results){
-			console.log('!2121212121212 ', results);
 			if(err) {
 				helpers.alertUser('Oops','Having trouble getting your phone contacts. Please try again later!');
 				addressBookDisallowed();

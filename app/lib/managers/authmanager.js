@@ -32,7 +32,6 @@ var login = exports.login = function (username, password, cb){
 			var userModel = Alloy.Models.instance('user');
 			
 			if(loginResult.user) {
-				console.log('============ ', loginResult.user);
 				// Set user properties
 				userModel.set({username: loginResult.user.username});
 				userModel.set({password: password });

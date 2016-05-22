@@ -64,7 +64,6 @@ var createCustomerAndPaymentMethod = exports.createCustomerAndPaymentMethod = fu
 			//userModel.set({username: userPaymentObj.userPaymentMethod.flag});
 			//userModel.save();
 			//Alloy.Globals.currentUser = userModel
-			console.log("this is my repsone finally", userPaymentObj);
 			cb(err, userPaymentObj);
 		}
 	});

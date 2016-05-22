@@ -262,9 +262,7 @@ function clearProxy(e) {
 	$.title.removeEventListener('return', keyboardNext);
 	$.price.removeEventListener('return', keyboardNext);
 	$.price.removeEventListener('change', dollarSign);
-	//this.removeEventListener('click', clearProxy);
 	
-	console.log('solve anything yet?^ ', e);
 }
 
 

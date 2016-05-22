@@ -402,8 +402,6 @@ function clearProxy(e) {
 		this.removeEventListener('click', clearProxy);	
 	}*/
 	//$.selbiUSAView = null;*/
-	
-	console.log('solve anything yet?^ ', e);
 }
 
 

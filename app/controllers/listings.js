@@ -61,7 +61,6 @@ if(tabView === 1) {
  */
 function genMyItems(cb){
 	listingManager.getUserListings(argsID, function(err, userListings){
-		console.log("%%%%%%%%%%%%%%%%%%%%", userListings);
 		var listItems = [];
 		if(userListings && userListings.length > 0) {
 			for(var listing in userListings) {
@@ -269,7 +268,6 @@ function genUSAItems(cb){
  * @param {Object} listingId Object containing listingId and userId for the item
  */
 function openListing(listingIDs){
-	console.log("used 6",listingIDs);
 	/*Alloy.Globals.openPage('viewlisting', {
 		itemId: listingIDs.itemId,
 		userId: listingIDs.userId
@@ -340,7 +338,6 @@ $.fg.init({
     itemBorderRadius:0
 });
 $.fg.setOnItemClick(function(e){
-	console.log("used 1", e.source.data);
     openListing({
     	itemId:e.source.data.properties.itemId,
     	userId:e.source.data.properties.userId,	

@@ -125,7 +125,6 @@ function uploadUserProfile(imageBlob){
 							images: [currentProfileImage]
 						};
 						imageManager.deleteImage(deleteImageObj, function(err, deleteImageResult) {
-							console.log('deleting profile image result', err, deleteImageResult);
 						});
 					}
 					imageManager.getMenuProfileImage(function(err, profileImage){
@@ -296,24 +295,20 @@ if(fb.loggedIn)
 	
 	$.connectFacebook.title = 'Connected to Facebook';
     $.connectFacebook.touchEnabled = false;
-    console.log('Inside the if statement: ' + $.connectFacebook.touchEnabled);
 }
 
 fb.addEventListener('login', function(e) {
     if (e.success) {
-        console.log('login from uid: '+e.uid + 'teh whole object: ' + e);
         
         for (var prop in e) {
           // important check that this is objects own property 
           // not from prototype prop inherited
           if(e.hasOwnProperty(prop)){
-            console.log(prop + " = " + e[prop]);
           }
          }
         fb.loggedIn = true;
         $.connectFacebook.title = 'Connected to Facebook';
         $.connectFacebook.touchEnabled = false;
-        console.log('Logged In = ' + fb.loggedIn);
     }
     else if (e.cancelled) {
         // user cancelled
@@ -326,13 +321,11 @@ fb.addEventListener('login', function(e) {
 
 fb.addEventListener('logout', function(e) {
     alert('Logged out');
-    console.log('Logged In = ' + fb.loggedIn);
     fb.loggedIn = false;
     $.connectFacebook.title = 'Connect to Facebook';
 });
 
 function connectToFaceBook(){
-	console.log('entered connectToFacebook');
 	if(fb.loggedIn)
 	{
 		//if already connected then disconnect. 
@@ -345,7 +338,6 @@ function connectToFaceBook(){
 	{
 		//For Android Platform. TODO test properly
 		if (Ti.Platform.name === 'android') {
-			console.log('entered createActivityWorker');
 		    win.fbProxy = fb.createActivityWorker({lifecycleContainer: win});
 		    fb.permissions = ['email', 'publish_actions'];
 			win.open();
@@ -359,7 +351,6 @@ function connectToFaceBook(){
 }
 
 function connectToTwitter() {
-	console.log('In connectToTwitter method.');
 
 	var twitter = Alloy.Globals.social.create({
     	consumerSecret: Alloy.CFG.twitter.consumerSecret,
@@ -374,7 +365,6 @@ function connectToTwitter() {
 		$.connectTwitter.title = 'Connected to Twitter';
 	}
 	
-	console.log('Check if authorized.' + twitter.isAuthorized());
 	
 	// Post a message
 	// Setup both callbacks for confirmation
@@ -385,7 +375,6 @@ function connectToTwitter() {
 	    error: function(e) {alert('Error!' + e);}
 	});
 	
-	console.log('just shared : + ');
 	
 	if (twitter.isAuthorized()) {	
 		$.connectTwitter.setText('Connected to Twitter');
@@ -394,7 +383,6 @@ function connectToTwitter() {
         
 	//Do not Deauthorize the application
 	//twitter.deauthorize();
-	console.log('twitter.isAuthorized(): ' + twitter.isAuthorized());
 }*/
 
 function getGoogleMaps(e){
