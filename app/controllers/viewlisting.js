@@ -647,7 +647,10 @@ paymentManager.getPaymentMethods(function(err, results){
 	if(results.userMerchant.accountNumberLast4 && Alloy.Globals.currentUser.attributes.address) {
 		bankEligible = true;
 	}
-	initialize();
+	//Check if cleanup is called before loading viewListing
+	if($ && $.activityIndicator){
+		initialize();
+	}
 });
 
 
