@@ -581,7 +581,8 @@ function inviteNewContact(data) {
 	} else {
 		//pre-populate the dialog with the info provided in the following properties
 		smsDialog.recipients = [data.newNumber];
-		smsDialog.messageBody = 'Join me on Selbi.  The premier friend to friend marketplace! ';
+		smsDialog.messageBody = 'Get ready for Selbi! The premier friend to friend marketplace, coming soon to the App Store! ';
+		//smsDialog.messageBody = 'Join me on Selbi.  The premier friend to friend marketplace! ';
 
 		//set the color of the title-bar
 		smsDialog.barColor = '#1BA7CD';
