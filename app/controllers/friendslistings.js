@@ -282,6 +282,7 @@ function listingItemClick(e) {
  * @param {Object} listingId Object containing listingId and userId for the item
  */
 function openListing(listingIDs){
+	$.usernameSearch.blur();
 	Alloy.Globals.openPage('mylistings', [
 		listingIDs.userName, listingIDs.userId, listingIDs.friends
 	]);
