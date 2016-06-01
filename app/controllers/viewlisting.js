@@ -672,11 +672,6 @@ exports.cleanup = function () {
 
 /*-----------------------------------------------Event Listeners------------------------------------------------*/
 
-/**
- * Event listener for click of user of listing to open and show all of the users listed items
- */
-//$.overlayListingHeader.addEventListener('click', openUserListing);
-
 
 
 

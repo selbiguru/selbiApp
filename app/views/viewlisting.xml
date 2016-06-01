@@ -12,7 +12,7 @@
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<ScrollView id="viewListingScrollView">
 			<View id="viewListingHeader">
-				<View id="overlayListingHeader"></View>
+				<View id="overlayListingHeader" onClick="openUserListing"></View>
 				<View id="dataListingHeader">
 					<!-- profile image -->
 					<ImageView id="sellerImage"/>
