@@ -23,7 +23,7 @@ Alloy.Models.user.fetch({
 		});
 	},
 	error: function(data){
-		helpers.alertUser('Get User','Failed to get the current user!');	
+		helpers.alertUser('Get User','Failed to get the current user');	
 	}
 });
 
@@ -31,7 +31,7 @@ Alloy.Models.user.fetch({
 function logout(){
 	authManager.logout(function(err, result){
 		if(err) {
-			helpers.alertUser('Logout','Selbi is experiencing technical difficulties and unable to log you out at this time.  Please try again later!');
+			helpers.alertUser('Logout','Selbi is experiencing technical difficulties and unable to log you out at this time.  Please try again later');
 			return;
 		} else {
 			Alloy.createController('index').getView().open({ transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});	
