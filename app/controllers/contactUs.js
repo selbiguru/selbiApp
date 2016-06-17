@@ -17,7 +17,7 @@ function sendEmailToSelbi() {
 	$.sendEmailButton.touchEnabled = false;
 	$.menuButton.touchEnabled = false;
 	if(helpers.trim($.emailTitle.value, false).length < 1 || helpers.trim($.emailBody.value, false).length < 1) {
-		helpers.alertUser('Empty Fields','Please make sure both the subject and message are filled out!');
+		helpers.alertUser('Empty Fields','Please make sure both the subject and message are filled out');
     	buttonOn();
     	return;
 	} else {
@@ -30,9 +30,9 @@ function sendEmailToSelbi() {
 		};
 		emailManager.sendContactSelbiEmail(emailObj, function(err, emailResult){
 			if(err) {
-				helpers.alertUser('Email Failed','Failed to send email.  Please try again later!');
+				helpers.alertUser('Email Failed','Failed to send email.  Please try again later');
 			} else {
-				helpers.alertUser('Email Sent!','Selbi has received your message!  We will get back to you asap!');
+				helpers.alertUser('Email Sent!','Selbi has received your message.  We will get back to you asap!');
 		    	$.emailBody.value = '';
 		    	$.emailTitle.value = '';
 			}

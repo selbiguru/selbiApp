@@ -68,11 +68,11 @@ function validateAddressView(){
 		userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
 			if(err) {
 				buttonsOn();
-				helpers.alertUser('Update Address','Failed to update address, please try again!');
+				helpers.alertUser('Update Address','Failed to update address, please try again');
 				return;
 			} else {
 				buttonsOn();
-				helpers.alertUser('Updated Address', 'User address saved!');
+				helpers.alertUser('Updated Address', 'User address saved');
 				$.verifyAddressCancelButton.fireEvent('click');
 				return;
 			}

@@ -117,7 +117,7 @@ function uploadUserProfile(imageBlob){
 				if(err) {
 					indicatorWindow.closeIndicator();
 					buttonsOn();
-					helpers.alertUser('Update User','Failed to update user, please try again later!');
+					helpers.alertUser('Update User','Failed to update user, please try again later');
 					return;
 				} else {
 					if(currentProfileImage) {
@@ -133,7 +133,7 @@ function uploadUserProfile(imageBlob){
 						function loadImage(e){
 							indicatorWindow.closeIndicator();
 							buttonsOn();
-							helpers.alertUser('Updated User', 'User profile saved!');
+							helpers.alertUser('Updated User', 'User profile saved');
 							$.userProfileImage.removeEventListener('load',loadImage);
 						}
 					});
@@ -221,14 +221,14 @@ function updateUser(e){
 	
 	if(!userNameUnique) {
 		if(helpers.trim($.username.value, true).length < 7 ) {
-			helpers.alertUser('Sorry','Usernames must be at least 7 characters!');
+			helpers.alertUser('Sorry','Usernames must be at least 7 characters');
 		} else {
-			helpers.alertUser('Sorry','Usernames can only be letters, numbers or an _.');
+			helpers.alertUser('Sorry','Usernames can only be letters, numbers or an _');
 		}
 		return;
 	};
 	if(!uniqueFirstNameRegEx || !uniqueLastNameRegEx) {
-		helpers.alertUser('Sorry','Please enter a valid first and last name!');
+		helpers.alertUser('Sorry','Please enter a valid first and last name');
 		return;
 	}
 	var textFieldObject = {
@@ -243,12 +243,12 @@ function updateUser(e){
 		if(err) {
 			indicatorWindow.closeIndicator();
 			buttonsOn();
-			helpers.alertUser('Update User','Failed to update user, please try again later!');
+			helpers.alertUser('Update User','Failed to update user, please try again later');
 			return;
 		} else {
 			indicatorWindow.closeIndicator();
 			buttonsOn();
-			helpers.alertUser('Updated User', 'User profile saved!');
+			helpers.alertUser('Updated User', 'User profile saved');
 			$.firstName.value = $.firstName.value;
 			$.lastName.value = $.lastName.value;
 			$.username.value = $.username.value;
@@ -266,7 +266,7 @@ function updateUserName() {
 	};
 	userManager.isUnique(uniqueObject, function(err, uniqueResult){
 		if(err) {
-			helpers.alertUser('Oops','Something went wrong checking for usernames, please try again later!');
+			helpers.alertUser('Oops','Something went wrong checking for usernames, please try again later');
 			return;
 		} else if(uniqueResult){
 			userNameUnique = true;

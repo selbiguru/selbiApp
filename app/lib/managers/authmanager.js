@@ -34,11 +34,11 @@ var login = exports.login = function (username, password, cb){
 			if(loginResult.user) {
 				// Set user properties
 				userModel.set({username: loginResult.user.username});
-				userModel.set({password: password });
 				userModel.set({firstName: loginResult.user.firstName});
 				userModel.set({lastName: loginResult.user.lastName});
 				userModel.set({email: loginResult.user.email});
 				userModel.set({profileImage: loginResult.user.profileImage});
+				userModel.set({createdAt: loginResult.user.createdAt});
 				userModel.set({id: loginResult.user.id});
 				userModel.save();		
 				Alloy.Globals.currentUser = loginResult.userModel;	
@@ -86,8 +86,8 @@ var userRegister = exports.userRegister = function(firstName, lastName, email, u
 		"password": password,
 		"firstName": firstName,
 		"lastName": lastName,
-		"phoneNumber": phoneNumber
-		
+		"phoneNumber": phoneNumber,
+		"userAgreementAccepted": true
 	};
 	httpClient.execute("/register", "POST", registerRequest, true, function(err, registerResults) {
 		if(!err && registerResults) {

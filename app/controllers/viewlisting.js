@@ -27,7 +27,7 @@ function initialize() {
 		//$.backListingView.show();
 		listingManager.getListing(args.itemId, function(err, listing){
 			if(err) {
-				helpers.alertUser('Listing','Unable to get the listing!');
+				helpers.alertUser('Listing','Unable to get the listing');
 			} else {
 				//Check if cleanup is called before loading viewListing
 				if($ && $.activityIndicator){
@@ -173,7 +173,7 @@ function saveListing(editListingButton, saveListingButton) {
 			editListingButton.touchEnabled = true;
 			saveListingButton.touchEnabled = true;
 			$.backViewButton.touchEnabled = true;
-			helpers.alertUser('Listing','Failed to create your listing. Please try again!');
+			helpers.alertUser('Listing','Failed to create your listing. Please try again');
 		}
 	});
 }
@@ -199,16 +199,17 @@ function buyItem(actionButton){
 	indicatorWindow.openIndicator();
 	paymentManager.createOrder(createOrderObj, function(err, results){
 		if(err) {
+			var parseErr = JSON.parse(err);
 			indicatorWindow.closeIndicator();
 			actionButton.touchEnabled = true;
 			$.backViewButton.touchEnabled = true;
-			helpers.alertUser('Failed','Failed to purchase item, please try again!');
+			helpers.alertUser('Failed', ''+parseErr.message+'');
 		} else {
 			updateUser();
 			indicatorWindow.closeIndicator();
 			actionButton.touchEnabled = true;
 			$.backViewButton.touchEnabled = true;
-			helpers.alertUser('Purchased!','You purchased an item on Selbi!');
+			helpers.alertUser('Purchased!','You purchased an item on Selbi');
 			backButton();
 			Alloy.Globals.openPage('friendslistings', ['friendslistings', Ti.App.Properties.getString('userId')]);
 		}
@@ -238,7 +239,7 @@ function deleteItem(actionButton){
 			indicatorWindow = null;
 			actionButton.touchEnabled = true;
 			$.backViewButton.touchEnabled = true;
-			helpers.alertUser('Listing','Failed to delete your listing. Please try again!');
+			helpers.alertUser('Listing','Failed to delete your listing. Please try again');
 		} else {
 			indicatorWindow.closeIndicator();
 			indicatorWindow = null;
@@ -274,7 +275,7 @@ function archiveItem(actionButton){
 			indicatorWindow.closeIndicator();
 			actionButton.touchEnabled = true;
 			$.backViewButton.touchEnabled = true;
-			helpers.alertUser('Listing','Failed to archive your listing. Please try again!');
+			helpers.alertUser('Listing','Failed to archive your listing. Please try again');
 		} else {
 			indicatorWindow.closeIndicator();
 			actionButton.touchEnabled = true;
@@ -410,7 +411,7 @@ function updateUser(){
 			});
 		},
 		error: function(data){
-			helpers.alertUser('Get User','Failed to get the current user!');
+			helpers.alertUser('Get User','Failed to get the current user');
 		}
 	});
 };
@@ -492,7 +493,7 @@ function createPreviewButtons() {
 		if(bankEligible) {
 			saveListing(editListingButton, saveListingButton);	
 		} else {
-			helpers.alertUser('No go!','Before you can list items you need to add BOTH a Bank Account in \'Payment\' and an Address in \'Edit Profile\' under Settings if you haven\'t done so already!');
+			helpers.alertUser('No go!','Before you can list items you need to add BOTH a Bank Account in \'Payment\' and an Address in \'Edit Profile\' under Settings if you haven\'t done so already');
 		}
 	});
 	return;
@@ -625,7 +626,7 @@ function createActionButton(height, width, fontSize, background, text, ccEligibl
 				});
 			});	
 		} else {
-			helpers.alertUser('No go!','Before you can purchase items you need to add a credit card in \'Payment\' and address in \'Edit Profile\' under Settings!');
+			helpers.alertUser('No go!','Before you can purchase items you need to add BOTH a credit card in \'Payment\' and address in \'Edit Profile\' under Settings if you haven\'t done so already');
 		}
 	});
 	return actionButton;
@@ -751,7 +752,7 @@ exports.cleanup = function () {
 			if(ccEligible) {
 				apiSupport(e);	
 			} else {
-				helpers.alertUser('No go!','Before you can purchase items you need to add a credit card in \'Payment\' and address in \'Edit Profile\' under Settings!');
+				helpers.alertUser('No go!','Before you can purchase items you need to add BOTH a credit card in \'Payment\' and address in \'Edit Profile\' under Settings if you haven\'t done so already');
 			}
 		}
 		//springback

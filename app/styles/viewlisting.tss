@@ -45,7 +45,8 @@
 },
 "#viewListingButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "22dp"
+            fontSize: "22dp",
+            fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
 	top: '18dp'
@@ -174,7 +175,8 @@
 },
 "#viewListingButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "22dp"
+            fontSize: "22dp",
+            fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
 	top: '18dp'
@@ -568,9 +570,11 @@
 },
 "#viewListingButtonIcon[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "20dp"
+            fontSize: "20dp",
+            fontFamily: "Nunito-Bold"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '20dp'
 },
 "#titleViewListingView[if=Alloy.Globals.android]": {
 	width: "25dp"

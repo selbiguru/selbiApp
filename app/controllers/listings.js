@@ -19,7 +19,7 @@ if(tabView === 1) {
 	$.titleListingsLabel.text = "My Listings";
 	genMyItems(function(err, items){
 		if(err) {
-			helpers.alertUser('Listings','Unable to get user listings, please try again later!');
+			helpers.alertUser('Listings','Unable to get user listings, please try again later');
 			return;
 		}
 	});
@@ -28,7 +28,7 @@ if(tabView === 1) {
 	$.titleListingsLabel.text = "Friends";
 	genFriendsItems(function(err, items){
 		if(err) {
-			helpers.alertUser('Listings','Unable to get friend\'s listings, please try again later!');
+			helpers.alertUser('Listings','Unable to get friend\'s listings, please try again later');
 			return;
 		}
 	});
@@ -37,7 +37,7 @@ if(tabView === 1) {
 	$.titleListingsLabel.text = "Selbi USA";
 	genUSAItems(function(err, items){
 		if(err) {
-			helpers.alertUser('Listings','Unable to get USA listings, please try again later!');
+			helpers.alertUser('Listings','Unable to get USA listings, please try again later');
 		}
 	});
 } else {
@@ -45,7 +45,7 @@ if(tabView === 1) {
 	$.titleListingsLabel.text = args;
 	genMyItems(function(err, items){
 		if(err) {
-			helpers.alertUser('Listings','Unable to get user listings, please try again later!');
+			helpers.alertUser('Listings','Unable to get user listings, please try again later');
 			return;
 		}
 	});

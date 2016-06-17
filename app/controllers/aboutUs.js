@@ -19,7 +19,7 @@ $.activityIndicator.show();
  */
 AboutUsManager.getAboutUs(function(err, aboutUsResults) {
 	if(err) {
-		dynamicElement.defaultLabel('Guess there isn\'t much to learn about Selbi!  Check back later!', function(err, results) {
+		dynamicElement.defaultLabel('Guess there isn\'t much to learn about Selbi.  Check back later!', function(err, results) {
 			$.aboutUsInfoView.add(results);
 		});
 	} else {

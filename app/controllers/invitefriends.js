@@ -112,7 +112,7 @@ function getFriendsSection() {
 								e.source.remove(e.source.children[0]);
 						};
 						if(uniqueUserRegEx === null) {
-							helpers.alertUser('Oops','Usernames are only letters and numbers!');
+							helpers.alertUser('Oops','Usernames are only letters and numbers');
 	                		return;
 	                	}
 						if(helpers.trim(e.value, true).length > 6){
@@ -313,7 +313,7 @@ function loadContacts() {
 		};
 		friendsManager.getSelbiUsersByPhones(phoneArray,function(err, results){
 			if(err) {
-				helpers.alertUser('Oops','Having trouble getting your phone contacts. Please try again later!');
+				helpers.alertUser('Oops','Having trouble getting your phone contacts. Please try again later');
 				addressBookDisallowed();
 			}
 			if(results) {

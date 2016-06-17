@@ -77,7 +77,8 @@
 	font: {
             fontSize: "22dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '18dp'
 },
 "#titleAddCreditCardView[if=Alloy.Globals.iPhoneFour]": {
 	width: "200dp"
@@ -146,7 +147,8 @@
 	font: {
             fontSize: "22dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '18dp'
 },
 "#titleAddCreditCardView[if=Alloy.Globals.iPhoneFive]": {
 	width: "200dp"
@@ -217,7 +219,7 @@
             fontSize: "24dp"
         },
 	color: "#1BA7CD",
-	top: '25dp'
+	top: '20dp'
 },
 "#titleAddCreditCardView[if=Alloy.Globals.iPhoneSix]": {
 	width: "255dp"
@@ -286,7 +288,7 @@
             fontSize: "28dp"
         },
 	color: "#1BA7CD",
-	top: '25dp'
+	top: '20dp'
 },
 "#titleAddCreditCardView[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: "294dp"
@@ -357,7 +359,8 @@
 	font: {
             fontSize: "20dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '20dp'
 },
 "#titleAddCreditCardView[if=Alloy.Globals.android]": {
 	width: "255dp"

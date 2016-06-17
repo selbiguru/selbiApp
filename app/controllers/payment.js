@@ -25,105 +25,18 @@ function addNewCard(){
 
 /**
  * @method addNewBank 
- * Checks for a user address which is required by Braintree. If one exists, opens addBankAccount view so users can enter in bank account information.
+ * Checks for a user address which is required by Stripe. If one exists, opens addBankAccount view so users can enter in bank account information.
  */
 function addNewBank(){
-	//Add new bank page to add routing number and account number.
-	//Need to connect to Braintree if this option is selected
 	//To create a merchant we need an address so we check to see if the user model has an address, 
 	//otherwise we send back an alert
 	if(Alloy.Globals.currentUser.attributes.address) {
 		Alloy.Globals.openPage('addBankAccount');
 	} else {
-		helpers.alertUser('Add Address', 'You must complete your profile and address in \'Edit Profile\' under settings before connecting a bank account!');
+		helpers.alertUser('Add Address', 'You must complete your profile and address in \'Edit Profile\' under settings before connecting a bank account');
 		return;
 	}
 }
-
-/**
- * @method addVenmo 
- * Opens Birthday modal if user has not yet entered their birthday
- * Braintree requires birthday when creating a subMerchant Account
- */
-/*function addVenmo(){
-	if(!Alloy.Globals.currentUser.attributes.dateOfBirth || Alloy.Globals.currentUser.attributes.dateOfBirth === null) {
-		modalManager.getBirthdayModal(function(err,results){
-			results.modalSaveButton.addEventListener('click', function() {
-				var textFieldObject = {
-					"id": Ti.App.Properties.getString('userId'), //Id of the user 
-					"dateOfBirth": results.datePicker.value.toISOString()
-				};
-				var animateWindowClose = Titanium.UI.create2DMatrix();
-			    animateWindowClose = animateWindowClose.scale(0);
-			    userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
-			    	if(err) {
-			    		helpers.alertUser('Update User','Failed to save your birthday, please try again!');
-			    		return;
-			    	} else {
-			    		results.modalWindow.close({transform:animateWindowClose, duration:300});
-				    	//sendVenmoBraintree();
-				    	return;
-				    }
-			    });
-			    results.modalWindow.close({transform:animateWindowClose, duration:300});
-			    animateWindowClose = null;
-			});
-		});
-	} else {
-		//sendVenmoBraintree();
-		return;
-	}
-}*/
-
-/**
- * @private sendVenmoBraintree 
- * Determines if your address is complete on your profile page and if so, creates a subMerchant account with Venmo so you can cash out.
- */
-/*function sendVenmoBraintree(){
-	//Selecting Venmo will not leave this page but instead send info to braintree
-	//via this js file.  Then a checkmark will appear to show they selected this option.
-	//Need to connect to Braintree if this option is selected.
-	//If selected, Braintree uses phone number, which we will have,
-	//to send funds to venmo when somone purchases from this vendor
-	//To create a merchant we need an address so we check to see if the user model has an address, 
-	//otherwise we send back an alert
-	if (Alloy.Globals.currentUser.attributes.address) {
-		var merchantSubAccountParams = {
-			individual: {
-			    firstName: Alloy.Globals.currentUser.attributes.firstName,
-			    lastName: Alloy.Globals.currentUser.attributes.lastName,
-			    email: Alloy.Globals.currentUser.attributes.email,
-			    phone: Alloy.Globals.currentUser.attributes.phoneNumber,
-			    dateOfBirth: Alloy.Globals.currentUser.attributes.dateOfBirth,
-			    address: {
-			      streetAddress: Alloy.Globals.currentUser.attributes.address,
-			      locality: Alloy.Globals.currentUser.attributes.city,
-			      region: Alloy.Globals.currentUser.attributes.state,
-			      postalCode: Alloy.Globals.currentUser.attributes.zip
-			    }
-  		  	},
-  			funding: {
-			    mobilePhone: Alloy.Globals.currentUser.attributes.phoneNumber
-		  	},
-		  	tosAccepted: true,
-		  	id: Ti.App.Properties.getString('userId'), //Id of the user
-		  	venmo: true
-  		};
-  		paymentManager.createSubMerchantAccount(merchantSubAccountParams, function(err, responseObj) {
-			if(err) {
-				helpers.alertUser('Venmo','Failed to connect your Venmo account, make sure you already have a Venmo account active or add a bank account instead!');
-			} else {
-				//add something here!!!!!
-			}
-		});
-	} else {
-		helpers.alertUser('Add Address','You must complete your profile and address in \'Edit Profile\' under settings before connecting an account!');
-		return;
-	}
-}*/
-
-// Set the Venmo button image
-//$.imageAddVenmo.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.venmoWhite;
 
 
 
@@ -221,7 +134,7 @@ function addNewBank(){
 			fontSize: iconFont
 		}
  	});
- 	var deleteCardIcon = Titanium.UI.createLabel({
+ 	/*var deleteCardIcon = Titanium.UI.createLabel({
  		//borderColor: "red",
 		textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
 		right: "15dp",
@@ -230,17 +143,17 @@ function addNewBank(){
 		font: {
 			fontSize: iconFont
 		}
- 	});
+ 	});*/
  	$.fa.add(checkedCardIcon, "fa-check");
  	viewUserCard.add(checkedCardIcon);
  	viewUserCard.add(userCardHeader);
  	viewUserCard.add(userCardNumber);
  	viewUserCard.add(userCardExp);
- 	$.fa.add(deleteCardIcon, "fa-times");
- 	viewUserCard.add(deleteCardIcon);
+ 	//$.fa.add(deleteCardIcon, "fa-times");
+ 	//viewUserCard.add(deleteCardIcon);
  	$.paymentDetails.add(viewUserCard);
- 	deleteCardIcon.addEventListener('click', function() {
- 		//delete credit card from braintree and our db
+ 	/*deleteCardIcon.addEventListener('click', function() {
+ 		//delete credit card from Stripe and our db
  		var deleteCardAlert = Titanium.UI.createAlertDialog({
 	        	title : 'Delete Card',
 	        	buttonNames: ['Confirm', 'Cancel'],
@@ -259,7 +172,7 @@ function addNewBank(){
  				paymentManager.deletePayment(function(err, response){
 					if(err){
 						indicatorWindow.closeIndicator();
-						helpers.alertUser('Delete Payment','Unable to delete payment, please try again or contact us!');
+						helpers.alertUser('Failed to Delete','Unable to delete payment, please try again or contact us');
 						return;
 					} else {
 						$.paymentDetails.remove(viewUserCard);
@@ -271,7 +184,7 @@ function addNewBank(){
 		});
  		deleteCardAlert.show();
  		return;
- 	});
+ 	});*/
  };
 
 
@@ -349,7 +262,7 @@ function showUserBank(bankInfo) {
 			fontSize: iconFont
 		}
  	});
- 	var deleteBankIcon = Titanium.UI.createLabel({
+ 	/*var deleteBankIcon = Titanium.UI.createLabel({
  		//borderColor: "red",
 		textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
 		right: "15dp",
@@ -358,16 +271,16 @@ function showUserBank(bankInfo) {
 		font: {
 			fontSize: iconFont
 		}
- 	});
+ 	});*/
  	$.fa.add(checkedBankIcon, "fa-check");
  	viewUserBank.add(checkedBankIcon);
  	viewUserBank.add(userBankHeader);
  	viewUserBank.add(userBankNumber);
- 	$.fa.add(deleteBankIcon, "fa-times");
- 	viewUserBank.add(deleteBankIcon);
+ 	//$.fa.add(deleteBankIcon, "fa-times");
+ 	//viewUserBank.add(deleteBankIcon);
  	$.bankingDetails.add(viewUserBank);
- 	deleteBankIcon.addEventListener('click', function() {
- 		//delete bank account from braintree and our db
+ 	/*deleteBankIcon.addEventListener('click', function() {
+ 		//delete bank account from Stripe and our db
  		var deleteBankAlert = Titanium.UI.createAlertDialog({
 	        	title : 'Delete Bank Account',
 	        	buttonNames: ['Confirm', 'Cancel'],
@@ -381,10 +294,10 @@ function showUserBank(bankInfo) {
 				});
 				indicatorWindow.openIndicator();
 				Ti.API.info('The confirm button was clicked');
- 				paymentManager.deleteMerchant(function(err, response){
+ 				paymentManager.deleteExternalAccount(function(err, response){
 					if(err){
 						indicatorWindow.closeIndicator();
-						helpers.alertUser('Delete Bank','Unable to delete bank, please try again or contact us!');
+						helpers.alertUser('Failed to Delete','Unable to delete bank, please try again or contact us');
 						return;
 					} else {
 						$.bankingDetails.remove(viewUserBank);
@@ -396,7 +309,7 @@ function showUserBank(bankInfo) {
 		});
  		deleteBankAlert.show();
  		return;
- 	});
+ 	});*/
  };
 
 
@@ -414,6 +327,7 @@ $.activityIndicator.show();
  *  On page load, dynamically loads the user's payment methods and calls correlating function to dynamically create XML.
  */
 paymentManager.getPaymentMethods(function(err, results){
+	console.log('payment stuff ', results);
 	if(err) {
 		$.paymentView.remove($.bankingDetails);
 		$.paymentView.remove($.paymentDetails);
@@ -434,7 +348,7 @@ paymentManager.getPaymentMethods(function(err, results){
 	$.activityIndicator.height = '0dp';
 });
 
-//Close addCreditCard page on payment.js load otherwise webview braintree doesn't properly read the save cc view
+//Close addCreditCard page on payment.js load otherwise webview Stripe doesn't properly read the save cc view
 //Alloy.Globals.closePage('addCreditCard');
 //Alloy.Globals.closePage('addBankAccount');
 

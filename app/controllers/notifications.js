@@ -108,7 +108,7 @@ function updateUser(){
 			});
 		},
 		error: function(data){
-			helpers.alertUser('Get User','Failed to get the current user!');
+			helpers.alertUser('Get User','Failed to get the current user');
 		}
 	});
 };
@@ -127,7 +127,7 @@ function cancelNotification(e) {
 	};
 	friendsManager.updateFriendInvitationByUserIds( invitationObject, function(err, updateResult) {
 		if(err) {
-			helpers.alertUser('Oops','We are having trouble processing your request!');
+			helpers.alertUser('Oops','We are having trouble processing your request');
 		} else {
 			e.section.deleteItemsAt(e.itemIndex,1);
 			if(!$.notificationSection.getItemAt(0)) {
@@ -155,7 +155,7 @@ function acceptNotification(e) {
 		};
 		notificationManager.deleteNotification(deleteObj, function(err, deleteResults) {
 			if(err) {
-				helpers.alertUser('Oops','We are having trouble processing your request!');
+				helpers.alertUser('Oops','We are having trouble processing your request');
 			} else {
 				e.section.deleteItemsAt(e.itemIndex,1);
 				if(!$.notificationSection.getItemAt(0)) {
@@ -178,7 +178,7 @@ function acceptNotification(e) {
 		};
 		friendsManager.updateFriendInvitationByUserIds( invitationObject, function(err, updateResult) {
 			if(err) {
-				helpers.alertUser('Oops','We are having trouble processing your request!');
+				helpers.alertUser('Oops','We are having trouble processing your request');
 			} else {
 				e.section.deleteItemsAt(e.itemIndex,1);
 				if(!$.notificationSection.getItemAt(0)) {

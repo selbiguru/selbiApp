@@ -19,7 +19,7 @@ function registerUser(){
 	$.closeRegister.touchEnabled = false;
 	// Todo: validation when we have a template
 	if (!$.firstName.value || !$.lastName.value || !$.email.value || !$.password.value || !$.phoneNumber.value) {
-    	helpers.alertUser('Missing Fields','All fields must be filled out!');
+    	helpers.alertUser('Missing Fields','All fields must be filled out');
     	buttonOn();
     	return;
 	} 
@@ -33,7 +33,7 @@ function registerUser(){
 	var validatedNumber = validatePhoneNumber($.phoneNumber.value);
 	var validatedPassword = $.password.value;
 	if(!validateFirstName || !validateLastName ) {
-		helpers.alertUser('Invalid Name','Please enter a valid first and last name.');
+		helpers.alertUser('Invalid Name','Please enter a valid first and last name');
 		buttonOn();
 		return;
 	} else if(validatedEmail.email.message) {
@@ -41,25 +41,26 @@ function registerUser(){
 		buttonOn();
 		return;
 	} else if(!validatedNumber || validatedNumber.length != 10) {
-    	helpers.alertUser('Invalid Phone Number','Please enter a valid 10 digit phone number beginning with area code.');
+    	helpers.alertUser('Invalid Phone Number','Please enter a valid 10 digit phone number beginning with area code');
     	buttonOn();
 		return;
 	} else if(validatedPassword.length < 8) {
-		helpers.alertUser('Password','Your password must be at least 8 characters long.');
+		helpers.alertUser('Password','Your password must be at least 8 characters long');
     	buttonOn();
 		return;
 	}
 	var userName = (helpers.trim(validateFirstName[0].concat(validateLastName[0]), true).replace(/\W+/g, '').toLowerCase()).slice(0,20);
-	/*var codeNumbers =[];
+	var codeNumbers =[];
 	var randomNumber = Math.floor(Math.random() * 8999 + 1000);
 	var validateObject = {
 		phoneNumber: validatedNumber,
-		verifyPhone: randomNumber
+		verifyPhone: randomNumber,
+		email: validatedEmail.email
 	};
 	twilioManager.sendValidationMessage(validateObject, function(error, response){
 		if(error) {
 			console.log("TWILIO ERROR");
-			helpers.alertUser('Phone Number Validation','Failed to send SMS text, please check your phone number and try again!');
+			helpers.alertUser('Register', error);
 			buttonOn();
 			return;
 		} else {
@@ -84,9 +85,11 @@ function registerUser(){
 				});
 				results.modalVerifyButton.addEventListener('click', function() {
 					if(randomNumber === +codeNumbers.join('')) {
+						results.modalErrorLabel.visible = false;
+						results.modalErrorLabel.height = '0dp';
 						var animateWindowClose = Titanium.UI.create2DMatrix();
 					    animateWindowClose = animateWindowClose.scale(0);	
-					    results.modalWindow.close({transform:animateWindowClose, duration:300});*/
+					    results.modalWindow.close({transform:animateWindowClose, duration:300});
 						indicatorWindow.openIndicator();
 					    AuthManager.userRegister(validateFirstName[0], validateLastName, validatedEmail.email, userName, validatedPassword, validatedNumber, function(err, registerResult){
 							if(err) {
@@ -100,18 +103,22 @@ function registerUser(){
 								removeEventListeners();	
 							}
 						});
-					  /*} else {
+					  } else {
+					  	results.modalErrorLabel.visible = true;
+						results.modalErrorLabel.height = Ti.UI.SIZE;
 					  	buttonOn();
 					  	return;
 					  }
 				});
 				results.modalResendButton.addEventListener('click', function() {
+					results.modalErrorLabel.visible = false;
+					results.modalErrorLabel.height = '0dp';
 					randomNumber = Math.floor(Math.random() * 8999 + 1000);
 					validateObject.verifyPhone = randomNumber;
 					twilioManager.sendValidationMessage(validateObject, function(error, response){
 						if(error) {
 							console.log("Ping");
-							helpers.alertUser('Phone Number Validation','Failed to send SMS text, please check your phone number and try again!');
+							helpers.alertUser('Register', error);
 							buttonOn();
 							return;
 						} else {
@@ -122,7 +129,7 @@ function registerUser(){
 				});
 			});
 		}
-	});*/
+	});
 }
 
 function closeRegisterWindow(){

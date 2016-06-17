@@ -72,7 +72,8 @@
 	font: {
             fontSize: "22dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '18dp'
 },
 "#titleAddBankAccountView[if=Alloy.Globals.iPhoneFour]": {
 	width: "200dp"
@@ -87,7 +88,7 @@
 	},
 	top: '20dp'
 },
-"#saveSubMerchantBankView[if=Alloy.Globals.iPhoneFour]": {
+"#saveManagedBankBankView[if=Alloy.Globals.iPhoneFour]": {
 	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneFour]": {
@@ -98,7 +99,7 @@
 	color: "#1BA7CD",
 	top: '24dp'
 },
-"#saveSubMerchantBankButton[if=Alloy.Globals.iPhoneFour]": {
+"#saveManagedBankButton[if=Alloy.Globals.iPhoneFour]": {
 	font: {
         fontSize: "16dp"
     },
@@ -112,7 +113,7 @@
 },
 "#imageExCheck[if=Alloy.Globals.iPhoneFour]": {
 	width: Ti.UI.FILL,
-	height: "130dp",
+	height: "125dp",
 	bottom: "10dp"
 },
 ".banking-number[if=Alloy.Globals.iPhoneFour]": {
@@ -144,6 +145,11 @@
 		fontFamily: 'Nunito-Light'
 	},
 	color: '#545555'
+},
+".ssn-info[if=Alloy.Globals.iPhoneFour]":{
+	font: {
+		fontSize: '10dp',
+	},
 },
 ".left-padding[if=Alloy.Globals.iPhoneFour]": {
 	left: '105dp'
@@ -183,7 +189,8 @@
 	font: {
             fontSize: "22dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '18dp'
 },
 "#titleAddBankAccountView[if=Alloy.Globals.iPhoneFive]": {
 	width: "200dp"
@@ -198,7 +205,7 @@
 	},
 	top: '20dp'
 },
-"#saveSubMerchantBankView[if=Alloy.Globals.iPhoneFive]": {
+"#saveManagedBankBankView[if=Alloy.Globals.iPhoneFive]": {
 	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneFive]": {
@@ -209,7 +216,7 @@
 	color: "#1BA7CD",
 	top: '24dp'
 },
-"#saveSubMerchantBankButton[if=Alloy.Globals.iPhoneFive]": {
+"#saveManagedBankButton[if=Alloy.Globals.iPhoneFive]": {
 	font: {
     	fontSize: "16dp"
     },
@@ -256,6 +263,11 @@
 	},
 	color: '#545555'
 },
+".ssn-info[if=Alloy.Globals.iPhoneFive]":{
+	font: {
+		fontSize: '10dp',
+	},
+},
 ".left-padding[if=Alloy.Globals.iPhoneFive]": {
 	left: '116dp'
 },
@@ -297,7 +309,8 @@
 	font: {
             fontSize: "24dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '20dp'
 },
 "#titleAddBankAccountView[if=Alloy.Globals.iPhoneSix]": {
 	width: "255dp"
@@ -312,7 +325,7 @@
 	},
 	top: '20dp'
 },
-"#saveSubMerchantBankView[if=Alloy.Globals.iPhoneSix]": {
+"#saveManagedBankBankView[if=Alloy.Globals.iPhoneSix]": {
 	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
@@ -323,7 +336,7 @@
 	color: "#1BA7CD",
 	top: '25dp'
 },
-"#saveSubMerchantBankButton[if=Alloy.Globals.iPhoneSix]": {
+"#saveManagedBankButton[if=Alloy.Globals.iPhoneSix]": {
 	font: {
             fontSize: "18dp",
             fontFamily: "Nunito-Bold"
@@ -371,6 +384,11 @@
 	},
 	color: '#545555'
 },
+".ssn-info[if=Alloy.Globals.iPhoneSix]":{
+	font: {
+		fontSize: '12dp',
+	},
+},
 ".left-padding[if=Alloy.Globals.iPhoneSix]": {
 	left: '140dp'
 },
@@ -407,7 +425,8 @@
 	font: {
             fontSize: "28dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '20dp'
 },
 "#titleAddBankAccountView[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: "294dp"
@@ -422,7 +441,7 @@
 	},
 	top: "20dp"
 },
-"#saveSubMerchantBankView[if=Alloy.Globals.iPhoneSixPlus]": {
+"#saveManagedBankBankView[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -433,7 +452,7 @@
 	color: "#1BA7CD",
 	top: "25dp"
 },
-"#saveSubMerchantBankButton[if=Alloy.Globals.iPhoneSixPlus]": {
+"#saveManagedBankButton[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
             fontSize: "20dp",
             fontFamily: "Nunito-Bold"
@@ -482,6 +501,11 @@
 	},
 	color: '#545555'
 },
+".ssn-info[if=Alloy.Globals.iPhoneSixPlus]":{
+	font: {
+		fontSize: '13dp',
+	},
+},
 ".left-padding[if=Alloy.Globals.iPhoneSixPlus]": {
 	left: '150dp'
 },
@@ -515,7 +539,8 @@
 	font: {
             fontSize: "20dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '20dp'
 },
 "#titleAddBankAccountView[if=Alloy.Globals.android]": {
 	width: "255dp"
@@ -529,7 +554,7 @@
 		fontFamily: "Nunito-Bold"
 	}
 },
-"#saveSubMerchantBankView[if=Alloy.Globals.android]": {
+"#saveManagedBankBankView[if=Alloy.Globals.android]": {
 	width: '60dp'
 },
 ".icon-buttons[if=Alloy.Globals.android]": {
@@ -537,9 +562,10 @@
             fontSize: "17dp",
             fontFamily: "Nunito-Bold"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '25dp'
 },
-"#saveSubMerchantBankButton[if=Alloy.Globals.android]": {
+"#saveManagedBankButton[if=Alloy.Globals.android]": {
 	font: {
             fontSize: "17dp"
         },
@@ -584,6 +610,11 @@
 		fontFamily: 'Nunito-Light'
 	},
 	color: '#545555'
+},
+".ssn-info[if=Alloy.Globals.android]":{
+	font: {
+		fontSize: '12dp',
+	},
 },
 ".left-padding[if=Alloy.Globals.android]": {
 	left: '140dp'

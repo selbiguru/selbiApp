@@ -99,7 +99,7 @@ function showGallery() {
 
 function previewListing(){
 	if(!$.title.value || !$.description.value || !$.price.value || imageCollection.length < 1) {
-    	helpers.alertUser('Empty Fields', 'Please make sure all fields are filled out including adding some images!');
+    	helpers.alertUser('Empty Fields', 'Please make sure all fields are filled out including adding some images');
     	return;
 	}
 	var validateTitle = (helpers.capFirstLetter(helpers.trim($.title.value, false))).match(/^[a-z\d-\/:;()$&@".,\?!'\[\]{}#^*+=_\\|~<> ]+$/gi);
@@ -107,16 +107,16 @@ function previewListing(){
 	var validatedPrice = $.price.value.replace(/[^\d,.]+/g,"");
 		validatedPrice = validatedPrice.match(/^[\d,.]+$/g);
 	if(!validateTitle) {
-		helpers.alertUser('Invalid Title','Please enter valid characters only.');
+		helpers.alertUser('Invalid Title','Please enter valid characters only');
 		return;
 	} else if(!validateDescription) {
-		helpers.alertUser('Invalid Description','Please enter valid characters only.');
+		helpers.alertUser('Invalid Description','Please enter valid characters only');
 		return;
 	} else if(!validatedPrice) {
-		helpers.alertUser('Invalid Price','Price should be a number.');
+		helpers.alertUser('Invalid Price','Price should be a number');
 		return;
 	} else if($.pickerCategory.getSelectedRow(0).id === 'blank') {
-		helpers.alertUser('Invalid Category','Please selected a category that best matches your item.');
+		helpers.alertUser('Invalid Category','Please selected a category that best matches your item');
 		return;
 	} else {
 		var previewListingObj = {

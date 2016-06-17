@@ -4,22 +4,6 @@ var httpManager = require('managers/httpmanager');
 
 /***************************************************GET CALLS***************************************************************/
 
-/**
- * @method getClientToken
- * Gets getClientToken from braintree for hosted fields
- * @param {Function} cb Callback function
- */
-var getClientToken = exports.getClientToken = function(cb) {
-	httpManager.execute('/payments/getClientToken', 'GET', null, true, function(err, responseToken){
-		if(err) {
-			cb(err, null);
-			} 
-		else {
-			cb(err, responseToken);
-		}
-	});
-};
-
 
 
 /**
@@ -39,6 +23,38 @@ var getPaymentMethods = exports.getPaymentMethods = function(cb) {
 };
 
 
+/**
+ * @method getManagedAccount
+ * Gets managed account from stripe for user
+ * @param {Function} cb Callback function
+ */
+var getManagedAccount = exports.getManagedAccount = function(cb) {
+	httpManager.execute('/payments/getManagedAccount/'+Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, managedAccount){
+		if(err) {
+			cb(err, null);
+			} 
+		else {
+			cb(err, managedAccount);
+		}
+	});
+};
+
+
+/**
+ * @method getCustomer
+ * Gets customer account from stripe for user
+ * @param {Function} cb Callback function
+ */
+var getCustomer = exports.getCustomer = function(cb) {
+	httpManager.execute('/payments/getCustomer/'+Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, customerAccount){
+		if(err) {
+			cb(err, null);
+			} 
+		else {
+			cb(err, customerAccount);
+		}
+	});
+};
 
 
 
@@ -49,9 +65,10 @@ var getPaymentMethods = exports.getPaymentMethods = function(cb) {
  * @method createCustomerAndPaymentMethod
  * @param {Object} paymentObject Object containing the following:
  * 		@param {String} userId Id of the user adding a credit card
- * 		@param {String} firstName firstName of the user wadding a credit card
- * 		@param {String} lastName lastName of the user wadding a credit card
- * 		@param {String} paymentMethodNonce Braintree nonce received with encrypted credit card info 
+ * 		@param {String} firstName firstName of the user adding a credit card
+ * 		@param {String} lastName lastName of the user adding a credit card
+ * 		@param {String} email email of the user adding a credit card
+ * 		@param {String} paymentStripeCardResponse Stripe token received with encrypted credit card info 
  * @param {Function} cb Callback function
  */
 var createCustomerAndPaymentMethod = exports.createCustomerAndPaymentMethod = function(paymentObject, cb) {
@@ -72,8 +89,8 @@ var createCustomerAndPaymentMethod = exports.createCustomerAndPaymentMethod = fu
 
 
 
-var createSubMerchantAccount = exports.createSubMerchantAccount = function(subMerchantObject, cb) {
-	httpManager.execute('/payments/createSubMerchantAccount/'+Ti.App.Properties.getString('userId'), 'POST', subMerchantObject, true, function(err, userPaymentObj){
+var createManagedAccount = exports.createManagedAccount = function(managedObject, cb) {
+	httpManager.execute('/payments/createManagedAccount/'+Ti.App.Properties.getString('userId'), 'POST', managedObject, true, function(err, userPaymentObj){
 		if(err) {
 			cb(err, null);
 			} 
@@ -117,11 +134,11 @@ var createOrder = exports.createOrder = function(orderObject, cb) {
 
 /**
  * @method deletePayment
- * Delete the CC payment info from Selbi Servers and BrainTree
+ * Delete the CC payment info from Selbi Servers and Stripe
  * @param {Function} cb Callback function
  */
 var deletePayment = exports.deletePayment = function(cb) {
-	httpManager.execute('/payments/paymentMethod/'+Ti.App.Properties.getString('userId'), 'DELETE', null, true, function(err, deletePaymentResponse){
+	httpManager.execute('/payments/deletePaymentMethod/'+Ti.App.Properties.getString('userId'), 'DELETE', null, true, function(err, deletePaymentResponse){
 		if(err) {
 			cb(err, null);
 			} 
@@ -135,18 +152,18 @@ var deletePayment = exports.deletePayment = function(cb) {
 
 
 /**
- * @method deleteMerchant
- * Delete the merchant from Selbi Servers not BrainTree
+ * @method deleteExternalAccount
+ * Delete the managed external account from Selbi Servers and Stripe 
  * @param {Function} cb Callback function
  */
-var deleteMerchant = exports.deleteMerchant = function(cb) {
-	httpManager.execute('/payments/merchant/'+Ti.App.Properties.getString('userId'), 'DELETE', null, true, function(err, deleteMerchantResponse){
+var deleteExternalAccount = exports.deleteExternalAccount = function(cb) {
+	httpManager.execute('/payments/deleteExternalAccount/'+Ti.App.Properties.getString('userId'), 'DELETE', null, true, function(err, deleteExternalAccountResponse){
 		if(err) {
 			cb(err, null);
 			} 
 		else {
 			// add to user object when we know what to save it as
-			cb(err, deleteMerchantResponse);
+			cb(err, deleteExternalAccountResponse);
 		}
 	});
 };

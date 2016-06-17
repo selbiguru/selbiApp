@@ -262,11 +262,11 @@ function adjustItemsSize(items, columns) {
 function findUserListings(){
 	var uniqueUserRegEx = (helpers.trim($.usernameSearch.value, true).toLowerCase()).match(/^[a-z\d]+$/gi);
 	if(uniqueUserRegEx === null) {
-		helpers.alertUser('Oops','Usernames are only letters and numbers!');
+		helpers.alertUser('Oops','Usernames are only letters and numbers');
 		return;
 	}
 	if(uniqueUserRegEx[0].length < 7) {
-		helpers.alertUser('Oops','Usernames are at least 7 letters long!');
+		helpers.alertUser('Oops','Usernames are at least 7 letters long');
 		return;
 	}
 	var userNameSearchObj = {
@@ -274,7 +274,7 @@ function findUserListings(){
 	};
 	friendsManager.getInvitationByUsername(userNameSearchObj, function (err, usernameResults) {
 		if(err){
-	    	helpers.alertUser('Oops!','Sorry this user does not exist!');
+	    	helpers.alertUser('Oops!','Sorry this user does not exist');
 			return;
     	} else {
     		openListing({

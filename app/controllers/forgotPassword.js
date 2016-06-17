@@ -27,7 +27,7 @@ function resetPassword() {
 	$.resetPassword.touchEnabled = false;
 	$.cancel.touchEnabled = false;
 	if (!helpers.trim($.email.value, true)) {
-    	helpers.alertUser('Oops','You must enter an email!');
+    	helpers.alertUser('Oops','You must enter an email');
     	buttonOn();
     	return;
 	} 
@@ -46,9 +46,9 @@ function resetPassword() {
 	};
 	userManager.forgotPassword(emailObject, function(err, forgotResult) {
 		if(err) {
-			helpers.alertUser('Oops!','Something went wrong. Make sure the email you entered is correct!');
+			helpers.alertUser('Oops!','Something went wrong. Make sure the email you entered is correct');
 		} else {
-			helpers.alertUser('Success!','An email has been sent to the address you entered!');
+			helpers.alertUser('Success!','An email has been sent to the address you entered');
 			$.email.value = '';
 		}
 		buttonOn();

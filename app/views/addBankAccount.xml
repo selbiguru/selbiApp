@@ -2,14 +2,14 @@
 	<View id="addBankAccountView">
 		<View id="addBankAccountTopBar">
 			<View id="backViewButton" onClick="backButton">
-				<Label icon="fa-reply" id="addBankAccountButtonIcon" class="icon-buttons"></Label>
+				<Button icon="fa-reply" id="addBankAccountButtonIcon"></Button>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>			
 			</View>
 			<View id="titleAddBankAccountView">
 				<Label id="titleAddBankAccountLabel">Add Bank</Label>
 			</View>
-			<View id="saveSubMerchantBankView">
-				<Button onClick="addBankInfo" id="saveSubMerchantBankButton" class="icon-buttons">Save</Button>
+			<View id="saveManagedBankView">
+				<Button onClick="addBankInfo" id="saveManagedBankButton" class="icon-buttons">Save</Button>
 			</View>
 		</View>
 		<View id="viewBankDescription">
@@ -30,6 +30,13 @@
 				</TextField>
 			</View>
 			<View class="banking-underline"/>
+			<View id='ssnNumberView' class='number-views'>
+				<Label id='ssnLabel' class='account-number-labels'>Last 4 SSN:</Label>
+				<TextField id="ssnNumber" class="banking-number left-padding" maxLength="4">
+				</TextField>
+			</View>
+			<View class="banking-underline"/>
+			<Label id='ssnInfo' class='account-number-labels ssn-info'>*We ask for Last 4 SSN # for bank validation.  We do not save this information on our servers!</Label>
 		</View>
 		<View id="viewExCheck">
 			 <ImageView id="imageExCheck" class="rowLabel"/>

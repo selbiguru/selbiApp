@@ -15,7 +15,7 @@ function loginUser(){
 	$.forgotPassword.touchEnabled = false;
 	$.closeWindow.touchEnabled = false;
 	if (!helpers.trim($.username.value, false) || !$.password.value ) {
-    	helpers.alertUser('Missing Fields','Please fill out all fields!');
+    	helpers.alertUser('Missing Fields','Please fill out all fields');
     	buttonOn();
     	return;
 	}
@@ -25,7 +25,7 @@ function loginUser(){
 		if(err) {
 			indicatorWindow.closeIndicator();
 			buttonOn();
-			helpers.alertUser('Login','Please check your Username and Password and try again!');
+			helpers.alertUser('Login','Please check your Username and Password and try again');
 			return;
 		} else {
 			indicatorWindow.closeIndicator();

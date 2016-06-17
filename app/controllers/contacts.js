@@ -150,7 +150,7 @@ if(e.source.children.length > 0 && (!uniqueUserRegEx || uniqueUserRegEx)){
 e.source.remove(e.source.children[0]);
 };
 if(uniqueUserRegEx === null) {
-helpers.alertUser('Oops','Usernames are only letters and numbers!');
+helpers.alertUser('Oops','Usernames are only letters and numbers');
 return;
 }
 if(helpers.trim(e.value, true).length > 6){
@@ -410,7 +410,7 @@ function loadContacts() {
 				return;
 			}
 			if (err) {
-				helpers.alertUser('Oops', 'Having trouble getting your phone contacts. Please try again later!');
+				helpers.alertUser('Oops', 'Having trouble getting your phone contacts. Please try again later');
 				addressBookDisallowed();
 			}
 			if (results) {
