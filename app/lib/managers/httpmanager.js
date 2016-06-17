@@ -7,9 +7,10 @@
 /**
  * @property {String} baseUrl Base Url for all the http calls
  */
-var baseUrl = "http://selbi-server.herokuapp.com";
+var baseUrl = Alloy.CFG.herokuServer.baseurl;
 var keychain = require('com.obscure.keychain');
-var keychainItem = keychain.createKeychainItem('serveraccount');
+var keychainItem = keychain.createKeychainItem(Alloy.CFG.keychain.account, Alloy.CFG.keychain.password);
+
 
 /**
  * @method execute
@@ -24,8 +25,6 @@ var keychainItem = keychain.createKeychainItem('serveraccount');
 var execute = exports.execute = function(relativePath, method, objectToSend, isAuth, callback) {
     var xhr = Titanium.Network.createHTTPClient(),
         url = baseUrl + relativePath;
-	console.log("!!!!!!: ", xhr);
-	console.log("55555555: ", url);
     xhr.onerror = function(e) {
     	var extendedError = xhr.responseText != 'null' ? xhr.responseText : e.error;
         Ti.API.error('Bad Server =>' + e.error);  
@@ -40,22 +39,20 @@ var execute = exports.execute = function(relativePath, method, objectToSend, isA
     xhr.setRequestHeader("content-type", "application/json");
 
     if(isAuth) {
-    	var authHeader = "Bearer " + 'eyJhbGciOiJIUzI1NiJ9.NTY2NGUwMDU0NjhjYzI1ZWZjOTMxMWU4.O-iDaDO4pBb34lQeKUkyKT1mLKdJfZHIYf57ez_hc7M';
+    	var authHeader = "Bearer " + keychainItem.valueData;
       Ti.API.info('AUTHHEADER' + authHeader);
     	xhr.setRequestHeader("Authorization", authHeader);
     }
 
 	var objectJSON = objectToSend ? JSON.stringify(objectToSend) : {};
-   // Ti.API.info('Params' + objectJSON);
+
     xhr.send(objectJSON);
 
     xhr.onload = function() {
-       // Ti.API.info('RAW =' + this.responseText);
         if (this.status == 200 || this.status == 201) {
             Ti.API.info('got my response, http status code ' + this.status);
             if (this.readyState == 4) {
                 var response = JSON.parse(this.responseText);
-                //Ti.API.info('Response = ' + response);
             } else {
                 alert('HTTP Ready State != 4');
             }
