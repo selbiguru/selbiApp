@@ -32,9 +32,6 @@ Alloy.Globals.social = require('alloy/social');
 
 Alloy.Globals.userDevice = Alloy.Globals.iPhoneFour ? 0 : Alloy.Globals.iPhoneFive ? 1 : Alloy.Globals.iPhoneSix ? 2 : Alloy.Globals.iPhoneSixPlus ? 3 : Alloy.Globals.android ? 4 : false;
 Alloy.Globals.iPhone = iPhoneFreeze[Alloy.Globals.userDevice];
-console.log('+++++++++++ ', Alloy.CFG.keychain.account, '=====', Alloy.CFG.keychain.password);
-console.log("width :", Ti.Platform.displayCaps.platformWidth);
-console.log("height :", Ti.Platform.displayCaps.platformHeight);
 
 Alloy.Globals.removeChildren = function(view) {
 	if (view) {
