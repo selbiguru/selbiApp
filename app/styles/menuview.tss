@@ -99,6 +99,9 @@
 	height: '35dp',
 	selectedBackgroundColor: "#E5E5E5"
 },
+".table-user-row[if=Alloy.Globals.iPhoneFour]":{
+	selectedBackgroundColor: "#E5E5E5"
+},
 "#row0[if=Alloy.Globals.iPhoneFour]":{
 	layout: 'vertical',
 	height:"85dp"
@@ -226,6 +229,9 @@
 	height: '35dp',
 	selectedBackgroundColor: "#E5E5E5"
 },
+".table-user-row[if=Alloy.Globals.iPhoneFive]":{
+	selectedBackgroundColor: "#E5E5E5"
+},
 "#row0[if=Alloy.Globals.iPhoneFive]":{
 	layout: 'vertical',
 	height:"95dp"
@@ -338,7 +344,6 @@
 	backgroundColor:'#FAFAFA',
 	height: Ti.UI.SIZE,
 	scrollable: false,
-	
 },
 ".menuTable2[if=Alloy.Globals.iPhoneSix]":{
 	separatorStyle:'NONE',
@@ -352,6 +357,9 @@
 },
 ".tableRow[if=Alloy.Globals.iPhoneSix]":{
 	height: '45dp',
+	selectedBackgroundColor: "#E5E5E5"
+},
+".table-user-row[if=Alloy.Globals.iPhoneSix]":{
 	selectedBackgroundColor: "#E5E5E5"
 },
 "#row0[if=Alloy.Globals.iPhoneSix]":{
@@ -480,6 +488,9 @@
 	height: '50dp',
 	selectedBackgroundColor: "#E5E5E5"
 },
+".table-user-row[if=Alloy.Globals.iPhoneSixPlus]":{
+	selectedBackgroundColor: "#E5E5E5"
+},
 "#row0[if=Alloy.Globals.iPhoneSixPlus]":{
 	layout: 'vertical',
 	height:"125dp"
@@ -601,6 +612,9 @@
 },
 ".tableRow[if=Alloy.Globals.android]":{
 	height: '45dp',
+	selectedBackgroundColor: "#E5E5E5"
+},
+".table-user-row[if=Alloy.Globals.android]":{
 	selectedBackgroundColor: "#E5E5E5"
 },
 "#row0[if=Alloy.Globals.android]":{

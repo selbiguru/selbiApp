@@ -6,7 +6,7 @@
 		</View>
 		<View class="menu-underline"/>
 		<TableView class="menuTable" id="menuTable">
-			<TableViewRow class="" id="row0" borderColor='red'>
+			<TableViewRow class="table-user-row" id="row0">
 				<ImageView id="menuUserImage" image="{user.imageURL}" />
        			<View id="menuUserName">
 					<Label id="userName" class="" text="{user.firstName} {user.lastName}"></Label>
