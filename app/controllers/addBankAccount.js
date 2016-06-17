@@ -114,8 +114,7 @@ function sendBankStripe(){
 		message : "Saving Banking Info"
 	});
 	indicatorWindow.openIndicator();
-	tokenizeBank(managedAccountParams, createStripeManagedAccount);
-	//Ti.App.fireEvent('app:fromTitaniumPaymentSaveBankAccount', managedAccountParams);	
+	tokenizeBank(managedAccountParams, createStripeManagedAccount);	
 }
 
 
@@ -159,18 +158,11 @@ function createStripeManagedAccount(tokenObj) {
  *  Closes the current view to reveal the previous still opened view.
  */
 function backButton(param) {
-	console.log('backbutton come on!!! ', param);
-	console.log('back back back back ', !param);
 	$.addBankAccountView.removeEventListener('click', blurTextField);
 	$.accountNumberView.removeEventListener('click', focusTextField);
 	$.routingNumberView.removeEventListener('click', focusTextField);
 	$.ssnNumberView.removeEventListener('click', focusTextField);
-	//Ti.App.removeEventListener("app:stripeBankValidation", stripeValidtation);
-	//Ti.App.removeEventListener("app:createStripeManagedAccount", createStripeManagedAccount);
-	//if(param) {
-		console.log('ok ok yup yup ');
-		Alloy.Globals.closePage('addBankAccount');
-	//}
+	Alloy.Globals.closePage('addBankAccount');
 }
 
 
@@ -250,7 +242,7 @@ function stripeValidtation(validationObj) {
 function tokenizeBank(bankDetails, callback) {
 	console.log('tokenize tokenize 0 ');
     var STRIPE_URL = "https://api.stripe.com/v1/tokens";
-    var STRIPE_TOKEN = 'pk_test_pVgDzmnHbUaT9z8L7p5slTKB';
+    var STRIPE_TOKEN = Alloy.CFG.stripeKey.publicKey;
     var xhr = Ti.Network.createHTTPClient({
         onload : function(e) {
             var resp = JSON.parse(this.responseText);
@@ -294,8 +286,6 @@ $.imageExCheck.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.
 
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
 
-//Ti.App.addEventListener("app:stripeBankValidation", stripeValidtation);
-//Ti.App.addEventListener("app:createStripeManagedAccount", createStripeManagedAccount);
 
 $.addListener($.addBankAccountView,'click', blurTextField);
 $.addListener($.accountNumberView,'click', focusTextField);
@@ -305,20 +295,6 @@ $.addListener($.ssnNumberView,'click', focusTextField);
 Alloy.Globals.addKeyboardToolbar($.accountNumber, blurTextField);
 Alloy.Globals.addKeyboardToolbar($.routingNumber, blurTextField);
 Alloy.Globals.addKeyboardToolbar($.ssnNumber, blurTextField);
-
-
-// For Stripe token, need to determine if environment is dev or prod
-/*if(ENV_PRODUCTION) {
-	$.webview.visible = false;
-	$.webview.setOpacity(0);
-	$.webview.height = '0dp';
-	$.webview.url = "/webViews/addBankAccountProd.html";
-} else {
-	$.webview.visible = false;
-	$.webview.setOpacity(0);
-	$.webview.height = '0dp';
-	$.webview.url = "/webViews/addBankAccountDev.html";
-}*/
 
 
 exports.cleanup = function () {

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./addCreditCard.css">
+	<title>Payment Info</title>
+</head>
+<body>
+	<div class="container" id="saveCreditCardForm">
+	    <form novalidate autocomplete="on" method="POST" action="" id="payment-form">
+			<img id="selbiImage" src="http://res.cloudinary.com/selbi-io/image/upload/v1465021100/167-selbi-icon_la5rrp.png" alt="Selbi Logo" width="50" height="50">
+			<h2 id="cardHeader">Credit Card</h2>
+			<span id="cardImage" class="card-image"></span>
+	    	<div class="form-group card-number cardInfoInput"  id="card-number">
+	        	<label for="cc-number" class="control-label">Card number formatting <small class="text-muted">[<span class="cc-brand"></span>]</small></label>
+	        	<input id="cc-number" type="tel" class="cc-number form-control cardInfoInput" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" onfocus="this.placeholder = ''" onblur="this.placeholder = '•••• •••• •••• ••••'" data-stripe="number" required>
+	      	</div>
+			
+			<div class="form-group card-cvv cardInfoInput" id="cvv">
+	        	<label for="cc-cvc" class="control-label">Card CVC formatting</label>
+	        	<input id="cc-cvc" type="tel" class="cc-cvc form-control cardInfoInput" autocomplete="off" placeholder="•••" onfocus="this.placeholder = ''" onblur="this.placeholder = '•••'" data-stripe="cvc" required>
+	    	</div>
+	    	
+	    	<div class="form-group card-zip cardInfoInput" id="postalCode">
+	        	<label for="cc-zip" class="control-label">Zip Code formatting</label>
+	        	<input id="cc-zip" type="tel" maxlength="5" class="cc-zip form-control cardInfoInput" autocomplete="off" placeholder="•••••" onfocus="this.placeholder = ''" onblur="this.placeholder = '•••••'" data-stripe="address-zip" required>
+	    	</div>
+	    	
+	    	<div class="form-group card-expiration cardInfoInput" id="expiration-date">
+	        	<label for="cc-exp" class="control-label">Card expiry formatting</label>
+	        	<input id="cc-exp" type="tel" class="form-control cc-exp cardInfoInput" autocomplete="cc-exp" placeholder="•• / ••" onfocus="this.placeholder = ''" onblur="this.placeholder = '•• / ••'" data-stripe="exp" required>
+	    	</div>
+	
+	    	<div id="cardName" class="">Selbi</div>
+			<input type="submit" id="submit" class="submit" value="Submit Payment">
+		</form>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+	<script type="text/javascript">
+	  Stripe.setPublishableKey('pk_live_9DCkm19QCeutLrgLrsv7kmVP');
+	</script>
+	<script src="./stripePaymentCC.js"></script>
+	<script src="./addCreditCardStripe.js"></script>
+
+</body>
+</html>

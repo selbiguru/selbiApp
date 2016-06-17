@@ -4,6 +4,9 @@
     	"herokuServer": {
     		"baseurl": "http://development-selbi-server.herokuapp.com"
     	},
+    	"stripeKey": {
+    		"publicKey": "pk_test_pVgDzmnHbUaT9z8L7p5slTKB"
+    	},
         "cloudinary": {
             "baseurl": "https://api.cloudinary.com/v1_1/selbi",
             "apikey": "379521277533334",
@@ -79,6 +82,9 @@
     	"herokuServer": {
     		"baseurl": "http://development-selbi-server.herokuapp.com"
     	},
+    	"stripeKey": {
+    		"publicKey": "pk_test_pVgDzmnHbUaT9z8L7p5slTKB"
+    	},
     	"cloudinary": {
             "baseurl": "https://api.cloudinary.com/v1_1/selbi",
             "apikey": "379521277533334",
@@ -153,6 +159,9 @@
     "env:production": {
     	"herokuServer": {
     		"baseurl": "http://selbi-server.herokuapp.com"
+    	},
+    	"stripeKey": {
+    		"publicKey": "pk_live_9DCkm19QCeutLrgLrsv7kmVP"
     	},
     	"cloudinary": {
             "baseurl": "https://api.cloudinary.com/v1_1/selbi-io",
@@ -235,6 +244,9 @@
     	"herokuServer": {
     		"baseurl": "http://development-selbi-server.herokuapp.com"
     	},
+    	"stripeKey": {
+    		"publicKey": "pk_test_pVgDzmnHbUaT9z8L7p5slTKB"
+    	},
     	"cloudinary": {
             "baseurl": "https://api.cloudinary.com/v1_1/selbi",
             "apikey": "379521277533334",
@@ -309,6 +321,9 @@
     "os:mobileweb": {
    		"herokuServer": {
     		"baseurl": "http://development-selbi-server.herokuapp.com"
+    	},
+    	"stripeKey": {
+    		"publicKey": "pk_test_pVgDzmnHbUaT9z8L7p5slTKB"
     	},
     	"cloudinary": {
             "baseurl": "https://api.cloudinary.com/v1_1/selbi",
