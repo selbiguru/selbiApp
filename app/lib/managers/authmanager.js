@@ -30,7 +30,6 @@ var login = exports.login = function (username, password, cb){
 			// Create a singleton
 			var authModel = Alloy.Models.instance('auth');
 			var userModel = Alloy.Models.instance('user');
-			
 			if(loginResult.user) {
 				// Set user properties
 				userModel.set({username: loginResult.user.username});
@@ -40,6 +39,7 @@ var login = exports.login = function (username, password, cb){
 				userModel.set({profileImage: loginResult.user.profileImage});
 				userModel.set({createdAt: loginResult.user.createdAt});
 				userModel.set({id: loginResult.user.id});
+				userModel.set({fraudAlert: loginResult.user.fraudAlert});
 				userModel.save();		
 				Alloy.Globals.currentUser = loginResult.userModel;	
 			}
@@ -87,7 +87,8 @@ var userRegister = exports.userRegister = function(firstName, lastName, email, u
 		"firstName": firstName,
 		"lastName": lastName,
 		"phoneNumber": phoneNumber,
-		"userAgreementAccepted": true
+		"userAgreementAccepted": true,
+		"fraudAlert": false
 	};
 	httpClient.execute("/register", "POST", registerRequest, true, function(err, registerResults) {
 		if(!err && registerResults) {

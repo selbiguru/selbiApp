@@ -2,14 +2,14 @@ exports.definition = {
 	config: {
 		columns: {
 		    "id": "integer",
-		    "username": "string",
-		    "password": "string",		    
-		    "email": "string",
-		    "firstName": "string",
-		    "lastName": "string",
-		    "createdAt": "date",
-		    "updatedAt": "date",
-		    "admin": "boolean"
+		    "username": "text",
+		    "password": "text",		    
+		    "email": "text",
+		    "firstName": "text",
+		    "lastName": "text",
+		    "createdAt": "text",
+		    "updatedAt": "text",
+		    "admin": "integer"
 		},
 		adapter: {
 			type: "sql",

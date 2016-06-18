@@ -20,7 +20,12 @@ var helpers = require('utilities/helpers'),
  * If error occurs fetching clientToken, alert modal shows and addCreditCard view is closed automatically.
  */
 function addNewCard(){
-	Alloy.Globals.openPage('addCreditCard');
+	if(Alloy.Globals.currentUser.attributes.fraudAlert) {
+		helpers.alertUser('Account Frozen!', 'Your account has been frozen.  Please contact us for more information!');
+		return;
+	} else {
+		Alloy.Globals.openPage('addCreditCard');	
+	}
 }
 
 /**
@@ -30,7 +35,10 @@ function addNewCard(){
 function addNewBank(){
 	//To create a merchant we need an address so we check to see if the user model has an address, 
 	//otherwise we send back an alert
-	if(Alloy.Globals.currentUser.attributes.address) {
+	if(Alloy.Globals.currentUser.attributes.fraudAlert) {
+		helpers.alertUser('Account Frozen!', 'Your account has been frozen.  Please contact us for more information!');
+		return;
+	} else if(Alloy.Globals.currentUser.attributes.address) {
 		Alloy.Globals.openPage('addBankAccount');
 	} else {
 		helpers.alertUser('Add Address', 'You must complete your profile and address in \'Edit Profile\' under settings before connecting a bank account');
@@ -351,7 +359,6 @@ paymentManager.getPaymentMethods(function(err, results){
 //Close addCreditCard page on payment.js load otherwise webview Stripe doesn't properly read the save cc view
 //Alloy.Globals.closePage('addCreditCard');
 //Alloy.Globals.closePage('addBankAccount');
-
 
 exports.cleanup = function () {
 	Ti.API.info('Cleaning Payments');

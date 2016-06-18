@@ -490,10 +490,13 @@ function createPreviewButtons() {
 	
 	$.addListener(editListingButton,'click', backButton);
 	$.addListener(saveListingButton,'click', function(e) {
-		if(bankEligible) {
+		if(Alloy.Globals.currentUser.attributes.fraudAlert) {
+			helpers.alertUser('Account Frozen!', 'Your account has been frozen.  Please contact us for more information!');
+			return;
+		} else if(bankEligible) {
 			saveListing(editListingButton, saveListingButton);	
 		} else {
-			helpers.alertUser('No go!','Before you can list items you need to add BOTH a Bank Account in \'Payment\' and an Address in \'Edit Profile\' under Settings if you haven\'t done so already');
+			helpers.alertUser('No go!','Before you can list items you need to add BOTH a Bank Account in \'Payment\' and an Address in \'Edit Profile\' under \'Settings\' if you haven\'t done so already');
 		}
 	});
 	return;
@@ -612,7 +615,10 @@ function createActionButton(height, width, fontSize, background, text, ccEligibl
 	$.viewListingButtonView.add(actionButton);
 
 	$.addListener(actionButton, 'click', function(e){
-		if(ccEligible) {
+		if(Alloy.Globals.currentUser.attributes.fraudAlert) {
+			helpers.alertUser('Account Frozen!', 'Your account has been frozen.  Please contact us for more information!');
+			return;
+		} else if(ccEligible) {
 			helpers.confirmAction('Confirm!', alert, function(err, response){
 				response.show();
 				$.addListener(response,'click', function(e){
@@ -626,7 +632,7 @@ function createActionButton(height, width, fontSize, background, text, ccEligibl
 				});
 			});	
 		} else {
-			helpers.alertUser('No go!','Before you can purchase items you need to add BOTH a credit card in \'Payment\' and address in \'Edit Profile\' under Settings if you haven\'t done so already');
+			helpers.alertUser('No go!','Before you can purchase items you need to add BOTH a credit card in \'Payment\' and address in \'Edit Profile\' under \'Settings\' if you haven\'t done so already');
 		}
 	});
 	return actionButton;
@@ -752,7 +758,7 @@ exports.cleanup = function () {
 			if(ccEligible) {
 				apiSupport(e);	
 			} else {
-				helpers.alertUser('No go!','Before you can purchase items you need to add BOTH a credit card in \'Payment\' and address in \'Edit Profile\' under Settings if you haven\'t done so already');
+				helpers.alertUser('No go!','Before you can purchase items you need to add BOTH a credit card in \'Payment\' and address in \'Edit Profile\' under \'Settings\' if you haven\'t done so already');
 			}
 		}
 		//springback
