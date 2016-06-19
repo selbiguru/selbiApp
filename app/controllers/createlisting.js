@@ -112,8 +112,8 @@ function previewListing(){
 	} else if(!validateDescription) {
 		helpers.alertUser('Invalid Description','Please enter valid characters only');
 		return;
-	} else if(!validatedPrice) {
-		helpers.alertUser('Invalid Price','Price should be a number');
+	} else if(!validatedPrice || !(parseFloat(validatedPrice) > .50)) {
+		helpers.alertUser('Invalid Price','Price should be a number and greater than $0.50');
 		return;
 	} else if($.pickerCategory.getSelectedRow(0).id === 'blank') {
 		helpers.alertUser('Invalid Category','Please selected a category that best matches your item');
