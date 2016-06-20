@@ -23,36 +23,46 @@ var tabView = tabsObject[args];
 switch(Alloy.Globals.userDevice) {
     case 0: //iphoneFour
         myListingFontSize = '12dp';
-        myTopBarFontSize = '13dp';
-        friendIconTop = '15dp';
+        myTopBarFontSize = '14dp';
+        mySoldFontSize = '14dp';
+        friendIconTop = '12dp';
+        requestRight = '3dp';
         myListingsItemWidth = 310;
         myListingsItemHeight = 200;
         break;
     case 1: //iphoneFive
         myListingFontSize = '12dp';
-        myTopBarFontSize = '13dp';
+        myTopBarFontSize = '14dp';
+        mySoldFontSize = '14dp';
         friendIconTop = '12dp';
+        requestRight = '3dp';
         myListingsItemWidth = 310;
         myListingsItemHeight = 200;
         break;
     case 2: //iphoneSix
         myListingFontSize = '14dp';
         myTopBarFontSize = '16dp';
+        mySoldFontSize = '16dp';
         friendIconTop = '15dp';
+        requestRight = '7dp';
         myListingsItemWidth = 364;
         myListingsItemHeight = 235;
         break;
     case 3: //iphoneSixPlus
         myListingFontSize = '15dp';
         myTopBarFontSize = '18dp';
-        friendIconTop = '15dp';
+        mySoldFontSize = '18dp';
+        friendIconTop = '17dp';
+        requestRight = '9dp';
         myListingsItemWidth = 398;
         myListingsItemHeight = 255;
         break;
     case 4: //android currently same as iphoneSix
         myListingFontSize = '14dp';
         myTopBarFontSize = '15dp';
+        mySoldFontSize = '16dp';
         friendIconTop = '15dp';
+        requestRight = '7dp';
         myListingsItemWidth = 364;
         myListingsItemHeight = 235;
         break;
@@ -65,20 +75,23 @@ switch(Alloy.Globals.userDevice) {
 
 $.activityIndicator.show();
 if(tabView === 1 || Ti.App.Properties.getString('userId') === argsID) {
+	queryObj.isSold = false;
 	$.backViewButton.children[0].removeEventListener('click',backButton);
 	$.backViewButton.removeAllChildren();
 	$.myListingsTopBar.remove($.backViewButton);
+	$.myListingsTopBar.remove($.friendRequestView);
+	$.friendRequestView = null;
 	$.backViewButton = null;
-	$.friendRequestView.hide();
 	$.titleMyListingsLabel.text = "My Listings";
 } else {
-	//args = 'John Jenkins';
-	//args = 'Jordan Burrows';
-	//args = 'Appp Ppppppppppp';
-	//args = 'Barry Silverstone';
+	queryObj.isSold = false;
+	$.myListingsButtonSaveIcon.removeEventListener('click',soldItems);
+	$.saveViewButton.removeAllChildren();
 	$.menuButton.removeAllChildren();
+	$.myListingsTopBar.remove($.saveViewButton);
 	$.myListingsTopBar.remove($.menuButton);
 	$.menuButton = null;
+	$.saveViewButton = null;
 	friendRequest();
 	var adjFontSize = $.titleMyListingsLabel.font.fontSize.substr(0, $.titleMyListingsLabel.font.fontSize.length-2);
 	if(args.length >= 11 && args.length <= 13) {
@@ -355,12 +368,14 @@ function friendRequest() {
 		var checkSquare = Titanium.UI.createLabel({
 			top: friendIconTop,
 			font: {
-            	fontSize: myTopBarFontSize
+            	fontSize: myTopBarFontSize,
+            	iconPosition: 'append'
         	},
 			color: "#1BA7CD",
 			id: 'friendRequestButton',
 			text: argsFriend[0].status === 'approved' ? 'Friends' : 'Pending',
-			touchEnabled: false
+			touchEnabled: false,
+			right: requestRight
 		});
 		$.fa.add(checkSquare, 'fa-check-square');
 		hiddenView.add(checkSquare);
@@ -368,7 +383,8 @@ function friendRequest() {
 		var plusSquare = Titanium.UI.createLabel({
 			top: friendIconTop,
 			font: {
-	            fontSize: myTopBarFontSize
+	            fontSize: myTopBarFontSize,
+	            iconPosition: 'append'
 	        },
 			color: "#1BA7CD",
 			id: 'friendRequestButton',
@@ -417,12 +433,14 @@ function friendRequestDynamic(e, newStatus){
 				var checkSquare = Ti.UI.createLabel({
 					top: friendIconTop,
 					font: {
-		            	fontSize: myTopBarFontSize
+		            	fontSize: myTopBarFontSize,
+		            	iconPosition: 'append'
 		        	},
 					color: "#1BA7CD",
 					id: 'friendRequestButton',
 					text: 'Pending',
-					touchEnabled: false
+					touchEnabled: false,
+					right: requestRight
 				});
 				e.source.data = [createInviteResult.invitation]; 
 				$.fa.add(checkSquare, 'fa-check-square');
@@ -437,7 +455,8 @@ function friendRequestDynamic(e, newStatus){
 				var plusSquare = Ti.UI.createLabel({
 					top: friendIconTop,
 					font: {
-			            fontSize: myTopBarFontSize
+			            fontSize: myTopBarFontSize,
+			            iconPosition: 'append'
 			        },
 					color: "#1BA7CD",
 					id: 'friendRequestButton',
@@ -457,12 +476,14 @@ function friendRequestDynamic(e, newStatus){
 				var checkSquare = Ti.UI.createLabel({
 					top: friendIconTop,
 					font: {
-		            	fontSize: myTopBarFontSize
+		            	fontSize: myTopBarFontSize,
+		            	iconPosition: 'append'
 		        	},
 					color: "#1BA7CD",
 					id: 'friendRequestButton',
 					text: updateInvitationResult.invitation[0].status === 'approved' ? 'Friends' : 'Pending',
-					touchEnabled: false
+					touchEnabled: false,
+					right: requestRight
 				});
 				e.source.data = updateInvitationResult.invitation; 
 				$.fa.add(checkSquare, 'fa-check-square');
@@ -471,7 +492,6 @@ function friendRequestDynamic(e, newStatus){
 		});
 	}
 }
-
 
 
 
@@ -492,6 +512,9 @@ function init() {
 		if ($.is && !endOfListings) {
 			$.is.init($.getView('myListingsListView'));
 			$.is.mark();
+		} else if($.is && endOfListings){
+			$.is.init($.getView('myListingsListView'));
+			$.is.cleanup();
 		}
 		$.activityIndicator.hide();
 		$.activityIndicator.height = '0dp';
@@ -510,7 +533,6 @@ init();
 function clearProxy(e) {
 	$.off();
 	$.destroy();
-	$.fa.cleanup();
 	$.fa = null;
 }
 
@@ -518,6 +540,30 @@ function clearProxy(e) {
 
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
 
+//Event listener to swap checked icon vs empty box icon for items sold under 'mylistings'
+$.myListingsButtonSaveIcon.addEventListener('click', function(e) {
+	if ($.myListingsButtonSaveIcon.itsOn == false) {
+        $.myListingsButtonSaveIcon.itsOn = true;
+        $.myListingsButtonSaveIcon.title = 'Sold';
+        $.myListingsButtonSaveIcon.font = {iconPosition:'append', fontSize: mySoldFontSize};
+        $.fa.change($.myListingsButtonSaveIcon, "fa-square-o");
+        paginateLastDate = '';
+        loadMoreItems = false;
+        endOfListings = false;
+        queryObj.isSold = false;
+        init();
+    } else {
+	    $.myListingsButtonSaveIcon.itsOn = false;
+	    $.myListingsButtonSaveIcon.title = 'Sold';
+	    $.myListingsButtonSaveIcon.font = {iconPosition:'append', fontSize: mySoldFontSize};
+	    $.fa.change($.myListingsButtonSaveIcon, "fa-check-square");
+	    paginateLastDate = '';
+	    loadMoreItems = false;
+	    endOfListings = false;
+	    queryObj.isSold = true;
+	    init();
+   	}
+});
 
 
 exports.cleanup = function () {
@@ -528,4 +574,3 @@ exports.cleanup = function () {
 	Alloy.Globals.deallocate($);
     $ = null;
 };
-

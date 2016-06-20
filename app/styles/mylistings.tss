@@ -27,9 +27,6 @@
 
 
 
-
-
-
 //iPhone 4
 "#myListingsTopBar[if=Alloy.Globals.iPhoneFour]":{
 	width: Ti.UI.FILL,
@@ -52,7 +49,7 @@
             fontSize: "22dp"
         },
 	color: "#1BA7CD",
-	top: '20dp',
+	top: '24dp',
 	left: '17dp'
 },
 "#myListingsButtonBackIcon[if=Alloy.Globals.iPhoneFour]": {
@@ -70,11 +67,23 @@
 "#titleMyListingsLabel[if=Alloy.Globals.iPhoneFour]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
+	height: '40dp',
 	font: {
 		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
 	},
 	top: '14dp',
+},
+"#myListingsButtonSaveIcon[if=Alloy.Globals.iPhoneFour]": {
+	color: '#1BA7CD',
+	font : {
+        iconPosition : "append", // Default value is "prepend"
+        fontSize: "14dp",
+        fontFamily: "Nunito-Bold"
+   	},
+   	top: '22dp',
+   	width: Ti.UI.FILL,
+   	right: '5dp'
 },
 "#friendRequestView[if=Alloy.Globals.iPhoneFour]": {
 	width: '70dp'
@@ -177,7 +186,7 @@
             fontSize: "22dp"
         },
 	color: "#1BA7CD",
-	top: '20dp',
+	top: '24dp',
 	left: '17dp'
 },
 "#myListingsButtonBackIcon[if=Alloy.Globals.iPhoneFive]": {
@@ -201,6 +210,17 @@
 		fontFamily: "Nunito-Bold"
 	},
 	top: '14dp'
+},
+"#myListingsButtonSaveIcon[if=Alloy.Globals.iPhoneFive]": {
+	color: '#1BA7CD',
+	font : {
+        iconPosition : "append", // Default value is "prepend"
+        fontSize: "14dp",
+        fontFamily: "Nunito-Bold"
+   	},
+   	top: '22dp',
+   	width: Ti.UI.FILL,
+   	right: '5dp'
 },
 "#friendRequestView[if=Alloy.Globals.iPhoneFive]": {
 	width: '70dp'
@@ -328,6 +348,16 @@
 	},
 	top: '16dp'
 },
+"#myListingsButtonSaveIcon[if=Alloy.Globals.iPhoneSix]": {
+	color: '#1BA7CD',
+	font : {
+        iconPosition : "append", // Default value is "prepend"
+        fontSize: "16dp",
+        fontFamily: "Nunito-Bold"
+   	},
+   	top: '24dp',
+   	width: Ti.UI.FILL
+},
 "#friendRequestView[if=Alloy.Globals.iPhoneSix]": {
 	width: '85dp'
 },
@@ -445,11 +475,22 @@
 "#titleMyListingsLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
+	height: '40dp',
 	font: {
 		fontSize: "28dp",
 		fontFamily: "Nunito-Bold"
 	},
-	top: '20dp'
+	top: '18dp'
+},
+"#myListingsButtonSaveIcon[if=Alloy.Globals.iPhoneSixPlus]": {
+	color: '#1BA7CD',
+	font : {
+        iconPosition : "append", // Default value is "prepend"
+        fontSize: "18dp",
+        fontFamily: "Nunito-Bold"
+   	},
+   	top: '24dp',
+   	width: Ti.UI.FILL
 },
 "#friendRequestView[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: '95dp'
@@ -548,9 +589,11 @@
 	font: {
             fontSize: "20dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '25dp',
+	left: '17dp'
 },
-/*"#myListingsButtonBackIcon[if=Alloy.Globals.android]": {
+"#myListingsButtonBackIcon[if=Alloy.Globals.android]": {
 	font: {
             fontSize: "24dp",
             fontFamily: "Nunito-Bold"
@@ -558,17 +601,29 @@
 	color: "#1BA7CD",
 	top: '20dp',
 	left: '15dp'
-},*/
+},
 "#titleMyListingsView[if=Alloy.Globals.android]": {
 	width: "221dp"
 },
 "#titleMyListingsLabel[if=Alloy.Globals.android]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
+	height: '40dp',
 	font: {
 		fontSize: "20dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '16dp'
+},
+"#myListingsButtonSaveIcon[if=Alloy.Globals.android]": {
+	color: '#1BA7CD',
+	font : {
+        iconPosition : "append", // Default value is "prepend"
+        fontSize: "16dp",
+        fontFamily: "Nunito-Bold"
+   	},
+   	top: '24dp',
+   	width: Ti.UI.FILL
 },
 "#friendRequestView[if=Alloy.Globals.android]": {
 	width: '77dp'

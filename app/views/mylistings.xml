@@ -10,6 +10,9 @@
 			<View id="titleMyListingsView">
 				<Label id="titleMyListingsLabel">Listings</Label>
 			</View>
+			<View id="saveViewButton" class='top-bar-icon-view'>
+				<Button icon="fa-square-o" id="myListingsButtonSaveIcon">Sold</Button>		
+			</View>
 			<View id="friendRequestView">
 			</View>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>	

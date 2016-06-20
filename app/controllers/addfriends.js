@@ -752,7 +752,6 @@ exports.cleanup = function () {
         Alloy.Globals.deallocate(textFieldObj);
         textFieldObj = null;	
 	};
-	$.fa.cleanup();
 	if(contactListView){
 		friendsOnSelbi.items=[];
 		friendsPending.items=[];

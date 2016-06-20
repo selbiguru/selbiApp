@@ -349,6 +349,7 @@ function filterListings() {
 			categoryArray = [];
 			paginateLastDate = '';
 			loadMoreItems = false;
+			endOfListings = false;
 			for(var i = 0; i < results.filterSwitchView.children.length; i++) {
 				if(results.filterSwitchView.children[i].children[0].value) {
 					categoryArray.push(results.filterSwitchView.children[i].children[0].id);
@@ -423,6 +424,9 @@ function init() {
 		if ($.is && !endOfListings) {
 			$.is.init($.getView('selbiUSAListView'));
 			$.is.mark();
+		} else if($.is && endOfListings){
+			$.is.init($.getView('selbiUSAListView'));
+			$.is.cleanup();
 		}
 		$.activityIndicator.hide();
 		$.activityIndicator.height = '0dp';
