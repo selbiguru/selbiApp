@@ -60,7 +60,7 @@ function genFriendsItems(cb){
 		friendsListings.length > 0 ? paginateLastDate = friendsListings[friendsListings.length - 1].updatedAt : '';
 		friendsListings.length < 30 ? endOfListings = true : endOfListings = false;
 		if(err) {
-			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading your friend\'s listings!  We are working on a fix!', function(err, results) {
+			dynamicElement.defaultLabel('Uh oh, we are experiencing server issues and are having trouble loading your friend\'s listings...We are working on a fix!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
@@ -289,7 +289,6 @@ function openListing(listingIDs){
 	if(Ti.App.Properties.getString('userId') === listingIDs.userId) {
 		clearProxy('mylistings');
 		Alloy.Globals.closePage('friendslistings');
-		Ti.API.info('Closing friendslistings');
 	}
 };
 
@@ -364,6 +363,9 @@ function init() {
 		if ($.is && !endOfListings) {
 			$.is.init($.getView('friendsListingListView'));
 			$.is.mark();
+		} else if($.is && endOfListings){
+			$.is.init($.getView('friendsListingListView'));
+			$.is.cleanup();
 		}
 		$.activityIndicator.hide();
 		$.activityIndicator.height = '0dp';
@@ -384,7 +386,6 @@ $.usernameSearch.addEventListener('return', keyboardSearch);
 Alloy.Globals.addKeyboardToolbar($.usernameSearch, blurTextField);
 
 exports.cleanup = function () {
-	Ti.API.info('Cleaning friendlisting');
 	clearProxy('mylistings');
 	Alloy.Globals.removeChildren($.friendsListingsView);
 	$.friendsListingsView = null;

@@ -16,7 +16,7 @@ function handleURL(url) {
         args = URL.params();
         
     if(controller) {    
-	    // Add some better logic here ;)
+	    // Add some better logic here
 	    Alloy.createController(controller, args || {}).getView().open();
     }
 }

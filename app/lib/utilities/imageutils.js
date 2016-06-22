@@ -1,6 +1,6 @@
 var ImageUtils = {
 	_getExtension: function(fn) {
-		// from http://stackoverflow.com/a/680982/292947
+		// based on http://stackoverflow.com/a/680982/292947
 		var re = /(?:\.([^.]+))?$/;
 		var tmpext = re.exec(fn)[1];
 		return (tmpext) ? tmpext : '';

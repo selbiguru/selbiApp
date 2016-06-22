@@ -12,7 +12,7 @@ $.activityIndicator.show();
 
 notificationManager.getNotificationByUserId(function(err, notificationResults) {
 	if(err) {
-		dynamicElement.defaultLabel('Dang! We are having trouble getting your notifications. Please try again shortly.', function(err, results) {
+		dynamicElement.defaultLabel('Dang, we are having trouble getting your notifications. Please try again shortly.', function(err, results) {
 			$.defaultView.height= Ti.UI.FILL;
 			$.defaultView.add(results);
 		});
@@ -199,7 +199,6 @@ function acceptNotification(e) {
 
 
 exports.cleanup = function () {
-	Ti.API.info('Cleaning notificationsView');
 	clearProxy();
 	$.removeListener();
 	$.notificationsView.removeAllChildren();

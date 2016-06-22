@@ -18,20 +18,17 @@ function saveCreditCard() {
 
 function saveSpinner(param) {
 	if(param) {
-		console.log('hey there! 909 ', param);
 		indicatorWindow = indicator.createIndicatorWindow({
 			message : "Saving Card"
 		});
 		indicatorWindow.openIndicator();	
 	} else {
-		console.log('well this is an issue currently ', param);
 		indicatorWindow.closeIndicator();
 	}
 }
 
 
 function savingStuff(e){
-	console.log('stripe response returned ', e.responseObj);
 	if(e.responseObj.error) {
 		helpers.alertUser('Card Error',''+e.responseObj.error.message+'');
 		saveSpinner(false);
@@ -46,10 +43,7 @@ function savingStuff(e){
 		 	paymentStripeCardResponse: e.responseObj
 	 	};
 		 paymentManager.createCustomerAndPaymentMethod(createCustomerObj, function(err, response) {
-		 	console.log('err: ', err);
-		 	console.log('response: ', response);
 		 	var parseErr = JSON.parse(err);
-		 	//add return response here and close view.  Add card to payment method choice
 		 	if(err) {
 			 	helpers.alertUser('Save Payment Failed', parseErr+' Please try again');
 		 		saveSpinner(false);
@@ -86,7 +80,6 @@ function backButton() {
  *  Loads credit card and checks to make sure cleanup wasn't called before loading view.
  */
 function loadCreditCard(e) {
-	Ti.API.info('load');
 	//Check if cleanup is called before loading view
 	if($ && $.activityIndicator){
 		$.activityIndicator.hide();
@@ -121,7 +114,7 @@ function buttonsOff() {
 
 $.activityIndicator.show();
 
-//listening for Stripe token return from submitted cc form
+//Listening for Stripe token return from submitted cc form
 Ti.App.addEventListener("app:fromWebViewPaymentGetStripeToken", savingStuff);
 Ti.App.addEventListener("app:fromWebTriggerSaveSpinner", saveSpinner);
 Ti.App.addEventListener('app:fromWebTriggerButtonsOn', buttonsOn);
@@ -137,7 +130,6 @@ if(ENV_PRODUCTION) {
 $.addListener($.webview, 'load', loadCreditCard);
 
 exports.cleanup = function () {
-	Ti.API.info('Cleaning CreditCardView');
 	$.off();
 	$.destroy();
 	indicatorWindow = null;

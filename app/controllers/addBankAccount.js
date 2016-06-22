@@ -126,7 +126,6 @@ function sendBankStripe(){
 function createStripeManagedAccount(tokenObj) {
 	managedAccountParams.funding = tokenObj;
 	managedAccountParams.individual.ip = tokenObj.client_ip || Ti.Platform.address;
-	console.log("managed account params ", managedAccountParams);
 	
 	if(tokenObj.error) {
 		helpers.alertUser('Failed to Save', tokenObj.error.message);
@@ -240,21 +239,18 @@ function stripeValidtation(validationObj) {
  * @param {Object} callback	Callback function after completing the Stripe tokenize card http request
  */
 function tokenizeBank(bankDetails, callback) {
-	console.log('tokenize tokenize 0 ');
     var STRIPE_URL = "https://api.stripe.com/v1/tokens";
     var STRIPE_TOKEN = Alloy.CFG.stripeKey.publicKey;
     var xhr = Ti.Network.createHTTPClient({
         onload : function(e) {
             var resp = JSON.parse(this.responseText);
             resp.success = true;
-            console.log('tokenize tokenize 2 ',resp);
             callback(resp);
             xhr.abort();
         	xhr = null;
         }, onerror : function(e) {
             var resp = JSON.parse(this.responseText);
             resp.success = false;
-            console.log('tokenize tokenize 3 ',resp);
             callback(resp);
             xhr.abort();
         	xhr = null;
@@ -267,7 +263,6 @@ function tokenizeBank(bankDetails, callback) {
                     "&bank_account[account_number]=" + bankDetails.funding.accountNumber +
                     "&bank_account[account_holder_name]=" + bankDetails.individual.firstName + ' ' + bankDetails.individual.lastName +
                     "&bank_account[account_holder_type]=" + 'individual';
-    console.log('tokenize tokenize 1 ',formattedData);
     // Open the connection as a POST.
     xhr.open("POST", STRIPE_URL);
     
@@ -298,7 +293,6 @@ Alloy.Globals.addKeyboardToolbar($.ssnNumber, blurTextField);
 
 
 exports.cleanup = function () {
-	Ti.API.info('Cleaning addBankAccountView');
 	$.off();
 	$.destroy();
 	indicatorWindow = null;

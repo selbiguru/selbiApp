@@ -76,11 +76,6 @@ var createCustomerAndPaymentMethod = exports.createCustomerAndPaymentMethod = fu
 		if(err) {
 			cb(err, null);
 		} else {
-			// add to user object when we know what to save it as
-			//var userModel = Alloy.Models.instance('user');
-			//userModel.set({username: userPaymentObj.userPaymentMethod.flag});
-			//userModel.save();
-			//Alloy.Globals.currentUser = userModel
 			cb(err, userPaymentObj);
 		}
 	});
@@ -95,7 +90,6 @@ var createManagedAccount = exports.createManagedAccount = function(managedObject
 			cb(err, null);
 			} 
 		else {
-			// add to user object when we know what to save it as
 			cb(err, userPaymentObj);
 		}
 	});
@@ -118,7 +112,6 @@ var createOrder = exports.createOrder = function(orderObject, cb) {
 			cb(err, null);
 			} 
 		else {
-			// add to user object when we know what to save it as
 			cb(err, completedOrder);
 		}
 	});
@@ -143,7 +136,6 @@ var deletePayment = exports.deletePayment = function(cb) {
 			cb(err, null);
 			} 
 		else {
-			// add to user object when we know what to save it as
 			cb(err, deletePaymentResponse);
 		}
 	});
@@ -162,7 +154,6 @@ var deleteExternalAccount = exports.deleteExternalAccount = function(cb) {
 			cb(err, null);
 			} 
 		else {
-			// add to user object when we know what to save it as
 			cb(err, deleteExternalAccountResponse);
 		}
 	});

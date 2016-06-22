@@ -71,7 +71,7 @@ function genUSAItems(cb){
 		selbiListings.listings.length < 30 ? endOfListings = true : endOfListings = false;
 		
 		if(err) {
-			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading all the USA listings! We are working on a fix!', function(err, results) {
+			dynamicElement.defaultLabel('Uh oh, we are experiencing server issues and are having trouble loading all the USA listings...We are working on a fix!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
@@ -80,7 +80,7 @@ function genUSAItems(cb){
 			return cb(err, selbiListings.listings);
 			
 		} else if (selbiListings && selbiListings.listings.length === 0 && !loadMoreItems) {
-			dynamicElement.defaultLabel('Dang! Nothing was found! :( Check back soon!', function(err, results) {
+			dynamicElement.defaultLabel('Dang, nothing was found :( Check back soon!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
@@ -359,6 +359,8 @@ function filterListings() {
 			if($.defaultView.children.length > 0) {
 				$.defaultView.remove($.defaultView.children[0]);	
 			}
+			$.activityIndicator.show();
+        	$.activityIndicator.height = Ti.UI.FILL;
 			init();
 			results.modalWindow.close({transform:animateWindowClose, duration:300});
 			animateWindowClose = null;
@@ -400,10 +402,6 @@ function clearProxy(e) {
 	$.off();
 	$.destroy();
 	removeEventListeners();
-	/*if(e !== 'mylistings') {
-		this.removeEventListener('click', clearProxy);	
-	}*/
-	//$.selbiUSAView = null;*/
 }
 
 
@@ -452,7 +450,6 @@ Alloy.Globals.addKeyboardToolbar($.usernameSearch, blurTextField);
 
 
 exports.cleanup = function () {
-	Ti.API.info('Cleaning selbiUSAView');
 	clearProxy();
 	$.removeListener();
 	$.selbiUSAView.removeAllChildren();

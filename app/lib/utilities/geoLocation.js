@@ -4,9 +4,8 @@
  */
 exports.getCurrentPosition = function(callback) {
 	if (Titanium.Geolocation.locationServicesEnabled == false) {
-		Ti.API.info("ENABLE LOCATION SERVICES");
 		Titanium.UI.createAlertDialog({
-			message : 'Please enable location serives.'
+			message : 'Please enable location services.'
 		}).show();
 	} else {
 
@@ -20,7 +19,6 @@ exports.getCurrentPosition = function(callback) {
 				callback(e.error);
 			}
 			if (e.success) {
-				Ti.API.info(JSON.stringify(e));
 				callback({
 					lng : e.coords.longitude,
 					lat : e.coords.latitude

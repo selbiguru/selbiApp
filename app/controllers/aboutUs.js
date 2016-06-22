@@ -84,13 +84,7 @@ switch(Alloy.Globals.userDevice) {
 
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
 
-
-
-
-
-
 exports.cleanup = function () {
-	Ti.API.info('Cleaning About Us');
 	$.off();
 	$.destroy();
 	Alloy.Globals.removeChildren($.aboutUsView);

@@ -3,9 +3,6 @@
 	layout: 'vertical',
 	backgroundColor: '#FAFAFA'
 },
-"#backListingButton": {
-	left: '0dp'
-},
 "#activityIndicator": {
 	style: 13,
 	indicatorDiameter: 2,
@@ -79,7 +76,6 @@
 	height: '345dp'
 },
 "#viewListingHeader[if=Alloy.Globals.iPhoneFour]": {
-	//layout: "horizontal",
 	height: '46dp',
 	width: '85%',
 	backgroundColor: '#FAFAFA',
@@ -209,7 +205,6 @@
 	height: '433dp'
 },
 "#viewListingHeader[if=Alloy.Globals.iPhoneFive]": {
-	//layout: "horizontal",
 	height: '50dp',
 	width: '90%',
 	backgroundColor: '#FAFAFA',
@@ -339,7 +334,6 @@
 	height: '522dp'
 },
 "#viewListingHeader[if=Alloy.Globals.iPhoneSix]": {
-	//layout: "horizontal",
 	height: '60dp',
 	width: '95%',
 	backgroundColor: '#FAFAFA',
@@ -471,7 +465,6 @@
 	height: '591dp'
 },
 "#viewListingHeader[if=Alloy.Globals.iPhoneSixPlus]": {
-	//layout: "horizontal",
 	height: '64dp',
 	width: '95%',
 	backgroundColor: '#FAFAFA',
@@ -603,7 +596,6 @@
 	height: '522dp'
 },
 "#viewListingHeader[if=Alloy.Globals.android]": {
-	//layout: "horizontal",
 	height: '60dp',
 	width: '95%',
 	backgroundColor: '#FAFAFA',

@@ -592,7 +592,7 @@ function loadFriends() {
  * Executed when loading page fails
  */
 function addFriendsLoadError() {	
-	dynamicElement.defaultLabel('Dang! We are having trouble getting your friends. Please try again later!', function(err, results) {
+	dynamicElement.defaultLabel('Dang, we are having trouble getting your friends. Please try again later!', function(err, results) {
 		$.defaultView.height= Ti.UI.FILL;
 		$.defaultView.add(results);
 	});
@@ -739,13 +739,11 @@ Alloy.Models.user.fetch({
 $.addFriendsTopBar.addEventListener('click', blurTextField);
 
 exports.cleanup = function () {
-	Ti.API.info('Cleaning addfriends');
 	if(textFieldObj){
 		textFieldObj.source.value = '';
 		if(textFieldObj.source.children.length>0){
 	 		textFieldObj.source.children[0].removeEventListener('click', textFieldObj.source.listener);
      		Alloy.Globals.removeChildren(textFieldObj.source);
-     		Ti.API.info('Cleaning textFieldObj');
         }
         textFieldObj.source.listener = null;
         textFieldObj.source = null;

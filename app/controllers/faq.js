@@ -13,7 +13,7 @@ $.activityIndicator.show();
 
 faqManager.getFAQ(function(err, faqResults) {
 	if(err) {
-		dynamicElement.defaultLabel('Oh no!  We are asking ourselves too many questions! Not to fear, FAQ\'s will be back soon!', function(err, results) {
+		dynamicElement.defaultLabel('Oh no, we are asking ourselves too many questions...Not to fear, FAQ\'s will be back soon!', function(err, results) {
 			$.viewFAQ.add(results);
 		});
 	} else {
@@ -127,7 +127,6 @@ $.viewFAQ.addEventListener('click', function(e){
 });
 
 exports.cleanup = function () {
-	Ti.API.info('Cleaning FAQ');
 	$.off();
 	$.destroy();
 	Alloy.Globals.removeChildren($.faqView);

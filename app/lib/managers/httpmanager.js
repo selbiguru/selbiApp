@@ -9,7 +9,8 @@
  */
 var baseUrl = Alloy.CFG.herokuServer.baseurl;
 var keychain = require('com.obscure.keychain');
-var keychainItem = keychain.createKeychainItem(Alloy.CFG.keychain.account, Alloy.CFG.keychain.password);
+var keychainItem = keychain.createKeychainItem(Alloy.CFG.keychain.account);
+
 
 
 /**
@@ -25,11 +26,9 @@ var keychainItem = keychain.createKeychainItem(Alloy.CFG.keychain.account, Alloy
 var execute = exports.execute = function(relativePath, method, objectToSend, isAuth, callback) {
     var xhr = Titanium.Network.createHTTPClient(),
         url = baseUrl + relativePath;
+
     xhr.onerror = function(e) {
     	var extendedError = xhr.responseText != 'null' ? xhr.responseText : e.error;
-        Ti.API.error('Bad Server =>' + e.error);  
-        Ti.API.error('EXTENDED ERROR =>' + extendedError);
-        Ti.API.error('XHR Error: ' + xhr.status + ' - ' + typeof xhr.responseText);
         callback(extendedError, null);
         xhr.abort();
         xhr = null;
@@ -39,18 +38,15 @@ var execute = exports.execute = function(relativePath, method, objectToSend, isA
     xhr.setRequestHeader("content-type", "application/json");
 
     if(isAuth) {
-    	var authHeader = "Bearer " + keychainItem.valueData;
-      Ti.API.info('AUTHHEADER' + authHeader);
+    	var authHeader = "Bearer " + 'eyJhbGciOiJIUzI1NiJ9.NTY2NGUwMDU0NjhjYzI1ZWZjOTMxMWU4.O-iDaDO4pBb34lQeKUkyKT1mLKdJfZHIYf57ez_hc7M';
     	xhr.setRequestHeader("Authorization", authHeader);
     }
 
 	var objectJSON = objectToSend ? JSON.stringify(objectToSend) : {};
-
     xhr.send(objectJSON);
 
     xhr.onload = function() {
         if (this.status == 200 || this.status == 201) {
-            Ti.API.info('got my response, http status code ' + this.status);
             if (this.readyState == 4) {
                 var response = JSON.parse(this.responseText);
             } else {

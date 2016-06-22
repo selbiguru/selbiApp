@@ -4,12 +4,6 @@
 	height: Titanium.UI.SIZE,
 	width: Ti.UI.FILL
 },
-".user-agreement-web": {
-	color: "blue"
-}
-".privacy-policy-web": {
-	color: "blue"
-},
 "#firstName": {
 	suppressReturn: false,
 	returnKeyType: Ti.UI.RETURNKEY_NEXT

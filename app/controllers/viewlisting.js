@@ -21,10 +21,9 @@ $.activityIndicator.show();
 
 function initialize() {
 	if(args.itemId){
-		//show correct 'buy' buttons with correct event listeners
+		//Show correct 'buy' buttons with correct event listeners
 		previewListing = false;
 		$.titleViewListingLabel.text = 'View Listing';
-		//$.backListingView.show();
 		listingManager.getListing(args.itemId, function(err, listing){
 			if(err) {
 				helpers.alertUser('Listing','Unable to get the listing');
@@ -41,7 +40,7 @@ function initialize() {
 			return;
 		});
 	} else {
-		//show correct buttons dynamically created with correct event listeners
+		//Show correct buttons dynamically created with correct event listeners
 		previewListing = true;
 		//Check if cleanup is called before loading viewListing
 		if($ && $.activityIndicator){
@@ -348,10 +347,6 @@ function resizeKeepAspectRatioNewWidth(blob, imageWidth, imageHeight, newWidth) 
     var w = newWidth;
     var h = newWidth / ratio;
 
-    Ti.API.info('ratio: ' + ratio);
-    Ti.API.info('w: ' + w);
-    Ti.API.info('h: ' + h);
-
     return ImageFactory.imageAsResized(blob, { width:w, height:h });
 }
 
@@ -371,9 +366,6 @@ function resizeKeepAspectRatioNewHeight(blob, imageWidth, imageHeight, newHeight
     var w = newHeight * ratio;
     var h = newHeight;
 
-    Ti.API.info('ratio: ' + ratio);
-    Ti.API.info('w: ' + w);
-    Ti.API.info('h: ' + h);
 
     return ImageFactory.imageAsResized(blob, { width:w, height:h });
 }
@@ -496,7 +488,7 @@ function createPreviewButtons() {
 		} else if(bankEligible) {
 			saveListing(editListingButton, saveListingButton);	
 		} else {
-			helpers.alertUser('No go!','Before you can list items you need to add BOTH a Bank Account in \'Payment\' and an Address in \'Edit Profile\' under \'Settings\' if you haven\'t done so already');
+			helpers.alertUser('Info Needed','Before you can list items you need to add BOTH a Bank Account in \'Payment\' and an Address in \'Edit Profile\' under \'Settings\' if you haven\'t done so already');
 		}
 	});
 	return;
@@ -508,24 +500,6 @@ function createPreviewButtons() {
  *  Closes the current view to reveal the previous still opened view.
  */
 function backButton() {
-	/*if(args.itemId) {
-		$.viewListingButtonView.remove($.viewListingButtonView.children[0]);
-		$.viewListingButtonView.children[0] = null;	
-	} else {
-		$.viewListingButtonView.remove(editListingButton);
-		$.viewListingButtonView.remove(saveListingButton);
-		editListingButton = null;
-		saveListingButton = null;
-	}
-	
-	for(i in views) {
-		$.imageGallery.remove(views[i]);
-	}
-	views = [];
-	itemData = null;
-	images = null;
-	previewImageCollection = [];
-	$.sellerImage.image = null;*/
 	Alloy.Globals.closePage('viewlisting');
 }
 
@@ -632,7 +606,7 @@ function createActionButton(height, width, fontSize, background, text, ccEligibl
 				});
 			});	
 		} else {
-			helpers.alertUser('No go!','Before you can purchase items you need to add BOTH a credit card in \'Payment\' and address in \'Edit Profile\' under \'Settings\' if you haven\'t done so already');
+			helpers.alertUser('Info Needed','Before you can purchase items you need to add BOTH a credit card in \'Payment\' and address in \'Edit Profile\' under \'Settings\' if you haven\'t done so already');
 		}
 	});
 	return actionButton;
@@ -663,7 +637,6 @@ paymentManager.getPaymentMethods(function(err, results){
 
 
 exports.cleanup = function () {
-	Ti.API.info('Cleaning viewlisting');
 	$.removeListener();
 	$.off();
 	$.destroy();
@@ -672,98 +645,9 @@ exports.cleanup = function () {
 	$.viewListingView = null;
 	Alloy.Globals.deallocate($);
     $ = null;
-    Ti.API.info('Cleaning viewlisting finished');
 };
 
 
 
 /*-----------------------------------------------Event Listeners------------------------------------------------*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//SAVE FOR LATER USE
-/*
- * /**
- * @private createSlideButton
- * Create a sliding button that on 'touchend' calls an API route
- * @param {String} height Height of button
- * @param {Number} width Width of button 
- * @param {String} fontSize FontSize of text
- * @param {String} background BackgroundColor hex you want the button
- * @param {String} text Text string you want on the button
- * @param {Boolean} ccEligible Boolean to know if the user has a CC saved and can thus purchase items
- * @param {Function} apiSupport APISupport is the function passed in that determines the proper API route to hit
- */
-/*function createSlideButton(height, width, fontSize, background, text, ccEligible, apiSupport){
-	var sliderView = Ti.UI.createView({
-		bottom:'20dp',
-		right: '0dp',
-		height: height,
-		width: width,
-		backgroundColor: '#EAEAEA',
-		layout: 'composite'
-	});
-	var sliderButton = Ti.UI.createView({
-		top: '0dp',
-		height: height,
-		width: width,
-		backgroundColor: background,
-		left: 0
-	});
-	var sliderText = Ti.UI.createLabel({
-		text: text + '...',
-		textAlign: 'center',
-		color: '#FFF',
-		font: {
-			fontSize: fontSize,
-			fontFamily: "Nunito-Light"
-		},
-	});
-
-	$.viewListingButtonView.add(sliderView);
-	sliderView.add(sliderButton);
-	sliderView.add(sliderText);
-	
-	sliderButton.addEventListener('touchmove', function(e){
-		var moveX = e.x +sliderButton.animatedCenter.x - sliderButton.getWidth()/2;
-		if (moveX + sliderButton.getWidth()/2 >= sliderView.getLeft() +sliderView.getWidth()) {
-			//button right-edge stop
-			moveX = sliderView.getLeft() + sliderView.getWidth() - (sliderButton.getWidth()/2);
-		} else if (moveX - sliderButton.getWidth()/2 <= sliderView.getLeft()){
-			//button left-edge stop
-			moveX = sliderView.getLeft() + (sliderButton.getWidth()/2);
-		}
-		//sliderButton.animate({center:{x:240, y:0}, duration: 1});
-		sliderButton.animate({center:{x:moveX, y:0}, duration: 500});
-		sliderButton.setLeft(moveX);
-	});
-
-	sliderButton.addEventListener('touchend', function(e){
-		var endX = sliderButton.animatedCenter.x + (sliderButton.getWidth()/2);
-		if (endX > parseInt(sliderView.getWidth())+ width) {
-			//button released at right-edge stop
-			//IN HERE ADD PURCHASING CALL
-			if(ccEligible) {
-				apiSupport(e);	
-			} else {
-				helpers.alertUser('No go!','Before you can purchase items you need to add BOTH a credit card in \'Payment\' and address in \'Edit Profile\' under \'Settings\' if you haven\'t done so already');
-			}
-		}
-		//springback
-		sliderButton.setLeft(0);
-		sliderButton.animate({center:{x:(sliderView.getLeft()+sliderButton.getWidth()/2),y:0}, duration: 500});
-	});
-	return sliderButton;
-}*/

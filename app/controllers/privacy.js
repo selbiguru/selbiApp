@@ -2,7 +2,6 @@
 var args = $.args;
 
 exports.cleanup = function () {
-	Ti.API.info('Cleaning privacy');
 	$.off();
 	$.destroy();
 	$.removeListener();

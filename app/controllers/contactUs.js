@@ -32,7 +32,7 @@ function sendEmailToSelbi() {
 			if(err) {
 				helpers.alertUser('Email Failed','Failed to send email.  Please try again later');
 			} else {
-				helpers.alertUser('Email Sent!','Selbi has received your message.  We will get back to you asap!');
+				helpers.alertUser('Email Sent','Selbi has received your message.  We will get back to you asap!');
 		    	$.emailBody.value = '';
 		    	$.emailTitle.value = '';
 			}
@@ -125,7 +125,6 @@ Alloy.Globals.addKeyboardToolbar($.emailTitle, blurTextField);
 Alloy.Globals.addKeyboardToolbar($.emailBody, blurTextField);
 
 exports.cleanup = function () {
-	Ti.API.info('Cleaning conactUsView');
 	$.off();
 	$.destroy();
 	$.removeListener();

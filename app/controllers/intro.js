@@ -5,7 +5,7 @@ var data = [];
 for(var i = 0; i < introImages.length; i++){
 	data.push({
 		image: Alloy.CFG.cloudinary.baseImagePath  + introImages[i],
-		text : 'Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
+		text : 'Move along people, nothing to see here.'
 	});
 } 
 

@@ -2,12 +2,12 @@ exports.definition = {
 	config: {
 		columns: {
 		    "id": "integer",
-		    "userTo": "string",
-		    "userFrom": "string",		    
-		    "type": "string",
-		    "user": "string",
-		    "createdAt": "date",
-		    "updatedAt": "date"
+		    "userTo": "text",
+		    "userFrom": "text",		    
+		    "type": "text",
+		    "user": "text",
+		    "createdAt": "text",
+		    "updatedAt": "text"
 		},
 		adapter: {
 			type: "sql",

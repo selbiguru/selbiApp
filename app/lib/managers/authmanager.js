@@ -25,7 +25,7 @@ var login = exports.login = function (username, password, cb){
 	};
 	
 	// Execute Request
-	httpClient.execute("/login", "POST", loginRequest, false, function(err, loginResult){
+	httpClient.execute("/login", "POST", loginRequest, true, function(err, loginResult){
 		if(!err && loginResult) {
 			// Create a singleton
 			var authModel = Alloy.Models.instance('auth');
@@ -123,7 +123,6 @@ var getToken = exports.getToken = function() {
  */
 var logout = exports.logout = function(cb){
 	httpClient.execute("/logout", "POST", null, true, function(err, logoutResult){
-		Ti.API.info("Logout Result", logoutResult);
 		if(logoutResult) {
 			Ti.App.Properties.removeProperty('token');
 			Ti.App.Properties.removeProperty('userId');

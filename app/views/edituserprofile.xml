@@ -63,14 +63,6 @@
 		        <Label icon="fa-map-marker" class="edit-profile-social-icon address-map" id="editProfileGoogleAddress"></Label>
 		        <Button onClick="getGoogleMaps" id="googleAddress" class="edit-profile-social-text address-map">Update Address</Button>
 		    </View>
-		    <View id="facebookView" class="edit-user-profile-buttons-view edit-user-profile-button">
-		    	<Label icon="fa-facebook" class="edit-profile-social-icon social-facebook" id="editProfileFacebookConnect"></Label>
-		        <Button id="connectFacebook" class="edit-profile-social-text social-facebook">Connect to Facebook</Button>
-		    </View>
-		    <View id="twitterView" class="edit-user-profile-buttons-view edit-user-profile-button">
-		        <Label icon="fa-twitter" class="edit-profile-social-icon social-twitter" id="editProfileTwitterConnect"></Label>
-		        <Button id="connectTwitter" class="edit-profile-social-text social-twitter">Connect to Twitter</Button>
-		    </View>
 		    <Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 	   </ScrollView>
     </View>

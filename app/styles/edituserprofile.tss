@@ -16,39 +16,14 @@
 	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE
 },
-"#twitterView":{
-	height: '0dp',
-	visible: false
-},
-"#facebookView":{
-	height: '0dp',
-	visible: false
-},
 ".edit-user-profile-buttons-view": {
 	height: Ti.UI.SIZE,
 	layout: "horizontal"
-},
-".social-facebook": {
-	color: "#FFF",
-	backgroundColor: "#3b5998",
-	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
-},
-".social-twitter": {
-	color: "#FFF",
-	backgroundColor: "#45b0e3",
-	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 },
 ".address-map": {
 	color: "#FFF",
 	backgroundColor: "#1bcd41",
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
-},
-"#editProfileTwitterConnect": {
-	backgroundColor: "#40a2d1",
-	borderColor: "#979797",
-},
-"#editProfileFacebookConnect": {
-	backgroundColor: "#354f88"
 },
 "#editProfileGoogleAddress": {
 	backgroundColor: "#18b63a"

@@ -51,7 +51,6 @@ exports.uploadImage = function(uploadRequest, cb) {
 			Ti.API.error("Error: " + result.error);
 			Ti.API.error("Error: " + result.error.message);
 		} else {
-			Ti.API.info("Uploaded file with public_id: " + result.public_id);
 		}
 		return cb(result.error, result);
 	}

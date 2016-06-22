@@ -2,7 +2,6 @@
 var args = $.args;
 
 exports.cleanup = function () {
-	Ti.API.info('Cleaning terms & conditions');
 	$.off();
 	$.destroy();
 	$.removeListener();

@@ -16,42 +16,42 @@
 			<View id="userAddress" class="rowContainer">
 				<View class="info-views">
 					<Label class='address-labels'>Street:</Label>
-		        	<TextField id="route" editable="false" class="user-profile-text-fields left-padding"></TextField>
+		        	<TextField id="route" editable="false" class="left-padding"></TextField>
 		        </View>
 		        <View class="login-underline"/>
 		    </View>
 		    <View id="userAptNumber" class="rowContainer">
 		    	<View id='aptNumberView' class="info-views">
 		    		<Label class='address-labels'>Apt/Bldg #:</Label>
-		        	<TextField id="apartmenNumber" class="user-profile-text-fields left-padding" maxLength='25'></TextField>
+		        	<TextField id="apartmenNumber" class="left-padding" maxLength='25'></TextField>
 		        </View>
 		        <View class="login-underline"/>
 		    </View>
 		    <View id="city" class="rowContainer">
 		    	<View class="info-views">
 		    		<Label class='address-labels'>City:</Label>
-		        	<TextField id="locality" editable="false" class="user-profile-text-fields left-padding"></TextField>
+		        	<TextField id="locality" editable="false" class="left-padding"></TextField>
 		        </View>
 		        <View class="login-underline"/>
 		    </View>
 		    <View id="state" class="rowContainer">
 		    	<View class="info-views">
 		    		<Label class='address-labels'>State:</Label>
-		        	<TextField id="administrative_area_level_1" editable="false" class="user-profile-text-fields left-padding"></TextField>
+		        	<TextField id="administrative_area_level_1" editable="false" class="left-padding"></TextField>
 		        </View>
 		        <View class="login-underline"/>
 		    </View>
 		    <View id="zipCode" class="rowContainer">
 		    	<View class="info-views">
 		    		<Label class='address-labels'>Zip Code:</Label>
-		        	<TextField id="postal_code" editable="false" maxLength="10" class="user-profile-text-fields left-padding"></TextField>
+		        	<TextField id="postal_code" editable="false" maxLength="10" class="left-padding"></TextField>
 		        </View>
 		        <View class="login-underline"/>
 		    </View>
 		    <View id="userCountry" class="rowContainer">
 		    	<View class="info-views">
 		    		<Label class='address-labels'>Country:</Label>
-		        	<TextField id="country" editable="false" maxLength="13" class="user-profile-text-fields left-padding"></TextField>
+		        	<TextField id="country" editable="false" maxLength="13" class="left-padding"></TextField>
 		        </View>
 		        <View class="login-underline"/>
 		    </View>

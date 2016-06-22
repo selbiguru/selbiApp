@@ -1,7 +1,7 @@
 <Alloy>
 	<Window>
 		<View id="splashView" layout="vertical" class="wrapper-container">
-			<Label class="splash-logo-text">Selbi</Label>
+			<ImageView class="splash-logo-text" image='images/selbi-name-logo'></ImageView>
 			<Label class="splash-logo-subtext">Sell to your friends first</Label>				
 			<Button class="primary-btn splash-signup-btn" onClick="register"> Sign Up </Button>
 			<Label id="alreadySelbiUser" class="splash-small" onClick="signIn">Already have an account?</Label>

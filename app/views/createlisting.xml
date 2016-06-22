@@ -16,7 +16,6 @@
 					<Button onClick="showGallery" class="create-listing-capture-btn top-size">Select from Gallery</Button>
 				</View>	
 				<View id="imgView" class="image-gallery-view"></View>
-				<!-- <Require type="widget" src="com.prodz.tiflexigrid" id="fg"/> -->
 				<View id="nextButtonView">
 					<Button class="create-listing-capture-btn dock-bottom" onClick="gotoStep2" step="2">Next</Button>
 				</View>

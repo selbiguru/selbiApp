@@ -127,7 +127,7 @@ function genMyItems(cb){
 		userListings.listings.length > 0 ? paginateLastDate = userListings.listings[userListings.listings.length - 1].createdAt : '';
 		userListings.listings.length < 30 ? endOfListings = true : endOfListings = false;
 		if(err) {
-			dynamicElement.defaultLabel('Uh oh! We are experiencing server issues and are having trouble loading listings!', function(err, results) {
+			dynamicElement.defaultLabel('Uh oh, we are experiencing server issues and are having trouble loading listings!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
@@ -135,7 +135,7 @@ function genMyItems(cb){
 		} else if(userListings && userListings.listings.length > 0) {
 			return cb(err, userListings.listings);		
 		} else if (userListings && userListings.listings.length === 0 && Ti.App.Properties.getString('userId') === argsID && !loadMoreItems ) {
-			dynamicElement.defaultLabel('Wait what! You don\'t have any listings!  Add some now so you can start making money!', function(err, results) {
+			dynamicElement.defaultLabel('Wait what! You don\'t have any listings?  Add some now so you can start making money!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
@@ -551,6 +551,8 @@ $.myListingsButtonSaveIcon.addEventListener('click', function(e) {
         loadMoreItems = false;
         endOfListings = false;
         queryObj.isSold = false;
+        $.activityIndicator.show();
+        $.activityIndicator.height = Ti.UI.FILL;
         init();
     } else {
 	    $.myListingsButtonSaveIcon.itsOn = false;
@@ -561,13 +563,14 @@ $.myListingsButtonSaveIcon.addEventListener('click', function(e) {
 	    loadMoreItems = false;
 	    endOfListings = false;
 	    queryObj.isSold = true;
+	    $.activityIndicator.show();
+		$.activityIndicator.height = Ti.UI.FILL;
 	    init();
    	}
 });
 
 
 exports.cleanup = function () {
-	Ti.API.info('Cleaning mylisting');
 	clearProxy();
 	Alloy.Globals.removeChildren($.myListingsView);
 	$.myListingsView = null;

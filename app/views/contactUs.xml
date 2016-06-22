@@ -19,7 +19,6 @@
 				</TextArea>
 				<Label id="hintTextLabel" class="font-style">Let us know how we can help you today</Label>
 			</View>
-			<!--<Label id="emailSelbiEmail">Or email us at Selbiguru@gmail.com</Label> -->
 		</View>
 		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
     </View>

@@ -102,106 +102,10 @@ function getContactListTemplate() {
 				}
 			},
 		}
-		/*{
-		 type: 'Ti.UI.View',
-		 properties: {
-		 width: Ti.UI.FILL,
-		 height: '1dp',
-		 backgroundColor: '#e5e5e5',
-		 bottom: '0dp',
-		 left: '15dp'
-		 },
-		 },*/
-
 		]
 	};
 };
 
-/**
- * @method getFriendsSection
- * Returns a template used to search for friends
- */
-/*function getFriendsSection() {
-return {
-childTemplates: [
-{                           	// Title
-type: 'Ti.UI.TextField',    // Use a label for the title
-bindId: 'userNameSearch',   // Maps to a custom title property of the item data
-properties: { 	         	// Sets the label properties
-width: Ti.UI.FILL,
-height: heightDataView,
-maxLength: "20",
-color: '#9B9B9B',
-font: {
-fontSize: fontSizeTitleLabel,
-fontFamily: 'Nunito-Light'
-},
-left: leftLabel,
-hintText: 'Enter a username to add a friend!'
-},
-events: {
-// Bind event callbacks only to the subcomponent
-change: function(e){
-var uniqueUserRegEx = e.value.length > 0 ? (e.value).match(/^[a-zA-Z\d\_]+$/) : '';
-var usernameObject = {
-username: helpers.trim(e.value, true).toLowerCase()
-};
-if(e.source.children.length > 0 && (!uniqueUserRegEx || uniqueUserRegEx)){
-e.source.remove(e.source.children[0]);
-};
-if(uniqueUserRegEx === null) {
-helpers.alertUser('Oops','Usernames are only letters and numbers');
-return;
-}
-if(helpers.trim(e.value, true).length > 6){
-friendsManager.getInvitationByUsername( usernameObject, function(err, results) {
-if(results && results.id != Ti.App.Properties.getString('userId')) {
-if(e.source.children.length > 0 ){
-e.source.remove(e.source.children[0]);
-};
-var hiddenView = Ti.UI.createView({
-width: Ti.UI.SIZE,
-height: Ti.UI.SIZE,
-ext: e.source,
-right: rightCheckMark,
-data: results,
-invitation: results.invitation,
-status: results.invitation.length <= 0 ? "new" : results.invitation[0].status
-});
-var labelStuff = Ti.UI.createLabel({
-width: Ti.UI.SIZE,
-color: '#1BA7CD',
-font: {
-fontSize: fontSizeCheckMark,
-},
-touchEnabled: false
-});
-var labelIcon = results.invitation.length <= 0 ? 'fa-plus-square-o' : results.invitation[0].status === 'denied' ? 'fa-plus-square-o' :  results.invitation[0].status === 'pending' && results.invitation[0].userFrom != Ti.App.Properties.getString('userId') ? 'fa-plus-square-o' : 'fa-check-square';
-$.fa.add(labelStuff, labelIcon);
-hiddenView.add(labelStuff);
-e.source.add(hiddenView);
-hiddenView.addEventListener('click', function(e) {
-if(e.source.status === 'new') {
-friendRequestDynamic(e, 'pending');
-} else if(e.source.status === 'denied') {
-friendRequestDynamic(e, 'pending');
-} else if(e.source.status === 'pending' && e.source.invitation[0].userTo === Ti.App.Properties.getString('userId')) {
-friendRequestDynamic(e, 'approved');
-} else if(e.source.status === 'pending' && e.source.invitation[0].userFrom === Ti.App.Properties.getString('userId') ) {
-friendRequestDynamic(e, 'denied');
-} else if(e.source.status === 'approved') {
-friendRequestDynamic(e, 'denied');
-}
-});
-}
-});
-}
-}
-},
-},
-]
-};
-}*/
 
 /**
  * @method friendRequestDynamic
@@ -362,9 +266,7 @@ function loadContacts() {
 	var contactListView = Ti.UI.createListView({
 		templates : {
 			'template' : getContactListTemplate()
-			//'getFriendsSection': getFriendsSection()
 		},
-		//separatorStyle: Titanium.UI.iPhone.ListViewSeparatorStyle.NONE,
 		defaultItemTemplate : 'template',
 		backgroundColor : '#FAFAFA',
 		allowsSelection : false
@@ -379,11 +281,7 @@ function loadContacts() {
 			height : '1dp'
 		})
 	});
-	/*var addFriendSection = Ti.UI.createListSection({
-	 headerView: createCustomView('Add friends on Selbi'),
-	 });*/
 	currentContacts = [];
-	//var searchUsers = [];
 	var nonUsers = [];
 	var phoneArray = [];
 	var people = Ti.Contacts.getAllPeople();
@@ -392,15 +290,15 @@ function loadContacts() {
 			if ((people[person].phone.mobile && people[person].phone.mobile.length > 0) || (people[person].phone.work && people[person].phone.work.length > 0) || (people[person].phone.home && people[person].phone.home.length > 0) || (people[person].phone.other && people[person].phone.other.length > 0)) {
 				var phone = people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : "";
 				var newPhone = phone.replace(/\D+/g, "");
-				if (newPhone.length === 11 && newPhone[0] === '1') {
-					newPhone = newPhone.slice(1);
-				}
-				var userPhoneObject = {
-					newNumber : newPhone,
-					originalNumber : phone,
-					contactName : people[person] ? people[person].firstName + " " + people[person].lastName : "NA",
-				};
-				if (Alloy.Globals.currentUser && Alloy.Globals.currentUser.attributes.phoneNumber != newPhone) {
+				if( newPhone.length >= 10 && newPhone.length <= 11 && Alloy.Globals.currentUser && Alloy.Globals.currentUser.attributes.phoneNumber != newPhone) {
+					if (newPhone.length === 11 && newPhone[0] === '1') {
+						newPhone = newPhone.slice(1);
+					}
+					var userPhoneObject = {
+						newNumber : newPhone,
+						originalNumber : phone,
+						contactName : people[person] ? people[person].firstName + " " + people[person].lastName : "NA",
+					};
 					phoneArray.push(userPhoneObject);
 				}
 			};
@@ -490,15 +388,8 @@ function loadContacts() {
 						match : 'empty'
 					});
 				}
-				/*searchUsers.push({
-				 properties: {
-				 height: heightDataView
-				 },
-				 template: 'getFriendsSection'
-				 });*/
 				contactsOnSelbi.setItems(currentContacts);
 				contactsNotUsers.setItems(nonUsers);
-				//addFriendSection.setItems(searchUsers);
 				contactListView.setSections([contactsOnSelbi, contactsNotUsers]);
 				$.addContactsView.add(contactListView);
 				$.activityIndicator.hide();
@@ -565,6 +456,7 @@ function determineStatus(invitation) {
  *  Opens SMS text to send a text telling new user to join Selbi
  *  @param {Object} Data is an object containing the user's number to invite with SMS text
  */
+
 function inviteNewContact(data) {
 	var module = require('com.omorandi');
 
@@ -581,8 +473,7 @@ function inviteNewContact(data) {
 	} else {
 		//pre-populate the dialog with the info provided in the following properties
 		smsDialog.recipients = [data.newNumber];
-		smsDialog.messageBody = 'Get ready for Selbi! The premier friend to friend marketplace, coming soon to the App Store! ';
-		//smsDialog.messageBody = 'Join me on Selbi.  The premier friend to friend marketplace! ';
+		smsDialog.messageBody = 'Get ready for Selbi! The premier friend to friend marketplace, coming soon to the App Store!';
 
 		//set the color of the title-bar
 		smsDialog.barColor = '#1BA7CD';
@@ -628,9 +519,6 @@ function openFriends(e) {
 function clearProxy(e) {
 	$.off();
 	$.destroy();
-	/*if(e.source.id !== 'searchContactsButton') {
-	 this.removeEventListener('click', clearProxy);
-	 };*/
 	if (contactsOnSelbi) {
 		contactsOnSelbi.items = [];
 		contactsNotUsers.items = [];
@@ -728,12 +616,8 @@ Alloy.Models.user.fetch({
 
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
 
-/*$.addContactsView.addEventListener('click', function(e) {
- $.addContactsView.parent.parent.children[0].addEventListener('click', clearProxy);
- });*/
 
 exports.cleanup = function() {
-	Ti.API.info('Cleaning addContactsView');
 	clearProxy();
 	Alloy.Globals.removeChildren($.addContactsView);
 	$.addContactsView = null;

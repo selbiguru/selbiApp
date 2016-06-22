@@ -3,10 +3,6 @@
 	layout: 'vertical',
 	backgroundColor: '#FAFAFA'
 },
-"#viewNotifications": {
-	layout: 'vertical',
-	width: "90%",
-},
 "#activityIndicator": {
 	style: 13,
 	indicatorDiameter: 2,
@@ -513,21 +509,3 @@
 	color: '#fff',
 	bottom: '6dp',
 },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

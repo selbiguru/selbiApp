@@ -349,7 +349,7 @@ var getVerifyPhoneModal = exports.getVerifyPhoneModal = function(cb) {
 		},
 		color: "#1BA7CD",
 		top: bodyLabelTop,
-	    text: "We've sent you a text!  Just enter the 4 digit code below and take full advantage of Selbi!"
+	    text: "We've sent you a text.  Just enter the 4 digit code below and take full advantage of Selbi!"
 	});
 	verifyModalView = Titanium.UI.createView({
 	    height: Ti.UI.SIZE,

@@ -11,10 +11,8 @@ var helpers = require('utilities/helpers'),
 	currentUser = null,
 	userNameUnique = true,
 	indicator = require('uielements/indicatorwindow'),
-	fb = require('facebook'),
 	geoLocation = require('utilities/geoLocation'); 
-//logout from facebook everytime for testing
-//fb.logout();
+
 
 
 
@@ -182,9 +180,6 @@ function resizeKeepAspectRatioNewWidth(blob, imageWidth, imageHeight, newWidth) 
     var w = newWidth;
     var h = newWidth / ratio;
 
-    Ti.API.info('ratio: ' + ratio);
-    Ti.API.info('w: ' + w);
-    Ti.API.info('h: ' + h);
 
     return ImageFactory.imageAsResized(blob, { width:w, height:h });
 }
@@ -204,9 +199,6 @@ function resizeKeepAspectRatioNewHeight(blob, imageWidth, imageHeight, newHeight
     var w = newHeight * ratio;
     var h = newHeight;
 
-    Ti.API.info('ratio: ' + ratio);
-    Ti.API.info('w: ' + w);
-    Ti.API.info('h: ' + h);
 
     return ImageFactory.imageAsResized(blob, { width:w, height:h });
 }
@@ -280,110 +272,6 @@ function updateUserName() {
 		}
 	});	
 };
-
-
-/*// Don't forget to set your requested permissions, else the login button won't be effective.
-var win = (Ti.Platform.name === 'android') ? Ti.UI.createWindow({backgroundColor: 'white'}) : null;
-
-
-//check if already connected to facebook
-if(fb.loggedIn)
-{
-	//if already connected then disconnect. 
-	//currently we are not giving a user a way to logout
-	//fb.logout();
-	
-	$.connectFacebook.title = 'Connected to Facebook';
-    $.connectFacebook.touchEnabled = false;
-}
-
-fb.addEventListener('login', function(e) {
-    if (e.success) {
-        
-        for (var prop in e) {
-          // important check that this is objects own property 
-          // not from prototype prop inherited
-          if(e.hasOwnProperty(prop)){
-          }
-         }
-        fb.loggedIn = true;
-        $.connectFacebook.title = 'Connected to Facebook';
-        $.connectFacebook.touchEnabled = false;
-    }
-    else if (e.cancelled) {
-        // user cancelled
-        alert('cancelled');
-    }
-    else {
-        alert(e.error);
-    }
-});
-
-fb.addEventListener('logout', function(e) {
-    alert('Logged out');
-    fb.loggedIn = false;
-    $.connectFacebook.title = 'Connect to Facebook';
-});
-
-function connectToFaceBook(){
-	if(fb.loggedIn)
-	{
-		//if already connected then disconnect. 
-		//currently we are not giving a user a way to logout
-		//fb.logout();
-		$.connectFacebook.title = 'Connected to Facebook';
-        $.connectFacebook.touchEnabled = false;
-	}
-	else
-	{
-		//For Android Platform. TODO test properly
-		if (Ti.Platform.name === 'android') {
-		    win.fbProxy = fb.createActivityWorker({lifecycleContainer: win});
-		    fb.permissions = ['email', 'publish_actions'];
-			win.open();
-		}
-		else {		
-			fb.permissions = ['email', 'publish_actions'];
-			fb.initialize(1000);
-			fb.authorize();
-		}
-	}
-}
-
-function connectToTwitter() {
-
-	var twitter = Alloy.Globals.social.create({
-    	consumerSecret: Alloy.CFG.twitter.consumerSecret,
-    	consumerKey: Alloy.CFG.twitter.consumerKey
-	});
-	
-	twitter.authorize();
-	
-	if (twitter.isAuthorized())
-	{
-		$.connectTwitter.touchEnabled = false;
-		$.connectTwitter.title = 'Connected to Twitter';
-	}
-	
-	
-	// Post a message
-	// Setup both callbacks for confirmation
-	// Note: share() automatically calls authorize() so an explicit call as above is unnecessary
-	/*twitter.share({
-	    message: "friends unite! " + Math.random().toString(),
-	    success: function(e) {alert('Success!');},
-	    error: function(e) {alert('Error!' + e);}
-	});
-	
-	
-	if (twitter.isAuthorized()) {	
-		$.connectTwitter.setText('Connected to Twitter');
-        $.connectTwitter.touchEnabled = false;
-        }
-        
-	//Do not Deauthorize the application
-	//twitter.deauthorize();
-}*/
 
 function getGoogleMaps(e){
 	geoLocation.getCurrentPosition(function(e){
@@ -499,7 +387,6 @@ $.username.addEventListener('change',function(e){
 
 
 exports.cleanup = function () {
-	Ti.API.info('Cleaning edituserprofile');
 	$.destroy();
     $.off();
     $.removeListener();

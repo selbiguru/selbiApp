@@ -9,6 +9,7 @@ var AuthManager = require('managers/authmanager'),
 var html2as = require('nl.fokkezb.html2as');
 var prevNumber = '';
 var indicatorWindow;
+var validatedNumber = '';
 
 
 function registerUser(){
@@ -17,7 +18,6 @@ function registerUser(){
 	});
 	$.registerButton.touchEnabled = false;
 	$.closeRegister.touchEnabled = false;
-	// Todo: validation when we have a template
 	if (!$.firstName.value || !$.lastName.value || !$.email.value || !$.password.value || !$.phoneNumber.value) {
     	helpers.alertUser('Missing Fields','All fields must be filled out');
     	buttonOn();
@@ -59,12 +59,10 @@ function registerUser(){
 	};
 	twilioManager.sendValidationMessage(validateObject, function(error, response){
 		if(error) {
-			console.log("TWILIO ERROR");
 			helpers.alertUser('Register', error);
 			buttonOn();
 			return;
 		} else {
-			console.log("TWILIO SUCCESS");
 			modalManager.getVerifyPhoneModal(function(err, results){
 				results.verifyModalView.addEventListener('change', function(e){
 					var children = results.verifyModalView.children;
@@ -94,11 +92,10 @@ function registerUser(){
 					    AuthManager.userRegister(validateFirstName[0], validateLastName, validatedEmail.email, userName, validatedPassword, validatedNumber, function(err, registerResult){
 							if(err) {
 								buttonOn();
-								helpers.alertUser('Register', err);
+								helpers.alertUser('Register', 'Unable to register, please try again.  If the problem persists, contact us at Support@selbi.io');
 								indicatorWindow.closeIndicator();
 								return;
 							} else {
-								console.log("Successfully registered");
 								importContacts();
 								removeEventListeners();	
 							}
@@ -117,12 +114,10 @@ function registerUser(){
 					validateObject.verifyPhone = randomNumber;
 					twilioManager.sendValidationMessage(validateObject, function(error, response){
 						if(error) {
-							console.log("Ping");
 							helpers.alertUser('Register', error);
 							buttonOn();
 							return;
 						} else {
-							console.log("Pong");
 							return;
 						}
 					});
@@ -211,9 +206,12 @@ function loadContacts() {
 		for(var person in people) {
 			var phone = people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : "";
 			var newPhone = phone.replace(/\D+/g, "");
-			//if( validatedNumber != newPhone) {
+			if( newPhone.length >= 10 && newPhone.length <= 11 && validatedNumber != newPhone) {
+				if (newPhone.length === 11 && newPhone[0] === '1') {
+					newPhone = newPhone.slice(1);
+				}
 				phoneArray.push(newPhone);
-			//}
+			}
 		}
 		friendsManager.addFriendsByPhone(phoneArray,function(err, results){
 			buttonOn();

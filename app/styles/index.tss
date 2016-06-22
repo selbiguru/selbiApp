@@ -1,9 +1,5 @@
 //DEFAULT
 "Window": {
-	//backgroundImage: 'images/home-bg.png',
-	backgroundColor: "#62D7F5"
-},
-".container": {
 	backgroundColor: "#62D7F5"
 },
 "Label": {
@@ -22,22 +18,20 @@
 
 //iPhone 4
 "#splashView[if=Alloy.Globals.iPhoneFour]": {
-	top: "61dp"
+	top: "47dp"
 },
 "#learnMoreLabel[if=Alloy.Globals.iPhoneFour]": {
 	top: '160dp'
 },
 ".splash-logo-text[if=Alloy.Globals.iPhoneFour]":{
-	font: {
-		fontSize: '44dp',
-		fontFamily: 'Nunito-Light'
-	}	
+	width: '175dp'	
 },
 ".splash-logo-subtext[if=Alloy.Globals.iPhoneFour]": {
 	font: {
 		fontSize: '24dp',
 		fontFamily: 'Nunito-Light'
-	}
+	},
+	top: '5dp'
 },
 ".splash-small[if=Alloy.Globals.iPhoneFour]": {
 	font: {
@@ -65,22 +59,20 @@
 
 //iPhone 5
 "#splashView[if=Alloy.Globals.iPhoneFive]": {
-	top: "80dp"
+	top: "66dp"
 },
 "#learnMoreLabel[if=Alloy.Globals.iPhoneFive]": {
 	top: '205dp'
 },
 ".splash-logo-text[if=Alloy.Globals.iPhoneFive]":{
-	font: {
-		fontSize: '48dp',
-		fontFamily: 'Nunito-Light'
-	}	
+	width: '192dp'	
 },
 ".splash-logo-subtext[if=Alloy.Globals.iPhoneFive]": {
 	font: {
 		fontSize: '24dp',
 		fontFamily: 'Nunito-Light'
-	}
+	},
+	top: '5dp'
 },
 ".splash-small[if=Alloy.Globals.iPhoneFive]": {
 	font: {
@@ -107,22 +99,20 @@
 
 //iPhone 6
 "#splashView[if=Alloy.Globals.iPhoneSix]": {
-	top: "85dp"
+	top: "65dp"
 },
 "#learnMoreLabel[if=Alloy.Globals.iPhoneSix]": {
 	top: '251dp'
 },
 ".splash-logo-text[if=Alloy.Globals.iPhoneSix]":{
-	font: {
-		fontSize: '54dp',
-		fontFamily: 'Nunito-Light'
-	}	
+	width: '225dp'
 },
 ".splash-logo-subtext[if=Alloy.Globals.iPhoneSix]": {
 	font: {
 		fontSize: '28dp',
 		fontFamily: 'Nunito-Light'
-	}
+	},
+	top: '7dp'
 },
 ".splash-small[if=Alloy.Globals.iPhoneSix]": {
 	font: {
@@ -149,22 +139,20 @@
 
 //iPhone 6 Plus
 "#splashView[if=Alloy.Globals.iPhoneSixPlus]": {
-	top: "85dp"
+	top: "65dp"
 },
 "#learnMoreLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	top: '295dp'
 },
 ".splash-logo-text[if=Alloy.Globals.iPhoneSixPlus]":{
-	font: {
-		fontSize: '60dp',
-		fontFamily: 'Nunito-Light'
-	}	
+	width: '250dp'	
 },
 ".splash-logo-subtext[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
 		fontSize: '31dp',
 		fontFamily: 'Nunito-Light'
-	}
+	},
+	top: '7dp'
 },
 ".splash-small[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
@@ -192,22 +180,20 @@
 
 //android -(currently same as iPhone 6)
 "#splashView[if=Alloy.Globals.android]": {
-	top: "85dp"
+	top: "65dp"
 },
 "#learnMoreLabel[if=Alloy.Globals.android]": {
 	top: '270dp'
 },
 ".splash-logo-text[if=Alloy.Globals.android]":{
-	font: {
-		fontSize: '46dp',
-		fontFamily: 'Nunito-Light'
-	}	
+	width: '225dp'	
 },
 ".splash-logo-subtext[if=Alloy.Globals.android]": {
 	font: {
 		fontSize: '26dp',
 		fontFamily: 'Nunito-Light'
-	}
+	},
+	top: '7dp'
 },
 ".splash-small[if=Alloy.Globals.android]": {
 	font: {

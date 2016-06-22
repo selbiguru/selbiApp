@@ -1,6 +1,5 @@
 //DEFAULT
 "Window": {
-	//backgroundImage: 'images/home-bg.png',
 	backgroundColor: "#62D7F5"
 },
 

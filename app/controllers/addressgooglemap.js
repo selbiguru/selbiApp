@@ -10,7 +10,7 @@ function cancelAddressWebView(){
 	return;
 }
 function verifyAddressWebView(){
-	//verify that an address has been chosen via google places.
+	//Verify that an address has been chosen via google places.
 	if (!address || !address.length) {
 		alert("You must fill out an Address before you can verify!");
 	} else {

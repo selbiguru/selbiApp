@@ -313,7 +313,7 @@
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	//top: '25dp'
+	top: '25dp'
 },
 ".icon-buttons[if=Alloy.Globals.android]": {
 	font: {

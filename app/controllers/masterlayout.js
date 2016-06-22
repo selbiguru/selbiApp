@@ -69,12 +69,10 @@ function drawView(row) {
 		var viewController = controllerList[property];
 		if (viewController) {
 			if (viewController.menuButton) {
-				viewController.menuButton.removeEventListener('click', hideMenu);
-				Ti.API.info('removeEventListener'); 
+				viewController.menuButton.removeEventListener('click', hideMenu); 
 			}
 
 			if (viewController.cleanup) {
-				Ti.API.info('Releasing controller ' + property);
 				viewController.cleanup();
 			}
 			var view = viewController.getView();
@@ -107,7 +105,6 @@ function drawView(row) {
 	$.drawermenu.drawermainview.add(viewController.getView());
 	viewController = null;
 	
-	Ti.API.info('List After open ' + JSON.stringify(controllerList));
 };
 
 function onMenuClickListener(e) {
@@ -118,7 +115,6 @@ function onMenuClickListener(e) {
 		drawView(e.rowData.id);
 	},200);
 	// on Android the event is received by the label, so watch out!
-	Ti.API.info('Clicked ' + e.rowData.id);
 }
 
 /**
@@ -136,7 +132,6 @@ Alloy.Globals.openPage = function openPage(viewName, model) {
 					viewController.menuButton.removeEventListener('click', hideMenu);
 				}
 				if (viewController.cleanup) {
-					Ti.API.info('Releasing controller ' + property );
 					viewController.cleanup();
 				}
 				var view = viewController.getView();
@@ -158,7 +153,6 @@ Alloy.Globals.openPage = function openPage(viewName, model) {
 		viewController.menuButton.addEventListener('click', hideMenu);
 	}
 	viewController = null;
-	Ti.API.info('List After open ' + JSON.stringify(controllerList));
 };
 
 /**
@@ -168,11 +162,9 @@ Alloy.Globals.closePage = function(pageName) {
 	var viewController = controllerList[pageName];
 	if (viewController) {
 		if (viewController.menuButton) {
-			viewController.menuButton.removeEventListener('click', hideMenu);
-			Ti.API.info('removeEventListener');   
+			viewController.menuButton.removeEventListener('click', hideMenu);  
 		}
 		if (viewController.cleanup) {
-			Ti.API.info('Releasing controller ' + pageName);
 			viewController.cleanup();
 		}
 		var view = viewController.getView();
@@ -184,7 +176,6 @@ Alloy.Globals.closePage = function(pageName) {
 		delete controllerList[pageName];
 	}
 	
-	Ti.API.info('List After close ' + JSON.stringify(controllerList));
 };
 
 $.mainWindow.addEventListener('close',function(){
@@ -196,7 +187,6 @@ $.mainWindow.addEventListener('close',function(){
 	$.mainWindow = null;
 	Alloy.Globals.deallocate($);
     $ = null;
-    Ti.API.info('Closing master layout window.');
 });
 /**
  * Format a string in the following format

@@ -29,22 +29,6 @@ function gotoStep1() {
 	$.step1.show();
 }
 
-// ref: https://github.com/pablorr18/TiFlexiGrid
-/*$.fg.init({
- columns:3,
- space:5,
- gridBackgroundColor:'#fff',
- itemHeightDelta: 0,
- itemBackgroundColor:'#eee',
- itemBorderColor:'transparent',
- itemBorderWidth:0,
- itemBorderRadius:0
- });
-
- function addItemToGrid(title, image){
- $.fg.addGridItem({title: title, image: image});
- }*/
-
 function showCamera() {
 
 
@@ -59,7 +43,6 @@ function showCamera() {
 		autohide : true, //Important!
 
 		success : function(event) {
-			//Titanium.Media.hideCamera();
 			if(imageCollection.length < 2 ) {
 				createImageView(event.media);
 			}
@@ -115,6 +98,9 @@ function previewListing(){
 	} else if(!validatedPrice || !(parseFloat(validatedPrice) > .50)) {
 		helpers.alertUser('Invalid Price','Price should be a number and greater than $0.50');
 		return;
+	} else if(!(parseFloat(validatedPrice) < 20000.00)) {
+		helpers.alertUser('Invalid Price','Price can be no greater than $19,999.99.  If you\'d like to post an item for more than that, \'Contact Us\' under \'Settings\' so we can accommodate your request');
+		return;
 	} else if($.pickerCategory.getSelectedRow(0).id === 'blank') {
 		helpers.alertUser('Invalid Category','Please selected a category that best matches your item');
 		return;
@@ -169,9 +155,6 @@ function resizeKeepAspectRatioNewWidth(blob, imageWidth, imageHeight, newWidth) 
     var w = newWidth;
     var h = newWidth / ratio;
 
-    Ti.API.info('ratio: ' + ratio);
-    Ti.API.info('w: ' + w);
-    Ti.API.info('h: ' + h);
 
     return ImageFactory.imageAsResized(blob, { width:w, height:h });
 }
@@ -190,10 +173,6 @@ function resizeKeepAspectRatioNewHeight(blob, imageWidth, imageHeight, newHeight
 
     var w = newHeight * ratio;
     var h = newHeight;
-
-    Ti.API.info('ratio: ' + ratio);
-    Ti.API.info('w: ' + w);
-    Ti.API.info('h: ' + h);
 
     return ImageFactory.imageAsResized(blob, { width:w, height:h });
 };
@@ -455,7 +434,6 @@ Alloy.Globals.addKeyboardToolbar($.description, blurTextField);
 Alloy.Globals.addKeyboardToolbar($.price, blurTextField);
 
 exports.cleanup = function () {
-	Ti.API.info('Cleaning createlisting');
     clearProxy();
     $.removeListener();
     Alloy.Globals.removeChildren($.createListingView);
@@ -463,12 +441,3 @@ exports.cleanup = function () {
     Alloy.Globals.deallocate($);
     $ = null;
 };
-
-
-/*var send = Ti.UI.createButton({
-    style : Ti.UI.iPhone.SystemButtonStyle.DONE,
-    title : 'done'
-});
-
-$.title.keyboardToolbar = [send];
-$.title.keyboardToolbarHeight = 40;*/

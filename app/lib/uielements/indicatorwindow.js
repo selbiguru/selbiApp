@@ -60,7 +60,6 @@ function createIndicatorWindow(args) {
     function openIndicator() {
         win.open();
         activityIndicator.show();
-        Ti.API.info('openIndicator');
     }
     
     win.openIndicator = openIndicator;
@@ -82,7 +81,6 @@ function createIndicatorWindow(args) {
 		activityIndicator = null;
 		label = null;
 		win = null;
-		Ti.API.info('closeIndicator');
     });
     
     win.uploadImage = function(saveResult, previewImageCollection){

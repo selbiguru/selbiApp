@@ -10,7 +10,6 @@ function loginUser(){
 	var indicatorWindow = indicator.createIndicatorWindow({
 		message : "Signing in"
 	});
-	// Todo: validation
 	$.loginUser.touchEnabled = false;
 	$.forgotPassword.touchEnabled = false;
 	$.closeWindow.touchEnabled = false;
@@ -136,5 +135,4 @@ $.window.addEventListener('close', function(){
 	$.window = null;
 	Alloy.Globals.deallocate($);
 	$ = null;
-	 Ti.API.info('Closing login window.');
 });

@@ -268,10 +268,6 @@ function genUSAItems(cb){
  * @param {Object} listingId Object containing listingId and userId for the item
  */
 function openListing(listingIDs){
-	/*Alloy.Globals.openPage('viewlisting', {
-		itemId: listingIDs.itemId,
-		userId: listingIDs.userId
-	});*/
 	Alloy.Globals.openPage('listings', [
 		listingIDs.userName, listingIDs.userId
 	]);

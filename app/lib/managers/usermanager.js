@@ -2,7 +2,6 @@ var httpManager = require('managers/httpmanager');
 var helpers = require('utilities/helpers');
 
 var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
-	// Todo: validation on userUpdateObj
 	httpManager.execute('/UserData/' + userUpdateObj.id, 'PUT', userUpdateObj, true, function(err, userUpdateResult){
 		if(err) {
 			cb(err, null);
@@ -36,7 +35,6 @@ var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
 };
 
 var getCurrentUser = exports.getCurrentUser = function(cb){
-	console.warn("Fetching user information UserID: " + Ti.App.Properties.getString('userId'));
 	
 	httpManager.execute('/UserData/' + Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, userObject){
 		if(err) {
@@ -72,7 +70,6 @@ var getCurrentUser = exports.getCurrentUser = function(cb){
 
 
 var getUserByUsername = exports.getUserByUsername = function(usernameObj, cb){
-	console.warn("Fetching user information UserID: " + usernameObj.username);
 	
 	httpManager.execute('/UserData/userName/' + usernameObj.username, 'GET', null, true, function(err, userObject){
 		if(err) {

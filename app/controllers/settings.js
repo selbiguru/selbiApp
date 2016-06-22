@@ -10,7 +10,6 @@ $.settingsTable.addEventListener("click", function(e){
 
 
 exports.cleanup = function () {
-	Ti.API.info('Cleaning settingsView');
 	$.removeListener();
 	$.settingsView.removeAllChildren();
 	$.settingsView = null;

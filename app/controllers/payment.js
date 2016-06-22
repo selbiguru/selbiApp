@@ -101,7 +101,6 @@ function addNewBank(){
 		borderColor: "#EAEAEA",
  	});
  	var userCardHeader = Titanium.UI.createLabel({
- 		//borderColor: "red",
  		left: "5dp",
 		height: labelHeight,
 		font:{
@@ -112,7 +111,6 @@ function addNewBank(){
 		text: "Card Ending:"
  	});
  	var userCardNumber = Titanium.UI.createLabel({
- 		//borderColor: "red",
  		left: rowLeft,
 		height: labelHeight,
 		font:{
@@ -123,7 +121,6 @@ function addNewBank(){
 		text: 'X '+ cardInfo.lastFour
  	});
  	var userCardExp = Titanium.UI.createLabel({
- 		//borderColor: "red",
  		left: rowLeft,
 		height: labelHeight,
 		font:{
@@ -134,7 +131,6 @@ function addNewBank(){
 		text: cardInfo.expirationDate
  	});
  	var checkedCardIcon = Titanium.UI.createLabel({
- 		//borderColor: "red",
 		left: "10dp",
 		width: Titanium.UI.SIZE,
 		color: "#1BA7CD",
@@ -142,57 +138,12 @@ function addNewBank(){
 			fontSize: iconFont
 		}
  	});
- 	/*var deleteCardIcon = Titanium.UI.createLabel({
- 		//borderColor: "red",
-		textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
-		right: "15dp",
-		width: Titanium.UI.FILL,
-		color: "#c10404",
-		font: {
-			fontSize: iconFont
-		}
- 	});*/
  	$.fa.add(checkedCardIcon, "fa-check");
  	viewUserCard.add(checkedCardIcon);
  	viewUserCard.add(userCardHeader);
  	viewUserCard.add(userCardNumber);
  	viewUserCard.add(userCardExp);
- 	//$.fa.add(deleteCardIcon, "fa-times");
- 	//viewUserCard.add(deleteCardIcon);
  	$.paymentDetails.add(viewUserCard);
- 	/*deleteCardIcon.addEventListener('click', function() {
- 		//delete credit card from Stripe and our db
- 		var deleteCardAlert = Titanium.UI.createAlertDialog({
-	        	title : 'Delete Card',
-	        	buttonNames: ['Confirm', 'Cancel'],
-	        	confirm: 0
-	    }); 
-	    deleteCardAlert.setMessage("Are you sure you want to delete this card?  You'll have to add another card to be able to purchase items on Selbi!" );
- 		deleteCardAlert.addEventListener('click', function(e){
-		    if (e.index === e.source.confirm){
-				var indicatorWindow = indicator.createIndicatorWindow({
-					message : "Deleting Credit Card"
-				});
-				indicatorWindow.openIndicator();
-				Ti.API.info('The confirm button was clicked');
-				//$.viewAddCard.show();
- 				//$.viewAddCard.height = '40dp';
- 				paymentManager.deletePayment(function(err, response){
-					if(err){
-						indicatorWindow.closeIndicator();
-						helpers.alertUser('Failed to Delete','Unable to delete payment, please try again or contact us');
-						return;
-					} else {
-						$.paymentDetails.remove(viewUserCard);
-						indicatorWindow.closeIndicator();
-						return;					
-					}			
- 				});
-			}
-		});
- 		deleteCardAlert.show();
- 		return;
- 	});*/
  };
 
 
@@ -233,14 +184,12 @@ function showUserBank(bankInfo) {
 	        break;
 	};
  	var viewUserBank = Titanium.UI.createView({
- 		//backgroundColor: "blue",
  		layout: 'horizontal',
  		height: labelHeight,
 		borderWidth: "1dp",
 		borderColor: "#EAEAEA",
  	});
  	var userBankHeader = Titanium.UI.createLabel({
- 		//borderColor: "red",
  		left: "5dp",
 		height: labelHeight,
 		font:{
@@ -251,7 +200,6 @@ function showUserBank(bankInfo) {
 		text: "Account Ending:"
  	});
  	var userBankNumber = Titanium.UI.createLabel({
- 		//borderColor: "red",
  		left: "15dp",
 		height: labelHeight,
 		font:{
@@ -262,7 +210,6 @@ function showUserBank(bankInfo) {
 		text: "XXXX "+ bankInfo.accountNumberLast4
  	});
  	var checkedBankIcon = Titanium.UI.createLabel({
- 		//borderColor: "red",
 		left: "10dp",
 		width: Titanium.UI.SIZE,
 		color: "#1BA7CD",
@@ -270,54 +217,11 @@ function showUserBank(bankInfo) {
 			fontSize: iconFont
 		}
  	});
- 	/*var deleteBankIcon = Titanium.UI.createLabel({
- 		//borderColor: "red",
-		textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
-		right: "15dp",
-		width: Titanium.UI.FILL,
-		color: "#c10404",
-		font: {
-			fontSize: iconFont
-		}
- 	});*/
  	$.fa.add(checkedBankIcon, "fa-check");
  	viewUserBank.add(checkedBankIcon);
  	viewUserBank.add(userBankHeader);
  	viewUserBank.add(userBankNumber);
- 	//$.fa.add(deleteBankIcon, "fa-times");
- 	//viewUserBank.add(deleteBankIcon);
  	$.bankingDetails.add(viewUserBank);
- 	/*deleteBankIcon.addEventListener('click', function() {
- 		//delete bank account from Stripe and our db
- 		var deleteBankAlert = Titanium.UI.createAlertDialog({
-	        	title : 'Delete Bank Account',
-	        	buttonNames: ['Confirm', 'Cancel'],
-	        	confirm: 0
-	    }); 
-	    deleteBankAlert.setMessage("Are you sure you want to delete this bank account?  You'll have to add another account/Venmo to be able to cash out!" );
- 		deleteBankAlert.addEventListener('click', function(e){
-		    if (e.index === e.source.confirm){
-				var indicatorWindow = indicator.createIndicatorWindow({
-					message : "Deleting Bank"
-				});
-				indicatorWindow.openIndicator();
-				Ti.API.info('The confirm button was clicked');
- 				paymentManager.deleteExternalAccount(function(err, response){
-					if(err){
-						indicatorWindow.closeIndicator();
-						helpers.alertUser('Failed to Delete','Unable to delete bank, please try again or contact us');
-						return;
-					} else {
-						$.bankingDetails.remove(viewUserBank);
-						indicatorWindow.closeIndicator();
-						return;					
-					}			
- 				});
-			}
-		});
- 		deleteBankAlert.show();
- 		return;
- 	});*/
  };
 
 
@@ -335,13 +239,11 @@ $.activityIndicator.show();
  *  On page load, dynamically loads the user's payment methods and calls correlating function to dynamically create XML.
  */
 paymentManager.getPaymentMethods(function(err, results){
-	console.log('payment stuff ', results);
 	if(err) {
 		$.paymentView.remove($.bankingDetails);
 		$.paymentView.remove($.paymentDetails);
 		$.paymentView.remove($.separatorLabel);
-		$.paymentView.remove($.viewAddVenmo);
-		dynamicElement.defaultLabel('Shoot!, we are unable to load your payment methods right now. If the problem persists please contact us!', function(err, results) {
+		dynamicElement.defaultLabel('Shoot, we are unable to load your payment methods right now. If the problem persists please contact us!', function(err, results) {
 			$.paymentUndefined.add(results);
 		});
 	} else {
@@ -356,12 +258,7 @@ paymentManager.getPaymentMethods(function(err, results){
 	$.activityIndicator.height = '0dp';
 });
 
-//Close addCreditCard page on payment.js load otherwise webview Stripe doesn't properly read the save cc view
-//Alloy.Globals.closePage('addCreditCard');
-//Alloy.Globals.closePage('addBankAccount');
-
 exports.cleanup = function () {
-	Ti.API.info('Cleaning Payments');
 	$.off();
 	$.destroy();
 	Alloy.Globals.removeChildren($.paymentView);
