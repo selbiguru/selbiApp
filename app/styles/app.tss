@@ -68,7 +68,7 @@
 
 ".primary-btn": {
 	textAlign: 'center',
-	backgroundColor: '#0fbae6',//#FFB246
+	backgroundColor: '#0FBAE6',
 	color: '#fff',
 	width: Titanium.UI.FILL,
 	font: {

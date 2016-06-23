@@ -9,7 +9,7 @@
 			<TableViewRow class="table-user-row" id="row0">
 				<ImageView id="menuUserImage" image="{user.imageURL}" />
        			<View id="menuUserName">
-					<Label id="userName" class="" text="{user.firstName} {user.lastName}"></Label>
+					<Label id="userName" class="" text="{user.username}"></Label>
 				</View>
 			</TableViewRow>			
 			<TableViewRow>

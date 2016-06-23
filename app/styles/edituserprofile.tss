@@ -22,11 +22,11 @@
 },
 ".address-map": {
 	color: "#FFF",
-	backgroundColor: "#1bcd41",
+	backgroundColor: "#0FBAE6",
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 },
 "#editProfileGoogleAddress": {
-	backgroundColor: "#18b63a"
+	backgroundColor: "#0DABD4"
 },
 ".dark-underline": {
 	height: "1dp",

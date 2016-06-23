@@ -95,11 +95,11 @@ function previewListing(){
 	} else if(!validateDescription) {
 		helpers.alertUser('Invalid Description','Please enter valid characters only');
 		return;
-	} else if(!validatedPrice || !(parseFloat(validatedPrice) > .50)) {
+	} else if(!validatedPrice || !(parseFloat(validatedPrice[0].replace(/,/g, '')).toFixed(2) > .50)) {
 		helpers.alertUser('Invalid Price','Price should be a number and greater than $0.50');
 		return;
-	} else if(!(parseFloat(validatedPrice) < 20000.00)) {
-		helpers.alertUser('Invalid Price','Price can be no greater than $19,999.99.  If you\'d like to post an item for more than that, \'Contact Us\' under \'Settings\' so we can accommodate your request');
+	} else if(!(parseFloat(validatedPrice[0].replace(/,/g, '')).toFixed(2) < 100000)) {
+		helpers.alertUser('Invalid Price','Price must be less than $100,000.00.  If you\'d like to post an item for more than that, \'Contact Us\' under \'Settings\' so we can accommodate your request');
 		return;
 	} else if($.pickerCategory.getSelectedRow(0).id === 'blank') {
 		helpers.alertUser('Invalid Category','Please selected a category that best matches your item');

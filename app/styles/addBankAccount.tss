@@ -35,6 +35,9 @@
 "#routingNumber": {
 	keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD
 },
+"#ssnNumber": {
+	keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD
+},
 ".number-views": {
 	height: Ti.UI.SIZE
 },

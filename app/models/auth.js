@@ -1,10 +1,10 @@
 exports.definition = {
 	config: {
 		columns: {
-		    "token": "string",
-		    "username": "string",
-		    "password": "string",
-		    "isAuth": "tinyint",
+		    "token": "text",
+		    "username": "text",
+		    "password": "text",
+		    "isAuth": "integer",
 		    "user": "text"
 		},
 		adapter: {
