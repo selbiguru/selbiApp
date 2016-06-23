@@ -30,13 +30,13 @@
 	top: "15dp"
 },
 "#accountNumber": {
-	keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD
+	keyboardType: Ti.UI.KEYBOARD_TYPE_NUMBER_PAD
 },
 "#routingNumber": {
-	keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD
+	keyboardType: Ti.UI.KEYBOARD_TYPE_NUMBER_PAD
 },
 "#ssnNumber": {
-	keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD
+	keyboardType: Ti.UI.KEYBOARD_TYPE_NUMBER_PAD
 },
 ".number-views": {
 	height: Ti.UI.SIZE

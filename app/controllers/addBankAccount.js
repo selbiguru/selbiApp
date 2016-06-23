@@ -143,8 +143,8 @@ function createStripeManagedAccount(tokenObj) {
 				helpers.alertUser('Saved','Your bank information has been saved');
 				buttonsOn();
 				indicatorWindow.closeIndicator();
-				backButton(false);
 				Alloy.Globals.openPage('payment');
+				backButton(false);
 				return;
 			}
 		});

@@ -209,8 +209,8 @@ function buyItem(actionButton){
 			actionButton.touchEnabled = true;
 			$.backViewButton.touchEnabled = true;
 			helpers.alertUser('Purchased!','You purchased an item on Selbi');
-			backButton();
 			Alloy.Globals.openPage('friendslistings', ['friendslistings', Ti.App.Properties.getString('userId')]);
+			backButton();
 		}
 	});
 };
@@ -245,8 +245,8 @@ function deleteItem(actionButton){
 			actionButton.touchEnabled = true;
 			$.backViewButton.touchEnabled = true;
 			helpers.alertUser('Listing','Listing deleted successfully');
-			backButton();
 			Alloy.Globals.openPage('mylistings', ['mylistings', Ti.App.Properties.getString('userId')]);
+			backButton();
 		}
 	});
 }
@@ -280,8 +280,8 @@ function archiveItem(actionButton){
 			actionButton.touchEnabled = true;
 			$.backViewButton.touchEnabled = true;
 			helpers.alertUser('Listing','Listing archived successfully');
-			backButton();
 			Alloy.Globals.openPage('mylistings', ['mylistings', Ti.App.Properties.getString('userId')]);
+			backButton();
 		}
 	});
 }

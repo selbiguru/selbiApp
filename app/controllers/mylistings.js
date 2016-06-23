@@ -11,6 +11,7 @@ var myListingFontSize, myTopBarFontSize,
 var paginateLastDate = '';
 var endOfListings = false;
 var loadMoreItems = false;
+var isSold = false;
 var loading = false;
 var queryObj = {
 	myself: Ti.App.Properties.getString('userId') === argsID ? true : false,
@@ -135,7 +136,8 @@ function genMyItems(cb){
 		} else if(userListings && userListings.listings.length > 0) {
 			return cb(err, userListings.listings);		
 		} else if (userListings && userListings.listings.length === 0 && Ti.App.Properties.getString('userId') === argsID && !loadMoreItems ) {
-			dynamicElement.defaultLabel('Wait what! You don\'t have any listings?  Add some now so you can start making money!', function(err, results) {
+			var labelText = isSold ? 'You don\'t have any sold items.  List some stuff so the cash starts flowing in!' : 'Wait what! You don\'t have any listings?  Add some now so you can start making money!';
+			dynamicElement.defaultLabel(labelText, function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
@@ -494,6 +496,50 @@ function friendRequestDynamic(e, newStatus){
 }
 
 
+/**
+ * @method soldItems
+ * @param {Object} e is the clicked object returned by Appcelerator
+ * Reloads the table with items that were sold or all your unsold items
+ */
+function soldItems(e) {
+	console.log('great now what??? ', $.myListingsButtonSaveIcon.itsOn);
+	if ($.myListingsButtonSaveIcon.itsOn == false) {
+		isSold = false;
+        $.myListingsButtonSaveIcon.itsOn = true;
+        $.myListingsButtonSaveIcon.title = 'Sold';
+        $.myListingsButtonSaveIcon.font = {iconPosition:'append', fontSize: mySoldFontSize};
+        $.fa.change($.myListingsButtonSaveIcon, "fa-square-o");
+        paginateLastDate = '';
+        loadMoreItems = false;
+        endOfListings = false;
+        queryObj.isSold = false;
+        $.defaultView.height= '0dp';
+		if($.defaultView.children.length > 0) {
+			$.defaultView.remove($.defaultView.children[0]);	
+		}
+        $.activityIndicator.show();
+        $.activityIndicator.height = Ti.UI.FILL;
+        init();
+    } else {
+    	isSold = true;
+	    $.myListingsButtonSaveIcon.itsOn = false;
+	    $.myListingsButtonSaveIcon.title = 'Sold';
+	    $.myListingsButtonSaveIcon.font = {iconPosition:'append', fontSize: mySoldFontSize};
+	    $.fa.change($.myListingsButtonSaveIcon, "fa-check-square");
+	    paginateLastDate = '';
+	    loadMoreItems = false;
+	    endOfListings = false;
+	    queryObj.isSold = true;
+	    $.defaultView.height= '0dp';
+		if($.defaultView.children.length > 0) {
+			$.defaultView.remove($.defaultView.children[0]);	
+		}
+	    $.activityIndicator.show();
+		$.activityIndicator.height = Ti.UI.FILL;
+	    init();
+   	}
+}
+
 
 //-------------------------------------------Initializing Views/Styles----------------------------------------------------//
 
@@ -541,33 +587,7 @@ function clearProxy(e) {
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
 
 //Event listener to swap checked icon vs empty box icon for items sold under 'mylistings'
-$.myListingsButtonSaveIcon.addEventListener('click', function(e) {
-	if ($.myListingsButtonSaveIcon.itsOn == false) {
-        $.myListingsButtonSaveIcon.itsOn = true;
-        $.myListingsButtonSaveIcon.title = 'Sold';
-        $.myListingsButtonSaveIcon.font = {iconPosition:'append', fontSize: mySoldFontSize};
-        $.fa.change($.myListingsButtonSaveIcon, "fa-square-o");
-        paginateLastDate = '';
-        loadMoreItems = false;
-        endOfListings = false;
-        queryObj.isSold = false;
-        $.activityIndicator.show();
-        $.activityIndicator.height = Ti.UI.FILL;
-        init();
-    } else {
-	    $.myListingsButtonSaveIcon.itsOn = false;
-	    $.myListingsButtonSaveIcon.title = 'Sold';
-	    $.myListingsButtonSaveIcon.font = {iconPosition:'append', fontSize: mySoldFontSize};
-	    $.fa.change($.myListingsButtonSaveIcon, "fa-check-square");
-	    paginateLastDate = '';
-	    loadMoreItems = false;
-	    endOfListings = false;
-	    queryObj.isSold = true;
-	    $.activityIndicator.show();
-		$.activityIndicator.height = Ti.UI.FILL;
-	    init();
-   	}
-});
+$.myListingsButtonSaveIcon.addEventListener('click', soldItems);
 
 
 exports.cleanup = function () {
