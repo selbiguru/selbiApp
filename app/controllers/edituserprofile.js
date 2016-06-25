@@ -11,9 +11,17 @@ var helpers = require('utilities/helpers'),
 	currentUser = null,
 	userNameUnique = true,
 	indicator = require('uielements/indicatorwindow'),
-	geoLocation = require('utilities/geoLocation'); 
+	geoLocation = require('utilities/geoLocation'),
+	dynamicElement = require('utilities/dynamicElement');
 
-
+//Checks to see if servers are running (looking at global user).
+//If not shows the below message
+if(!Alloy.Globals.currentUser){
+	$.editUserProfileView.remove($.editUserInfoView);
+	dynamicElement.defaultLabel('Our servers are down. Fortunately, we are already working on a solution!', function(err, results) {
+		$.editUserProfileUndefined.add(results);
+	});
+}
 
 
 /**

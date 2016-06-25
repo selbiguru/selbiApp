@@ -7,6 +7,9 @@
 	layout: 'vertical',
 	width: '90%'
 },
+"#editUserProfileUndefined": {
+	width: "90%"
+},
 ".rowContainer": {
 	width: Ti.UI.FILL,
 	height: Ti.UI.SIZE,

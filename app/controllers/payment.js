@@ -242,7 +242,6 @@ paymentManager.getPaymentMethods(function(err, results){
 	if(err) {
 		$.paymentView.remove($.bankingDetails);
 		$.paymentView.remove($.paymentDetails);
-		$.paymentView.remove($.separatorLabel);
 		dynamicElement.defaultLabel('Shoot, we are unable to load your payment methods right now. If the problem persists please contact us!', function(err, results) {
 			$.paymentUndefined.add(results);
 		});

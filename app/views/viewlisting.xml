@@ -6,7 +6,7 @@
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
 			<View id="titleViewListingView">
-				<Label id="titleViewListingLabel"></Label>
+				<Label id="titleViewListingLabel">View Listing</Label>
 			</View>
 		</View>
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
@@ -30,7 +30,7 @@
 				<Label id="viewListingProductDescription" class="product-description"></Label>				
 			</View>	
 		</ScrollView>
-		<View id="viewListingButtonView">
-		</View>
+		<View id="viewListingButtonView"></View>
+		<View id="viewListingUndefined"></View>
 	</View>
 </Alloy>

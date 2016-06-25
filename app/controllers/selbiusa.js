@@ -67,16 +67,16 @@ function genUSAItems(cb){
 		categories: categoryArray.length > 0 ? categoryArray : false
 	};
 	listingManager.getSelbiListings(argsID, selbiUSAObj, function(err, selbiListings){
-		selbiListings.listings.length > 0 ? paginateLastDate = selbiListings.listings[selbiListings.listings.length - 1].createdAt : '';
-		selbiListings.listings.length < 30 ? endOfListings = true : endOfListings = false;
-		
 		if(err) {
-			dynamicElement.defaultLabel('Uh oh, we are experiencing server issues and are having trouble loading all the USA listings...We are working on a fix!', function(err, results) {
+			dynamicElement.defaultLabel('Uh oh, we are experiencing some issues retrieving listings. Fortunately, we are working on a fix!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
 			return cb(err, null);
-		} else if(selbiListings && selbiListings.listings.length > 0) {
+		}
+		selbiListings.listings.length > 0 ? paginateLastDate = selbiListings.listings[selbiListings.listings.length - 1].createdAt : '';
+		selbiListings.listings.length < 30 ? endOfListings = true : endOfListings = false;
+		if(selbiListings && selbiListings.listings.length > 0) {
 			return cb(err, selbiListings.listings);
 			
 		} else if (selbiListings && selbiListings.listings.length === 0 && !loadMoreItems) {

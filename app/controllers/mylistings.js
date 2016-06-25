@@ -125,15 +125,16 @@ function genMyItems(cb){
 	loading = true;
 	queryObj.createdAt = paginateLastDate;
 	listingManager.getUserListings(argsID, queryObj, function(err, userListings){
-		userListings.listings.length > 0 ? paginateLastDate = userListings.listings[userListings.listings.length - 1].createdAt : '';
-		userListings.listings.length < 30 ? endOfListings = true : endOfListings = false;
 		if(err) {
-			dynamicElement.defaultLabel('Uh oh, we are experiencing server issues and are having trouble loading listings!', function(err, results) {
+			dynamicElement.defaultLabel('Uh oh, we are experiencing some issues retrieving listings. Fortunately, we are working on a fix!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
 			return cb(err, null);
-		} else if(userListings && userListings.listings.length > 0) {
+		}
+		userListings.listings.length > 0 ? paginateLastDate = userListings.listings[userListings.listings.length - 1].createdAt : '';
+		userListings.listings.length < 30 ? endOfListings = true : endOfListings = false;
+		if(userListings && userListings.listings.length > 0) {
 			return cb(err, userListings.listings);		
 		} else if (userListings && userListings.listings.length === 0 && Ti.App.Properties.getString('userId') === argsID && !loadMoreItems ) {
 			var labelText = isSold ? 'You don\'t have any sold items.  List some stuff so the cash starts flowing in!' : 'Wait what! You don\'t have any listings?  Add some now so you can start making money!';

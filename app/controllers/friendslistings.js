@@ -57,15 +57,16 @@ function genFriendsItems(cb){
 		updatedAt: paginateLastDate
 	};
 	listingManager.getFriendsListings(argsID, dateObj, function(err, friendsListings){
-		friendsListings.length > 0 ? paginateLastDate = friendsListings[friendsListings.length - 1].updatedAt : '';
-		friendsListings.length < 30 ? endOfListings = true : endOfListings = false;
 		if(err) {
-			dynamicElement.defaultLabel('Uh oh, we are experiencing server issues and are having trouble loading your friend\'s listings...We are working on a fix!', function(err, results) {
+			dynamicElement.defaultLabel('Uh oh, we are experiencing some issues retrieving listings. Fortunately, we are working on a fix!', function(err, results) {
 				$.defaultView.height= Ti.UI.FILL;
 				$.defaultView.add(results);
 			});
 			return cb(err, null);
-		} else if(friendsListings && friendsListings.length > 0) {			
+		}
+		friendsListings.length > 0 ? paginateLastDate = friendsListings[friendsListings.length - 1].updatedAt : '';
+		friendsListings.length < 30 ? endOfListings = true : endOfListings = false;
+		if(friendsListings && friendsListings.length > 0) {			
 			return cb(err, friendsListings);
 		} else if (friendsListings && friendsListings.length === 0 && !loadMoreItems) {
 			dynamicElement.defaultLabel('It\'s easier to use Selbi with a network of friends. Go to "Add Contacts" under the menu to add more friends!', function(err, results) {

@@ -21,6 +21,11 @@ function sendEmailToSelbi() {
     	buttonOn();
     	return;
 	} else {
+		if(!Alloy.Globals.currentUser) {
+			buttonOn();
+			helpers.alertUser('Server Issues','Your email was not sent because our servers are down. Fortunately, we are already working on a solution!');
+			return;
+		}
 		indicatorWindow.openIndicator();
 		var emailObj = {
 			subject: helpers.trim($.emailTitle.value, false),
@@ -32,7 +37,7 @@ function sendEmailToSelbi() {
 			if(err) {
 				helpers.alertUser('Email Failed','Failed to send email.  Please try again later');
 			} else {
-				helpers.alertUser('Email Sent','Selbi has received your message.  We will get back to you asap!');
+				helpers.alertUser('Email Sent','We have received your message.  We will get back to you asap!');
 		    	$.emailBody.value = '';
 		    	$.emailTitle.value = '';
 			}

@@ -3,6 +3,9 @@
 	layout: 'vertical',
 	backgroundColor: '#FAFAFA'
 },
+"#viewListingUndefined": {
+	width: '90%'
+}
 "#activityIndicator": {
 	style: 13,
 	indicatorDiameter: 2,

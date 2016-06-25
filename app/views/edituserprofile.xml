@@ -65,5 +65,6 @@
 		    </View>
 		    <Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 	   </ScrollView>
+	   <View id="editUserProfileUndefined"></View>
     </View>
 </Alloy>

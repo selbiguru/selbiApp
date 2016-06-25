@@ -12,9 +12,10 @@ var	previewListing,
 	images,
 	previewImageCollection = [];
 var ccEligible = false,
-	bankEligible = false;
-var saveListingButton = null;
-var editListingButton = null; 
+	bankEligible = false,
+	saveListingButton = null,
+	editListingButton = null, 
+	dynamicElement = require('utilities/dynamicElement');
 $.activityIndicator.show();
 
 
@@ -622,7 +623,16 @@ function createActionButton(height, width, fontSize, background, text, ccEligibl
 
 
 paymentManager.getPaymentMethods(function(err, results){
-	if(results.userPaymentMethod.lastFour && Alloy.Globals.currentUser.attributes.address) {
+	if(err) {
+		$.viewListingView.remove($.viewListingScrollView);
+		$.viewListingView.remove($.viewListingButtonView);
+		dynamicElement.defaultLabel('Shoot, we are having trouble loading this page. Fortunately, we are already working on a solution!', function(err, results) {
+			$.viewListingUndefined.add(results);
+		});
+		$.activityIndicator.hide();
+		$.activityIndicator.height = '0dp';
+		return;
+	} else if(results.userPaymentMethod.lastFour && Alloy.Globals.currentUser.attributes.address) {
 		ccEligible = true;
 	}
 	if(results.userMerchant.accountNumberLast4 && Alloy.Globals.currentUser.attributes.address) {
