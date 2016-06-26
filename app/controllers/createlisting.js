@@ -95,8 +95,8 @@ function previewListing(){
 	} else if(!validateDescription) {
 		helpers.alertUser('Invalid Description','Please enter valid characters only');
 		return;
-	} else if(!validatedPrice || !(parseFloat(validatedPrice[0].replace(/,/g, '')).toFixed(2) > .50)) {
-		helpers.alertUser('Invalid Price','Price should be a number and greater than $0.50');
+	} else if(!validatedPrice || !(parseFloat(validatedPrice[0].replace(/,/g, '')).toFixed(2) > 1)) {
+		helpers.alertUser('Invalid Price','Price should be a number and greater than $1.00');
 		return;
 	} else if(!(parseFloat(validatedPrice[0].replace(/,/g, '')).toFixed(2) < 100000)) {
 		helpers.alertUser('Invalid Price','Price must be less than $100,000.00.  If you\'d like to post an item for more than that, \'Contact Us\' under \'Settings\' so we can accommodate your request');
