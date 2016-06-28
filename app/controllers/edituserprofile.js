@@ -65,7 +65,7 @@ function showCamera(){
 		cancel: function(){
 			// Do nothing
 		},
-		error: function(){
+		error: function(error){
 			if (error.code == Titanium.Media.NO_CAMERA || error.code == Titanium.Media.NO_VIDEO) {
 				helpers.alertUser('Camera', L('no_camera'));
 			} else {

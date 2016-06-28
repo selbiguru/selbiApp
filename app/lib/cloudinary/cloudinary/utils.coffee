@@ -112,7 +112,7 @@ exports.url = cloudinary_url = (public_id, options = {}) ->
   resource_type = option_consume(options, "resource_type", "image")
   version = option_consume(options, "version")
   format = option_consume(options, "format")
-  cloud_name = option_consume(options, "cloud_name", config().cloud_name)
+  cloud_name = option_consume(options, "cloud_name", Alloy.CFG.cloudinary.cloudName)
   throw new Error("Unknown cloud_name") unless cloud_name
   private_cdn = option_consume(options, "private_cdn", config().private_cdn)
   secure_distribution = option_consume(options, "secure_distribution", config().secure_distribution)
@@ -224,7 +224,7 @@ crc32 = (str) ->
 
 exports.api_url = (action = 'upload', options = {}) ->
   cloudinary = options["upload_prefix"] ? config().upload_prefix ? "https://api.cloudinary.com"
-  cloud_name = options["cloud_name"] ? config().cloud_name ? throw new Error("Must supply cloud_name")
+  cloud_name = options["cloud_name"] ? Alloy.CFG.cloudinary.cloudName ? throw new Error("Must supply cloud_name")
   resource_type = options["resource_type"] ? "image"
   return [cloudinary, "v1_1", cloud_name, resource_type, action].join("/")
 
@@ -247,7 +247,7 @@ exports.api_sign_request = (params_to_sign, api_secret) ->
   Ti.Utils.sha1(to_sign + api_secret)
 
 exports.sign_request = (params, options) ->
-  api_key = options.api_key ? config().api_key ? throw("Must supply api_key")
+  api_key = options.api_key ? Alloy.CFG.cloudinary.apikey ? throw("Must supply api_key")
   api_secret = options.api_secret ? config().api_secret ? throw("Must supply api_secret")
   # Remove blank parameters
   for k, v of params when not exports.present(v)

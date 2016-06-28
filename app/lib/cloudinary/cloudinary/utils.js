@@ -174,7 +174,7 @@
     resource_type = option_consume(options, "resource_type", "image");
     version = option_consume(options, "version");
     format = option_consume(options, "format");
-    cloud_name = option_consume(options, "cloud_name", config().cloud_name);
+    cloud_name = option_consume(options, "cloud_name", Alloy.CFG.cloudinary.cloudName);
     if (!cloud_name) {
       throw new Error("Unknown cloud_name");
     }
@@ -307,7 +307,7 @@
     cloudinary = (_ref = (_ref1 = options["upload_prefix"]) != null ? _ref1 : config().upload_prefix) != null ? _ref : "https://api.cloudinary.com";
     cloud_name = (function() {
       var _ref3;
-      if ((_ref2 = (_ref3 = options["cloud_name"]) != null ? _ref3 : config().cloud_name) != null) {
+      if ((_ref2 = (_ref3 = options["cloud_name"]) != null ? _ref3 : Alloy.CFG.cloudinary.cloudName) != null) {
         return _ref2;
       } else {
         throw new Error("Must supply cloud_name");
@@ -356,7 +356,7 @@
     var api_key, api_secret, k, v, _ref, _ref1;
     api_key = (function() {
       var _ref1;
-      if ((_ref = (_ref1 = options.api_key) != null ? _ref1 : config().api_key) != null) {
+      if ((_ref = (_ref1 = options.api_key) != null ? _ref1 : Alloy.CFG.cloudinary.apikey) != null) {
         return _ref;
       } else {
         throw "Must supply api_key";

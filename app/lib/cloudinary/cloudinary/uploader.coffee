@@ -117,7 +117,7 @@ call_tags_api = (tag, command, public_ids = [], callback, options = {}) ->
 call_api = (action, callback, options, get_params) ->
   options = _.clone(options)
 
-  api_key = options.api_key ? config().api_key ? throw new Error("Must supply api_key")
+  api_key = options.api_key ? Alloy.CFG.cloudinary.apikey ? throw new Error("Must supply api_key")
   [params, unsigned_params, file] = get_params.call()
 
   if options.signature?

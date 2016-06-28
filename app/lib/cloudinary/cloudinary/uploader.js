@@ -292,7 +292,7 @@
     options = _.clone(options);
     api_key = (function() {
       var _ref1;
-      if ((_ref = (_ref1 = options.api_key) != null ? _ref1 : config().api_key) != null) {
+      if ((_ref = (_ref1 = options.api_key) != null ? _ref1 : Alloy.CFG.cloudinary.apikey) != null) {
         return _ref;
       } else {
         throw new Error("Must supply api_key");
@@ -339,7 +339,7 @@
           xhr.abort();
           return callback(result);
         } else {
-          xhr.abort();  	
+          xhr.abort();	
           return callback({
             error: {
               message: "Server returned unexpected status code - " + this.status
