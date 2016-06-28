@@ -11,7 +11,8 @@
             "baseurl": "https://api.cloudinary.com/v1_1/selbi",
             "apikey": "379521277533334",
             "baseImagePath": "http://res.cloudinary.com/selbi/image/upload/",
-            "bucket": "v1433472934/"
+            "bucket": "v1433472934/",
+            "cloudName": "selbi"
         },
         "imageSize": {
         	"iPhoneFour": {
@@ -86,7 +87,8 @@
             "baseurl": "https://api.cloudinary.com/v1_1/selbi",
             "apikey": "379521277533334",
             "baseImagePath": "http://res.cloudinary.com/selbi/image/upload/",
-            "bucket": "v1433472934/"
+            "bucket": "v1433472934/",
+            "cloudName": "selbi"
         },
         "imageSize": {
         	"iPhoneFour": {
@@ -161,7 +163,8 @@
             "baseurl": "https://api.cloudinary.com/v1_1/selbi-io",
             "apikey": "823837749384676",
             "baseImagePath": "http://res.cloudinary.com/selbi-io/image/upload/",
-            "bucket": "v1461114174/"
+            "bucket": "v1461114174/",
+            "cloudName": "selbi-io"
         },
         "imageSize": {
         	"iPhoneFour": {
@@ -242,7 +245,8 @@
             "baseurl": "https://api.cloudinary.com/v1_1/selbi",
             "apikey": "379521277533334",
             "baseImagePath": "http://res.cloudinary.com/selbi/image/upload/",
-            "bucket": "v1433472934/"
+            "bucket": "v1433472934/",
+            "cloudName": "selbi"
         },
         "imageSize": {
         	"iPhoneFour": {
@@ -317,7 +321,8 @@
             "baseurl": "https://api.cloudinary.com/v1_1/selbi",
             "apikey": "379521277533334",
             "baseImagePath": "http://res.cloudinary.com/selbi/image/upload/",
-            "bucket": "v1433472934/"
+            "bucket": "v1433472934/",
+            "cloudName": "selbi"
         },
         "imageSize": {
         	"iPhoneFour": {
