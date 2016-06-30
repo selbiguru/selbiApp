@@ -156,11 +156,11 @@ function uploadUserProfile(imageBlob){
 	var f = Titanium.Filesystem.getFile(Titanium.Filesystem.tempDirectory, 'profile.jpg');
 	var resizedImage;
 	if(imageBlob.height > 700 && imageBlob.width >= imageBlob.height) {
-		resizedImage = ImageFactory.compress(resizeKeepAspectRatioNewHeight(imageBlob, imageBlob.width, imageBlob.height, 120), .6);
+		resizedImage = ImageFactory.compress(resizeKeepAspectRatioNewHeight(imageBlob, imageBlob.width, imageBlob.height, 700), .6);
 	} else if(imageBlob.height > 700 && imageBlob.width < imageBlob.height) {
-		resizedImage = ImageFactory.compress(resizeKeepAspectRatioNewWidth(imageBlob, imageBlob.width, imageBlob.height, 120), .6);
+		resizedImage = ImageFactory.compress(resizeKeepAspectRatioNewWidth(imageBlob, imageBlob.width, imageBlob.height, 700), .6);
 	} else {
-		resizedImage = ImageFactory.compress(imageBlob, .3);
+		resizedImage = ImageFactory.compress(imageBlob, .6);
 	};
 	
 		f.write(resizedImage);

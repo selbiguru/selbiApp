@@ -16,7 +16,7 @@
         },
         "imageSize": {
         	"iPhoneFour": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_65,h_65/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_55,h_55/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40/",
@@ -27,7 +27,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,q_90/"
         	},
         	"iPhoneFive": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_75,h_75/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_60,h_60/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45/",
@@ -38,7 +38,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,q_90/"
         	},
         	"iPhoneSix": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_85,h_85/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_65,h_65/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50/",
@@ -49,7 +49,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,q_90/"
         	},
         	"iPhoneSixPlus": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_95,h_95/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_75,h_75/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55/",
@@ -92,7 +92,7 @@
         },
         "imageSize": {
         	"iPhoneFour": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_65,h_65/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_55,h_55/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40/",
@@ -103,7 +103,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,q_90/"
         	},
         	"iPhoneFive": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_75,h_75/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_60,h_60/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45/",
@@ -114,7 +114,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,q_90/"
         	},
         	"iPhoneSix": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_85,h_85/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_65,h_65/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50/",
@@ -125,7 +125,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,q_90/"
         	},
         	"iPhoneSixPlus": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_95,h_95/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_75,h_75/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55/",
@@ -168,7 +168,7 @@
         },
         "imageSize": {
         	"iPhoneFour": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_65,h_65/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_55,h_55/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_40,h_40/",
@@ -179,7 +179,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,q_90/"
         	},
         	"iPhoneFive": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_75,h_75/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_60,h_60/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_45,h_45/",
@@ -190,7 +190,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,q_90/"
         	},
         	"iPhoneSix": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_85,h_85/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_65,h_65/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_50,h_50/",
@@ -201,7 +201,7 @@
 	            "friendlistView": "h_220,w_220,c_fill,fl_progressive,q_90/"
         	},
         	"iPhoneSixPlus": {
-        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_100,h_100/",
+        		"userImgGeneral": "c_thumb,g_faces,q_80,r_max,w_200,h_200/",
         		"profileView": "c_thumb,g_faces,q_80,r_max,w_95,h_95/",
         		"menuView": "c_thumb,g_faces,q_80,r_max,w_75,h_75/",
         		"viewListingThumb": "c_thumb,g_faces,q_80,r_max,w_55,h_55/",

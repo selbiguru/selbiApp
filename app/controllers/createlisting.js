@@ -301,13 +301,13 @@ function createImageView(media) {
 	};
 	
 	if(media.height > 750 && media.width >= media.height) {
-		media = ImageFactory.compress(resizeKeepAspectRatioNewHeight(media, media.width, media.height, 750), .5);
+		media = ImageFactory.compress(resizeKeepAspectRatioNewHeight(media, media.width, media.height, 750), .6);
 		mediaThumbnail = ImageFactory.imageAsThumbnail(resizeKeepAspectRatioNewHeight(media, media.width, media.height, 750),{size: imgViewSize});
 	} else if(media.height > 750 && media.width < media.height) {
-		media = ImageFactory.compress(resizeKeepAspectRatioNewWidth(media, media.width, media.height, 750), .5);
+		media = ImageFactory.compress(resizeKeepAspectRatioNewWidth(media, media.width, media.height, 750), .6);
 		mediaThumbnail = ImageFactory.imageAsThumbnail(resizeKeepAspectRatioNewWidth(media, media.width, media.height, 750),{size: imgViewSize});
 	} else {
-		media = ImageFactory.compress(media, .5);
+		media = ImageFactory.compress(media, .6);
 		mediaThumbnail = ImageFactory.imageAsThumbnail(resizeKeepAspectRatioNewHeight(media, media.width, media.height, 500),{size: imgViewSize});
 	};
 	var imageData = {
