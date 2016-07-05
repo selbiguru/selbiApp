@@ -20,8 +20,10 @@ function addItemToGrid(title, image) {
 }
 
 function gotoStep2() {
-	$.step2.show();
-	$.step1.hide();
+	if(infoNeeded()){
+		$.step2.show();
+		$.step1.hide();	
+	};
 }
 
 function gotoStep1() {
@@ -30,53 +32,64 @@ function gotoStep1() {
 }
 
 function showCamera() {
-
-
-	var _picsTaken = 0;
-	var timer = {};
-
-	Titanium.Media.showCamera({
-
-		saveToPhotoGallery : true,
-		allowEditing : true,
-		mediaTypes:[Ti.Media.MEDIA_TYPE_PHOTO],
-		autohide : true, //Important!
-
-		success : function(event) {
-			if(imageCollection.length < 2 ) {
-				createImageView(event.media);
+	if(infoNeeded()){
+		var _picsTaken = 0;
+		var timer = {};
+	
+		Titanium.Media.showCamera({
+	
+			saveToPhotoGallery : true,
+			allowEditing : true,
+			mediaTypes:[Ti.Media.MEDIA_TYPE_PHOTO],
+			autohide : true, //Important!
+	
+			success : function(event) {
+				if(imageCollection.length < 2 ) {
+					createImageView(event.media);
+				}
+			},
+	
+			error : function(error) {
+				if (error.code == Titanium.Media.NO_CAMERA || error.code == Titanium.Media.NO_VIDEO) {
+					helpers.alertUser('Camera', L('no_camera'));
+				} else {
+					helpers.alertUser('Camera', ('Unexpected error: ' + error.code));
+				}
 			}
-		},
-
-		error : function(error) {
-			if (error.code == Titanium.Media.NO_CAMERA || error.code == Titanium.Media.NO_VIDEO) {
-				helpers.alertUser('Camera', L('no_camera'));
-			} else {
-				helpers.alertUser('Camera', ('Unexpected error: ' + error.code));
-			}
-		}
-	});
+		});
+	};
 }
 
 function showGallery() {
-	Titanium.Media.openPhotoGallery({
-		showControls : true,
-		allowEditing : true,
-		mediaTypes:[Ti.Media.MEDIA_TYPE_PHOTO],
-		success : function(event) {
-			if(imageCollection.length < 2 ) {
-				createImageView(event.media);
+	if(infoNeeded()){
+		Titanium.Media.openPhotoGallery({
+			showControls : true,
+			allowEditing : true,
+			mediaTypes:[Ti.Media.MEDIA_TYPE_PHOTO],
+			success : function(event) {
+				if(imageCollection.length < 2 ) {
+					createImageView(event.media);
+				}
+			},
+	
+			error : function(error) {
+				if (error.code == Titanium.Media.NO_CAMERA || error.code == Titanium.Media.NO_VIDEO) {
+					helpers.alertUser('Camera', L('no_camera'));
+				} else {
+					helpers.alertUser('Camera', ('Unexpected error: ' + error.code));
+				}
 			}
-		},
+		});
+	};
+}
 
-		error : function(error) {
-			if (error.code == Titanium.Media.NO_CAMERA || error.code == Titanium.Media.NO_VIDEO) {
-				helpers.alertUser('Camera', L('no_camera'));
-			} else {
-				helpers.alertUser('Camera', ('Unexpected error: ' + error.code));
-			}
-		}
-	});
+
+function infoNeeded(){
+	if(!Alloy.Globals.currentUser.attributes.address || !Alloy.Globals.currentUser.attributes.userMerchant) {
+		helpers.alertUser('Info Needed','Before you can create listings you need to add BOTH a Bank Account in \'Payment\' and an Address in \'Edit Profile\' under \'Settings\' if you haven\'t done so already');
+		return false;
+	}
+	return true;
 }
 
 

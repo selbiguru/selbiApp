@@ -53,7 +53,7 @@ function registerUser(){
 	var codeNumbers =[];
 	var randomNumber = Math.floor(Math.random() * 8999 + 1000);
 	var validateObject = {
-		phoneNumber: validatedNumber,
+		phoneNumber: parseFloat(validatedNumber),
 		verifyPhone: randomNumber,
 		email: validatedEmail.email
 	};
@@ -89,7 +89,7 @@ function registerUser(){
 					    animateWindowClose = animateWindowClose.scale(0);	
 					    results.modalWindow.close({transform:animateWindowClose, duration:300});
 						indicatorWindow.openIndicator();
-					    AuthManager.userRegister(validateFirstName[0], validateLastName, validatedEmail.email, userName, validatedPassword, validatedNumber, function(err, registerResult){
+					    AuthManager.userRegister(validateFirstName[0], validateLastName, validatedEmail.email, userName, validatedPassword, parseFloat(validatedNumber), function(err, registerResult){
 							if(err) {
 								buttonOn();
 								helpers.alertUser('Register', 'Unable to register, please try again.  If the problem persists, contact us at Support@selbi.io');
@@ -206,11 +206,14 @@ function loadContacts() {
 		for(var person in people) {
 			var phone = people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : "";
 			var newPhone = phone.replace(/\D+/g, "");
-			if( newPhone.length >= 10 && newPhone.length <= 11 && validatedNumber != newPhone) {
-				if (newPhone.length === 11 && newPhone[0] === '1') {
+			var contactName = people[person] ? people[person].firstName +''+ people[person].lastName : "";
+			if( newPhone.toString().length >= 10 && newPhone.toString().length <= 11) {
+				if (newPhone.toString().length == 11 && newPhone.toString()[0] == '1') {
 					newPhone = newPhone.slice(1);
 				}
-				phoneArray.push(newPhone);
+				if((parseFloat(validatedNumber) != parseFloat(newPhone)) && contactName.length > 0) {
+					phoneArray.push(newPhone);
+				}
 			}
 		}
 		friendsManager.addFriendsByPhone(phoneArray,function(err, results){

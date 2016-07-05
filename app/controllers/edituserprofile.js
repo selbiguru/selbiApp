@@ -24,6 +24,19 @@ if(!Alloy.Globals.currentUser){
 }
 
 
+//Checks current user address before showing or hiding address info
+//Button title changes in response to user having or not having an address
+if(!Alloy.Globals.currentUser.attributes.address){
+	$.addressLabel.hide();
+	$.addressLabel.height = '0dp';
+	$.addressInfo.hide();
+	$.addressInfo.height = '0dp';
+	$.googleAddress.title = 'Add Address';	
+} else {
+	$.googleAddress.title = 'Edit Address';
+}
+
+
 /**
  * @method onCameraClick
  * This method gives users options to click a picture or select from gallery
@@ -326,8 +339,6 @@ function buttonsOff() {
 
 
 /*----------------------------------------------On page load API calls---------------------------------------------*/
-
-
 
 //Load the user model
 Alloy.Models.user.fetch({

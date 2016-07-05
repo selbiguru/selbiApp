@@ -16,7 +16,10 @@ exports.getCurrentPosition = function(callback) {
 		Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_NEAREST_TEN_METERS;
 		Ti.Geolocation.getCurrentPosition(function(e) {
 			if (!e.success || e.error) {
-				callback(e.error);
+				callback({
+					lng : '-73.999014',
+					lat : '40.724458'
+				});
 			}
 			if (e.success) {
 				callback({

@@ -286,20 +286,25 @@ function loadContacts() {
 	var phoneArray = [];
 	var people = Ti.Contacts.getAllPeople();
 	if (people) {
+		
 		for (var person in people) {
 			if ((people[person].phone.mobile && people[person].phone.mobile.length > 0) || (people[person].phone.work && people[person].phone.work.length > 0) || (people[person].phone.home && people[person].phone.home.length > 0) || (people[person].phone.other && people[person].phone.other.length > 0)) {
 				var phone = people[person].phone.mobile && people[person].phone.mobile.length > 0 ? people[person].phone.mobile[0] : people[person].phone.work && people[person].phone.work.length > 0 ? people[person].phone.work[0] : people[person].phone.home && people[person].phone.home.length > 0 ? people[person].phone.home[0] : people[person].phone.other && people[person].phone.other.length > 0 ? people[person].phone.other[0] : "";
 				var newPhone = phone.replace(/\D+/g, "");
-				if( newPhone.length >= 10 && newPhone.length <= 11 && Alloy.Globals.currentUser && Alloy.Globals.currentUser.attributes.phoneNumber != newPhone) {
-					if (newPhone.length === 11 && newPhone[0] === '1') {
+				if( newPhone.toString().length >= 10 && newPhone.toString().length <= 11) {
+					if (newPhone.toString().length == 11 && newPhone.toString()[0] == '1') {
 						newPhone = newPhone.slice(1);
 					}
-					var userPhoneObject = {
-						newNumber : newPhone,
-						originalNumber : phone,
-						contactName : people[person] ? people[person].firstName + " " + people[person].lastName : "NA",
-					};
-					phoneArray.push(userPhoneObject);
+					if(Alloy.Globals.currentUser && (parseFloat(Alloy.Globals.currentUser.attributes.phoneNumber) != parseFloat(newPhone))) {
+						var userPhoneObject = {
+							newNumber : parseFloat(newPhone),
+							originalNumber : phone,
+							contactName : people[person] ? people[person].firstName + " " + people[person].lastName : "",
+						};
+						if(userPhoneObject.contactName.length > 1 ) {
+							phoneArray.push(userPhoneObject);
+						}	
+					}
 				}
 			};
 		};

@@ -1,6 +1,6 @@
 var args = arguments[0] || {};
 var utils = require('utilities/validate');
-var userManager = require('managers/usermanager');
+var addressManager = require('managers/addressmanager');
 var helpers = require('utilities/helpers');
 var address =  args[0];
 
@@ -65,7 +65,7 @@ function validateAddressView(){
 						"country": $.country.value
 						}
 		};
-		userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
+		addressManager.addAddress(textFieldObject, function(err, userUpdateResult){
 			if(err) {
 				buttonsOn();
 				helpers.alertUser('Update Address','Failed to update address, please try again');
@@ -73,6 +73,7 @@ function validateAddressView(){
 			} else {
 				buttonsOn();
 				helpers.alertUser('Updated Address', 'User address saved');
+				Alloy.Globals.openPage('edituserprofile');
 				$.verifyAddressCancelButton.fireEvent('click');
 				return;
 			}

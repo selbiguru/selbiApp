@@ -16,6 +16,7 @@ var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
 				userModel.set({phoneNumber: userUpdateResult.phoneNumber});
 				userModel.set({profileImage: userUpdateResult.profileImage});
 				userModel.set({fraudAlert: userUpdateResult.fraudAlert});
+				userModel.set({userMerchant: !!userUpdateResult.userMerchant});
 				userModel.set({dateOfBirth: userUpdateResult.dateOfBirth || null});
 				if(userUpdateResult.userAddress){
 						userModel.set({address: userUpdateResult.userAddress.address});
@@ -31,7 +32,6 @@ var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
 			cb(err, Alloy.Globals.currentUser);
 		}
 	});
-
 };
 
 var getCurrentUser = exports.getCurrentUser = function(cb){
@@ -49,6 +49,7 @@ var getCurrentUser = exports.getCurrentUser = function(cb){
 			userModel.set({phoneNumber: userObject.phoneNumber});
 			userModel.set({profileImage: userObject.profileImage});
 			userModel.set({fraudAlert: userObject.fraudAlert});
+			userModel.set({userMerchant: !!userObject.userMerchant});
 			userModel.set({dateOfBirth: userObject.dateOfBirth || null});
 			if(userObject.userAddress){
 					userModel.set({address: userObject.userAddress.address});

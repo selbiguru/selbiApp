@@ -239,12 +239,16 @@ function adjustItemsSize(items, columns) {
  */
 function findUserListings(){
 	var uniqueUserRegEx = (helpers.trim($.usernameSearch.value, true).toLowerCase()).match(/^[a-z\d]+$/gi);
+	if(helpers.trim($.usernameSearch.value, true).length < 1) {
+		helpers.alertUser('Search Users','Enter a Username in the text field to search for a user');
+		return;
+	}
 	if(uniqueUserRegEx === null) {
-		helpers.alertUser('Oops','Usernames are only letters and numbers');
+		helpers.alertUser('Search Users','Usernames are only letters and numbers');
 		return;
 	}
 	if(uniqueUserRegEx[0].length < 7) {
-		helpers.alertUser('Oops','Usernames are at least 7 letters long');
+		helpers.alertUser('Search Users','Usernames are at least 7 letters long');
 		return;
 	}
 	var userNameSearchObj = {

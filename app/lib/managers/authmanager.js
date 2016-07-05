@@ -39,7 +39,9 @@ var login = exports.login = function (username, password, cb){
 				userModel.set({profileImage: loginResult.user.profileImage});
 				userModel.set({createdAt: loginResult.user.createdAt});
 				userModel.set({id: loginResult.user.id});
+				userModel.set({phoneNumber: loginResult.user.phoneNumber});
 				userModel.set({fraudAlert: loginResult.user.fraudAlert});
+				userModel.set({userMerchant: !!loginResult.user.userMerchant});
 				userModel.save();		
 				Alloy.Globals.currentUser = loginResult.userModel;	
 			}
