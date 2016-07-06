@@ -14,10 +14,9 @@ var validatedNumber = '';
 
 function registerUser(){
 	indicatorWindow = indicator.createIndicatorWindow({
-		message : "Registering"
+		message : "Validating Phone"
 	});
-	$.registerButton.touchEnabled = false;
-	$.closeRegister.touchEnabled = false;
+	buttonOff();
 	if (!$.firstName.value || !$.lastName.value || !$.email.value || !$.password.value || !$.phoneNumber.value) {
     	helpers.alertUser('Missing Fields','All fields must be filled out');
     	buttonOn();
@@ -57,10 +56,12 @@ function registerUser(){
 		verifyPhone: randomNumber,
 		email: validatedEmail.email
 	};
+	indicatorWindow.openIndicator();
 	twilioManager.sendValidationMessage(validateObject, function(error, response){
+		indicatorWindow.closeIndicator();
+		buttonOn();
 		if(error) {
 			helpers.alertUser('Register', error);
-			buttonOn();
 			return;
 		} else {
 			modalManager.getVerifyPhoneModal(function(err, results){
@@ -88,6 +89,10 @@ function registerUser(){
 						var animateWindowClose = Titanium.UI.create2DMatrix();
 					    animateWindowClose = animateWindowClose.scale(0);	
 					    results.modalWindow.close({transform:animateWindowClose, duration:300});
+					    indicatorWindow = indicator.createIndicatorWindow({
+							message : "Registering"
+						});
+						buttonOff();
 						indicatorWindow.openIndicator();
 					    AuthManager.userRegister(validateFirstName[0], validateLastName, validatedEmail.email, userName, validatedPassword, parseFloat(validatedNumber), function(err, registerResult){
 							if(err) {
@@ -257,6 +262,15 @@ function buttonOn() {
 	$.closeRegister.touchEnabled = true;
 };
 
+
+/**
+ * @method buttonOff
+ * Makes buttons on view unclickable
+ */
+function buttonOff() {
+	$.registerButton.touchEnabled = false;
+	$.closeRegister.touchEnabled = false;
+};
 
 /**
  * @method phoneNumberChange
