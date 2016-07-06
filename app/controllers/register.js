@@ -30,7 +30,7 @@ function registerUser(){
 	var validateFirstName = (helpers.capFirstLetter(helpers.trim($.firstName.value, false))).match(/^[a-z ,.'-]+$/i);
 	var validateLastName = (helpers.capFirstLetter(helpers.trim($.lastName.value, false))).match(/^[a-z ,.'-]+$/i);
 	var validatedEmail = utils.validate(validateEmailObj);
-	var validatedNumber = validatePhoneNumber($.phoneNumber.value);
+		validatedNumber = validatePhoneNumber($.phoneNumber.value);
 	var validatedPassword = $.password.value;
 	if(!validateFirstName || !validateLastName ) {
 		helpers.alertUser('Invalid Name','Please enter a valid first and last name');
