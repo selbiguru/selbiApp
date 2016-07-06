@@ -6,6 +6,6 @@ iosLaunchConfigurationAttributes/appid=io.selbi
 iosLaunchConfigurationAttributes/certificate=Jordan Burrows (345649AR4Q)
 iosLaunchConfigurationAttributes/distribute_path=/Users/JamHarris/Documents
 iosLaunchConfigurationAttributes/keychain=
-iosLaunchConfigurationAttributes/output_format=ipa
+iosLaunchConfigurationAttributes/output_format=archive
 iosLaunchConfigurationAttributes/sdk_version=9.3
 iosLaunchConfigurationAttributes/uuid=3d3bffd8-b01d-4249-879a-c7d5eb308172
