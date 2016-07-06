@@ -78,7 +78,7 @@ function genMyItems(cb){
 		            	text: userListings[listing].price.formatMoney(2)
 		            },
 		            listingImagesCount: {
-		            	text: userListings[listing].imageUrls.length > 1 ? "+" + userListings[listing].imageUrls.length + " Images" : userListings[listing].imageUrls.length + " Image"
+		            	text: userListings[listing].imageUrls.length > 1 ? userListings[listing].imageUrls.length + " Images" : userListings[listing].imageUrls.length + " Image"
 		            },  
 		            template: 'myitemtemplate',
 		            properties: {
@@ -98,7 +98,7 @@ function genMyItems(cb){
 		        		text: userListings[listing].price.formatMoney(2)	
 	        		},
 	        		'#listingImagesCount':{ 
-		        		text: userListings[listing].imageUrls.length > 1 ? "+" + userListings[listing].imageUrls.length + " Images" : userListings[listing].imageUrls.length + " Image"	
+		        		text: userListings[listing].imageUrls.length > 1 ? userListings[listing].imageUrls.length + " Images" : userListings[listing].imageUrls.length + " Image"	
 	        		}
 		        });
 		        

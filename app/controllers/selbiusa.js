@@ -153,7 +153,7 @@ function transform(items, columns, startIndex) {
 		            }
 	            },
 	            listingImagesCount: {
-	            	text: item.isSold ? "SOLD" : item.imageUrls.length > 1 ? "+" + item.imageUrls.length + " Images" : item.imageUrls.length + " Image"	,
+	            	text: item.isSold ? "SOLD" : item.imageUrls.length > 1 ? item.imageUrls.length + " Images" : item.imageUrls.length + " Image"	,
         			font: item.isSold ? {fontFamily: 'Nunito-Bold', fontSize: selbiUSAFontSize } : {fontFamily: 'Nunito-Light', fontSize: selbiUSAFontSize } ,
         			color: item.isSold ? "#1BA7CD" : "#9B9B9B",
         			data: {
