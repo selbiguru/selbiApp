@@ -6,7 +6,8 @@ var utils = require('utilities/validate'),
 	indicator = require('uielements/indicatorwindow'),
 	modalManager = require('managers/modalmanager'),
 	userManager = require('managers/usermanager');
-	managedAccountParams = null;
+	managedAccountParams = null,
+	currentUser = null;
 var indicatorWindow = null;
 
 
@@ -140,6 +141,8 @@ function createStripeManagedAccount(tokenObj) {
 				buttonsOn();
 				return;
 			} else {
+				currentUser.set({'userMerchant': true});	
+				currentUser.save();
 				helpers.alertUser('Saved','Your bank information has been saved');
 				buttonsOn();
 				indicatorWindow.closeIndicator();
@@ -277,7 +280,14 @@ function tokenizeBank(bankDetails, callback) {
 $.imageExCheck.image = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize.exampleCheck;
 
 
-
+//Load the user model
+Alloy.Models.user.fetch({
+	success: function(data){
+		currentUser = data;
+	},
+	error: function(data){		
+	}
+});
 
 /*-------------------------------------------------Event Listeners---------------------------------------------------*/
 
