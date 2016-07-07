@@ -329,8 +329,8 @@ function loadContacts() {
 								text : helpers.alterTextFormat(results[user].contactName, 28, false)
 							},
 							subtitle : {
-								text : "Using Selbi",
-								color : '#1BA7CD'
+								text : results[user].username,
+								color : '#AFAFAF'
 							},
 							data : {
 								data : {
