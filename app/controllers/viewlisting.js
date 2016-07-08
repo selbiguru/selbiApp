@@ -547,11 +547,11 @@ function createPurchasingButtons() {
 	var deleteListing = deleteItem;
 	var archiveListing = archiveItem;
 	if(args.userId === Ti.App.Properties.getString('userId') && itemData.isSold ) {
-		createActionButton(buttonHeight, buttonWidth, buttonFontSize, '#127089', 'Archive Listing', true, 'Are you sure you want to Archive this listing!', archiveListing);
+		createActionButton(buttonHeight, buttonWidth, buttonFontSize, '#127089', 'Archive Listing', true, 'Are you sure you want to Archive this listing?', archiveListing);
 	} else if(args.userId === Ti.App.Properties.getString('userId')) {
-		createActionButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Delete Listing', true, 'Are you sure you want to Delete this listing!', deleteListing);
+		createActionButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Delete Listing', true, 'Are you sure you want to Delete this listing?', deleteListing);
 	} else {
-		createActionButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Buy Item', ccEligible, 'Are you sure you want to Purchase this item!', purchaseListing);
+		createActionButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Buy Item', ccEligible, 'Confirm to complete the purchase.', purchaseListing);
 	}
 	return;
 }
