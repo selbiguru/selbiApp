@@ -23,7 +23,7 @@
 			<TableViewRow class="tableRow" id="notifications">
 				<Label icon="fa-bell" class="rowLabel row-icon" id="menuNotificationIcon"></Label>
 				<Label id="notificationsLabel" class="rowLabel">Notifications</Label>
-				<Label id="notificationsCounter" text="{user.notificationCount}">0</Label>
+				<Label id="notificationsCounter" text="{user.notificationCount}"></Label>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="friendslistings">
