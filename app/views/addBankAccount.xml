@@ -18,21 +18,21 @@
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>	
 		</View>
 		<View id="enterBankAccountDetailView">
+			<View id='routingNumberView' class='number-views'>
+				<Label id='routingLabel' class='account-number-labels'>Routing Number:</Label>
+				<TextField id="routingNumber" class="banking-number left-padding" maxLength="9" required="true">
+				</TextField>
+			</View>
+			<View class="banking-underline"/>
 			<View id='accountNumberView' class='number-views'>
 				<Label id='accountLabel' class='account-number-labels'>Account Number:</Label>
 				<TextField id="accountNumber" class="banking-number left-padding" maxLength="17" required="true">
 				</TextField>
 			</View>
 			<View class="banking-underline"/>
-			<View id='routingNumberView' class='number-views'>
-				<Label id='routingLabel' class='account-number-labels'>Routing Number:</Label>
-				<TextField id="routingNumber" class="banking-number left-padding" maxLength="9">
-				</TextField>
-			</View>
-			<View class="banking-underline"/>
 			<View id='ssnNumberView' class='number-views'>
 				<Label id='ssnLabel' class='account-number-labels'>Last 4 SSN:</Label>
-				<TextField id="ssnNumber" class="banking-number left-padding" maxLength="4">
+				<TextField id="ssnNumber" class="banking-number left-padding" maxLength="4" required="true">
 				</TextField>
 			</View>
 			<View class="banking-underline"/>

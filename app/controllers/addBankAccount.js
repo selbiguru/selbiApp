@@ -46,7 +46,7 @@ function addBankInfo() {
 				}
 			}
 		} else {
-			helpers.alertUser('Invalid Banking Fields','Both Routing and Account fields must be filled out');
+			helpers.alertUser('Invalid Banking Fields','Routing, Account, and SSN fields must be filled out');
 		    buttonsOn();
 		    return;
 		}
