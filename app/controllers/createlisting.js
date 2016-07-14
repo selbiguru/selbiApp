@@ -197,7 +197,6 @@ function resizeKeepAspectRatioNewHeight(blob, imageWidth, imageHeight, newHeight
  * Blurs textfields in accordance with expected UI on register.js View
  */
 function blurTextField(e) {
-	console.log('11 11 111 111 111 111 ', e.source.id);
 	if(e.source.id === 'title') {
 		$.title.focus();
 	} else if(e.source.id === 'description' || e.source.id === 'hintTextLabel') {

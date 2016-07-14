@@ -329,7 +329,6 @@ function buttonsOff() {
  * Blurs textfields in accordance with expected UI on register.js View
  */
 function blurTextField(e) {
-	console.log('000 000 000 0000 000 ',e.source.id);
 	if(e.source.id === 'firstNameView' || e.source.id === 'firstName' || e.source.id === 'firstNameLabel') {
 		$.firstName.focus();
 	} else if(e.source.id === 'lastNameView' || e.source.id === 'lastName' || e.source.id === 'lastNameLabel') {
