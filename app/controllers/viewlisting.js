@@ -62,7 +62,7 @@ function initialize() {
  */
 function openListing(listingIDs){
 	Alloy.Globals.openPage('mylistings', [
-		listingIDs.userName, listingIDs.userId, listingIDs.friends
+		listingIDs.userLegalName, listingIDs.userId, listingIDs.friends, listingIDs.userName
 	]);
 };
 	
@@ -87,8 +87,9 @@ function populateViewListing(listingData) {
 		profileImageUrl = listingData.user.profileImage ? Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + listingData.user.profileImage : Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + Alloy.CFG.imageSize.facesDefault;
 		$.overlayListingHeader.data = {
 			userId: listingData.user.id,	
-			userName: listingData.user.firstName + ' ' + listingData.user.lastName,
-			friends: listingData.invitation
+			userLegalName: listingData.user.firstName + ' ' + listingData.user.lastName,
+			friends: listingData.invitation,
+			userName: listingData.user.username
 		};
 	} else if(Alloy.Globals.currentUser.attributes.profileImage) {
 		profileImageUrl = Alloy.CFG.cloudinary.baseImagePath + Alloy.CFG.imageSize[Alloy.Globals.iPhone].userImgGeneral + Alloy.CFG.cloudinary.bucket + Alloy.Globals.currentUser.attributes.profileImage;

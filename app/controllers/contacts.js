@@ -66,9 +66,12 @@ function getContactListTemplate() {
 			bindId : 'data',
 			properties : {
 				width : Ti.UI.SIZE,
-				height : Ti.UI.SIZE,
-				right : rightCheckMark
-
+				height : heightCheckView,
+				right : rightCheckMark,
+				borderRadius: dataBorderRadius,
+				borderColor: '#AFAFAF',
+				layout: 'horizontal',
+				backgroundColor:'#FAFAFA'
 			},
 			childTemplates : [{
 				// View subcomponents can also have subcomponents
@@ -80,6 +83,8 @@ function getContactListTemplate() {
 						fontFamily : "FontAwesome",
 						fontSize : fontSizeCheckMark,
 					},
+					top: checkmarkTop,
+					left: checkmarkLeft,
 					color : '#1BA7CD'
 				},
 			}],
@@ -132,15 +137,17 @@ function friendRequestDynamic(e, newStatus) {
 				if (!e.section) {
 					var checkSquare = Ti.UI.createLabel({
 						width : Ti.UI.SIZE,
-						color : '#1BA7CD',
+						color : '#FAFAFA',
 						font : {
 							fontSize : fontSizeCheckMark,
 						},
+						top: checkmarkTop,
+						left: checkmarkLeft,
 						touchEnabled : false
 					});
 					e.source.status = createInviteResult.invitation.status;
 					e.source.invitation = [createInviteResult.invitation];
-					$.fa.add(checkSquare, 'fa-check-square');
+					$.fa.add(checkSquare, 'fa-check');
 					e.source.add(checkSquare);
 					checkSquare = null;
 				}
@@ -149,7 +156,9 @@ function friendRequestDynamic(e, newStatus) {
 					var userContactData = currentContacts[userIndex];
 					userContactData.data.status = createInviteResult.invitation.status;
 					userContactData.data.invitation = [createInviteResult.invitation];
-					userContactData.checkmark.text = '\uf14a';
+					userContactData.data.backgroundColor = '#1BA7CD';
+					userContactData.checkmark.color = '#FAFAFA';
+					userContactData.checkmark.text = '\uf00c  Added   ';
 					contactsOnSelbi.setItems(currentContacts);
 				}
 			}
@@ -166,11 +175,13 @@ function friendRequestDynamic(e, newStatus) {
 						font : {
 							fontSize : fontSizeCheckMark,
 						},
+						top: checkmarkTop,
+						left: checkmarkLeft,
 						touchEnabled : false
 					});
 					e.source.status = updateInvitationResult.invitation[0].status;
 					e.source.invitation = updateInvitationResult.invitation;
-					$.fa.add(plusSquare, 'fa-plus-square-o');
+					$.fa.add(plusSquare, 'fa-check');
 					e.source.add(plusSquare);
 					plusSquare = null;
 				}
@@ -179,6 +190,8 @@ function friendRequestDynamic(e, newStatus) {
 					var userContactData = currentContacts[userIndex];
 					userContactData.data.status = updateInvitationResult.invitation[0].status;
 					userContactData.data.invitation = updateInvitationResult.invitation;
+					userContactData.data.backgroundColor = determineStatusBoolean(updateInvitationResult.invitation) ? '#FAFAFA' : '#1BA7CD';
+					userContactData.checkmark.color = determineStatusBoolean(updateInvitationResult.invitation) ? '#1BA7CD' : '#FAFAFA';
 					userContactData.checkmark.text = determineStatus(updateInvitationResult.invitation);
 					contactsOnSelbi.setItems(currentContacts);
 				}
@@ -192,15 +205,17 @@ function friendRequestDynamic(e, newStatus) {
 				if (!e.section) {
 					var checkSquare = Ti.UI.createLabel({
 						width : Ti.UI.SIZE,
-						color : '#1BA7CD',
+						color : '#FAFAFA',
 						font : {
 							fontSize : fontSizeCheckMark,
 						},
+						top: checkmarkTop,
+						left: checkmarkLeft,
 						touchEnabled : false
 					});
 					e.source.status = updateInvitationResult.invitation[0].status;
 					e.source.invitation = updateInvitationResult.invitation;
-					$.fa.add(checkSquare, 'fa-check-square');
+					$.fa.add(checkSquare, 'fa-plus');
 					e.source.add(checkSquare);
 					checkSquare = null;
 				}
@@ -221,6 +236,8 @@ function friendRequestDynamic(e, newStatus) {
 				var userContactData = currentContacts[userIndex];
 				userContactData.data.status = updateInvitationResult.invitation[0].status;
 				userContactData.data.invitation = updateInvitationResult.invitation;
+				userContactData.data.backgroundColor = determineStatusBoolean(updateInvitationResult.invitation) ? '#FAFAFA' : '#1BA7CD';
+				userContactData.checkmark.color = determineStatusBoolean(updateInvitationResult.invitation) ? '#1BA7CD' : '#FAFAFA';
 				userContactData.checkmark.text = determineStatus(updateInvitationResult.invitation);
 				contactsOnSelbi.setItems(currentContacts);
 			}
@@ -339,13 +356,15 @@ function loadContacts() {
 								},
 								id : results[user].username,
 								status : results[user].invitation.length <= 0 ? "new" : results[user].invitation[0].status,
-								invitation : results[user].invitation
+								invitation : results[user].invitation,
+								backgroundColor : determineStatusBoolean(results[user].invitation) ? '#FAFAFA' : '#1BA7CD'
 							},
 							checkmark : {
 								data : results[user].invitation,
-								text : results[user].invitation.length <= 0 ? '\uf196' : determineStatus(results[user].invitation),
+								text : results[user].invitation.length <= 0 ? '\uf067  Add   ' : determineStatus(results[user].invitation),
 								visible : true,
-								ext : results[user].username
+								ext : results[user].username,
+								color : determineStatusBoolean(results[user].invitation) ? '#1BA7CD' : '#FAFAFA'
 							},
 							properties : {
 								height : heightDataView
@@ -370,11 +389,12 @@ function loadContacts() {
 								id : results[user].username,
 								invitation : results[user].invitation,
 								newNumber : results[user].newNumber,
-								status : 'notOnSelbi'
+								status : 'notOnSelbi',
+								backgroundColor : '#FAFAFA'
 							},
 							checkmark : {
 								data : results[user].invitation,
-								text : '\uf196',
+								text : '\uf067  Invite   ',
 								visible : true,
 								ext : results[user].username,
 								touchEnabled : false
@@ -389,6 +409,10 @@ function loadContacts() {
 					currentContacts.push({
 						properties : {
 							height : heightDataView
+						},
+						checkmark: {
+							top: '',
+							left: '',
 						},
 						match : 'empty'
 					});
@@ -444,16 +468,29 @@ function importContacts() {
  */
 function determineStatus(invitation) {
 	if (invitation.length <= 0) {
-		return '\uf196';
+		return '\uf067  Add   ';
 	} else if (invitation[0].status === 'denied') {
-		return '\uf196';
+		return '\uf067  Add   ';
 	} else if (invitation[0].status === 'pending' && invitation[0].userTo === Ti.App.Properties.getString('userId')) {
-		return '\uf196';
+		return '\uf067  Add   ';
 	} else if (invitation[0].status === 'pending' && invitation[0].userFrom === Ti.App.Properties.getString('userId')) {
-		return '\uf14a';
+		return '\uf00c  Added   ';
 	} else if (invitation[0].status === 'approved') {
-		return '\uf14a';
+		return '\uf00c  Added   ';
 	}
+};
+
+
+/**
+ * @method determineStatusBoolean
+ * @param {Array} invitation is the invitation object returned by Selbi
+ * Determines invitation status for dynamic properties (backgroundColor etc)
+ */
+function determineStatusBoolean(invitation) {
+	if (invitation.length <= 0 || (invitation[0].status === 'denied') || (invitation[0].status === 'pending' && invitation[0].userTo === Ti.App.Properties.getString('userId'))) {
+		return true;
+	}
+	return false;
 };
 
 /**
@@ -541,68 +578,88 @@ function clearProxy(e) {
 switch(Alloy.Globals.userDevice) {
 case 0:
 	//iphoneFour
-	heightDataView = '40dp';
-	fontSizeCheckMark = '20dp';
+	heightDataView = '45dp';
+	heightCheckView = '24dp';
+	fontSizeCheckMark = '10dp';
 	rightCheckMark = '15dp';
-	fontSizeTitleLabel = '14dp';
-	topTitleLabel = '3dp';
+	fontSizeTitleLabel = '15dp';
+	topTitleLabel = '6dp';
 	fontSizeSubtitleLabel = '11dp';
-	topSubtitleLabel = '22dp';
+	topSubtitleLabel = '25dp';
 	fontSizeHeader = '13dp';
 	heightHeader = '25dp';
 	leftLabel = '15dp';
+	checkmarkTop = '7dp';
+	checkmarkLeft = '8dp';
+	dataBorderRadius = '12dp';
 	break;
 case 1:
 	//iphoneFive
-	heightDataView = '50dp';
-	fontSizeCheckMark = '22dp';
+	heightDataView = '55dp';
+	heightCheckView = '26dp';
+	fontSizeCheckMark = '12dp';
 	rightCheckMark = '15dp';
-	fontSizeTitleLabel = '16dp';
-	topTitleLabel = '4dp';
+	fontSizeTitleLabel = '17dp';
+	topTitleLabel = '7dp';
 	fontSizeSubtitleLabel = '13dp';
-	topSubtitleLabel = '26dp';
+	topSubtitleLabel = '29dp';
 	fontSizeHeader = '15dp';
 	heightHeader = '28dp';
 	leftLabel = '15dp';
+	checkmarkTop = '7dp';
+	checkmarkLeft = '9dp';
+	dataBorderRadius = '13dp';
 	break;
 case 2:
 	//iphoneSix
-	heightDataView = '55dp';
-	fontSizeCheckMark = '24dp';
+	heightDataView = '65dp';
+	heightCheckView = '30dp';
+	fontSizeCheckMark = '14dp';
 	rightCheckMark = '20dp';
-	fontSizeTitleLabel = '18dp';
-	topTitleLabel = '6dp';
+	fontSizeTitleLabel = '19dp';
+	topTitleLabel = '10dp';
 	fontSizeSubtitleLabel = '15dp';
-	topSubtitleLabel = '30dp';
+	topSubtitleLabel = '34dp';
 	fontSizeHeader = '16dp';
 	heightHeader = '28dp';
 	leftLabel = '20dp';
+	checkmarkTop = '8dp';
+	checkmarkLeft = '10dp';
+	dataBorderRadius = '15dp';
 	break;
 case 3:
 	//iphoneSixPlus
-	heightDataView = '55dp';
-	fontSizeCheckMark = '26dp';
+	heightDataView = '75dp';
+	heightCheckView = '32dp';
+	fontSizeCheckMark = '15dp';
 	rightCheckMark = '20dp';
 	fontSizeTitleLabel = '20dp';
-	topTitleLabel = '4dp';
+	topTitleLabel = '12dp';
 	fontSizeSubtitleLabel = '16dp';
-	topSubtitleLabel = '29dp';
+	topSubtitleLabel = '38dp';
 	fontSizeHeader = '17dp';
 	heightHeader = '30dp';
 	leftLabel = '20dp';
+	checkmarkTop = '8dp';
+	checkmarkLeft = '10dp';
+	dataBorderRadius = '16dp';
 	break;
 case 4:
 	//android currently same as iphoneSix
-	heightDataView = '55dp';
-	fontSizeCheckMark = '24dp';
+	heightDataView = '65dp';
+	heightCheckView = '30dp';
+	fontSizeCheckMark = '15dp';
 	rightCheckMark = '20dp';
-	fontSizeTitleLabel = '18dp';
-	topTitleLabel = '6dp';
+	fontSizeTitleLabel = '19dp';
+	topTitleLabel = '10dp';
 	fontSizeSubtitleLabel = '16dp';
-	topSubtitleLabel = '30dp';
+	topSubtitleLabel = '34dp';
 	fontSizeHeader = '16dp';
 	heightHeader = '28dp';
 	leftLabel = '20dp';
+	checkmarkTop = '7dp';
+	checkmarkLeft = '10dp';
+	dataBorderRadius = '15dp';
 	break;
 };
 

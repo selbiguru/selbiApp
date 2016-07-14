@@ -18,7 +18,8 @@ var textFieldObj = null;
 var friendsPending = null;
 var addFriendSection = null;
 var nameFontSize, iconSize, labelTop, labelLeft, 
-	iconRight, headerViewHeight, headerLabelFontSize;
+	iconRight, headerViewHeight, headerLabelFontSize,
+	heightCheckView, checkmarkTop, checkmarkLeft;
 
 $.activityIndicator.show();
 
@@ -76,9 +77,12 @@ function getFriendsListTemplate() {
 		 		bindId: 'data',
 		 		properties: {
 		 			width: Ti.UI.SIZE,
-					height: Ti.UI.SIZE,
-		 			right: rightCheckMark
-		 			
+					height: heightCheckView,
+		 			right: rightCheckMark,
+		 			borderRadius: dataBorderRadius,
+					borderColor: '#AFAFAF',
+					layout: 'horizontal',
+					backgroundColor:'#FAFAFA'	
 		 		},
 		 		childTemplates: [ {
                 // View subcomponents can also have subcomponents
@@ -90,6 +94,8 @@ function getFriendsListTemplate() {
 					        fontFamily : "FontAwesome",
 					        fontSize: fontSizeCheckMark,
 					    },
+					    top: checkmarkTop,
+						left: checkmarkLeft,
 					    color: '#1BA7CD'
 			 		},
             	}],
@@ -169,22 +175,29 @@ function getFriendsSection() {
 									};
 								    var hiddenView = Ti.UI.createView({
 										width: Ti.UI.SIZE,
-										height: Ti.UI.SIZE,
+										height: heightCheckView,
 										right: rightCheckMark,
+										borderRadius: dataBorderRadius,
+										borderColor: '#AFAFAF',
+										layout: 'horizontal',
+										backgroundColor: results.invitation.length <= 0 ? '#FFF' : results.invitation[0].status === 'denied' ? '#FFF' :  results.invitation[0].status === 'pending' && results.invitation[0].userFrom != Ti.App.Properties.getString('userId') ? '#FFF' : '#1BA7CD',
 										data: results,
 										invitation: results.invitation,
 										status: results.invitation.length <= 0 ? "new" : results.invitation[0].status 
 									});
 									var labelStuff = Ti.UI.createLabel({
 										width: Ti.UI.SIZE,
-				                		color: '#1BA7CD',
 				                		font: {
+				                			fontFamily : "FontAwesome",
 				                			fontSize: fontSizeCheckMark,
 				                		},
+				                		top: checkmarkTop,
+										left: checkmarkLeft,
+										color: results.invitation.length <= 0 ? '#1BA7CD' : results.invitation[0].status === 'denied' ? '#1BA7CD' :  results.invitation[0].status === 'pending' && results.invitation[0].userFrom != Ti.App.Properties.getString('userId') ? '#1BA7CD' : '#FAFAFA',
+				                		text: results.invitation.length <= 0 ? '\uf067  Add   ' : results.invitation[0].status === 'denied' ? '\uf067  Add   ' :  results.invitation[0].status === 'pending' && results.invitation[0].userFrom != Ti.App.Properties.getString('userId') ? '\uf067  Add   ' : '\uf00c  Added   ',
 				                		touchEnabled: false
 									});
-									var labelIcon = results.invitation.length <= 0 ? 'fa-plus-square-o' : results.invitation[0].status === 'denied' ? 'fa-plus-square-o' :  results.invitation[0].status === 'pending' && results.invitation[0].userFrom != Ti.App.Properties.getString('userId') ? 'fa-plus-square-o' : 'fa-check-square';
-									$.fa.add(labelStuff, labelIcon);
+									
 									hiddenView.add(labelStuff);
 									e.source.add(hiddenView);
 									e.source.listener = function(e) {										
@@ -237,15 +250,19 @@ function friendRequestDynamic(e, newStatus){
 			} else {
 				var checkSquare = Ti.UI.createLabel({
 					width: Ti.UI.SIZE,
-            		color: '#1BA7CD',
+            		color: '#FAFAFA',
             		font: {
+            			fontFamily : "FontAwesome",
             			fontSize: fontSizeCheckMark,
             		},
+            		top: checkmarkTop,
+					left: checkmarkLeft,
+					text: '\uf00c  Added   ',
             		touchEnabled: false
 				});
 				e.source.status = createInviteResult.invitation.status;
 				e.source.invitation = [createInviteResult.invitation];
-				$.fa.add(checkSquare, 'fa-check-square');
+				e.source.backgroundColor = '#1BA7CD';
 				e.source.add(checkSquare);
 				var emptySectionIndex = findIndexByKeyValue(pendingFriends, 'match', 'empty');
 				if(emptySectionIndex != null) {
@@ -254,8 +271,8 @@ function friendRequestDynamic(e, newStatus){
 				pendingFriends.push({
 					title: { text: helpers.alterTextFormat(e.source.data.firstName + ' ' + e.source.data.lastName, 28, false) },
 				 	subtitle: {text: "Pending To...", color:'#1BA7CD' },
-					data: { data: {invitation: e.source.data.invitation, id: e.source.data.id }, id: e.source.data.username, status: "pending", invitation: e.source.data.invitation },
-					checkmark : {data: e.source.data.invitation, text: '\uf14a', visible: true, ext: e.source.data.username},
+					data: { data: {invitation: [createInviteResult.invitation], id: e.source.data.id }, id: e.source.data.username, status: "pending", invitation: [createInviteResult.invitation], backgroundColor : '#1BA7CD' },
+					checkmark : {data: [createInviteResult.invitation], text: '\uf00c  Added   ', visible: true, ext: e.source.data.username, color: '#FAFAFA'},
 					properties: {
 						height: heightDataView
 					},
@@ -277,9 +294,12 @@ function friendRequestDynamic(e, newStatus){
 				var currentFriendsIndex = findIndexByKeyValue(currentFriends, 'match', item.match);
 				if(pendingFriendsIndex != null && item.data.data.invitation[0].userFrom != Ti.App.Properties.getString('userId')) {
 					var friendsUserData = pendingFriends.splice(pendingFriendsIndex, 1);
-					friendsUserData[0].subtitle.text = "Friends";					
+					friendsUserData[0].subtitle.text = friendsUserData[0].data.id;
+					friendsUserData[0].subtitle.color = '#AFAFAF';					
 					friendsUserData[0].data.status = updateInvitationResult.invitation[0].status;
 					friendsUserData[0].data.invitation = updateInvitationResult.invitation;
+					friendsUserData[0].data.backgroundColor = determineStatusBoolean(updateInvitationResult.invitation) ? '#FAFAFA' : '#1BA7CD';
+					friendsUserData[0].checkmark.color = determineStatusBoolean(updateInvitationResult.invitation) ? '#1BA7CD' : '#FAFAFA';
 					friendsUserData[0].checkmark.text = determineStatus(updateInvitationResult.invitation);
 					var emptySectionIndex = findIndexByKeyValue(currentFriends, 'match', 'empty');
 					if(emptySectionIndex != null) {
@@ -288,7 +308,11 @@ function friendRequestDynamic(e, newStatus){
 					if(pendingFriends.length === 0) {
 						pendingFriends.push({
 							properties: {
-								height: heightDataView
+								height: heightDataView,
+							},
+							checkmark: {
+								top: '',
+								left: '',
 							},
 							match: 'empty'
 						});
@@ -301,7 +325,11 @@ function friendRequestDynamic(e, newStatus){
 					if(pendingFriends.length === 0) {
 						pendingFriends.push({
 							properties: {
-								height: heightDataView
+								height: heightDataView,
+							},
+							checkmark: {
+								top: '',
+								left: '',
 							},
 							match: 'empty'
 						});
@@ -312,7 +340,11 @@ function friendRequestDynamic(e, newStatus){
 					if(currentFriends.length === 0) {
 						currentFriends.push({
 							properties: {
-								height: heightDataView
+								height: heightDataView,
+							},
+							checkmark: {
+								top: '',
+								left: '',
 							},
 							match: 'empty'
 						});
@@ -324,13 +356,17 @@ function friendRequestDynamic(e, newStatus){
 					width: Ti.UI.SIZE,
 					color: '#1BA7CD',
 					font: {
+						fontFamily : "FontAwesome",
 						fontSize: fontSizeCheckMark,
 					},
+					top: checkmarkTop,
+					left: checkmarkLeft,
+					text: '\uf067  Add   ',
 					touchEnabled: false
 				});
 				e.source.status = updateInvitationResult.invitation[0].status;
 				e.source.invitation = updateInvitationResult.invitation;
-				$.fa.add(plusSquare, 'fa-plus-square-o');
+				e.source.backgroundColor = '#FFF';
 				e.source.add(plusSquare);
 				var pendingFriendsIndex = findIndexByKeyValue(pendingFriends, 'match', e.source.data.username);
 				var currentFriendsIndex = findIndexByKeyValue(currentFriends, 'match', e.source.data.username);
@@ -339,7 +375,11 @@ function friendRequestDynamic(e, newStatus){
 					if(currentFriends.length === 0) {
 						currentFriends.push({
 							properties: {
-								height: heightDataView
+								height: heightDataView,
+							},
+							checkmark: {
+								top: '',
+								left: '',
 							},
 							match: 'empty'
 						});
@@ -350,7 +390,11 @@ function friendRequestDynamic(e, newStatus){
 					if(pendingFriends.length === 0) {
 						pendingFriends.push({
 							properties: {
-								height: heightDataView
+								height: heightDataView,
+							},
+							checkmark: {
+								top: '',
+								left: '',
 							},
 							match: 'empty'
 						});
@@ -376,9 +420,12 @@ function friendRequestDynamic(e, newStatus){
 			var pendingFriendsIndex = item ? findIndexByKeyValue(pendingFriends, 'match', item.match) : findIndexByKeyValue(pendingFriends, 'match', e.source.data.username);
 			if( pendingFriendsIndex != null && ((item && item.data.data.invitation[0].userFrom != Ti.App.Properties.getString('userId')) || (!item && e.source.data.invitation[0].userFrom != Ti.App.Properties.getString('userId'))) ) {
 				var friendsUserData = pendingFriends.splice(pendingFriendsIndex, 1);
-				friendsUserData[0].subtitle.text = "Friends";					
+				friendsUserData[0].subtitle.text = friendsUserData[0].data.id;	
+				friendsUserData[0].subtitle.color = '#AFAFAF';				
 				friendsUserData[0].data.status = updateInvitationResult.invitation[0].status;
 				friendsUserData[0].data.invitation = updateInvitationResult.invitation;
+				friendsUserData[0].data.backgroundColor = determineStatusBoolean(updateInvitationResult.invitation) ? '#FAFAFA' : '#1BA7CD';
+				friendsUserData[0].checkmark.color = determineStatusBoolean(updateInvitationResult.invitation) ? '#1BA7CD' : '#FAFAFA';
 				friendsUserData[0].checkmark.text = determineStatus(updateInvitationResult.invitation);
 				var emptySectionIndex = findIndexByKeyValue(currentFriends, 'match', 'empty');
 				if(emptySectionIndex != null) {
@@ -387,8 +434,12 @@ function friendRequestDynamic(e, newStatus){
 				if(pendingFriends.length === 0) {
 					pendingFriends.push({
 						properties: {
-							height: heightDataView
+							height: heightDataView,
 						},
+						checkmark: {
+								top: '',
+								left: '',
+							},
 						match: 'empty'
 					});
 				}
@@ -400,7 +451,15 @@ function friendRequestDynamic(e, newStatus){
 				if(pendingFriends.length === 0) {
 					pendingFriends.push({
 						properties: {
-							height: heightDataView
+							height: heightDataView,
+						},
+						data: {
+							borderRadius: '',
+							borderColor: '',
+						},
+						checkmark: {
+							top: '',
+							left: '',
 						},
 						match: 'empty'
 					});
@@ -414,8 +473,8 @@ function friendRequestDynamic(e, newStatus){
 				pendingFriends.push({
 					title: { text: helpers.alterTextFormat(e.source.data.firstName + ' ' + e.source.data.lastName, 28, false) },
 				 	subtitle: {text: "Pending To...", color:'#1BA7CD' },
-					data: { data: {invitation: e.source.data.invitation, id: e.source.data.id }, id: e.source.data.username, status: "pending", invitation: e.source.data.invitation },
-					checkmark : {data: e.source.data.invitation, text: '\uf14a', visible: true, ext: e.source.data.username},
+					data: { data: {invitation: updateInvitationResult.invitation, id: e.source.data.id }, id: e.source.data.username, status: "pending", invitation: updateInvitationResult.invitation, backgroundColor : '#1BA7CD' },
+					checkmark : {data: updateInvitationResult.invitation, text: '\uf00c  Added   ', visible: true, ext: e.source.data.username, color: '#FAFAFA'},
 					properties: {
 						height: heightDataView
 					},
@@ -426,15 +485,19 @@ function friendRequestDynamic(e, newStatus){
 			if(!item) {
 				var checkSquare = Ti.UI.createLabel({
 					width: Ti.UI.SIZE,
-            		color: '#1BA7CD',
+            		color: '#FAFAFA',
             		font: {
+            			fontFamily : "FontAwesome",
             			fontSize: fontSizeCheckMark,
             		},
+            		top: checkmarkTop,
+					left: checkmarkLeft,
+					text: '\uf00c  Added   ',
             		touchEnabled: false
 				});
 				e.source.status = updateInvitationResult.invitation[0].status;
 				e.source.invitation = updateInvitationResult.invitation;
-				$.fa.add(checkSquare, 'fa-check-square');
+				e.source.backgroundColor = '#1BA7CD';
 				e.source.add(checkSquare);
 			}
 		});
@@ -532,10 +595,27 @@ function loadFriends() {
 			for(var user in results) {
 				if(results[user].invitation[0].status === 'approved'){
 					currentFriends.push({
-						title: { text: helpers.alterTextFormat(results[user].firstName + ' ' + results[user].lastName, 28, false) },
-					 	subtitle: {text: "Friends", color:'#1BA7CD'},
-					 	data: { data: {invitation: results[user].invitation, id: results[user].id }, id: results[user].username, status: "approved", invitation: results[user].invitation },
-					 	checkmark : {data: results[user].invitation, text : results[user].invitation.length <= 0 ? '\uf196' : determineStatus(results[user].invitation), visible: true, ext: results[user].username},
+						title: { 
+							text: helpers.alterTextFormat(results[user].firstName + ' ' + results[user].lastName, 28, false)
+						},
+					 	subtitle: {
+					 		text: results[user].username,
+					 		color:'#AFAFAF'
+					 	},
+					 	data: {
+					 		data: {invitation: results[user].invitation, id: results[user].id },
+					 		id: results[user].username,
+					 		status: "approved",
+					 		invitation: results[user].invitation,
+					 		backgroundColor : '#1BA7CD'
+					 	},
+					 	checkmark : {
+					 		data: results[user].invitation,
+					 		text : '\uf00c  Added   ',
+					 		visible: true,
+					 		ext: results[user].username,
+					 		color: '#FAFAFA'
+					 	},
 					 	properties: {
 							height: heightDataView
 						},
@@ -543,10 +623,26 @@ function loadFriends() {
 					});
 				} else {
 					pendingFriends.push({
-						title: { text: helpers.alterTextFormat(results[user].firstName + ' ' + results[user].lastName, 28, false) },
-					 	subtitle: {text: results[user].invitation[0].userFrom === Ti.App.Properties.getString('userId') ? "Pending To..." : "Pending From...", color:'#1BA7CD' },
-						data: { data: {invitation: results[user].invitation, id: results[user].id }, id: results[user].username, status: "pending", invitation: results[user].invitation },
-						checkmark : {data: results[user].invitation, text : results[user].invitation.length <= 0 ? '\uf196' : determineStatus(results[user].invitation), visible: true, ext: results[user].username},
+						title: {
+							text: helpers.alterTextFormat(results[user].firstName + ' ' + results[user].lastName, 28, false)
+						},
+					 	subtitle: {
+					 		text: results[user].invitation[0].userFrom === Ti.App.Properties.getString('userId') ? "Pending To..." : "Pending From...", color:'#1BA7CD'
+					 	},
+						data: {
+							data: {invitation: results[user].invitation, id: results[user].id },
+							id: results[user].username,
+							status: "pending",
+							invitation: results[user].invitation,
+							backgroundColor : determineStatusBoolean(results[user].invitation) ? '#FAFAFA' : '#1BA7CD'
+						},
+						checkmark : {
+							data: results[user].invitation,
+							text : results[user].invitation.length <= 0 ? '\uf067  Add   ' : determineStatus(results[user].invitation),
+							visible: true,
+							ext: results[user].username,
+							color : determineStatusBoolean(results[user].invitation) ? '#1BA7CD' : '#FAFAFA'
+						},
 						properties: {
 							height: heightDataView
 						},
@@ -557,7 +653,15 @@ function loadFriends() {
 			if(currentFriends.length === 0) {
 				currentFriends.push({
 					properties: {
-						height: heightDataView
+						height: heightDataView,
+					},
+					data: {
+						borderRadius: '',
+						borderColor: '',
+					},
+					checkmark: {
+						top: '',
+						left: '',
 					},
 					match: 'empty'
 				});
@@ -565,7 +669,15 @@ function loadFriends() {
 			if(pendingFriends.length === 0) {
 				pendingFriends.push({
 					properties: {
-						height: heightDataView
+						height: heightDataView,
+					},
+					data: {
+						borderRadius: '',
+						borderColor: '',
+					},
+					checkmark: {
+						top: '',
+						left: '',
 					},
 					match: 'empty'
 				});
@@ -610,16 +722,28 @@ function addFriendsLoadError() {
  */
 function determineStatus(invitation) {
 	if(invitation.length <= 0 ) {
-		return '\uf196';
+		return '\uf067  Add   ';
 	} else if(invitation[0].status === 'denied') {
-		return '\uf196';
+		return '\uf067  Add   ';
 	} else if(invitation[0].status === 'pending' && invitation[0].userTo === Ti.App.Properties.getString('userId')) {
-		return '\uf196';
+		return '\uf067  Add   ';
 	} else if(invitation[0].status === 'pending' && invitation[0].userFrom === Ti.App.Properties.getString('userId') ) {
-		return '\uf14a';
+		return '\uf00c  Added   ';
 	} else if(invitation[0].status === 'approved') {
-		return '\uf14a';
+		return '\uf00c  Added   ';
 	}
+};
+
+/**
+ * @method determineStatusBoolean
+ * @param {Array} invitation is the invitation object returned by Selbi
+ * Determines invitation status for dynamic properties (backgroundColor etc)
+ */
+function determineStatusBoolean(invitation) {
+	if (invitation.length <= 0 || (invitation[0].status === 'denied') || (invitation[0].status === 'pending' && invitation[0].userTo === Ti.App.Properties.getString('userId'))) {
+		return true;
+	}
+	return false;
 };
 
 /**
@@ -650,64 +774,84 @@ function blurTextField(e) {
 
 switch(Alloy.Globals.userDevice) {
 	    case 0: //iphoneFour
-	        heightDataView = '40dp';
-	        fontSizeCheckMark = '20dp';
+	        heightDataView = '45dp';
+	        heightCheckView = '24dp';
+	        fontSizeCheckMark = '10dp';
 	        rightCheckMark = '15dp';
-	        fontSizeTitleLabel = '14dp';
-	        topTitleLabel = '3dp';
+	        fontSizeTitleLabel = '15dp';
+	        topTitleLabel = '6dp';
 			fontSizeSubtitleLabel = '11dp';
-			topSubtitleLabel = '22dp';
+			topSubtitleLabel = '25dp';
 			fontSizeHeader = '13dp';
 			heightHeader = '25dp';
 			leftLabel = '15dp';
+			checkmarkTop = '7dp';
+			checkmarkLeft = '8dp';
+			dataBorderRadius = '12dp';
 	        break;
 	    case 1: //iphoneFive
-	    	heightDataView = '50dp';
-	        fontSizeCheckMark = '22dp';
+	    	heightDataView = '55dp';
+	    	heightCheckView = '26dp';
+	        fontSizeCheckMark = '12dp';
 	        rightCheckMark = '15dp';
-	        fontSizeTitleLabel = '16dp';
-	        topTitleLabel = '4dp';
+	        fontSizeTitleLabel = '17dp';
+	        topTitleLabel = '7dp';
 			fontSizeSubtitleLabel = '13dp';
-			topSubtitleLabel = '26dp';
+			topSubtitleLabel = '29dp';
 			fontSizeHeader = '15dp';
 			heightHeader = '28dp';
 			leftLabel = '15dp';
+			checkmarkTop = '7dp';
+			checkmarkLeft = '9dp';
+			dataBorderRadius = '13dp';
 	        break;
 	    case 2: //iphoneSix
-	        heightDataView = '55dp';
-	        fontSizeCheckMark = '24dp';
+	        heightDataView = '65dp';
+	        heightCheckView = '30dp';
+	        fontSizeCheckMark = '14dp';
 	        rightCheckMark = '20dp';
-	        fontSizeTitleLabel = '18dp';
-	        topTitleLabel = '6dp';
+	        fontSizeTitleLabel = '19dp';
+	        topTitleLabel = '10dp';
 			fontSizeSubtitleLabel = '15dp';
-			topSubtitleLabel = '30dp';
+			topSubtitleLabel = '34dp';
 			fontSizeHeader = '16dp';
 			heightHeader = '28dp';
 			leftLabel = '20dp';
+			checkmarkTop = '8dp';
+			checkmarkLeft = '10dp';
+			dataBorderRadius = '15dp';
 	        break;
 	    case 3: //iphoneSixPlus
-	    	heightDataView = '55dp';
-	        fontSizeCheckMark = '26dp';
+	    	heightDataView = '75dp';
+	    	heightCheckView = '32dp';
+	        fontSizeCheckMark = '15dp';
 	        rightCheckMark = '20dp';
-	        fontSizeTitleLabel = '20dp';
-	        topTitleLabel = '4dp';
+	        fontSizeTitleLabel = '21dp';
+	        topTitleLabel = '12dp';
 			fontSizeSubtitleLabel = '16dp';
-			topSubtitleLabel = '29dp';
+			topSubtitleLabel = '38dp';
 			fontSizeHeader = '17dp';
 			heightHeader = '30dp';
 			leftLabel = '20dp';
+			checkmarkTop = '8dp';
+			checkmarkLeft = '10dp';
+			dataBorderRadius = '16dp';
 	        break;
 	    case 4: //android currently same as iphoneSix
-	        heightDataView = '55dp';
-	        fontSizeCheckMark = '24dp';
+	        heightDataView = '65dp';
+	        heightCheckView = '30dp';
+	        fontSizeCheckMark = '15dp';
 	        rightCheckMark = '20dp';
-	        fontSizeTitleLabel = '18dp';
-	        topTitleLabel = '6dp';
+	        fontSizeTitleLabel = '19dp';
+	        topTitleLabel = '10dp';
 			fontSizeSubtitleLabel = '16dp';
-			topSubtitleLabel = '30dp';
+			topSubtitleLabel = '34dp';
 			fontSizeHeader = '16dp';
 			heightHeader = '28dp';
 			leftLabel = '20dp';
+			checkmarkTop = '7dp';
+			checkmarkLeft = '10dp';
+			dataBorderRadius = '15dp';
 	        break;
 	};
 

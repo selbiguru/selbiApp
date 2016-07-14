@@ -324,7 +324,24 @@ function buttonsOff() {
 };
 
 
-
+/**
+ * @private blurTextField 
+ * Blurs textfields in accordance with expected UI on register.js View
+ */
+function blurTextField(e) {
+	console.log('000 000 000 0000 000 ',e.source.id);
+	if(e.source.id === 'firstNameView' || e.source.id === 'firstName' || e.source.id === 'firstNameLabel') {
+		$.firstName.focus();
+	} else if(e.source.id === 'lastNameView' || e.source.id === 'lastName' || e.source.id === 'lastNameLabel') {
+		$.lastName.focus();
+	} else if(e.source.id === 'usernameView' || e.source.id === 'username' || e.source.id === 'usernameLabel' || e.source.id === 'usernameCheckIcon' || e.source.id === 'usernameXIcon') {
+		$.username.focus();
+	} else {
+		$.firstName.blur();
+		$.lastName.blur();
+		$.username.blur();
+	}
+};
 
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
 
@@ -373,21 +390,11 @@ addressHack();
 
 
 
-$.firstNameView.addEventListener('click', function(e){
-	this.children[1].focus();
-});
+$.addListener($.editUserProfileView,'click', blurTextField);
 
-$.lastNameView.addEventListener('click', function(e){
-	this.children[1].focus();
-});
-
-$.usernameView.addEventListener('click', function(e){
-	this.children[1].focus();
-});
-
-
-
-
+Alloy.Globals.addKeyboardToolbar($.firstName, blurTextField);
+Alloy.Globals.addKeyboardToolbar($.lastName, blurTextField);
+Alloy.Globals.addKeyboardToolbar($.username, blurTextField);
 
 $.username.addEventListener('change',function(e){
 	var uniqueUserRegEx = ($.username.value).match(/^[a-z\d]+$/gi);
@@ -408,6 +415,7 @@ $.username.addEventListener('change',function(e){
 exports.cleanup = function () {
 	$.destroy();
     $.off();
+    $.editUserProfileView.removeEventListener('click', blurTextField);
     $.removeListener();
     $.editUserProfileView.removeAllChildren();
     $.editUserProfileView = null;

@@ -161,26 +161,11 @@ function createStripeManagedAccount(tokenObj) {
  */
 function backButton(param) {
 	$.addBankAccountView.removeEventListener('click', blurTextField);
-	$.accountNumberView.removeEventListener('click', focusTextField);
-	$.routingNumberView.removeEventListener('click', focusTextField);
-	$.ssnNumberView.removeEventListener('click', focusTextField);
 	Alloy.Globals.closePage('addBankAccount');
 }
 
 
-/**
- * @private focusTextField 
- * Focuses accountNumber, routingNumber, and ssnNumber text fields in accordance with expected UI
- */
-function focusTextField(e) {
-	if(e.source.id === 'accountNumberView' || e.source.id === 'accountNumber' || e.source.id === 'accountLabel') {
-		$.accountNumber.focus();
-	} else if(e.source.id === 'routingNumberView' || e.source.id === 'routingNumber' || e.source.id === 'routingLabel') {
-		$.routingNumber.focus();
-	} else if(e.source.id === 'ssnNumberView' || e.source.id === 'ssnNumber' || e.source.id === 'ssnLabel') {
-		$.ssnNumber.focus();
-	}
-}
+
 
 
 /**
@@ -189,14 +174,11 @@ function focusTextField(e) {
  */
 function blurTextField(e) {
 	if(e.source.id === 'accountNumberView' || e.source.id === 'accountNumber' || e.source.id === 'accountLabel') {
-		$.routingNumber.blur();
-		$.ssnNumber.blur();
+		$.accountNumber.focus();
 	} else if(e.source.id === 'routingNumberView' || e.source.id === 'routingNumber' || e.source.id === 'routingLabel') {
-		$.accountNumber.blur();
-		$.ssnNumber.blur();
+		$.routingNumber.focus();
 	} else if(e.source.id === 'ssnNumberView' || e.source.id === 'ssnNumber' || e.source.id === 'ssnLabel') {
-		$.accountNumber.blur();
-		$.routingNumber.blur();	
+		$.ssnNumber.focus();
 	} else {
 		$.accountNumber.blur();
 		$.routingNumber.blur();
@@ -293,9 +275,7 @@ Alloy.Models.user.fetch({
 
 
 $.addListener($.addBankAccountView,'click', blurTextField);
-$.addListener($.accountNumberView,'click', focusTextField);
-$.addListener($.routingNumberView,'click', focusTextField);
-$.addListener($.ssnNumberView,'click', focusTextField);
+
 
 Alloy.Globals.addKeyboardToolbar($.accountNumber, blurTextField);
 Alloy.Globals.addKeyboardToolbar($.routingNumber, blurTextField);

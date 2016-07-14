@@ -67,12 +67,22 @@
 "#titleMyListingsLabel[if=Alloy.Globals.iPhoneFour]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
-	height: '40dp',
+	height: Titanium.UI.SIZE,
 	font: {
 		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
 	},
-	top: '14dp',
+	top: '17dp'
+},
+"#titleMyListingsUsername[if=Alloy.Globals.iPhoneFour]": {
+	color: "#AFAFAF",
+	width: Titanium.UI.SIZE,
+	height: Titanium.UI.SIZE,
+	font: {
+		fontSize: "13dp",
+		fontFamily: "Chivo-Italic"
+	},
+	top: '39dp'
 },
 "#myListingsButtonSaveIcon[if=Alloy.Globals.iPhoneFour]": {
 	color: '#1BA7CD',
@@ -204,12 +214,22 @@
 "#titleMyListingsLabel[if=Alloy.Globals.iPhoneFive]": {
 	color: "#1BA7CD",
 	width: Ti.UI.SIZE,
-	height: '40dp',
+	height: Ti.UI.SIZE,
 	font: {
 		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
 	},
-	top: '14dp'
+	top: '17dp'
+},
+"#titleMyListingsUsername[if=Alloy.Globals.iPhoneFive]": {
+	color: "#AFAFAF",
+	width: Titanium.UI.SIZE,
+	height: Titanium.UI.SIZE,
+	font: {
+		fontSize: "13dp",
+		fontFamily: "Chivo-Italic"
+	},
+	top: '39dp'
 },
 "#myListingsButtonSaveIcon[if=Alloy.Globals.iPhoneFive]": {
 	color: '#1BA7CD',
@@ -341,12 +361,22 @@
 "#titleMyListingsLabel[if=Alloy.Globals.iPhoneSix]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
-	height: '40dp',
+	height: Titanium.UI.SIZE,
 	font: {
 		fontSize: "24dp",
 		fontFamily: "Nunito-Bold"
 	},
-	top: '16dp'
+	top: '15dp'
+},
+"#titleMyListingsUsername[if=Alloy.Globals.iPhoneSix]": {
+	color: "#AFAFAF",
+	width: Titanium.UI.SIZE,
+	height: Titanium.UI.SIZE,
+	font: {
+		fontSize: "14dp",
+		fontFamily: "Chivo-Italic"
+	},
+	top: '42dp'
 },
 "#myListingsButtonSaveIcon[if=Alloy.Globals.iPhoneSix]": {
 	color: '#1BA7CD',
@@ -475,12 +505,22 @@
 "#titleMyListingsLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
-	height: '40dp',
+	height: Titanium.UI.SIZE,
 	font: {
 		fontSize: "28dp",
 		fontFamily: "Nunito-Bold"
 	},
-	top: '18dp'
+	top: '14dp'
+},
+"#titleMyListingsUsername[if=Alloy.Globals.iPhoneSixPlus]": {
+	color: "#AFAFAF",
+	width: Titanium.UI.SIZE,
+	height: Titanium.UI.SIZE,
+	font: {
+		fontSize: "15dp",
+		fontFamily: "Chivo-Italic"
+	},
+	top: '42dp'
 },
 "#myListingsButtonSaveIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	color: '#1BA7CD',
@@ -608,12 +648,22 @@
 "#titleMyListingsLabel[if=Alloy.Globals.android]": {
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
-	height: '40dp',
+	height: Titanium.UI.SIZE,
 	font: {
-		fontSize: "20dp",
+		fontSize: "24dp",
 		fontFamily: "Nunito-Bold"
 	},
-	top: '16dp'
+	top: '15dp'
+},
+"#titleMyListingsUsername[if=Alloy.Globals.android]": {
+	color: "#AFAFAF",
+	width: Titanium.UI.SIZE,
+	height: Titanium.UI.SIZE,
+	font: {
+		fontSize: "14dp",
+		fontFamily: "Chivo-Italic"
+	},
+	top: '42dp'
 },
 "#myListingsButtonSaveIcon[if=Alloy.Globals.android]": {
 	color: '#1BA7CD',

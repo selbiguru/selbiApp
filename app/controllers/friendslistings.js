@@ -98,47 +98,53 @@ function transform(items, columns, startIndex) {
 				usaListingItem : {
 					data: {
 		            	userId: item.id,
-		            	userName: item.firstName +" "+ item.lastName,
-		            	friends: item.invitation
+		            	userLegalName: item.firstName +" "+ item.lastName,
+		            	friends: item.invitation,
+		            	userName: item.username
 		            }
 				},
 				listingDetails : {
 					data: {
 		            	userId: item.id,
-		            	userName: item.firstName +" "+ item.lastName,
-		            	friends: item.invitation
+		            	userLegalName: item.firstName +" "+ item.lastName,
+		            	friends: item.invitation,
+		            	userName: item.username
 		            }
 				},
 	            usaListingThumb : {
 	                image :  imageUrl,
 	                data: {
 		            	userId: item.id,
-		            	userName: item.firstName +" "+ item.lastName,
-		            	friends: item.invitation
+		            	userLegalName: item.firstName +" "+ item.lastName,
+		            	friends: item.invitation,
+		            	userName: item.username
 		            }
 	            },
 	            usaImageThumb : {
 	                image : profileImage,
 	                data: {
 		            	userId: item.id,
-		            	userName: item.firstName +" "+ item.lastName,
-		            	friends: item.invitation
+		            	userLegalName: item.firstName +" "+ item.lastName,
+		            	friends: item.invitation,
+		            	userName: item.username
 		            }
 	            },
 	            usaListingName: {
 	            	text: (item.firstName +" "+ item.lastName).length > 14 ? helpers.alterTextFormat((item.firstName +" "+ item.lastName).match(/([^\s]+)([\s])([^\s])/)[0], 13, false) : item.firstName +" "+ item.lastName,
 	            	data: {
 		            	userId: item.id,
-		            	userName: item.firstName +" "+ item.lastName,
-		            	friends: item.invitation
+		            	userLegalName: item.firstName +" "+ item.lastName,
+		            	friends: item.invitation,
+		            	userName: item.username
 		            }
 	            },
 	            usaListingNumber: {
 	            	text: item.count > 1 ? item.count + " Listings" : item.count + " Listing",
 	            	data: {
 		            	userId: item.id,
-		            	userName: item.firstName +" "+ item.lastName,
-		            	friends: item.invitation
+		            	userLegalName: item.firstName +" "+ item.lastName,
+		            	friends: item.invitation,
+		            	userName: item.username
 		            }
 	            },
 	            properties: {
@@ -261,8 +267,9 @@ function findUserListings(){
     	} else {
     		openListing({
     			userId: usernameResults.id,	
-    			userName: usernameResults.firstName + ' ' + usernameResults.lastName,
-    			friends: usernameResults.invitation
+    			userLegalName: usernameResults.firstName + ' ' + usernameResults.lastName,
+    			friends: usernameResults.invitation,
+    			userName: usernameResults.username
    		 	});
 			return;
 		}
@@ -289,7 +296,7 @@ function listingItemClick(e) {
 function openListing(listingIDs){
 	$.usernameSearch.blur();
 	Alloy.Globals.openPage('mylistings', [
-		listingIDs.userName, listingIDs.userId, listingIDs.friends
+		listingIDs.userLegalName, listingIDs.userId, listingIDs.friends, listingIDs.userName
 	]);
 	if(Ti.App.Properties.getString('userId') === listingIDs.userId) {
 		clearProxy('mylistings');

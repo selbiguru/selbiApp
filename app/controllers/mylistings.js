@@ -1,6 +1,7 @@
 var args = arguments[0][0] || {},
 	argsID = arguments[0][1] || {},
 	argsFriend = arguments[0][2] || false;
+	argsUsername = arguments[0][3] || false;
 var listingManager = require('managers/listingmanager'),
 	helpers = require('utilities/helpers'),
 	friendsManager = require('managers/friendsmanager'),
@@ -24,52 +25,75 @@ var tabView = tabsObject[args];
 switch(Alloy.Globals.userDevice) {
     case 0: //iphoneFour
         myListingFontSize = '12dp';
-        myTopBarFontSize = '14dp';
+        myTopBarFontSize = '11dp';
         mySoldFontSize = '14dp';
-        friendIconTop = '12dp';
-        requestRight = '3dp';
+        friendIconTop = '23dp';
         myListingsItemWidth = 310;
         myListingsItemHeight = 200;
+        heightIconView = '24dp';
+        checkmarkTop = '6dp';
+		checkmarkLeft = '8dp';
+		dataBorderRadius = '12dp';
+		rightIconView = '5dp';
+		myTitleTop = '14dp';
         break;
     case 1: //iphoneFive
         myListingFontSize = '12dp';
-        myTopBarFontSize = '14dp';
+        myTopBarFontSize = '11dp';
         mySoldFontSize = '14dp';
-        friendIconTop = '12dp';
-        requestRight = '3dp';
+        friendIconTop = '23dp';
         myListingsItemWidth = 310;
         myListingsItemHeight = 200;
+        heightIconView = '24dp';
+        checkmarkTop = '6dp';
+		checkmarkLeft = '8dp';
+		dataBorderRadius = '12dp';
+		rightIconView = '5dp';
+		myTitleTop = '14dp';
         break;
     case 2: //iphoneSix
         myListingFontSize = '14dp';
-        myTopBarFontSize = '16dp';
+        myTopBarFontSize = '12dp';
         mySoldFontSize = '16dp';
-        friendIconTop = '15dp';
-        requestRight = '7dp';
+        friendIconTop = '23dp';
         myListingsItemWidth = 364;
         myListingsItemHeight = 235;
+        heightIconView = '28dp';
+        checkmarkTop = '8dp';
+		checkmarkLeft = '9dp';
+		dataBorderRadius = '14dp';
+		rightIconView = '10dp';
+		myTitleTop = '16dp';
         break;
     case 3: //iphoneSixPlus
         myListingFontSize = '15dp';
-        myTopBarFontSize = '18dp';
+        myTopBarFontSize = '14dp';
         mySoldFontSize = '18dp';
-        friendIconTop = '17dp';
-        requestRight = '9dp';
+        friendIconTop = '23dp';
         myListingsItemWidth = 398;
         myListingsItemHeight = 255;
+        heightIconView = '30dp';
+        checkmarkTop = '8dp';
+		checkmarkLeft = '9dp';
+		dataBorderRadius = '15dp';
+		rightIconView = '10dp';
+		myTitleTop = '18dp';
         break;
     case 4: //android currently same as iphoneSix
         myListingFontSize = '14dp';
-        myTopBarFontSize = '15dp';
+        myTopBarFontSize = '12dp';
         mySoldFontSize = '16dp';
-        friendIconTop = '15dp';
-        requestRight = '7dp';
+        friendIconTop = '23dp';
         myListingsItemWidth = 364;
         myListingsItemHeight = 235;
+        heightIconView = '28dp';
+        checkmarkTop = '8dp';
+		checkmarkLeft = '9dp';
+		dataBorderRadius = '14dp';
+		rightIconView = '10dp';
+		myTitleTop = '16dp';
         break;
 };
-
-
 
 
 
@@ -83,7 +107,10 @@ if(tabView === 1 || Ti.App.Properties.getString('userId') === argsID) {
 	$.myListingsTopBar.remove($.friendRequestView);
 	$.friendRequestView = null;
 	$.backViewButton = null;
+	$.titleMyListingsLabel.top = myTitleTop;
 	$.titleMyListingsLabel.text = "My Listings";
+	$.titleMyListingsUsername.hide();
+	$.titleMyListingsUsername.height = '0dp';
 } else {
 	queryObj.isSold = false;
 	$.myListingsButtonSaveIcon.removeEventListener('click',soldItems);
@@ -107,6 +134,7 @@ if(tabView === 1 || Ti.App.Properties.getString('userId') === argsID) {
 	}
 	$.titleMyListingsLabel.font = {fontSize: adjFontSize, fontFamily: "Nunito-Bold"};
 	$.titleMyListingsLabel.text = args;
+	$.titleMyListingsUsername.text = argsUsername;
 }
 
 
@@ -363,38 +391,43 @@ function friendRequest() {
 	
 	var hiddenView = Ti.UI.createView({
 		width: Ti.UI.SIZE,
-		height: Ti.UI.SIZE,
-		data: argsFriend
+		height: heightIconView,
+		data: argsFriend,
+		borderRadius: dataBorderRadius,
+		borderColor: '#E5E5E5',
+		top: friendIconTop,
+		backgroundColor: '#FFF',
+		right: rightIconView
 	});
 	$.friendRequestView.add(hiddenView);
 	if(argsFriend.length > 0 && (argsFriend[0].status === 'approved' || (argsFriend[0].status === 'pending' && argsFriend[0].userFrom === Ti.App.Properties.getString('userId')) ) ) {
 		var checkSquare = Titanium.UI.createLabel({
-			top: friendIconTop,
+			top: checkmarkTop,
+			left: checkmarkLeft,
 			font: {
-            	fontSize: myTopBarFontSize,
-            	iconPosition: 'append'
+				fontFamily : "FontAwesome",
+            	fontSize: myTopBarFontSize
         	},
-			color: "#1BA7CD",
+			color: "#FFF",
 			id: 'friendRequestButton',
-			text: argsFriend[0].status === 'approved' ? 'Friends' : 'Pending',
-			touchEnabled: false,
-			right: requestRight
+			text: '\uf00c  Added   ',
+			touchEnabled: false
 		});
-		$.fa.add(checkSquare, 'fa-check-square');
 		hiddenView.add(checkSquare);
+		hiddenView.backgroundColor = '#1BA7CD';
 	} else {
 		var plusSquare = Titanium.UI.createLabel({
-			top: friendIconTop,
+			top: checkmarkTop,
+			left: checkmarkLeft,
 			font: {
-	            fontSize: myTopBarFontSize,
-	            iconPosition: 'append'
+				fontFamily : "FontAwesome",
+	            fontSize: myTopBarFontSize
 	        },
 			color: "#1BA7CD",
 			id: 'friendRequestButton',
-			text: 'Add',
+			text: '\uf234  Add   ',
 			touchEnabled: false
 		});
-		$.fa.add(plusSquare, 'fa-plus-square-o');
 		hiddenView.add(plusSquare);
 	}
 	hiddenView.addEventListener('click', function(e) {
@@ -434,20 +467,20 @@ function friendRequestDynamic(e, newStatus){
 				return;
 			} else {
 				var checkSquare = Ti.UI.createLabel({
-					top: friendIconTop,
+					top: checkmarkTop,
+					left: checkmarkLeft,
 					font: {
-		            	fontSize: myTopBarFontSize,
-		            	iconPosition: 'append'
+						fontFamily : "FontAwesome",
+		            	fontSize: myTopBarFontSize
 		        	},
-					color: "#1BA7CD",
+					color: "#FFF",
 					id: 'friendRequestButton',
-					text: 'Pending',
+					text: '\uf00c  Added   ',
 					touchEnabled: false,
-					right: requestRight
 				});
-				e.source.data = [createInviteResult.invitation]; 
-				$.fa.add(checkSquare, 'fa-check-square');
+				e.source.data = [createInviteResult.invitation];
 				e.source.add(checkSquare);
+				e.source.backgroundColor = "#1BA7CD";
 			}
 		});
 	} else if(newStatus === 'denied') {
@@ -456,19 +489,20 @@ function friendRequestDynamic(e, newStatus){
 				return;
 			} else {
 				var plusSquare = Ti.UI.createLabel({
-					top: friendIconTop,
+					top: checkmarkTop,
+					left: checkmarkLeft,
 					font: {
-			            fontSize: myTopBarFontSize,
-			            iconPosition: 'append'
+						fontFamily : "FontAwesome",
+			            fontSize: myTopBarFontSize
 			        },
 					color: "#1BA7CD",
 					id: 'friendRequestButton',
-					text: 'Add',
+					text:  '\uf234  Add   ',
 					touchEnabled: false
 				});
 				e.source.data = updateInvitationResult.invitation;
-				$.fa.add(plusSquare, 'fa-plus-square-o');
 				e.source.add(plusSquare);
+				e.source.backgroundColor = "#FFF";
 			}
 		});
 	} else {
@@ -477,20 +511,20 @@ function friendRequestDynamic(e, newStatus){
 				return;
 			} else {
 				var checkSquare = Ti.UI.createLabel({
-					top: friendIconTop,
+					top: checkmarkTop,
+					left: checkmarkLeft,
 					font: {
-		            	fontSize: myTopBarFontSize,
-		            	iconPosition: 'append'
+						fontFamily : "FontAwesome",
+		            	fontSize: myTopBarFontSize
 		        	},
-					color: "#1BA7CD",
+					color: "#FFF",
 					id: 'friendRequestButton',
-					text: updateInvitationResult.invitation[0].status === 'approved' ? 'Friends' : 'Pending',
+					text: '\uf00c  Added   ',
 					touchEnabled: false,
-					right: requestRight
 				});
-				e.source.data = updateInvitationResult.invitation; 
-				$.fa.add(checkSquare, 'fa-check-square');
+				e.source.data = updateInvitationResult.invitation;
 				e.source.add(checkSquare);
+				e.source.backgroundColor = "#1BA7CD";
 			}
 		});
 	}
@@ -503,7 +537,6 @@ function friendRequestDynamic(e, newStatus){
  * Reloads the table with items that were sold or all your unsold items
  */
 function soldItems(e) {
-	console.log('great now what??? ', $.myListingsButtonSaveIcon.itsOn);
 	if ($.myListingsButtonSaveIcon.itsOn == false) {
 		isSold = false;
         $.myListingsButtonSaveIcon.itsOn = true;

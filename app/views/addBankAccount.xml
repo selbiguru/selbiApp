@@ -17,7 +17,7 @@
 			<Label id="labelBankDescription"> Adding a bank allows Selbi to directly send you all the money you make!  This makes cashing out simple and flawless!</Label>
 			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>	
 		</View>
-		<View id="enterBankAccountDetailView">
+		<ScrollView id="enterBankAccountDetailView">
 			<View id='routingNumberView' class='number-views'>
 				<Label id='routingLabel' class='account-number-labels'>Routing Number:</Label>
 				<TextField id="routingNumber" class="banking-number left-padding" maxLength="9" required="true">
@@ -37,7 +37,7 @@
 			</View>
 			<View class="banking-underline"/>
 			<Label id='ssnInfo' class='account-number-labels ssn-info'>*We ask for Last 4 SSN # for bank validation.  We do not save this information on our servers!</Label>
-		</View>
+		</ScrollView>
 		<View id="viewExCheck">
 			 <ImageView id="imageExCheck" class="rowLabel"/>
 		</View>

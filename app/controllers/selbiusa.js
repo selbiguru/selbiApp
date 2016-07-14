@@ -283,8 +283,9 @@ function findUserListings(){
     	} else {
     		openListing({
     			userId: usernameResults.id,	
-    			userName: usernameResults.firstName + ' ' + usernameResults.lastName,
-    			friends: usernameResults.invitation	
+    			userLegalName: usernameResults.firstName + ' ' + usernameResults.lastName,
+    			friends: usernameResults.invitation,
+    			userName: usernameResults.username
    		 	});
 			return;
 		}
@@ -315,7 +316,7 @@ function openListing(listingIDs){
 		});
 	} else {
 		Alloy.Globals.openPage('mylistings', [
-			listingIDs.userName, listingIDs.userId, listingIDs.friends
+			listingIDs.userLegalName, listingIDs.userId, listingIDs.friends, listingIDs.userName
 		]);
 		if(Ti.App.Properties.getString('userId') === listingIDs.userId) {
 			clearProxy('mylistings');

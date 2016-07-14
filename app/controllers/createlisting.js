@@ -85,8 +85,8 @@ function showGallery() {
 
 
 function infoNeeded(){
-	if(!Alloy.Globals.currentUser.attributes.address || !Alloy.Globals.currentUser.attributes.userMerchant) {
-		helpers.alertUser('Create Listing','Before you can create listings you need to add BOTH a Bank Account and an Address');
+	if(!Alloy.Globals.currentUser.attributes.address || Alloy.Globals.currentUser.attributes.userMerchant) {
+		helpers.alertUser('Create Listing','Before you can create listings you need to add BOTH a Bank Account under \'Payment\' and an Address under \'Edit Profile\'');
 		return false;
 	}
 	return true;
@@ -197,6 +197,7 @@ function resizeKeepAspectRatioNewHeight(blob, imageWidth, imageHeight, newHeight
  * Blurs textfields in accordance with expected UI on register.js View
  */
 function blurTextField(e) {
+	console.log('11 11 111 111 111 111 ', e.source.id);
 	if(e.source.id === 'title') {
 		$.title.focus();
 	} else if(e.source.id === 'description' || e.source.id === 'hintTextLabel') {
