@@ -349,7 +349,7 @@ function blurTextField(e) {
  * Blurs textfields in accordance with expected UI on register.js View
  */
 function showBalanceInfoModal() {
-	helpers.alertUser('Your Balance','The money that is to be automatcially transferred to the bank account you provided based on the transfer schedule.\n\nTo learn more about transfers check out \'How does my balance transfer\' in our FAQ section under \'Settings\'');
+	helpers.alertUser('Your Balance','Your balance is the amount of money that is to be automatcially transferred to the bank account you provided based on the transfer schedule.\n\nTo learn more about transfers check out \'How does my balance transfer\' in our FAQ section under \'Settings\'');
 }
 
 

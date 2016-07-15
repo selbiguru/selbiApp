@@ -85,7 +85,7 @@ function showGallery() {
 
 
 function infoNeeded(){
-	if(!Alloy.Globals.currentUser.attributes.address || Alloy.Globals.currentUser.attributes.userMerchant) {
+	if(!Alloy.Globals.currentUser.attributes.address || !Alloy.Globals.currentUser.attributes.userMerchant) {
 		helpers.alertUser('Create Listing','Before you can create listings you need to add BOTH a Bank Account under \'Payment\' and an Address under \'Edit Profile\'');
 		return false;
 	}
