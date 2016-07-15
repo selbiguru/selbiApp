@@ -58,6 +58,23 @@ var getCustomer = exports.getCustomer = function(cb) {
 
 
 
+/**
+ * @method getBalance
+ * Gets managed account balance from stripe for user
+ * @param {Function} cb Callback function
+ */
+var getBalance = exports.getBalance = function(cb) {
+	httpManager.execute('/payments/bankBalance/'+Ti.App.Properties.getString('userId'), 'GET', null, true, function(err, managedBalance){
+		if(err) {
+			cb(err, null);
+			} 
+		else {
+			cb(err, managedBalance);
+		}
+	});
+};
+
+
 /***************************************************POST/UPDATE CALLS**************************************************************/
 
 

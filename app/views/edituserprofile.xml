@@ -18,6 +18,7 @@
 				<ImageView id="userProfileImage"/>
 				<Label id="cameraOverlay" icon="fa-camera"></Label>
 			</View>
+			<Label id="balanceLabel" icon="fa-question-circle-o"></Label>
 			<Label id="userLabel" class='label-grids'>User Info:</Label>
 			<View id="userView">
 	        	<View id="userInfo" class="rowContainer">

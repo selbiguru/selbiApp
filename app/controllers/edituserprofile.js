@@ -7,6 +7,7 @@ args = arguments[0] || {};
 var helpers = require('utilities/helpers'),
 	userManager = require('managers/usermanager'),
 	imageManager = require('managers/imagemanager'),
+	paymentManager = require('managers/paymentmanager'),
 	ImageFactory = require('ti.imagefactory'),
 	currentUser = null,
 	userNameUnique = true,
@@ -342,6 +343,16 @@ function blurTextField(e) {
 	}
 };
 
+
+/**
+ * @private blurTextField 
+ * Blurs textfields in accordance with expected UI on register.js View
+ */
+function showBalanceInfoModal() {
+	helpers.alertUser('Your Balance','The money that is to be automatcially transferred to the bank account you provided based on the transfer schedule.\n\nTo learn more about transfers check out \'How does my balance transfer\' in our FAQ section under \'Settings\'');
+}
+
+
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
 
 
@@ -371,6 +382,7 @@ imageManager.getMenuProfileImage(function(err, profileImage){
 
 // Hide the x-icon on username load until user types and we use isUnique API route to see if available
 $.usernameXIcon.hide();
+$.balanceLabel.hide();
 
 
 //On page load, this is a hack to show hintText instead of empty field for city and streetAddress
@@ -381,6 +393,17 @@ function addressHack() {
 	}
 }
 
+paymentManager.getBalance(function(err, managedBalance) {
+	if(err){
+		$.balanceLabel.text = 'Balance: N/A   \uf29c';
+		$.balanceLabel.show();
+		return;
+	}
+	var balance = managedBalance && managedBalance.pending ? parseFloat(managedBalance.pending[0].amount)/100 : 0;
+	$.balanceLabel.text = 'Balance: '+balance.formatMoney(2)+'   \uf29c';
+	$.balanceLabel.show();
+});
+
 addressHack();
 
 
@@ -390,6 +413,8 @@ addressHack();
 
 
 $.addListener($.editUserProfileView,'click', blurTextField);
+$.addListener($.balanceLabel,'click', showBalanceInfoModal);
+
 
 Alloy.Globals.addKeyboardToolbar($.firstName, blurTextField);
 Alloy.Globals.addKeyboardToolbar($.lastName, blurTextField);

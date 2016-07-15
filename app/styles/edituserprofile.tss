@@ -31,12 +31,6 @@
 "#editProfileGoogleAddress": {
 	backgroundColor: "#0DABD4"
 },
-".dark-underline": {
-	height: "1dp",
-	bottom: "1dp",
-	backgroundColor:"#EAEAEA",
-	width:Titanium.UI.FILL
-},
 ".info-views": {
 	height: Ti.UI.SIZE,
 	borderColor: "#E5E5E5",
@@ -164,6 +158,15 @@
 	},
 	left: '0dp',
 	color: '#545555'
+},
+"#balanceLabel[if=Alloy.Globals.iPhoneFour]": {
+	top: "8dp",
+	font:{
+		fontSize: "14dp",
+    	fontFamily: 'Nunito-Light',
+    	iconPosition : "append" // Default value is "prepend"
+	},
+	color: '#1BA7CD'
 },
 "#userLabel[if=Alloy.Globals.iPhoneFour]": {
 	top: "3dp",
@@ -318,6 +321,15 @@
 	},
 	left: '0dp',
 	color: '#545555'
+},
+"#balanceLabel[if=Alloy.Globals.iPhoneFive]": {
+	top: "8dp",
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light',
+    	iconPosition : "append" // Default value is "prepend"
+	},
+	color: '#1BA7CD'
 },
 "#userLabel[if=Alloy.Globals.iPhoneFive]": {
 	top: "3dp",
@@ -477,6 +489,15 @@
 	left: '0dp',
 	color: '#545555'
 },
+"#balanceLabel[if=Alloy.Globals.iPhoneSix]": {
+	top: "8dp",
+	font:{
+		fontSize: "18dp",
+    	fontFamily: 'Nunito-Light',
+    	iconPosition : "append" // Default value is "prepend"
+	},
+	color: '#1BA7CD'
+},
 "#userLabel[if=Alloy.Globals.iPhoneSix]": {
 	top: "8dp",
 },
@@ -633,6 +654,15 @@
 	left: '0dp',
 	color: '#545555'
 },
+"#balanceLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: "10dp",
+	font:{
+		fontSize: "20dp",
+    	fontFamily: 'Nunito-Light',
+    	iconPosition : "append" // Default value is "prepend"
+	},
+	color: '#1BA7CD'
+},
 "#userLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	top: "10dp",
 },
@@ -786,6 +816,15 @@
 	},
 	left: '0dp',
 	color: '#545555'
+},
+"#balanceLabel[if=Alloy.Globals.android]": {
+	top: "8dp",
+	font:{
+		fontSize: "18dp",
+    	fontFamily: 'Nunito-Light',
+    	iconPosition : "append" // Default value is "prepend"
+	},
+	color: '#1BA7CD'
 },
 "#userLabel[if=Alloy.Globals.android]": {
 	top: "8dp",
