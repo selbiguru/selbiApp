@@ -439,6 +439,7 @@ $.username.addEventListener('change',function(e){
 exports.cleanup = function () {
 	$.destroy();
     $.off();
+    $.balanceLabel.removeEventListener('click', showBalanceInfoModal);
     $.editUserProfileView.removeEventListener('click', blurTextField);
     $.removeListener();
     $.editUserProfileView.removeAllChildren();
