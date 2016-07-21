@@ -20,10 +20,9 @@
 				<Label id="rowLabel" class="rowLabel">Create a Listing</Label>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
-			<TableViewRow class="tableRow" id="notifications">
-				<Label icon="fa-bell" class="rowLabel row-icon" id="menuNotificationIcon"></Label>
-				<Label id="notificationsLabel" class="rowLabel">Notifications</Label>
-				<Label id="notificationsCounter" text="{user.notificationCount}"></Label>
+			<TableViewRow class="tableRow" id="mylistings">
+				<Label icon="fa-user" class="rowLabel row-icon" id="menuMyListingIcon"></Label>
+				<Label id="myListingLabel" class="rowLabel">My Listings</Label>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="friendslistings">
@@ -33,17 +32,18 @@
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="selbiusa">
 				<Label icon="fa-globe" class="rowLabel row-icon" id="menuSelbiListingIcon"></Label>
-				<Label id="selbiListingLabel" class="rowLabel">Selbi USA</Label>
-				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
-			</TableViewRow>
-			<TableViewRow class="tableRow" id="mylistings">
-				<Label icon="fa-user" class="rowLabel row-icon" id="menuMyListingIcon"></Label>
-				<Label id="myListingLabel" class="rowLabel">My Listings</Label>
+				<Label id="selbiListingLabel" class="rowLabel">USA Listings</Label>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="contacts">
 				<Label icon="fa-book" class="rowLabel row-icon" id="menuContactIcon"></Label>
 				<Label id="contactsLabel" class="rowLabel">Add Contacts</Label>
+				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			</TableViewRow>
+			<TableViewRow class="tableRow" id="notifications">
+				<Label icon="fa-bell" class="rowLabel row-icon" id="menuNotificationIcon"></Label>
+				<Label id="notificationsLabel" class="rowLabel">Notifications</Label>
+				<Label id="notificationsCounter" text="{user.notificationCount}"></Label>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</TableViewRow>
 		</TableView>

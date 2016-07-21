@@ -52,8 +52,10 @@ function addBankInfo() {
 		}
 		
 		if(!Alloy.Globals.currentUser.attributes.dateOfBirth || Alloy.Globals.currentUser.attributes.dateOfBirth === false) {
+			buttonsOn();
 			modalManager.getBirthdayModal(function(err, results){
 				results.modalSaveButton.addEventListener('click', function() {
+					buttonsOff();
 					var textFieldObject = {
 						"id": Ti.App.Properties.getString('userId'), //Id of the user 
 						"dateOfBirth": results.datePicker.value.toISOString()

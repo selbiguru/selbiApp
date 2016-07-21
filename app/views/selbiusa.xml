@@ -5,7 +5,7 @@
 				<Label icon="fa-bars" id="selbiUSAButtonIcon" class="menu-icon-button"></Label>			
 			</View>
 			<View id="titleSelbiUSAView">
-				<Label id="titleSelbiUSALabel">SelbiUSA</Label>
+				<Label id="titleSelbiUSALabel">USA Listings</Label>
 			</View>
 			<View id="searchUserView">
 				<Button id="searchUserButton" class="icon-buttons" icon="fa-search"></Button>

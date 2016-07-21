@@ -34,7 +34,7 @@ if(tabView === 1) {
 	});
 } else if(tabView === 3) {
 	$.closeUserView.hide();
-	$.titleListingsLabel.text = "Selbi USA";
+	$.titleListingsLabel.text = "USA Listings";
 	genUSAItems(function(err, items){
 		if(err) {
 			helpers.alertUser('Listings','Unable to get USA listings, please try again later');

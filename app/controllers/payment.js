@@ -41,7 +41,7 @@ function addNewBank(){
 	} else if(Alloy.Globals.currentUser.attributes.address) {
 		Alloy.Globals.openPage('addBankAccount');
 	} else {
-		helpers.alertUser('Add Address', 'You must complete your profile and address in \'Edit Profile\' under settings before connecting a bank account');
+		helpers.alertUser('Add Address', 'You must enter your address in \'Edit Profile\' under settings before connecting a bank account');
 		return;
 	}
 }

@@ -14,10 +14,10 @@ var controls = require('controls');
 /*
  All Listings tab.
  */
-var allListingsWindow = controls.createWindow({ title: 'Selbi USA', backgroundColor: '#FAFAFA', navBarHidden:true }, tabGroup);
+var allListingsWindow = controls.createWindow({ title: 'USA Listings', backgroundColor: '#FAFAFA', navBarHidden:true }, tabGroup);
 allListingsWindow.add(controls.getCustomView('listings', ['selbiUSA', Ti.App.Properties.getString('userId')]).getView());
 var allListingsTab = Ti.UI.createTab({
-	title: 'Selbi USA',
+	title: 'USA Listings',
 	backgroundColor: '#FAFAFA',
     icon: Ti.UI.iPhone.SystemIcon.TOP_RATED,
     window: allListingsWindow

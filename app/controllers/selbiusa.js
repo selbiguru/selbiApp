@@ -43,7 +43,7 @@ switch(Alloy.Globals.userDevice) {
 
 
 $.activityIndicator.show();
-$.titleSelbiUSALabel.text = "Selbi USA";
+$.titleSelbiUSALabel.text = "USA Listings";
 
 
 //------------------------------------------------FUNCTION-------------------------------------------------------------//
@@ -95,7 +95,7 @@ function genUSAItems(cb){
 
 /**
  * @method transform 
- * Generates the view for selbi USA using 'selbiUsaTemplate' as the defacto template.
+ * Generates the view for USA Listings using 'selbiUsaTemplate' as the defacto template.
  * @param {Array} items Listings returned from DB
  * @param {Number} columns Number of columns for grid
  * @param {Number} startIndex Index number of where to start to load more listings (if applicable)
