@@ -158,7 +158,7 @@ function friendRequestDynamic(e, newStatus) {
 					userContactData.data.invitation = [createInviteResult.invitation];
 					userContactData.data.backgroundColor = '#1BA7CD';
 					userContactData.checkmark.color = '#FAFAFA';
-					userContactData.checkmark.text = '\uf00c  Added   ';
+					userContactData.checkmark.text = '\uf00c  Pending   ';
 					contactsOnSelbi.setItems(currentContacts);
 				}
 			}
@@ -474,7 +474,7 @@ function determineStatus(invitation) {
 	} else if (invitation[0].status === 'pending' && invitation[0].userTo === Ti.App.Properties.getString('userId')) {
 		return '\uf067  Add   ';
 	} else if (invitation[0].status === 'pending' && invitation[0].userFrom === Ti.App.Properties.getString('userId')) {
-		return '\uf00c  Added   ';
+		return '\uf00c  Pending   ';
 	} else if (invitation[0].status === 'approved') {
 		return '\uf00c  Added   ';
 	}

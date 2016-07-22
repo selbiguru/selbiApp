@@ -34,7 +34,7 @@ switch(Alloy.Globals.userDevice) {
         checkmarkTop = '6dp';
 		checkmarkLeft = '8dp';
 		dataBorderRadius = '12dp';
-		rightIconView = '5dp';
+		rightIconView = '4dp';
 		myTitleTop = '14dp';
         break;
     case 1: //iphoneFive
@@ -48,7 +48,7 @@ switch(Alloy.Globals.userDevice) {
         checkmarkTop = '6dp';
 		checkmarkLeft = '8dp';
 		dataBorderRadius = '12dp';
-		rightIconView = '5dp';
+		rightIconView = '4dp';
 		myTitleTop = '14dp';
         break;
     case 2: //iphoneSix
@@ -76,7 +76,7 @@ switch(Alloy.Globals.userDevice) {
         checkmarkTop = '8dp';
 		checkmarkLeft = '9dp';
 		dataBorderRadius = '15dp';
-		rightIconView = '10dp';
+		rightIconView = '8dp';
 		myTitleTop = '18dp';
         break;
     case 4: //android currently same as iphoneSix
@@ -122,13 +122,11 @@ if(tabView === 1 || Ti.App.Properties.getString('userId') === argsID) {
 	$.saveViewButton = null;
 	friendRequest();
 	var adjFontSize = $.titleMyListingsLabel.font.fontSize.substr(0, $.titleMyListingsLabel.font.fontSize.length-2);
-	if(args.length >= 11 && args.length <= 13) {
-		adjFontSize = adjFontSize - 1;
-	} else if(args.length >= 14 && args.length <= 15) {
+	if(args.length >= 12 && args.length <= 13) {
 		adjFontSize = adjFontSize - 2;
-	} else if(args.length > 15 && args.length <= 16) {
+	} else if(args.length >= 14 && args.length <= 15) {
 		adjFontSize = adjFontSize - 3;
-	} else if(args.length > 16) {
+	} else if(args.length > 15) {
 		var argsRegex = args.match(/([^\s]+)([\s])([^\s])/);
 		args = argsRegex[0] + '.';
 	}
@@ -410,7 +408,7 @@ function friendRequest() {
         	},
 			color: "#FFF",
 			id: 'friendRequestButton',
-			text: '\uf00c  Added   ',
+			text: determineStatus(argsFriend),
 			touchEnabled: false
 		});
 		hiddenView.add(checkSquare);
@@ -475,7 +473,7 @@ function friendRequestDynamic(e, newStatus){
 		        	},
 					color: "#FFF",
 					id: 'friendRequestButton',
-					text: '\uf00c  Added   ',
+					text: '\uf00c  Pending   ',
 					touchEnabled: false,
 				});
 				e.source.data = [createInviteResult.invitation];
@@ -519,7 +517,7 @@ function friendRequestDynamic(e, newStatus){
 		        	},
 					color: "#FFF",
 					id: 'friendRequestButton',
-					text: '\uf00c  Added   ',
+					text: newStatus === 'approved' ? '\uf00c  Added   ' : '\uf00c  Pending   ',
 					touchEnabled: false,
 				});
 				e.source.data = updateInvitationResult.invitation;
@@ -574,6 +572,25 @@ function soldItems(e) {
    	}
 }
 
+
+/**
+ * @method determineStatus
+ * @param {Array} invitation is the invitation object returned by Selbi
+ * Determines invitation status for dynamic fontawesome elements
+ */
+function determineStatus(invitation) {
+	if (invitation.length <= 0) {
+		return '\uf067  Add   ';
+	} else if (invitation[0].status === 'denied') {
+		return '\uf067  Add   ';
+	} else if (invitation[0].status === 'pending' && invitation[0].userTo === Ti.App.Properties.getString('userId')) {
+		return '\uf067  Add   ';
+	} else if (invitation[0].status === 'pending' && invitation[0].userFrom === Ti.App.Properties.getString('userId')) {
+		return '\uf00c  Pending   ';
+	} else if (invitation[0].status === 'approved') {
+		return '\uf00c  Added   ';
+	}
+};
 
 //-------------------------------------------Initializing Views/Styles----------------------------------------------------//
 

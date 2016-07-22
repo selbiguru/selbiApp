@@ -194,7 +194,7 @@ function getFriendsSection() {
 				                		top: checkmarkTop,
 										left: checkmarkLeft,
 										color: results.invitation.length <= 0 ? '#1BA7CD' : results.invitation[0].status === 'denied' ? '#1BA7CD' :  results.invitation[0].status === 'pending' && results.invitation[0].userFrom != Ti.App.Properties.getString('userId') ? '#1BA7CD' : '#FAFAFA',
-				                		text: results.invitation.length <= 0 ? '\uf067  Add   ' : results.invitation[0].status === 'denied' ? '\uf067  Add   ' :  results.invitation[0].status === 'pending' && results.invitation[0].userFrom != Ti.App.Properties.getString('userId') ? '\uf067  Add   ' : '\uf00c  Added   ',
+				                		text: results.invitation.length <= 0 ? '\uf067  Add   ' : results.invitation[0].status === 'denied' ? '\uf067  Add   ' :  results.invitation[0].status === 'pending' && results.invitation[0].userFrom != Ti.App.Properties.getString('userId') ? '\uf067  Add   ' : results.invitation[0].status === 'approved' ? '\uf00c  Added   ' : '\uf00c  Pending   ',
 				                		touchEnabled: false
 									});
 									
@@ -257,7 +257,7 @@ function friendRequestDynamic(e, newStatus){
             		},
             		top: checkmarkTop,
 					left: checkmarkLeft,
-					text: '\uf00c  Added   ',
+					text: '\uf00c  Pending   ',
             		touchEnabled: false
 				});
 				e.source.status = createInviteResult.invitation.status;
@@ -272,7 +272,7 @@ function friendRequestDynamic(e, newStatus){
 					title: { text: helpers.alterTextFormat(e.source.data.firstName + ' ' + e.source.data.lastName, 28, false) },
 				 	subtitle: {text: "Pending To...", color:'#1BA7CD' },
 					data: { data: {invitation: [createInviteResult.invitation], id: e.source.data.id }, id: e.source.data.username, status: "pending", invitation: [createInviteResult.invitation], backgroundColor : '#1BA7CD' },
-					checkmark : {data: [createInviteResult.invitation], text: '\uf00c  Added   ', visible: true, ext: e.source.data.username, color: '#FAFAFA'},
+					checkmark : {data: [createInviteResult.invitation], text: '\uf00c  Pending   ', visible: true, ext: e.source.data.username, color: '#FAFAFA'},
 					properties: {
 						height: heightDataView
 					},
@@ -474,7 +474,7 @@ function friendRequestDynamic(e, newStatus){
 					title: { text: helpers.alterTextFormat(e.source.data.firstName + ' ' + e.source.data.lastName, 28, false) },
 				 	subtitle: {text: "Pending To...", color:'#1BA7CD' },
 					data: { data: {invitation: updateInvitationResult.invitation, id: e.source.data.id }, id: e.source.data.username, status: "pending", invitation: updateInvitationResult.invitation, backgroundColor : '#1BA7CD' },
-					checkmark : {data: updateInvitationResult.invitation, text: '\uf00c  Added   ', visible: true, ext: e.source.data.username, color: '#FAFAFA'},
+					checkmark : {data: updateInvitationResult.invitation, text: '\uf00c  Pending   ', visible: true, ext: e.source.data.username, color: '#FAFAFA'},
 					properties: {
 						height: heightDataView
 					},
@@ -492,7 +492,7 @@ function friendRequestDynamic(e, newStatus){
             		},
             		top: checkmarkTop,
 					left: checkmarkLeft,
-					text: '\uf00c  Added   ',
+					text: '\uf00c  Pending   ',
             		touchEnabled: false
 				});
 				e.source.status = updateInvitationResult.invitation[0].status;
@@ -728,7 +728,7 @@ function determineStatus(invitation) {
 	} else if(invitation[0].status === 'pending' && invitation[0].userTo === Ti.App.Properties.getString('userId')) {
 		return '\uf067  Add   ';
 	} else if(invitation[0].status === 'pending' && invitation[0].userFrom === Ti.App.Properties.getString('userId') ) {
-		return '\uf00c  Added   ';
+		return '\uf00c  Pending   ';
 	} else if(invitation[0].status === 'approved') {
 		return '\uf00c  Added   ';
 	}
