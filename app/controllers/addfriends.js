@@ -248,7 +248,6 @@ function friendRequestDynamic(e, newStatus){
 			if(err) {
 				return;
 			} else {
-				console.log('333 333 333 333 333');
 				var checkSquare = Ti.UI.createLabel({
 					width: Ti.UI.SIZE,
             		color: '#FAFAFA',
@@ -467,7 +466,6 @@ function friendRequestDynamic(e, newStatus){
 				}
 				friendsPending.setItems(pendingFriends);
 			} else {
-				console.log('222 222 2222 2222 2222');
 				var emptySectionIndex = findIndexByKeyValue(pendingFriends, 'match', 'empty');
 				if(emptySectionIndex != null) {
 					pendingFriends = [];
@@ -485,7 +483,6 @@ function friendRequestDynamic(e, newStatus){
 				friendsPending.setItems(pendingFriends);
 			}
 			if(!item) {
-				console.log('111 1111 11111 111');
 				var checkSquare = Ti.UI.createLabel({
 					width: Ti.UI.SIZE,
             		color: '#FAFAFA',
