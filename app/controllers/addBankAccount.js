@@ -64,17 +64,18 @@ function addBankInfo() {
 				    animateWindowClose = animateWindowClose.scale(0);
 				    userManager.userUpdate(textFieldObject, function(err, userUpdateResult){
 				    	if(err) {
+				    		results.modalWindow.close({transform:animateWindowClose, duration:300});
+				   			animateWindowClose = null;
 				    		helpers.alertUser('Update User','Failed to save your birthday, please try again later');
 				    		buttonsOn();
 				    		return;
 				    	} else {
 				    		results.modalWindow.close({transform:animateWindowClose, duration:300});
+				    		animateWindowClose = null;
 					    	sendBankStripe();
 					    	return;
 				    	}
 				    });
-				    results.modalWindow.close({transform:animateWindowClose, duration:300});
-				    animateWindowClose = null;
 				});
 			});
 		} else {
