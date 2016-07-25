@@ -17,6 +17,7 @@ var addAddress = exports.addAddress = function(addressUpdateObj, cb) {
 				userModel.set({phoneNumber: addressUpdateResult.phoneNumber});
 				userModel.set({profileImage: addressUpdateResult.profileImage});
 				userModel.set({fraudAlert: addressUpdateResult.fraudAlert});
+				userModel.set({admin: addressUpdateResult.admin});
 				userModel.set({userMerchant: !!addressUpdateResult.userMerchant});
 				userModel.set({dateOfBirth: addressUpdateResult.dateOfBirth || null});
 				if(addressUpdateResult.userAddress){

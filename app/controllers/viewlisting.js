@@ -547,9 +547,9 @@ function createPurchasingButtons() {
 	var purchaseListing = buyItem;
 	var deleteListing = deleteItem;
 	var archiveListing = archiveItem;
-	if(args.userId === Ti.App.Properties.getString('userId') && itemData.isSold ) {
+	if((args.userId === Ti.App.Properties.getString('userId') && itemData.isSold) || (Alloy.Globals.currentUser.attributes.admin && itemData.isSold)) {
 		createActionButton(buttonHeight, buttonWidth, buttonFontSize, '#127089', 'Archive Listing', true, 'Are you sure you want to Archive this listing?', archiveListing);
-	} else if(args.userId === Ti.App.Properties.getString('userId')) {
+	} else if(args.userId === Ti.App.Properties.getString('userId') || (Alloy.Globals.currentUser.attributes.admin)) {
 		createActionButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Delete Listing', true, 'Are you sure you want to Delete this listing?', deleteListing);
 	} else {
 		createActionButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Buy Item', ccEligible, 'Confirm to complete the purchase.', purchaseListing);

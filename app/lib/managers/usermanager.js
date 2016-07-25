@@ -16,6 +16,7 @@ var userUpdate = exports.userUpdate = function(userUpdateObj, cb) {
 				userModel.set({phoneNumber: userUpdateResult.phoneNumber});
 				userModel.set({profileImage: userUpdateResult.profileImage});
 				userModel.set({fraudAlert: userUpdateResult.fraudAlert});
+				userModel.set({admin: userUpdateResult.admin});
 				userModel.set({userMerchant: !!userUpdateResult.userMerchant});
 				userModel.set({dateOfBirth: userUpdateResult.dateOfBirth || null});
 				if(userUpdateResult.userAddress){
@@ -49,6 +50,7 @@ var getCurrentUser = exports.getCurrentUser = function(cb){
 			userModel.set({phoneNumber: userObject.phoneNumber});
 			userModel.set({profileImage: userObject.profileImage});
 			userModel.set({fraudAlert: userObject.fraudAlert});
+			userModel.set({admin: userObject.admin});
 			userModel.set({userMerchant: !!userObject.userMerchant});
 			userModel.set({dateOfBirth: userObject.dateOfBirth || null});
 			if(userObject.userAddress){
