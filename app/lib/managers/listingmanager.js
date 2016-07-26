@@ -106,6 +106,7 @@ exports.createListing = function(listingData, cb){
 		"description": listingData.description,
 		"price": listingData.price,
 		"isPrivate": listingData.privateSwitch,
+		"isPickupOnly": listingData.isPickupOnly,
 		"isPreview": false,
 		"isPublished": true,
 		"searchCategory": listingData.searchCategory,

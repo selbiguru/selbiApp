@@ -123,6 +123,7 @@ function previewListing(){
 			description: validateDescription[0],
 			price: parseFloat(validatedPrice[0].replace(/,/g, '')).toFixed(2),
 			privateSwitch: $.privateSwitch.value,
+			isPickupOnly: $.pickupSwitch.value,
 			searchCategory: $.pickerCategory.getSelectedRow(0).id,
 			images: imageCollection,
 			itemId: false
@@ -249,6 +250,7 @@ function clearProxy(e) {
 	imageCollection = [];
 	previousState = null;
 	$.privateSwitch.removeEventListener('change', blurTextField);
+	$.pickupSwitch.removeEventListener('change', blurTextField);
 	$.pickerCategory.removeEventListener('change', blurTextField);
 	$.createListingView.removeEventListener('click', blurTextField);
 	$.title.removeEventListener('return', keyboardNext);
@@ -436,6 +438,7 @@ $.addListener($.description,'change',function(e){
 });
 
 $.addListener($.privateSwitch,'change', blurTextField);
+$.addListener($.pickupSwitch,'change', blurTextField);
 $.addListener($.pickerCategory,'change', blurTextField);
 $.addListener($.createListingView,'click', blurTextField);
 $.addListener($.title,'return', keyboardNext);

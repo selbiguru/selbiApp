@@ -118,6 +118,11 @@
 	width: '85%',
 	height: Ti.UI.SIZE
 },
+"#viewListingProductPickUp[if=Alloy.Globals.iPhoneFour]":{
+	font: {
+		fontSize: '14dp'
+	}
+},
 "#viewListingProductTitle[if=Alloy.Globals.iPhoneFour]":{
 	font: {
 		fontSize: '16dp'
@@ -247,6 +252,11 @@
 	width: '90%',
 	height: Ti.UI.SIZE
 },
+"#viewListingProductPickUp[if=Alloy.Globals.iPhoneFive]":{
+	font: {
+		fontSize: '16dp'
+	}
+},
 "#viewListingProductTitle[if=Alloy.Globals.iPhoneFive]":{
 	font: {
 		fontSize: '18dp'
@@ -375,6 +385,11 @@
 	top: '10dp',
 	width: '95%',
 	height: Ti.UI.SIZE
+},
+"#viewListingProductPickUp[if=Alloy.Globals.iPhoneSix]":{
+	font: {
+		fontSize: '18dp'
+	}
 },
 "#viewListingProductTitle[if=Alloy.Globals.iPhoneSix]":{
 	font: {
@@ -507,6 +522,11 @@
 	width: '95%',
 	height: Ti.UI.SIZE
 },
+"#viewListingProductPickUp[if=Alloy.Globals.iPhoneSixPlus]":{
+	font: {
+		fontSize: '20dp'
+	}
+},
 "#viewListingProductTitle[if=Alloy.Globals.iPhoneSixPlus]":{
 	font: {
 		fontSize: '22dp'
@@ -637,6 +657,11 @@
 	top: '10dp',
 	width: '95%',
 	height: Ti.UI.SIZE
+},
+"#viewListingProductPickUp[if=Alloy.Globals.android]":{
+	font: {
+		fontSize: '18dp'
+	}
 },
 "#viewListingProductTitle[if=Alloy.Globals.android]":{
 	font: {

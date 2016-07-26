@@ -21,8 +21,8 @@
 				</View>
 			</View>			
 			<View id="step2">
-				<ScrollView class="listing-detail-container">
-					<TextField hintText="Title" id="title" class="font-style" maxLength="120">
+				<ScrollView class="listing-detail-container" showVerticalScrollIndicator='true'>
+					<TextField hintText="Title" id="title" class="font-style" maxLength="90">
 					</TextField>
 					<View height='Ti.UI.SIZE' width='Ti.UI.SIZE'>
 						<TextArea id="description" class="font-style" maxLength="600">
@@ -38,7 +38,11 @@
 					</View>
 					<View id="switchView" class="top-size">
 						<Switch id="privateSwitch" value="false"/>
-						<Label id="switchLabel" class="font-style">Private (Only my friends)</Label>
+						<Label id="switchLabel" class="font-style switch-label">Private (Only my friends)</Label>
+					</View>	
+					<View id="switchView" class="top-size">
+						<Switch id="pickupSwitch" value="false"/>
+						<Label id="pickupLabel" class="font-style switch-label">Item is Pick-Up only</Label>
 					</View>	
 				</ScrollView>
 				<View id="listingButtonView">

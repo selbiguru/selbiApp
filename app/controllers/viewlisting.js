@@ -78,6 +78,7 @@ function populateViewListing(listingData) {
 	previewListing ? firstName = Alloy.Globals.currentUser.attributes.firstName : firstName = listingData.user.firstName;
 	previewListing ? lastName = Alloy.Globals.currentUser.attributes.lastName : lastName = listingData.user.lastName;
 	previewListing ? images = listingData.images : images = listingData.imageUrls;
+	listingData.isPickupOnly ? previewListing ? $.viewListingProductPickUp.setText('Pick-Up Only: '+ Alloy.Globals.currentUser.attributes.city + ' ' + Alloy.Globals.currentUser.attributes.state) : $.viewListingProductPickUp.setText('Pick-Up Only: '+ listingData.user.userAddress.city + ' ' + listingData.user.userAddress.state) : $.viewListingProductPickUp.setText('');
 	$.viewListingProductTitle.setText(listingData.title);
 	$.viewListingProductPrice.setText(parseFloat(listingData.price).formatMoney(2));
 	$.viewListingReferenceNumber.setText('Ref# '+listingData.id);
@@ -140,9 +141,16 @@ function populateViewListing(listingData) {
 		$.imageGallery.borderColor = '#1BA7CD';
 		$.imageGallery.borderWidth = '5dp';	
 		$.viewListingProductTitle.color = '#1BA7CD';
+		if(listingData.isPickupOnly) {
+			$.viewListingProductPickUp.color = '#1BA7CD';
+		}
 	} else {
 		$.viewListingReferenceNumber.hide();
 		$.viewListingReferenceNumber.height = '0dp';
+		if(!listingData.isPickupOnly) {
+			$.viewListingProductPickUp.hide();
+			$.viewListingProductPickUp.height = '0dp';
+		}
 	}
 };
 

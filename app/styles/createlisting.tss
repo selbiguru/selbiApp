@@ -164,7 +164,7 @@
 	layout: 'horizontal',
 	height: Ti.UI.SIZE
 },
-"#switchLabel[if=Alloy.Globals.iPhoneFour]": {
+".switch-label[if=Alloy.Globals.iPhoneFour]": {
 	left: '10dp'
 },
 "#listingButtonView[if=Alloy.Globals.iPhoneFour]": {
@@ -244,7 +244,7 @@
 "#createListingDetails[if=Alloy.Globals.iPhoneFive]": {
 	width:'90%',
 	height: Titanium.UI.FILL,
-	top: '20dp',
+	top: '15dp',
 	layout: "composite"
 },
 "#selectionView[if=Alloy.Globals.iPhoneFive]":{
@@ -315,7 +315,7 @@
 },
 ".listing-detail-container[if=Alloy.Globals.iPhoneFive]": {
 	layout: 'vertical',
-	height: '400dp'
+	height: '425dp'
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneFive]": {
 	left: '10dp',
@@ -339,7 +339,7 @@
 	layout: 'horizontal',
 	height: Ti.UI.SIZE
 },
-"#switchLabel[if=Alloy.Globals.iPhoneFive]": {
+".switch-label[if=Alloy.Globals.iPhoneFive]": {
 	left: '10dp'
 },
 "#listingButtonView[if=Alloy.Globals.iPhoneFive]": {
@@ -491,7 +491,7 @@
 },
 ".listing-detail-container[if=Alloy.Globals.iPhoneSix]": {
 	layout: 'vertical',
-	height: '480dp',
+	height: '505dp',
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneSix]": {
 	left: '10dp',
@@ -515,7 +515,7 @@
 	layout: 'horizontal',
 	height: Ti.UI.SIZE
 },
-"#switchLabel[if=Alloy.Globals.iPhoneSix]": {
+".switch-label[if=Alloy.Globals.iPhoneSix]": {
 	left: '10dp'
 },
 "#listingButtonView[if=Alloy.Globals.iPhoneSix]": {
@@ -664,7 +664,7 @@
 },
 ".listing-detail-container[if=Alloy.Globals.iPhoneSixPlus]": {
 	layout: 'vertical',
-	height: '510dp',
+	height: '550dp',
 },
 "#hintTextLabel[if=Alloy.Globals.iPhoneSixPlus]": {
 	left: '10dp',
@@ -688,7 +688,7 @@
 	layout: 'horizontal',
 	height: Ti.UI.SIZE
 },
-"#switchLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+".switch-label[if=Alloy.Globals.iPhoneSixPlus]": {
 	left: '10dp'
 },
 "#listingButtonView[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -837,7 +837,7 @@
 },
 ".listing-detail-container[if=Alloy.Globals.android]": {
 	layout: 'vertical',
-	height: '480dp',
+	height: '505dp',
 },
 "#hintTextLabel[if=Alloy.Globals.android]": {
 	left: '10dp',
@@ -861,7 +861,7 @@
 	layout: 'horizontal',
 	height: Ti.UI.SIZE
 },
-"#switchLabel[if=Alloy.Globals.android]": {
+".switch-label[if=Alloy.Globals.android]": {
 	left: '10dp'
 },
 "#listingButtonView[if=Alloy.Globals.android]": {

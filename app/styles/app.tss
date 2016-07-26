@@ -122,6 +122,15 @@
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
 }
 
+".product-pickup":{
+	color: '#9B9B9B',
+	font:{
+		fontFamily: 'Nunito-Light'
+	},
+	width: Ti.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
+}
+
 ".product-price": {
 	color: '#1BA7CD',
 	font:{

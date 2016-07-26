@@ -25,6 +25,7 @@
 			<View id="productLabels" layout="vertical" class="product-info">
 				<Label id="viewListingProductTitle" class="product-title">Product Title</Label>
 				<Label id="viewListingProductPrice" class="product-price">0.00</Label>
+				<Label id="viewListingProductPickUp" class="product-pickup">Pick-Up Only:</Label>
 				<Label id="viewListingReferenceNumber" class="product-ref-num">Sold</Label>
 				<View class="line-separator"></View>				
 				<Label id="viewListingProductDescription" class="product-description"></Label>				
