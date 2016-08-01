@@ -5,4 +5,5 @@ selbiApp/
 docs
 alloy.jmk
 /i18n
-/platform
+platform
+app/platform
