@@ -73,7 +73,6 @@ function validateAddressView(){
 			} else {
 				buttonsOn();
 				helpers.alertUser('Updated Address', 'User address saved');
-				Alloy.Globals.openPage('edituserprofile');
 				$.verifyAddressCancelButton.fireEvent('click');
 				return;
 			}

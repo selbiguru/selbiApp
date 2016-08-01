@@ -1,0 +1,56 @@
+<Alloy>
+	<Model src="user"></Model>
+	<View id="checkoutView">
+        <View id="checkoutTopBar">
+        	<View id="cancelCheckout" class="validateButtons">  
+		    	<Button icon="fa-times" class="checkout-button-icon" id="cancelCheckoutButton">Cancel</Button>
+		    </View>
+		    <View id="titleCheckoutView">
+				<Label id="titleCheckoutLabel">Checkout</Label>
+			</View>
+		    <Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+		</View>
+		<ScrollView id='checkoutDescriptionView' class='screen-width'>
+			<Button id='confirmButtonTop' class='confirm-purchase-button' onClick="confirmPurchase">Confirm Purchase</Button>
+			<View class='login-underline top-padding'></View>
+			<View id='checkoutItemView' class='checkout-item-view-horizontal'>
+				<ImageView id='checkoutItemImage'>Image</ImageView>
+				<Label id='checkoutItemTitle' class='checkout-label-light'>Title</Label>
+				<Label id='checkoutItemPrice' class='checkout-label-light'>Price</Label>
+			</View>
+			<View class='login-underline'></View>
+			<View id='checkoutSubtotalsView' class='checkout-item-view-horizontal'>
+				<View id='subtotalView' class='checkout-item-view-vertical'>
+					<Label class='checkout-label-light checkout-item-label'>Subtotal:</Label>
+					<Label id='shippingOrPickupLabel' class='checkout-label-light checkout-item-label top-padding-small'>Shipping (inc):</Label>
+					<Label class='checkout-label-bold checkout-item-label top-padding-small'>Total:</Label>
+				</View>
+				<View id='dollarsView' class='checkout-item-view-vertical'>
+					<Label id='checkoutSubtotal' class='checkout-item-label checkout-label-light'>$0.00</Label>
+					<Label class='checkout-item-label checkout-label-light top-padding-small'>$0.00</Label>
+					<Label id='checkoutTotal' class='checkout-item-label checkout-label-light top-padding-small'>$0.00</Label>
+				</View>
+			</View>
+			<View id='shippingView' class='checkout-item-view-vertical top-padding-large'>
+				<View id="editShippingView" class='checkout-item-view-horizontal'>
+					<Label class='checkout-label-bold'>Ship To Address</Label>
+					<Label id='checkoutEditAddress' class='checkout-label-light' onClick="getGoogleMaps">edit</Label>
+				</View>
+				 <View id="addressInfo" onClick="getGoogleMaps">
+				    <View id="userAddress" class="checkout-item-view-vertical info-views">
+				        <TextField id="streetAddress" hintText="Street Address" class="" value="{user.address}  {user.address2}" editable="false"></TextField>
+				    </View>
+				    <View class="checkout-item-view-vertical info-views">
+				        <TextField id="city" hintText="City, State Zip" class="" value="{user.city} {user.state} {user.zip}" editable="false"></TextField>
+				    </View>
+				    <View class="checkout-item-view-vertical info-views">
+				        <TextField id="country" hintText="Country" class="" value="{user.country}" editable="false"></TextField>
+				    </View>
+				</View>
+			</View>
+			<Label id='pickupOnlyLabel'></Label>
+			<Label id='asterikLabel' class='top-padding'>*After confirming your purchase, you will receive an email form Selbi containing the Seller's email with which you may contact them with regards to your purchase.</Label>
+			<Button id='confirmButtonBottom' class='confirm-purchase-button top-padding' onClick="confirmPurchase">Confirm Purchase</Button>
+		</ScrollView>
+    </View>
+</Alloy>

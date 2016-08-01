@@ -1,0 +1,840 @@
+//DEFAULT
+"#checkoutView":{
+	layout: 'vertical',
+	backgroundColor: '#FAFAFA'
+},
+"#checkoutDescriptionView": {
+	layout: 'vertical',
+	top: "10dp",
+	showVerticalScrollIndicator: 'true'
+},
+".login-underline": {
+	height: 1,
+	backgroundColor:"#EAEAEA",
+	width:Titanium.UI.FILL
+},
+".info-views": {
+	height: Ti.UI.SIZE,
+	borderColor: "#E5E5E5",
+	borderWidth: '1dp',
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//iPhone 4
+"#checkoutTopBar[if=Alloy.Globals.iPhoneFour]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FFF',
+	layout: 'horizontal'
+},
+".validateButtons[if=Alloy.Globals.iPhoneFour]": {
+	height: "70dp",
+	width: "60dp",
+	backgroundColor: '#FFF'
+}
+".checkout-button-icon[if=Alloy.Globals.iPhoneFour]": {
+	font: {
+            fontSize: "12dp"
+        },
+	color: "#1BA7CD",
+	top: '23dp'
+},
+"#titleCheckoutView[if=Alloy.Globals.iPhoneFour]": {
+	width: "186dp",
+	left: '4dp'
+},
+
+"#titleCheckoutLabel[if=Alloy.Globals.iPhoneFour]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "22dp",
+		fontFamily: "Nunito-Bold"
+	},
+	top: '20dp'
+},
+"#cancelCheckout[if=Alloy.Globals.iPhoneFour]": {
+	left: "7dp",
+},
+'.screen-width[if=Alloy.Globals.iPhoneFour]': {
+	width: '85%'
+},
+".confirm-purchase-button[if=Alloy.Globals.iPhoneFour]": {
+	height: '35dp',
+	width: Ti.UI.FILL,
+	title: 'Confirm Purchase',
+	backgroundColor: '#1BA7CD',
+	color: '#FFF',
+	font: {
+		fontSize: '14dp',
+		fontFamily: "Nunito-Light"
+	},
+	layout: 'composite'
+},
+"#checkoutItemView[if=Alloy.Globals.iPhoneFour]": {
+	height: '65dp'
+},
+"#checkoutItemTitle[if=Alloy.Globals.iPhoneFour]": {
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	height: Ti.UI.FILL,
+	width:'141dp',
+},
+"#checkoutItemPrice[if=Alloy.Globals.iPhoneFour]": {
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	width: '71dp',
+},
+"#checkoutSubtotalsView[if=Alloy.Globals.iPhoneFour]": {
+	top: '7dp'
+},
+"#subtotalView[if=Alloy.Globals.iPhoneFour]": {
+	width: '163dp'//60%
+},
+"#dollarsView[if=Alloy.Globals.iPhoneFour]": {
+	width: '109dp'//40%
+},
+".checkout-item-view-horizontal[if=Alloy.Globals.iPhoneFour]": {
+	layout: 'horizontal',
+	height: Titanium.UI.SIZE
+},
+".checkout-item-view-vertical[if=Alloy.Globals.iPhoneFour]": {
+	layout: 'vertical',
+	height: Titanium.UI.SIZE
+},
+".checkout-item-label[if=Alloy.Globals.iPhoneFour]": {
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT
+},
+"#checkoutItemImage[if=Alloy.Globals.iPhoneFour]": {
+	 height: "60dp",
+	 width: "60dp",
+},
+".checkout-label-bold[if=Alloy.Globals.iPhoneFour]": {
+	font:{
+		fontSize: "13dp",
+    	fontFamily: 'Nunito-Bold'
+	},
+	color: '#545555'
+},
+".checkout-label-light[if=Alloy.Globals.iPhoneFour]": {
+	font:{
+		fontSize: "13dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+"#addressInfo[if=Alloy.Globals.iPhoneFour]":{
+	layout: 'vertical',
+	height: Ti.UI.SIZE,
+	borderColor: "#E5E5E5",
+	top: '5dp'
+},
+"#checkoutEditAddress[if=Alloy.Globals.iPhoneFour]":{
+	left: '10dp',
+	color: '#1BA7CD'
+},
+".top-padding[if=Alloy.Globals.iPhoneFour]":{
+	top: '8dp'
+},
+".top-padding-small[if=Alloy.Globals.iPhoneFour]":{
+	top: '2dp'
+},
+".top-padding-large[if=Alloy.Globals.iPhoneFour]":{
+	top: '9dp'
+},
+"TextField[if=Alloy.Globals.iPhoneFour]": {
+	color: '#545555',
+	font: {
+		fontSize: '13dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "30dp",
+	zIndex: 3
+},
+"#pickupOnlyLabel[if=Alloy.Globals.iPhoneFour]": {
+	color: '#545555',
+	font: {
+		fontSize: '13dp',
+		fontFamily: 'Nunito-Light'
+	},
+},
+"#asterikLabel[if=Alloy.Globals.iPhoneFour]": {
+	color: '#545555',
+	font: {
+		fontSize: '11dp',
+		fontFamily: 'Nunito-Light'
+	},
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//iPhone 5
+"#checkoutTopBar[if=Alloy.Globals.iPhoneFive]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FFF',
+	layout: 'horizontal'
+},
+".validateButtons[if=Alloy.Globals.iPhoneFive]": {
+	height: "70dp",
+	width: "60dp",
+	backgroundColor: '#FFF'
+}
+".checkout-button-icon[if=Alloy.Globals.iPhoneFive]": {
+	font: {
+            fontSize: "12dp"
+        },
+	color: "#1BA7CD",
+	top: '23dp'
+},
+"#titleCheckoutView[if=Alloy.Globals.iPhoneFive]": {
+	width: "186dp",
+	left: '4dp'
+},
+
+"#titleCheckoutLabel[if=Alloy.Globals.iPhoneFive]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "22dp",
+		fontFamily: "Nunito-Bold"
+	},
+	top: '20dp'
+},
+"#cancelCheckout[if=Alloy.Globals.iPhoneFive]": {
+	left: "7dp",
+},
+'.screen-width[if=Alloy.Globals.iPhoneFive]': {
+	width: '90%'
+},
+".confirm-purchase-button[if=Alloy.Globals.iPhoneFive]": {
+	height: '35dp',
+	width: Ti.UI.FILL,
+	title: 'Confirm Purchase',
+	backgroundColor: '#1BA7CD',
+	color: '#FFF',
+	font: {
+		fontSize: '16dp',
+		fontFamily: "Nunito-Light"
+	},
+	layout: 'composite'
+},
+"#checkoutItemView[if=Alloy.Globals.iPhoneFive]": {
+	height: '70dp'
+},
+"#checkoutItemTitle[if=Alloy.Globals.iPhoneFive]": {
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	height: Ti.UI.FILL,
+	width:'148dp',
+},
+"#checkoutItemPrice[if=Alloy.Globals.iPhoneFive]": {
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	width: '75dp',
+},
+"#checkoutSubtotalsView[if=Alloy.Globals.iPhoneFive]": {
+	top: '20dp'
+},
+"#subtotalView[if=Alloy.Globals.iPhoneFive]": {
+	width: '173dp'//60%
+},
+"#dollarsView[if=Alloy.Globals.iPhoneFive]": {
+	width: '115dp'//40%
+},
+".checkout-item-view-horizontal[if=Alloy.Globals.iPhoneFive]": {
+	layout: 'horizontal',
+	height: Titanium.UI.SIZE
+},
+".checkout-item-view-vertical[if=Alloy.Globals.iPhoneFive]": {
+	layout: 'vertical',
+	height: Titanium.UI.SIZE
+},
+".checkout-item-label[if=Alloy.Globals.iPhoneFive]": {
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT
+},
+"#checkoutItemImage[if=Alloy.Globals.iPhoneFive]": {
+	 height: "65dp",
+	 width: "65dp",
+},
+".checkout-label-bold[if=Alloy.Globals.iPhoneFive]": {
+	font:{
+		fontSize: "14dp",
+    	fontFamily: 'Nunito-Bold'
+	},
+	color: '#545555'
+},
+".checkout-label-light[if=Alloy.Globals.iPhoneFive]": {
+	font:{
+		fontSize: "14dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+"#addressInfo[if=Alloy.Globals.iPhoneFive]":{
+	layout: 'vertical',
+	height: Ti.UI.SIZE,
+	borderColor: "#E5E5E5",
+	top: '7dp'
+},
+"#checkoutEditAddress[if=Alloy.Globals.iPhoneFive]":{
+	left: '10dp',
+	color: '#1BA7CD'
+},
+".top-padding[if=Alloy.Globals.iPhoneFive]":{
+	top: '10dp'
+},
+".top-padding-small[if=Alloy.Globals.iPhoneFive]":{
+	top: '5dp'
+},
+".top-padding-large[if=Alloy.Globals.iPhoneFive]":{
+	top: '25dp'
+},
+"TextField[if=Alloy.Globals.iPhoneFive]": {
+	color: '#545555',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "35dp",
+	zIndex: 3
+},
+"#pickupOnlyLabel[if=Alloy.Globals.iPhoneFive]": {
+	color: '#545555',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+},
+"#asterikLabel[if=Alloy.Globals.iPhoneFive]": {
+	color: '#545555',
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Nunito-Light'
+	},
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//iPhone 6
+"#checkoutTopBar[if=Alloy.Globals.iPhoneSix]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FFF',
+	layout: 'horizontal'
+},
+".validateButtons[if=Alloy.Globals.iPhoneSix]": {
+	height: "70dp",
+	width: "70dp",
+	backgroundColor: '#FFF'
+}
+".checkout-button-icon[if=Alloy.Globals.iPhoneSix]": {
+	font: {
+            fontSize: "14dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	top: '25dp'
+},
+"#titleCheckoutView[if=Alloy.Globals.iPhoneSix]": {
+	width: "215dp",
+	left: '4dp'
+},
+"#titleCheckoutLabel[if=Alloy.Globals.iPhoneSix]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "24dp",
+		fontFamily: "Nunito-Bold"
+	},
+	top: '20dp'
+},
+"#cancelCheckout[if=Alloy.Globals.iPhoneSix]": {
+	left: "10dp",
+},
+'.screen-width[if=Alloy.Globals.iPhoneSix]': {
+	width: '95%'
+},
+".confirm-purchase-button[if=Alloy.Globals.iPhoneSix]": {
+	height: '40dp',
+	width: Ti.UI.FILL,
+	title: 'Confirm Purchase',
+	backgroundColor: '#1BA7CD',
+	color: '#FFF',
+	font: {
+		fontSize: '18dp',
+		fontFamily: "Nunito-Light"
+	},
+	layout: 'composite'
+},
+"#checkoutItemView[if=Alloy.Globals.iPhoneSix]": {
+	height: '80dp'
+},
+"#checkoutItemTitle[if=Alloy.Globals.iPhoneSix]": {
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	height: Ti.UI.FILL,
+	width:'201dp'
+},
+"#checkoutItemPrice[if=Alloy.Globals.iPhoneSix]": {
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	width: '85dp'
+},
+"#checkoutSubtotalsView[if=Alloy.Globals.iPhoneSix]": {
+	top: '20dp'
+},
+"#subtotalView[if=Alloy.Globals.iPhoneSix]": {
+	width: '214dp'
+},
+"#dollarsView[if=Alloy.Globals.iPhoneSix]": {
+	width: '142dp'
+},
+".checkout-item-view-horizontal[if=Alloy.Globals.iPhoneSix]": {
+	layout: 'horizontal',
+	height: Titanium.UI.SIZE
+},
+".checkout-item-view-vertical[if=Alloy.Globals.iPhoneSix]": {
+	layout: 'vertical',
+	height: Titanium.UI.SIZE
+},
+".checkout-item-label[if=Alloy.Globals.iPhoneSix]": {
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT
+},
+"#checkoutItemImage[if=Alloy.Globals.iPhoneSix]": {
+	 height: "70dp",
+	 width: "70dp"
+},
+".checkout-label-bold[if=Alloy.Globals.iPhoneSix]": {
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Bold'
+	},
+	color: '#545555'
+},
+".checkout-label-light[if=Alloy.Globals.iPhoneSix]": {
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+"#addressInfo[if=Alloy.Globals.iPhoneSix]":{
+	layout: 'vertical',
+	height: Ti.UI.SIZE,
+	borderColor: "#E5E5E5",
+	top: '7dp'
+},
+"#checkoutEditAddress[if=Alloy.Globals.iPhoneSix]":{
+	left: '10dp',
+	color: '#1BA7CD'
+},
+".top-padding[if=Alloy.Globals.iPhoneSix]":{
+	top: '10dp'
+},
+".top-padding-small[if=Alloy.Globals.iPhoneSix]":{
+	top: '5dp'
+},
+".top-padding-large[if=Alloy.Globals.iPhoneSix]":{
+	top: '30dp'
+},
+"TextField[if=Alloy.Globals.iPhoneSix]": {
+	color: '#545555',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "40dp",
+	zIndex: 3
+},
+"#pickupOnlyLabel[if=Alloy.Globals.iPhoneSix]": {
+	color: '#545555',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	},
+},
+"#asterikLabel[if=Alloy.Globals.iPhoneSix]": {
+	color: '#545555',
+	font: {
+		fontSize: '13dp',
+		fontFamily: 'Nunito-Light'
+	},
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//iPhone 6 Plus
+"#checkoutTopBar[if=Alloy.Globals.iPhoneSixPlus]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FFF',
+	layout: 'horizontal'
+},
+".validateButtons[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: "70dp",
+	width: "70dp",
+	backgroundColor: '#FFF'
+}
+".checkout-button-icon[if=Alloy.Globals.iPhoneSixPlus]": {
+	font: {
+            fontSize: "15dp",
+            fontFamily: "Nunito-Bold"
+        },
+	color: "#1BA7CD",
+	top: '26dp'
+},
+"#titleCheckoutView[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: "244dp",
+	left: '8dp'
+},
+
+"#titleCheckoutLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "28dp",
+		fontFamily: "Nunito-Bold"
+	},
+	top: "20dp"
+},
+"#cancelCheckout[if=Alloy.Globals.iPhoneSixPlus]": {
+	left: "10dp",
+},
+'.screen-width[if=Alloy.Globals.iPhoneSixPlus]': {
+	width: '95%'
+},
+".confirm-purchase-button[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: '45dp',
+	width: Ti.UI.FILL,
+	title: 'Confirm Purchase',
+	backgroundColor: '#1BA7CD',
+	color: '#FFF',
+	font: {
+		fontSize: '20dp',
+		fontFamily: "Nunito-Light"
+	},
+	layout: 'composite'
+},
+"#checkoutItemView[if=Alloy.Globals.iPhoneSixPlus]": {
+	height: '85dp'
+},
+"#checkoutItemTitle[if=Alloy.Globals.iPhoneSixPlus]": {
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	height: Ti.UI.FILL,
+	width:'223dp'
+},
+"#checkoutItemPrice[if=Alloy.Globals.iPhoneSixPlus]": {
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	width: '95dp'
+},
+"#checkoutSubtotalsView[if=Alloy.Globals.iPhoneSixPlus]": {
+	top: '20dp'
+},
+"#subtotalView[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: '236dp'
+},
+"#dollarsView[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: '157dp'
+},
+".checkout-item-view-horizontal[if=Alloy.Globals.iPhoneSixPlus]": {
+	layout: 'horizontal',
+	height: Titanium.UI.SIZE
+},
+".checkout-item-view-vertical[if=Alloy.Globals.iPhoneSixPlus]": {
+	layout: 'vertical',
+	height: Titanium.UI.SIZE
+},
+".checkout-item-label[if=Alloy.Globals.iPhoneSixPlus]": {
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT
+},
+"#checkoutItemImage[if=Alloy.Globals.iPhoneSixPlus]": {
+	 height: "75dp",
+	 width: "75dp"
+},
+".checkout-label-bold[if=Alloy.Globals.iPhoneSixPlus]": {
+	font:{
+		fontSize: "18dp",
+    	fontFamily: 'Nunito-Bold'
+	},
+	color: '#545555'
+},
+".checkout-label-light[if=Alloy.Globals.iPhoneSixPlus]": {
+	font:{
+		fontSize: "18dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+"#addressInfo[if=Alloy.Globals.iPhoneSixPlus]":{
+	layout: 'vertical',
+	height: Ti.UI.SIZE,
+	borderColor: "#E5E5E5",
+	top: '7dp'
+},
+"#checkoutEditAddress[if=Alloy.Globals.iPhoneSixPlus]":{
+	left: '10dp',
+	color: '#1BA7CD'
+},
+".top-padding[if=Alloy.Globals.iPhoneSixPlus]":{
+	top: '12dp'
+},
+".top-padding-small[if=Alloy.Globals.iPhoneSixPlus]":{
+	top: '6dp'
+},
+".top-padding-large[if=Alloy.Globals.iPhoneSixPlus]":{
+	top: '30dp'
+},
+"TextField[if=Alloy.Globals.iPhoneSixPlus]": {
+	color: '#545555',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "45dp",
+	zIndex: 3
+},
+"#pickupOnlyLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+	color: '#545555',
+	font: {
+		fontSize: '18dp',
+		fontFamily: 'Nunito-Light'
+	},
+},
+"#asterikLabel[if=Alloy.Globals.iPhoneSixPlus]": {
+	color: '#545555',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Nunito-Light'
+	},
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//android -(currently same as iPhone 6)
+"#checkoutTopBar[if=Alloy.Globals.android]":{
+	width: Ti.UI.FILL,
+	height: "60dp",
+	backgroundColor: '#FFF',
+	layout: 'horizontal'
+},
+".validateButtons[if=Alloy.Globals.android]": {
+	height: "70dp",
+	width: "70dp",
+	backgroundColor: '#FFF'
+}
+".checkout-button-icon[if=Alloy.Globals.android]": {
+	font: {
+            fontSize: "15dp"
+        },
+	color: "#1BA7CD"
+},
+"#titleCheckoutView[if=Alloy.Globals.android]": {
+	width: "215dp",
+},
+"#titleCheckoutLabel[if=Alloy.Globals.android]": {
+	color: "#1BA7CD",
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: "20dp",
+		fontFamily: "Nunito-Bold"
+	}
+},
+"#cancelCheckout[if=Alloy.Globals.android]": {
+	left: "10dp",
+},
+'.screen-width[if=Alloy.Globals.android]': {
+	width: '95%'
+},
+".confirm-purchase-button[if=Alloy.Globals.android]": {
+	height: '40dp',
+	width: Ti.UI.FILL,
+	title: 'Confirm Purchase',
+	backgroundColor: '#1BA7CD',
+	color: '#FFF',
+	font: {
+		fontSize: '18dp',
+		fontFamily: "Nunito-Light"
+	},
+	layout: 'composite'
+},
+"#checkoutItemView[if=Alloy.Globals.android]": {
+	height: '80dp'
+},
+"#checkoutItemTitle[if=Alloy.Globals.android]": {
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	height: Ti.UI.FILL,
+	width:'201dp'
+},
+"#checkoutItemPrice[if=Alloy.Globals.android]": {
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	width: '85dp'
+},
+"#checkoutSubtotalsView[if=Alloy.Globals.android]": {
+	top: '20dp'
+},
+"#subtotalView[if=Alloy.Globals.android]": {
+	width: '214dp'
+},
+"#dollarsView[if=Alloy.Globals.android]": {
+	width: '142dp'
+},
+".checkout-item-view-horizontal[if=Alloy.Globals.android]": {
+	layout: 'horizontal',
+	height: Titanium.UI.SIZE
+},
+".checkout-item-view-vertical[if=Alloy.Globals.android]": {
+	layout: 'vertical',
+	height: Titanium.UI.SIZE
+},
+".checkout-item-label[if=Alloy.Globals.android]": {
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT
+},
+"#checkoutItemImage[if=Alloy.Globals.android]": {
+	 height: "70dp",
+	 width: "70dp"
+},
+".checkout-label-bold[if=Alloy.Globals.android]": {
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Bold'
+	},
+	color: '#545555'
+},
+".checkout-label-light[if=Alloy.Globals.android]": {
+	font:{
+		fontSize: "16dp",
+    	fontFamily: 'Nunito-Light'
+	},
+	color: '#545555'
+},
+"#addressInfo[if=Alloy.Globals.android]":{
+	layout: 'vertical',
+	height: Ti.UI.SIZE,
+	borderColor: "#E5E5E5",
+	top: '7dp'
+},
+"#checkoutEditAddress[if=Alloy.Globals.android]":{
+	left: '10dp',
+	color: '#1BA7CD'
+},
+".top-padding[if=Alloy.Globals.android]":{
+	top: '10dp'
+},
+".top-padding-small[if=Alloy.Globals.android]":{
+	top: '5dp'
+},
+".top-padding-large[if=Alloy.Globals.android]":{
+	top: '30dp'
+},
+"TextField[if=Alloy.Globals.android]": {
+	color: '#545555',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	},
+	height: "40dp",
+	zIndex: 3
+},
+"#pickupOnlyLabel[if=Alloy.Globals.android]": {
+	color: '#545555',
+	font: {
+		fontSize: '16dp',
+		fontFamily: 'Nunito-Light'
+	},
+},
+"#asterikLabel[if=Alloy.Globals.android]": {
+	color: '#545555',
+	font: {
+		fontSize: '13dp',
+		fontFamily: 'Nunito-Light'
+	},
+},

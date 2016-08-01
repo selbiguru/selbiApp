@@ -189,40 +189,11 @@ function saveListing(editListingButton, saveListingButton) {
 
 
 /**
- * @method buyItem
- * Buys the listed item.
- * @param {Object} actionButton Button clicked on
+ * @method checkoutItem
+ * Opens checkout to show cart and to confirm purchase.
  */
-function buyItem(actionButton){
-	actionButton.touchEnabled = false;
-	$.backViewButton.touchEnabled = false;
-	var createOrderObj = {
-		sellerId: args.userId,
-		buyerId: Ti.App.Properties.getString('userId'),
-		listingId: args.itemId
-	};
-	var indicatorWindow = indicator.createIndicatorWindow({
-		message : "Purchasing"
-	});
-
-	indicatorWindow.openIndicator();
-	paymentManager.createOrder(createOrderObj, function(err, results){
-		if(err) {
-			var parseErr = JSON.parse(err);
-			indicatorWindow.closeIndicator();
-			actionButton.touchEnabled = true;
-			$.backViewButton.touchEnabled = true;
-			helpers.alertUser('Failed', ''+parseErr.message+'');
-		} else {
-			updateUser();
-			indicatorWindow.closeIndicator();
-			actionButton.touchEnabled = true;
-			$.backViewButton.touchEnabled = true;
-			helpers.alertUser('Purchased!','You purchased an item on Selbi');
-			Alloy.Globals.openPage('friendslistings', ['friendslistings', Ti.App.Properties.getString('userId')]);
-			backButton();
-		}
-	});
+function checkoutItem(){
+	Alloy.Globals.openPage('checkout', itemData);
 };
 
 /**
@@ -552,15 +523,15 @@ function createPurchasingButtons() {
 	        backgroundColor = '#1BA7CD';
 	        break;
 	};
-	var purchaseListing = buyItem;
+	var purchaseListing = checkoutItem;
 	var deleteListing = deleteItem;
 	var archiveListing = archiveItem;
 	if((args.userId === Ti.App.Properties.getString('userId') && itemData.isSold) || (Alloy.Globals.currentUser.attributes.admin && itemData.isSold)) {
-		createActionButton(buttonHeight, buttonWidth, buttonFontSize, '#127089', 'Archive Listing', true, 'Are you sure you want to Archive this listing?', archiveListing);
+		createActionButton(buttonHeight, buttonWidth, buttonFontSize, '#127089', 'Archive Listing', true, 'Are you sure you want to Archive this listing?', archiveListing, false);
 	} else if(args.userId === Ti.App.Properties.getString('userId') || (Alloy.Globals.currentUser.attributes.admin)) {
-		createActionButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Delete Listing', true, 'Are you sure you want to Delete this listing?', deleteListing);
+		createActionButton(buttonHeight, buttonWidth, buttonFontSize, '#c10404', 'Delete Listing', true, 'Are you sure you want to Delete this listing?', deleteListing, false);
 	} else {
-		createActionButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Buy Item', ccEligible, 'Confirm to complete the purchase.', purchaseListing);
+		createActionButton(buttonHeight, buttonWidth, buttonFontSize, backgroundColor, 'Buy It', ccEligible, 'Confirm to complete the purchase.', purchaseListing, true);
 	}
 	return;
 }
@@ -579,8 +550,9 @@ function createPurchasingButtons() {
  * @param {Boolean} ccEligible Boolean to know if the user has a CC saved and can thus purchase items
  * @param {String} alert Text string for the confirmation alert box
  * @param {Function} apiSupport APISupport is the function passed in that determines the proper API route to hit
+ * @param {Boolean} checkout Boolean to see if button created is for purchasing an item or not
  */
-function createActionButton(height, width, fontSize, background, text, ccEligible, alert, apiSupport){
+function createActionButton(height, width, fontSize, background, text, ccEligible, alert, apiSupport, checkout){
 	var actionButton = Ti.UI.createButton({
 		bottom:'20dp',
 		right: '0dp',
@@ -603,18 +575,22 @@ function createActionButton(height, width, fontSize, background, text, ccEligibl
 			helpers.alertUser('Account Frozen!', 'Your account has been frozen.  Please contact us for more information!');
 			return;
 		} else if(ccEligible) {
-			helpers.confirmAction('Confirm!', alert, function(err, response){
-				response.show();
-				$.addListener(response,'click', function(e){
-					if (e.index === 0){
-						response=null;
-						return;
-					} else {
-						response=null;
-						apiSupport(actionButton);
-					}
+			if(!checkout) {
+				helpers.confirmAction('Confirm!', alert, function(err, response){
+					response.show();
+					$.addListener(response,'click', function(e){
+						if (e.index === 0){
+							response=null;
+							return;
+						} else {
+							response=null;
+							apiSupport(actionButton);
+						}
+					});
 				});
-			});	
+			} else {
+				apiSupport();
+			}
 		} else {
 			helpers.alertUser('Info Needed','Before you can purchase items you need to add BOTH a credit card in \'Payment\' and address in \'Edit Profile\' under \'Settings\' if you haven\'t done so already');
 		}

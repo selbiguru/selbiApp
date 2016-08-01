@@ -22,7 +22,7 @@
 			</View>			
 			<View id="step2">
 				<ScrollView class="listing-detail-container" showVerticalScrollIndicator='true'>
-					<TextField hintText="Title" id="title" class="font-style" maxLength="90">
+					<TextField hintText="Title" id="title" class="font-style" maxLength="60">
 					</TextField>
 					<View height='Ti.UI.SIZE' width='Ti.UI.SIZE'>
 						<TextArea id="description" class="font-style" maxLength="600">
