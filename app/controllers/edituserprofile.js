@@ -132,7 +132,11 @@ function uploadUserProfile(imageBlob){
 			currentUser.set({'profileImage': result.public_id});
 			currentUser.set({'imageURL': profileImageUrl});		
 			currentUser.save();
-			userManager.userUpdate(currentUser.toJSON(), function(err, results){
+			var profileImgObject = {
+				"id": Ti.App.Properties.getString('userId'),
+				"profileImage": result.public_id
+			};
+			userManager.userUpdate(profileImgObject, function(err, results){
 				addressHack();
 				if(err) {
 					indicatorWindow.closeIndicator();
