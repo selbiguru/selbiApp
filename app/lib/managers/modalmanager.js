@@ -813,7 +813,6 @@ var getWelcomeModal = exports.getWelcomeModal = function(cb) {
 	        } else {
 	            modalLabelField = Titanium.UI.createLabel({
 					width: Ti.UI.SIZE,
-					left: "5dp",
 					attributedString: strings,
 					textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
 				});
