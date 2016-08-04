@@ -2,9 +2,8 @@
 	<Model src="user"></Model>
 	<View id="editUserProfileView">
         <View id="editUserProfileTopBar">
-			<View id="menuButton" class="validateButtons">
-				<Label icon="fa-bars" id="editUserProfileButtonIcon" class="icon-buttons"></Label>
-			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			<View id="backViewButton" class='validateButtons'>
+				<Button icon="fa-chevron-left" id="editUserProfileButtonIcon" class="icon-buttons" onClick="backButton"></Button>		
 			</View>
 			<View id="titleEditUserProfileView">
 				<Label id="titleEditUserProfileLabel">Profile</Label>
@@ -12,6 +11,7 @@
 			<View id="saveInfo" class="validateButtons">
 				<Button onClick="updateUser" id="saveInfoButtonIcon" class="icon-buttons">Save</Button>
 			</View>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 		</View>
 		<ScrollView id="editUserInfoView">
 			<View id="profileImage" onClick="onCameraClick">

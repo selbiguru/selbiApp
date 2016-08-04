@@ -1,8 +1,8 @@
 <Alloy>
 	<View id="privacyView">
         <View id="privacyTopBar">
-			<View id="menuButton" class="validateButtons">
-				<Label icon="fa-bars" id="privacyButtonIcon" class="menu-icon-button"></Label>
+			<View id="backViewButton" class='validateButtons'>
+				<Button icon="fa-chevron-left" id="privacyButtonIcon" class="menu-icon-button" onClick="backButton"></Button>		
 			</View>
 			<View id="titlePrivacyView">
 				<Label id="titlePrivacyLabel">Privacy</Label>

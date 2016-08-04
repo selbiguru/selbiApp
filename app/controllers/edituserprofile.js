@@ -357,6 +357,14 @@ function showBalanceInfoModal() {
 }
 
 
+/**
+ * @private backButton 
+ *  Closes the current view to reveal the previous still opened view.
+ */
+function backButton() {
+	Alloy.Globals.closePage('edituserprofile');
+};
+
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
 
 
@@ -444,6 +452,7 @@ exports.cleanup = function () {
 	$.destroy();
     $.off();
     $.balanceLabel.removeEventListener('click', showBalanceInfoModal);
+    $.editUserProfileButtonIcon.removeEventListener('click', backButton);
     $.editUserProfileView.removeEventListener('click', blurTextField);
     $.removeListener();
     $.editUserProfileView.removeAllChildren();

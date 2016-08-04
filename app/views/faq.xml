@@ -1,8 +1,8 @@
 <Alloy>
     <View id="faqView">
         <View id="faqTopBar">
-			<View id="menuButton">
-				<Label icon="fa-bars" id="faqButtonIcon"></Label>
+			<View id="backViewButton" class='validateButtons'>
+				<Button icon="fa-chevron-left" id="faqButtonIcon" onClick="backButton"></Button>		
 			</View>
 			<View id="titleFAQView">
 				<Label id="titleFAQLabel">FAQ</Label>

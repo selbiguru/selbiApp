@@ -104,7 +104,8 @@
 },
 "#row0[if=Alloy.Globals.iPhoneFour]":{
 	layout: 'vertical',
-	height:"85dp"
+	height:"85dp",
+	selectionStyle : 'NONE'
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneFour]":{
 	height: "65dp",
@@ -234,7 +235,8 @@
 },
 "#row0[if=Alloy.Globals.iPhoneFive]":{
 	layout: 'vertical',
-	height:"95dp"
+	height:"95dp",
+	selectionStyle : 'NONE'
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneFive]":{
 	height:"68dp",
@@ -364,7 +366,8 @@
 },
 "#row0[if=Alloy.Globals.iPhoneSix]":{
 	layout: 'vertical',
-	height:"110dp"
+	height:"110dp",
+	selectionStyle : 'NONE'
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneSix]":{
 	height:"76dp",
@@ -493,7 +496,8 @@
 },
 "#row0[if=Alloy.Globals.iPhoneSixPlus]":{
 	layout: 'vertical',
-	height:"125dp"
+	height:"125dp",
+	selectionStyle : 'NONE'
 },
 "#menuUserImage[if=Alloy.Globals.iPhoneSixPlus]":{
 	height:"84dp",
@@ -619,7 +623,8 @@
 },
 "#row0[if=Alloy.Globals.android]":{
 	layout: 'vertical',
-	height:"110dp"
+	height:"110dp",
+	selectionStyle : 'NONE'
 },
 "#menuUserImage[if=Alloy.Globals.android]":{
 	height:"65dp",

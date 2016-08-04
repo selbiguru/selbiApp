@@ -108,6 +108,9 @@ function drawView(row) {
 };
 
 function onMenuClickListener(e) {
+	if(e.rowData.id==='row0'){
+	    return;
+	}
 	$.drawermenu.showhidemenu();
 	$.drawermenu.menuOpen = false;
 	//update menuOpen status to prevent inconsistency.

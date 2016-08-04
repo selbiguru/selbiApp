@@ -1,8 +1,8 @@
 <Alloy>
 	<View id="paymentView">
 		<View id="paymentTopBar">
-			<View id="menuButton">
-				<Label icon="fa-bars" id="paymentButtonIcon"></Label>			
+			<View id="backViewButton">
+				<Button icon="fa-chevron-left" id="paymentButtonIcon" onClick="backButton"></Button>		
 			</View>
 			<View id="titlePaymentView">
 				<Label id="titlePaymentLabel">Payment</Label>

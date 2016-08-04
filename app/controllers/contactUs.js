@@ -90,6 +90,14 @@ function buttonOn() {
 }
 
 
+/**
+ * @private backButton 
+ *  Closes the current view to reveal the previous still opened view.
+ */
+function backButton() {
+	Alloy.Globals.closePage('contactUs');
+};
+
 /*----------------------------------------------------Event Listeners--------------------------------------------------------*/
 
 
@@ -132,6 +140,7 @@ Alloy.Globals.addKeyboardToolbar($.emailBody, blurTextField);
 exports.cleanup = function () {
 	$.off();
 	$.destroy();
+	$.contactUsButtonIcon.removeEventListener('click', backButton);
 	$.removeListener();
 	Alloy.Globals.removeChildren($.contactUsView);
 	$.contactUsView = null;
