@@ -325,7 +325,7 @@
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '20dp'
+	top: '21dp'
 },
 "#contactUsInfoView[if=Alloy.Globals.iPhoneSixPlus]": {
 	layout: 'vertical',

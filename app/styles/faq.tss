@@ -201,7 +201,7 @@
             fontSize: "25dp"
         },
 	color: "#1BA7CD",
-	top: "20dp"
+	top: "21dp"
 	
 },
 "#titleFAQView[if=Alloy.Globals.iPhoneSixPlus]": {
