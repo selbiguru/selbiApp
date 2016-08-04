@@ -601,20 +601,22 @@ function determineStatus(invitation) {
  */
 function init() {
 	genMyItems(function(err, items){
-		var lvmc = require('com.falkolab.lvmc');
-		var section = lvmc.wrap($.getView('myListingsListView').sections[0]);
-		var transformed = transform(items, 2, section.getItems().length);
-		section.setItems(transformed);
-		loading = false;
-		if ($.is && !endOfListings) {
-			$.is.init($.getView('myListingsListView'));
-			$.is.mark();
-		} else if($.is && endOfListings){
-			$.is.init($.getView('myListingsListView'));
-			$.is.cleanup();
+		if($ && $.activityIndicator) {
+			var lvmc = require('com.falkolab.lvmc');
+			var section = lvmc.wrap($.getView('myListingsListView').sections[0]);
+			var transformed = transform(items, 2, section.getItems().length);
+			section.setItems(transformed);
+			loading = false;
+			if ($.is && !endOfListings) {
+				$.is.init($.getView('myListingsListView'));
+				$.is.mark();
+			} else if($.is && endOfListings){
+				$.is.init($.getView('myListingsListView'));
+				$.is.cleanup();
+			}
+			$.activityIndicator.hide();
+			$.activityIndicator.height = '0dp';
 		}
-		$.activityIndicator.hide();
-		$.activityIndicator.height = '0dp';
 	});
 };
 

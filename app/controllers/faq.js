@@ -12,16 +12,18 @@ var helpers = require('utilities/helpers'),
 $.activityIndicator.show();
 
 faqManager.getFAQ(function(err, faqResults) {
-	if(err) {
-		dynamicElement.defaultLabel('Oh no, we are asking ourselves too many questions...Not to fear, FAQ\'s will be back soon!', function(err, results) {
-			$.viewFAQ.add(results);
-		});
-	} else {
-		showFAQ(faqResults);	
+	if($ && $.activityIndicator) {
+		if(err) {
+			dynamicElement.defaultLabel('Oh no, we are asking ourselves too many questions...Not to fear, FAQ\'s will be back soon!', function(err, results) {
+				$.viewFAQ.add(results);
+			});
+		} else {
+			showFAQ(faqResults);	
+		}
+		$.activityIndicator.hide();
+		$.activityIndicator.height = '0dp';
+		return;
 	}
-	$.activityIndicator.hide();
-	$.activityIndicator.height = '0dp';
-	return;
 });
 
 
