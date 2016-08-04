@@ -2,7 +2,7 @@
 	<View id="addFriendsView">
 		<View id="addFriendsTopBar">
 			<View id="backViewButton" onClick="backButton">
-				<Label icon="fa-reply" id="addFriendsButtonIcon" class="icon-buttons"></Label>
+				<Label icon="fa-chevron-left" id="addFriendsButtonIcon" class="icon-buttons"></Label>
 			</View>
 			<View id="titleAddFriendsView">
 				<Label id="titleAddFriendsLabel">Friends</Label>

@@ -54,11 +54,11 @@
 },
 "#myListingsButtonBackIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "22dp",
+            fontSize: "19dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '18dp',
+	top: '20dp',
 	left: '15dp'
 },
 "#titleMyListingsView[if=Alloy.Globals.iPhoneFour]": {
@@ -201,11 +201,11 @@
 },
 "#myListingsButtonBackIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "22dp",
+            fontSize: "19dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '18dp',
+	top: '20dp',
 	left: '15dp'
 },
 "#titleMyListingsView[if=Alloy.Globals.iPhoneFive]": {
@@ -348,11 +348,11 @@
 },
 "#myListingsButtonBackIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "24dp",
+            fontSize: "21dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '20dp',
+	top: '21dp',
 	left: '15dp'
 },
 "#titleMyListingsView[if=Alloy.Globals.iPhoneSix]": {
@@ -492,11 +492,11 @@
 },
 "#myListingsButtonBackIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "28dp",
+            fontSize: "25dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '20dp',
+	top: '21dp',
 	left: '15dp'
 },
 "#titleMyListingsView[if=Alloy.Globals.iPhoneSixPlus]": {
@@ -635,11 +635,11 @@
 },
 "#myListingsButtonBackIcon[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "24dp",
+            fontSize: "21dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '20dp',
+	top: '21dp',
 	left: '15dp'
 },
 "#titleMyListingsView[if=Alloy.Globals.android]": {

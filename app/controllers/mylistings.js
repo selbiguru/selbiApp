@@ -35,7 +35,7 @@ switch(Alloy.Globals.userDevice) {
 		checkmarkLeft = '8dp';
 		dataBorderRadius = '12dp';
 		rightIconView = '4dp';
-		myTitleTop = '14dp';
+		myTitleTop = '20dp';
         break;
     case 1: //iphoneFive
         myListingFontSize = '12dp';
@@ -49,7 +49,7 @@ switch(Alloy.Globals.userDevice) {
 		checkmarkLeft = '8dp';
 		dataBorderRadius = '12dp';
 		rightIconView = '4dp';
-		myTitleTop = '14dp';
+		myTitleTop = '20dp';
         break;
     case 2: //iphoneSix
         myListingFontSize = '14dp';
@@ -63,7 +63,7 @@ switch(Alloy.Globals.userDevice) {
 		checkmarkLeft = '9dp';
 		dataBorderRadius = '14dp';
 		rightIconView = '10dp';
-		myTitleTop = '16dp';
+		myTitleTop = '20dp';
         break;
     case 3: //iphoneSixPlus
         myListingFontSize = '15dp';
@@ -77,7 +77,7 @@ switch(Alloy.Globals.userDevice) {
 		checkmarkLeft = '9dp';
 		dataBorderRadius = '15dp';
 		rightIconView = '8dp';
-		myTitleTop = '18dp';
+		myTitleTop = '20dp';
         break;
     case 4: //android currently same as iphoneSix
         myListingFontSize = '14dp';
@@ -91,7 +91,7 @@ switch(Alloy.Globals.userDevice) {
 		checkmarkLeft = '9dp';
 		dataBorderRadius = '14dp';
 		rightIconView = '10dp';
-		myTitleTop = '16dp';
+		myTitleTop = '20dp';
         break;
 };
 

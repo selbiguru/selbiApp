@@ -598,7 +598,8 @@
 	font: {
 		fontSize: "20dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 "#searchUserView[if=Alloy.Globals.android]": {
 	width: '60dp'

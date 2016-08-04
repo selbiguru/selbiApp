@@ -2,7 +2,7 @@
 	<View id="addCreditCardView">
 		<View id="addCreditCardTopBar">
 			<View id="backViewButton" onClick="backButton">
-				<Button icon="fa-reply" id="addCreditCardButtonIcon"></Button>		
+				<Button icon="fa-chevron-left" id="addCreditCardButtonIcon"></Button>		
 			</View>
 			<View id="titleAddCreditCardView">
 				<Label id="titleAddCreditCardLabel">Add Card</Label>
