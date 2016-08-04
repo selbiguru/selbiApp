@@ -49,7 +49,13 @@ function aboutUsBody(aboutUsText) {
 };
 
 
-
+/**
+ * @private backButton 
+ *  Closes the current view to reveal the previous still opened view.
+ */
+function backButton() {
+	Alloy.Globals.closePage('aboutUs');
+};
 
 
 
@@ -87,6 +93,8 @@ switch(Alloy.Globals.userDevice) {
 exports.cleanup = function () {
 	$.off();
 	$.destroy();
+	$.aboutUsButtonIcon.removeEventListener('click', backButton);
+	$.removeListener();
 	Alloy.Globals.removeChildren($.aboutUsView);
 	$.aboutUsView = null;
 	Alloy.Globals.deallocate($);

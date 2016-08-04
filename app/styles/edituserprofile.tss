@@ -59,17 +59,17 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.iPhoneFour]":{
+"#backViewButton[if=Alloy.Globals.iPhoneFour]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
 },
 "#editUserProfileButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "22dp"
+            fontSize: "19dp"
         },
 	color: "#1BA7CD",
-	top: '24dp'
+	top: '20dp'
 },
 "#titleEditUserProfileView[if=Alloy.Globals.iPhoneFour]": {
 	width: "200dp",
@@ -222,17 +222,17 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.iPhoneFive]":{
+"#backViewButton[if=Alloy.Globals.iPhoneFive]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
 },
 "#editUserProfileButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "22dp"
+            fontSize: "19dp"
         },
 	color: "#1BA7CD",
-	top: '24dp'
+	top: '20dp'
 },
 "#titleEditUserProfileView[if=Alloy.Globals.iPhoneFive]": {
 	width: "200dp",
@@ -388,18 +388,18 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.iPhoneSix]":{
+"#backViewButton[if=Alloy.Globals.iPhoneSix]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
 },
 "#editUserProfileButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "24dp",
+            fontSize: "21dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '25dp'
+	top: '21dp'
 },
 "#titleEditUserProfileView[if=Alloy.Globals.iPhoneSix]": {
 	width: "255dp",
@@ -554,17 +554,17 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
+"#backViewButton[if=Alloy.Globals.iPhoneSixPlus]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
 },
 "#editUserProfileButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "28dp"
+            fontSize: "25dp"
         },
 	color: "#1BA7CD",
-	top: '25dp'
+	top: '21dp'
 },
 "#titleEditUserProfileView[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: "294dp"
@@ -720,16 +720,17 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.android]":{
+"#backViewButton[if=Alloy.Globals.android]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
 },
 "#editUserProfileButtonIcon[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "20dp"
+            fontSize: "21dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '21dp'
 },
 "#titleEditUserProfileView[if=Alloy.Globals.android]": {
 	width: "250dp",

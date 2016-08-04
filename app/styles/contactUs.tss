@@ -24,7 +24,7 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.iPhoneFour]":{
+"#backViewButton[if=Alloy.Globals.iPhoneFour]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
@@ -53,11 +53,11 @@
 },
 ".menu-icon-button[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "22dp",
+            fontSize: "19dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '24dp'
+	top: '20dp'
 },
 "#contactUsInfoView[if=Alloy.Globals.iPhoneFour]": {
 	layout: 'vertical',
@@ -113,7 +113,7 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.iPhoneFive]":{
+"#backViewButton[if=Alloy.Globals.iPhoneFive]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
@@ -142,11 +142,11 @@
 },
 ".menu-icon-button[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "22dp",
+            fontSize: "19dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '24dp'
+	top: '20dp'
 },
 "#contactUsInfoView[if=Alloy.Globals.iPhoneFive]": {
 	layout: 'vertical',
@@ -201,7 +201,7 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.iPhoneSix]":{
+"#backViewButton[if=Alloy.Globals.iPhoneSix]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
@@ -231,11 +231,11 @@
 },
 ".menu-icon-button[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "24dp",
+            fontSize: "21dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '25dp'
+	top: '21dp'
 },
 "#contactUsInfoView[if=Alloy.Globals.iPhoneSix]": {
 	layout: 'vertical',
@@ -292,7 +292,7 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.iPhoneSixPlus]":{
+"#backViewButton[if=Alloy.Globals.iPhoneSixPlus]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
@@ -321,11 +321,11 @@
 },
 ".menu-icon-button[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "28dp",
+            fontSize: "25dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '25dp'
+	top: '20dp'
 },
 "#contactUsInfoView[if=Alloy.Globals.iPhoneSixPlus]": {
 	layout: 'vertical',
@@ -383,7 +383,7 @@
 	backgroundColor: '#FFF',
 	layout: 'horizontal'
 },
-"#menuButton[if=Alloy.Globals.android]":{
+"#backViewButton[if=Alloy.Globals.android]":{
 	height: "60dp",
 	width: "60dp",
 	backgroundColor: '#FFF'
@@ -410,11 +410,11 @@
 },
 ".menu-icon-button[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "24dp",
+            fontSize: "21dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	//top: '25dp'
+	top: '21dp'
 },
 "#contactUsInfoView[if=Alloy.Globals.android]": {
 	layout: 'vertical',

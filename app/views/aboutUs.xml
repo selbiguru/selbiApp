@@ -1,13 +1,13 @@
 <Alloy>
 	<View id="aboutUsView">
         <View id="aboutUsTopBar">
-			<View id="menuButton" class="validateButtons">
-				<Label icon="fa-bars" id="aboutUsButtonIcon"></Label>
-				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+			<View id="backViewButton" class='validateButtons'>
+				<Button icon="fa-chevron-left" id="aboutUsButtonIcon" onClick="backButton"></Button>		
 			</View>
 			<View id="titleAboutUsView">
 				<Label id="titleAboutUsLabel">About Selbi</Label>
 			</View>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 		</View>
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<ScrollView id="aboutUsInfoView">

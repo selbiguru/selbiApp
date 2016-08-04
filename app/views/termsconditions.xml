@@ -1,8 +1,8 @@
 <Alloy>
 	<View id="termsConditionsView">
         <View id="termsConditionsTopBar">
-			<View id="menuButton" class="validateButtons">
-				<Label icon="fa-bars" id="termsConditionsButtonIcon" class="menu-icon-button"></Label>
+			<View id="backViewButton" class='validateButtons'>
+				<Button icon="fa-chevron-left" id="termsConditionsButtonIcon" class="menu-icon-button" onClick="backButton"></Button>		
 			</View>
 			<View id="titleTermsConditionsView">
 				<Label id="titleTermsConditionsLabel">Terms</Label>

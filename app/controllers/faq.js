@@ -24,6 +24,16 @@ faqManager.getFAQ(function(err, faqResults) {
 	return;
 });
 
+
+/**
+ * @private backButton 
+ *  Closes the current view to reveal the previous still opened view.
+ */
+function backButton() {
+	Alloy.Globals.closePage('faq');
+};
+
+
 /*-----------------------------------------------Dynamically Create Elements------------------------------------------------*/
 
 function showFAQ(faqObject) {
@@ -129,6 +139,8 @@ $.viewFAQ.addEventListener('click', function(e){
 exports.cleanup = function () {
 	$.off();
 	$.destroy();
+	$.faqButtonIcon.removeEventListener('click', backButton);
+    $.removeListener();
 	Alloy.Globals.removeChildren($.faqView);
 	$.faqView = null;
 	Alloy.Globals.deallocate($);

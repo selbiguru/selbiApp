@@ -59,9 +59,10 @@
 },
 "#settingsButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "18dp"
+            fontSize: "22dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '24dp'
 },
 "#titleSettingsView[if=Alloy.Globals.iPhoneFour]": {
 	right: "60dp"
@@ -71,9 +72,10 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "18dp",
+		fontSize: "22dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 ".rowLabel[if=Alloy.Globals.iPhoneFour]":{
 	left: "15dp",
@@ -267,9 +269,10 @@
 },
 "#settingsButtonIcon[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "20dp"
+            fontSize: "24dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '25dp'
 },
 "#titleSettingsView[if=Alloy.Globals.android]": {
 	right: "60dp"
@@ -279,9 +282,10 @@
 	color: "#1BA7CD",
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: "20dp",
+		fontSize: "24dp",
 		fontFamily: "Nunito-Bold"
-	}
+	},
+	top: '20dp'
 },
 ".rowLabel[if=Alloy.Globals.android]":{
 	left: "15dp",
