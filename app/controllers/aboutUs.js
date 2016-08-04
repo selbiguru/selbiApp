@@ -18,16 +18,18 @@ $.activityIndicator.show();
  * If error occurs fetching clientToken, alert modal shows and addCreditCard view is closed automatically.
  */
 AboutUsManager.getAboutUs(function(err, aboutUsResults) {
-	if(err) {
-		dynamicElement.defaultLabel('Guess there isn\'t much to learn about Selbi.  Check back later!', function(err, results) {
-			$.aboutUsInfoView.add(results);
-		});
-	} else {
-		aboutUsBody(aboutUsResults[0].aboutus);
+	if($) {
+		if(err) {
+			dynamicElement.defaultLabel('Guess there isn\'t much to learn about Selbi.  Check back later!', function(err, results) {
+				$.aboutUsInfoView.add(results);
+			});
+		} else {
+			aboutUsBody(aboutUsResults[0].aboutus);
+		}
+		$.activityIndicator.hide();
+		$.activityIndicator.height = '0dp';
+		return;
 	}
-	$.activityIndicator.hide();
-	$.activityIndicator.height = '0dp';
-	return;
 });
 
 

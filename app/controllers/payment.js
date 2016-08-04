@@ -245,22 +245,24 @@ $.activityIndicator.show();
  *  On page load, dynamically loads the user's payment methods and calls correlating function to dynamically create XML.
  */
 paymentManager.getPaymentMethods(function(err, results){
-	if(err) {
-		$.paymentView.remove($.bankingDetails);
-		$.paymentView.remove($.paymentDetails);
-		dynamicElement.defaultLabel('Shoot, we are unable to load your payment methods right now. If the problem persists please contact us!', function(err, results) {
-			$.paymentUndefined.add(results);
-		});
-	} else {
-		if(results.userPaymentMethod.lastFour) {
-			showUserCard(results.userPaymentMethod);
+	if($) {
+		if(err) {
+			$.paymentView.remove($.bankingDetails);
+			$.paymentView.remove($.paymentDetails);
+			dynamicElement.defaultLabel('Shoot, we are unable to load your payment methods right now. If the problem persists please contact us!', function(err, results) {
+				$.paymentUndefined.add(results);
+			});
+		} else {
+			if(results.userPaymentMethod.lastFour) {
+				showUserCard(results.userPaymentMethod);
+			}
+			if(results.userMerchant.accountNumberLast4) {
+				showUserBank(results.userMerchant);
+			}
 		}
-		if(results.userMerchant.accountNumberLast4) {
-			showUserBank(results.userMerchant);
-		}
+		$.activityIndicator.hide();
+		$.activityIndicator.height = '0dp';
 	}
-	$.activityIndicator.hide();
-	$.activityIndicator.height = '0dp';
 });
 
 exports.cleanup = function () {

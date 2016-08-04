@@ -389,7 +389,9 @@ Alloy.Models.user.fetch({
 });
 // Set the user profile image
 imageManager.getMenuProfileImage(function(err, profileImage){
-	$.userProfileImage.image = profileImage;
+	if($) {
+		$.userProfileImage.image = profileImage;	
+	}
 });
 
 // Hide the x-icon on username load until user types and we use isUnique API route to see if available
@@ -406,15 +408,17 @@ function addressHack() {
 }
 
 paymentManager.getBalance(function(err, managedBalance) {
-	if(err){
-		$.balanceLabel.text = 'Balance: N/A   \uf29c';
+	if($) {
+		if(err){
+			$.balanceLabel.text = 'Balance: N/A   \uf29c';
+			$.balanceLabel.show();
+			return;
+		}
+		var balance = managedBalance && managedBalance.pending ? parseFloat(managedBalance.pending[0].amount)/100 : 0;
+		$.balanceLabel.text = 'Balance: '+balance.formatMoney(2)+'   \uf29c';
 		$.balanceLabel.show();
-		return;
 	}
-	var balance = managedBalance && managedBalance.pending ? parseFloat(managedBalance.pending[0].amount)/100 : 0;
-	$.balanceLabel.text = 'Balance: '+balance.formatMoney(2)+'   \uf29c';
-	$.balanceLabel.show();
-});
+});	
 
 addressHack();
 
