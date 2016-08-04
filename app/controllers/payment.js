@@ -245,7 +245,7 @@ $.activityIndicator.show();
  *  On page load, dynamically loads the user's payment methods and calls correlating function to dynamically create XML.
  */
 paymentManager.getPaymentMethods(function(err, results){
-	if($) {
+	if($ && $.activityIndicator) {
 		if(err) {
 			$.paymentView.remove($.bankingDetails);
 			$.paymentView.remove($.paymentDetails);

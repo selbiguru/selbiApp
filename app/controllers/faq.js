@@ -12,7 +12,7 @@ var helpers = require('utilities/helpers'),
 $.activityIndicator.show();
 
 faqManager.getFAQ(function(err, faqResults) {
-	if($) {
+	if($ && $.activityIndicator) {
 		if(err) {
 			dynamicElement.defaultLabel('Oh no, we are asking ourselves too many questions...Not to fear, FAQ\'s will be back soon!', function(err, results) {
 				$.viewFAQ.add(results);

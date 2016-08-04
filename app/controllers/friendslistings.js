@@ -367,20 +367,22 @@ function clearProxy(e) {
  */
 function init() {
 	genFriendsItems(function(err, items){
-		var lvmc = require('com.falkolab.lvmc');
-		var section = lvmc.wrap($.getView('friendsListingListView').sections[0]);
-		var transformed = transform(items, 2, section.getItems().length);
-		section.setItems(transformed);
-		loading = false;
-		if ($.is && !endOfListings) {
-			$.is.init($.getView('friendsListingListView'));
-			$.is.mark();
-		} else if($.is && endOfListings){
-			$.is.init($.getView('friendsListingListView'));
-			$.is.cleanup();
+		if($ && $.activityIndicator) {
+			var lvmc = require('com.falkolab.lvmc');
+			var section = lvmc.wrap($.getView('friendsListingListView').sections[0]);
+			var transformed = transform(items, 2, section.getItems().length);
+			section.setItems(transformed);
+			loading = false;
+			if ($.is && !endOfListings) {
+				$.is.init($.getView('friendsListingListView'));
+				$.is.mark();
+			} else if($.is && endOfListings){
+				$.is.init($.getView('friendsListingListView'));
+				$.is.cleanup();
+			}
+			$.activityIndicator.hide();
+			$.activityIndicator.height = '0dp';
 		}
-		$.activityIndicator.hide();
-		$.activityIndicator.height = '0dp';
 	});
 };
 
