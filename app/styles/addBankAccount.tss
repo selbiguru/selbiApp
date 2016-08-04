@@ -73,10 +73,10 @@
 },
 "#addBankAccountButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "22dp"
+            fontSize: "19dp"
         },
 	color: "#1BA7CD",
-	top: '18dp'
+	top: '21dp'
 },
 "#titleAddBankAccountView[if=Alloy.Globals.iPhoneFour]": {
 	width: "200dp"
@@ -190,10 +190,10 @@
 },
 "#addBankAccountButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "22dp"
+            fontSize: "19dp"
         },
 	color: "#1BA7CD",
-	top: '18dp'
+	top: '21dp'
 },
 "#titleAddBankAccountView[if=Alloy.Globals.iPhoneFive]": {
 	width: "200dp"
@@ -310,10 +310,10 @@
 },
 "#addBankAccountButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "24dp"
+            fontSize: "21dp"
         },
 	color: "#1BA7CD",
-	top: '20dp'
+	top: '22dp'
 },
 "#titleAddBankAccountView[if=Alloy.Globals.iPhoneSix]": {
 	width: "255dp"
@@ -426,10 +426,10 @@
 },
 "#addBankAccountButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "28dp"
+            fontSize: "25dp"
         },
 	color: "#1BA7CD",
-	top: '20dp'
+	top: '22dp'
 },
 "#titleAddBankAccountView[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: "294dp"
@@ -540,10 +540,10 @@
 },
 "#addBankAccountButtonIcon[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "20dp"
+            fontSize: "21dp"
         },
 	color: "#1BA7CD",
-	top: '20dp'
+	top: '22dp'
 },
 "#titleAddBankAccountView[if=Alloy.Globals.android]": {
 	width: "255dp"

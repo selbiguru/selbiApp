@@ -53,10 +53,10 @@
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "22dp"
+            fontSize: "19dp"
         },
 	color: "#1BA7CD",
-	top: '24dp'
+	top: '26dp'
 },
 
 
@@ -98,10 +98,10 @@
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "22dp"
+            fontSize: "19dp"
         },
 	color: "#1BA7CD",
-	top: '24dp'
+	top: '26dp'
 },
 
 
@@ -149,10 +149,10 @@
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "24dp"
+            fontSize: "21dp"
         },
 	color: "#1BA7CD",
-	top: '25dp'
+	top: '27dp'
 },
 
 
@@ -196,10 +196,10 @@
 },
 ".icon-buttons[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "28dp"
+            fontSize: "25dp"
         },
 	color: "#1BA7CD",
-	top: "25dp"
+	top: "27dp"
 },
 
 
@@ -244,7 +244,8 @@
 },
 ".icon-buttons[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "20dp"
+            fontSize: "21dp"
         },
-	color: "#1BA7CD"
+	color: "#1BA7CD",
+	top: '27dp'
 }

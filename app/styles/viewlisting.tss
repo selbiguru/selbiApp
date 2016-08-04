@@ -45,11 +45,11 @@
 },
 "#viewListingButtonIcon[if=Alloy.Globals.iPhoneFour]": {
 	font: {
-            fontSize: "22dp",
+            fontSize: "19dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '18dp'
+	top: '20dp'
 },
 "#titleViewListingView[if=Alloy.Globals.iPhoneFour]": {
 	width: "200dp"
@@ -179,11 +179,11 @@
 },
 "#viewListingButtonIcon[if=Alloy.Globals.iPhoneFive]": {
 	font: {
-            fontSize: "22dp",
+            fontSize: "19dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '18dp'
+	top: '20dp'
 },
 "#titleViewListingView[if=Alloy.Globals.iPhoneFive]": {
 	width: "200dp"
@@ -313,11 +313,11 @@
 },
 "#viewListingButtonIcon[if=Alloy.Globals.iPhoneSix]": {
 	font: {
-            fontSize: "24dp",
+            fontSize: "21dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '20dp'
+	top: '21dp'
 },
 "#titleViewListingView[if=Alloy.Globals.iPhoneSix]": {
 	width: "255dp"
@@ -449,11 +449,11 @@
 },
 "#viewListingButtonIcon[if=Alloy.Globals.iPhoneSixPlus]": {
 	font: {
-            fontSize: "28dp",
+            fontSize: "25dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '20dp'
+	top: '21dp'
 },
 "#titleViewListingView[if=Alloy.Globals.iPhoneSixPlus]": {
 	width: "294dp"
@@ -586,11 +586,11 @@
 },
 "#viewListingButtonIcon[if=Alloy.Globals.android]": {
 	font: {
-            fontSize: "20dp",
+            fontSize: "21dp",
             fontFamily: "Nunito-Bold"
         },
 	color: "#1BA7CD",
-	top: '20dp'
+	top: '21dp'
 },
 "#titleViewListingView[if=Alloy.Globals.android]": {
 	width: "25dp"

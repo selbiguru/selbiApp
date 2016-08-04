@@ -2,8 +2,7 @@
 	<View id="addBankAccountView">
 		<View id="addBankAccountTopBar">
 			<View id="backViewButton" onClick="backButton">
-				<Button icon="fa-reply" id="addBankAccountButtonIcon"></Button>
-				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>			
+				<Button icon="fa-chevron-left" id="addBankAccountButtonIcon"></Button>			
 			</View>
 			<View id="titleAddBankAccountView">
 				<Label id="titleAddBankAccountLabel">Add Bank</Label>
@@ -15,7 +14,6 @@
 		<View id="viewBankDescription">
 			<Label icon="fa-university" id="iconBankDescription"></Label>
 			<Label id="labelBankDescription"> Adding a bank allows Selbi to directly send you all the money you make!  This makes cashing out simple and flawless!</Label>
-			<Widget id="fa" src="com.mattmcfarland.fontawesome"/>	
 		</View>
 		<ScrollView id="enterBankAccountDetailView">
 			<View id='routingNumberView' class='number-views'>
@@ -41,5 +39,6 @@
 		<View id="viewExCheck">
 			 <ImageView id="imageExCheck" class="rowLabel"/>
 		</View>
+		<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 	</View>
 </Alloy>

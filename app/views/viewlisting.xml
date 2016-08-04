@@ -2,11 +2,11 @@
 	<View id="viewListingView">
 		<View id="viewListingTopBar">
 			<View id="backViewButton" onClick="backButton">
-				<Button icon="fa-reply" id="viewListingButtonIcon"></Button>
+				<Button icon="fa-chevron-left" id="viewListingButtonIcon"></Button>
 				<Widget id="fa" src="com.mattmcfarland.fontawesome"/>
 			</View>
 			<View id="titleViewListingView">
-				<Label id="titleViewListingLabel">View Listing</Label>
+				<Label id="titleViewListingLabel"></Label>
 			</View>
 		</View>
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
